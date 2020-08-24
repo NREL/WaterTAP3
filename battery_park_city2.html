@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"BOD": 190.0, "COD": 430.0, "FC": 10000.0, "Flow": 0, "Nitrate": 0.0, "TC": 10000000.0, "TDS": 720.0, "TN": 40.0, "TOC": 140.0, "TP": 7.0, "TSS": 210.0, "Turb": 100.0, "id": "wastewater_tank", "label": "wastewater_tank", "name": "source", "shape": "dot", "size": 10, "type": "source"}, {"id": "mbr_start", "label": "mbr_start", "name": "mbr_start", "shape": "dot", "size": 10, "type": "TODO"}, {"id": "sewers", "label": "sewers", "shape": "dot", "size": 10}, {"id": "mbr_end", "label": "mbr_end", "name": "mbr_end", "shape": "dot", "size": 10, "type": "TODO"}, {"id": "mbr_waste", "label": "mbr_waste", "name": "mbr_waste", "shape": "dot", "size": 10, "type": "waste"}, {"id": "mbr_to_uvozone", "label": "mbr_to_uvozone", "name": "use", "shape": "dot", "size": 10, "type": "TODO"}, {"id": "uvozone_twb_start", "label": "uvozone_twb_start", "name": "uvozone_twb_start", "shape": "dot", "size": 10, "type": "TODO"}, {"id": "uvozone_twb_end", "label": "uvozone_twb_end", "name": "uvozone_twb_end", "shape": "dot", "size": 10, "type": "TODO"}, {"id": "uvozone_twb_waste", "label": "uvozone_twb_waste", "name": "uvozone_twb_waste", "shape": "dot", "size": 10, "type": "waste"}, {"BOD": 30.0, "COD": -1.0, "FC": 200.0, "Nitrate": -1.0, "TC": -1.0, "TDS": -1.0, "TN": -1.0, "TOC": -1.0, "TP": -1.0, "TSS": 30.0, "Turb": -1.0, "id": "reuse_reservoir", "label": "reuse_reservoir", "name": "use1", "shape": "dot", "size": 10, "type": "use"}, {"id": "irrigation_use", "label": "irrigation_use", "shape": "dot", "size": 10}, {"id": "graywater_use", "label": "graywater_use", "shape": "dot", "size": 10}, {"id": "cooling_use", "label": "cooling_use", "shape": "dot", "size": 10}, {"BOD": 190.0, "COD": 430.0, "FC": 10000.0, "Flow": 0, "Nitrate": 0.0, "TC": 10000000.0, "TDS": 720.0, "TN": 40.0, "TOC": 140.0, "TP": 7.0, "TSS": 210.0, "Turb": 100.0, "id": "stormwater_tank", "label": "stormwater_tank", "name": "source1", "shape": "dot", "size": 10, "type": "source"}, {"id": "wastewater_source", "label": "wastewater_source", "shape": "dot", "size": 10}, {"id": "stormwater_source", "label": "stormwater_source", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": "wastewater_tank", "name": "mbr_feedwater", "to": "mbr_start", "type": "feedwater_stream", "weight": 1}, {"arrows": "to", "from": "wastewater_tank", "name": "storage_to_waste", "to": "sewers", "type": "waste_stream", "weight": 1}, {"BOD_constraint": 250, "TOC_constraint": 150, "arrows": "to", "from": "mbr_start", "mem_manu": "FilmTec", "mem_model_type": "BW30-400", "name": "mbr", "recovery_factor": 0.95, "recycle_factor": 0.0, "to": "mbr_end", "treatment_name": "mbr", "type": "treatment_process", "waste_factor": 0.050000000000000044, "weight": 1}, {"arrows": "to", "from": "mbr_end", "name": "mbr_waste_stream", "to": "mbr_waste", "type": "waste_stream", "weight": 1}, {"arrows": "to", "from": "mbr_end", "name": "mbr_use_stream", "to": "mbr_to_uvozone", "type": "use_stream", "weight": 1}, {"arrows": "to", "from": "mbr_to_uvozone", "name": "uvozone_twb_feedwater", "to": "uvozone_twb_start", "type": "feedwater_stream", "weight": 1}, {"BOD_constraint": 250, "TOC_constraint": 150, "arrows": "to", "from": "uvozone_twb_start", "mem_manu": null, "mem_model_type": null, "name": "uvozone_twb", "recovery_factor": 0.95, "recycle_factor": 0.0, "to": "uvozone_twb_end", "treatment_name": "uvozone_twb", "type": "treatment_process", "waste_factor": 0.050000000000000044, "weight": 1}, {"arrows": "to", "from": "uvozone_twb_end", "name": "uvozone_twb_waste_stream", "to": "uvozone_twb_waste", "type": "waste_stream", "weight": 1}, {"arrows": "to", "from": "uvozone_twb_end", "name": "uvozone_twb_use_stream", "to": "reuse_reservoir", "type": "use_stream", "weight": 1}, {"arrows": "to", "from": "reuse_reservoir", "name": "treated_to_storage", "to": "irrigation_use", "type": "treated_stream", "weight": 1}, {"arrows": "to", "from": "reuse_reservoir", "name": "storage_to_use", "to": "graywater_use", "type": "use_stream", "weight": 1}, {"arrows": "to", "from": "reuse_reservoir", "name": "storage_to_use", "to": "cooling_use", "type": "use_stream", "weight": 1}, {"arrows": "to", "from": "stormwater_tank", "name": "source1_mbr_start_feedwater", "to": "mbr_start", "type": "feedwater_stream", "weight": 1}, {"arrows": "to", "from": "stormwater_tank", "name": "storage_to_waste", "to": "sewers", "type": "waste_stream", "weight": 1}, {"arrows": "to", "from": "stormwater_tank", "name": "source_to_treatment", "to": "uvozone_twb_start", "type": "feedwater_stream", "weight": 1}, {"arrows": "to", "from": "wastewater_source", "name": "source_to_storage", "to": "wastewater_tank", "type": "source_stream", "weight": 1}, {"arrows": "to", "from": "stormwater_source", "name": "source_to_storage", "to": "stormwater_tank", "type": "source_stream", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"borderWidth": 2, "borderWidthSelected": 3}, "edges": {"color": {"inherit": true}, "smooth": false}, "physics": {"enabled": false, "minVelocity": 0.75}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

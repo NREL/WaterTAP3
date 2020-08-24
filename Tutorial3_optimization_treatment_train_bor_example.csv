@@ -1,0 +1,68 @@
+start_node_list,end_node_list,data_list,type,node_name_list
+micro_to_ro,ro_bor1_start,"{'name': 'ro_bor1_feedwater', 'type': 'feedwater_stream'}",edge,
+micro_to_ro,ro_bor2_start,"{'name': 'ro_bor2_feedwater', 'type': 'feedwater_stream'}",edge,
+micro_to_ro,ro_bor3_start,"{'name': 'ro_bor3_feedwater', 'type': 'feedwater_stream'}",edge,
+micro_to_ro,ro_bor4_start,"{'name': 'ro_bor4_feedwater', 'type': 'feedwater_stream'}",edge,
+micro_to_ro,ro_bor5_start,"{'name': 'ro_bor5_feedwater', 'type': 'feedwater_stream'}",edge,
+micro_to_ro,ro_bor6_start,"{'name': 'ro_bor6_feedwater', 'type': 'feedwater_stream'}",edge,
+micro_to_ro,ro_bor7_start,"{'name': 'ro_bor7_feedwater', 'type': 'feedwater_stream'}",edge,
+ro_bor1_start,ro_bor1_end,"{'name': 'ro_bor1', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'FilmTec', 'mem_model_type': 'BW30-400', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor2_start,ro_bor2_end,"{'name': 'ro_bor2', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'FilmTec', 'mem_model_type': 'SW30-8040', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor3_start,ro_bor3_end,"{'name': 'ro_bor3', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'Hydranautics', 'mem_model_type': '8040LHYCPA2', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor4_start,ro_bor4_end,"{'name': 'ro_bor4', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'Koch_Fluid Systems', 'mem_model_type': 'FS8822HR400 Prem', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor5_start,ro_bor5_end,"{'name': 'ro_bor5', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'Koch_Fluid Systems', 'mem_model_type': 'TFC-S4 (4920 S)', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor6_start,ro_bor6_end,"{'name': 'ro_bor6', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'Koch_Fluid Systems', 'mem_model_type': 'TFC-SR2 8"" (8723 SR2-400)', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor7_start,ro_bor7_end,"{'name': 'ro_bor7', 'type': 'treatment_process', 'treatment_name': 'ro_bor', 'mem_manu': 'DuPont', 'mem_model_type': '6880T B-10 Twin', 'recovery_factor': 0.85, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.15000000000000002}",edge,
+ro_bor1_end,ro_bor1_waste,"{'name': 'ro_bor1_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor1_end,ro_to_chlorination,"{'name': 'ro_bor1_use_stream', 'type': 'use_stream'}",edge,
+ro_to_chlorination,chlorination_twb_start,"{'name': 'chlorination_twb_feedwater', 'type': 'feedwater_stream'}",edge,
+ro_bor2_end,ro_bor2_waste,"{'name': 'ro_bor2_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor2_end,ro_to_chlorination,"{'name': 'ro_bor2_use_stream', 'type': 'use_stream'}",edge,
+ro_bor3_end,ro_bor3_waste,"{'name': 'ro_bor3_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor3_end,ro_to_chlorination,"{'name': 'ro_bor3_use_stream', 'type': 'use_stream'}",edge,
+ro_bor4_end,ro_bor4_waste,"{'name': 'ro_bor4_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor4_end,ro_to_chlorination,"{'name': 'ro_bor4_use_stream', 'type': 'use_stream'}",edge,
+ro_bor5_end,ro_bor5_waste,"{'name': 'ro_bor5_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor5_end,ro_to_chlorination,"{'name': 'ro_bor5_use_stream', 'type': 'use_stream'}",edge,
+ro_bor6_end,ro_bor6_waste,"{'name': 'ro_bor6_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor6_end,ro_to_chlorination,"{'name': 'ro_bor6_use_stream', 'type': 'use_stream'}",edge,
+ro_bor7_end,ro_bor7_waste,"{'name': 'ro_bor7_waste_stream', 'type': 'waste_stream'}",edge,
+ro_bor7_end,ro_to_chlorination,"{'name': 'ro_bor7_use_stream', 'type': 'use_stream'}",edge,
+chlorination_twb_start,chlorination_twb_end,"{'name': 'chlorination_twb', 'type': 'treatment_process', 'treatment_name': 'chlorination_twb', 'mem_manu': None, 'mem_model_type': None, 'recovery_factor': 1.0, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.0}",edge,
+chlorination_twb_end,chlorination_twb_waste,"{'name': 'chlorination_twb_waste_stream', 'type': 'waste_stream'}",edge,
+chlorination_twb_end,use,"{'name': 'chlorination_twb_use_stream', 'type': 'use_stream'}",edge,
+source,microfiltration_twb_start,"{'name': 'microfiltration_twb_feedwater', 'type': 'feedwater_stream'}",edge,
+microfiltration_twb_start,microfiltration_twb_end,"{'name': 'microfiltration_twb', 'type': 'treatment_process', 'treatment_name': 'microfiltration_twb', 'mem_manu': None, 'mem_model_type': None, 'recovery_factor': 0.95, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.050000000000000044}",edge,
+microfiltration_twb_end,microfiltration_twb_waste,"{'name': 'microfiltration_twb_waste_stream', 'type': 'waste_stream'}",edge,
+microfiltration_twb_end,micro_to_ro,"{'name': 'microfiltration_twb_use_stream', 'type': 'use_stream'}",edge,
+,,"{'name': 'source', 'type': 'TODO'}",node,micro_to_ro
+,,"{'name': 'ro_bor1_start', 'type': 'TODO'}",node,ro_bor1_start
+,,"{'name': 'ro_bor2_start', 'type': 'TODO'}",node,ro_bor2_start
+,,"{'name': 'ro_bor3_start', 'type': 'TODO'}",node,ro_bor3_start
+,,"{'name': 'ro_bor4_start', 'type': 'TODO'}",node,ro_bor4_start
+,,"{'name': 'ro_bor5_start', 'type': 'TODO'}",node,ro_bor5_start
+,,"{'name': 'ro_bor6_start', 'type': 'TODO'}",node,ro_bor6_start
+,,"{'name': 'ro_bor7_start', 'type': 'TODO'}",node,ro_bor7_start
+,,"{'name': 'ro_bor1_end', 'type': 'TODO'}",node,ro_bor1_end
+,,"{'name': 'ro_bor1_waste', 'type': 'waste'}",node,ro_bor1_waste
+,,"{'name': 'use', 'type': 'TODO'}",node,ro_to_chlorination
+,,"{'name': 'ro_bor2_end', 'type': 'TODO'}",node,ro_bor2_end
+,,"{'name': 'ro_bor2_waste', 'type': 'waste'}",node,ro_bor2_waste
+,,"{'name': 'ro_bor3_end', 'type': 'TODO'}",node,ro_bor3_end
+,,"{'name': 'ro_bor3_waste', 'type': 'waste'}",node,ro_bor3_waste
+,,"{'name': 'ro_bor4_end', 'type': 'TODO'}",node,ro_bor4_end
+,,"{'name': 'ro_bor4_waste', 'type': 'waste'}",node,ro_bor4_waste
+,,"{'name': 'ro_bor5_end', 'type': 'TODO'}",node,ro_bor5_end
+,,"{'name': 'ro_bor5_waste', 'type': 'waste'}",node,ro_bor5_waste
+,,"{'name': 'ro_bor6_end', 'type': 'TODO'}",node,ro_bor6_end
+,,"{'name': 'ro_bor6_waste', 'type': 'waste'}",node,ro_bor6_waste
+,,"{'name': 'ro_bor7_end', 'type': 'TODO'}",node,ro_bor7_end
+,,"{'name': 'ro_bor7_waste', 'type': 'waste'}",node,ro_bor7_waste
+,,"{'name': 'chlorination_twb_start', 'type': 'TODO'}",node,chlorination_twb_start
+,,"{'name': 'chlorination_twb_end', 'type': 'TODO'}",node,chlorination_twb_end
+,,"{'name': 'chlorination_twb_waste', 'type': 'waste'}",node,chlorination_twb_waste
+,,"{'name': 'use1', 'type': 'use'}",node,use
+,,"{'name': 'source1', 'type': 'source', 'Turb': 100.0, 'TSS': 210.0, 'BOD': 190.0, 'COD': 430.0, 'TN': 40.0, 'TP': 7.0, 'FC': 10000.0, 'TC': 10000000.0, 'TDS': 720.0, 'Nitrate': 0.0, 'TOC': 140.0, 'Flow': 0}",node,source
+,,"{'name': 'microfiltration_twb_start', 'type': 'TODO'}",node,microfiltration_twb_start
+,,"{'name': 'microfiltration_twb_end', 'type': 'TODO'}",node,microfiltration_twb_end
+,,"{'name': 'microfiltration_twb_waste', 'type': 'waste'}",node,microfiltration_twb_waste

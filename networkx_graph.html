@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js" integrity="sha384-kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="2a9a0dc3-6c85-48c8-9b00-6fec53a0d709" data-root-id="1925"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="2411">
+          {"b78f85d4-f644-46d4-9489-67bdf9e319cb":{"roots":{"references":[{"attributes":{},"id":"1937","type":"BasicTicker"},{"attributes":{"edge_renderer":{"id":"1952"},"inspection_policy":{"id":"1985"},"layout_provider":{"id":"1954"},"node_renderer":{"id":"1948"},"selection_policy":{"id":"1980"}},"id":"1945","type":"GraphRenderer"},{"attributes":{"data":{"BOD":[190.0,null,null,null,null,null,null,null,null,30.0,null,null,null,190.0,null,null],"COD":[430.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,430.0,null,null],"FC":[10000.0,null,null,null,null,null,null,null,null,200.0,null,null,null,10000.0,null,null],"Flow":[0,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null],"Nitrate":[0.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,0.0,null,null],"TC":[10000000.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,10000000.0,null,null],"TDS":[720.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,720.0,null,null],"TN":[40.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,40.0,null,null],"TOC":[140.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,140.0,null,null],"TP":[7.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,7.0,null,null],"TSS":[210.0,null,null,null,null,null,null,null,null,30.0,null,null,null,210.0,null,null],"Turb":[100.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,100.0,null,null],"index":["wastewater_tank","mbr_start","sewers","mbr_end","mbr_waste","mbr_to_uvozone","uvozone_twb_start","uvozone_twb_end","uvozone_twb_waste","reuse_reservoir","irrigation_use","graywater_use","cooling_use","stormwater_tank","wastewater_source","stormwater_source"],"name":["source","mbr_start",null,"mbr_end","mbr_waste","use","uvozone_twb_start","uvozone_twb_end","uvozone_twb_waste","use1",null,null,null,"source1",null,null],"size":[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"type":["source","TODO",null,"TODO","waste","TODO","TODO","TODO","waste","use",null,null,null,"source",null,null]},"selected":{"id":"2009"},"selection_policy":{"id":"2010"}},"id":"1961","type":"ColumnDataSource"},{"attributes":{},"id":"1990","type":"NodesOnly"},{"attributes":{"data_source":{"id":"1961"},"glyph":{"id":"1969"},"hover_glyph":null,"muted_glyph":null,"view":{"id":"1963"}},"id":"1962","type":"GlyphRenderer"},{"attributes":{"formatter":{"id":"2002"},"ticker":{"id":"1941"}},"id":"1940","type":"LinearAxis"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"2004","type":"BoxAnnotation"},{"attributes":{"fill_color":{"value":"#2b83ba"},"size":{"units":"screen","value":15}},"id":"1969","type":"Circle"},{"attributes":{"source":{"id":"1961"}},"id":"1963","type":"CDSView"},{"attributes":{},"id":"2000","type":"BasicTickFormatter"},{"attributes":{},"id":"1941","type":"BasicTicker"},{"attributes":{"graph_layout":{"cooling_use":[-1.342008583147651,-0.9125337235130858],"graywater_use":[-1.5943371116265117,0.21289436665886244],"irrigation_use":[0.23464630228139388,1.755538550492024],"mbr_end":[0.5283454183182733,-0.960593127207524],"mbr_start":[0.36223122179016776,-0.8521933281503468],"mbr_to_uvozone":[0.8765179879686047,-0.07589840765839699],"mbr_waste":[0.14996562883753145,-1.8174624806192021],"reuse_reservoir":[-0.7551946617393115,0.43739679019339994],"sewers":[-0.9914026268930873,1.3552342210448132],"stormwater_source":[0.028744748896404586,0.45178752412990614],"stormwater_tank":[-0.08500502437000691,0.2761915735526765],"uvozone_twb_end":[0.6212667603355072,-0.05309668022429318],"uvozone_twb_start":[0.7551683146392796,0.11165028000628377],"uvozone_twb_waste":[2.0,-0.535351184297139],"wastewater_source":[-0.469837166890891,0.3608023319247779],"wastewater_tank":[-0.3191012083997031,0.24563329366724324]}},"id":"1954","type":"StaticLayoutProvider"},{"attributes":{"overlay":{"id":"2004"}},"id":"1955","type":"BoxZoomTool"},{"attributes":{"axis":{"id":"1940"},"dimension":1,"ticker":null},"id":"1943","type":"Grid"},{"attributes":{},"id":"2002","type":"BasicTickFormatter"},{"attributes":{"data":{"BOD_constraint":[null,null,250,null,null,null,250,null,null,null,null,null,null,null,null,null,null],"TOC_constraint":[null,null,150,null,null,null,150,null,null,null,null,null,null,null,null,null,null],"end":["mbr_start","sewers","mbr_end","mbr_waste","mbr_to_uvozone","uvozone_twb_start","uvozone_twb_end","uvozone_twb_waste","reuse_reservoir","irrigation_use","graywater_use","cooling_use","mbr_start","sewers","uvozone_twb_start","wastewater_tank","stormwater_tank"],"mem_manu":[null,null,"FilmTec",null,null,null,null,null,null,null,null,null,null,null,null,null,null],"mem_model_type":[null,null,"BW30-400",null,null,null,null,null,null,null,null,null,null,null,null,null,null],"name":["mbr_feedwater","storage_to_waste","mbr","mbr_waste_stream","mbr_use_stream","uvozone_twb_feedwater","uvozone_twb","uvozone_twb_waste_stream","uvozone_twb_use_stream","treated_to_storage","storage_to_use","storage_to_use","source1_mbr_start_feedwater","storage_to_waste","source_to_treatment","source_to_storage","source_to_storage"],"recovery_factor":[null,null,0.95,null,null,null,0.95,null,null,null,null,null,null,null,null,null,null],"recycle_factor":[null,null,0.0,null,null,null,0.0,null,null,null,null,null,null,null,null,null,null],"start":["wastewater_tank","wastewater_tank","mbr_start","mbr_end","mbr_end","mbr_to_uvozone","uvozone_twb_start","uvozone_twb_end","uvozone_twb_end","reuse_reservoir","reuse_reservoir","reuse_reservoir","stormwater_tank","stormwater_tank","stormwater_tank","wastewater_source","stormwater_source"],"treatment_name":[null,null,"mbr",null,null,null,"uvozone_twb",null,null,null,null,null,null,null,null,null,null],"type":["feedwater_stream","waste_stream","treatment_process","waste_stream","use_stream","feedwater_stream","treatment_process","waste_stream","use_stream","treated_stream","use_stream","use_stream","feedwater_stream","waste_stream","feedwater_stream","source_stream","source_stream"],"waste_factor":[null,null,0.050000000000000044,null,null,null,0.050000000000000044,null,null,null,null,null,null,null,null,null,null],"weight":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},"selected":{"id":"2011"},"selection_policy":{"id":"2012"}},"id":"1965","type":"ColumnDataSource"},{"attributes":{},"id":"2005","type":"Selection"},{"attributes":{},"id":"1980","type":"NodesOnly"},{"attributes":{"data_source":{"id":"1965"},"glyph":{"id":"1974"},"hover_glyph":null,"muted_glyph":null,"view":{"id":"1967"}},"id":"1966","type":"GlyphRenderer"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1955"},{"id":"1956"}]},"id":"1944","type":"Toolbar"},{"attributes":{},"id":"2006","type":"UnionRenderers"},{"attributes":{"source":{"id":"1965"}},"id":"1967","type":"CDSView"},{"attributes":{},"id":"1946","type":"Circle"},{"attributes":{},"id":"2007","type":"Selection"},{"attributes":{"graph_layout":{"cooling_use":[0.407667652811144,0.7116046540321078],"graywater_use":[-0.2606311949775017,-0.7809402905896031],"irrigation_use":[0.3441579260993642,-0.6352603256168677],"mbr_end":[-0.10810311667624771,0.46708570994698523],"mbr_start":[-0.12595747421532727,0.5785613271592972],"mbr_to_uvozone":[0.37080183738881217,-0.06695998452878414],"mbr_waste":[-0.5883854375854557,0.9999999999999999],"reuse_reservoir":[0.15830211933860738,-0.13944516818219096],"sewers":[-0.6968744430646572,-0.4706322007694876],"stormwater_source":[-0.1905068650652249,0.00852638847305651],"stormwater_tank":[-0.12117336046109149,-0.045881698271119487],"uvozone_twb_end":[0.46700768981280794,-0.2508438948289471],"uvozone_twb_start":[0.5143061415991826,-0.16931122517129632],"uvozone_twb_waste":[0.7759576563863201,-0.3351156837281031],"wastewater_source":[-0.5316377996303334,0.0729248503954141],"wastewater_tank":[-0.41493133176039854,0.05568754167953847]}},"id":"1968","type":"StaticLayoutProvider"},{"attributes":{},"id":"1956","type":"ResetTool"},{"attributes":{},"id":"2008","type":"UnionRenderers"},{"attributes":{"data":{"BOD":[190.0,null,null,null,null,null,null,null,null,30.0,null,null,null,190.0,null,null],"COD":[430.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,430.0,null,null],"FC":[10000.0,null,null,null,null,null,null,null,null,200.0,null,null,null,10000.0,null,null],"Flow":[0,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null],"Nitrate":[0.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,0.0,null,null],"TC":[10000000.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,10000000.0,null,null],"TDS":[720.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,720.0,null,null],"TN":[40.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,40.0,null,null],"TOC":[140.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,140.0,null,null],"TP":[7.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,7.0,null,null],"TSS":[210.0,null,null,null,null,null,null,null,null,30.0,null,null,null,210.0,null,null],"Turb":[100.0,null,null,null,null,null,null,null,null,-1.0,null,null,null,100.0,null,null],"index":["wastewater_tank","mbr_start","sewers","mbr_end","mbr_waste","mbr_to_uvozone","uvozone_twb_start","uvozone_twb_end","uvozone_twb_waste","reuse_reservoir","irrigation_use","graywater_use","cooling_use","stormwater_tank","wastewater_source","stormwater_source"],"name":["source","mbr_start",null,"mbr_end","mbr_waste","use","uvozone_twb_start","uvozone_twb_end","uvozone_twb_waste","use1",null,null,null,"source1",null,null],"size":[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10],"type":["source","TODO",null,"TODO","waste","TODO","TODO","TODO","waste","use",null,null,null,"source",null,null]},"selected":{"id":"2005"},"selection_policy":{"id":"2006"}},"id":"1947","type":"ColumnDataSource"},{"attributes":{"line_alpha":{"value":0.8},"line_color":{"field":"edge_color"}},"id":"1974","type":"MultiLine"},{"attributes":{},"id":"2009","type":"Selection"},{"attributes":{"data_source":{"id":"1947"},"glyph":{"id":"1946"},"hover_glyph":null,"muted_glyph":null,"view":{"id":"1949"}},"id":"1948","type":"GlyphRenderer"},{"attributes":{"end":1.1,"start":-1.1},"id":"1930","type":"Range1d"},{"attributes":{},"id":"2010","type":"UnionRenderers"},{"attributes":{"source":{"id":"1947"}},"id":"1949","type":"CDSView"},{"attributes":{"end":1.1,"start":-1.1},"id":"1928","type":"Range1d"},{"attributes":{"below":[{"id":"1936"}],"center":[{"id":"1939"},{"id":"1943"}],"left":[{"id":"1940"}],"renderers":[{"id":"1945"},{"id":"1959"}],"title":{"id":"1926"},"toolbar":{"id":"1944"},"toolbar_location":null,"x_range":{"id":"1928"},"x_scale":{"id":"1932"},"y_range":{"id":"1930"},"y_scale":{"id":"1934"}},"id":"1925","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"2011","type":"Selection"},{"attributes":{},"id":"1934","type":"LinearScale"},{"attributes":{},"id":"1950","type":"MultiLine"},{"attributes":{},"id":"2012","type":"UnionRenderers"},{"attributes":{"data":{"BOD_constraint":[null,null,250,null,null,null,250,null,null,null,null,null,null,null,null,null,null],"TOC_constraint":[null,null,150,null,null,null,150,null,null,null,null,null,null,null,null,null,null],"end":["mbr_start","sewers","mbr_end","mbr_waste","mbr_to_uvozone","uvozone_twb_start","uvozone_twb_end","uvozone_twb_waste","reuse_reservoir","irrigation_use","graywater_use","cooling_use","mbr_start","sewers","uvozone_twb_start","wastewater_tank","stormwater_tank"],"mem_manu":[null,null,"FilmTec",null,null,null,null,null,null,null,null,null,null,null,null,null,null],"mem_model_type":[null,null,"BW30-400",null,null,null,null,null,null,null,null,null,null,null,null,null,null],"name":["mbr_feedwater","storage_to_waste","mbr","mbr_waste_stream","mbr_use_stream","uvozone_twb_feedwater","uvozone_twb","uvozone_twb_waste_stream","uvozone_twb_use_stream","treated_to_storage","storage_to_use","storage_to_use","source1_mbr_start_feedwater","storage_to_waste","source_to_treatment","source_to_storage","source_to_storage"],"recovery_factor":[null,null,0.95,null,null,null,0.95,null,null,null,null,null,null,null,null,null,null],"recycle_factor":[null,null,0.0,null,null,null,0.0,null,null,null,null,null,null,null,null,null,null],"start":["wastewater_tank","wastewater_tank","mbr_start","mbr_end","mbr_end","mbr_to_uvozone","uvozone_twb_start","uvozone_twb_end","uvozone_twb_end","reuse_reservoir","reuse_reservoir","reuse_reservoir","stormwater_tank","stormwater_tank","stormwater_tank","wastewater_source","stormwater_source"],"treatment_name":[null,null,"mbr",null,null,null,"uvozone_twb",null,null,null,null,null,null,null,null,null,null],"type":["feedwater_stream","waste_stream","treatment_process","waste_stream","use_stream","feedwater_stream","treatment_process","waste_stream","use_stream","treated_stream","use_stream","use_stream","feedwater_stream","waste_stream","feedwater_stream","source_stream","source_stream"],"waste_factor":[null,null,0.050000000000000044,null,null,null,0.050000000000000044,null,null,null,null,null,null,null,null,null,null],"weight":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},"selected":{"id":"2007"},"selection_policy":{"id":"2008"}},"id":"1951","type":"ColumnDataSource"},{"attributes":{},"id":"1932","type":"LinearScale"},{"attributes":{},"id":"1995","type":"NodesOnly"},{"attributes":{"data_source":{"id":"1951"},"glyph":{"id":"1950"},"hover_glyph":null,"muted_glyph":null,"view":{"id":"1953"}},"id":"1952","type":"GlyphRenderer"},{"attributes":{"edge_renderer":{"id":"1966"},"inspection_policy":{"id":"1995"},"layout_provider":{"id":"1968"},"node_renderer":{"id":"1962"},"selection_policy":{"id":"1990"}},"id":"1959","type":"GraphRenderer"},{"attributes":{"source":{"id":"1951"}},"id":"1953","type":"CDSView"},{"attributes":{},"id":"1985","type":"NodesOnly"},{"attributes":{"text":"Networkx Integration Demonstration"},"id":"1926","type":"Title"},{"attributes":{"formatter":{"id":"2000"},"ticker":{"id":"1937"}},"id":"1936","type":"LinearAxis"},{"attributes":{"axis":{"id":"1936"},"ticker":null},"id":"1939","type":"Grid"}],"root_ids":["1925"]},"title":"Bokeh Application","version":"2.1.1"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('2411').textContent;
+                  var render_items = [{"docid":"b78f85d4-f644-46d4-9489-67bdf9e319cb","root_ids":["1925"],"roots":{"1925":"2a9a0dc3-6c85-48c8-9b00-6fec53a0d709"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

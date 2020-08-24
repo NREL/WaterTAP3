@@ -1,0 +1,34 @@
+start_node_list,end_node_list,data_list,type,node_name_list
+wastewater_tank,mbr_start,"{'name': 'mbr_feedwater', 'type': 'feedwater_stream'}",edge,
+wastewater_tank,sewers,"{'name': 'storage_to_waste', 'type': 'waste_stream'}",edge,
+mbr_start,mbr_end,"{'name': 'mbr', 'type': 'treatment_process', 'treatment_name': 'mbr', 'mem_manu': 'FilmTec', 'mem_model_type': 'BW30-400', 'recovery_factor': 0.95, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.050000000000000044}",edge,
+mbr_end,mbr_waste,"{'name': 'mbr_waste_stream', 'type': 'waste_stream'}",edge,
+mbr_end,mbr_to_uvozone,"{'name': 'mbr_use_stream', 'type': 'use_stream'}",edge,
+mbr_to_uvozone,uvozone_twb_start,"{'name': 'uvozone_twb_feedwater', 'type': 'feedwater_stream'}",edge,
+uvozone_twb_start,uvozone_twb_end,"{'name': 'uvozone_twb', 'type': 'treatment_process', 'treatment_name': 'uvozone_twb', 'mem_manu': None, 'mem_model_type': None, 'recovery_factor': 0.95, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.050000000000000044}",edge,
+uvozone_twb_end,uvozone_twb_waste,"{'name': 'uvozone_twb_waste_stream', 'type': 'waste_stream'}",edge,
+uvozone_twb_end,reuse_reservoir,"{'name': 'uvozone_twb_use_stream', 'type': 'use_stream'}",edge,
+reuse_reservoir,irrigation_use,"{'name': 'treated_to_storage', 'type': 'treated_stream'}",edge,
+reuse_reservoir,graywater_use,"{'name': 'storage_to_use', 'type': 'use_stream'}",edge,
+reuse_reservoir,cooling_use,"{'name': 'storage_to_use', 'type': 'use_stream'}",edge,
+stormwater_tank,mbr_start,"{'name': 'source1_mbr_start_feedwater', 'type': 'feedwater_stream'}",edge,
+stormwater_tank,sewers,"{'name': 'storage_to_waste', 'type': 'waste_stream'}",edge,
+stormwater_tank,uvozone_twb_start,"{'name': 'source_to_treatment', 'type': 'feedwater_stream'}",edge,
+wastewater_source,wastewater_tank,"{'name': 'source_to_storage', 'type': 'source_stream'}",edge,
+stormwater_source,stormwater_tank,"{'name': 'source_to_storage', 'type': 'source_stream'}",edge,
+,,"{'name': 'source', 'type': 'source', 'Turb': 100.0, 'TSS': 210.0, 'BOD': 190.0, 'COD': 430.0, 'TN': 40.0, 'TP': 7.0, 'FC': 10000.0, 'TC': 10000000.0, 'TDS': 720.0, 'Nitrate': 0.0, 'TOC': 140.0, 'Flow': 0}",node,wastewater_tank
+,,"{'name': 'mbr_start', 'type': 'TODO'}",node,mbr_start
+,,{},node,sewers
+,,"{'name': 'mbr_end', 'type': 'TODO'}",node,mbr_end
+,,"{'name': 'mbr_waste', 'type': 'waste'}",node,mbr_waste
+,,"{'name': 'use', 'type': 'TODO'}",node,mbr_to_uvozone
+,,"{'name': 'uvozone_twb_start', 'type': 'TODO'}",node,uvozone_twb_start
+,,"{'name': 'uvozone_twb_end', 'type': 'TODO'}",node,uvozone_twb_end
+,,"{'name': 'uvozone_twb_waste', 'type': 'waste'}",node,uvozone_twb_waste
+,,"{'name': 'use1', 'type': 'use', 'Turb': -1.0, 'TSS': 30.0, 'BOD': 30.0, 'COD': -1.0, 'TN': -1.0, 'TP': -1.0, 'FC': 200.0, 'TC': -1.0, 'TDS': -1.0, 'Nitrate': -1.0, 'TOC': -1.0}",node,reuse_reservoir
+,,{},node,irrigation_use
+,,{},node,graywater_use
+,,{},node,cooling_use
+,,"{'name': 'source1', 'type': 'source', 'Turb': 100.0, 'TSS': 210.0, 'BOD': 190.0, 'COD': 430.0, 'TN': 40.0, 'TP': 7.0, 'FC': 10000.0, 'TC': 10000000.0, 'TDS': 720.0, 'Nitrate': 0.0, 'TOC': 140.0, 'Flow': 0}",node,stormwater_tank
+,,{},node,wastewater_source
+,,{},node,stormwater_source

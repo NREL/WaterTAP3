@@ -1,0 +1,23 @@
+Variable,Unit,Value,ReferenceName,WaterType
+Turb,NTU,100,Poseidon,Typical untreated domestic wastewater
+TSS,mg/L,210,Poseidon,Typical untreated domestic wastewater
+BOD,mg/L,190,Poseidon,Typical untreated domestic wastewater
+COD,mg/L,430,Poseidon,Typical untreated domestic wastewater
+TN,mg/L,40,Poseidon,Typical untreated domestic wastewater
+TP,mg/L,7,Poseidon,Typical untreated domestic wastewater
+FC,CFU/100ml,1.E+04,Poseidon,Typical untreated domestic wastewater
+TC,CFU/100ml,1.E+07,Poseidon,Typical untreated domestic wastewater
+TDS,mg/L,720,Poseidon,Typical untreated domestic wastewater
+Nitrate,mg N/L,0,Poseidon,Typical untreated domestic wastewater
+TOC,mg/L,140,Poseidon,Typical untreated domestic wastewater
+Turb,NTU,88,Poseidon,Primary effluent
+TSS,mg/L,131,Poseidon,Primary effluent
+BOD,mg/L,149,Poseidon,Primary effluent
+COD,mg/L,-1,Poseidon,Primary effluent
+TN,mg/L,-1,Poseidon,Primary effluent
+TP,mg/L,5.1,Poseidon,Primary effluent
+FC,CFU/100ml,-1.E+00,Poseidon,Primary effluent
+TC,CFU/100ml,-1.E+00,Poseidon,Primary effluent
+TDS,mg/L,-1,Poseidon,Primary effluent
+Nitrate,mg N/L,0.1,Poseidon,Primary effluent
+TOC,mg/L,72,Poseidon,Primary effluent
