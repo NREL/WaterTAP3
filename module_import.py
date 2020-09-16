@@ -6,10 +6,14 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 
+import media_filtration_twb #as up
+#TODO FIX IMPORTS
+# black
 def get_module(module_name):
         
     if module_name == 'media_filtration_twb':
-        import media_filtration_twb as up
+        return media_filtration_twb
+        #import media_filtration_twb as up
     
     if module_name == 'media_filtration_twb2':
         import media_filtration_twb2 as up    
