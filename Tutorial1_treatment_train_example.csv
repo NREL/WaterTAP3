@@ -1,30 +1,21 @@
 start_node_list,end_node_list,data_list,type,node_name_list
 source,microfiltration_twb_start,"{'name': 'microfiltration_twb_feedwater', 'type': 'feedwater_stream', 'weight': 1}",edge,
-source,ultrafiltration_twb_start,"{'name': 'ultrafiltration_twb_feedwater', 'type': 'feedwater_stream', 'weight': 1}",edge,
-microfiltration_twb_start,microfiltration_twb_end,"{'name': 'microfiltration_twb', 'type': 'treatment_process', 'treatment_name': 'microfiltration_twb', 'mem_manu': None, 'mem_model_type': None, 'recovery_factor': 0.95, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.050000000000000044, 'weight': 1}",edge,
+microfiltration_twb_start,microfiltration_twb_end,"{'name': 'microfiltration_twb', 'type': 'treatment_process', 'treatment_name': 'microfiltration_twb', 'mem_manu': None, 'mem_model_type': None, 'weight': 1}",edge,
 microfiltration_twb_end,microfiltration_twb_waste,"{'name': 'microfiltration_twb_waste_stream', 'type': 'waste_stream', 'weight': 1}",edge,
 microfiltration_twb_end,use,"{'name': 'microfiltration_twb_use_stream', 'type': 'use_stream', 'weight': 1}",edge,
 microfiltration_twb_end,use2,"{'name': 'treated_stream_example', 'type': 'treated_stream', 'weight': 1}",edge,
 use,chlorination_twb_start,"{'name': 'chlorination_twb_feedwater', 'type': 'feedwater_stream', 'weight': 1}",edge,
-ultrafiltration_twb_start,ultrafiltration_twb_end,"{'name': 'ultrafiltration_twb', 'type': 'treatment_process', 'treatment_name': 'ultrafiltration_twb', 'mem_manu': None, 'mem_model_type': None, 'recovery_factor': 0.95, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.050000000000000044, 'weight': 1}",edge,
-ultrafiltration_twb_end,ultrafiltration_twb_waste,"{'name': 'ultrafiltration_twb_waste_stream', 'type': 'waste_stream', 'weight': 1}",edge,
-ultrafiltration_twb_end,use,"{'name': 'ultrafiltration_twb_use_stream', 'type': 'use_stream', 'weight': 1}",edge,
-chlorination_twb_start,chlorination_twb_end,"{'name': 'chlorination_twb', 'type': 'treatment_process', 'treatment_name': 'chlorination_twb', 'mem_manu': None, 'mem_model_type': None, 'recovery_factor': 1.0, 'BOD_constraint': 250, 'TOC_constraint': 150, 'recycle_factor': 0.0, 'waste_factor': 0.0, 'weight': 1}",edge,
+chlorination_twb_start,chlorination_twb_end,"{'name': 'chlorination_twb', 'type': 'treatment_process', 'treatment_name': 'chlorination_twb', 'mem_manu': None, 'mem_model_type': None, 'weight': 1}",edge,
 chlorination_twb_end,chlorination_twb_waste,"{'name': 'chlorination_twb_waste_stream', 'type': 'waste_stream', 'weight': 1}",edge,
 chlorination_twb_end,use1,"{'name': 'chlorination_twb_use_stream', 'type': 'use_stream', 'weight': 1}",edge,
 chlorination_twb_end,use2,"{'name': 'chlorination_twb_end_treated_use2_stream', 'type': 'use_stream', 'weight': 1}",edge,
-source1,ultrafiltration_twb_start,"{'name': 'source1_ultrafiltration_twb_start_feedwater', 'type': 'feedwater_stream', 'weight': 1}",edge,
 ,,"{'name': 'source', 'type': 'source', 'Turb': 100.0, 'TSS': 210.0, 'BOD': 190.0, 'COD': 430.0, 'TN': 40.0, 'TP': 7.0, 'FC': 10000.0, 'TC': 10000000.0, 'TDS': 720.0, 'Nitrate': 0.0, 'TOC': 140.0, 'size': 10, 'Flow': 0}",node,source
 ,,"{'name': 'microfiltration_twb_start', 'type': 'TODO', 'size': 10}",node,microfiltration_twb_start
 ,,"{'name': 'microfiltration_twb_end', 'type': 'TODO', 'size': 10}",node,microfiltration_twb_end
 ,,"{'name': 'microfiltration_twb_waste', 'type': 'waste', 'size': 10}",node,microfiltration_twb_waste
 ,,"{'name': 'use', 'type': 'TODO', 'size': 10}",node,use
-,,"{'name': 'ultrafiltration_twb_start', 'type': 'TODO', 'size': 10}",node,ultrafiltration_twb_start
-,,"{'name': 'ultrafiltration_twb_end', 'type': 'TODO', 'size': 10}",node,ultrafiltration_twb_end
-,,"{'name': 'ultrafiltration_twb_waste', 'type': 'waste', 'size': 10}",node,ultrafiltration_twb_waste
 ,,"{'name': 'chlorination_twb_start', 'type': 'TODO', 'size': 10}",node,chlorination_twb_start
 ,,"{'name': 'chlorination_twb_end', 'type': 'TODO', 'size': 10}",node,chlorination_twb_end
 ,,"{'name': 'chlorination_twb_waste', 'type': 'waste', 'size': 10}",node,chlorination_twb_waste
 ,,"{'name': 'use1', 'type': 'use', 'size': 10}",node,use1
-,,"{'name': 'source1', 'type': 'source', 'Turb': 100.0, 'TSS': 210.0, 'BOD': 190.0, 'COD': 430.0, 'TN': 40.0, 'TP': 7.0, 'FC': 10000.0, 'TC': 10000000.0, 'TDS': 720.0, 'Nitrate': 0.0, 'TOC': 140.0, 'Flow': 0, 'size': 10}",node,source1
 ,,"{'name': 'use2', 'type': 'use', 'Turb': 100.0, 'TSS': 210.0, 'BOD': 190.0, 'COD': 430.0, 'TN': 40.0, 'TP': 7.0, 'FC': 10000.0, 'TC': 10000000.0, 'TDS': 720.0, 'Nitrate': 0.0, 'TOC': 140.0, 'min_flow': 0, 'size': 10}",node,use2
