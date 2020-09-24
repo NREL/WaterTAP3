@@ -96,7 +96,7 @@ def show_train1(G):
         """
     )
     # g.show(str(train_to_show))
-    return g.show("example.html")
+    return g.show("tmp/example.html")
 
 
 def show_train(G):
@@ -172,7 +172,7 @@ def show_train(G):
     """
     )
     # g.show(str(train_to_show))
-    return g.show("example.html")
+    return g.show("tmp/example.html")
 
 
 def show_train2(G):
@@ -245,7 +245,7 @@ def show_train2(G):
     """
     )
     # g.show(str(train_to_show))
-    return g.show("example.html")
+    return g.show("tmp/example.html")
 
 
 def main():
