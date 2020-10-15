@@ -15,7 +15,7 @@ Input data to run the model includes financial tables and assumptions on specifi
 assumptions are stored in the `.py` file of the unit process.
 
 ### Tutorials
-These tutorials are meant to demonstrate the building blocks of creating a treatment train and basic simulation capabilities of treatment trains.
+These tutorials are meant to demonstrate the building blocks of creating a treatment train and basic simulation capabilities.
 1. `WaterTAP3_DesignTrain_Tutorial.ipynb` Build, save, and load a treatment train from scratch (~10 mins)
 2. `WaterTAP3_RunTrain_Tutorial.ipynb` Load a pre-existing treatment train, build the model, and run a simulation. Visualize total cost and levelized cost for each unit process. Compare cost calculation methods (~10 mins)
 3. `WaterTAP3_RunTrain_Optimization_Tutorial.ipynb` Load a pre-existing treatment train and simulate an optimization example that selects the optimal membrane for an example RO process (~10 mins)
