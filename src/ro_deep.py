@@ -7,7 +7,7 @@ from multiprocessing import Pool
 import multiprocessing
 import os, sys
 
-#from src.financials import *
+from src.financials import *
 
 # RO unit process based on the International Atomic Energy Agency's (IAEA) DEEP model
 # User Manual ==> https://www.iaea.org/sites/default/files/18/08/deep5-manual.pdf
