@@ -114,8 +114,7 @@ def get_uv_cost(G, flow_in, dose):
 
     # print('feed_uvt:', feed_uvt)
 
-    dir_path = "/Users/amiara/NAWI/WaterTap/Python_UPlinks"
-    df = pd.read_csv("%s/uv_cost_twb.csv" % dir_path)  # import data
+    df = pd.read_csv("data/uv_cost_twb.csv" )  # import data
 
     flow_for_function = flow_in / 1000000  # converted to millions for regression
 
