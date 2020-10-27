@@ -178,13 +178,17 @@ def total_up_cost(
         + ct / contact_time_mins
     )  # mg/L
     # print('applied_cl2_dose:', applied_cl2_dose, 'mg/L')
-    ################### TWB METHOD ###########################################################
+    
+    ################### TWB METHOD ################################################################
     if cost_method == "twb":
         return get_chlorine_dose_cost(G, flow_in, applied_cl2_dose) / 1000  # $MM
-    ##############################################################################
+    ###############################################################################################
 
     ################### WATERTAP METHOD ###########################################################
-
+    return src.financials.total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="wt")
+    ###############################################################################################
+    
+    ''' # DELETE THIS COMMENTED OUT SECTION
     flow_in = flow_in * volume_conversion_factor
 
     # cost index values
@@ -237,7 +241,7 @@ def total_up_cost(
     )
 
     return total_up_cost
-
+    '''
 
 def flow_treatment_equation(m, G, link_variable):
     return link_variable * recovery_factor
