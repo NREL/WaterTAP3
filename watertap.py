@@ -36,11 +36,13 @@ unit_process_library_list = [
     "microfiltration_twb",
     "ultrafiltration_twb",
     "nanofiltration_twb",
+    "coag_and_floc"
     "ro_twb",
     "uv_twb",
     "ro_bor",
     "uvozone_twb",
     "mbr",
+    "water_pumping_station"
 ]
 
 

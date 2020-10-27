@@ -42,7 +42,13 @@ def get_module(module_name):
 
     if module_name == "mbr":
         from src import mbr as up
-
+    
+    if module_name == "coag_and_floc":
+        from src import coag_and_floc as up
+    
+    if module_name == "water_pumping_station":
+        from src import water_pumping_station as up
+    
     return up
 
 

@@ -24,7 +24,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn import datasets
 from sklearn.linear_model import LassoCV
 from sklearn import ensemble
-
+from scipy.optimize import curve_fit
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -144,6 +144,25 @@ def get_linear_regression(x_values, y_values, variable=None):
 
     return a[0], b[0]
 
+def power_law(x, a, b):
+    return a*np.power(x, b)
+
+
+def get_cost_curve_coefs(data_id = None):
+    
+    df = pd.read_excel("../WaterTAP3CostCurves.xlsx", sheet_name="CostData")
+    
+    xs = df[((df.DataID == data_id) & (df.VariableID == 2))].Value.values
+    
+    ys = df[((df.DataID == data_id) & (df.VariableID == 1))].Value.values
+    
+    pars, cov = curve_fit(f=power_law, xdata=xs, ydata=ys)
+    
+    ys_new = pars[0] * xs ** pars[1] 
+    
+    r2_result = np.corrcoef(ys, ys_new)[0, 1]
+    
+    return pars, r2_result #, xs, ys
 
 def main():
     print("importing something")

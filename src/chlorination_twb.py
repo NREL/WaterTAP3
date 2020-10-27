@@ -132,8 +132,8 @@ def get_cl2_dem(G):
 
 def get_chlorine_dose_cost(G, flow_in, dose):
 
-    dir_path = "/Users/amiara/NAWI/WaterTap/Python_UPlinks"
-    df = pd.read_csv("%s/chlorine_dose_cost_twb.csv" % dir_path)  # import data
+    #dir_path = "/Users/amiara/NAWI/WaterTap/Python_UPlinks"
+    df = pd.read_csv("data/chlorine_dose_cost_twb.csv") # % dir_path)  # import data
 
     flow_for_function = flow_in
 
@@ -177,6 +177,7 @@ def total_up_cost(
         + chlorine_decay_rate * contact_time
         + ct / contact_time_mins
     )  # mg/L
+    
     # print('applied_cl2_dose:', applied_cl2_dose, 'mg/L')
     ################### TWB METHOD ###########################################################
     if cost_method == "twb":
