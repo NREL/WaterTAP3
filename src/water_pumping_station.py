@@ -24,7 +24,7 @@ from src.financials import *
 
 # unit conversion needed for model
 #if unit == "m3h":
-#    volume_conversion_factor = 1 / 158  # m3/hr to MGD
+volume_conversion_factor = (1 / 158) / 24  # m3/hr to MGD
 #else:
 #    volume_conversion_factor = 1
 
@@ -90,9 +90,6 @@ def pumping_power(flow_in):
     return pumping_power
     
 
-
-
-
 #########################################################################
 #########################################################################
 ################# UP COST CALCULATIONS FOR TREATMENT TRAIN ##############
@@ -113,7 +110,9 @@ def total_up_cost(
 
     ################### WATERTAP METHOD ###########################################################
     # cost index values
-
+    
+    base_fixed_cap_cost = fixed_cap(TIC, TPEC, flow_in)
+    
     df = get_ind_table()
     cap_replacement_parts = df.loc[basis_year].Capital_Factor
     catalysts_chemicals = df.loc[basis_year].CatChem_Factor

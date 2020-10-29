@@ -42,7 +42,7 @@ unit_process_library_list = [
     "ro_bor",
     "uvozone_twb",
     "mbr",
-    "water_pumping_station"
+    "water_pumping_station",
     "ro_deep"
 ]
 
