@@ -53,28 +53,24 @@ cap_scaling_exp = 1 # TODO SHOW
 
 def fixed_cap(TIC, TPEC, flow_in):
     if pump_station == "Raw Water":
-        cap_cost = 12169 * flow_in + 60716
-
         if x != "TPEC":
             TPEC = 1
 
         if x != "TIC":
             TIC = 1
 
-        fixed_cap = cap_cost * TPEC * TIC # $
+        fixed_cap = (12169 * flow_in + 60716) * TPEC * TIC # $
 
     else:  # pump_station = "Treated Water":
-        cap_cost = 57887 * flow_in ** 0.7852
-        
         if x != "TPEC":
             TPEC = 1
 
         if x != "TIC":
             TIC = 1
 
-        fixed_cap = cap_cost * TPEC * TIC # $
+        fixed_cap = (57887 * flow_in ** 0.7852) * TPEC * TIC # $
         
-    return fixed_cap
+return fixed_cap
         
 def pumping_power(flow_in):
     pumping_power = .746 * (flow_in * 695.2) * life_height/(3960 * pump_efficiency * motor_efficiency)/ (flow_in * 158)
