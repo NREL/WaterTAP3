@@ -33,7 +33,7 @@ volume_conversion_factor = (1 / 158) / 24  # m3/hr to MGD
 #########################################################################
 pump_station = "Raw Water" # TODO WHAT IS THIS
 
-x = "TPEC" # changeable by user. What is this?????
+x = "TPEC" # changeable by user
 TPEC = 3.4
 TIC = 1.65
 
@@ -55,17 +55,13 @@ def fixed_cap(TIC, TPEC, flow_in):
     if pump_station == "Raw Water":
         cap_cost = 12169 * flow_in + 60716
 
-        if x == "TPEC":
-            TPEC = 3.4
-        else:
+        if x != "TPEC":
             TPEC = 1
 
-        if x == "TIC":
-            TIC = TIC
-        else:
+        if x != "TIC":
             TIC = 1
 
-        fixed_cap = cap_cost * TPEC # $
+        fixed_cap = cap_cost * TPEC * TIC # $
 
     else:  # pump_station = "Treated Water":
         cap_cost = 57887 * flow_in ** 0.7852
