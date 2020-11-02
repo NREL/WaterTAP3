@@ -9,12 +9,27 @@ import os, sys
 
 from src.financials import *
 
-# microfiltration unit process based on Texas Water Development Board IT3PR.
-# User Manual ==> https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf
+# Water pumping station power demands
+# Adapted from Jenny's excel "Water Pumping Station" version in WaterTAP3 VAR tab
+# Sources: https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html
+# https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
+# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 # NEEDS TO BE IN MGD FOR THIS UNIT PROCESS
 ### FLOW IN MUST BE IN M3/DAY OR MGD### TODO
 # flow_in = 30;  unit = 'mgd'
+
+### THESE SHOULD BE COMING FROM ELSEWHERE
+#unit = "MGD"
+
+# unit conversion needed for model
+#if unit == "m3h":
+#    volume_conversion_factor = 1 / 158  # m3/hr to MGD
+#else:
+#    volume_conversion_factor = 1
+
+
+    
 
 ### THESE SHOULD BE COMING FROM ELSEWHERE
 unit = "m3d"
@@ -23,7 +38,63 @@ unit = "m3d"
 if unit == "m3d":
     volume_conversion_factor = 1 / (0.0037854 * 1000000)  # million gallons to m3
 else:
-    volume_conversion_factor = 1
+    volume_conversion_factor = 1    
+    
+    
+#########################################################################
+#########################################################################
+#########################################################################
+pump_station = "Raw Water"
+
+x = "TPEC" # changeable by user
+TPEC = 3.4
+TIC = 1.65
+
+# pump parameters
+life_height = 30 # ft
+pump_efficiency = .9
+motor_efficiency = .9
+
+
+
+def fixed_cap2(flow_in, TPEC, TIC):
+
+    if pump_station == "Raw Water":
+        
+        cap_cost = 12169 * flow_in + 60716
+
+        if x != "TPEC": TPEC = 1
+
+        if x != "TIC": TIC = 1
+
+        return cap_cost * TPEC * TIC # $
+
+    else:  # pump_station = "Treated Water":
+        cap_cost = 57887 * flow_in ** 0.7852
+        
+        if x != "TPEC": TPEC = 1
+
+        if x != "TIC": TIC = 1
+
+        return cap_cost * TPEC * TIC # $
+
+def fixed_cap(flow_in):
+    
+    return 57887 * flow_in ** 0.7852
+    #return 12169 * flow_in + 60716 
+
+def pumping_power(flow_in):
+    pumping_power = .746 * (flow_in * 695.2) * life_height/(3960 * pump_efficiency * motor_efficiency)/ (flow_in * 158)
+    
+    return pumping_power
+    
+
+#########################################################################
+#########################################################################
+################# UP COST CALCULATIONS FOR TREATMENT TRAIN ##############
+#########################################################################
+#########################################################################
+
 
 #########################################################################
 #########################################################################
@@ -41,15 +112,15 @@ virus_removal = 0.0
 
 # captial costs basis
 # Project Cost for Filter = $2.5M x (flow in mgd) page 55)
-base_fixed_cap_cost = (
-    2.5  # from TWB -> THIS IS SOMEHOW DIFFERENT FROM EXCEL CALCS NOT SURE WHY (3.125)
-)
+base_fixed_cap_cost = 57887  # from TWB -> THIS IS SOMEHOW DIFFERENT FROM EXCEL CALCS NOT SURE WHY (3.125))
 
-cap_scaling_exp = 1  # from TWB
+cap_scaling_exp = 0.7852  # from TWB
 
-recovery_factor = 1.0  ##
+recovery_factor = 1.0  ## ASSUMED AS 1.0 -> MUST BE WRONG -> CHECK
 
-waste_factor = 1 - recovery_factor  #
+
+# recycle_factor = (1 - recovery_factor) * (recyle_fraction_of_waste)
+waste_factor = 1 - recovery_factor  # - G.edges[edge]['recycle_factor']
 
 #########################################################################
 #########################################################################
@@ -65,13 +136,13 @@ def total_up_cost(
     flow_in = flow_in * volume_conversion_factor
 
     ################### TWB METHOD ###########################################################
-    if cost_method == "twb":
-        return base_fixed_cap_cost * flow_in ** cap_scaling_exp
+    #if cost_method == "twb":
+    #    return base_fixed_cap_cost * flow_in ** cap_scaling_exp
     ##############################################################################
 
     ################### WATERTAP METHOD ###########################################################
     # cost index values
-
+       
     df = get_ind_table()
     cap_replacement_parts = df.loc[basis_year].Capital_Factor
     catalysts_chemicals = df.loc[basis_year].CatChem_Factor
