@@ -9,8 +9,11 @@ import os, sys
 
 from src.financials import *
 
-# microfiltration unit process based on Texas Water Development Board IT3PR.
-# User Manual ==> https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf
+# Water pumping station power demands
+# Adapted from Jenny's excel "Water Pumping Station" version in WaterTAP3 VAR tab
+# Sources: https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html
+# https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
+# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 # NEEDS TO BE IN MGD FOR THIS UNIT PROCESS
 ### FLOW IN MUST BE IN M3/DAY OR MGD### TODO
@@ -20,36 +23,50 @@ from src.financials import *
 unit = "m3d"
 
 # unit conversion needed for model
-if unit == "m3d":
-    volume_conversion_factor = 1 / (0.0037854 * 1000000)  # million gallons to m3
-else:
-    volume_conversion_factor = 1
+#if unit == "m3h":
+volume_conversion_factor = (1 / 158) / 24  # m3/hr to MGD
+#else:
+#    volume_conversion_factor = 1
 
 #########################################################################
 #########################################################################
 #########################################################################
+pump_station = "Raw Water" # TODO WHAT IS THIS
 
-# Perfomance Parameter Values for Process: Constituent removals.
+x = "TPEC" # changeable by user. What is this?????
+TPEC = 3.4
+TIC = 1.65
+
+# pump parameters
+life_height = 30 # ft # TODO_METERS?! where is this from?
+pump_efficiency = .9 # TODO where is this from?
+motor_efficiency = .9 # TODO where is this from?
+
+
+recovery_factor = 1.0 #TODO
+nitrate_removal = 1.0 #TODO
+TOrC_removal = 1.0 #TODO
+toc_removal = 1.0 #TODO
+cap_scaling_exp = 1.0 # TODO SHOW
+
+
+recovery_factor = 1.0  ## ASSUMED AS 1.0
+#### OTHER NEEDED VARIABLES BUT NOT FOR THIS TREATMENT
 toc_removal = 0.0  # Asano et al (2007)
-nitrate_removal = 0.0  # None but in Excel tool appears to be removed sometimes?
-TOrC_removal = 0.0  # slightly lower removal than for UF. Some removal is expected due to particle association of TOrCs.
-EEQ_removal = 0.0  # Linden et al., 2012 (based on limited data))
-NDMA_removal = 0.0
-PFOS_PFOA_removal = 0.0
-protozoa_removal = 0.0
-virus_removal = 0.0
+nitrate_removal = 0.0
+TOrC_removal = 0.25
 
-# captial costs basis
-# Project Cost for Filter = $2.5M x (flow in mgd) page 55)
-base_fixed_cap_cost = (
-    2.5  # from TWB -> THIS IS SOMEHOW DIFFERENT FROM EXCEL CALCS NOT SURE WHY (3.125)
-)
 
-cap_scaling_exp = 1  # from TWB
-
-recovery_factor = 1.0  ##
-
-waste_factor = 1 - recovery_factor  #
+def fixed_cap(flow_in):
+    return (flow_in) # * flow_in ** 0.7852)  #* TPEC * TIC
+    
+        
+        
+#def pumping_power(flow_in):
+#    pumping_power = .746 * (flow_in * 695.2) * life_height/(3960 * pump_efficiency * motor_efficiency)/ (flow_in * 158)
+    
+#    return pumping_power
+    
 
 #########################################################################
 #########################################################################
@@ -62,8 +79,8 @@ def total_up_cost(
     m=None, G=None, flow_in=0, cost_method="wt"
 ):  # ONLY NEEDS FLOW IN FOR NOW
 
-    flow_in = flow_in * volume_conversion_factor
-
+    #flow_in = flow_in * volume_conversion_factor
+           
     ################### TWB METHOD ###########################################################
     if cost_method == "twb":
         return base_fixed_cap_cost * flow_in ** cap_scaling_exp
@@ -71,7 +88,9 @@ def total_up_cost(
 
     ################### WATERTAP METHOD ###########################################################
     # cost index values
-
+    
+    base_fixed_cap_cost = fixed_cap(flow_in)
+    
     df = get_ind_table()
     cap_replacement_parts = df.loc[basis_year].Capital_Factor
     catalysts_chemicals = df.loc[basis_year].CatChem_Factor
