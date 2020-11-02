@@ -66,14 +66,10 @@ def fixed_cap(TIC, TPEC, flow_in):
     else:  # pump_station = "Treated Water":
         cap_cost = 57887 * flow_in ** 0.7852
         
-        if x == "TPEC":
-            TPEC = 3.4
-        else:
+        if x != "TPEC":
             TPEC = 1
 
-        if x == "TIC":
-            TIC = TIC
-        else:
+        if x != "TIC":
             TIC = 1
 
         fixed_cap = cap_cost * TPEC * TIC # $
