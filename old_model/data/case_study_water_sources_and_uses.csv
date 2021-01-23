@@ -1,0 +1,34 @@
+Variable,Unit,Value,Reference,WaterType,CaseStudy,SourceOrUse
+Turb,NTU,100,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+TSS,mg/L,210,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+BOD,mg/L,190,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+COD,mg/L,430,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+TN,mg/L,40,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+TP,mg/L,7,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+FC,CFU/100ml,1.00E+04,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+TC,CFU/100ml,1.00E+07,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+TDS,mg/L,720,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+Nitrate,mg N/L,0,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+TOC,mg/L,140,Poseidon,Wastewater,Typical untreated domestic wastewater,Source
+Turb,NTU,88,Poseidon,Wastewater,Primary effluent,Source
+TSS,mg/L,131,Poseidon,Wastewater,Primary effluent,Source
+BOD,mg/L,149,Poseidon,Wastewater,Primary effluent,Source
+COD,mg/L,-1,Poseidon,Wastewater,Primary effluent,Source
+TN,mg/L,-1,Poseidon,Wastewater,Primary effluent,Source
+TP,mg/L,5.1,Poseidon,Wastewater,Primary effluent,Source
+FC,CFU/100ml,-1.00E+00,Poseidon,Wastewater,Primary effluent,Source
+TC,CFU/100ml,-1.00E+00,Poseidon,Wastewater,Primary effluent,Source
+TDS,mg/L,-1,Poseidon,Wastewater,Primary effluent,Source
+Nitrate,mg N/L,0.1,Poseidon,Wastewater,Primary effluent,Source
+TOC,mg/L,72,Poseidon,Wastewater,Primary effluent,Source
+Turb,NTU,-1,Poseidon,Environmental,EPA: Environmental Reuse,Use
+TSS,mg/L,30,Poseidon,Environmental,EPA: Environmental Reuse,Use
+BOD,mg/L,30,Poseidon,Environmental,EPA: Environmental Reuse,Use
+COD,mg/L,-1,Poseidon,Environmental,EPA: Environmental Reuse,Use
+TN,mg/L,-1,Poseidon,Environmental,EPA: Environmental Reuse,Use
+TP,mg/L,-1,Poseidon,Environmental,EPA: Environmental Reuse,Use
+FC,CFU/100ml,2.00E+02,Poseidon,Environmental,EPA: Environmental Reuse,Use
+TC,CFU/100ml,-1.00E+00,Poseidon,Environmental,EPA: Environmental Reuse,Use
+TDS,mg/L,-1.00E+00,Poseidon,Environmental,EPA: Environmental Reuse,Use
+Nitrate,mg N/L,-1.00E+00,Poseidon,Environmental,EPA: Environmental Reuse,Use
+TOC,mg/L,-1.00E+00,Poseidon,Environmental,EPA: Environmental Reuse,Use

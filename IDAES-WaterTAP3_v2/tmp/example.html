@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 500px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "source1", "label": "source1", "shape": "dot", "size": 10}, {"id": "swoi", "label": "swoi", "shape": "dot", "size": 10}, {"id": "coag_floc", "label": "coag_floc", "shape": "dot", "size": 10}, {"id": "mixer1", "label": "mixer1", "shape": "dot", "size": 10}, {"id": "tri_media_filtration", "label": "tri_media_filtration", "shape": "dot", "size": 10}, {"id": "splitter1", "label": "splitter1", "shape": "dot", "size": 10}, {"id": "SAA", "label": "SAA", "shape": "dot", "size": 10}, {"id": "SBA", "label": "SBA", "shape": "dot", "size": 10}, {"id": "cf", "label": "cf", "shape": "dot", "size": 10}, {"id": "ro", "label": "ro", "shape": "dot", "size": 10}, {"id": "lime", "label": "lime", "shape": "dot", "size": 10}, {"id": "co2", "label": "co2", "shape": "dot", "size": 10}, {"id": "chlor", "label": "chlor", "shape": "dot", "size": 10}, {"id": "ammonia", "label": "ammonia", "shape": "dot", "size": 10}, {"id": "TWS_24_hr", "label": "TWS_24_hr", "shape": "dot", "size": 10}, {"id": "muni", "label": "muni", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": "source1", "to": "swoi", "weight": 1}, {"arrows": "to", "from": "swoi", "to": "coag_floc", "weight": 1}, {"arrows": "to", "from": "coag_floc", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "mixer1", "to": "tri_media_filtration", "weight": 1}, {"arrows": "to", "from": "tri_media_filtration", "to": "splitter1", "weight": 1}, {"arrows": "to", "from": "tri_media_filtration", "to": "SAA", "weight": 1}, {"arrows": "to", "from": "splitter1", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "SAA", "to": "SBA", "weight": 1}, {"arrows": "to", "from": "SBA", "to": "cf", "weight": 1}, {"arrows": "to", "from": "cf", "to": "ro", "weight": 1}, {"arrows": "to", "from": "ro", "to": "lime", "weight": 1}, {"arrows": "to", "from": "lime", "to": "co2", "weight": 1}, {"arrows": "to", "from": "co2", "to": "chlor", "weight": 1}, {"arrows": "to", "from": "chlor", "to": "ammonia", "weight": 1}, {"arrows": "to", "from": "ammonia", "to": "TWS_24_hr", "weight": 1}, {"arrows": "to", "from": "TWS_24_hr", "to": "muni", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"font": {"size": 16, "background": "rgba(255,255,255,1)"}}, "edges": {"color": {"inherit": true}, "smooth": {"type": "continuous", "forceDirection": "none"}}, "layout": {"hierarchical": {"enabled": true, "levelSeparation": 220, "nodeSpacing": 145, "treeSpacing": 195, "direction": "LR", "sortMethod": "directed"}}, "interaction": {"navigationButtons": true}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
