@@ -2,6 +2,10 @@
 
 A repo for the working version of WaterTAP3-Python and introductory tutorials to learn the basic functionalities of the model.
 
+# NEEDS TO BE UPDATED FOR NEW MODEL UPDATES. INFORMATION BELOW RELATES TO OLD MODEL AND IS STILL FUNCTIONAL.
+
+
+
 ### Table of Contents
 - [Requirements](https://github.com/NREL/HiPerFEWS#requirements)
 - [Data](https://github.com/NREL/HiPerFEWS#data)
