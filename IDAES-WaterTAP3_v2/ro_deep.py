@@ -78,34 +78,34 @@ fixed_op_cost_scaling_exp = 0.7
 
 
 # Plant specifications
-tim = 25 # (deg. C) feed water inlet temperature at RO element entry   (DEEP model default)
-tds = 35000 # (ppm) total disolved solids   (Mike's input value)
+tim = 25 # (deg. C) feed water inlet temperature at RO element entry   (DEEP model default) *****
+tds = 35000 # (ppm) total disolved solids   (Mike's input value) *****
 
 # RO Technical parameters
 pmax = 85 # (bar) maximum design pressure of the membrane (matched to Carlsbad value in VAR tab)
-ccalc = .00115 # constant used for recovery ratio calculation
-dflux = 13.6 # (l/m2*h) design average permeate flux
-nflux = 27.8 # (l/m2*h) normal permeate flux
-a = 3500 # polyamide membrane permeability constant
+ccalc = .00115 # constant used for recovery ratio calculation *****
+dflux = 13.6 # (l/m2*h) design average permeate flux  ****
+nflux = 27.8 # (l/m2*h) normal permeate flux ****
+a = 3500 # polyamide membrane permeability constant *****
 ndpn = 44.7 # (bar) nominal net driving pressure
-kmff = .9 # fouling factor
-kmaiicf = 1.05 # aggregation of individual ions correction factor
-kmsgc = 1.04 # specific gravity of concentrate correction factor
+kmff = .9 # fouling factor *****
+kmaiicf = 1.05 # aggregation of individual ions correction factor *****
+kmsgc = 1.04 # specific gravity of concentrate correction factor *****
 kmsgsw = 1.02 # specific gravity of seawater feed correction factor  ##### Not used in Excel version
 
 # Pump data
-dpspd = 2 # (bar) pressure drop across the system
-dppp = 1 # (bar) permeate pressure losses
-dpps = 1 # (bar) pump suction pressure
-dpcd = .5 # (bar) concentrate discharge pressure
-dpsm = 1.7 # (bar) seawater pump head 
-dpbm = 3.3 # (bar) booster pump head
+dpspd = 2 # (bar) pressure drop across the system *****
+dppp = 1 # (bar) permeate pressure losses *****
+dpps = 1 # (bar) pump suction pressure *****
+dpcd = .5 # (bar) concentrate discharge pressure *****
+dpsm = 1.7 # (bar) seawater pump head  *****
+dpbm = 3.3 # (bar) booster pump head *****
 
-ehm = .85 # high head pump efficiency
-ehhm = .97 # hydraulic pump hydraulic coupling efficiency
-esm = .85 # seawater pump efficiency 
-ebm = .85 # booster pump efficiency 
-eer = .95 # energy recovery efficiency
+ehm = .85 # high head pump efficiency *****
+ehhm = .97 # hydraulic pump hydraulic coupling efficiency *****
+esm = .85 # seawater pump efficiency  *****
+ebm = .85 # booster pump efficiency  *****
+eer = .95 # energy recovery efficiency *****
 eem = .96 # electric motor efficiency  ##### Not used in Excel version
 
 fma = .73 # membrane area factor (over reference)
@@ -306,32 +306,39 @@ see property package for documentation.}"""))
 
 
             
+            
+            
+            
+            ################### DEEP METHOD ###########################################################
+            ##### excludes the cost of water storage, transportation, distribution
+            ##### *** are variables that are also in the watertap excel version of the DEEP model
 
-            self.rr = 1 - (ccalc/pmax) * tds # optimal recovery ratio
+            self.rr = 1 - (ccalc/pmax) * tds # optimal recovery ratio *****
             
             # flow_in = wacs / self.rr # (m3/d) feed flow (wfm in DEEP model)
             # flow_in_m3_hr = flow_in / 24 # (m3/hr) feed flow
             # wbm = flow_in - wacs # (m3/d) brine flow
-            dso = tds / (1-self.rr) # (ppm) brine salinity
-            dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.rr))) * (1+(tim - 25)*.03) # (ppm) permeate salinity
+            
+            dso = tds / (1-self.rr) # (ppm) brine salinity ***
+            dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.rr))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
 
-            kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor
-            kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.rr)))*tds # salinity correction factor
-            ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure
+            kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
+            kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.rr)))*tds # salinity correction factor***
+            ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
 
 
 
             def energy_recovery(wacs):
                 fsms = wacs/self.rr * (1000 / (24*3600)) # (kg/s) feed flow
 
-                dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise
-                qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw  # (MW) high head pump power. Different in model vs. manual. This matches model
-                #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Matches Mike's equation   
+                dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise  *****
+                qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw  # (MW) high head pump power. Different in model vs. manual. This matches model 
+                #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Matches Mike's equation    *****
                     
-                qer1 = -fsms * (1-self.rr)* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT
-                qer2 =  -(1-self.rr) * eer * qhp # (MW) energy recovery other
+                qer1 = -fsms * (1-self.rr)* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
+                qer2 =  -(1-self.rr) * eer * qhp # (MW) energy recovery other *****
 
-            #     if qer1 < qer2:
+            #     if qer1 < qer2:  TODO
             #         recovery = qer1
             #     else:
             #         recovery = qer2
@@ -343,26 +350,32 @@ see property package for documentation.}"""))
 
                 dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise
                 
-                #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Different in model vs. manual.(Model divides by eem and * kmsgsw, manual and Mike do not)
+                #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Different in model vs. manual.
+                                #(Model divides by eem and * kmsgsw, manual and Mike do not)
                 qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw # (MW) high head pump power. (Model version)
                 
-                #qsp = (fsms * dpsm) / (esm * 9866) # (MW) seawater pumping power. (Model divides by eem, manual and Mike do not
+                #qsp = (fsms * dpsm) / (esm * 9866) # (MW) sw pumping power. Model divides by eem, manual and Mike do not *****
                 qsp = (fsms * dpsm) / (esm * eem * 9866) * kmsgsw # (MW) seawater pumping power. (Model version)
                 
-                #qbp = (fsms * dpbm) / (ebm  * 9866) # (MW) booster pump power. (Model divides by eem, manual and Mike do not)
+                #qbp = (fsms * dpbm) / (ebm  * 9866) # (MW) booster pump power. Model divides by eem, manual and Mike do not ***
                 qbp = (fsms * dpbm) / (ebm * eem * 9866) * kmsgsw # (MW) booster pump power. (Model version)
                 
-                qom = (wacs * qsom) / (24 * 1000) # (MW) other power
+                qom = (wacs * qsom) / (24 * 1000) # (MW) other power  *****
 
-                qms = qsp + qbp + qhp + energy_recovery(wacs) + qom # (MW) total power use
+                qms = qsp + qbp + qhp + energy_recovery(wacs) + qom # (MW) total power use *****
 
-                return qms #(MW)
+                return qms #(MW) annually
 
 
             def energy_demand(wacs): # total energy (including energy recovery)
                 tot_pow = power_demand(wacs) * 24 * 365 * 1000
 
                 return tot_pow # (kWh) annual energy demand
+            
+            def electricity(wacs):
+                electricity = power_demand(wacs) * 24 / (wacs/self.rr) * 1000  #kWh/m3
+                
+                return electricity
 
 
             def power_per_outlet(wacs):
@@ -383,15 +396,6 @@ see property package for documentation.}"""))
 
             pavg = (get_osmotic_pressure(tds,tim) + get_osmotic_pressure(dso,tim))/2 * kmaiicf # (bar) average osmotic pressure
             
-            
-            #########################################################################
-            #########################################################################
-            ################# UP COST CALCULATIONS FOR TREATMENT TRAIN ##############
-            #########################################################################
-            #########################################################################
-
-            # excludes the cost of water storage, transportation, distribution
-
 
             def cap_recovery(i,n):
                 lfc = (i * (1 + i)**n) / ((1 + i) ** n - 1)
@@ -410,12 +414,6 @@ see property package for documentation.}"""))
                 idcs = cmscon * ((1 + ir) ** (lm/24) - 1 ) # interest during construction
                 cmsinv = cmscon + idcs # total investment cost
                 
-                
-                #Comparisons to Excel:
-                #mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
-                #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
-                
-                #return mcgivney_cap_cost
                 return cmsinv/1000000 # $M; total investment cost
                 
             
@@ -458,6 +456,7 @@ see property package for documentation.}"""))
 
                 return cdom/1000000 # annual O&M cost; $ M                                        
 
+            
             def get_flow_out(flow_in): 
                 #flow_in_m3d = pyunits.convert(self.parent_block().flow_vol_in[time],
                #                       to_units=pyunits.meter**3/pyunits.day) # conversion from MGD to m3/d
@@ -467,7 +466,7 @@ see property package for documentation.}"""))
                 return flow_out #m3/d
             
 
-            def total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="wt"):
+            def total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="deep"):
                 wacs = get_flow_out(flow_in) # flow_out m3/d; plant OUTPUT capacity and also called wacd in DEEP
 
                 adrev = capital_cost(wacs) + OM_cost(wacs) + energy_cost(wacs) # total annual cost; $ M
@@ -479,13 +478,22 @@ see property package for documentation.}"""))
 
 
             def lifetime_levelized_cost(flow_in):
-                levelized = total_up_cost(flow_in) / (get_flow_out(flow_in) * 365 * lwp * amp) # total_up_cost must return lifetime_cost, not lifetime_cost_2
+                levelized = total_up_cost(flow_in) / (get_flow_out(flow_in) * 365 * lwp * amp) 
+                            # total_up_cost must return lifetime_cost, not lifetime_cost_2
 
                 return levelized # lifetime levelized (M$/m3)
             
             
             
+            ################### WT METHOD ###########################################################            
             
+            
+            def fixed_cap_mcgiv(wacs):
+               
+                mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
+                #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
+                
+                return mcgivney_cap_cost
             
             
 
@@ -496,6 +504,7 @@ see property package for documentation.}"""))
                         doc="Unadjusted fixed capital investment")
             ##############################################################################
 
+            
             ################## WATERTAP METHOD ###########################################################
             if cost_method == "wt":
            
@@ -510,7 +519,7 @@ see property package for documentation.}"""))
                 
                 wacs = get_flow_out(flow_in)
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(wacs),
+                    expr=fixed_cap_mcgiv(wacs),
                     doc="Unadjusted fixed capital investment")
 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
@@ -522,17 +531,19 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
+                self.electricity = electricity(wacs)  # kwh/m3 (PML note: based on data from Carlsbad case)
                 self.cat_and_chem_cost = 0  # TODO
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-                self.base_employee_salary_cost = fixed_cap(wacs) * salaries_percent_FCI
+                self.base_employee_salary_cost = fixed_cap_mcgiv(wacs) * salaries_percent_FCI
                 self.salaries = (
                     self.labor_and_other_fixed
                     * self.base_employee_salary_cost
@@ -547,15 +558,15 @@ see property package for documentation.}"""))
                 
 
                 # This self.total_up_cost ignores total_up_cost equation from the DEEP model (the call is commented out below) and only takes the fixed_cap equation to use in this block with the Mcgiv. base/exp stated at the top.  
-#                 self.total_up_cost = (
-#                     self.total_cap_investment
-#                     + self.cat_and_chem_cost
-#                     + self.electricity_cost
-#                     + self.other_var_cost
-#                     + self.total_fixed_op_cost
-#                 )
+                self.total_up_cost = (
+                    self.total_cap_investment
+                    + self.cat_and_chem_cost
+                    + self.electricity_cost
+                    + self.other_var_cost
+                    + self.total_fixed_op_cost
+                )
 
-
+            if cost_method == "deep":
                 self.total_up_cost = total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="deep") # TODO
                 
 
