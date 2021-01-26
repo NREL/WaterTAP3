@@ -64,10 +64,6 @@ cap_scaling_exp = .6179  # Carlsbad Treatment train VAR tab
 basis_year = 2007
 fixed_op_cost_scaling_exp = 0.7
 
-number_of_units = 2
-
-chemical_dosage = .01 # kg/m3
-solution_density = 1781 # kg/m3
 
 #### CAT AND CHEMS START ###
 #Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
@@ -163,6 +159,15 @@ see property package for documentation.}"""))
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
        
+        number_of_units = 2
+
+        chemical_dosage = .01 # kg/m3
+        solution_density = 1781 # kg/m3
+
+        lift_height = 100 # ft
+    
+    
+    
         def tpec_tic():
             
             x = "TPEC" # changeable by user
@@ -178,11 +183,13 @@ see property package for documentation.}"""))
             return (TPEC * TIC)
             
         
-        def solution_vol_flow(flow_in):
+        def solution_vol_flow(flow_in): # m3/hr
+            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.hour)
+            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
             
-            chemical_rate = flow_in * (chemical_dosage * 3785.4118) # MGD * kg/ million gallons = kg/day
-            
-            return chemical_rate / (solution_density * .0037854118) # kg/day / kg/m3 * (m3 / gal) = gal/day
+            return (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
+        
         
         def fixed_cap(flow_in):
             
@@ -193,6 +200,16 @@ see property package for documentation.}"""))
             source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp # $
 
             return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
+
+        
+        def electricity(flow_in): # m3/hr
+            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.hour)    
+            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+
+            electricity = (.746 * (solution_vol_flow(flow_in) / 1440) * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
+
+            return electricity
 
     
         def _make_vars(self):
@@ -279,12 +296,13 @@ see property package for documentation.}"""))
                 self.cat_and_chem_cost = chem_cost_sum
                 
                 # kw electricity calculated below. lift height of 30.5m. flow needs to be in m3/h for the solution volume flow
-                self.electricity = 0
+                self.electricity = electricity(flow_in) # kwh/m3
                 
                 # TODO
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * 24 * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")

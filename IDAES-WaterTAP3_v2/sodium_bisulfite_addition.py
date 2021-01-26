@@ -69,7 +69,7 @@ number_of_units = 2
 chemical_dosage = .01 # kg/m3
 solution_density = 1480 # kg/m3
 
-
+lift_height = 100 # ft
 
 
 
@@ -167,33 +167,6 @@ see property package for documentation.}"""))
         # These are fairly obvious, but have pre-defined names
         
         
-        def tpec_tic():
-            
-            x = "TPEC" # changeable by user
-            TPEC = 3.4
-            TIC = 1.65
-
-            if x != "TPEC": 
-                TPEC = 1
-
-            if x != "TIC": 
-                TIC = 1
-                
-            return (TPEC * TIC)
-            
-        
-        
-        def fixed_cap(flow_in):
-                
-            chemical_rate = flow_in * (chemical_dosage * 3785.4118) # MGD * kg/ million gallons = kg/day
-            solution_vol_flow = chemical_rate / (solution_density * .0037854118) # kg/day / kg/m3 * (m3 / gal) = gal/day
-
-            source_cost = base_fixed_cap_cost * solution_vol_flow ** cap_scaling_exp # $
-
-
-            return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
-            
-        
         
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
@@ -222,6 +195,53 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
+            
+            
+            def tpec_tic():
+            
+            x = "TPEC" # changeable by user
+            TPEC = 3.4
+            TIC = 1.65
+
+            if x != "TPEC": 
+                TPEC = 1
+
+            if x != "TIC": 
+                TIC = 1
+                
+            return (TPEC * TIC)
+            
+  
+        def fixed_cap(flow_in): # m3/hr
+            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.hour)
+            
+            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+            solution_vol_flow = (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
+
+            source_cost = base_fixed_cap_cost * solution_vol_flow ** cap_scaling_exp # $
+
+
+            return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
+            
+            
+            
+        def electricity(flow_in): # m3/hr
+            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.hour)
+            
+            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+            solution_vol_flow = (chemical_rate / solution_density) * 264.17 / 1440 # m3/day to gal/min
+
+            electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
+
+            return electricity
+            
+            
+            
+            
+            
+            
             _make_vars(self)
 
             self.base_fixed_cap_cost = Param(mutable=True,
@@ -280,10 +300,13 @@ see property package for documentation.}"""))
                 self.cat_and_chem_cost = chem_cost_sum
                 
                 
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO           
+                self.electricity = electricity(flow_in) # kwh/m3
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
+                
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
