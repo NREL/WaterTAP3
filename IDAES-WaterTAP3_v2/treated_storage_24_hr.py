@@ -195,14 +195,11 @@ see property package for documentation.}"""))
             from the spreadsheet
             '''
             
-            # flow_in in m3/s
-
             def fixed_cap(flow_in):
                 
                 flow_in_m3_hr = pyunits.convert(self.parent_block().flow_vol_in[time],
                                       to_units=pyunits.m**3/pyunits.hr)
                 vol_in_m3 = flow_in_m3_hr * storage_duration
-    
     
                 unit_cost = self.base_fixed_cap_cost * vol_in_m3 ** self.cap_scaling_exp # $/m3 (euros/m3)
                 fixed_cap = (unit_cost * vol_in_m3) / 1000000
@@ -231,7 +228,8 @@ see property package for documentation.}"""))
             # pyunits.convert(self.parent_block().flow_vol_in[time],
             #                             to_units=pyunits.Mgallons/pyunits.day)
             
-            flow_in = self.parent_block().flow_vol_in[time]
+            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.Mgallons/pyunits.day)
             
             
 
@@ -268,23 +266,25 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
+                self.electricity = 0
                 self.cat_and_chem_cost = 0  # TODO
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
-                flow_in_MGD = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.Mgallons/pyunits.day)
+                
                 self.salaries = (
                     self.labor_and_other_fixed
                     * self.base_employee_salary_cost
-                    * flow_in_MGD ** fixed_op_cost_scaling_exp
+                    * flow_in ** fixed_op_cost_scaling_exp
                 )
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = fixed_cap(flow_in) * .005 # from Poseidon default values
