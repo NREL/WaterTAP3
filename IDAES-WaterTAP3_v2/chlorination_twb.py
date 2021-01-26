@@ -28,7 +28,7 @@ from idaes.core.util.config import is_physical_parameter_block
 from pyomo.environ import (
     Expression, Var, Param, NonNegativeReals, units as pyunits)
 
-# Import WaterTAP# finanacilas module
+# Import WaterTAP# financials module
 import financials
 from financials import * #ARIEL ADDED
 
@@ -309,11 +309,14 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
+                self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
                 self.cat_and_chem_cost = 0  # TODO
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
@@ -323,7 +326,7 @@ see property package for documentation.}"""))
                 self.salaries = (
                     self.labor_and_other_fixed
                     * self.base_employee_salary_cost
-                    * (flow_in*pyunits.day/pyunits.Mgallon) ** fixed_op_cost_scaling_exp #TODO check units
+                    * flow_in ** fixed_op_cost_scaling_exp
                 ) # $M
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
