@@ -178,6 +178,33 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
+            
+            lift_height = 300 # ft
+            
+            
+            def fixed_cap(flow_in): # source: McGivney/Kawamura, VAR tab
+                x = "TPEC" # changeable by user
+                TPEC = 3.4
+                TIC = 1.65
+                
+                if x != "TPEC": 
+                    TPEC = 1
+
+                if x != "TIC": 
+                    TIC = 1
+
+
+                return (self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp) * TPEC * TIC # $M
+            
+
+            def electricity(flow_in):
+                flow_in_gpm = pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute)
+                flow_in_m3hr = pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.hour)
+                electricity = (.746 * flow_in_gpm * lift_height / (3960 * .9 * .9)) / flow_in_m3hr # kWh/m3
+                
+                return electricity
+            
+            
             _make_vars(self)
 
             self.base_fixed_cap_cost = Param(mutable=True,
@@ -198,19 +225,6 @@ see property package for documentation.}"""))
                                       to_units=pyunits.Mgallons/pyunits.day)
             
             
-            def fixed_cap(flow_in): # source: McGivney/Kawamura, VAR tab
-                x = "TPEC" # changeable by user
-                TPEC = 3.4
-                TIC = 1.65
-                
-                if x != "TPEC": 
-                    TPEC = 1
-
-                if x != "TIC": 
-                    TIC = 1
-
-
-                return (self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp) * TPEC * TIC # $M
             
             
 
@@ -246,17 +260,20 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
+                self.electricity = electricity(flow_in) # kwh/m3 
                 self.cat_and_chem_cost = 0  # TODO
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time],
+                                                to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-                self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI # self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp * salaries_percent_FCI
+                self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI 
                 self.salaries = (
                     self.labor_and_other_fixed
                     * self.base_employee_salary_cost
