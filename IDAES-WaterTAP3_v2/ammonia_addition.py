@@ -66,10 +66,7 @@ fixed_op_cost_scaling_exp = 0.7
 
 
 basis_year = 2007
-chemical_dosage = .003 # kg/m3
-number_of_units = 2
-density_of_solution = 900 # kg/m3
-ratio_in_solution = .3
+
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -184,6 +181,50 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
+            
+            chemical_dosage = .003 # kg/m3
+            number_of_units = 2
+            density_of_solution = 900 # kg/m3
+            ratio_in_solution = .3
+            
+            def tpec_tic():
+            
+                x = "TPEC" # changeable by user
+                TPEC = 3.4
+                TIC = 1.65
+
+                if x != "TPEC": 
+                    TPEC = 1
+
+                if x != "TIC": 
+                    TIC = 1
+
+                return (TPEC * TIC)
+            
+            
+            def fixed_cap(flow_in): # m3/hr
+                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.hour)
+                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+                solution_vol_flow = chemical_rate / density_of_solution / ratio_in_solution # m3/day
+                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
+                source_cost = 6699.1 * solution_flow_gpd ** .4219
+                
+                return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
+              
+            
+            def electricity(flow_in): # m3/hr
+                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.hour)
+                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+                solution_vol_flow = (chemical_rate / density_of_solution / ratio_in_solution) * 264.17 / 1440 # m3/day to gal/min
+                
+                electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
+                
+                return electricity
+            
+            
+
             _make_vars(self)
 
             self.base_fixed_cap_cost = Param(mutable=True,
@@ -256,11 +297,13 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
-                self.cat_and_chem_cost = 0  # TODO Catalyst and Chemicals ($MM/yr) in excel
+                self.electricity = electricity(flow_in) # kwh/m3 
+                self.cat_and_chem_cost = 0  # TODO
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
