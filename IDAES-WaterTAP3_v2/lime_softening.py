@@ -262,7 +262,7 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
+                self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
                 
                 # TODO for systematic approach elsewhere
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
@@ -273,9 +273,12 @@ see property package for documentation.}"""))
                 self.cat_and_chem_cost = chem_cost_sum
                 
                 
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
+                
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
