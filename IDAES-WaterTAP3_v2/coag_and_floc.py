@@ -230,7 +230,8 @@ see property package for documentation.}"""))
             # calculations are in GPM
 
             def capital_costs(flow_in):
-                flow_in_gpm = flow_in * 694.44 # MGD to GPM
+                flow_in_gpm = pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute) 
+                            # MGD to GPM
 
                 rapid_mix_basin_volume = (rapid_mix_retention_time / 60) * flow_in_gpm # gallons
                 floc_basin_volume = floc_retention_time * flow_in_gpm # gallons 
@@ -260,16 +261,22 @@ see property package for documentation.}"""))
 
 
             def total_power_consumption(flow_in): # TODO
-                flow_in_gpm = flow_in * 694.44 # MGD to GPM
+                flow_in_gpm = pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute) 
+                            # MGD to GPM
+                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.hour) 
+                            # MGD to m3/hr
 
-                rapid_mix_power_consumption = 900**2 * .001 * ((rapid_mix_retention_time / 60) * flow_in_gpm) /264.172 # W
+                rapid_mix_basin_volume = ((rapid_mix_retention_time / 60) * flow_in_gpm) / 264.172 # gallons to m3
+                
+                rapid_mix_power_consumption = 900**2 * .001 * rapid_mix_basin_volume # W
                 rapid_mix_power = rapid_mix_power_consumption * rapid_mixers # W
 
-                floc_power_consumption = 80**2 * .001 * (floc_retention_time * flow_in_gpm)/264.172 # W
+                floc_basin_volume = floc_retention_time * flow_in_gpm / 264.172 # gallons to m3
+                floc_power_consumption = 80**2 * .001 * floc_basin_volume # W
                 floc_mix_power = floc_power_consumption * floc_mixers # W
 
                 total_power = rapid_mix_power + floc_mix_power
-                total_power_per_m3 = (total_power / 1000) / flow_in # TODO
+                total_power_per_m3 = (total_power / 1000) / flow_in_m3h # TODO
 
                 return total_power_per_m3 # kWh/m3
             
@@ -326,7 +333,6 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
                 
                 # TODO for systematic approach elsewhere
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
@@ -337,9 +343,12 @@ see property package for documentation.}"""))
                 self.cat_and_chem_cost = chem_cost_sum
                 
                 
+                self.electricity = total_power_consumption(flow_in)  # kWh/m3
+               
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= self.electricity * elec_price * 365,
-                        doc="Electricity cost")
+                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        doc="Electricity cost") # M$/yr
                 self.other_var_cost = Expression(
                         expr= self.cat_and_chem_cost - self.electricity_cost,
                         doc="Other variable cost")
