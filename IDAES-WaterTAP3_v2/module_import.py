@@ -97,7 +97,14 @@ def get_module(module_name):
     if module_name == "cartridge_filtration":
         import cartridge_filtration as up 
         
+    if module_name == "backwash_solids_handling":
+        import backwash_solids_handling as up
+    
+    if module_name == "surface_discharge":
+        import surface_discharge as up
         
+    if module_name == "landfill":
+        import landfill as up    
         
         
      

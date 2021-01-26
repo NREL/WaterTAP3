@@ -182,6 +182,8 @@ see property package for documentation.}"""))
             from the spreadsheet
             '''
             
+            lift_height = 100 # ft
+            
             chemical_dosage = .003 # kg/m3
             number_of_units = 2
             density_of_solution = 900 # kg/m3

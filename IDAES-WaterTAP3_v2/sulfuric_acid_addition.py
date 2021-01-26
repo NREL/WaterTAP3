@@ -167,7 +167,6 @@ see property package for documentation.}"""))
         lift_height = 100 # ft
     
     
-    
         def tpec_tic():
             
             x = "TPEC" # changeable by user
@@ -184,8 +183,7 @@ see property package for documentation.}"""))
             
         
         def solution_vol_flow(flow_in): # m3/hr
-            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
+            flow_in_m3h = flow_in * 189.4204
             chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
             
             return (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
@@ -202,9 +200,8 @@ see property package for documentation.}"""))
             return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
 
         
-        def electricity(flow_in): # m3/hr
-            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)    
+        def electricity(flow_in): # m3/hr   
+            flow_in_m3h = flow_in * 189.4204
             chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
 
             electricity = (.746 * (solution_vol_flow(flow_in) / 1440) * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3

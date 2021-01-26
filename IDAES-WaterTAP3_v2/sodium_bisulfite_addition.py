@@ -199,43 +199,43 @@ see property package for documentation.}"""))
             
             def tpec_tic():
             
-            x = "TPEC" # changeable by user
-            TPEC = 3.4
-            TIC = 1.65
+                x = "TPEC" # changeable by user
+                TPEC = 3.4
+                TIC = 1.65
 
-            if x != "TPEC": 
-                TPEC = 1
+                if x != "TPEC": 
+                    TPEC = 1
 
-            if x != "TIC": 
-                TIC = 1
-                
-            return (TPEC * TIC)
+                if x != "TIC": 
+                    TIC = 1
+
+                return (TPEC * TIC)
             
   
-        def fixed_cap(flow_in): # m3/hr
-            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
-            
-            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-            solution_vol_flow = (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
+            def fixed_cap(flow_in): # m3/hr
+                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                          to_units=pyunits.m**3/pyunits.hour)
 
-            source_cost = base_fixed_cap_cost * solution_vol_flow ** cap_scaling_exp # $
+                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+                solution_vol_flow = (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
+
+                source_cost = base_fixed_cap_cost * solution_vol_flow ** cap_scaling_exp # $
 
 
-            return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
-            
-            
-            
-        def electricity(flow_in): # m3/hr
-            flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
-            
-            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-            solution_vol_flow = (chemical_rate / solution_density) * 264.17 / 1440 # m3/day to gal/min
+                return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
 
-            electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
 
-            return electricity
+
+            def electricity(flow_in): # m3/hr
+                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                          to_units=pyunits.m**3/pyunits.hour)
+
+                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+                solution_vol_flow = (chemical_rate / solution_density) * 264.17 / 1440 # m3/day to gal/min
+
+                electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
+
+                return electricity
             
             
             

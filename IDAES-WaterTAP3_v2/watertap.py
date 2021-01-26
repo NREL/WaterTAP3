@@ -93,7 +93,10 @@ unit_process_library_list = [
     "sw_onshore_intake",
     "holding_tank",
     "tri_media_filtration",
-    "cartridge_filtration"
+    "cartridge_filtration",
+    "backwash_solids_handling",
+    "surface_discharge",
+    "landfill"
 ]
 
 
