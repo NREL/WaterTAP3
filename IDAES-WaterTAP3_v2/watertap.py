@@ -125,17 +125,18 @@ def watertap_setup(dynamic = False):
 
 
 def run_water_tap(m):
-
-    # Set up a solver in Pyomo and solve
-    solver1 = SolverFactory('ipopt')
-    results = solver1.solve(m, tee=True)
-
     # Transform Arc to construct linking equations
     TransformationFactory("network.expand_arcs").apply_to(m)
     seq = SequentialDecomposition()
     G = seq.create_graph(m)
+    
+    # Set up a solver in Pyomo and solve
+    solver1 = SolverFactory('ipopt')
+    results = solver1.solve(m, tee=True)
+
     print("degrees_of_freedom:", degrees_of_freedom(m))
 
+    
     # Display the inlets and outlets of each unit
     for node in G.nodes():
         print("----------------------------------------------------------------------")

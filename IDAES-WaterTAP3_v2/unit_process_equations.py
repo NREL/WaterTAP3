@@ -170,7 +170,7 @@ def build_up(self, up_name_test = None):
     self.water_recovery = Var(time,
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
                               units=pyunits.dimensionless,
-                              bounds=(0.5, 1.0),
+                              bounds=(0.001, 1.0),
                               doc="Water recovery fraction")
     self.removal_fraction = Var(time,
                                 self.config.property_package.component_list,
