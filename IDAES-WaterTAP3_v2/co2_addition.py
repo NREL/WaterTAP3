@@ -239,9 +239,9 @@ see property package for documentation.}"""))
                 self.electricity_cost = Expression(
                         expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
                         doc="Electricity cost") # M$/yr
-                self.other_var_cost = Expression(
-                        expr= self.cat_and_chem_cost - self.electricity_cost,
-                        doc="Other variable cost")
+                self.other_var_cost = 0 #Expression(
+                        #expr= self.cat_and_chem_cost - self.electricity_cost,
+                        #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
                 self.base_employee_salary_cost = self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp * salaries_percent_FCI
