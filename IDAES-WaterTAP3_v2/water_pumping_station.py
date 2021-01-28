@@ -289,7 +289,7 @@ see property package for documentation.}"""))
                 self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
                 self.cat_and_chem_cost = 0  # TODO
                 self.electricity_cost = self.electricity * elec_price * 365  # KWh/day * $/KWh * 365 days
-                self.other_var_cost = self.cat_and_chem_cost - self.electricity_cost
+                self.other_var_cost = 0 #self.cat_and_chem_cost - self.electricity_cost
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI

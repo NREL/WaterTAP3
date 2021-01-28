@@ -84,6 +84,8 @@ basis_year = 2014
 fixed_op_cost_scaling_exp = 0.7
 
 cost_method = "wt"
+
+
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
@@ -309,17 +311,29 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
+                
                 self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
-                self.cat_and_chem_cost = 0  # TODO
+                
+                cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
+                chem_cost_sum = 0 
+                
+                chem_dic = {"Chlorine" : self.applied_cl2_dose}
+                
+                for key in chem_dic.keys():
+                    chem_cost = cat_chem_df.loc[key].Price
+                    chem_cost_sum = flow_in * chem_cost_sum + self.catalysts_chemicals * 365 * chem_cost * chem_dic[key] * on_stream_factor * 3.78541178 # 3.78541178 for mg/L to kg/gallon
+                
+                self.cat_and_chem_cost = chem_cost_sum / 1000000 # to million $
                 
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time],
                                       to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
                         expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
                         doc="Electricity cost") # M$/yr
-                self.other_var_cost = Expression(
-                        expr= self.cat_and_chem_cost - self.electricity_cost,
-                        doc="Other variable cost")
+                
+                self.other_var_cost = 0 # Expression(
+                        #expr= self.cat_and_chem_cost - self.electricity_cost,
+                        #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
                 self.base_employee_salary_cost = get_chlorine_dose_cost(flow_in, self.applied_cl2_dose) * salaries_percent_FCI
