@@ -19,6 +19,7 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
+
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
