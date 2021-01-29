@@ -250,9 +250,12 @@ see property package for documentation.}"""))
                 self.electricity = 0  # kWh/m3
                 self.cat_and_chem_cost = 0  # TODO
                 
+                
+                total_flow_rate = 310 * 24 * 365 # kg/year - the kg/hour value is from design tab. For Carlsbad only 
+                                            # TODO need to calculate this value
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        expr= (self.electricity * total_flow_rate * elec_price/1000000),
                         doc="Electricity cost") # M$/yr
                 
                 self.other_var_cost = 0 # Expression(

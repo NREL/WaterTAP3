@@ -312,7 +312,7 @@ see property package for documentation.}"""))
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
                 
-                self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
+                self.electricity = .000005689  # kwh/m3 given in PML tab, no source TODO
                 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
                 chem_cost_sum = 0 
