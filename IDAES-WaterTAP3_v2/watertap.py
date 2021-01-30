@@ -96,7 +96,8 @@ unit_process_library_list = [
     "cartridge_filtration",
     "backwash_solids_handling",
     "surface_discharge",
-    "landfill"
+    "landfill",
+    "coagulant_addition"
 ]
 
 
