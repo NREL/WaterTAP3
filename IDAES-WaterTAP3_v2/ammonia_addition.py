@@ -19,6 +19,7 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
+
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -236,25 +237,6 @@ see property package for documentation.}"""))
                                          initialize=cap_scaling_exp,
                                          doc="Another parameter from TWB")
 
-
-            
-            def fixed_cap(flow_in):
-                chemical_rate = chemical_dosage * flow_in * 86400 # kg/day # flow_in in m3/s
-                solution_flow = chemical_rate/density_of_solution/ratio_in_solution/24 #m3/day
-                solution_flow_gpd = solution_flow * 264.172
-                source_cost = 6699.1 * solution_flow_gpd ** .4219
-                
-                x = "TPEC" # changeable by user
-                TPEC = 3.4
-                TIC = 1.65
-                
-                if x != "TPEC": 
-                    TPEC = 1
-
-                if x != "TIC": 
-                    TIC = 1
-
-                return (source_cost * TPEC * TIC * number_of_units)/1000000 # M$
             
             
             # Get the first time point in the time domain
