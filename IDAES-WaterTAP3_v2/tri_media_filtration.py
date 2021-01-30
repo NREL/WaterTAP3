@@ -249,17 +249,25 @@ see property package for documentation.}"""))
                         #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
+#                 self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
+                
+#                 flow_vol2 = pyunits.convert(self.parent_block().flow_vol_in[time],
+#                                       to_units=pyunits.m**3/pyunits.hour)       
+                
+#                 self.salaries = (
+#                     self.labor_and_other_fixed
+#                     * self.base_employee_salary_cost
+#                     * flow_vol2 ** fixed_op_cost_scaling_exp
+#                 )
+
+#                 self.salaries = (
+#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
+#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
+               
                 self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
-                
-                flow_vol2 = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)       
-                
-                self.salaries = (
-                    self.labor_and_other_fixed
-                    * self.base_employee_salary_cost
-                    * flow_vol2 ** fixed_op_cost_scaling_exp
-                )
-                
+                self.salaries = Expression(
+                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
+                        doc="Salaries")
 
                 #base_fixed_cap_cost = .72557  # from IT3PR, section 3.5.6 figure 3.3 $MM & MGD
                 #cap_scaling_exp = .5862  # from IT3PR, section 3.5.6 figure 3.3

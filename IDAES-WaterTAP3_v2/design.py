@@ -18,7 +18,9 @@ from mixer_example import Mixer1
 from split_test2 import Separator1
 from pyomo.network import Arc, SequentialDecomposition
 
+import pandas as pd
 
+import generate_constituent_list
 
 def connect_blocks(m = None, 
                     stream_name = None,
@@ -78,12 +80,26 @@ def add_water_source(m = None, source_name = None, link_to = None,
         reference = reference, water_type = water_type, 
         case_study = case_study)
     
+    
+    train_constituent_list = generate_constituent_list.run()
+    
     setattr(m.fs, source_name, Source(default={"property_package": m.fs.water}))
     
     getattr(m.fs, source_name).inlet.flow_vol.fix(flow)
-    getattr(m.fs, source_name).inlet.conc_mass[:, "TOC"].fix(df.loc["TOC"].Value)
-    getattr(m.fs, source_name).inlet.conc_mass[:, "nitrates"].fix(df.loc["Nitrate"].Value) #TODO ChangeNitrate
-    getattr(m.fs, source_name).inlet.conc_mass[:, "TDS"].fix(df.loc["TDS"].Value)
+        
+    for constituent_name in train_constituent_list:
+        
+        if constituent_name in df.index:
+            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].Value)        
+        
+        else:
+            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(1e-4)
+            
+    #getattr(m.fs, source_name).inlet.conc_mass[:, "TOC"].fix(df.loc["TOC"].Value)
+    #getattr(m.fs, source_name).inlet.conc_mass[:, "nitrates"].fix(df.loc["Nitrate"].Value) #TODO ChangeNitrate
+    #getattr(m.fs, source_name).inlet.conc_mass[:, "TDS"].fix(df.loc["TDS"].Value)
+    
+    
     getattr(m.fs, source_name).inlet.temperature.fix(300)
     getattr(m.fs, source_name).inlet.pressure.fix(2e5)
     

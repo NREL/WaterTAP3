@@ -19,6 +19,7 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
+
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -236,25 +237,6 @@ see property package for documentation.}"""))
                                          initialize=cap_scaling_exp,
                                          doc="Another parameter from TWB")
 
-
-            
-            def fixed_cap(flow_in):
-                chemical_rate = chemical_dosage * flow_in * 86400 # kg/day # flow_in in m3/s
-                solution_flow = chemical_rate/density_of_solution/ratio_in_solution/24 #m3/day
-                solution_flow_gpd = solution_flow * 264.172
-                source_cost = 6699.1 * solution_flow_gpd ** .4219
-                
-                x = "TPEC" # changeable by user
-                TPEC = 3.4
-                TIC = 1.65
-                
-                if x != "TPEC": 
-                    TPEC = 1
-
-                if x != "TIC": 
-                    TIC = 1
-
-                return (source_cost * TPEC * TIC * number_of_units)/1000000 # M$
             
             
             # Get the first time point in the time domain
@@ -311,12 +293,22 @@ see property package for documentation.}"""))
                         #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-                self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
-                self.salaries = (
-                    self.labor_and_other_fixed
-                    * self.base_employee_salary_cost
-                    * flow_in ** fixed_op_cost_scaling_exp
-                )
+#                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
+#                 self.salaries = (
+#                     self.labor_and_other_fixed
+#                     * self.base_employee_salary_cost
+#                     * flow_in ** fixed_op_cost_scaling_exp
+#                 )
+                
+#                 self.salaries = (
+#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
+#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
+               
+                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
+                self.salaries = Expression(
+                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
+                        doc="Salaries")
+                
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
                 self.lab = lab_fees_precent_FCI * self.fixed_cap_inv

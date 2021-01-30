@@ -51,33 +51,22 @@ flow_recovery_factor = 0.99999 # TODO
 tds_removal_factor = 0 # TODO
 
 # Perfomance Parameter Values for Process: Constituent removals. # TODO
-toc_removal_factor = 0.0 
+toc_removal_factor = 0.0  
 nitrates_removal_factor = 0.0  
 TOrC_removal = 0.0  
-EEQ_removal = 0.0  
-ndma_removal = 0.00  
+EEQ_removal = 0.0 
+ndma_removal = 0.00 
 pfos_pfoa_removal = 0.00 
 
-base_fixed_cap_cost = 900.97  # from Carlsbad Treatment train VAR tab
-cap_scaling_exp = .6179  # from Carlsbad Treatment train VAR tab
+base_fixed_cap_cost = .1359 # from Mike's PML, trendline created in output values data
+cap_scaling_exp = .4219  # from Mike's PML, trendline created in output values data
 
 basis_year = 2007
 fixed_op_cost_scaling_exp = 0.7
 
-number_of_units = 2
 
-chemical_dosage = .01 # kg/m3
-solution_density = 1480 # kg/m3
+tpec_or_tic = "TPEC" # changeable by user
 
-lift_height = 100 # ft
-
-
-
-#### CAT AND CHEMS START ###
-# Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-ChemicalDosage = 0.01 # MIKE kg/m3
-Sodium_Bisullfite_NaHSO3 = ChemicalDosage / 264.172 # pyunits to kg/g
-chem_dic = {"Sodium_Bisullfite_NaHSO3" : Sodium_Bisullfite_NaHSO3}
 
 
 # You don't really want to know what this decorator does
@@ -132,11 +121,11 @@ see property package for documentation.}"""))
     from unit_process_equations import initialization
     #unit_process_equations.get_base_unit_process()
 
-    #build(up_name = "sodium_bisulfite_addition")
+    #build(up_name = "ammonia_addition")
     
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = "sodium_bisulfite_addition")
+        return unit_process_equations.build_up(self, up_name_test = "coagulant_addition")
     
     
     def get_costing(self, module=financials, cost_method="wt", year=None):
@@ -166,8 +155,6 @@ see property package for documentation.}"""))
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
         
-        
-        
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
             self.base_cost = Var(initialize=1e5,
@@ -196,52 +183,50 @@ see property package for documentation.}"""))
             from the spreadsheet
             '''
             
+            lift_height = 100 # ft
             
-            def tpec_tic():
+            chemical_dosage = .03 # kg/m3
+            number_of_units = 2
+            density_of_solution = 1360 # kg/m3
+            ratio_in_solution = .5
             
-                x = "TPEC" # changeable by user
+            def tpec_tic(tpec_or_tic):
+            
                 TPEC = 3.4
                 TIC = 1.65
 
-                if x != "TPEC": 
+                if tpec_or_tic != "TPEC": 
                     TPEC = 1
 
-                if x != "TIC": 
+                if tpec_or_tic != "TIC": 
                     TIC = 1
 
                 return (TPEC * TIC)
             
-  
+            
             def fixed_cap(flow_in): # m3/hr
                 flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                          to_units=pyunits.m**3/pyunits.hour)
-
+                                      to_units=pyunits.m**3/pyunits.hour)
                 chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-                solution_vol_flow = (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
-
-                source_cost = base_fixed_cap_cost * solution_vol_flow ** cap_scaling_exp # $
-
-
-                return (source_cost * tpec_tic() * number_of_units)/1000000 # M$
-
-
-
+                solution_vol_flow = chemical_rate / density_of_solution / ratio_in_solution # m3/day
+                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
+                source_cost = 15408 * solution_flow_gpd ** .5479
+                
+                return (source_cost * tpec_tic(tpec_or_tic) * number_of_units)/1000000 # M$
+              
+            
             def electricity(flow_in): # m3/hr
                 flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                          to_units=pyunits.m**3/pyunits.hour)
-
+                                      to_units=pyunits.m**3/pyunits.hour)
                 chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-                solution_vol_flow = (chemical_rate / solution_density) * 264.17 / 1440 # m3/day to gal/min
-
+                solution_vol_flow = (chemical_rate / density_of_solution / ratio_in_solution) * 264.17 / 1440 # m3/day to gal/min
+                
                 electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
+                
+                return electricity #kWh/m3
+            
+            
 
-                return electricity
-            
-            
-            
-            
-            
-            
             _make_vars(self)
 
             self.base_fixed_cap_cost = Param(mutable=True,
@@ -252,12 +237,13 @@ see property package for documentation.}"""))
                                          doc="Another parameter from TWB")
 
             
+            
             # Get the first time point in the time domain
             # In many cases this will be the only point (steady-state), but lets be
             # safe and use a general approach
             time = self.parent_block().flowsheet().config.time.first()
 
-            # Get the inlet flow to the unit and convert to the correct units for the calcs below
+            # Get the inlet flow to the unit and convert to the correct units
             flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
                                       to_units=pyunits.Mgallons/pyunits.day)
             
@@ -290,43 +276,29 @@ see property package for documentation.}"""))
                 self.working_cap = self.fixed_cap_inv * working_cap_precent_FCI
                 self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
 
-
-                #TODO for systematic approach elsewhere
-                cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
-                chem_cost_sum = 0 
-                for key in chem_dic.keys():
-                    chem_cost = cat_chem_df.loc[key].Price
-                    chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in * 365 * chem_cost * chem_dic[key] * on_stream_factor
-                self.cat_and_chem_cost = chem_cost_sum
-                
-                
-                self.electricity = electricity(flow_in) # kwh/m3
+                # variable operating costs (unit: MM$/yr) -> MIKE TO DO -> ---> CAT+CHEM IN EXCEL
+                # --> should be functions of what is needed!?
+                # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
+                # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
+                self.electricity = electricity(flow_in) # kwh/m3 
+                self.cat_and_chem_cost = 0  # TODO
                 
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
+                elec_price = 0.098 # TODO...this is for Ashkelon
                 self.electricity_cost = Expression(
                         expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
                         doc="Electricity cost") # M$/yr
-                
-                self.other_var_cost = 0 #Expression(
+                self.other_var_cost = 0 # Expression(
                         #expr= self.cat_and_chem_cost - self.electricity_cost,
                         #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-#                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
-#                 self.salaries = (
-#                     self.labor_and_other_fixed
-#                     * self.base_employee_salary_cost
-#                     * flow_in ** fixed_op_cost_scaling_exp
-#                 )
-                
-#                 self.salaries = (
-#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
-#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
-               
-                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
-                self.salaries = Expression(
-                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
-                        doc="Salaries")
+                self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
+                self.salaries = (
+                    self.labor_and_other_fixed
+                    * self.base_employee_salary_cost
+                    * flow_in ** fixed_op_cost_scaling_exp
+                )
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
                 self.lab = lab_fees_precent_FCI * self.fixed_cap_inv
