@@ -28,6 +28,7 @@ from idaes.core import (declare_process_block_class,
                         StateBlockData)
 from idaes.core.phases import LiquidPhase
 from idaes.core.components import Component
+import pandas as pd
 
 
 # You don't really want to know what this decorator does
@@ -53,9 +54,18 @@ class PhysicalParameterData(PhysicalParameterBlock):
 
         # Add Component objects - only include contaminants, etc here
         # Water is assumed to always be present
-        self.TOC = Component()
-        self.nitrates = Component()
-        self.TDS = Component()
+        
+        ### MAKE THIS BASED ON THE DATA INPUT?!?! ###
+        import generate_constituent_list
+        train_constituent_list = generate_constituent_list.run()
+        
+        for constituent_name in train_constituent_list:
+        #for constituent_name in ["TOC", "nitrates", "TDS"]:
+            setattr(self, constituent_name, Component())
+
+        #self.TOC = Component()
+        #self.nitrates = Component()
+        #self.TDS = Component()
 
     @classmethod
     def define_metadata(cls, obj):
