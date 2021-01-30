@@ -15,17 +15,12 @@ import ast
 from pyomo.environ import *
 import networkx as nx
 from networkx.drawing.nx_agraph import write_dot, graphviz_layout
-
-### WATER TAP MODULES ###
-import importfile
-import module_import
-import design
-
 from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
 from pyomo.network import Arc, SequentialDecomposition
 import pyomo.environ as env
-
 from idaes.core import FlowsheetBlock
+
+
 
 # Import properties and units from "WaterTAP Library"
 from water_props import WaterParameterBlock
@@ -35,10 +30,15 @@ from split_test2 import Separator1
 
 from mixer_example import Mixer1
 
+### WATER TAP MODULES ###
 import financials
 import display
 import watertap as wt
 import case_study_trains
+import importfile
+import module_import
+import design
+
 
 from pyomo.environ import ConcreteModel, SolverFactory, TerminationCondition, \
     value, Var, Constraint, Expression, Objective, TransformationFactory, units as pyunits
@@ -113,6 +113,9 @@ water_source_use_library = importfile.feedwater(
 
 
 def watertap_setup(dynamic = False):
+    
+    # get constituents for treatment train needed for water property package
+    
     # Create a Pyomo model
     m = ConcreteModel()
 
@@ -120,7 +123,7 @@ def watertap_setup(dynamic = False):
     m.fs = FlowsheetBlock(default={"dynamic": dynamic})
 
     # Add water property package (this can be updated to account for a more extensive list of properties)
-    m.fs.water = WaterParameterBlock()
+    #m.fs.water = WaterParameterBlock() -> THIS IS MOVED TO CASE STUDIES BECAUSE WE CAN'T ADD THIS WITHOUT KNOWING WHICH STUDY
 
     return m
 
@@ -186,6 +189,12 @@ def run_water_tap(m):
 
         print("----------------------------------------------------------------------")
 
+        
+        
+        
+        
+        
+        
 def main():
     print("importing something")
     # need to define anything here?
