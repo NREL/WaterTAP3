@@ -79,6 +79,10 @@ def get_case_study(name = None, flow = None, m = None):
         m = wt.design.add_unit_process(m = m, unit_process_name = "ammonia", unit_process_type = 'ammonia_addition')
         m = wt.design.add_unit_process(m = m, unit_process_name = "TWS_24_hr", unit_process_type = 'treated_storage_24_hr')
         m = wt.design.add_unit_process(m = m, unit_process_name = "muni", unit_process_type = 'municipal_drinking')
+        m = wt.design.add_unit_process(m = m, unit_process_name = "backwash", unit_process_type = 'backwash_solids_handling')
+        m = wt.design.add_unit_process(m = m, unit_process_name = "surface", unit_process_type = 'surface_discharge')
+        m = wt.design.add_unit_process(m = m, unit_process_name = "landfill", unit_process_type = 'landfill')
+        
 
         # mixer and splitter for recycled water
         m.fs.mixer1 = Mixer1(default={"property_package": m.fs.water, "inlet_list": ["inlet1", "inlet2"]})
