@@ -47,7 +47,7 @@ from water_props import WaterParameterBlock
 
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
-flow_recovery_factor = 0.99999
+flow_recovery_factor = 0.95 # ANNA CHECK TODO
 tds_removal_factor = 0
 
 # Perfomance Parameter Values for Process: Constituent removals.
