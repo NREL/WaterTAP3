@@ -257,6 +257,7 @@ see property package for documentation.}"""))
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
                         expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),
+                    doc="Electricity cost") # M$/yr
 
                 # TODO ANNA RESOLVE
                 #total_flow_rate = 310 * 24 * 365 # kg/year - the kg/hour value is from design tab. For Carlsbad only 
