@@ -129,27 +129,29 @@ def get_case_study(flow = None, m = None):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
                     print(b_unit)
-                    i = i + 1
-                    waste_inlet_list.append(("inlet%s" % i))
+                    if check_waste(b_unit) == "no":
+                        i = i + 1
+                        waste_inlet_list.append(("inlet%s" % i))
 
         i = 0
-        j = 16 # automate getting this number and the mixer 2 number below. 
+        j = 16 # automate getting this number -> its number of arcs; and the mixer "2" number below. 
         m.fs.mixer2 = Mixer1(default={"property_package": m.fs.water, "inlet_list": waste_inlet_list})
 
         for b_unit in m.fs.component_objects(Block, descend_into=False):
              if hasattr(b_unit, 'waste'):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
-                    print(b_unit)
-                    i = i + 1
-                    j = j + 1
-
+                    print(b_unit)                   
+                    print(check_waste(b_unit))
+                    
                     if check_waste(b_unit) == "no":
-
+                        print("goes in")
+                        i = i + 1
+                        j = j + 1
                         setattr(m.fs, ("arc%s" % j), Arc(source = getattr(b_unit, "waste"),  
                                                            destination = getattr(m.fs.mixer2, "inlet%s" % i)))     
-
-
+                    
+                    
         j = j + 1                
         # add connection for waste mixer to surface dicharge
         setattr(m.fs, ("arc%s" % j), Arc(source = getattr(m.fs.mixer2, "outlet"),  
