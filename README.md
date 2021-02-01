@@ -13,9 +13,9 @@ A repo for the working version of WaterTAP3-Python and introductory tutorials to
 - [ModelStructure](https://github.com/NREL/NAWI-WaterTAP3#modelstructure)
 
 ### Requirements
-`conda` is an open-source package management system for Python. It allows you to easily install Python packages on your laptop using environments. An `environment` allows you to install packages for specific purposes and keep those packages isolated from any other Python packages installed. 
+[conda](https://docs.conda.io/en/latest/) is an open-source package management system for Python. It allows you to easily install Python packages on your laptop using environments. An `environment` allows you to install packages for specific purposes and keep those packages isolated from any other Python packages installed. 
 
-We recommend you to use `conda` to manage WaterTAP3 environment. A YAML file `environment.yml` is provided for your convenience to build an environment called `watertap3` with all Python packages you will need in WaterTAP3.
+We recommend you to use `conda` to manage WaterTAP3 environment. A YAML file `environment.yml` is provided for your convenience to build an environment called `watertap3` with all Python packages you will need in WaterTAP3. Use command `$ conda env create --file environment.yml` to create your environment.
 
 ### Data
 Input data to run the model includes financial tables and assumptions on specific unit processes. Global data inputs are stored in `Data/` and unit-specific
@@ -32,9 +32,12 @@ The following steps describe how to setup and execute WaterTAP3 tutorials in Jup
 ```
 $ git clone https://github.com/NREL/NAWI-WaterTAP3.git
 ```
-2. Load the WaterTAP3 environment and activate
+2. Create an WaterTAP3 environment from the given YAML file `environment.yml` 
 ```
 $ conda env create --file environment.yml
+```
+Environments must first be activated before the packages are available to use
+```
 $ conda activate watertap3
 ```
 3. Navigate to the repo folder in a terminal and open the Jupyter Notebook dashboard
