@@ -50,7 +50,7 @@ import numpy as np
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 #flow_recovery_factor = 0.8
-tds_removal_factor = 0.75
+#tds_removal_factor = 0.992
 
 # Perfomance Parameter Values for Process: Constituent removals.
 toc_removal_factor = 0.0  # Asano et al (2007)
@@ -79,7 +79,9 @@ fixed_op_cost_scaling_exp = 0.7
 
 # Plant specifications
 tim = 25 # (deg. C) feed water inlet temperature at RO element entry   (DEEP model default) *****
-tds = 35000 # (ppm) total disolved solids   (Mike's input value) *****
+
+# NEEDS TO BASED ON THE FLOW COMING IN. TODOURGENTCHANGE
+#tds = 35000 # (ppm) total disolved solids   (Mike's input value) *****
 
 # RO Technical parameters
 pmax = 85 # (bar) maximum design pressure of the membrane (matched to Carlsbad value in VAR tab)
@@ -155,11 +157,10 @@ energy_cost_factor = .08 # $/kWh
 cost_factor_for_number_of_passes = 1
 parallel_units = 1
 
-
-
-
-
-
+# Get constituent list and removal rates for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("tri_media_filtration")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -258,10 +259,33 @@ see property package for documentation.}"""))
             self.purchase_cost = Var(initialize=1e4,
                                      domain=NonNegativeReals,
                                      doc='Unit Purchase Cost in $')
-    
         
-        self.water_recovery.fix(1 - (ccalc/pmax) * tds) # optimal recovery ratio; .526 for the Carlsbad case study
+        
+        
+        
+        time = self.flowsheet().config.time.first()
+        tds = 35000 #self.conc_mass_in[time, "TDS"] * 1000 #convert to mg/L
+        
+                # Get the inlet flow to the unit and convert to the correct units
+        tds_in = pyunits.convert(self.conc_mass_in[time, "TDS"],
+                                  to_units=pyunits.mg/pyunits.litre) # convert to MGD
+        
+        
+        pmax = 85 # (bar) maximum design pressure of the membrane (matched to Carlsbad value in VAR tab)
+        ccalc = .00115 # constant used for recovery ratio calculation *****
+        
+        # optimal recovery ratio; .526 for the Carlsbad case study
+        self.water_recovery.fix(1 - (ccalc/pmax) * tds) 
+                
+        dso = tds / (1-self.water_recovery[time]) # (ppm) brine salinity ***
+        dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery[time]))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
 
+        kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
+        kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.water_recovery[time])))*tds # salinity correction factor***
+        ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
+        
+        
+        
         
         # Build a costing method for each type of unit
         def up_costing(self, cost_method="wt"):
@@ -312,31 +336,39 @@ see property package for documentation.}"""))
             ################### DEEP METHOD ###########################################################
             ##### excludes the cost of water storage, transportation, distribution
             ##### *** are variables that are also in the watertap excel version of the DEEP model
-
-            self.rr = 1 - (ccalc/pmax) * tds # optimal recovery ratio *****
             
-            # flow_in = wacs / self.rr # (m3/d) feed flow (wfm in DEEP model)
+            # GET INLET TDS
+            tds = 35000 # self.parent_block().conc_mass_in[time, "TDS"] * 1000 #convert to mg/L
+            
+            # CALCULATE RECOVERY RATE
+            
+            
+            
+            
+            #self.parent_block().water_recovery = 1 - (ccalc/pmax) * tds # optimal recovery ratio *****
+            
+            # flow_in = wacs / self.parent_block().water_recovery # (m3/d) feed flow (wfm in DEEP model)
             # flow_in_m3_hr = flow_in / 24 # (m3/hr) feed flow
             # wbm = flow_in - wacs # (m3/d) brine flow
             
-            dso = tds / (1-self.rr) # (ppm) brine salinity ***
-            dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.rr))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
+#             dso = tds / (1-self.parent_block().water_recovery) # (ppm) brine salinity ***
+#             dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.parent_block().water_recovery))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
 
-            kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
-            kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.rr)))*tds # salinity correction factor***
-            ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
+#             kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
+#             kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.parent_block().water_recovery)))*tds # salinity correction factor***
+#             ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
 
 
 
             def energy_recovery(wacs):
-                fsms = wacs/self.rr * (1000 / (24*3600)) # (kg/s) feed flow
+                fsms = wacs/self.parent_block().water_recovery[time] * (1000 / (24*3600)) # (kg/s) feed flow
 
                 dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise  *****
                 qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw  # (MW) high head pump power. Different in model vs. manual. This matches model 
                 #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Matches Mike's equation    *****
                     
-                qer1 = -fsms * (1-self.rr)* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
-                qer2 =  -(1-self.rr) * eer * qhp # (MW) energy recovery other *****
+                qer1 = -fsms * (1-self.parent_block().water_recovery[time])* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
+                qer2 =  -(1-self.parent_block().water_recovery[time]) * eer * qhp # (MW) energy recovery other *****
 
             #     if qer1 < qer2:  TODO
             #         recovery = qer1
@@ -346,7 +378,7 @@ see property package for documentation.}"""))
                 return qer2
 
             def power_demand(wacs):  # Total power use (qms) for a given plant output capacity (wacs)
-                fsms = wacs/self.rr * (1000 / 24 / 3600) # (kg/s) feed flow
+                fsms = wacs/self.parent_block().water_recovery[time] * (1000 / 24 / 3600) # (kg/s) feed flow
 
                 dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise
                 
@@ -373,7 +405,7 @@ see property package for documentation.}"""))
                 return tot_pow # (kWh) annual energy demand
             
             def electricity(wacs):
-                electricity = power_demand(wacs) * 24 / (wacs/self.rr) * 1000  #kWh/m3
+                electricity = power_demand(wacs) * 24 / (wacs/self.parent_block().water_recovery[time]) * 1000  #kWh/m3
                 
                 return electricity
 
@@ -384,7 +416,7 @@ see property package for documentation.}"""))
                 return qdp
 
             def power_per_inlet(wacs):
-                tppi = power_demand(wacs) / (wacs/self.rr) # (MW) specific power use per input feed
+                tppi = power_demand(wacs) / (wacs/self.parent_block().water_recovery) # (MW) specific power use per input feed
 
                 return tppi
 
@@ -461,7 +493,7 @@ see property package for documentation.}"""))
                 #flow_in_m3d = pyunits.convert(self.parent_block().flow_vol_in[time],
                #                       to_units=pyunits.meter**3/pyunits.day) # conversion from MGD to m3/d
                 flow_in_m3d = flow_in * 3785.4118
-                flow_out = flow_in_m3d * self.rr
+                flow_out = flow_in_m3d * self.parent_block().water_recovery[time]
 
                 return flow_out #m3/d
             
@@ -517,7 +549,9 @@ see property package for documentation.}"""))
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 
-                wacs = get_flow_out(flow_in)
+                #wacs = get_flow_out(flow_in)
+                wacs = flow_in * 3785.4118 * self.parent_block().water_recovery[time]
+                
                 self.fixed_cap_inv_unadjusted = Expression(
                     expr=fixed_cap_mcgiv(wacs),
                     doc="Unadjusted fixed capital investment")
@@ -590,12 +624,19 @@ see property package for documentation.}"""))
 def create(m, up_name):
     
     # Set removal and recovery fractions
-
+    for constituent_name in train_constituent_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
+            
+            
     #getattr(m.fs, up_name).water_recovery = getattr(m.fs, up_name).costing.rr
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
+    #getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
     # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    #getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
+    #getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

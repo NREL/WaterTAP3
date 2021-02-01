@@ -187,10 +187,9 @@ see property package for documentation.}"""))
             
             def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
                 
-                capacity_basis = 10417 # kg/hr - from PML tab
+                capacity_basis = 10417 # kg/hr - from PML tab based on 250000 gallons per day
                 
-                total_flow_rate = 8697 # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
+                total_flow_rate = 8697 # kg/hr - TOTAL MASS TODO
                 
                 fixed_cap_unadj =  base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
                 
@@ -265,7 +264,7 @@ see property package for documentation.}"""))
  # ANNA TODO RESOLVE
                 total_flow_rate = 8697 # kg/hr - from design tab. For Carlsbad only 
                                             # TODO need to calculate this value
-                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
+                       
                 self.electricity_cost = Expression(
                         expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),
 

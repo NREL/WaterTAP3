@@ -134,8 +134,12 @@ def run_water_tap(m):
     seq = SequentialDecomposition()
     G = seq.create_graph(m)
     
-    # Set up a solver in Pyomo and solve
+    #m.fs.objective = Objective(expr=m.fs.costing.LCOW, sense=env.minimize)
+    
     solver1 = SolverFactory('ipopt')
+    
+    # Set up a solver in Pyomo and solve
+    
     results = solver1.solve(m, tee=True)
 
     print("degrees_of_freedom:", degrees_of_freedom(m))
