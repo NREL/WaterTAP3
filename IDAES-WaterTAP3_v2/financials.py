@@ -26,8 +26,8 @@ are called (ideally using the standard IDAES naming conventions where
 appropriate)
 """
 from pyomo.environ import (
-    Expression, Var, Param, NonNegativeReals, units as pyunits)
-
+    Block, Constraint, Expression, Var, Param, NonNegativeReals, units as pyunits)
+from idaes.core.util.exceptions import ConfigurationError
 
 import pandas as pd
 import ml_regression
@@ -52,7 +52,8 @@ benefit_percent_of_salary = 0.9
 
 elec_price = 0.134
     
-
+plant_lifetime_yrs = 20
+    
 # This first method is used at the flowsheet level and contains any global
 # parameters and methods
 def global_costing_parameters(self, year=None):
@@ -120,6 +121,181 @@ def _make_vars(self):
                              doc='Unit Purchase Cost in $')
 
 
+####################################
+###### FROM TIM's RO MODEL #######    
+####################################
+# The parameters below should replace the constants above.
+    
+def add_costing_param_block(self):
+    self.costing_param = Block()
+    b = self.costing_param
 
+    b.load_factor = Var(
+        initialize=0.9,
+        doc='Load factor [fraction of uptime]')
+    b.factor_total_investment = Var(
+        initialize=2,
+        doc='Total investment factor [investment cost/equipment cost]')
+    b.factor_MLC = Var(
+        initialize=0.03,
+        doc='Maintenance-labor-chemical factor [fraction of investment cost/year]')
+    b.factor_capital_annualization = Var(
+        initialize=0.1,
+        doc='Capital annualization factor [fraction of investment cost/year]')
+    b.factor_membrane_replacement = Var(
+        initialize=0.2,
+        doc='Membrane replacement factor [fraction of membrane replaced/year]')
+    b.electricity_cost = Var(
+        initialize=0.07,
+        doc='Electricity cost [$/kWh]')
+    b.mem_cost = Var(
+        initialize=30,
+        doc='Membrane cost [$/m2]')
+    b.hp_pump_cost = Var(
+        initialize=53 / 1e5 * 3600,
+        doc='High pressure pump cost [$/W]')
+    b.erd_cost = Var(
+        ['A', 'B'],
+        initialize={'A': 3134.7, 'B': 0.58},
+        doc='Energy recovery device cost parameters')
+
+    # traditional parameters are the only Vars on the block and should be fixed
+    #for v in b.component_objects(Var, descend_into=True):
+    #    for i in v:
+    #        if v[i].value is None:
+    #            raise ConfigurationError(
+    #                "{} parameter {} was not assigned"
+    #                " a value. Please check your configuration "
+    #                "arguments.".format(b.name, v.local_name))
+    #        v[i].fix()
+
+
+def get_system_costing(self):
+    if not hasattr(self, 'costing'):
+        self.costing = Block()
+    b = self.costing
+
+
+#     b.capital_investment_total = Var(
+#         initialize=1e6,
+#         domain=NonNegativeReals,
+#         doc='Total investment cost [$]')
+#     b.operating_cost_total = Var(
+#         initialize=1e5,
+#         domain=NonNegativeReals,
+#         doc='Total operating cost [$/year]')
+#     b.LCOW = Var(
+#         initialize=1e5,
+#         domain=NonNegativeReals,
+#         doc='Levelized cost of water [$/m3]')
+    b.capital_recovery_factor = Var(
+         initialize=0.01,
+         domain=NonNegativeReals,
+         doc='Captial recovery factor')  
+#     b.electricity_cost_total = Var(
+#         initialize=1e5,
+#         domain=NonNegativeReals,
+#         doc='Total electricity cost [$/year]')
+#     b.other_var_cost_total = Var(
+#         initialize=1e5,
+#         domain=NonNegativeReals,
+#         doc='Other variable cost [$/year]')    
+#     b.fixed_op_cost_total = Var(
+#         initialize=1e5,
+#         domain=NonNegativeReals,
+#         doc='Total fixed operating cost [$/year]')
+#     b.cat_and_chem_cost_total = Var(
+#         initialize=1e5,
+#         domain=NonNegativeReals,
+#         doc='Catalysts and chemicals cost [$/year]')    
+    
+    total_capital_investment_var_lst = []
+    cat_and_chem_cost_lst = []
+    electricity_cost_lst = []
+    other_var_cost_lst = []
+    total_fixed_op_cost_lst = []
+    
+    b.capital_recovery_factor.fix(0.08)  
+    
+    for b_unit in self.component_objects(Block, descend_into=True):
+        if hasattr(b_unit, 'costing'):
+            total_capital_investment_var_lst.append(b_unit.costing.total_cap_investment)
+            cat_and_chem_cost_lst.append(b_unit.costing.cat_and_chem_cost)
+            electricity_cost_lst.append(b_unit.costing.electricity_cost)
+            other_var_cost_lst.append(b_unit.costing.other_var_cost)
+            total_fixed_op_cost_lst.append(b_unit.costing.total_fixed_op_cost)
+            
+    #operating_cost_var_lst.append(b.operating_cost_MLC)
+
+    b.capital_investment_total = Expression(
+        expr = sum(total_capital_investment_var_lst))
+    b.cat_and_chem_cost_total = Expression(
+        expr=sum(cat_and_chem_cost_lst))
+    b.electricity_cost_total = Expression(
+        expr=sum(electricity_cost_lst))
+    b.other_var_cost_total = Expression(
+        expr=sum(other_var_cost_lst))
+    b.fixed_op_cost_total = Expression(
+        expr=sum(total_fixed_op_cost_lst))
+   
+    b.operating_cost_total = Expression(
+        expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total 
+                                + b.other_var_cost_total + b.fixed_op_cost_total))
+    
+    #RECOVERED WATER = IF OUTLET IS NOT GOING ANYWHERE
+    from case_study_trains import check_waste
+    recovered_water_flow = 0
+    wastewater_list = []
+    
+    time = self.config.time.first()
+    
+    for b_unit in self.component_objects(Block, descend_into=False):
+        if hasattr(b_unit, 'outlet'):
+
+            if len(getattr(b_unit, "outlet").arcs()) == 0:
+
+                if check_waste(b_unit) == "no":
+                #    print(b_unit)
+                    recovered_water_flow = recovered_water_flow + b_unit.flow_vol_in[time]
+
+                #if check_waste(b_unit) == "yes":
+                #    print(b_unit)    
+    
+    # TODO TOTAL WASTE = 
+    ## HERE GET TOTAL ELECTRICITY CONSUMPTION IN KWH AS WELL?
+    
+    b.LCOW = Expression(
+        expr=((b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_total) 
+        / plant_lifetime_yrs) 
+    / (recovered_water_flow * 3600 * 24 * 365))
+    
+    
+
+    
+#                    self.total_cap_investment
+#                    + self.cat_and_chem_cost
+#                    + self.electricity_cost
+#                    + self.other_var_cost
+#                    + self.total_fixed_op_cost
+    
+    
+    
+    
+#Total Capital Investment
+#Electricity Cost
+#Catalysts and Chemicals
+#Waste Disposal Costs
+#Co-Product Value
+#Replacementss and Other Costs
+#Fixed Operating Costs
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
