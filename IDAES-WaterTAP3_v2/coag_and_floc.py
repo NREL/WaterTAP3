@@ -48,17 +48,6 @@ from water_props import WaterParameterBlock
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.99999
-tds_removal_factor = 0
-
-# Perfomance Parameter Values for Process: Constituent removals. # TODO
-toc_removal_factor = .45  # VAR tab
-nitrates_removal_factor = 0.0  
-TOrC_removal = 0.0  
-EEQ_removal = 0.0  
-NDMA_removal = 0.0
-PFOS_PFOA_removal = 0.0
-protozoa_removal = 0.0
-virus_removal = 0.0
 
 # capital costs basis
 base_fixed_cap_cost = .0968 # + 1.6389? 
@@ -69,8 +58,11 @@ cap_scaling_exp =  1 # https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagula
 basis_year = 2020
 fixed_op_cost_scaling_exp = 0.7
 
-# recycle_factor = (1 - flow_recovery_factor) * (recyle_fraction_of_waste)
-waste_factor = 1 - flow_recovery_factor  # - G.edges[edge]['recycle_factor']
+# Get constituent list and removal rates for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("coag_and_floc")
+
 
 #### CAT AND CHEMS START ###
 #https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagulation.pdf
@@ -401,10 +393,12 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    for constituent_name in train_constituent_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

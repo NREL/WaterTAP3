@@ -107,7 +107,8 @@ def build_up(self, up_name_test = None):
                            doc="Volumetric flowrate of water into unit")
     self.conc_mass_in = Var(time,
                             self.config.property_package.component_list,
-                            initialize=0,
+                            initialize=1e-5,
+                            bounds=(1e-6, 1e10),
                             units=units_meta("mass")/units_meta("volume"),
                             doc="Mass concentration of species at inlet")
     self.temperature_in = Var(time,
@@ -127,6 +128,7 @@ def build_up(self, up_name_test = None):
     self.conc_mass_out = Var(time,
                              self.config.property_package.component_list,
                              initialize=0,
+                             bounds=(1e-6, 1e10),
                              units=units_meta("mass")/units_meta("volume"),
                              doc="Mass concentration of species at outlet")
     self.temperature_out = Var(time,
@@ -147,6 +149,7 @@ def build_up(self, up_name_test = None):
         time,
         self.config.property_package.component_list,
         initialize=0,
+        bounds=(1e-6, 1e10),
         units=units_meta("mass")/units_meta("volume"),
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,

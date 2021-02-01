@@ -128,8 +128,7 @@ def get_case_study(flow = None, m = None):
             if hasattr(b_unit, 'waste'):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
-                    print(b_unit)
-                    if check_waste(b_unit) == "no":
+                    if check_waste_source_recovered(b_unit) == "no":
                         i = i + 1
                         waste_inlet_list.append(("inlet%s" % i))
 
@@ -141,11 +140,8 @@ def get_case_study(flow = None, m = None):
              if hasattr(b_unit, 'waste'):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
-                    print(b_unit)                   
-                    print(check_waste(b_unit))
                     
-                    if check_waste(b_unit) == "no":
-                        print("goes in")
+                    if check_waste_source_recovered(b_unit) == "no":
                         i = i + 1
                         j = j + 1
                         setattr(m.fs, ("arc%s" % j), Arc(source = getattr(b_unit, "waste"),  
@@ -200,7 +196,7 @@ def get_unit_processes(case_study):
     return unit_processes
 
 
-def check_waste(b_unit):
+def check_waste_source_recovered(b_unit):
     check = "no"
     
     if "backwash_solids_handling" in str(b_unit): check = "yes"
@@ -215,6 +211,15 @@ def check_waste(b_unit):
     
     return check
                           
-                          
+def check_waste(b_unit):
+    check = "no"
+    
+    if "backwash_solids_handling" in str(b_unit): check = "yes"
+    
+    if "landfill" in str(b_unit): check = "yes"
+    
+    if "surface_discharge" in str(b_unit): check = "yes"
+    
+    return check                          
                           
                           

@@ -48,17 +48,6 @@ from water_props import WaterParameterBlock
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.95 # ANNA CHECK TODO
-tds_removal_factor = 0
-
-# Perfomance Parameter Values for Process: Constituent removals.
-toc_removal_factor = 0.0  
-nitrates_removal_factor = 0.0  
-TOrC_removal = 0.0  
-EEQ_removal = 0.0 
-NDMA_removal = 0.0
-PFOS_PFOA_removal = 0.0
-protozoa_removal = 0.0
-virus_removal = 0.0
 
 # capital costs basis
 
@@ -67,10 +56,6 @@ cap_scaling_exp = .918  # from PML tab, for the kg/hr and not consistent with th
 
 basis_year = 2007
 fixed_op_cost_scaling_exp = 0.7
-
-
-# recycle_factor = (1 - recovery_factor) * (recyle_fraction_of_waste)
-waste_factor = 1 - flow_recovery_factor  # - G.edges[edge]['recycle_factor']
 
 
 filter_backwash_pumping_cost = 186458
@@ -92,7 +77,10 @@ sludge_dewatering_lagoons_units = 3
 sand_drying_beds_units = 6
 
 
-
+# Get constituent list and removal rates for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("backwash_solids_handling")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -238,15 +226,21 @@ see property package for documentation.}"""))
                 gs = gravity_sludge_thickener * gravity_sludge_thickener_units 
                 sd = sludge_dewatering_lagoons *  sludge_dewatering_lagoons_units
                 db = sand_drying_beds * sand_drying_beds_units
-
-                source_cost = (fc + sc + ac + sb + st + gs + sd + db)/1000000 # $M
                 
-                capacity_basis = 1577255 # kg/hr - from PML tab
+                costs_list = [fc, sc, ac, sb, st, gs, sd, db]
+                
+                scaling_factor_list = [1.000, 1.000, 1.000, 0.751, 0.847, 1.305, 0.714, 0.875] # ANNA CHANGE TO VARIABLES
+                
+                base_fixed_cap_cost = sum(costs_list)/1000000 # $M
+                
+                cap_scaling_exp = sum(x * y for x, y in zip(scaling_factor_list, costs_list)) / sum(costs_list)
+                
+                capacity_basis = 1577255 # m3/s to kg/hr - CONSTANT BASED ON ASSUMPTION OF 100MGD BASIS
                 
                 total_flow_rate = 2042132 # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
+                                            # TODO need to calculate this value --> TOTAL WEIGHT OF WATER COMING IN
                 
-                fixed_cap_unadj = (source_cost * tpec_tic()) * (total_flow_rate / capacity_basis) ** cap_scaling_exp
+                fixed_cap_unadj = (base_fixed_cap_cost * tpec_tic()) * (total_flow_rate / capacity_basis) ** cap_scaling_exp
                 
                 return fixed_cap_unadj # M$
  
@@ -319,16 +313,10 @@ see property package for documentation.}"""))
                 
                 total_flow_rate = 2042132 # kg/hr - from design tab. For Carlsbad only 
                                             # TODO need to calculate this value
-                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 
-                total_flow_rate = 2042132 * 24 * 365 # kg/year - the kg/hour value is from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
+                # TODO need to calculate this value
                 self.electricity_cost = Expression(
-
-                        expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000), #WAS PREVIOUS CONFLICT ANNA TODO
-
-                        #expr= (self.electricity * total_flow_rate * elec_price/1000000), WAS PREVIOUS CONFLICT ANNA TODO
-
+                        expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),  
                         doc="Electricity cost") # M$/yr
                 self.other_var_cost = 0 #Expression(
                         #expr= self.cat_and_chem_cost - self.electricity_cost,
@@ -378,10 +366,13 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    
+    for constituent_name in train_constituent_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
