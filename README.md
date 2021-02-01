@@ -41,4 +41,4 @@ $ conda activate watertap3
 ```
 (watertap3) YOUR\PATH\TO\NAWI-WaterTAP3> $ jupyter notebook
 ```
-4. Open the desired `TUTORIALNAME.ipynb` notebook and follow the steps as listed
+4. Open the desired `TUTORIALNAME.ipynb` notebook and execute cells by selecting and pressing `shift + enter`
