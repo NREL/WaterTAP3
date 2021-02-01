@@ -312,7 +312,7 @@ see property package for documentation.}"""))
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
                 
-                self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
+                self.electricity = .000005689  # kwh/m3 given in PML tab, no source TODO
                 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
                 chem_cost_sum = 0 
@@ -336,12 +336,23 @@ see property package for documentation.}"""))
                         #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-                self.base_employee_salary_cost = get_chlorine_dose_cost(flow_in, self.applied_cl2_dose) * salaries_percent_FCI
-                self.salaries = (
-                    self.labor_and_other_fixed
-                    * self.base_employee_salary_cost
-                    * flow_in ** fixed_op_cost_scaling_exp
-                ) # $M
+#                 self.base_employee_salary_cost = get_chlorine_dose_cost(flow_in, self.applied_cl2_dose) * salaries_percent_FCI
+#                 self.salaries = (
+#                     self.labor_and_other_fixed
+#                     * self.base_employee_salary_cost
+#                     * flow_in ** fixed_op_cost_scaling_exp
+#                 ) # $M
+                
+                
+#                 self.salaries = (
+#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
+#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
+               
+                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
+                self.salaries = Expression(
+                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
+                        doc="Salaries")
+                
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
                 self.lab = lab_fees_precent_FCI * self.fixed_cap_inv

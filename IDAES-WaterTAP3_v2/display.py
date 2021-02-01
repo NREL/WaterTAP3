@@ -247,7 +247,7 @@ def show_train2(GG = None, model_name = None):
       },
       "physics": {
         "hierarchicalRepulsion": {
-          "centralGravity": 0
+          "centralGravity": 1
         },
         "minVelocity": 0.75,
         "solver": "hierarchicalRepulsion"

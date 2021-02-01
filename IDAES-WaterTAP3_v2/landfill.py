@@ -250,22 +250,45 @@ see property package for documentation.}"""))
                 self.electricity = 0  # kWh/m3
                 self.cat_and_chem_cost = 0  # TODO
                 
+                # TODO ANNA RESOLVE
+                total_flow_rate = 310 # kg/hr - from design tab. For Carlsbad only 
+                                            # TODO need to calculate this value
+                    
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
-                        doc="Electricity cost") # M$/yr
+                        expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),
+                    doc="Electricity cost") # M$/yr
+
+                # TODO ANNA RESOLVE
+                #total_flow_rate = 310 * 24 * 365 # kg/year - the kg/hour value is from design tab. For Carlsbad only 
+                #                            # TODO need to calculate this value
+                #flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
+                #self.electricity_cost = Expression(
+                #        expr= (self.electricity * total_flow_rate * elec_price/1000000),
+  
+                #        doc="Electricity cost") # M$/yr
                 
                 self.other_var_cost = 0 # Expression(
                         #expr= self.cat_and_chem_cost - self.electricity_cost,
                         #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-                self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI # 0 excel value
-                self.salaries = (
-                    self.labor_and_other_fixed
-                    * self.base_employee_salary_cost
-                    * flow_in ** fixed_op_cost_scaling_exp
-                )
+#                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI # 0 excel value
+#                 self.salaries = (
+#                     self.labor_and_other_fixed
+#                     * self.base_employee_salary_cost
+#                     * flow_in ** fixed_op_cost_scaling_exp
+#                 )
+                
+#                 self.salaries = (
+#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
+#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
+               
+                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
+                self.salaries = Expression(
+                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
+                        doc="Salaries")
+                
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
                 self.lab = lab_fees_precent_FCI * self.fixed_cap_inv

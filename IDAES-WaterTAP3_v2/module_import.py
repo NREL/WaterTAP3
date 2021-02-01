@@ -104,7 +104,12 @@ def get_module(module_name):
         import surface_discharge as up
         
     if module_name == "landfill":
-        import landfill as up    
+        import landfill as up
+        
+    if module_name == "coagulant_addition":
+        import coagulant_addition as up
+        
+        
         
         
      
