@@ -7,10 +7,10 @@ A repo for the working version of WaterTAP3-Python and introductory tutorials to
 
 
 ### Table of Contents
-- [Requirements](https://github.com/NREL/HiPerFEWS#requirements)
-- [Data](https://github.com/NREL/HiPerFEWS#data)
-- [Tutorials](https://github.com/NREL/HiPerFEWS#tutorials)
-- [ModelStructure](https://github.com/NREL/HiPerFEWS#modelstructure)
+- [Requirements](https://github.com/NREL/NAWI-WaterTAP3#requirements)
+- [Data](https://github.com/NREL/NAWI-WaterTAP3#data)
+- [Tutorials](https://github.com/NREL/NAWI-WaterTAP3#tutorials)
+- [ModelStructure](https://github.com/NREL/NAWI-WaterTAP3#modelstructure)
 
 ### Requirements
 We recommend you to use `conda` to manage WaterTAP3 environment. A YAML file `environment.yml` is provided for your convenience to build a `watertap3` environment.
