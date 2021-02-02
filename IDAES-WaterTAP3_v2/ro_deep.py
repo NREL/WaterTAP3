@@ -399,10 +399,10 @@ see property package for documentation.}"""))
                 return qms #(MW) annually
 
 
-            def energy_demand(wacs): # total energy (including energy recovery)
-                tot_pow = power_demand(wacs) * 24 * 365 * 1000
+#             def energy_demand(wacs): # total energy (including energy recovery)
+#                 tot_pow = power_demand(wacs) * 24 * 365 * 1000
 
-                return tot_pow # (kWh) annual energy demand
+#                 return tot_pow # (kWh) annual energy demand
             
             def electricity(wacs):
                 electricity = power_demand(wacs) * 24 / (wacs/self.parent_block().water_recovery[time]) * 1000  #kWh/m3
@@ -410,15 +410,15 @@ see property package for documentation.}"""))
                 return electricity
 
 
-            def power_per_outlet(wacs):
-                qdp = power_demand(wacs) / wacs # (MW) specific power use per m3/d produced
+#             def power_per_outlet(wacs):
+#                 qdp = power_demand(wacs) / wacs # (MW) specific power use per m3/d produced
 
-                return qdp
+#                 return qdp
 
-            def power_per_inlet(wacs):
-                tppi = power_demand(wacs) / (wacs/self.parent_block().water_recovery) # (MW) specific power use per input feed
+#             def power_per_inlet(wacs):
+#                 tppi = power_demand(wacs) / (wacs/self.parent_block().water_recovery) # (MW) specific power use per input feed
 
-                return tppi
+#                 return tppi
 
             def get_osmotic_pressure(C,T): # 
                 osmotic_pressure = .0000348 * (T + 273) * (C/14.7)  # (bar) osmotic pressure function  
@@ -429,91 +429,91 @@ see property package for documentation.}"""))
             pavg = (get_osmotic_pressure(tds,tim) + get_osmotic_pressure(dso,tim))/2 * kmaiicf # (bar) average osmotic pressure
             
 
-            def cap_recovery(i,n):
-                lfc = (i * (1 + i)**n) / ((1 + i) ** n - 1)
+#             def cap_recovery(i,n):
+#                 lfc = (i * (1 + i)**n) / ((1 + i) ** n - 1)
 
-                return lfc # capital recovery factor function
+#                 return lfc # capital recovery factor function
 
 
             
-            def fixed_cap(wacs):
-                cmio = csmo * cmu # in/outfall specific cost
-                cms = cmu * kmsus + cmio # total specific base cost
-                cmsab = wacs * cms # water plant adjusted total base cost
-                dcmso = cmsab * kmo # water plant owners cost
-                dcmsc = (cmsab + dcmso) * kmc # water plant contingency cost
-                cmscon = cmsab + dcmso + dcmsc # water plant total construction cost
-                idcs = cmscon * ((1 + ir) ** (lm/24) - 1 ) # interest during construction
-                cmsinv = cmscon + idcs # total investment cost
+#             def fixed_cap(wacs):
+#                 cmio = csmo * cmu # in/outfall specific cost
+#                 cms = cmu * kmsus + cmio # total specific base cost
+#                 cmsab = wacs * cms # water plant adjusted total base cost
+#                 dcmso = cmsab * kmo # water plant owners cost
+#                 dcmsc = (cmsab + dcmso) * kmc # water plant contingency cost
+#                 cmscon = cmsab + dcmso + dcmsc # water plant total construction cost
+#                 idcs = cmscon * ((1 + ir) ** (lm/24) - 1 ) # interest during construction
+#                 cmsinv = cmscon + idcs # total investment cost
                 
-                return cmsinv/1000000 # $M; total investment cost
+#                 return cmsinv/1000000 # $M; total investment cost
                 
             
             
-            def capital_cost(wacs): # with capital recovery included
+#             def capital_cost(wacs): # with capital recovery included
                 
-                amsfc = fixed_cap(wacs) * cap_recovery(i,lwp) 
+#                 amsfc = fixed_cap(wacs) * cap_recovery(i,lwp) 
 
-                return amsfc # $M, total annual capital cost
+#                 return amsfc # $M, total annual capital cost
   
 
-            def annual_water_production(wacs):
+#             def annual_water_production(wacs):
 
-                wpd = wacs * amp * 365 # total water production per year
+#                 wpd = wacs * amp * 365 # total water production per year
 
-                return wpd # m3 per year
-
-
-            def energy_cost(wacs): # all based on backup heat and load factors
-                energy_cost = energy_demand(wacs) * energy_cost_factor
-
-                return energy_cost/1000000 # annual cost; $ M
+#                 return wpd # m3 per year
 
 
-            def OM_cost(wacs):
-                cdm = nmsm * smm # management cost
-                cdl = nmsl * sml # labour cost
+#             def energy_cost(wacs): # all based on backup heat and load factors
+#                 energy_cost = energy_demand(wacs) * energy_cost_factor
 
-                cmio = csmo * cmu # in/outfall specific cost
-                cms = cmu * kmsus + cmio # total specific base cost
-                cmsab = (wacs * cms) # water plant adjust base cost
-                dcmso = cmsab * kmo # water plant owners cost
-                dcmsc = (cmsab + dcmso) * kmc # water plant contingency cost
+#                 return energy_cost/1000000 # annual cost; $ M
 
-                csmt = (cmm * fma + cmsp * fpp + cmcpr + cmcpo) * annual_water_production(wacs) # material cost
-                cmscon = dcmsc + dcmso + cmsab # water plant total construction
-                csins = kmi * cmscon # insurance cost
 
-                cdom = cdm + cdl + csmt + csins # total O&M cost
+#             def OM_cost(wacs):
+#                 cdm = nmsm * smm # management cost
+#                 cdl = nmsl * sml # labour cost
 
-                return cdom/1000000 # annual O&M cost; $ M                                        
+#                 cmio = csmo * cmu # in/outfall specific cost
+#                 cms = cmu * kmsus + cmio # total specific base cost
+#                 cmsab = (wacs * cms) # water plant adjust base cost
+#                 dcmso = cmsab * kmo # water plant owners cost
+#                 dcmsc = (cmsab + dcmso) * kmc # water plant contingency cost
+
+#                 csmt = (cmm * fma + cmsp * fpp + cmcpr + cmcpo) * annual_water_production(wacs) # material cost
+#                 cmscon = dcmsc + dcmso + cmsab # water plant total construction
+#                 csins = kmi * cmscon # insurance cost
+
+#                 cdom = cdm + cdl + csmt + csins # total O&M cost
+
+#                 return cdom/1000000 # annual O&M cost; $ M                                        
 
             
-            def get_flow_out(flow_in): 
-                #flow_in_m3d = pyunits.convert(self.parent_block().flow_vol_in[time],
-               #                       to_units=pyunits.meter**3/pyunits.day) # conversion from MGD to m3/d
-                flow_in_m3d = flow_in * 3785.4118
-                flow_out = flow_in_m3d * self.parent_block().water_recovery[time]
+#             def get_flow_out(flow_in): 
+#                 #flow_in_m3d = pyunits.convert(self.parent_block().flow_vol_in[time],
+#                #                       to_units=pyunits.meter**3/pyunits.day) # conversion from MGD to m3/d
+#                 flow_in_m3d = flow_in * 3785.4118
+#                 flow_out = flow_in_m3d * self.parent_block().water_recovery[time]
 
-                return flow_out #m3/d
+#                 return flow_out #m3/d
             
 
-            def total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="deep"):
-                wacs = get_flow_out(flow_in) # flow_out m3/d; plant OUTPUT capacity and also called wacd in DEEP
+#             def total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="deep"):
+#                 wacs = get_flow_out(flow_in) # flow_out m3/d; plant OUTPUT capacity and also called wacd in DEEP
 
-                adrev = capital_cost(wacs) + OM_cost(wacs) + energy_cost(wacs) # total annual cost; $ M
+#                 adrev = capital_cost(wacs) + OM_cost(wacs) + energy_cost(wacs) # total annual cost; $ M
                
-                lifetime_cost = adrev * lwp # $ M
+#                 lifetime_cost = adrev * lwp # $ M
 
 
-                return lifetime_cost # $M
+#                 return lifetime_cost # $M
 
 
-            def lifetime_levelized_cost(flow_in):
-                levelized = total_up_cost(flow_in) / (get_flow_out(flow_in) * 365 * lwp * amp) 
-                            # total_up_cost must return lifetime_cost, not lifetime_cost_2
+#             def lifetime_levelized_cost(flow_in):
+#                 levelized = total_up_cost(flow_in) / (get_flow_out(flow_in) * 365 * lwp * amp) 
+#                             # total_up_cost must return lifetime_cost, not lifetime_cost_2
 
-                return levelized # lifetime levelized (M$/m3)
+#                 return levelized # lifetime levelized (M$/m3)
             
             
             

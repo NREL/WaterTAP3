@@ -56,6 +56,9 @@ plant_lifetime_yrs = 20
     
 # This first method is used at the flowsheet level and contains any global
 # parameters and methods
+
+### THIS IS NOT CURRENTLY USED --> global_costing_parameters
+
 def global_costing_parameters(self, year=None):
     # Define a default year if none is provided
     if year is None:
@@ -111,6 +114,8 @@ def get_ind_table():
 
 # There are a couple of variables that IDAES expects to be present
 # These are fairly obvious, but have pre-defined names
+
+### THIS IS NOT CURRENTLY USED --> _make_vars
 def _make_vars(self):
     # build generic costing variables (all costing models need these vars)
     self.base_cost = Var(initialize=1e5,
@@ -125,7 +130,7 @@ def _make_vars(self):
 ###### FROM TIM's RO MODEL #######    
 ####################################
 # The parameters below should replace the constants above.
-    
+### THIS IS NOT CURRENTLY USED --> add_costing_param_block    
 def add_costing_param_block(self):
     self.costing_param = Block()
     b = self.costing_param
@@ -230,17 +235,34 @@ def get_system_costing(self):
     b.capital_investment_total = Expression(
         expr = sum(total_capital_investment_var_lst))
     b.cat_and_chem_cost_total = Expression(
-        expr=sum(cat_and_chem_cost_lst))
+        expr=sum(cat_and_chem_cost_lst) * plant_lifetime_yrs)
     b.electricity_cost_total = Expression(
-        expr=sum(electricity_cost_lst))
+        expr=sum(electricity_cost_lst) * plant_lifetime_yrs)
     b.other_var_cost_total = Expression(
-        expr=sum(other_var_cost_lst))
+        expr=sum(other_var_cost_lst) * plant_lifetime_yrs)
     b.fixed_op_cost_total = Expression(
-        expr=sum(total_fixed_op_cost_lst))
+        expr=sum(total_fixed_op_cost_lst) * plant_lifetime_yrs)
    
     b.operating_cost_total = Expression(
         expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total 
                                 + b.other_var_cost_total + b.fixed_op_cost_total))
+    
+    
+    b.capital_investment_annual = Expression(
+        expr = sum(total_capital_investment_var_lst))
+    b.cat_and_chem_cost_annual = Expression(
+        expr=sum(cat_and_chem_cost_lst))
+    b.electricity_cost_annual = Expression(
+        expr=sum(electricity_cost_lst))
+    b.other_var_cost_annual = Expression(
+        expr=sum(other_var_cost_lst))
+    b.fixed_op_cost_annual = Expression(
+        expr=sum(total_fixed_op_cost_lst))
+   
+    b.operating_cost_annual = Expression(
+        expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual 
+                                + b.other_var_cost_annual + b.fixed_op_cost_annual))    
+    
     
     #RECOVERED WATER = IF OUTLET IS NOT GOING ANYWHERE
     from case_study_trains import check_waste
@@ -260,37 +282,19 @@ def get_system_costing(self):
 
                 #if check_waste(b_unit) == "yes":
                 #    print(b_unit)    
-    
+    b.treated_water = recovered_water_flow
+   
     # TODO TOTAL WASTE = 
     ## HERE GET TOTAL ELECTRICITY CONSUMPTION IN KWH AS WELL?
     
     b.LCOW = Expression(
-        expr=((b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_total) 
-        / plant_lifetime_yrs) 
-    / (recovered_water_flow * 3600 * 24 * 365))
+        expr=(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 
+    / (b.treated_water * 3600 * 24 * 365),
+    doc="Levelized Cost of Water in $/m3")
     
     
-
-    
-#                    self.total_cap_investment
-#                    + self.cat_and_chem_cost
-#                    + self.electricity_cost
-#                    + self.other_var_cost
-#                    + self.total_fixed_op_cost
-    
-    
-    
-    
-#Total Capital Investment
-#Electricity Cost
-#Catalysts and Chemicals
-#Waste Disposal Costs
-#Co-Product Value
-#Replacementss and Other Costs
-#Fixed Operating Costs
-    
-    
-    
+#    (value(m.fs.costing.capital_investment_total) * value(m.fs.costing.capital_recovery_factor) +
+#value(m.fs.costing.operating_cost_total)/20)/((value(m.fs.costing.treated_water) * 3600*24*365/1e6))
     
     
     
