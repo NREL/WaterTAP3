@@ -319,7 +319,7 @@ see property package for documentation.}"""))
                         expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),  
                         doc="Electricity cost") # M$/yr
                 self.other_var_cost = 0 #Expression(
-                        #expr= self.cat_and_chem_cost - self.electricity_cost,
+                        #expr= self.total_cap_investment - self.cat_and_chem_cost - self.electricity_cost,
                         #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
