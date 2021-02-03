@@ -93,8 +93,10 @@ def add_water_source(m = None, source_name = None, link_to = None,
             getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].Value)        
         
         else:
-            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(1e-4)
-            
+            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(1e-5)
+        
+        getattr(m.fs, source_name).removal_fraction[:, constituent_name].fix(0)
+        
     #getattr(m.fs, source_name).inlet.conc_mass[:, "TOC"].fix(df.loc["TOC"].Value)
     #getattr(m.fs, source_name).inlet.conc_mass[:, "nitrates"].fix(df.loc["Nitrate"].Value) #TODO ChangeNitrate
     #getattr(m.fs, source_name).inlet.conc_mass[:, "TDS"].fix(df.loc["TDS"].Value)
@@ -106,10 +108,6 @@ def add_water_source(m = None, source_name = None, link_to = None,
     
     # Set removal and recovery fractions -> CAN WE JUST SET OUTLETS AND THAT'S IT? OR CLEANER WITH THE SAME FORMAT?
     getattr(m.fs, source_name).water_recovery.fix(1.0)
-    getattr(m.fs, source_name).removal_fraction[:, "TDS"].fix(1e-4)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, source_name).removal_fraction[:, "TOC"].fix(1e-4)
-    getattr(m.fs, source_name).removal_fraction[:, "nitrates"].fix(1e-4)
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, source_name).deltaP_outlet.fix(1e-4)
     getattr(m.fs, source_name).deltaP_waste.fix(1e-4)

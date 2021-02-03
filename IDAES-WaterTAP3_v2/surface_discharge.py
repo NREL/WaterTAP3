@@ -152,8 +152,19 @@ see property package for documentation.}"""))
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
        
-
-    
+        time = self.flowsheet().config.time.first()
+        cons_mass_tot = 0     
+        
+        for constituent in self.config.property_package.component_list:
+            #approximate mass fraction -> TODO IMPROVE?
+            mass_fraction = self.conc_mass_in[time, constituent] / (self.conc_mass_in[time, constituent] + 1000)
+            density = 756 * mass_fraction + 995 #kg/m3 # assumption from Tim's reference
+            #kg/hr for Mike's Excel needs:
+            cons_mass = self.conc_mass_in[time, constituent] * self.flow_vol_in[time] * 3600 / 1000 
+            cons_mass_tot = cons_mass_tot + cons_mass
+        
+        self.total_mass = cons_mass_tot
+        
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
             self.base_cost = Var(initialize=1e5,
@@ -185,11 +196,12 @@ see property package for documentation.}"""))
             lift_height = 100 # ft
             
             
+            
             def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
                 
                 capacity_basis = 10417 # kg/hr - from PML tab based on 250000 gallons per day
                 
-                total_flow_rate = 8697 # kg/hr - TOTAL MASS TODO
+                total_flow_rate = self.parent_block().total_mass # kg/hr - TOTAL MASS TODO
                 
                 fixed_cap_unadj =  base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
                 
@@ -262,7 +274,7 @@ see property package for documentation.}"""))
                 self.cat_and_chem_cost = 0  # TODO
                 
  # ANNA TODO RESOLVE
-                total_flow_rate = 8697 # kg/hr - from design tab. For Carlsbad only 
+                total_flow_rate = self.parent_block().total_mass # MT/hr! - from design tab. For Carlsbad only 
                                             # TODO need to calculate this value
                        
                 self.electricity_cost = Expression(

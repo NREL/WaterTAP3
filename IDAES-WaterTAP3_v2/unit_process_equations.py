@@ -67,13 +67,7 @@ def build_up(self, up_name_test = None):
     if up_name_test == "coagulant_addition": import coagulant_addition as unit_process_model  
         
         
-   
-        
-        
-        
-        
-        
-        
+
     """
     The build method is the core of the unit model, and contains the rules
     for building the Vars and Constraints that make up the unit model.
