@@ -102,7 +102,7 @@ def build_up(self, up_name_test = None):
     self.conc_mass_in = Var(time,
                             self.config.property_package.component_list,
                             initialize=1e-5,
-                            bounds=(1e-6, 1e10),
+                            #bounds=(1e-6, 1e10),
                             units=units_meta("mass")/units_meta("volume"),
                             doc="Mass concentration of species at inlet")
     self.temperature_in = Var(time,
@@ -122,7 +122,7 @@ def build_up(self, up_name_test = None):
     self.conc_mass_out = Var(time,
                              self.config.property_package.component_list,
                              initialize=0,
-                             bounds=(1e-6, 1e10),
+                             #bounds=(1e-6, 1e10),
                              units=units_meta("mass")/units_meta("volume"),
                              doc="Mass concentration of species at outlet")
     self.temperature_out = Var(time,
@@ -143,7 +143,7 @@ def build_up(self, up_name_test = None):
         time,
         self.config.property_package.component_list,
         initialize=0,
-        bounds=(1e-6, 1e10),
+        #bounds=(1e-6, 1e10),
         units=units_meta("mass")/units_meta("volume"),
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,
@@ -169,11 +169,11 @@ def build_up(self, up_name_test = None):
     self.water_recovery = Var(time,
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
                               units=pyunits.dimensionless,
-                              bounds=(0.001, 1.0),
+                              bounds=(0.0001, 1.0),
                               doc="Water recovery fraction")
     self.removal_fraction = Var(time,
                                 self.config.property_package.component_list,
-                                initialize=0.75, #TODO: NEEDS TO BE DIFFERENT?
+                                initialize=0.01, #TODO: NEEDS TO BE DIFFERENT?
                                 units=pyunits.dimensionless,
                                 doc="Component removal fraction")
 

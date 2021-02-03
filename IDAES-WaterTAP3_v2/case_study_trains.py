@@ -17,12 +17,17 @@ import module_import
 global case_study
 global reference
 global water_type
+global scenario
 
 from water_props import WaterParameterBlock
 
 from pyomo.environ import (
     Block, Constraint, Expression, Var, Param, NonNegativeReals, units as pyunits)
 from idaes.core.util.exceptions import ConfigurationError
+
+
+case_study_library = pd.read_csv("data/case_study_library.csv")
+
 
 def unit_test_case(unit_name = None, flow = None, m = None):
         

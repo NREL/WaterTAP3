@@ -38,7 +38,11 @@ import case_study_trains
 import importfile
 import module_import
 import design
+import case_study_trains
+from post_processing import *
 
+import warnings
+warnings.filterwarnings('ignore')
 
 from pyomo.environ import ConcreteModel, SolverFactory, TerminationCondition, \
     value, Var, Constraint, Expression, Objective, TransformationFactory, units as pyunits
@@ -128,7 +132,7 @@ def watertap_setup(dynamic = False):
     return m
 
 
-def run_water_tap(m):
+def run_water_tap(m = None, solver_results = False, print_model_results = False):
     import financials
     financials.get_system_costing(m.fs)
     
@@ -137,70 +141,69 @@ def run_water_tap(m):
     seq = SequentialDecomposition()
     G = seq.create_graph(m)
     
-    #m.fs.objective = Objective(expr=m.fs.costing.LCOW, sense=env.minimize)
-    
+    # Set up a solver in Pyomo and solve
+
     solver1 = SolverFactory('ipopt')
     
-    # Set up a solver in Pyomo and solve
+    import logging
+
+    logging.getLogger('pyomo.core').setLevel(logging.ERROR)
     
-    results = solver1.solve(m, tee=True)
-
-    print("degrees_of_freedom:", degrees_of_freedom(m))
-
+    solver1.solve(m, tee=solver_results)
     
-    # Display the inlets and outlets of each unit
-    for node in G.nodes():
-        print("----------------------------------------------------------------------")
-        print(node)
+    if print_model_results == True:
+    
+        print("degrees_of_freedom:", degrees_of_freedom(m))
 
-        if "split" in (str(node).replace('fs.', '')): 
-            getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
-            getattr(m.fs, str(node).replace('fs.', '')).outlet1.display()
-            getattr(m.fs, str(node).replace('fs.', '')).outlet2.display()
-        elif "use" in (str(node).replace('fs.', '')): 
-            getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
-            getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
-        elif "mixer" in (str(node).replace('fs.', '')): 
-            getattr(m.fs, str(node).replace('fs.', '')).inlet1.display()
-            getattr(m.fs, str(node).replace('fs.', '')).inlet2.display()
-            getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
-        else:
-            getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
-            getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
-            getattr(m.fs, str(node).replace('fs.', '')).waste.display()
+        # Display the inlets and outlets of each unit
+        for node in G.nodes():
+            print("----------------------------------------------------------------------")
+            print(node)
 
-
-        print("Show some costing values")
-        print("---------------------")
-
-        if "source" in (str(node).replace('fs.', '')): 
-            print("should skip:", (str(node).replace('fs.', '')))
-            continue
-        elif "use" in (str(node).replace('fs.', '')): 
-            print("should skip:", (str(node).replace('fs.', '')))
-            continue
-        elif "split" in (str(node).replace('fs.', '')): 
-            print("should skip:", (str(node).replace('fs.', '')))
-            continue  
-        elif "mixer" in (str(node).replace('fs.', '')): 
-            print("should skip:", (str(node).replace('fs.', '')))
-            continue
-        else:
-            print("should have a cost", (str(node).replace('fs.', '')))
-            if getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost() is not None:
-                print("total_up_cost:" , 
-                      getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost())
-
+            if "split" in (str(node).replace('fs.', '')): 
+                getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
+                getattr(m.fs, str(node).replace('fs.', '')).outlet1.display()
+                getattr(m.fs, str(node).replace('fs.', '')).outlet2.display()
+            elif "use" in (str(node).replace('fs.', '')): 
+                getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
+                getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
+            elif "mixer" in (str(node).replace('fs.', '')): 
+                getattr(m.fs, str(node).replace('fs.', '')).inlet1.display()
+                getattr(m.fs, str(node).replace('fs.', '')).inlet2.display()
+                getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
             else:
-                getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost.display()
+                getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
+                getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
+                getattr(m.fs, str(node).replace('fs.', '')).waste.display()
 
-        print("----------------------------------------------------------------------")
 
-        
-        
-        
-        
-        
+            print("Show some costing values")
+            print("---------------------")
+
+            if "source" in (str(node).replace('fs.', '')): 
+                print("should skip:", (str(node).replace('fs.', '')))
+                continue
+            elif "use" in (str(node).replace('fs.', '')): 
+                print("should skip:", (str(node).replace('fs.', '')))
+                continue
+            elif "split" in (str(node).replace('fs.', '')): 
+                print("should skip:", (str(node).replace('fs.', '')))
+                continue  
+            elif "mixer" in (str(node).replace('fs.', '')): 
+                print("should skip:", (str(node).replace('fs.', '')))
+                continue
+            else:
+                print("should have a cost", (str(node).replace('fs.', '')))
+                if getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost() is not None:
+                    print("total_up_cost:" , 
+                          getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost())
+
+                else:
+                    getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost.display()
+
+            print("----------------------------------------------------------------------")
+
+
         
 def main():
     print("importing something")
