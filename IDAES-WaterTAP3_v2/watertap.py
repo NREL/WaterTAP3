@@ -129,6 +129,9 @@ def watertap_setup(dynamic = False):
 
 
 def run_water_tap(m):
+    import financials
+    financials.get_system_costing(m.fs)
+    
     # Transform Arc to construct linking equations
     TransformationFactory("network.expand_arcs").apply_to(m)
     seq = SequentialDecomposition()

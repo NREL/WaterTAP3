@@ -78,7 +78,7 @@ fixed_op_cost_scaling_exp = 0.7
 
 cost_method = "wt"
 
-# Get constituent list and removal rates for this unit process
+# Get constituent list and removal rates for each, for this unit process
 import generate_constituent_list
 train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("chlorination_twb")
@@ -132,6 +132,7 @@ and used when constructing these,
 **Valid values:** {
 see property package for documentation.}"""))
     
+    
     from unit_process_equations import initialization
     #unit_process_equations.get_base_unit_process()
 
@@ -169,6 +170,11 @@ see property package for documentation.}"""))
         
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
+        
+        #################################
+        ########### _make_vars NOT USED ###########
+        #################################
+
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
             self.base_cost = Var(initialize=1e5,
@@ -178,7 +184,9 @@ see property package for documentation.}"""))
                                      domain=NonNegativeReals,
                                      doc='Unit Purchase Cost in $')
     
-
+        #################################
+        #################################
+        
         def get_chlorine_dose_cost(flow_in, dose): # flow in mgd for this cost curve
 
             import ml_regression
@@ -371,7 +379,7 @@ see property package for documentation.}"""))
           
         
 # OTHER CALCS
-
+# TODO -> BASED ON NEW NAMES
 def get_cl2_dem(m):
     # unit is mg/L. order matters in this list. need a better way.
 
