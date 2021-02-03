@@ -50,7 +50,11 @@ from water_props import WaterParameterBlock
 flow_recovery_factor = 0.99999 # TODO
 
 base_fixed_cap_cost = 1  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
-cap_scaling_exp = .7  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
+cap_scaling_exp = 0.7  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
+
+capacity_basis = 100000 # kg/hr - from PML tab
+
+cap_scaling_base_fac = 100000 ** 0.7
 
 basis_year = 2020
 fixed_op_cost_scaling_exp = 0.7
@@ -149,15 +153,21 @@ see property package for documentation.}"""))
         time = self.flowsheet().config.time.first()
         cons_mass_tot = 0     
         
+        time = self.flowsheet().config.time.first()
+        cons_mass_tot = 0     
+        
         for constituent in self.config.property_package.component_list:
             #approximate mass fraction -> TODO IMPROVE?
-            mass_fraction = self.conc_mass_in[time, constituent] / (self.conc_mass_in[time, constituent] + 1000)
-            density = 756 * mass_fraction + 995 #kg/m3 # assumption from Tim's reference
-            #kg/hr for Mike's Excel needs:
-            cons_mass = self.conc_mass_in[time, constituent] * self.flow_vol_in[time] * 3600 / 1000 
-            cons_mass_tot = cons_mass_tot + cons_mass
+            cons_mass_tot = cons_mass_tot + self.conc_mass_in[time, constituent] 
+            
+        mass_fraction = cons_mass_tot / (cons_mass_tot + 1000)
+        density = 756 * mass_fraction + 995 #kg/m3 # assumption from Tim's reference
+        #kg/hr for Mike's Excel needs:
+        cons_mass = (density * self.flow_vol_in[time] * 3600) / 1000 
+        cons_mass_tot = cons_mass_tot + cons_mass
         
         self.total_mass = cons_mass_tot
+        
     
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
@@ -188,27 +198,17 @@ see property package for documentation.}"""))
             '''
             
 
-            def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
+#             def fixed_cap(flow_in, total_flow_rate): # TODO not based on flow, just have placeholder numbers for Carlsbad
                 
-                capacity_basis = 100000 # kg/hr - from PML tab
+#                 capacity_basis = 100000 # kg/hr - from PML tab
                 
-                total_flow_rate = self.parent_block().total_mass # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
+#                 #total_flow_rate = self.parent_block().total_mass # kg/hr - from design tab. For Carlsbad only 
+#                                             # TODO need to calculate this value
+#                 #Ariel edited feb3 to fix pyomo error. simplifying rhis.
+#                 fixed_cap_unadj =  (total_flow_rate / capacity_basis) ** cap_scaling_exp
                 
-                fixed_cap_unadj =  base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
-                
-                return fixed_cap_unadj # M$
+#                 return fixed_cap_unadj # M$
             
-            
-            _make_vars(self)
-
-            self.base_fixed_cap_cost = Param(mutable=True,
-                                             initialize=base_fixed_cap_cost,
-                                             doc="Some parameter from TWB")
-            self.cap_scaling_exp = Param(mutable=True,
-                                         initialize=cap_scaling_exp,
-                                         doc="Another parameter from TWB")
-
             
             # Get the first time point in the time domain
             # In many cases this will be the only point (steady-state), but lets be
@@ -221,11 +221,11 @@ see property package for documentation.}"""))
             
 
             ################### TWB METHOD ###########################################################
-            if cost_method == "twb":
-                    self.fixed_cap_inv_unadjusted = Expression(
-                        expr=self.base_fixed_cap_cost *
-                        (flow_in*pyunits.day/pyunits.Mgallon) ** self.cap_scaling_exp,
-                        doc="Unadjusted fixed capital investment")
+#             if cost_method == "twb":
+#                     self.fixed_cap_inv_unadjusted = Expression(
+#                         expr=self.base_fixed_cap_cost *
+#                         (flow_in*pyunits.day/pyunits.Mgallon) ** self.cap_scaling_exp,
+#                         doc="Unadjusted fixed capital investment")
             ##############################################################################
 
             ################## WATERTAP METHOD ###########################################################
@@ -237,10 +237,12 @@ see property package for documentation.}"""))
                 self.catalysts_chemicals = df.loc[basis_year].CatChem_Factor
                 self.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
                 self.consumer_price_index = df.loc[basis_year].CPI_Factor
-
+                
+                total_flow_rate = self.parent_block().total_mass # kg/hr - TOTAL MASS WASTE
+                                
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(flow_in),
+                    expr=(total_flow_rate / capacity_basis) ** cap_scaling_exp,
                     doc="Unadjusted fixed capital investment") # $M
 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
@@ -255,10 +257,7 @@ see property package for documentation.}"""))
                 self.electricity = 0  # kWh/m3
                 self.cat_and_chem_cost = 0  # TODO
                 
-                # TODO ANNA RESOLVE
-                total_flow_rate = self.parent_block().total_mass # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
-                    
+                                  
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
                         expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),
@@ -322,12 +321,12 @@ def create(m, up_name):
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
     
-    for constituent_name in train_constituent_list:
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():
             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
         else:
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

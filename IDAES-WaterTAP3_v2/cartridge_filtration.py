@@ -281,12 +281,12 @@ def create(m, up_name):
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
     
-    for constituent_name in train_constituent_list:
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():
             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
         else:
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
     getattr(m.fs, up_name).deltaP_waste.fix(1e-4)

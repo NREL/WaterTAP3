@@ -288,8 +288,8 @@ def get_system_costing(self):
     ## HERE GET TOTAL ELECTRICITY CONSUMPTION IN KWH AS WELL?
     
     b.LCOW = Expression(
-        expr=(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 
-    / (b.treated_water * 3600 * 24 * 365),
+        expr=(1e6*(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 
+    / (b.treated_water * 3600 * 24 * 365)),
     doc="Levelized Cost of Water in $/m3")
     
     

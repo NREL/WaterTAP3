@@ -93,7 +93,7 @@ def add_water_source(m = None, source_name = None, link_to = None,
             getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].Value)        
         
         else:
-            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(1e-5)
+            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(1e-4)
         
         getattr(m.fs, source_name).removal_fraction[:, constituent_name].fix(0)
         
