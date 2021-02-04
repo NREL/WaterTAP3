@@ -12,16 +12,22 @@ from idaes.core.util.model_statistics import degrees_of_freedom
 from split_test2 import Separator1
 from mixer_example import Mixer1
 import watertap as wt
+import module_import
 
 global case_study
 global reference
 global water_type
+global scenario
 
 from water_props import WaterParameterBlock
 
 from pyomo.environ import (
     Block, Constraint, Expression, Var, Param, NonNegativeReals, units as pyunits)
 from idaes.core.util.exceptions import ConfigurationError
+
+
+case_study_library = pd.read_csv("data/case_study_library.csv")
+
 
 def unit_test_case(unit_name = None, flow = None, m = None):
         
@@ -62,7 +68,6 @@ def get_case_study(flow = None, m = None):
     m.fs.water = WaterParameterBlock()
         
     unit_processes = get_unit_processes(case_study = case_study)
-                          
         
     m = wt.design.add_water_source(m = m, source_name = "source1", link_to = None, 
                          reference = reference, water_type = water_type, 
@@ -81,6 +86,24 @@ def get_case_study(flow = None, m = None):
     # connect unit models
     ### NOTE THE ARC METHOD IS PROBABLY EASIER FOR NOW ### (compared to  wt.design.connect_blocks)
     ### TODO AUTOMATE WAY TO CONNECT?!
+    
+    ################################################    
+    #### ADD CHEMICAL ADDITIONS ###
+    ################################################     
+    
+    #number_of_chemical_additions = get_number_of_chemical_additions(case_study)
+    
+#     i = 100
+#     for unit_process in get_unit_processes(case_study):
+#         if hasattr(module_import.get_module(unit_process), 'chem_dic'): 
+#             i = i + 1
+            
+#             setattr(m.fs, ("chem_mixer%s" % i), 
+#                     Mixer1(default={"property_package": m.fs.water, "inlet_list": ["inlet1", "inlet2"]}))   
+        
+#             setattr(m.fs, ("arc%s" % i), Arc(source = getattr(m.fs, unit_process).outlet,  
+#                                                destination = getattr(m.fs, ("chem_mixer%s" % i)).inlet1))         
+
     
     if case_study == "Carlsbad":
     
@@ -128,8 +151,7 @@ def get_case_study(flow = None, m = None):
             if hasattr(b_unit, 'waste'):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
-                    print(b_unit)
-                    if check_waste(b_unit) == "no":
+                    if check_waste_source_recovered(b_unit) == "no":
                         i = i + 1
                         waste_inlet_list.append(("inlet%s" % i))
 
@@ -141,11 +163,8 @@ def get_case_study(flow = None, m = None):
              if hasattr(b_unit, 'waste'):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
-                    print(b_unit)                   
-                    print(check_waste(b_unit))
                     
-                    if check_waste(b_unit) == "no":
-                        print("goes in")
+                    if check_waste_source_recovered(b_unit) == "no":
                         i = i + 1
                         j = j + 1
                         setattr(m.fs, ("arc%s" % j), Arc(source = getattr(b_unit, "waste"),  
@@ -200,7 +219,7 @@ def get_unit_processes(case_study):
     return unit_processes
 
 
-def check_waste(b_unit):
+def check_waste_source_recovered(b_unit):
     check = "no"
     
     if "backwash_solids_handling" in str(b_unit): check = "yes"
@@ -215,6 +234,89 @@ def check_waste(b_unit):
     
     return check
                           
-                          
-                          
-                          
+def check_waste(b_unit):
+    check = "no"
+    
+    if "backwash_solids_handling" in str(b_unit): check = "yes"
+    
+    if "landfill" in str(b_unit): check = "yes"
+    
+    if "surface_discharge" in str(b_unit): check = "yes"
+    
+    return check                          
+
+
+def check_intake(b_unit):
+    check = "no"
+    
+    if "sw_onshore_intake" in str(b_unit): check = "yes"
+       
+    return check   
+
+def check_product(b_unit):
+    check = "no"
+    
+    if "municipal_drinking" in str(b_unit): check = "yes"
+       
+    return check 
+
+def get_number_of_chemical_additions(case_study):
+    i = 0
+    for unit_process in get_unit_processes(case_study):
+        i = i + 1 if hasattr(module_import.get_module(unit_process), 'chem_dic') is True else i
+    
+    return i
+
+
+
+
+######################################################
+######################################################
+######################################################
+######################################################
+######################################################
+# IGNORE THIS CODE --> THOUGHTS ON AUTOMATING TRAIN CREATION.
+# pfd_dict = {}
+# i = 0
+# for up in unit_processes:
+#     c = "series" # eventually might need para option
+    
+#     if check_intake(b_unit) == "yes":
+#         a = "source1" ### automate this
+#         b = unit_processes[i+1]
+#         d = "product"
+#     if check_waste(getattr(m.fs, up)) == "yes":
+#         a = unit_processes[i-1] ### automate this
+#         b = "none"
+#         d = "product"        
+#     if hasattr(module_import.get_module(up), 'chem_dic'):
+#         a = unit_processes[i-1] ### automate this
+#         b = unit_processes[i+1]
+#         d = "product"        
+#     if check_product(getattr(m.fs, up)) == "yes":
+#         a = unit_processes[i-1] ### automate this
+#         b = "none"
+#         d = "product"        
+#     if check_recycle(getattr(m.fs, up)) == "yes":
+#         a = unit_processes[i-1] ### automate this
+#         b = "none"
+#         d = "recycle"   
+        
+#     if i == 0:
+#         pfd_dict[up] = ["first", unit_processes[i+1], "series", "treatment_process"]
+#     elif i == len(unit_processes):
+#         a = unit_processes[i-1]
+#         b = "last"
+#         c = a
+#         d = 
+#     else:
+#         if check_waste(getattr(m.fs, up)) == "yes":
+#             pfd_dict[up] = [unit_processes[i-1], unit_processes[i+1], "series", "waste_disposal"]
+#         elif hasattr(module_import.get_module(up), 'chem_dic'):
+#             pfd_dict[up] = [unit_processes[i-1], unit_processes[i+1], "series", "chemical_addition"]
+#         elif check_product(getattr(m.fs, up)) == "yes":
+#             pfd_dict[up] = [unit_processes[i-1], unit_processes[i+1], "series", "product"]
+#         else:
+#             pfd_dict[up] = [unit_processes[i-1], unit_processes[i+1], "series", "treatment_process"]
+#         # TODO ADD IDENTIFIER FOR PARA PROCESS
+#     i = i + 1   
