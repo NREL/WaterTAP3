@@ -19,6 +19,8 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
+from pyomo.environ import PositiveReals #ariel
+
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -94,7 +96,9 @@ def build_up(self, up_name_test = None):
     # in ProteusLib
     if up_name_test == "chlorination_twb":
         unit_process_model.get_additional_variables(self, units_meta, time)
-    
+    if up_name_test == "ro_deep":
+        unit_process_model.get_additional_variables(self, units_meta, time)
+        
     self.flow_vol_in = Var(time,
                            initialize=1,
                            units=units_meta("volume")/units_meta("time"),
@@ -168,8 +172,9 @@ def build_up(self, up_name_test = None):
     # Then, recovery and removal variables
     self.water_recovery = Var(time,
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
+                              #within=PositiveReals,
                               units=pyunits.dimensionless,
-                              bounds=(0.0001, 1.0),
+                              bounds=(0.000001, 1.0000001),
                               doc="Water recovery fraction")
     self.removal_fraction = Var(time,
                                 self.config.property_package.component_list,

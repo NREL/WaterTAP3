@@ -92,19 +92,19 @@ def get_results_table(m = None):
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_in[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
                 variable_list.append("Inlet Constituent")
-                category.append("Constituent Flow")
+                category.append(conc)
                 unit_list.append("kg/m3")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_out[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
                 variable_list.append("Outlet Constituent")
-                category.append("Constituent Flow")
+                category.append(conc)
                 unit_list.append("kg/m3")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_waste[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
                 variable_list.append("Waste Constituent")
-                category.append("Constituent Flow")
+                category.append(conc)
                 unit_list.append("kg/m3")
 
                 ### MASS IN KG --> MULTIPLIED BY FLOW
@@ -112,14 +112,14 @@ def get_results_table(m = None):
                                  value(getattr(m.fs, str(b_unit)[3:]).flow_vol_in[0]))
                 up_name_list.append(str(b_unit)[3:])
                 variable_list.append("Inlet Constituent Total Mass")
-                category.append("Constituent Flow")
+                category.append(conc)
                 unit_list.append("kg")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_out[0, conc])*
                                  value(getattr(m.fs, str(b_unit)[3:]).flow_vol_out[0]))
                 up_name_list.append(str(b_unit)[3:])
                 variable_list.append("Outlet Constituent Total Mass")
-                category.append("Constituent Flow")
+                category.append(conc)
                 unit_list.append("kg")
 
                 value_list.append(
@@ -127,7 +127,7 @@ def get_results_table(m = None):
                                 value(getattr(m.fs, str(b_unit)[3:]).flow_vol_waste[0]))
                 up_name_list.append(str(b_unit)[3:])
                 variable_list.append("Waste Constituent Total Mass")
-                category.append("Constituent Flow")
+                category.append(conc)
                 unit_list.append("kg")            
 
     for variable in m.fs.costing.component_objects():

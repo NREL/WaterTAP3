@@ -71,10 +71,10 @@ fixed_op_cost_scaling_exp = 0.7
 tim = 25 # (deg. C) feed water inlet temperature at RO element entry   (DEEP model default) *****
 
 # NEEDS TO BASED ON THE FLOW COMING IN. TODOURGENTCHANGE
-tds = 35000 # (ppm) total disolved solids   (Mike's input value) *****
+#tds = 35000 # (ppm) total disolved solids   (Mike's input value) *****
 
 # RO Technical parameters
-pmax = 85 # (bar) maximum design pressure of the membrane (matched to Carlsbad value in VAR tab)
+#pmax = 85 # (bar) maximum design pressure of the membrane (matched to Carlsbad value in VAR tab)
 ccalc = .00115 # constant used for recovery ratio calculation *****
 dflux = 13.6 # (l/m2*h) design average permeate flux  ****
 nflux = 27.8 # (l/m2*h) normal permeate flux ****
@@ -144,8 +144,13 @@ ycr = 2020 # currency reference year
 yi = 2000 # initial year of operation
 energy_cost_factor = .08 # $/kWh
 
+
 cost_factor_for_number_of_passes = 1
 parallel_units = 1
+
+
+kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
+
 
 # Get constituent list and removal rates for this unit process
 import generate_constituent_list
@@ -250,30 +255,20 @@ see property package for documentation.}"""))
                                      domain=NonNegativeReals,
                                      doc='Unit Purchase Cost in $')
         
-        
-        
-        
         time = self.flowsheet().config.time.first()               
-        
-        pmax = 85 # (bar) maximum design pressure of the membrane (matched to Carlsbad value in VAR tab)
-        ccalc = .00115 # constant used for recovery ratio calculation *****
-        
+        tds = self.conc_mass_in[time, "TDS"] * 1000 # convert from kg/m3 to mg/L
+                
         # optimal recovery ratio; .526 for the Carlsbad case study
-        self.water_recovery.fix(1 - (ccalc/pmax) * tds) 
-        #self.water_recovery = Expression(
-        #                expr=1 - (ccalc/pmax) * tds,
-        #                doc="water_recovery")
-
+        self.recovery_constraint_eq = Constraint(
+            expr= self.water_recovery[time] == 1 - (ccalc/self.pmax[time]) * (self.conc_mass_in[time, "TDS"] * 1000))
         
         
         dso = tds / (1-self.water_recovery[time]) # (ppm) brine salinity ***
         dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery[time]))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
 
-        kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
+        #kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor*** ariel moved to top
         kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.water_recovery[time])))*tds # salinity correction factor***
         ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
-        
-        
         
         
         # Build a costing method for each type of unit
@@ -332,7 +327,7 @@ see property package for documentation.}"""))
             
             
             
-            #self.parent_block().water_recovery = 1 - (ccalc/pmax) * tds # optimal recovery ratio *****
+            #self.parent_block().water_recovery = 1 - (ccalc/self.pmax) * tds # optimal recovery ratio *****
             
             # flow_in = wacs / self.parent_block().water_recovery # (m3/d) feed flow (wfm in DEEP model)
             # flow_in_m3_hr = flow_in / 24 # (m3/hr) feed flow
@@ -356,11 +351,6 @@ see property package for documentation.}"""))
                     
                 qer1 = -fsms * (1-self.parent_block().water_recovery[time])* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
                 qer2 =  -(1-self.parent_block().water_recovery[time]) * eer * qhp # (MW) energy recovery other *****
-
-            #     if qer1 < qer2:  TODO
-            #         recovery = qer1
-            #     else:
-            #         recovery = qer2
 
                 return qer2
 
@@ -535,9 +525,12 @@ see property package for documentation.}"""))
                 self.consumer_price_index = df.loc[basis_year].CPI_Factor
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
+                # Get the inlet flow to the unit and convert to the correct units
+                flow_out = pyunits.convert(self.parent_block().flow_vol_out[time],
+                                          to_units=pyunits.Mgallons/pyunits.day) # convert to MGD  
                 
-                #wacs = get_flow_out(flow_in)
-                wacs = flow_in * 3785.4118 * self.parent_block().water_recovery[time]
+                wacs = flow_out * 3785.4118 #what is this constant for
+                #wacs = flow_in * 3785.4118 * self.parent_block().water_recovery[time]
                 
                 self.fixed_cap_inv_unadjusted = Expression(
                     expr=fixed_cap_mcgiv(wacs),
@@ -617,7 +610,9 @@ def create(m, up_name):
 #             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
 #         else:
 #             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
-            
+    
+    getattr(m.fs, up_name).pmax.fix(85)
+    
     for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():
@@ -640,6 +635,9 @@ def create(m, up_name):
 
     return m        
         
+def get_additional_variables(self, units_meta, time):
+    
+    self.pmax = Var(time, initialize=50, units=pyunits.bar, doc="pmax")   
         
            
         
