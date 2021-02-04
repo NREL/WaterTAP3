@@ -203,7 +203,9 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
 
             print("----------------------------------------------------------------------")
 
-
+def run_dash(csv_dir,json_dir):
+    import app3 
+    app3.run(csv_dir,json_dir)
         
 def main():
     print("importing something")
