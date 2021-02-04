@@ -228,12 +228,14 @@ def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
         
         final_df = pd.concat([final_df ,df])
     
+    final_df.to_csv("results/CarlsbadCompare.csv")
+    
     return final_df            
             
                         
 def run_dash(csv_dir,json_dir):
     import app3 
-    app3.run(csv_dir,json_dir)
+    app3.run_dash(csv_dir,json_dir)
         
 def main():
     print("importing something")
