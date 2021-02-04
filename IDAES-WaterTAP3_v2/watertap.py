@@ -97,8 +97,12 @@ unit_process_library_list = [
     "backwash_solids_handling",
     "surface_discharge",
     "landfill",
-    "coagulant_addition"
+    "coagulant_addition",
+    "fecl3_addition", 
+    "caustic_soda_addition", 
+    "static_mix"
 ]
+
 
 
 fw_filename = "data/case_study_water_sources_and_uses.csv"
