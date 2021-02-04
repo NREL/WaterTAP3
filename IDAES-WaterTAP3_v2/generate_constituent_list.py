@@ -6,6 +6,7 @@ global case_study
 global reference
 global water_type
 global unit_process_list
+global scenario
 
 import module_import
 
@@ -29,7 +30,7 @@ def run():
     #TODO ACTIVATE ONCE WE KNOW WE NEED TO ADD CHEM ADDITIONS!! 
     chem_addition_list = []
     
-    for unit_process in get_unit_processes(case_study):
+    for unit_process in get_unit_processes(case_study, scenario):
         up_module = module_import.get_module(unit_process)
         if hasattr(up_module, 'chem_dic'): 
             for chem in up_module.chem_dic.keys():

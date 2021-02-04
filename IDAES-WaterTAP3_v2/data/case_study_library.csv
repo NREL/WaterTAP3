@@ -1,5 +1,6 @@
 Case_Study,Scenario,Reference,WaterType
 Ashkelon,Baseline,NAWI,Seawater
+Carlsbad,TwoPassRO,NAWI,Seawater
 Carlsbad,Baseline,NAWI,Seawater
 Tampa_Bay,Baseline,NAWI,Seawater
 Santa_Barbara,Baseline,NAWI,Seawater
