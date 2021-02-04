@@ -101,7 +101,8 @@ unit_process_library_list = [
     "backwash_solids_handling",
     "surface_discharge",
     "landfill",
-    "coagulant_addition"
+    "coagulant_addition",
+    "ro_deep_scnd_pass"
 ]
 
 
@@ -203,6 +204,33 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
 
             print("----------------------------------------------------------------------")
 
+            
+def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
+    import pandas as pd
+    final_df = pd.DataFrame()
+    for scenario in [scenarioA, scenarioB]:
+    
+        wt.case_study_trains.case_study = "Carlsbad"
+        wt.case_study_trains.reference = "NAWI"
+        wt.case_study_trains.water_type = "Seawater"
+        wt.case_study_trains.scenario = scenario
+
+        # eventually we may want to be able to choose a dynamic model or different model set ups.
+        m = wt.watertap_setup(dynamic = False)
+
+        # load the treatment train, source water information, and flow to the model.
+        m = wt.case_study_trains.get_case_study(flow = flow, m = m)
+
+        #run model
+        wt.run_water_tap(m = m, solver_results = False, print_model_results = False)
+
+        df = wt.get_results_table(m = m)
+        
+        final_df = pd.concat([final_df ,df])
+    
+    return final_df            
+            
+                        
 def run_dash(csv_dir,json_dir):
     import app3 
     app3.run(csv_dir,json_dir)

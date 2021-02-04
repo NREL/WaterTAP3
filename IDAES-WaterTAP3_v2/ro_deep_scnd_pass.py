@@ -53,8 +53,10 @@ import numpy as np
 #tds_removal_factor = 0.992
 
 # captial costs basis
-base_fixed_cap_cost = 12.612  # from McGivney/Kamakura figure 5.8.1
-cap_scaling_exp = 0.7177  # from McGivney/Kamakura figure 5.8.1
+#0.0258 and 0.7730 # from Voutch for second. Delta assumption. TBD TODO
+
+base_fixed_cap_cost = 0.0258  # from McGivney/Kamakura figure 5.8.1
+cap_scaling_exp = 0.7730  # from McGivney/Kamakura figure 5.8.1
 
 basis_year = 2007 # McGivney year
 fixed_op_cost_scaling_exp = 0.7
@@ -213,7 +215,7 @@ see property package for documentation.}"""))
     
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = "ro_deep")
+        return unit_process_equations.build_up(self, up_name_test = "ro_deep_scnd_pass")
     
     
     def get_costing(self, module=financials, cost_method="wt", year=None):
@@ -498,13 +500,15 @@ see property package for documentation.}"""))
             
             
             def fixed_cap_mcgiv(wacs):
-                  
+               
                 Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
-
-                #mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
+                
+                Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
+                
+                #mcgivney_cap_cost = 0.0258 * (wacs/24)**0.7730 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
                 #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
                 
-                return Single_Pass_FCI
+                return (Two_Pass_FCI - Single_Pass_FCI)
             
             
 

@@ -38,7 +38,8 @@ up_variables = [
 
 def get_results_table(m = None):
     # could make a dictionary if betteR?
-    unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study)
+    unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
+                                                             case_study_trains.scenario)
     
     scenario = case_study_trains.scenario
     case_study = case_study_trains.case_study
@@ -91,43 +92,43 @@ def get_results_table(m = None):
                 ### MASS IN KG PER M3
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_in[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append("Inlet Constituent")
-                category.append(conc)
+                category.append("Inlet Constituent")
+                variable_list.append(conc)
                 unit_list.append("kg/m3")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_out[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append("Outlet Constituent")
-                category.append(conc)
+                category.append("Outlet Constituent")
+                variable_list.append(conc)
                 unit_list.append("kg/m3")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_waste[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append("Waste Constituent")
-                category.append(conc)
+                category.append("Waste Constituent")
+                variable_list.append(conc)
                 unit_list.append("kg/m3")
 
                 ### MASS IN KG --> MULTIPLIED BY FLOW
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_in[0, conc])*
                                  value(getattr(m.fs, str(b_unit)[3:]).flow_vol_in[0]))
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append("Inlet Constituent Total Mass")
-                category.append(conc)
+                category.append("Inlet Constituent Total Mass")
+                variable_list.append(conc)
                 unit_list.append("kg")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_out[0, conc])*
                                  value(getattr(m.fs, str(b_unit)[3:]).flow_vol_out[0]))
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append("Outlet Constituent Total Mass")
-                category.append(conc)
+                category.append("Outlet Constituent Total Mass")
+                variable_list.append(conc)
                 unit_list.append("kg")
 
                 value_list.append(
                     value(getattr(m.fs, str(b_unit)[3:]).conc_mass_waste[0, conc]) * 
                                 value(getattr(m.fs, str(b_unit)[3:]).flow_vol_waste[0]))
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append("Waste Constituent Total Mass")
-                category.append(conc)
+                category.append("Waste Constituent Total Mass")
+                variable_list.append(conc)
                 unit_list.append("kg")            
 
     for variable in m.fs.costing.component_objects():
@@ -141,11 +142,7 @@ def get_results_table(m = None):
             variable_list.append("System " + name_lup.loc[variable_str].Excel_variable)
             value_list.append(value(getattr(m.fs.costing, variable_str)))
             unit_list.append(name_lup.loc[variable_str].Unit)
-
-            if name_lup.loc[variable_str].Unit == "$MM/yr":
-                category.append("Annual Cost")
-            else: 
-                category.append("Cost")
+            category.append("Cost")
 
     df = pd.DataFrame()
     df["Unit Process Name"] = up_name_list
@@ -156,6 +153,9 @@ def get_results_table(m = None):
     df["Case Study"] = np.array(case_study)
     df["Scenario"] = np.array(scenario)  
     
+    df["Metric"] = np.where(df.Unit == "$MM/yr", "Annual Cost", df.Metric)
+    df["Metric"] = np.where(df.Unit == "$/m3", "LCOW", df.Metric)
+                            
     df.Value = df.Value.round(3)
     
     df.to_csv("results/%s_%s_results.csv" % (case_study, scenario))
