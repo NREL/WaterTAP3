@@ -138,10 +138,14 @@ def get_results_table(m = None):
         else:
             variable_str = str(variable)[11:]
             up_name_list.append("System")
-            variable_list.append(name_lup.loc[variable_str].Excel_variable)
+            variable_list.append("System " + name_lup.loc[variable_str].Excel_variable)
             value_list.append(value(getattr(m.fs.costing, variable_str)))
-            unit_list.append(name_lup.loc[variable_str].Unit)  
-            category.append("Cost")
+            unit_list.append(name_lup.loc[variable_str].Unit)
+
+            if name_lup.loc[variable_str].Unit == "$MM/yr":
+                category.append("Annual Cost")
+            else: 
+                category.append("Cost")
 
     df = pd.DataFrame()
     df["Unit Process Name"] = up_name_list

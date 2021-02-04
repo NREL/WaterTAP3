@@ -326,7 +326,7 @@ see property package for documentation.}"""))
                 
                 for key in chem_dic.keys():
                     chem_cost = cat_chem_df.loc[key].Price
-                    chem_cost_sum = flow_in * chem_cost_sum + self.catalysts_chemicals * 365 * chem_cost * chem_dic[key] * on_stream_factor * 3.78541178 # 3.78541178 for mg/L to kg/gallon
+                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) #
                 
                 self.cat_and_chem_cost = chem_cost_sum / 1000000 # to million $
                 
