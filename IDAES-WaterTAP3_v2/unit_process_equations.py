@@ -67,6 +67,9 @@ def build_up(self, up_name_test = None):
     if up_name_test == "surface_discharge": import surface_discharge as unit_process_model    
     if up_name_test == "landfill": import landfill as unit_process_model   
     if up_name_test == "coagulant_addition": import coagulant_addition as unit_process_model  
+    if up_name_test == "fecl3_addition": import fecl3_addition as unit_process_model  
+    if up_name_test == "caustic_soda_addition": import caustic_soda_addition as unit_process_model 
+    if up_name_test == "static_mix": import static_mix as unit_process_model    
     if up_name_test == "ro_deep_scnd_pass": import ro_deep_scnd_pass as unit_process_model
         
 

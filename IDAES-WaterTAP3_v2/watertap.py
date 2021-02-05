@@ -102,8 +102,11 @@ unit_process_library_list = [
     "surface_discharge",
     "landfill",
     "coagulant_addition",
-    "ro_deep_scnd_pass"
-]
+    "fecl3_addition", 
+    "caustic_soda_addition", 
+    "static_mix",
+    "ro_deep_scnd_pass"]
+
 
 
 fw_filename = "data/case_study_water_sources_and_uses.csv"
