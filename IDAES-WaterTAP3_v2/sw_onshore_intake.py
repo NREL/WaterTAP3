@@ -43,21 +43,17 @@ from water_props import WaterParameterBlock
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.99999
-tds_removal_factor = 0 # TODO
-
-# Perfomance Parameter Values for Process: Constituent removals
-toc_removal_factor = 0.0  
-nitrates_removal_factor = 0.0  
-TOrC_removal = 0.0  
-EEQ_removal = 0.0  
-ndma_removal = 0.00  
-pfos_pfoa_removal = 0.00
 
 base_fixed_cap_cost = .000215  # from Voutchkov (2018) figures 4.2 and 4.4
 cap_scaling_exp = .888803  # from Voutchkov (2018) figures 4.2 and 4.4
 
 basis_year = 2018
 fixed_op_cost_scaling_exp = 0.7
+
+# Get constituent list and removal rates for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("sw_onshore_intake")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -247,9 +243,9 @@ see property package for documentation.}"""))
                         expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
                         doc="Electricity cost") # M$/yr
                 
-                self.other_var_cost = Expression(
-                        expr= self.cat_and_chem_cost - self.electricity_cost,
-                        doc="Other variable cost")
+                self.other_var_cost = 0 #Expression(
+                        #expr= self.cat_and_chem_cost - self.electricity_cost,
+                        #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
                 #self.base_employee_salary_cost = self.base_fixed_cap_cost * 
@@ -297,10 +293,13 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+       
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

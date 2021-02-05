@@ -256,6 +256,15 @@ def show_train2(GG = None, model_name = None):
     """
     )
     # g.show(str(train_to_show))
+    
+    import json
+    import networkx as nx
+    from networkx.readwrite import json_graph
+
+    # G = your_graph
+    d = json_graph.node_link_data(GG2)
+    json.dump(d, open("tmp/example.json", "w")) # write json
+    
     return g.show("tmp/example.html")
 
 

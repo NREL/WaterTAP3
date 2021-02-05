@@ -45,27 +45,16 @@ from water_props import WaterParameterBlock
 import pandas as pd
 import numpy as np
 
-# Set inlet conditions to first unit
+flow_recovery_factor = 0.9 # TODO NEEDS TO BE FROM A CSV
 
-### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
-flow_recovery_factor = 0.9 # TODO
-#tds_removal_factor = 0 # TODO
-
-# Perfomance Parameter Values for Process: Constituent removals. # TODO
-#toc_removal_factor = 0.0  
-#nitrates_removal_factor = 0.0  
-#TOrC_removal = 0.0  
-#EEQ_removal = 0.0  
-#ndma_removal = 0.00  
-#pfos_pfoa_removal = 0.00  
-
+# TODO -> NEEDS TO BE IN A CSV 
 base_fixed_cap_cost = .72557  # from IT3PR, section 3.5.6 figure 3.3 $MM & MGD
 cap_scaling_exp = .5862  # from IT3PR, section 3.5.6 figure 3.3
 
 basis_year = 2014
 fixed_op_cost_scaling_exp = 0.7
 
-# TODO FIX FOR USER INPUT
+# Get constituent list and removal rates for this unit process
 import generate_constituent_list
 train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("tri_media_filtration")
@@ -308,17 +297,13 @@ def create(m, up_name):
     # Set removal and recovery fractions -> TODO -> MAKE THIS A DICTIONARY AS WELL
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
     
-    for constituent_name in train_constituent_list:
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():
             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
         else:
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
         
-
-    #getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(tds_removal_factor)
-    #getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    #getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

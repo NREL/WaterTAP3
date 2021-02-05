@@ -1,10 +1,12 @@
 import pandas as pd
 import numpy as np
+from case_study_trains import get_unit_processes
 
 global case_study
 global reference
 global water_type
 global unit_process_list
+global scenario
 
 import module_import
 
@@ -25,16 +27,16 @@ def run():
     
     final_list = [x for x in list1 if x in list2]
     
-    # TODO ACTIVATE ONCE WE KNOW WE NEED TO ADD CHEM ADDITIONS!! 
-    #chem_addition_list = []
-    #
-    #for unit_process in unit_process_list:
-    #    up_module = module_import.get_module(unit_process_type)
-    #    if len(xx.keys()) > 0:
-    #        for chem in up_module.chem_dic.keys():
-    #            chem_addition_list.append(chem)
-    #
-    #final_list = final_list + chem_addition_list
+    #TODO ACTIVATE ONCE WE KNOW WE NEED TO ADD CHEM ADDITIONS!! 
+    chem_addition_list = []
+    
+    for unit_process in get_unit_processes(case_study, scenario):
+        up_module = module_import.get_module(unit_process)
+        if hasattr(up_module, 'chem_dic'): 
+            for chem in up_module.chem_dic.keys():
+                chem_addition_list.append(chem)
+    
+    final_list = final_list + chem_addition_list
     
     return final_list
 

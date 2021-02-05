@@ -70,13 +70,6 @@ chlorine_decay_rate = 3.0  # mg/Lh
 
 flow_recovery_factor = .99999  ## ASSUMED AS 1.0
 
-
-#### OTHER NEEDED VARIABLES BUT NOT FOR THIS TREATMENT
-toc_removal_factor = 0.0  # Asano et al (2007)
-nitrates_removal_factor = 0.0
-TOrC_removal = 0.25 # TODO source
-tds_removal_factor = 0.0
-
 base_fixed_cap_cost = 2.5081
 cap_scaling_exp = 0.3238
 
@@ -85,6 +78,10 @@ fixed_op_cost_scaling_exp = 0.7
 
 cost_method = "wt"
 
+# Get constituent list and removal rates for each, for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("chlorination_twb")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -135,6 +132,7 @@ and used when constructing these,
 **Valid values:** {
 see property package for documentation.}"""))
     
+    
     from unit_process_equations import initialization
     #unit_process_equations.get_base_unit_process()
 
@@ -172,6 +170,11 @@ see property package for documentation.}"""))
         
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
+        
+        #################################
+        ########### _make_vars NOT USED ###########
+        #################################
+
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
             self.base_cost = Var(initialize=1e5,
@@ -181,7 +184,9 @@ see property package for documentation.}"""))
                                      domain=NonNegativeReals,
                                      doc='Unit Purchase Cost in $')
     
-
+        #################################
+        #################################
+        
         def get_chlorine_dose_cost(flow_in, dose): # flow in mgd for this cost curve
 
             import ml_regression
@@ -321,7 +326,7 @@ see property package for documentation.}"""))
                 
                 for key in chem_dic.keys():
                     chem_cost = cat_chem_df.loc[key].Price
-                    chem_cost_sum = flow_in * chem_cost_sum + self.catalysts_chemicals * 365 * chem_cost * chem_dic[key] * on_stream_factor * 3.78541178 # 3.78541178 for mg/L to kg/gallon
+                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) #
                 
                 self.cat_and_chem_cost = chem_cost_sum / 1000000 # to million $
                 
@@ -374,7 +379,7 @@ see property package for documentation.}"""))
           
         
 # OTHER CALCS
-
+# TODO -> BASED ON NEW NAMES
 def get_cl2_dem(m):
     # unit is mg/L. order matters in this list. need a better way.
 
@@ -437,10 +442,13 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

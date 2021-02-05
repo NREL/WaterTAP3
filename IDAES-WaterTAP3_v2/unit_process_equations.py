@@ -19,6 +19,8 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
+from pyomo.environ import PositiveReals #ariel
+
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -68,14 +70,9 @@ def build_up(self, up_name_test = None):
     if up_name_test == "fecl3_addition": import fecl3_addition as unit_process_model  
     if up_name_test == "caustic_soda_addition": import caustic_soda_addition as unit_process_model 
     if up_name_test == "static_mix": import static_mix as unit_process_model    
+    if up_name_test == "ro_deep_scnd_pass": import ro_deep_scnd_pass as unit_process_model
         
-   
-        
-        
-        
-        
-        
-        
+
     """
     The build method is the core of the unit model, and contains the rules
     for building the Vars and Constraints that make up the unit model.
@@ -102,14 +99,19 @@ def build_up(self, up_name_test = None):
     # in ProteusLib
     if up_name_test == "chlorination_twb":
         unit_process_model.get_additional_variables(self, units_meta, time)
-    
+    if up_name_test == "ro_deep":
+        unit_process_model.get_additional_variables(self, units_meta, time)
+    if up_name_test == "ro_deep_scnd_pass":
+        unit_process_model.get_additional_variables(self, units_meta, time)
+        
     self.flow_vol_in = Var(time,
                            initialize=1,
                            units=units_meta("volume")/units_meta("time"),
                            doc="Volumetric flowrate of water into unit")
     self.conc_mass_in = Var(time,
                             self.config.property_package.component_list,
-                            initialize=0,
+                            initialize=1e-5,
+                            #bounds=(1e-6, 1e10),
                             units=units_meta("mass")/units_meta("volume"),
                             doc="Mass concentration of species at inlet")
     self.temperature_in = Var(time,
@@ -129,6 +131,7 @@ def build_up(self, up_name_test = None):
     self.conc_mass_out = Var(time,
                              self.config.property_package.component_list,
                              initialize=0,
+                             #bounds=(1e-6, 1e10),
                              units=units_meta("mass")/units_meta("volume"),
                              doc="Mass concentration of species at outlet")
     self.temperature_out = Var(time,
@@ -149,6 +152,7 @@ def build_up(self, up_name_test = None):
         time,
         self.config.property_package.component_list,
         initialize=0,
+        #bounds=(1e-6, 1e10),
         units=units_meta("mass")/units_meta("volume"),
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,
@@ -173,12 +177,13 @@ def build_up(self, up_name_test = None):
     # Then, recovery and removal variables
     self.water_recovery = Var(time,
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
+                              #within=PositiveReals,
                               units=pyunits.dimensionless,
-                              bounds=(0.001, 1.0),
+                              bounds=(0.000001, 1.0000001),
                               doc="Water recovery fraction")
     self.removal_fraction = Var(time,
                                 self.config.property_package.component_list,
-                                initialize=0.75, #TODO: NEEDS TO BE DIFFERENT?
+                                initialize=0.01, #TODO: NEEDS TO BE DIFFERENT?
                                 units=pyunits.dimensionless,
                                 doc="Component removal fraction")
 

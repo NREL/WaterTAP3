@@ -48,15 +48,7 @@ from water_props import WaterParameterBlock
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.99999 # TODO
-tds_removal_factor = 0 # TODO
 
-# Perfomance Parameter Values for Process: Constituent removals. # TODO
-toc_removal_factor = 0.0 
-nitrates_removal_factor = 0.0  
-TOrC_removal = 0.0  
-EEQ_removal = 0.0  
-ndma_removal = 0.00  
-pfos_pfoa_removal = 0.00  
 
 base_fixed_cap_cost = 35  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
 cap_scaling_exp = .873  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
@@ -64,7 +56,10 @@ cap_scaling_exp = .873  # from PML tab, for the kg/hr and not consistent with th
 basis_year = 2020
 fixed_op_cost_scaling_exp = 0.7
 
-
+# Get constituent list and removal rates for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("surface_discharge")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -152,8 +147,23 @@ see property package for documentation.}"""))
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
        
-
-    
+        time = self.flowsheet().config.time.first()
+        cons_mass_tot = 0     
+        
+        for constituent in self.config.property_package.component_list:
+            #approximate mass fraction -> TODO IMPROVE?
+            cons_mass_tot = cons_mass_tot + self.conc_mass_in[time, constituent] 
+            
+        mass_fraction = cons_mass_tot / (cons_mass_tot + 1000)
+        density = 756 * mass_fraction + 995 #kg/m3 # assumption from Tim's reference
+        #kg/hr for Mike's Excel needs:
+        cons_mass = (density * self.flow_vol_in[time] * 3600) / 1000 
+        cons_mass_tot = cons_mass_tot + cons_mass
+        
+        self.total_mass = cons_mass_tot
+        
+        
+        
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
             self.base_cost = Var(initialize=1e5,
@@ -185,12 +195,12 @@ see property package for documentation.}"""))
             lift_height = 100 # ft
             
             
+            
             def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
                 
-                capacity_basis = 10417 # kg/hr - from PML tab
+                capacity_basis = 10417 # kg/hr - from PML tab based on 250000 gallons per day
                 
-                total_flow_rate = 8697 # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
+                total_flow_rate = self.parent_block().total_mass # kg/hr - TOTAL MASS TODO
                 
                 fixed_cap_unadj =  base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
                 
@@ -206,15 +216,7 @@ see property package for documentation.}"""))
                 return electricity
             
             
-            
-            _make_vars(self)
 
-            self.base_fixed_cap_cost = Param(mutable=True,
-                                             initialize=base_fixed_cap_cost,
-                                             doc="Some parameter from TWB")
-            self.cap_scaling_exp = Param(mutable=True,
-                                         initialize=cap_scaling_exp,
-                                         doc="Another parameter from TWB")
 
             
             # Get the first time point in the time domain
@@ -263,9 +265,9 @@ see property package for documentation.}"""))
                 self.cat_and_chem_cost = 0  # TODO
                 
  # ANNA TODO RESOLVE
-                total_flow_rate = 8697 # kg/hr - from design tab. For Carlsbad only 
+                total_flow_rate = self.parent_block().total_mass # MT/hr! - from design tab. For Carlsbad only 
                                             # TODO need to calculate this value
-                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
+                       
                 self.electricity_cost = Expression(
                         expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),
 
@@ -276,9 +278,9 @@ see property package for documentation.}"""))
                 #        expr= (self.electricity * total_flow_rate * elec_price/1000000),
 
                         doc="Electricity cost") # M$/yr
-                self.other_var_cost = Expression(
-                        expr= self.cat_and_chem_cost - self.electricity_cost,
-                        doc="Other variable cost")
+                self.other_var_cost = 0 #Expression(
+                        #expr= self.cat_and_chem_cost - self.electricity_cost,
+                        #doc="Other variable cost")
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
 #                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI #.035 #excel value 
@@ -324,10 +326,12 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)

@@ -48,17 +48,6 @@ from water_props import WaterParameterBlock
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.8
-tds_removal_factor = 0.75
-
-# Perfomance Parameter Values for Process: Constituent removals.
-toc_removal_factor = 0.0  # Asano et al (2007)
-nitrates_removal_factor = 0.0  # None but in Excel tool appears to be removed sometimes?
-TOrC_removal = 0.0  # slightly lower removal than for UF. Some removal is expected due to particle association of TOrCs.
-EEQ_removal = 0.0  # Linden et al., 2012 (based on limited data))
-NDMA_removal = 0.0
-PFOS_PFOA_removal = 0.0
-protozoa_removal = 0.0
-virus_removal = 0.0
 
 # captial costs basis
 # Project Cost for Filter = $2.5M x (flow in mgd) page 55)
@@ -72,7 +61,10 @@ recovery_factor = 1.0  ## ASSUMED AS 1.0 -> MUST BE WRONG -> CHECK
 # recycle_factor = (1 - recovery_factor) * (recyle_fraction_of_waste)
 waste_factor = 1 - recovery_factor  # - G.edges[edge]['recycle_factor']
 
-
+# Get constituent list and removal rates for this unit process
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("sedimentation")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -309,10 +301,12 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    for constituent_name in train_constituent_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
