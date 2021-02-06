@@ -40,6 +40,7 @@ import module_import
 import design
 import case_study_trains
 from post_processing import *
+import app3 
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -234,11 +235,7 @@ def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
     final_df.to_csv("results/CarlsbadCompare.csv")
     
     return final_df            
-            
-                        
-def run_dash(csv_dir,json_dir):
-    import app3 
-    app3.run_dash(csv_dir,json_dir)
+
         
 def main():
     print("importing something")
