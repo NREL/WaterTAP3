@@ -663,8 +663,17 @@ def run_dash(csv_dir,json_dir):
                 fig = make_subplots()
                 for var, group in df1.groupby(s_name):
                     fig.add_trace(go.Bar(x=group[x_name], y=group['Value'], width=0.2, name='%s - %s'%(metric_name,var), offset=-0.1))
+                
+                uni_x = list(df2[x_name].unique())
+                start_base = [0] * len(uni_x)
+                base_dict = dict(zip(uni_x,start_base)) # each base value starts from 0  
                 for var, group in df2.groupby(s_name):
-                    fig.add_trace(go.Bar(x=group[x_name], y=group['Value'], width=0.2, base=0, name='%s - %s'%(metric_name,var), offset=0.1))
+                    add_dict = dict(zip(list(group[x_name]), list(group['Value'])))
+                    fig.add_trace(go.Bar(x=group[x_name], y=group['Value'], width=0.2,
+                                        base=[base_dict[i] for i in list(add_dict.keys())], 
+                                        name='%s - %s'%(metric_name,var), offset=0.1))
+                    for k in list(add_dict.keys()): 
+                        base_dict[k] = base_dict[k] + add_dict[k]  # add value to base
 
                 fig.update_xaxes(title=x_name)
                 fig.update_yaxes(title=unit_name, type='linear')
