@@ -536,6 +536,9 @@ def run_dash(csv_dir,json_dir):
         if None in [selected_variable, selected_unit_process, selected_scenario1, 
                     selected_case1, selected_scenario2, selected_case2, selected_metric_type]:                
             fig = make_subplots()
+        
+        elif (selected_scenario1 == selected_scenario2) & (selected_case1 == selected_case2):
+            fig = make_subplots()
 
         else:
             ### Select data
