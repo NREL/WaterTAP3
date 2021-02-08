@@ -12,19 +12,23 @@ import module_import
 
 def run():
     
+    # getting the list of consituents with removal factors that are bigger than 0
     df = pd.read_csv("Data/constituent_removal.csv")
     df = df[df.case_study == case_study]
     list1 = df[df.fractional_constituent_removal >=0].constituent.unique()
     
     import importfile
     
+    # grabs inlet water information
     df = importfile.feedwater(
         input_file="data/case_study_water_sources_and_uses.csv",
         reference = reference, water_type = water_type, 
         case_study = case_study)
-        
+    
+    # gets list of consituents in inlet water
     list2 = df.index
     
+    # combines list
     final_list = [x for x in list1 if x in list2]
     
     #TODO ACTIVATE ONCE WE KNOW WE NEED TO ADD CHEM ADDITIONS!! 
