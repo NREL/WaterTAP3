@@ -67,12 +67,13 @@ EEQ_removal = 0.0
 ndma_removal = 0.00 
 pfos_pfoa_removal = 0.00 
 
-base_fixed_cap_cost = 1.95 
-cap_scaling_exp = 0.6195  
+
 
 basis_year = 2007
 fixed_op_cost_scaling_exp = 0.7
-tpec_or_tic = 'TPEC'
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("ammonia_addition")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -125,7 +126,7 @@ see property package for documentation.}"""))
     
     
     #unit_process_equations.get_base_unit_process()
-
+    from unit_process_equations import initialization
     #build(up_name = "ammonia_addition")
     
     def build(self):
@@ -136,7 +137,7 @@ see property package for documentation.}"""))
     def get_costing(self, module=financials, cost_method="wt", year=None):
         """
         We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
+        costing methods, but we call out to an external costing module
         for the actual calculations. This lets us easily swap in different
         methods if needed.
 
@@ -188,46 +189,47 @@ see property package for documentation.}"""))
             from the spreadsheet
             '''
             
+            time = self.parent_block().flowsheet().config.time.first()
+            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3 / pyunits.hour) # m3 /hr
+            
+            cost_method = 'wt'
+            tpec_or_tic = 'TPEC'
+            number_of_units = 2
             lift_height = 100 # ft
             
-            chemical_dosage = 0.03 # kg/m3
-            number_of_units = 2
+            caustic_soda_dosage = 0.03 # kg/m3
+            caustic_soda_flow_rate = flow_in * caustic_soda_dosage * 24 # kg/day
             density_of_solution = 1540 # kg/m3
             ratio_in_solution = 0.5 # 
+            solution_vol_flow = caustic_soda_flow_rate / density_of_solution / ratio_in_solution # m3/day
+            base_fixed_cap_cost = 1.95 
+            cap_scaling_exp = 0.6195
+            pump_eff = 0.9
+            motor_eff = 0.9
+            
+            
+            
+            
             
             def tpec_tic(tpec_or_tic):
-            
-                TPEC = 3.4
-                TIC = 1.65
-
-                if tpec_or_tic != "TPEC": 
-                    TPEC = 1
-
-                if tpec_or_tic != "TIC": 
-                    TIC = 1
-
-                return (TPEC * TIC)
-            
-            
-            def fixed_cap(flow_in): # m3/hr
-                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3 / pyunits.hour)
-                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-                solution_vol_flow = chemical_rate / density_of_solution / ratio_in_solution # m3/day
-                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
-                source_cost = 2262.8 * solution_flow_gpd ** 0.6195
+                return 3.4 if tpec_or_tic == 'TPEC' else 1.65
                 
-                return (source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000 # M$
+            
+            
+            def fixed_cap(flow_in, caustic_soda_flow_rate, solution_vol_flow): # m3/hr
+                
+                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
+                source_cost = 2262.8 * solution_flow_gpd ** cap_scaling_exp
+                caustic_soda_cap = (source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000 # M$
+                print(f'\n\n\ncaustic_soda_cap = {caustic_soda_cap}\n\n\n')
+                return caustic_soda_cap
               
             
-            def electricity(flow_in): # m3/hr
-                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3 / pyunits.hour)
-                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-                solution_vol_flow = (chemical_rate / density_of_solution / ratio_in_solution) * 264.17 / 1440 # m3/day to gal/min
+            def electricity(flow_in, caustic_soda_flow_rate, solution_vol_flow): 
                 
-                electricity = (0.746 * solution_vol_flow * lift_height / (3960 * 0.9 * 0.9)) / flow_in_m3h # kWh/m3
-                
+                solution_vol_flow = solution_vol_flow * 264.17 / 1440 # m3/day to gal/min
+                electricity = (0.746 * solution_vol_flow * lift_height / (3960 * pump_eff * motor_eff)) / flow_in # kWh/m3
                 return electricity
             
             
@@ -273,7 +275,7 @@ see property package for documentation.}"""))
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(flow_in),
+                    expr=fixed_cap(flow_in, caustic_soda_flow_rate, solution_vol_flow),
                     doc="Unadjusted fixed capital investment") # $M
 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
@@ -285,12 +287,12 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = electricity(flow_in) # kwh/m3 
+                self.electricity = electricity(flow_in, caustic_soda_flow_rate, solution_vol_flow) # kwh/m3 
                 self.cat_and_chem_cost = 0  # TODO
                 
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        expr= (self.electricity * flow_in_m3yr * elec_price / 1000000),
                         doc="Electricity cost") # M$/yr
                 self.other_var_cost = 0 # Expression(
                         #expr= self.cat_and_chem_cost - self.electricity_cost,
@@ -340,10 +342,13 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
