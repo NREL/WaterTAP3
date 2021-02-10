@@ -43,16 +43,15 @@ from financials import * #ARIEL ADDED
 from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
 from pyomo.network import Arc
 from idaes.core import FlowsheetBlock
-
+import numpy as np
+import pandas as pd
 # Import properties and units from "WaterTAP Library"
 from water_props import WaterParameterBlock
 from scipy.interpolate import interp1d # needed to interpolate and calculate cost
 
-# Set inlet conditions to first unit
-# IDAES Does have Feed components for this, but that would require a bit
-# more work to set up to work (as it relies on things in the property package
-# that aren't implemented for this example).
-# I am just picking numbers for most of these
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("uv_aop")
 
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
@@ -63,22 +62,22 @@ tds_removal_factor = 0
 
 uv_dose_in = 100 # mJ / cm2 - needed to calculate UV performance (from TWB)
 uvt_in = 0.88 # could be anything
-h2o2_flow = 600 # lb / d 
 
-uv_cost_csv = pd.read_csv('data/uv_cost.csv') # Needed to interpolate and calculate cost
-uv_cost_csv.set_index(['UVDose', 'Flow'], inplace=True) # Needed to interpolate and calculate cost
-bacteria_removal, virus_removal, protozoa_removal, EEQ_removal, TOrC_removal, NDMA_removal, toc_removal_factor = uv_aop_removal(uv_dose_in)
+
+
+# bacteria_removal, virus_removal, protozoa_removal, EEQ_removal, TOrC_removal, NDMA_removal, toc_removal_factor = uv_aop_removal(uv_dose_in)
 PFOS_PFOA_removal = 0.0
 nitrates_removal_factor = 0.0 
-
+toc_removal_factor = 0
 # capital costs basis
 # Project Cost for Filter = $2.5M x (flow in mgd) page 55)
-base_fixed_cap_cost = 1  # from TWB -> THIS IS SOMEHOW DIFFERENT FROM EXCEL CALCS NOT SURE WHY (3.125))
-cap_scaling_exp = 1  # from TWB
-
+base_fixed_cap_cost = 9.721  # from TWB -> THIS IS SOMEHOW DIFFERENT FROM EXCEL CALCS NOT SURE WHY (3.125))
+cap_scaling_exp = 0.402  # from TWB3
+basis_year = 2014
 recovery_factor = 1.0  ## ASSUMED AS 1.0 -> MUST BE WRONG -> CHECK
+cost_method='wt'
 
-
+fixed_op_cost_scaling_exp = 0.7
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
@@ -129,13 +128,11 @@ and used when constructing these,
 see property package for documentation.}"""))
     
     from unit_process_equations import initialization
-    #unit_process_equations.get_base_unit_process()
-
-    #build(up_name = "idaes_media_filtration")
+    
     
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = "media_filtration")
+        return unit_process_equations.build_up(self, up_name_test = "uv_aop")
     
     
     def get_costing(self, module=financials, cost_method="wt", year=None):
@@ -160,8 +157,6 @@ see property package for documentation.}"""))
         # Then call the appropriate costing function out of the costing module
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
-        
-        #up_costing(self.costing, cost_method=cost_method)
         
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
@@ -193,44 +188,41 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
-            _make_vars(self)
 
+            
+            h2o2_flow = 600 # lb / d 
+            h2o2_dose = 5 # from Excel
+            dose_in = 80 # from Excel
+            uvt_in = 0.76
+            time = self.parent_block().flowsheet().config.time.first()
+
+            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.Mgallons/pyunits.day)
+    
+            def fixed_cap(dose_in, uvt_in, flow_in, h2o2_flow):
+                uv_cost_csv = pd.read_csv('data/uv_cost.csv') # Needed to interpolate and calculate cost
+                uv_cost_csv.set_index(['Flow', 'UVDose'], inplace=True) # Needed to interpolate and calculate cost
+                flow_list = [1, 3, 5, 10, 25]
+                flow_points = uv_cost_out(dose_in, uvt_in, uv_cost_csv, flow_list=flow_list) # Costing based off table on pg 57 of TWB
+                params, _, _, _, _ = ml_regression.get_cost_curve_coefs(xs=flow_list, ys=flow_points)
+                a, b = params[0], params[1]
+                # h2o2_cost_only = (1418 * np.log(h2o2_flow - 3831)) / 1000 # H2O2 cost based on H2O2 flow; pg 59 of TWB
+                h2o2_cost_only = 1228 * h2o2_flow ** 0.2277 / 1000 
+                uv_aop_cap = (a * flow_in ** b) / 1000 + h2o2_cost_only
+                return uv_aop_cap
+            
+            def electricity():
+                return 0 
+            
+            _make_vars(self)
+            
             self.base_fixed_cap_cost = Param(mutable=True,
-                                             initialize=base_fixed_cap_cost,
-                                             doc="Some parameter from TWB")
+                                              initialize=base_fixed_cap_cost,
+                                              doc="Some parameter from TWB")
             self.cap_scaling_exp = Param(mutable=True,
                                          initialize=cap_scaling_exp,
                                          doc="Another parameter from TWB")
             
-            
-            
-        
-            
-            
-            
-            # assumed input flow_in was converted in total_up_cost to MGD
-            # calculations are done in m3/hr
-            
-
-
-            def fixed_cap(flow_in):
-                flow_list = list(map(lambda x: (x * 157.7255) / 3600, [1, 3, 5, 10, 25])) # This is needed to run the costing function; converting from MGD to m3 / s
-                uv_cost_only = uv_cost_out(uv_dose_in, uvt_in, flow_in, uv_cost_csv, flow_list=flow_list) # Costing based off table on pg 57 of TWB
-                h2o2_cost_only = (1418 * np.log(h2o2_flow - 3831)) * 1000 # H2O2 cost based on H2O2 flow; pg 59 of TWB
-                # flow_in_m3h = flow_in * 157.7255 # conversion from MGD to m3hr 
-                return uv_cost_only + h2o2_cost_only
-            
-            
-            # Get the first time point in the time domain
-            # In many cases this will be the only point (steady-state), but lets be
-            # safe and use a general approach
-            time = self.parent_block().flowsheet().config.time.first()
-
-            # Get the inlet flow to the unit and convert to the correct units
-            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.Mgallons/pyunits.day) # converts from m3/s to MGD
-          
-
             ################### TWB METHOD ###########################################################
             if cost_method == "twb":
                     self.fixed_cap_inv_unadjusted = Expression(
@@ -251,30 +243,37 @@ see property package for documentation.}"""))
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(flow_in),
+                    expr=fixed_cap(dose_in, uvt_in, flow_in, h2o2_flow),
                     doc="Unadjusted fixed capital investment") 
                 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
                 self.land_cost = self.fixed_cap_inv * land_cost_precent_FCI
                 self.working_cap = self.fixed_cap_inv * working_cap_precent_FCI
                 self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
-
-                # variable operating costs (unit: MM$/yr) -> MIKE TO DO -> ---> CAT+CHEM IN EXCEL
-                # --> should be functions of what is needed!?
-                # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
-                # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = 0  # flow_in * 365 * on_stream_factor * elec_price # TODO
-                self.cat_and_chem_cost = 0  # TODO
-                self.electricity_cost = self.electricity * elec_price * 365  # KWh/day * $/KWh * 365 days
-                self.other_var_cost = self.cat_and_chem_cost - self.electricity_cost
+                self.electricity = 0 O
+                
+                cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
+                chem_cost_sum = 0 
+                chem_dic = {'Hydrogen_Peroxide': h2o2_dose}
+                checm_dic = {}
+                for key in chem_dic.keys():
+                    chem_cost = cat_chem_df.loc[key].Price
+                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) 
+                self.cat_and_chem_cost = chem_cost_sum / 1000000  # TODO
+                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3/pyunits.year))
+                self.electricity_cost = Expression(
+                    expr=(self.electricity * flow_in_m3yr * elec_price / 1000000),
+                    doc='Electricity cost') # KWh/day * $/KWh * 365 days
+                
+                self.other_var_cost = 0
 
                 # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-                self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
-                self.salaries = (
-                    self.labor_and_other_fixed
-                    * self.base_employee_salary_cost
-                    * flow_in ** fixed_op_cost_scaling_exp
-                )
+                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
+                self.salaries = Expression(
+                    expr=self.labor_and_other_fixed * self.base_employee_salary_cost,
+                    doc='Salaries')
                 self.benefits = self.salaries * benefit_percent_of_salary
                 self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
                 self.lab = lab_fees_precent_FCI * self.fixed_cap_inv
@@ -289,8 +288,7 @@ see property package for documentation.}"""))
                     + self.other_var_cost
                     + self.total_fixed_op_cost
                 )
-
-            #return total_up_cost
+                
     
         up_costing(self.costing, cost_method=cost_method)
           
@@ -301,10 +299,13 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
@@ -313,94 +314,61 @@ def create(m, up_name):
     # Adding costing for units - this is very basic for now so use default settings
     getattr(m.fs, up_name).get_costing(module=financials)
 
-    return m
+    return m  
 
-def uv_aop_removal(uv_dose):
-    uv_aop_removal = pd.read_csv('data/uv_aop_removal.csv', dtype={'Bacteria': float64, 'Virus': float64, 'Protozoa': float64})
-    try:
-        for i in uv_aop_removal.index:
-            if uv_dose in range(uv_aop_removal.UVDose_min.iloc[i], uv_aop_removal.UVDose_max.iloc[i]):
-                bacteria_removal, virus_removal, protozoa_removal, EEQ_removal, TOrC_removal, NDMA_removal, toc_removal_factor = uv_aop_removal.iloc[i, 2:]
-        bacteria_removal = 1 - 10 ** (- bacteria_removal)
-        virus_removal = 1 - 10 ** (- virus_removal)
-        protozoa_removal = 1 - 10 ** (- protozoa_removal)
-        return bacteria_removal, virus_removal, protozoa_removal, EEQ_removal, TOrC_removal, NDMA_removal, toc_removal_factor
-    except:
-        print("Input UV dose is probably <5 mJ/cm2 or >10000 mJ/cm2.\nMake sure input UV dose is entered correctly.")
-        return 0, 0, 0, 0, 0, 0, 0
+# def get_additional_variables(self, units_meta, time):
+#     self.uvt_in = Var(time, initialize=0.85, units=pyunits.dimensionless, doc="UV transmission %") 
     
-def uv_cost_interp_flow(df, min_interp, max_interp, inc_interp, kind='linear', plot=False,
-                        flow_list=[1, 3, 5, 10, 25], uvt=[0.55, 0.6, 0.65, 0.7, 0.75, 0.85, 0.9, 0.95]):
+
+def uv_cost_interp_dose(df, min_interp, max_interp, inc_interp, kind='linear',
+                        dose_list=[10, 20, 50, 100, 200, 300, 500, 800, 1000], uvt_list=[0.55, 0.6, 0.65, 0.7, 0.75, 0.85, 0.9, 0.95]):
     cost_out = pd.DataFrame()
-    x = np.arange(min_interp, max_interp, inc_interp)
-    for i, uv in enumerate(uvt):
+    x = np.arange(min_interp, max_interp + inc_interp, inc_interp)
+    for i, uvt in enumerate(uvt_list):
         cost = df.iloc[:, i]
-        interp = interp1d(flow_list, cost, kind=kind, fill_value='extrapolate')
+        interp = interp1d(dose_list, cost, kind=kind, fill_value='extrapolate')
         y = interp(x)
-        cost_out[uv] = pd.Series(y)
-        if plot:
-            plt.plot(flow_list, cost, 'o', x, y, 'b--')
-            plt.xlabel('UV Dose (mJ / cm2)')
-            plt.ylabel('Cost $')
-    x = map(lambda x: round(x, 1), x)    
+        cost_out[uvt] = pd.Series(y)
+    x = map(lambda x: round(x), x)    
     cost_out.set_index(x, inplace=True)
     return cost_out
 
-def uv_cost_interp_uvt(df, min_interp, max_interp, inc_interp, kind='linear', plot=False,
-                       flow_list=[1, 3, 5, 10, 25], uvt=[0.55, 0.6, 0.65, 0.7, 0.75, 0.85, 0.9, 0.95]):
+def uv_cost_interp_uvt(df, min_interp, max_interp, inc_interp, 
+                       kind='linear',
+                       dose_list=[10, 20, 50, 100, 200, 300, 500, 800, 1000], 
+                       uvt_list=[0.55, 0.6, 0.65, 0.7, 0.75, 0.85, 0.9, 0.95]):
     cost_out = pd.DataFrame()
-    x = np.arange(min_interp, max_interp, inc_interp)
-    for i, f in enumerate(df.index):
+    x = np.arange(min_interp, max_interp + inc_interp, inc_interp)
+    for i, d in enumerate(df.index):
         cost = df.iloc[i, :]
-        interp = interp1d(uvt, cost, kind=kind, fill_value='extrapolate')
+        interp = interp1d(uvt_list, cost, kind=kind, fill_value='extrapolate')
         y = interp(x) 
-        cost_out[f] = pd.Series(y)
-        if plot:
-            plt.plot(uvt, cost, 'o', x, y, 'b--')
-            plt.xlabel('UV Dose (mJ / cm2)')
-            plt.ylabel('Cost $')
+        cost_out[d] = pd.Series(y) 
     x = map(lambda x: round(x, 2), x)
     cost_out.set_index(x, inplace=True)
     cost_out = cost_out.T
     return cost_out
     
-def uv_cost_out(uv_dose_in, uvt_in, flow_in, uv_cost, 
-                uv_dose=[10, 20, 50, 100, 200, 300, 500, 800, 1000],
+def uv_cost_out(dose_in, uvt_in, uv_cost_csv,
+                dose_list=[10, 20, 50, 100, 200, 300, 500, 800, 1000],
                 flow_list = [1, 3, 5, 10, 25],
-                kind='linear', plot_sub=False, plot_main=False,
+                kind='linear', 
                 min_interp_flow=0.5, max_interp_flow=50, inc_interp_flow=0.1,
                 min_interp_uvt=0.5, max_interp_uvt=0.99, inc_interp_uvt=0.01,
                 min_interp_dose=5, max_interp_dose=1500, inc_interp_dose=1):    
     # Empty list to store points for each UV Dose level
-    uv_dose_points = []
-    for dose in uv_dose:
+    flow_points = []
+    for flow in flow_list:
         # Raw data from TWB table
-        cost = uv_cost.loc[dose]
-        # Interpolate across flow
-        cost = uv_cost_interp_flow(cost, min_interp_flow, max_interp_flow, inc_interp_flow, 
-                                   flow_list=flow_list, kind=kind, plot=plot_sub)
+        cost = uv_cost_csv.loc[flow]
+        # Interpolate across dose
+        cost = uv_cost_interp_dose(cost, min_interp_dose, max_interp_dose, inc_interp_dose, kind=kind)
         # Interpolate across UVT
-        cost = uv_cost_interp_uvt(cost, min_interp_uvt, max_interp_uvt, inc_interp_uvt, 
-                                  flow_list=flow_list, kind=kind, plot=plot_sub)
-        
-        loc = int((flow_in - min_interp_flow) / inc_interp_flow)
-        # Append the interpolated value based on UVT and Flow into list on UV dose
-        uv_dose_points.append(cost[uvt_in].iloc[loc])
+        cost = uv_cost_interp_uvt(cost, min_interp_uvt, max_interp_uvt, inc_interp_uvt, kind=kind)
 
-    x = np.arange(min_interp_dose, max_interp_dose, inc_interp_dose)
-    interp = interp1d(uv_dose, uv_dose_points, kind=kind, fill_value='extrapolate')
-    y = interp(x)
-    uv_cost_out = float(interp(uv_dose_in))
-    if plot_main:
-        plt.plot(uv_dose, uv_dose_points, 'ro', x, y, 'b--', uv_dose_in, uv_cost_out, 'k*')
-        plt.xlabel('UV Dose (mJ / cm2)')
-        plt.ylabel('Cost $')
-    return round(uv_cost_out * 1000, 2) # returns full cost of system; not e.g. "in $1000s of dollars" for example
-    
-    
-    
-    
-    
+        flow_points.append(cost[uvt_in][dose_in])
+
+    return flow_points
     
     
     
