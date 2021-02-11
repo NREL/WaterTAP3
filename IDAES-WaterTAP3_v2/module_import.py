@@ -120,7 +120,9 @@ def get_module(module_name):
     
     if module_name == "static_mix":
         import static_mix as up
-        
+    
+    if module_name == 'uv_aop':
+        import uv_aop as up
         
         
         
