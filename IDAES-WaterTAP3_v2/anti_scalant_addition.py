@@ -182,14 +182,7 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
-            _make_vars(self)
-
-            self.base_fixed_cap_cost = Param(mutable=True,
-                                             initialize=base_fixed_cap_cost,
-                                             doc="Some parameter from TWB")
-            self.cap_scaling_exp = Param(mutable=True,
-                                         initialize=cap_scaling_exp,
-                                         doc="Another parameter from TWB")
+            
             
             time = self.parent_block().flowsheet().config.time.first()
             flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
@@ -213,13 +206,21 @@ see property package for documentation.}"""))
             pump_eff = 0.9
             motor_eff = 0.9
             
+            _make_vars(self)
+
+            self.base_fixed_cap_cost = Param(mutable=True,
+                                             initialize=base_fixed_cap_cost,
+                                             doc="Some parameter from TWB")
+            self.cap_scaling_exp = Param(mutable=True,
+                                         initialize=cap_scaling_exp,
+                                         doc="Another parameter from TWB")
             
             def tpec_tic():
                 
                 return 3.4 if tpec_or_tic == 'TPEC' else 1.65
                 
             
-            def fixed_cap(): # m3/hr
+            def fixed_cap(solution_vol_flow): # m3/hr
                 
                 solution_vol_flow = solution_vol_flow * 264.172 # m3/day to gpd
                 source_cost = 900.97 * solution_vol_flow ** cap_scaling_exp
@@ -227,7 +228,7 @@ see property package for documentation.}"""))
                 return anti_scalant_cap
               
             
-            def electricity(): 
+            def electricity(solution_vol_flow): 
                 
                 solution_vol_flow = solution_vol_flow * 264.172 / 1440 # m3/day to gal/min
                 electricity = ((0.746 * solution_vol_flow * lift_height) / (3960 * pump_eff * motor_eff)) / flow_in # kWh/m3
@@ -254,14 +255,14 @@ see property package for documentation.}"""))
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(),
+                    expr=fixed_cap(solution_vol_flow),
                     doc="Unadjusted fixed capital investment") # $M
 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
                 self.land_cost = self.fixed_cap_inv * land_cost_precent_FCI
                 self.working_cap = self.fixed_cap_inv * working_cap_precent_FCI
                 self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
-                self.electricity = electricity() # kwh/m3 
+                self.electricity = electricity(solution_vol_flow) # kwh/m3 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
                 chem_cost_sum = 0 
                 chem_dic = {'Precipitation_Inhibitor': anti_scalant_dose}
