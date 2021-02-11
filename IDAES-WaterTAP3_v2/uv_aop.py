@@ -250,7 +250,7 @@ see property package for documentation.}"""))
                 self.land_cost = self.fixed_cap_inv * land_cost_precent_FCI
                 self.working_cap = self.fixed_cap_inv * working_cap_precent_FCI
                 self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
-                self.electricity = 0 O
+                self.electricity = 0
                 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
                 chem_cost_sum = 0 
