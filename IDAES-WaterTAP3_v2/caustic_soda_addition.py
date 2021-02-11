@@ -73,7 +73,7 @@ basis_year = 2007
 fixed_op_cost_scaling_exp = 0.7
 import generate_constituent_list
 train_constituent_list = generate_constituent_list.run()
-train_constituent_removal_factors = generate_constituent_list.get_removal_factors("ammonia_addition")
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("caustic_soda_addition")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -127,7 +127,7 @@ see property package for documentation.}"""))
     
     #unit_process_equations.get_base_unit_process()
     from unit_process_equations import initialization
-    #build(up_name = "ammonia_addition")
+
     
     def build(self):
         import unit_process_equations
@@ -220,9 +220,8 @@ see property package for documentation.}"""))
             def fixed_cap(flow_in, caustic_soda_flow_rate, solution_vol_flow): # m3/hr
                 
                 solution_flow_gpd = solution_vol_flow * 264.172 #gpd
-                source_cost = 2262.8 * solution_flow_gpd ** cap_scaling_exp
+                source_cost = 2262.8 * solution_flow_gpd ** 0.6195
                 caustic_soda_cap = (source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000 # M$
-                print(f'\n\n\ncaustic_soda_cap = {caustic_soda_cap}\n\n\n')
                 return caustic_soda_cap
               
             
@@ -243,16 +242,6 @@ see property package for documentation.}"""))
                                          initialize=cap_scaling_exp,
                                          doc="Another parameter from TWB")
 
-            
-            
-            # Get the first time point in the time domain
-            # In many cases this will be the only point (steady-state), but lets be
-            # safe and use a general approach
-            time = self.parent_block().flowsheet().config.time.first()
-
-            # Get the inlet flow to the unit and convert to the correct units
-            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.Mgallons/pyunits.day)
             
 
             ################### TWB METHOD ###########################################################
@@ -288,27 +277,22 @@ see property package for documentation.}"""))
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
                 self.electricity = electricity(flow_in, caustic_soda_flow_rate, solution_vol_flow) # kwh/m3 
-                self.cat_and_chem_cost = 0  # TODO
+                cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col="Material")
+                chem_cost_sum = 0 
+                
+                chem_dic = {"Sodium_Hydroxide_(NaOH)" : caustic_soda_dosage}
+                
+                for key in chem_dic.keys():
+                    chem_cost = cat_chem_df.loc[key].Price
+                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) #
+                
+                self.cat_and_chem_cost = chem_cost_sum / 1000000
                 
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
                         expr= (self.electricity * flow_in_m3yr * elec_price / 1000000),
                         doc="Electricity cost") # M$/yr
-                self.other_var_cost = 0 # Expression(
-                        #expr= self.cat_and_chem_cost - self.electricity_cost,
-                        #doc="Other variable cost")
-
-                # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-#                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
-#                 self.salaries = (
-#                     self.labor_and_other_fixed
-#                     * self.base_employee_salary_cost
-#                     * flow_in ** fixed_op_cost_scaling_exp
-#                 )
-                
-#                 self.salaries = (
-#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
-#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
+                self.other_var_cost = 0 
                
                 self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
                 self.salaries = Expression(
