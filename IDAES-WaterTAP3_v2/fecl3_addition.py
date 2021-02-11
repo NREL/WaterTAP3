@@ -48,6 +48,10 @@ from idaes.core import FlowsheetBlock
 # Import properties and units from "WaterTAP Library"
 from water_props import WaterParameterBlock
 
+import generate_constituent_list
+train_constituent_list = generate_constituent_list.run()
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("fecl3_addition")
+
 # Set inlet conditions to first unit
 # IDAES Does have Feed components for this, but that would require a bit
 # more work to set up to work (as it relies on things in the property package
@@ -66,8 +70,7 @@ TOrC_removal = 0.0
 EEQ_removal = 0.0 
 ndma_removal = 0.00 
 pfos_pfoa_removal = 0.00 
-base_fixed_cap_cost = 0 
-cap_scaling_exp = 0  
+
 
 basis_year = 2007
 fixed_op_cost_scaling_exp = 0.7
@@ -186,47 +189,40 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
-            
+            time = self.parent_block().flowsheet().config.time.first()
+            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
+                                      to_units=pyunits.m**3 / pyunits.hour) # m3 /hr
+            cost_method = 'wt'
+            tpec_or_tic = 'TPEC'
+            number_of_units = 2
             lift_height = 100 # ft
             
-            chemical_dosage = 0.02 # kg/m3
-            number_of_units = 2
+            fecl3_dose = 0.02 # kg/m3
+            fecl3_flow_rate = flow_in * fecl3_dose * 24 
             density_of_solution = 1460 # kg/m3
-            ratio_in_solution = 0.42 # 
+            ratio_in_solution = 0.42 #
+            solution_vol_flow = fecl3_flow_rate / density_of_solution / ratio_in_solution # m3/day
+            base_fixed_cap_cost = 2.65
+            cap_scaling_exp = 0.319  
+            pump_eff = 0.9
+            motor_eff = 0.9
             
             def tpec_tic(tpec_or_tic):
-            
-                TPEC = 3.4
-                TIC = 1.65
-
-                if tpec_or_tic != "TPEC": 
-                    TPEC = 1
-
-                if tpec_or_tic != "TIC": 
-                    TIC = 1
-
-                return (TPEC * TIC)
+                return 3.4 if tpec_or_tic == 'TPEC' else 1.65
             
             
-            def fixed_cap(flow_in): # m3/hr
-                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
-                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-                solution_vol_flow = chemical_rate / density_of_solution / ratio_in_solution # m3/day
+            def fixed_cap(): # m3/hr
+                
                 solution_flow_gpd = solution_vol_flow * 264.172 #gpd
                 source_cost = 34153 * solution_flow_gpd ** 0.319
-                
-                return (source_cost * tpec_tic(tpec_or_tic) * number_of_units)/1000000 # M$
+                fecl3_cap =(source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000
+                return fecl3_cap # M$
               
             
-            def electricity(flow_in): # m3/hr
-                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
-                chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-                solution_vol_flow = (chemical_rate / density_of_solution / ratio_in_solution) * 264.17 / 1440 # m3/day to gal/min
+            def electricity(): # m3/hr
                 
-                electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
-                
+                solution_flow_gpm = (solution_vol_flow * 264.17) / 1440 # m3/day to gal/min
+                electricity = (0.746 * solution_flow_gpm * lift_height / (3960 * pump_eff * motor_eff)) / flow_in # kWh/m3
                 return electricity
             
             
@@ -272,7 +268,7 @@ see property package for documentation.}"""))
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(flow_in),
+                    expr=fixed_cap(),
                     doc="Unadjusted fixed capital investment") # $M
 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
@@ -284,29 +280,23 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = electricity(flow_in) # kwh/m3 
-                self.cat_and_chem_cost = 0  # TODO
+                self.electricity = electricity() # kwh/m3 
+                cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col="Material")
+                chem_cost_sum = 0 
+                
+                chem_dic = {"Iron_FeCl3" : fecl3_dose}
+                
+                for key in chem_dic.keys():
+                    chem_cost = cat_chem_df.loc[key].Price
+                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) #
+                
+                self.cat_and_chem_cost = chem_cost_sum / 1000000 
                 
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        expr= (self.electricity * flow_in_m3yr * elec_price / 1000000),
                         doc="Electricity cost") # M$/yr
-                self.other_var_cost = 0 # Expression(
-                        #expr= self.cat_and_chem_cost - self.electricity_cost,
-                        #doc="Other variable cost")
-
-                # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-#                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI
-#                 self.salaries = (
-#                     self.labor_and_other_fixed
-#                     * self.base_employee_salary_cost
-#                     * flow_in ** fixed_op_cost_scaling_exp
-#                 )
-                
-#                 self.salaries = (
-#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
-#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
-               
+                self.other_var_cost = 0 
                 self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
                 self.salaries = Expression(
                         expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
@@ -339,10 +329,13 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
+    
+    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        
+        if constituent_name in train_constituent_removal_factors.keys():
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
+        else:
+            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
 
     # Also set pressure drops - for now I will set these to zero
     getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
@@ -352,6 +345,7 @@ def create(m, up_name):
     getattr(m.fs, up_name).get_costing(module=financials)
 
     return m        
+              
         
         
            
