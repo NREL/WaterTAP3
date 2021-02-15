@@ -106,8 +106,11 @@ unit_process_library_list = [
     "fecl3_addition", 
     "caustic_soda_addition", 
     "static_mix",
+    "ro_deep_scnd_pass", 
+    "anti_scalant_addition",
     "ro_deep_scnd_pass",
-    "uv_aop"]
+    "uv_aop",
+    "fe_mn_removal"]
 
 
 

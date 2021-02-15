@@ -120,10 +120,15 @@ def get_module(module_name):
     
     if module_name == "static_mix":
         import static_mix as up
-    
+
     if module_name == 'uv_aop':
         import uv_aop as up
+
+    if module_name == "anti_scalant_addition":
+        import anti_scalant_addition as up 
         
+    if module_name == "fe_mn_removal":
+        import fe_mn_removal as up 
         
         
      
