@@ -131,6 +131,9 @@ def get_module(module_name):
         import fe_mn_removal as up 
 
         
+    if module_name == "well_field":
+        import well_field as up 
+        
         
      
         

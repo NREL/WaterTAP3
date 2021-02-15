@@ -110,8 +110,8 @@ unit_process_library_list = [
     "anti_scalant_addition",
     "ro_deep_scnd_pass",
     "uv_aop",
+    "well_field",
     "fe_mn_removal"]
-
 
 
 fw_filename = "data/case_study_water_sources_and_uses.csv"
