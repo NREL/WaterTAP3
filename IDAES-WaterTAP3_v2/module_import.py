@@ -127,6 +127,9 @@ def get_module(module_name):
     if module_name == "anti_scalant_addition":
         import anti_scalant_addition as up 
         
+    if module_name == "well_field":
+        import well_field as up 
+        
         
      
         
