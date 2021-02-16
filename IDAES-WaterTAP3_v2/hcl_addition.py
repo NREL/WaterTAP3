@@ -171,7 +171,6 @@ see property package for documentation.}"""))
             pump_eff = 0.9
             motor_eff = 0.9
             
-            
             def tpec_tic(tpec_or_tic):
                 return 3.4 if tpec_or_tic == 'TPEC' else 1.65
                 
