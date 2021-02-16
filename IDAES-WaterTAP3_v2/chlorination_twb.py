@@ -80,7 +80,7 @@ cost_method = "wt"
 
 # Get constituent list and removal rates for each, for this unit process
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
+#train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("chlorination_twb")
 
 # You don't really want to know what this decorator does

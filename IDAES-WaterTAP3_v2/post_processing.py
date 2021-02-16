@@ -15,8 +15,8 @@ from idaes.core.util.exceptions import ConfigurationError
 import case_study_trains
 import generate_constituent_list
 
-global scenario
-global case_study
+#global scenario
+#global case_study
 
 up_variables = [
     "fixed_cap_inv",
@@ -38,11 +38,11 @@ up_variables = [
 
 def get_results_table(m = None):
     # could make a dictionary if betteR?
-    unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
-                                                             case_study_trains.scenario)
+    #unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
+    #                                                         case_study_trains.scenario)
     
-    scenario = case_study_trains.scenario
-    case_study = case_study_trains.case_study
+    scenario = case_study_trains.train["scenario"]
+    case_study = case_study_trains.train["case_study"]
 
     up_name_list = []
     variable_list = []
