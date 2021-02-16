@@ -129,11 +129,12 @@ def get_module(module_name):
        
     if module_name == "fe_mn_removal":
         import fe_mn_removal as up 
-
-        
+  
     if module_name == "well_field":
         import well_field as up 
-        
+    
+    if module_name == "hcl_addition":
+        import hcl_addition as up 
         
      
         
