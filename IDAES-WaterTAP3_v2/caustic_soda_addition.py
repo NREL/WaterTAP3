@@ -198,8 +198,8 @@ see property package for documentation.}"""))
             number_of_units = 2
             lift_height = 100 # ft
             
-            caustic_soda_dosage = 0.03 # kg/m3
-            caustic_soda_flow_rate = flow_in * caustic_soda_dosage * 24 # kg/day
+            caustic_soda_dose = 0.03 # kg/m3
+            caustic_soda_flow_rate = flow_in * caustic_soda_dose * 24 # kg/day
             density_of_solution = 1540 # kg/m3
             ratio_in_solution = 0.5 # 
             solution_vol_flow = caustic_soda_flow_rate / density_of_solution / ratio_in_solution # m3/day
@@ -280,11 +280,11 @@ see property package for documentation.}"""))
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col="Material")
                 chem_cost_sum = 0 
                 
-                chem_dic = {"Sodium_Hydroxide_(NaOH)" : caustic_soda_dosage}
+                chem_dic = {"Sodium_Hydroxide_(NaOH)" : caustic_soda_dose}
                 
                 for key in chem_dic.keys():
-                    chem_cost = cat_chem_df.loc[key].Price
-                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) #
+                    chem_cost = cat_chem_df.loc[key].Price # $ / kg 
+                    chem_cost_sum = chem_cost_sum + (flow_in * chem_cost * self.catalysts_chemicals * chem_dic[key] * 365 * 24 * 1E-6) #
                 
                 self.cat_and_chem_cost = chem_cost_sum / 1000000
                 

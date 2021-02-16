@@ -250,7 +250,7 @@ see property package for documentation.}"""))
                 self.electricity = electricity(solution_vol_flow) # kwh/m3 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
                 chem_cost_sum = 0 
-                chem_dic = {'Precipitation_Inhibitor': anti_scalant_dose}
+                chem_dic = {'Hydrazine_(N2H4)': anti_scalant_dose}
                 for key in chem_dic.keys():
                     chem_cost = cat_chem_df.loc[key].Price
                     chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost
