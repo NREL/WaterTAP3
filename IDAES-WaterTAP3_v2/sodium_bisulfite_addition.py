@@ -64,7 +64,6 @@ lift_height = 100 # ft
 
 # Get constituent list and removal rates for this unit process
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("sodium_bisulfite_addition")
 
 #### CAT AND CHEMS START ###

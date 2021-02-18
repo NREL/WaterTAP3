@@ -57,9 +57,23 @@ from water_props import WaterParameterBlock
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.99999 # TODO
+lift_height = 100 # ft
+            
+chemical_dosage = 0.03 # kg/m3
+number_of_units = 2
+density_of_solution = 1360 # kg/m3
+ratio_in_solution = 0.5
+base_fixed_cap_cost = 0 
+cap_scaling_exp = 0  
+
+basis_year = 2010
+fixed_op_cost_scaling_exp = 0.7
+tpec_or_tic = 'TPEC'
+
+
+# Get constituent list and removal rates for this unit process
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
-train_constituent_removal_factors = generate_constituent_list.get_removal_factors("static_mix")
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("sw_onshore_intake")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -269,7 +283,7 @@ def create(m, up_name):
     
     # Set removal and recovery fractions
     getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    
+
     for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():

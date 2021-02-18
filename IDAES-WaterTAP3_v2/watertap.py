@@ -158,11 +158,13 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
 
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
     
+    print("degrees_of_freedom:", degrees_of_freedom(m))
+    
     solver1.solve(m, tee=solver_results)
     
     if print_model_results == True:
     
-        print("degrees_of_freedom:", degrees_of_freedom(m))
+        #print("degrees_of_freedom:", degrees_of_freedom(m))
 
         # Display the inlets and outlets of each unit
         for node in G.nodes():
@@ -189,7 +191,7 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
             print("Show some costing values")
             print("---------------------")
 
-            if "source" in (str(node).replace('fs.', '')): 
+            if "Seawater" in (str(node).replace('fs.', '')): 
                 print("should skip:", (str(node).replace('fs.', '')))
                 continue
             elif "use" in (str(node).replace('fs.', '')): 

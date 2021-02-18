@@ -51,25 +51,10 @@ from water_props import WaterParameterBlock
 from unit_process_equations import initialization
 
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("anti_scalant_addition")
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.99999 # TODO
-# tds_removal_factor = 0 # TODO
-
-# Perfomance Parameter Values for Process: Constituent removals. # TODO
-# toc_removal_factor = 0.0  
-# nitrates_removal_factor = 0.0  
-# TOrC_removal = 0.0  
-# EEQ_removal = 0.0 
-# ndma_removal = 0.00 
-# pfos_pfoa_removal = 0.00 
-
-
-
-
-
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you

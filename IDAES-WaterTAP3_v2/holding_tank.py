@@ -52,9 +52,11 @@ flow_recovery_factor = 0.99999 # TODO
 base_fixed_cap_cost = 1.0354  # from VAR tab- Anna graph- Cone Roof Tank
 cap_scaling_exp = .7132  # from VAR tab- Anna graph- Cone Roof Tank
 
+basis_year = 2020 # ANNA NEEDS TO CHECK
+fixed_op_cost_scaling_exp = cap_scaling_exp # ANNA NEEDS TO CHECK
+
 # Get constituent list and removal rates for this unit process
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("holding_tank")
 
 # You don't really want to know what this decorator does

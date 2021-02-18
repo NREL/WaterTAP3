@@ -14,6 +14,7 @@ def feedwater(
     water_type=None,
     case_study=None,
     source_or_use=None,
+    scenario=None,
 ):
     # TO DO: add file type for imports,
     df = pd.read_csv(input_file)
@@ -30,6 +31,9 @@ def feedwater(
 
     if source_or_use is not None:
         df = df[df.SourceOrUse == source_or_use]
+    
+    if scenario is not None:
+        df = df[df.Scenario == scenario]
 
     df = df.set_index(df.Variable)
     df["feedwater"] = df.Value

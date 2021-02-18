@@ -50,13 +50,11 @@ from water_props import WaterParameterBlock
 from scipy.interpolate import interp1d # needed to interpolate and calculate cost
 
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("uv_aop")
 
 
 ### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
 flow_recovery_factor = 0.99999
-tds_removal_factor = 0
 
 # Perfomance Parameter Values for Process: Constituent removals. # TODO- ARE THESE ACCURATE?
 
@@ -66,9 +64,7 @@ uvt_in = 0.88 # could be anything
 
 
 # bacteria_removal, virus_removal, protozoa_removal, EEQ_removal, TOrC_removal, NDMA_removal, toc_removal_factor = uv_aop_removal(uv_dose_in)
-PFOS_PFOA_removal = 0.0
-nitrates_removal_factor = 0.0 
-toc_removal_factor = 0
+
 # capital costs basis
 # Project Cost for Filter = $2.5M x (flow in mgd) page 55)
 base_fixed_cap_cost = 9.721  # from TWB -> THIS IS SOMEHOW DIFFERENT FROM EXCEL CALCS NOT SURE WHY (3.125))

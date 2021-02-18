@@ -1,12 +1,16 @@
 import pandas as pd
 import numpy as np
-from case_study_trains import get_unit_processes
+#from case_study_trains import get_unit_processes
 
-global case_study
-global reference
-global water_type
+#global case_study
+#global reference
+#global water_type
 global unit_process_list
-global scenario
+#global scenario
+
+global train
+global source_water
+global pfd_dict
 
 import module_import
 
@@ -14,7 +18,10 @@ def run():
     
     # getting the list of consituents with removal factors that are bigger than 0
     df = pd.read_csv("Data/constituent_removal.csv")
-    df = df[df.case_study == case_study]
+    df = df[df.reference == train["reference"]]
+    df = df[df.case_study == train["case_study"]]
+    df = df[df.scenario == train["scenario"]]
+    
     list1 = df[df.fractional_constituent_removal >=0].constituent.unique()
     
     import importfile
@@ -22,8 +29,10 @@ def run():
     # grabs inlet water information
     df = importfile.feedwater(
         input_file="data/case_study_water_sources_and_uses.csv",
-        reference = reference, water_type = water_type, 
-        case_study = case_study)
+        reference = source_water["reference"], 
+        water_type = source_water["water_type"], 
+        case_study = source_water["case_study"],
+        scenario = source_water["scenario"])
     
     # gets list of consituents in inlet water
     list2 = df.index
@@ -32,22 +41,24 @@ def run():
     final_list = [x for x in list1 if x in list2]
     
     #TODO ACTIVATE ONCE WE KNOW WE NEED TO ADD CHEM ADDITIONS!! 
-    chem_addition_list = []
+#     chem_addition_list = []
     
-    for unit_process in get_unit_processes(case_study, scenario):
-        up_module = module_import.get_module(unit_process)
-        if hasattr(up_module, 'chem_dic'): 
-            for chem in up_module.chem_dic.keys():
-                chem_addition_list.append(chem)
+#     for unit_process in pfd_dict.keys():
+#         up_module = module_import.get_module(pfd_dict[unit_process]["Unit"])
+#         if hasattr(up_module, 'chem_dic'): 
+#             for chem in up_module.chem_dic.keys():
+#                 chem_addition_list.append(chem)
     
-    final_list = final_list + chem_addition_list
+#    final_list = final_list + chem_addition_list
     
     return final_list
 
 def get_removal_factors(unit_process):
 
     df = pd.read_csv("Data/constituent_removal.csv")
-    df = df[df.case_study == 'Carlsbad']
+    df = df[df.reference == train["reference"]]
+    df = df[df.case_study == train["case_study"]]
+    df = df[df.scenario == train["scenario"]]
     df = df[df.unit_process == unit_process]
     
     removal_dict = {}

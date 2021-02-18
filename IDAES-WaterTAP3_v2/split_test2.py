@@ -604,7 +604,9 @@ linked the mixed state and all outlet states,
                                   initialize=0.5,
                                   bounds=(0.01, 0.99),
                                   doc="Outlet split fractions")
-
+        
+        self.split_fraction.fix(1 / len(outlet_list))
+        
         # Add constraint that split fractions sum to 1 ---> NEED TO CREATE THIS?
         def sum_sf_rule(b, t, *args):
             return 1 == sum(b.split_fraction[t, o, args]

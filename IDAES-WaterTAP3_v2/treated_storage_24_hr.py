@@ -60,7 +60,6 @@ storage_duration = 24 # hours
 
 # Get constituent list and removal rates for this unit process
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("treated_storage_24_hr")
 
 # tank_capacity = 37854.1 #  m3
