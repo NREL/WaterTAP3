@@ -1,25 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Feb  3 14:47:39 2021
+Created on Tue Feb 16 09:17:59 2021
 
 @author: ksitterl
-"""
-
-##############################################################################
-# Institute for the Design of Advanced Energy Systems Process Systems
-# Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
-# software owners: The Regents of the University of California, through
-# Lawrence Berkeley National Laboratory,  National Technology & Engineering
-# Solutions of Sandia, LLC, Carnegie Mellon University, West Virginia
-# University Research Corporation, et al. All rights reserved.
-#
-# Please see the files COPYRIGHT.txt and LICENSE.txt for full copyright and
-# license information, respectively. Both files are also available online
-# at the URL "https://github.com/IDAES/idaes-pse".
-##############################################################################
-"""
-Demonstration zeroth-order model for WaterTAP3
 """
 
 # Import Pyomo libraries
@@ -50,7 +34,7 @@ from water_props import WaterParameterBlock
 
 import generate_constituent_list
 train_constituent_list = generate_constituent_list.run()
-train_constituent_removal_factors = generate_constituent_list.get_removal_factors("caustic_soda_addition")
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("hcl_addition")
 
 flow_recovery_factor = 0.99999 # TODO
 
@@ -114,7 +98,7 @@ see property package for documentation.}"""))
     
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test="caustic_soda_addition")
+        return unit_process_equations.build_up(self, up_name_test="hcl_addition")
     
     
     def get_costing(self, module=financials, cost_method="wt", year=None):
@@ -135,14 +119,6 @@ see property package for documentation.}"""))
         # Next, add a sub-Block to the unit model to hold the cost calculations
         # This is to let us separate costs from model equations when solving
         self.costing = Block()
-        # Then call the appropriate costing function out of the costing module
-        # The first argument is the Block in which to build the equations
-        # Can pass additional arguments as needed
-        
-        #up_costing(self.costing, cost_method=cost_method)
-        
-        # There are a couple of variables that IDAES expects to be present
-        # These are fairly obvious, but have pre-defined names
         
         def _make_vars(self):
             # build generic costing variables (all costing models need these vars)
@@ -171,6 +147,7 @@ see property package for documentation.}"""))
             You can also have unit specific parameters here, which could be retrieved
             from the spreadsheet
             '''
+            # Based on costs for H2SO4 addition from McGivney/Kawamura 
             
             time = self.parent_block().flowsheet().config.time.first()
             flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
@@ -179,38 +156,37 @@ see property package for documentation.}"""))
             cost_method = 'wt'
             tpec_or_tic = 'TPEC'
             number_of_units = 2
-            lift_height = 100 # ft
+            lift_height = 100*pyunits.ft # ft
             
-            caustic_soda_dose = 0.03 # kg/m3
-            caustic_soda_flow_rate = flow_in * caustic_soda_dose * 24 # kg/day
-            density_of_solution = 1540 # kg/m3
-            ratio_in_solution = 0.5 # 
-            solution_vol_flow = caustic_soda_flow_rate / density_of_solution / ratio_in_solution # m3/day
+            hcl_dose = 0.03 * (pyunits.kg / pyunits.m**3) # kg/m3
+            hcl_flow_rate = flow_in * hcl_dose # kg/hr
+            print(f'\n\nhcl_flow_rate before conversion is: {hcl_flow_rate}\n\n')
+            hcl_flow_rate = pyunits.convert(hcl_flow_rate, to_units=(pyunits.kg / pyunits.day))
+            print(f'\n\nhcl_flow_rate after conversion is: {hcl_flow_rate}\n\n')
+            density_of_solution = 1490 * (pyunits.kg / pyunits.m**3)# kg/m3
+            # ratio_in_solution = 0.5 # 
+            solution_vol_flow = hcl_flow_rate / density_of_solution # m3/day
             base_fixed_cap_cost = 1.95 
-            cap_scaling_exp = 0.6195
+            cap_scaling_exp = 0.6179
             pump_eff = 0.9
             motor_eff = 0.9
-            
-            
-            
-            
             
             def tpec_tic(tpec_or_tic):
                 return 3.4 if tpec_or_tic == 'TPEC' else 1.65
                 
             
             
-            def fixed_cap(flow_in, caustic_soda_flow_rate, solution_vol_flow): # m3/hr
+            def fixed_cap(flow_in, hcl_flow_rate, solution_vol_flow): # m3/hr
                 
-                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
-                source_cost = 2262.8 * solution_flow_gpd ** 0.6195
-                caustic_soda_cap = (source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000 # M$
-                return caustic_soda_cap
+                solution_vol_flow = pyunits.convert(solution_vol_flow, to_units=(pyunits.gallon / pyunits.day)) #gpd
+                source_cost = 900.97 * solution_vol_flow ** cap_scaling_exp
+                hcl_cap = source_cost * tpec_tic(tpec_or_tic) * number_of_units * 1E-6 # M$
+                return hcl_cap
               
             
-            def electricity(flow_in, caustic_soda_flow_rate, solution_vol_flow): 
+            def electricity(flow_in, hcl_flow_rate, solution_vol_flow): 
                 
-                solution_vol_flow = solution_vol_flow * 264.17 / 1440 # m3/day to gal/min
+                solution_vol_flow = pyunits.convert(solution_vol_flow, to_units=(pyunits.gallon / pyunits.minute))
                 electricity = (0.746 * solution_vol_flow * lift_height / (3960 * pump_eff * motor_eff)) / flow_in # kWh/m3
                 return electricity
             
@@ -247,7 +223,7 @@ see property package for documentation.}"""))
 
                 # capital costs (unit: MM$) ---> TCI IN EXCEL
                 self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(flow_in, caustic_soda_flow_rate, solution_vol_flow),
+                    expr=fixed_cap(flow_in, hcl_flow_rate, solution_vol_flow),
                     doc="Unadjusted fixed capital investment") # $M
 
                 self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
@@ -259,11 +235,11 @@ see property package for documentation.}"""))
                 # --> should be functions of what is needed!?
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = electricity(flow_in, caustic_soda_flow_rate, solution_vol_flow) # kwh/m3 
+                self.electricity = electricity(flow_in, hcl_flow_rate, solution_vol_flow) # kwh/m3 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col="Material")
                 chem_cost_sum = 0 
                 
-                chem_dic = {"Sodium_Hydroxide_(NaOH)" : caustic_soda_dose}
+                chem_dic = {"Hydrochloric_Acid_(HCl)": hcl_dose}
                 
                 for key in chem_dic.keys():
                     chem_cost = cat_chem_df.loc[key].Price # $ / kg 
@@ -271,7 +247,7 @@ see property package for documentation.}"""))
                 
                 self.cat_and_chem_cost = chem_cost_sum 
                 
-                flow_in_m3yr = pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year)
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
                         expr= (self.electricity * flow_in_m3yr * elec_price * 1E-6),
                         doc="Electricity cost") # M$/yr
@@ -294,11 +270,7 @@ see property package for documentation.}"""))
                     + self.cat_and_chem_cost
                     + self.electricity_cost
                     + self.other_var_cost
-                    + self.total_fixed_op_cost
-                
-                )
-
-            #return total_up_cost
+                    + self.total_fixed_op_cost)
     
         up_costing(self.costing, cost_method=cost_method)
           
@@ -324,7 +296,4 @@ def create(m, up_name):
     # Adding costing for units - this is very basic for now so use default settings
     getattr(m.fs, up_name).get_costing(module=financials)
 
-    return m        
-        
-        
-           
+    return m       

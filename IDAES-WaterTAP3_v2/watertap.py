@@ -112,6 +112,7 @@ unit_process_library_list = [
     "uv_aop",
     "well_field",
     "fe_mn_removal",
+    "hcl_addition",
     "deep_well_injection"]
 
 
