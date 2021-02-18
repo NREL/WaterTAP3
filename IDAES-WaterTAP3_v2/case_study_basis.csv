@@ -1,0 +1,451 @@
+,case_study,scenario,Variable,value,reference,variable
+0,Ashkelon,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+1,Ashkelon,Baseline,Basis for Plant Location,Israel,,location_basis
+2,Ashkelon,Baseline,Plant Life (Yrs),20,,plant_life_yrs
+3,Ashkelon,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+4,Ashkelon,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+5,Ashkelon,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+6,Ashkelon,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+7,Ashkelon,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+8,Ashkelon,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+9,Ashkelon,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+10,Ashkelon,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+11,Ashkelon,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+12,Ashkelon,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+13,Ashkelon,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+14,Ashkelon,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+15,Ashkelon,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+16,Ashkelon,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+17,Ashkelon,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+18,Carlsbad,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+19,Carlsbad,Baseline,Basis for Plant Location,California,,location_basis
+20,Carlsbad,Baseline,Plant Life (Yrs),20,,plant_life_yrs
+21,Carlsbad,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+22,Carlsbad,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+23,Carlsbad,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+24,Carlsbad,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+25,Carlsbad,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+26,Carlsbad,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+27,Carlsbad,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+28,Carlsbad,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+29,Carlsbad,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+30,Carlsbad,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+31,Carlsbad,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+32,Carlsbad,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+33,Carlsbad,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+34,Carlsbad,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+35,Carlsbad,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+36,Tampa_Bay,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+37,Tampa_Bay,Baseline,Basis for Plant Location,Florida,,location_basis
+38,Tampa_Bay,Baseline,Plant Life (Yrs),20,,plant_life_yrs
+39,Tampa_Bay,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+40,Tampa_Bay,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+41,Tampa_Bay,Baseline,Salaries as % of FCI,0.0015,,salaries_percent
+42,Tampa_Bay,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+43,Tampa_Bay,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+44,Tampa_Bay,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+45,Tampa_Bay,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+46,Tampa_Bay,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+47,Tampa_Bay,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+48,Tampa_Bay,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+49,Tampa_Bay,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+50,Tampa_Bay,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+51,Tampa_Bay,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+52,Tampa_Bay,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+53,Tampa_Bay,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+54,Santa_Barbara,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+55,Santa_Barbara,Baseline,Basis for Plant Location,California,,location_basis
+56,Santa_Barbara,Baseline,Plant Life (Yrs),20,,plant_life_yrs
+57,Santa_Barbara,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+58,Santa_Barbara,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+59,Santa_Barbara,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+60,Santa_Barbara,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+61,Santa_Barbara,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+62,Santa_Barbara,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+63,Santa_Barbara,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+64,Santa_Barbara,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+65,Santa_Barbara,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+66,Santa_Barbara,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+67,Santa_Barbara,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+68,Santa_Barbara,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+69,Santa_Barbara,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+70,Santa_Barbara,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+71,Santa_Barbara,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+72,KBHDP,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+73,KBHDP,Baseline,Basis for Plant Location,Texas,,location_basis
+74,KBHDP,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+75,KBHDP,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+76,KBHDP,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+77,KBHDP,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+78,KBHDP,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+79,KBHDP,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+80,KBHDP,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+81,KBHDP,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+82,KBHDP,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+83,KBHDP,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+84,KBHDP,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+85,KBHDP,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+86,KBHDP,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+87,KBHDP,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+88,KBHDP,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+89,KBHDP,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+90,EMWD,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+91,EMWD,Baseline,Basis for Plant Location,California,,location_basis
+92,EMWD,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+93,EMWD,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+94,EMWD,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+95,EMWD,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+96,EMWD,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+97,EMWD,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+98,EMWD,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+99,EMWD,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+100,EMWD,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+101,EMWD,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+102,EMWD,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+103,EMWD,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+104,EMWD,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+105,EMWD,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+106,EMWD,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+107,EMWD,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+108,Irwin,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+109,Irwin,Baseline,Basis for Plant Location,California,,location_basis
+110,Irwin,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+111,Irwin,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+112,Irwin,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+113,Irwin,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+114,Irwin,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+115,Irwin,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+116,Irwin,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+117,Irwin,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+118,Irwin,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+119,Irwin,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+120,Irwin,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+121,Irwin,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+122,Irwin,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+123,Irwin,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+124,Irwin,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+125,Irwin,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+126,Battery_Park,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+127,Battery_Park,Baseline,Basis for Plant Location,New York,,location_basis
+128,Battery_Park,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+129,Battery_Park,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+130,Battery_Park,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+131,Battery_Park,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+132,Battery_Park,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+133,Battery_Park,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+134,Battery_Park,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+135,Battery_Park,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+136,Battery_Park,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+137,Battery_Park,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+138,Battery_Park,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+139,Battery_Park,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+140,Battery_Park,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+141,Battery_Park,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+142,Battery_Park,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+143,Battery_Park,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+144,Big_Spring,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+145,Big_Spring,Baseline,Basis for Plant Location,Texas,,location_basis
+146,Big_Spring,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+147,Big_Spring,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+148,Big_Spring,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+149,Big_Spring,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+150,Big_Spring,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+151,Big_Spring,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+152,Big_Spring,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+153,Big_Spring,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+154,Big_Spring,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+155,Big_Spring,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+156,Big_Spring,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+157,Big_Spring,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+158,Big_Spring,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+159,Big_Spring,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+160,Big_Spring,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+161,Big_Spring,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+162,HRSD,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+163,HRSD,Baseline,Basis for Plant Location,Virginia,,location_basis
+164,HRSD,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+165,HRSD,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+166,HRSD,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+167,HRSD,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+168,HRSD,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+169,HRSD,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+170,HRSD,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+171,HRSD,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+172,HRSD,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+173,HRSD,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+174,HRSD,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+175,HRSD,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+176,HRSD,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+177,HRSD,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+178,HRSD,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+179,HRSD,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+180,OCWD,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+181,OCWD,Baseline,Basis for Plant Location,California,,location_basis
+182,OCWD,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+183,OCWD,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+184,OCWD,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+185,OCWD,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+186,OCWD,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+187,OCWD,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+188,OCWD,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+189,OCWD,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+190,OCWD,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+191,OCWD,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+192,OCWD,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+193,OCWD,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+194,OCWD,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+195,OCWD,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+196,OCWD,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+197,OCWD,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+198,Cherokee,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+199,Cherokee,Baseline,Basis for Plant Location,Colorado,,location_basis
+200,Cherokee,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+201,Cherokee,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+202,Cherokee,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+203,Cherokee,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+204,Cherokee,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+205,Cherokee,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+206,Cherokee,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+207,Cherokee,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+208,Cherokee,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+209,Cherokee,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+210,Cherokee,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+211,Cherokee,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+212,Cherokee,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+213,Cherokee,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+214,Cherokee,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+215,Cherokee,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+216,Uranium,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+217,Uranium,Baseline,Basis for Plant Location,Wyoming,,location_basis
+218,Uranium,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+219,Uranium,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+220,Uranium,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+221,Uranium,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+222,Uranium,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+223,Uranium,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+224,Uranium,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+225,Uranium,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+226,Uranium,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+227,Uranium,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+228,Uranium,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+229,Uranium,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+230,Uranium,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+231,Uranium,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+232,Uranium,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+233,Uranium,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+234,San_Luis,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+235,San_Luis,Baseline,Basis for Plant Location,California,,location_basis
+236,San_Luis,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+237,San_Luis,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+238,San_Luis,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+239,San_Luis,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+240,San_Luis,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+241,San_Luis,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+242,San_Luis,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+243,San_Luis,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+244,San_Luis,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+245,San_Luis,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+246,San_Luis,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+247,San_Luis,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+248,San_Luis,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+249,San_Luis,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+250,San_Luis,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+251,San_Luis,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+252,Iron_and_Steel,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+253,Iron_and_Steel,Baseline,Basis for Plant Location,Ohio,,location_basis
+254,Iron_and_Steel,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+255,Iron_and_Steel,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+256,Iron_and_Steel,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+257,Iron_and_Steel,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+258,Iron_and_Steel,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+259,Iron_and_Steel,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+260,Iron_and_Steel,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+261,Iron_and_Steel,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+262,Iron_and_Steel,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+263,Iron_and_Steel,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+264,Iron_and_Steel,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+265,Iron_and_Steel,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+266,Iron_and_Steel,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+267,Iron_and_Steel,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+268,Iron_and_Steel,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+269,Iron_and_Steel,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+270,Vogtle_Nuclear,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+271,Vogtle_Nuclear,Baseline,Basis for Plant Location,Georgia,,location_basis
+272,Vogtle_Nuclear,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+273,Vogtle_Nuclear,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+274,Vogtle_Nuclear,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+275,Vogtle_Nuclear,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+276,Vogtle_Nuclear,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+277,Vogtle_Nuclear,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+278,Vogtle_Nuclear,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+279,Vogtle_Nuclear,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+280,Vogtle_Nuclear,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+281,Vogtle_Nuclear,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+282,Vogtle_Nuclear,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+283,Vogtle_Nuclear,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+284,Vogtle_Nuclear,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+285,Vogtle_Nuclear,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+286,Vogtle_Nuclear,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+287,Vogtle_Nuclear,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+288,Damodar,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+289,Damodar,Baseline,Basis for Plant Location,Wyoming,,location_basis
+290,Damodar,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+291,Damodar,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+292,Damodar,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+293,Damodar,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+294,Damodar,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+295,Damodar,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+296,Damodar,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+297,Damodar,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+298,Damodar,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+299,Damodar,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+300,Damodar,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+301,Damodar,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+302,Damodar,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+303,Damodar,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+304,Damodar,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+305,Damodar,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+306,Kern_County,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+307,Kern_County,Baseline,Basis for Plant Location,California,,location_basis
+308,Kern_County,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+309,Kern_County,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+310,Kern_County,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+311,Kern_County,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+312,Kern_County,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+313,Kern_County,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+314,Kern_County,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+315,Kern_County,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+316,Kern_County,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+317,Kern_County,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+318,Kern_County,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+319,Kern_County,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+320,Kern_County,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+321,Kern_County,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+322,Kern_County,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+323,Kern_County,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+324,Ultra_Pure_Water,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+325,Ultra_Pure_Water,Baseline,Basis for Plant Location,Texas,,location_basis
+326,Ultra_Pure_Water,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+327,Ultra_Pure_Water,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+328,Ultra_Pure_Water,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+329,Ultra_Pure_Water,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+330,Ultra_Pure_Water,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+331,Ultra_Pure_Water,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+332,Ultra_Pure_Water,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+333,Ultra_Pure_Water,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+334,Ultra_Pure_Water,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+335,Ultra_Pure_Water,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+336,Ultra_Pure_Water,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+337,Ultra_Pure_Water,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+338,Ultra_Pure_Water,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+339,Ultra_Pure_Water,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+340,Ultra_Pure_Water,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+341,Ultra_Pure_Water,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+342,Pulp_and_Paper,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+343,Pulp_and_Paper,Baseline,Basis for Plant Location,Washington,,location_basis
+344,Pulp_and_Paper,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+345,Pulp_and_Paper,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+346,Pulp_and_Paper,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+347,Pulp_and_Paper,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+348,Pulp_and_Paper,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+349,Pulp_and_Paper,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+350,Pulp_and_Paper,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+351,Pulp_and_Paper,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+352,Pulp_and_Paper,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+353,Pulp_and_Paper,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+354,Pulp_and_Paper,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+355,Pulp_and_Paper,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+356,Pulp_and_Paper,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+357,Pulp_and_Paper,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+358,Pulp_and_Paper,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+359,Pulp_and_Paper,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+360,Monterey_One_Water,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+361,Monterey_One_Water,Baseline,Basis for Plant Location,California,,location_basis
+362,Monterey_One_Water,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+363,Monterey_One_Water,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+364,Monterey_One_Water,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+365,Monterey_One_Water,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+366,Monterey_One_Water,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+367,Monterey_One_Water,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+368,Monterey_One_Water,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+369,Monterey_One_Water,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+370,Monterey_One_Water,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+371,Monterey_One_Water,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+372,Monterey_One_Water,Baseline,Capital Financedy by Equity,0,,cap_by_equity
+373,Monterey_One_Water,Baseline,Debt Financing Interest Rate,0.05,,debt_interest_rate
+374,Monterey_One_Water,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+375,Monterey_One_Water,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+376,Monterey_One_Water,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+377,Monterey_One_Water,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+378,Tuscarora,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+379,Tuscarora,Baseline,Basis for Plant Location,Nevada,,location_basis
+380,Tuscarora,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+381,Tuscarora,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+382,Tuscarora,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+383,Tuscarora,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+384,Tuscarora,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+385,Tuscarora,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+386,Tuscarora,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+387,Tuscarora,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+388,Tuscarora,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+389,Tuscarora,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+390,Tuscarora,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+391,Tuscarora,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+392,Tuscarora,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+393,Tuscarora,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+394,Tuscarora,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+395,Tuscarora,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+396,Lithium,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+397,Lithium,Baseline,Basis for Plant Location,North Carolina,,location_basis
+398,Lithium,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+399,Lithium,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+400,Lithium,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+401,Lithium,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+402,Lithium,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+403,Lithium,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+404,Lithium,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+405,Lithium,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+406,Lithium,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+407,Lithium,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+408,Lithium,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+409,Lithium,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+410,Lithium,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+411,Lithium,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+412,Lithium,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+413,Lithium,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+414,Iatan_Coal,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+415,Iatan_Coal,Baseline,Basis for Plant Location,Missouri,,location_basis
+416,Iatan_Coal,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+417,Iatan_Coal,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+418,Iatan_Coal,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+419,Iatan_Coal,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+420,Iatan_Coal,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+421,Iatan_Coal,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+422,Iatan_Coal,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+423,Iatan_Coal,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+424,Iatan_Coal,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+425,Iatan_Coal,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+426,Iatan_Coal,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+427,Iatan_Coal,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+428,Iatan_Coal,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+429,Iatan_Coal,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+430,Iatan_Coal,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+431,Iatan_Coal,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
+432,Heap_Leaching,Baseline,Analysis Year (for Cost Indices),2020,,analysis_year
+433,Heap_Leaching,Baseline,Basis for Plant Location,Arizona,,location_basis
+434,Heap_Leaching,Baseline,Plant Life (Yrs),30,,plant_life_yrs
+435,Heap_Leaching,Baseline,Land Cost as % of FCI,0.0015,,land_cost_percent
+436,Heap_Leaching,Baseline,Working Capital as % of FCI,0.05,,working_capital_percent
+437,Heap_Leaching,Baseline,Salaries as % of FCI,0.001,,salaries_percent
+438,Heap_Leaching,Baseline,Employee Benefits as % of Salaries,0.9,,employee_benefits_percent
+439,Heap_Leaching,Baseline,Maintinance Costs as % of FCI,0.008,,maintenance_cost_percent
+440,Heap_Leaching,Baseline,Laboratory Fees as % of FCI,0.003,,laboratory_fees_percent
+441,Heap_Leaching,Baseline,Insurance and Taxes as % of FCI,0.002,,insurance_and_taxes_percent
+442,Heap_Leaching,Baseline,Default Capital Scaling Exponent,0.7,,default_cap_scaling_exp
+443,Heap_Leaching,Baseline,Default Fixed Opex Scaling Exponent,0.7,,default_opex_scaling_exp
+444,Heap_Leaching,Baseline,Capital Financedy by Equity,0.4,,cap_by_equity
+445,Heap_Leaching,Baseline,Debt Financing Interest Rate,0.08,,debt_interest_rate
+446,Heap_Leaching,Baseline,Expected Return on Equity,0.1,,exp_return_on_equity
+447,Heap_Leaching,Baseline,Default Capital Multipler (TPEC > FCI),3.4,,default_tpec_multiplier
+448,Heap_Leaching,Baseline,Default Capital Multipler (TIC > FCI),1.65,,default_tic_multiplier
+449,Heap_Leaching,Baseline,Base Employee Salary Cost per FCI,0.0005,,base_salary_per_FCI
