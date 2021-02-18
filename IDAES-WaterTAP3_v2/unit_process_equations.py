@@ -76,6 +76,7 @@ def build_up(self, up_name_test = None):
     if up_name_test == 'well_field': import well_field as unit_process_model
     if up_name_test == 'fe_mn_removal': import fe_mn_removal as unit_process_model
     if up_name_test == 'hcl_addition': import hcl_addition as unit_process_model
+    if up_name_test == 'deep_well_injection': import deep_well_injection as unit_process_model
 
         
 

@@ -1,0 +1,698 @@
+,Variable,Unit,value,reference,water_type,case_study,project,source_or_use,variable
+0,"Boron, dissolved",mg/L,4.4,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,boron
+1,Bromide,mg/L,66.3,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,bromide
+2,"Calcium, Dissolved",mg/L,409.6,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,calcium
+3,Chloride,mg/L,19162.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,chloride
+4,"Magnesium, Dissolved",mg/L,1278.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,magnesium
+5,pH_Max,pH,7.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,ph_max
+6,pH_Min,pH,7.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,ph_min
+7,Potassium,mg/L,395.3,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,potassium
+8,"Sodium, Dissolved",mg/L,10679.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,sodium
+9,Strontium,mg/L,1.3,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,strontium
+10,"Sulfate, Dissolved",mg/L,2680.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,sulfate
+11,Total Dissolved Solids (TDS),mg/L,35000.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,tds
+12,Total Suspended Solids (TSS),mg/L,30.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Carlsbad,NAWI,Source,tss
+13,"Boron, dissolved",mg/L,4.4,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,boron
+14,Bromide,mg/L,66.3,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,bromide
+15,"Calcium, Dissolved",mg/L,409.6,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,calcium
+16,Chloride,mg/L,19162.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,chloride
+17,"Magnesium, Dissolved",mg/L,1278.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,magnesium
+18,pH_Max,pH,7.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,ph_max
+19,pH_Min,pH,7.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,ph_min
+20,Potassium,mg/L,395.3,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,potassium
+21,"Sodium, Dissolved",mg/L,10679.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,sodium
+22,Strontium,mg/L,1.3,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,strontium
+23,"Sulfate, Dissolved",mg/L,2680.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,sulfate
+24,Total Dissolved Solids (TDS),mg/L,35000.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,tds
+25,Total Suspended Solids (TSS),mg/L,30.0,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater_35,Santa_Barbara,NAWI,Source,tss
+26,"Boron, dissolved",mg/L,5.0285714285714285,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,boron
+27,Bromide,mg/L,75.77142857142857,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,bromide
+28,"Calcium, Dissolved",mg/L,468.11428571428564,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,calcium
+29,Chloride,mg/L,21899.42857142857,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,chloride
+30,"Magnesium, Dissolved",mg/L,1460.5714285714284,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,magnesium
+31,pH_Max,pH,7.0,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,ph_max
+32,pH_Min,pH,7.0,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,ph_min
+33,Potassium,mg/L,451.77142857142854,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,potassium
+34,"Sodium, Dissolved",mg/L,12204.571428571428,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,sodium
+35,Strontium,mg/L,1.4857142857142858,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,strontium
+36,"Sulfate, Dissolved",mg/L,3062.857142857143,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,sulfate
+37,Total Dissolved Solids (TDS),mg/L,40700.0,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,tds
+38,Total Suspended Solids (TSS),mg/L,34.285714285714285,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater_40,Ashkelon,NAWI,Source,tss
+39,"Boron, dissolved",mg/L,3.7714285714285714,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_30,Tampa-Bay,NAWI,Source,boron
+40,Bromide,mg/L,56.82857142857142,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_31,Tampa-Bay,NAWI,Source,bromide
+41,"Calcium, Dissolved",mg/L,351.08571428571435,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_32,Tampa-Bay,NAWI,Source,calcium
+42,Chloride,mg/L,16424.571428571428,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_33,Tampa-Bay,NAWI,Source,chloride
+43,"Magnesium, Dissolved",mg/L,1095.4285714285713,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_34,Tampa-Bay,NAWI,Source,magnesium
+44,pH_Max,pH,7.0,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_35,Tampa-Bay,NAWI,Source,ph_max
+45,pH_Min,pH,7.0,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_36,Tampa-Bay,NAWI,Source,ph_min
+46,Potassium,mg/L,338.82857142857137,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_37,Tampa-Bay,NAWI,Source,potassium
+47,"Sodium, Dissolved",mg/L,9153.42857142857,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_38,Tampa-Bay,NAWI,Source,sodium
+48,Strontium,mg/L,1.1142857142857143,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_39,Tampa-Bay,NAWI,Source,strontium
+49,"Sulfate, Dissolved",mg/L,2297.142857142857,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_40,Tampa-Bay,NAWI,Source,sulfate
+50,Total Dissolved Solids (TDS),mg/L,30000.0,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_41,Tampa-Bay,NAWI,Source,tds
+51,Total Suspended Solids (TSS),mg/L,25.71428571428571,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater_42,Tampa-Bay,NAWI,Source,tss
+52,Alkalinity as CaCO3,mg/L,84.0,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,alkalinity_as_caco3
+53,"Calcium, Dissolved",mg/L,9.6,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,calcium
+54,Chloride,mg/L,8.3,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,chloride
+55,Electrical_Conductivity,S/m,188.0,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,electrical_conductivity
+56,"Magnesium, Dissolved",mg/L,2.4,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,magnesium
+57,Nitrate (measured as Nitrogen),mg/L,3.6,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,nitrate_as_nitrogen
+58,pH_Max,pH,6.64,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,ph_max
+59,pH_Min,pH,6.64,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,ph_min
+60,Potassium,mg/L,8.9,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,potassium
+61,Silicon,mg/L,40.2,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,silicon
+62,Silicon Dioxide (SiO2),mg/L,90.0,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,silicon_dioxide
+63,"Sodium, Dissolved",mg/L,23.5,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sodium
+64,"Sulfate, Dissolved",mg/L,12.4,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sulfate
+65,Sulfur,mg/L,4.4,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sulfur
+66,Total Dissolved Solids (TDS),mg/L,1140.0,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,tds
+67,Total Organic Carbon (TOC),mg/L,0.23,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,toc
+68,Alkalinity as CaCO3,mg/L,260.0,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,alkalinity_as_caco3
+69,"Calcium, Dissolved",mg/L,3.0,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,calcium
+70,Chloride,mg/L,19.9,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,chloride
+71,Electrical_Conductivity,S/m,801.0,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,electrical_conductivity
+72,"Magnesium, Dissolved",mg/L,0.04,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,magnesium
+73,pH_Max,pH,6.05,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,ph_max
+74,pH_Min,pH,6.05,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,ph_min
+75,Potassium,mg/L,15.4,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,potassium
+76,Silicon,mg/L,94.8,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,silicon
+77,Silicon Dioxide (SiO2),mg/L,220.0,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,silicon_dioxide
+78,"Sodium, Dissolved",mg/L,127.8,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,sodium
+79,"Sulfate, Dissolved",mg/L,50.1,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,sulfate
+80,Sulfur,mg/L,29.6,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,sulfur
+81,Total Dissolved Solids (TDS),mg/L,1855.0,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,tds
+82,Total Organic Carbon (TOC),mg/L,0.52,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,toc
+83,Aluminum,mg/L,0.0243,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,aluminum
+84,Ammonia Nitrogen,mg/L,0.006,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,ammonia_nitrogen
+85,Barium,mg/L,0.0307,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,barium
+86,Copper,mg/L,0.28,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,copper
+87,Fluoride,mg/L,0.54,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,fluoride
+88,Haloacetic acids (HAA5),mg/L,0.015,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,haloacetic_acids
+89,Lead,mg/L,0.01085,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,lead
+90,"Magnesium, Dissolved",mg/L,0.00488,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,magnesium
+91,"Nitrate-N, Dissolved",mg/L,0.02,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,nitrate
+92,"Sodium, Dissolved",mg/L,14.8,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,sodium
+93,Total Trihalomethanes (TTHMs),mg/L,0.0246,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,trihalomethanes
+94,Turbidity,mg/L,0.135,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,turbidity
+95,Arsenic,mg/L,0.025,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,arsenic
+96,Barium,mg/L,0.02,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,barium
+97,Bicarbonate Alkalinity as CaCO3,mg/L,178.6,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3
+98,"Calcium, Dissolved",mg/L,4.75,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,calcium
+99,Chloride,mg/L,104.6,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,chloride
+100,Fluoride,mg/L,5.1,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,fluoride
+101,Hardness,mg/L,79.5,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,hardness
+102,"Magnesium, Dissolved",mg/L,4.2,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,magnesium
+103,Nitrate (measured as Nitrogen),mg/L,20.3,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,nitrate_as_nitrogen
+104,"Nitrate-N, Dissolved",mg/L,20.3,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,nitrate
+105,pH_Max,pH,7.79,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,ph_max
+106,pH_Min,pH,7.79,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,ph_min
+107,Potassium,mg/L,8.9,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,potassium
+108,"Sodium, Dissolved",mg/L,167.8,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,sodium
+109,Strontium,mg/L,0.4,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,strontium
+110,"Sulfate, Dissolved",mg/L,123.9,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,sulfate
+111,Total Dissolved Solids (TDS),mg/L,690.0,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,tds
+112,Aluminum,mg/L,0.0061600000000000005,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,aluminum
+113,Arsenic,mg/L,0.0005099999999999999,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,arsenic
+114,Barium,mg/L,0.04525,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,barium
+115,"Boron, dissolved",mg/L,0.4,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,boron
+116,Bromide,mg/L,0.001,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,bromide
+117,"Calcium, Dissolved",mg/L,80.45,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,calcium
+118,Chloride,mg/L,297.92,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,chloride
+119,Chromium (total),mg/L,0.00018999999999999998,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,chromium
+120,Cyanide (as free cyanide),mg/L,0.00267,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,cyanide_as_free
+121,Electrical_Conductivity,S/m,0.17,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,electrical_conductivity
+122,Fluoride,mg/L,0.97,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,fluoride
+123,Hardness,mg/L,312.0,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,hardness
+124,Iron,mg/L,0.30225,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,iron
+125,Lead,mg/L,0.001,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,lead
+126,"Magnesium, Dissolved",mg/L,27.01,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,magnesium
+127,Manganese,mg/L,0.0526,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,manganese
+128,Mercury,mg/L,0.001,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,mercury
+129,Nickel,mg/L,0.00466,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,nickel
+130,Nitrate (measured as Nitrogen),mg/L,8.64,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,nitrate_as_nitrogen
+131,Nitrite (measured as Nitrogen),mg/L,0.69,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,nitrite_as_nitrogen
+132,pH_Max,pH,7.28,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,ph_max
+133,pH_Min,pH,7.28,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,ph_min
+134,"Phosphates, Dissolved",mg/L,0.52,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,phosphates
+135,Potassium,mg/L,18.97,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,potassium
+136,Selenium,mg/L,0.00106,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,selenium
+137,Silicon,mg/L,21.04,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,silicon
+138,Silver,mg/L,0.001,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,silver
+139,"Sodium, Dissolved",mg/L,231.58,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,sodium
+140,"Sulfate, Dissolved",mg/L,188.25,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,sulfate
+141,Total Coliforms (including fecal coliform and E. Coli),mg/L,294196.23,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,total_coliforms_fecal_ecoli
+142,Total Dissolved Solids (TDS),mg/L,985.55,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,tds
+143,Total Suspended Solids (TSS),mg/L,6.525,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,tss
+144,Total Trihalomethanes (TTHMs),mg/L,0.00032,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,trihalomethanes
+145,Total Organic Carbon (TOC),mg/L,9.53,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,toc
+146,Turbidity,mg/L,1.6,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,turbidity
+147,Zinc,mg/L,0.015330000000000002,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,zinc
+148,Aluminum,mg/L,0.0061600000000000005,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,aluminum
+149,Arsenic,mg/L,0.0005099999999999999,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,arsenic
+150,Barium,mg/L,0.04525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,barium
+151,Biological Oxygen Demand (BOD),mg/L,250.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,bod
+152,"Boron, dissolved",mg/L,0.4,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,boron
+153,Bromide,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,bromide
+154,"Calcium, Dissolved",mg/L,80.45,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,calcium
+155,Chloride,mg/L,297.92,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,chloride
+156,Chromium (total),mg/L,0.00018999999999999998,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,chromium
+157,Cyanide (as free cyanide),mg/L,0.00267,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,cyanide_as_free
+158,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,electrical_conductivity
+159,Fluoride,mg/L,0.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,fluoride
+160,Hardness,mg/L,312.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,hardness
+161,Iron,mg/L,0.30225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,iron
+162,Lead,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,lead
+163,"Magnesium, Dissolved",mg/L,27.01,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,magnesium
+164,Manganese,mg/L,0.0526,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,manganese
+165,Mercury,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,mercury
+166,Nickel,mg/L,0.00466,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nickel
+167,Nitrate (measured as Nitrogen),mg/L,8.64,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nitrate_as_nitrogen
+168,"Nitrate-N, Dissolved",mg/L,40.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nitrate
+169,Nitrite (measured as Nitrogen),mg/L,0.69,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nitrite_as_nitrogen
+170,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,ph_max
+171,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,ph_min
+172,"Phosphates, Dissolved",mg/L,0.52,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,phosphates
+173,Potassium,mg/L,18.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,potassium
+174,Selenium,mg/L,0.00106,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,selenium
+175,Silicon,mg/L,21.04,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,silicon
+176,Silver,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,silver
+177,"Sodium, Dissolved",mg/L,231.58,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,sodium
+178,"Sulfate, Dissolved",mg/L,188.25,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,sulfate
+179,Total Coliforms (including fecal coliform and E. Coli),mg/L,294196.23,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli
+180,Total Dissolved Solids (TDS),mg/L,985.55,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,tds
+181,Total Suspended Solids (TSS),mg/L,6.525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,tss
+182,Total Trihalomethanes (TTHMs),mg/L,0.00032,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,trihalomethanes
+183,Total Organic Carbon (TOC),mg/L,9.53,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,toc
+184,Turbidity,mg/L,1.6,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,turbidity
+185,Zinc,mg/L,0.015330000000000002,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,zinc
+186,Aluminum,mg/L,0.0061600000000000005,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,aluminum
+187,Arsenic,mg/L,0.0005099999999999999,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,arsenic
+188,Barium,mg/L,0.04525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,barium
+189,Biological Oxygen Demand (BOD),mg/L,280.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,bod
+190,"Boron, dissolved",mg/L,0.4,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,boron
+191,Bromide,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,bromide
+192,"Calcium, Dissolved",mg/L,80.45,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,calcium
+193,Chloride,mg/L,297.92,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,chloride
+194,Chromium (total),mg/L,0.00018999999999999998,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,chromium
+195,Cyanide (as free cyanide),mg/L,0.00267,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,cyanide_as_free
+196,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,electrical_conductivity
+197,Fluoride,mg/L,0.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,fluoride
+198,Hardness,mg/L,312.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,hardness
+199,Iron,mg/L,0.30225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,iron
+200,Lead,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,lead
+201,"Magnesium, Dissolved",mg/L,27.01,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,magnesium
+202,Manganese,mg/L,0.0526,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,manganese
+203,Mercury,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,mercury
+204,Nickel,mg/L,0.00466,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nickel
+205,Nitrate (measured as Nitrogen),mg/L,8.64,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nitrate_as_nitrogen
+206,"Nitrate-N, Dissolved",mg/L,50.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nitrate
+207,Nitrite (measured as Nitrogen),mg/L,0.69,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nitrite_as_nitrogen
+208,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,ph_max
+209,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,ph_min
+210,"Phosphates, Dissolved",mg/L,0.52,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,phosphates
+211,Potassium,mg/L,18.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,potassium
+212,Selenium,mg/L,0.00106,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,selenium
+213,Silicon,mg/L,21.04,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,silicon
+214,Silver,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,silver
+215,"Sodium, Dissolved",mg/L,231.58,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,sodium
+216,"Sulfate, Dissolved",mg/L,188.25,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,sulfate
+217,Total Coliforms (including fecal coliform and E. Coli),mg/L,294196.23,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli
+218,Total Dissolved Solids (TDS),mg/L,985.55,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,tds
+219,Total Suspended Solids (TSS),mg/L,6.525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,tss
+220,Total Trihalomethanes (TTHMs),mg/L,0.00032,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,trihalomethanes
+221,Total Organic Carbon (TOC),mg/L,9.53,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,toc
+222,Turbidity,mg/L,1.6,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,turbidity
+223,Zinc,mg/L,0.015330000000000002,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,zinc
+224,Aluminum,mg/L,0.0061600000000000005,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,aluminum
+225,Arsenic,mg/L,0.0005099999999999999,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,arsenic
+226,Barium,mg/L,0.04525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,barium
+227,Biological Oxygen Demand (BOD),mg/L,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,bod
+228,"Boron, dissolved",mg/L,0.4,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,boron
+229,Bromide,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,bromide
+230,"Calcium, Dissolved",mg/L,80.45,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,calcium
+231,Chloride,mg/L,297.92,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,chloride
+232,Chromium (total),mg/L,0.00018999999999999998,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,chromium
+233,Cyanide (as free cyanide),mg/L,0.00267,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,cyanide_as_free
+234,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,electrical_conductivity
+235,Fluoride,mg/L,0.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,fluoride
+236,Hardness,mg/L,312.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,hardness
+237,Iron,mg/L,0.30225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,iron
+238,Lead,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,lead
+239,"Magnesium, Dissolved",mg/L,27.01,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,magnesium
+240,Manganese,mg/L,0.0526,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,manganese
+241,Mercury,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,mercury
+242,Nickel,mg/L,0.00466,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nickel
+243,Nitrate (measured as Nitrogen),mg/L,8.64,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nitrate_as_nitrogen
+244,"Nitrate-N, Dissolved",mg/L,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nitrate
+245,Nitrite (measured as Nitrogen),mg/L,0.69,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nitrite_as_nitrogen
+246,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,ph_max
+247,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,ph_min
+248,"Phosphates, Dissolved",mg/L,0.52,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,phosphates
+249,Potassium,mg/L,18.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,potassium
+250,Selenium,mg/L,0.00106,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,selenium
+251,Silicon,mg/L,21.04,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,silicon
+252,Silver,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,silver
+253,"Sodium, Dissolved",mg/L,231.58,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,sodium
+254,"Sulfate, Dissolved",mg/L,188.25,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,sulfate
+255,Total Coliforms (including fecal coliform and E. Coli),mg/L,294196.23,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli
+256,Total Dissolved Solids (TDS),mg/L,985.55,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,tds
+257,Total Suspended Solids (TSS),mg/L,6.525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,tss
+258,Total Trihalomethanes (TTHMs),mg/L,0.00032,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,trihalomethanes
+259,Total Organic Carbon (TOC),mg/L,9.53,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,toc
+260,Turbidity,mg/L,1.6,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,turbidity
+261,Zinc,mg/L,0.015330000000000002,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,zinc
+262,Aluminum,mg/L,0.0061600000000000005,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,aluminum
+263,Arsenic,mg/L,0.0005099999999999999,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,arsenic
+264,Barium,mg/L,0.04525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,barium
+265,Biological Oxygen Demand (BOD),mg/L,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,bod
+266,"Boron, dissolved",mg/L,0.4,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,boron
+267,Bromide,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,bromide
+268,"Calcium, Dissolved",mg/L,80.45,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,calcium
+269,Chloride,mg/L,297.92,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,chloride
+270,Chromium (total),mg/L,0.00018999999999999998,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,chromium
+271,Cyanide (as free cyanide),mg/L,0.00267,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,cyanide_as_free
+272,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,electrical_conductivity
+273,Fluoride,mg/L,0.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,fluoride
+274,Hardness,mg/L,312.0,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,hardness
+275,Iron,mg/L,0.30225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,iron
+276,Lead,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,lead
+277,"Magnesium, Dissolved",mg/L,27.01,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,magnesium
+278,Manganese,mg/L,0.0526,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,manganese
+279,Mercury,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,mercury
+280,Nickel,mg/L,0.00466,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nickel
+281,Nitrate (measured as Nitrogen),mg/L,8.64,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrate_as_nitrogen
+282,"Nitrate-N, Dissolved",mg/L,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrate
+283,Nitrite (measured as Nitrogen),mg/L,0.69,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrite_as_nitrogen
+284,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,ph_max
+285,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,ph_min
+286,"Phosphates, Dissolved",mg/L,0.52,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,phosphates
+287,Potassium,mg/L,18.97,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,potassium
+288,Selenium,mg/L,0.00106,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,selenium
+289,Silicon,mg/L,21.04,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,silicon
+290,Silver,mg/L,0.001,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,silver
+291,"Sodium, Dissolved",mg/L,231.58,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,sodium
+292,"Sulfate, Dissolved",mg/L,188.25,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,sulfate
+293,Total Coliforms (including fecal coliform and E. Coli),mg/L,294196.23,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,total_coliforms_fecal_ecoli
+294,Total Dissolved Solids (TDS),mg/L,985.55,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,tds
+295,Total Suspended Solids (TSS),mg/L,6.525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,tss
+296,Total Trihalomethanes (TTHMs),mg/L,0.00032,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,trihalomethanes
+297,Total Organic Carbon (TOC),mg/L,9.53,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,toc
+298,Turbidity,mg/L,1.6,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,turbidity
+299,Zinc,mg/L,0.015330000000000002,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,zinc
+300,Alkalinity as CaCO3,mg/L,80.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,alkalinity_as_caco3
+301,"Calcium, Dissolved",mg/L,130.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,calcium
+302,Chloride,mg/L,1180.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,chloride
+303,Electrical_Conductivity,S/m,4200.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,electrical_conductivity
+304,"Magnesium, Dissolved",mg/L,30.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,magnesium
+305,pH_Max,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,ph_max
+306,pH_Min,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,ph_min
+307,Potassium,mg/L,16.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,potassium
+308,Silicon Dioxide (SiO2),mg/L,31.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,silicon_dioxide
+309,"Sodium, Dissolved",mg/L,770.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sodium
+310,"Sulfate, Dissolved",mg/L,230.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sulfate
+311,Total Dissolved Solids (TDS),mg/L,2500.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,tds
+312,Alkalinity as CaCO3,mg/L,80.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,alkalinity_as_caco3
+313,"Calcium, Dissolved",mg/L,130.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,calcium
+314,Chloride,mg/L,1180.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,chloride
+315,Electrical_Conductivity,S/m,4200.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,electrical_conductivity
+316,"Magnesium, Dissolved",mg/L,30.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,magnesium
+317,pH_Max,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,ph_max
+318,pH_Min,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,ph_min
+319,Potassium,mg/L,16.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,potassium
+320,Silicon Dioxide (SiO2),mg/L,31.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,silicon_dioxide
+321,"Sodium, Dissolved",mg/L,770.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sodium
+322,"Sulfate, Dissolved",mg/L,230.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sulfate
+323,Total Dissolved Solids (TDS),mg/L,2500.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,tds
+324,Alkalinity as CaCO3,mg/L,82.5,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,alkalinity_as_caco3
+325,"Calcium, Dissolved",mg/L,145.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,calcium
+326,Chloride,mg/L,1315.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,chloride
+327,Electrical_Conductivity,S/m,4600.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,electrical_conductivity
+328,"Magnesium, Dissolved",mg/L,40.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,magnesium
+329,pH_Max,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,ph_max
+330,pH_Min,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,ph_min
+331,Potassium,mg/L,19.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,potassium
+332,Silicon Dioxide (SiO2),mg/L,34.5,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,silicon_dioxide
+333,"Sodium, Dissolved",mg/L,825.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,sodium
+334,"Sulfate, Dissolved",mg/L,290.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,sulfate
+335,Total Dissolved Solids (TDS),mg/L,2750.0,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,tds
+336,Alkalinity as CaCO3,mg/L,537.5,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,alkalinity_as_caco3
+337,Aluminum,mg/L,0.078,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,aluminum
+338,Arsenic,mg/L,0.0075,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,arsenic
+339,Barium,mg/L,0.129,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,barium
+340,Bicarbonate Alkalinity as CaCO3,mg/L,662.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,bicarbonate_alkalinity_as_caco3
+341,"Boron, dissolved",mg/L,0.193,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,boron
+342,"Calcium, Dissolved",mg/L,331.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,calcium
+343,Chloride,mg/L,565.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,chloride
+344,Electrical_Conductivity,S/m,0.3476,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,electrical_conductivity
+345,Fluoride,mg/L,0.32,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,fluoride
+346,Iron,mg/L,0.387,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,iron
+347,"Magnesium, Dissolved",mg/L,284.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,magnesium
+348,Manganese,mg/L,0.115,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,manganese
+349,Nitrate (measured as Nitrogen),mg/L,3.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,nitrate_as_nitrogen
+350,Nitrite (measured as Nitrogen),mg/L,0.01,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,nitrite_as_nitrogen
+351,pH_Max,pH,6.1,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,ph_max
+352,pH_Min,pH,6.1,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,ph_min
+353,"Phosphates, Dissolved",mg/L,0.2,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,phosphates
+354,Potassium,mg/L,9.8,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,potassium
+355,Silicon,mg/L,61.2,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,silicon
+356,"Sodium, Dissolved",mg/L,278.7,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,sodium
+357,Strontium,mg/L,1.6,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,strontium
+358,"Sulfate, Dissolved",mg/L,580.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,sulfate
+359,Total Dissolved Solids (TDS),mg/L,2330.0,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,tds
+360,Zinc,mg/L,0.052000000000000005,Eastern Municipal Water District case study.,EMWD-CA Brackish,EMWD,NAWI,Source,zinc
+361,Arsenic,mg/L,0.025,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,arsenic
+362,Barium,mg/L,0.02,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,barium
+363,Bicarbonate Alkalinity as CaCO3,mg/L,178.6,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3
+364,"Calcium, Dissolved",mg/L,4.75,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,calcium
+365,Chloride,mg/L,104.6,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,chloride
+366,Fluoride,mg/L,5.1,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,fluoride
+367,Hardness,mg/L,79.5,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,hardness
+368,"Magnesium, Dissolved",mg/L,4.2,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,magnesium
+369,Nitrate (measured as Nitrogen),mg/L,20.3,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,nitrate_as_nitrogen
+370,"Nitrate-N, Dissolved",mg/L,20.3,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,nitrate
+371,pH_Max,pH,7.79,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,ph_max
+372,pH_Min,pH,7.79,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,ph_min
+373,Potassium,mg/L,8.9,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,potassium
+374,"Sodium, Dissolved",mg/L,167.8,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,sodium
+375,Strontium,mg/L,0.4,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,strontium
+376,"Sulfate, Dissolved",mg/L,123.9,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,sulfate
+377,Total Dissolved Solids (TDS),mg/L,690.0,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,tds
+378,Arsenic,mg/L,0.2837150127226463,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,arsenic
+379,Barium,mg/L,0.25318066157760816,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,barium
+380,Bicarbonate Alkalinity as CaCO3,mg/L,1886.7684478371493,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3
+381,"Calcium, Dissolved",mg/L,56.03747397640528,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,calcium
+382,Chloride,mg/L,1185.7506361323153,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,chloride
+383,Fluoride,mg/L,53.435114503816784,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,fluoride
+384,Hardness,mg/L,935.114503816794,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,hardness
+385,"Magnesium, Dissolved",mg/L,48.34605597964377,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,magnesium
+386,Nitrate (measured as Nitrogen),mg/L,227.73536895674306,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,nitrate_as_nitrogen
+387,"Nitrate-N, Dissolved",mg/L,227.73536895674306,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,nitrate
+388,pH_Max,pH,7.85,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,ph_max
+389,pH_Min,pH,7.85,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,ph_min
+390,Potassium,mg/L,101.78117048346056,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,potassium
+391,"Sodium, Dissolved",mg/L,1856.2340966921122,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,sodium
+392,Strontium,mg/L,4.8346055979643765,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,strontium
+393,"Sulfate, Dissolved",mg/L,1455.4707379134861,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,sulfate
+394,Total Dissolved Solids (TDS),mg/L,7099.236641221374,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,tds
+395,"1,1,1-Trichloroethane",mg/L,,,,,,,1_1_1_trichloroethane
+396,"1,1,2-Trichloroethane",mg/L,,,,,,,1_1_2_trichloroethane
+397,"1,1-Dichloroethylene",mg/L,,,,,,,1_1_dichloroethylene
+398,"1,2,4-Trichlorobenzene",mg/L,,,,,,,1_2_4_trichlorobenzene
+399,"1,2-Dibromo-3-chloropropane (DBCP)",mg/L,,,,,,,dbcp
+400,"1,2-Dichloroethane",mg/L,,,,,,,1_2_dichloroethane
+401,"1,2-Dichloropropane",mg/L,,,,,,,1_2_dichloropropane
+402,"2,4,5-TP (Silvex)",mg/L,,,,,,,silvex
+403,"2,4-D",mg/L,,,,,,,2_4_d
+404,Acrylamide,mg/L,,,,,,,acrylamide
+405,Alachlor,mg/L,,,,,,,alachlor
+406,Alkalinity as CaCO3,mg/L,,,,,,,alkalinity_as_caco3
+407,Alpha Particles,pCi/L,,,,,,,alpha_particles
+408,Aluminum,mg/L,,,,,,,aluminum
+409,Antimony,mg/L,,,,,,,antimony
+410,Ammonia Nitrogen,mg/L,,,,,,,ammonia_nitrogen
+411,Arsenic,mg/L,,,,,,,arsenic
+412,Nitrogen - Total ,mg/L,,,,,,,nitrogen
+413,Asbestos (fiber > 10 micrometers),MF/L,,,,,,,asbestos_fiber_10_micro_m
+414,Atrazine,mg/L,,,,,,,atrazine
+415,Barium,mg/L,,,,,,,barium
+416,Barium2,mg/L,,,,,,,barium2
+417,Benzene,mg/L,,,,,,,benzene
+418,Benzo(a)pyrene (PAHs),mg/L,,,,,,,pahs
+419,Beryllium,mg/L,,,,,,,beryllium
+420,Beryllium,mg/L,,,,,,,beryllium
+421,Beta Particles and Photon Emitters,pCi/L,,,,,,,beta_particles_and_photon_emitters
+422,Bicarbonate Alkalinity as CaCO3,mg/L,,,,,,,bicarbonate_alkalinity_as_caco3
+423,Biological Oxygen Demand (BOD),mg/L,,,,,,,bod
+424,"Boron, dissolved",mg/L,,,,,,,boron
+425,Bromate,mg/L,,,,,,,bromate
+426,Bromide,mg/L,,,,,,,bromide
+427,Cadmium,mg/L,,,,,,,cadmium
+428,Cadmium2,mg/L,,,,,,,cadmium2
+429,"Calcium, Dissolved",mg/L,,,,,,,calcium
+430,Carbofuran,mg/L,,,,,,,carbofuran
+431,Carbon tetrachloride,mg/L,,,,,,,carbon_tetrachloride
+432,Carbonate Alkalinity as CaCO3,mg/L,,,,,,,carbonate_alkalinity_as_caco3
+433,Chloramines (as Cl2),mg/L,,,,,,,chloramines_as_cl2
+434,Chlordane,mg/L,,,,,,,chlordane
+435,Chloride,mg/L,,,,,,,chloride
+436,Chlorine (as Cl2),mg/L,,,,,,,chlorine_as_cl2
+437,Chlorine dioxide (as ClO2),mg/L,,,,,,,chlorine_dioxide_as_clo2
+438,Chlorite,mg/L,,,,,,,chlorite
+439,Chlorobenzene,mg/L,,,,,,,chlorobenzene
+440,Chromium (hexavalent),mg/L,,,,,,,chromium_hexavalent
+441,Chromium (total),mg/L,,,,,,,chromium
+442,Chromium (total)2,mg/L,,,,,,,chromium_total2
+443,"cis-1,2-Dichloroethylene",mg/L,,,,,,,cis_1_2_dichloroethylene
+444,Cobalt,mg/L,,,,,,,cobalt
+445,Copper,mg/L,,,,,,,copper
+446,Phosphorus - Total,mg/L,,,,,,,phosphorus
+447,Cryptosporidium,mg/L,,,,,,,cryptosporidium
+448,Cyanide (as free cyanide),mg/L,,,,,,,cyanide_as_free
+449,Dalapon,mg/L,,,,,,,dalapon
+450,Deuterium (2H),pCi/L,,,,,,,deuterium_2h
+451,Di(2-ethylhexyl) adipate,mg/L,,,,,,,di_2_ethylhexyl_adipate
+452,Di(2-ethylhexyl) phthalate,mg/L,,,,,,,di_2_ethylhexyl_phthalate
+453,Dichloromethane,mg/L,,,,,,,dichloromethane
+454,Dinoseb,mg/L,,,,,,,dinoseb
+455,"Dioxin (2,3,7,8-TCDD)",mg/L,,,,,,,dioxin_2_3_7_8_tcdd
+456,Diquat,mg/L,,,,,,,diquat
+457,Dissolved Oxygen,mg/L,,,,,,,dissolved_oxygen
+458,Electrical_Conductivity,S/m,,,,,,,electrical_conductivity
+459,Endothall,mg/L,,,,,,,endothall
+460,Endrin,mg/L,,,,,,,endrin
+461,Epichlorohydrin,mg/L,,,,,,,epichlorohydrin
+462,Estradiol Equivalency (EEQ),mg/L,,,,,,,eeq
+463,Ethylbenzene,mg/L,,,,,,,ethylbenzene
+464,Ethylene dibromide,mg/L,,,,,,,ethylene_dibromide
+465,Fluoride,mg/L,,,,,,,fluoride
+466,Giardia lamblia,mg/L,,,,,,,giardia_lamblia
+467,Glyphosate,mg/L,,,,,,,glyphosate
+468,Haloacetic acids (HAA5),mg/L,,,,,,,haloacetic_acids
+469,Hardness,mg/L,,,,,,,hardness
+470,Heptachlor,mg/L,,,,,,,heptachlor
+471,Heptachlor epoxide,mg/L,,,,,,,heptachlor_epoxide
+472,Heterotrophic plate count (HPC),mg/L,,,,,,,hpc
+473,Hexachlorobenzene,mg/L,,,,,,,hexachlorobenzene
+474,Hexachlorocyclopentadiene,mg/L,,,,,,,hexachlorocyclopentadiene
+475,Hydroxide Alkalinity as CaCO3,mg/L,,,,,,,hydroxide_alkalinity_as_caco3
+476,Iron,mg/L,,,,,,,iron
+477,Lead,mg/L,,,,,,,lead
+478,Total Kjeldahl Nitrogen (TKN),mg/L,,,,,,,tkn
+479,Legionella,mg/L,,,,,,,legionella
+480,Lindane,mg/L,,,,,,,lindane
+481,Lithium,mg/L,,,,,,,lithium
+482,"Magnesium, Dissolved",mg/L,,,,,,,magnesium
+483,Manganese,mg/L,,,,,,,manganese
+484,Mercury,mg/L,,,,,,,mercury
+485,Mercury (inorganic),mg/L,,,,,,,mercury_inorganic
+486,Methoxychlor,mg/L,,,,,,,methoxychlor
+487,Molybdenum,mg/L,,,,,,,molybdenum
+488,Nickel,mg/L,,,,,,,nickel
+489,Nitrate (measured as Nitrogen),mg/L,,,,,,,nitrate_as_nitrogen
+490,"Nitrate-N, Dissolved",mg/L,,,,,,,nitrate
+491,Nitrite (measured as Nitrogen),mg/L,,,,,,,nitrite_as_nitrogen
+492,N-nitrosodimethylamine (NDMA),mg/L,,,,,,,ndma
+493,Nonvolatile TOC,mg/L,,,,,,,nonvolatile_toc
+494,o-Dichlorobenzene,mg/L,,,,,,,o_dichlorobenzene
+495,Oil and Grease,mg/L,,,,,,,oil_and_grease
+496,Oily Matter,mg/L,,,,,,,oily_matter
+497,Oxamyl (Vydate),mg/L,,,,,,,oxamyl_vydate
+498,Oxygen (18O),pCi/L,,,,,,,oxygen_18o
+499,p-Dichlorobenzene,mg/L,,,,,,,p_dichlorobenzene
+500,Pentachlorophenol,mg/L,,,,,,,pentachlorophenol
+501,Perfluorooctane sulfonate (PFOS),mg/L,,,,,,,perfluorooctane_sulfonate_pfos
+502,Perfluorootanoate (PFOA),mg/L,,,,,,,perfluorootanoate_pfoa
+503,pH_Max,pH,,,,,,,ph_max
+504,pH_Min,pH,,,,,,,ph_min
+505,"Phosphates, Dissolved",mg/L,,,,,,,phosphates
+506,Picloram,mg/L,,,,,,,picloram
+507,Polychlorinated biphenyls (PCBs),mg/L,,,,,,,polychlorinated_biphenyls_pcbs
+508,Polycyclic Aromatic Hydrocarbons (PAH),mg/L,,,,,,,polycyclic_aromatic_hydrocarbons_pah
+509,Potassium,mg/L,,,,,,,potassium
+510,Radium 226 and Radium 228 (combined),pCi/L,,,,,,,radium_226_and_radium_228_combined
+511,Radium-226,pCi/L,,,,,,,radium_226
+512,Radium-228,pCi/L,,,,,,,radium_228
+513,Selenium,mg/L,,,,,,,selenium
+514,Orthophosphate,mg/L,,,,,,,orthophosphate
+515,Silicon,mg/L,,,,,,,silicon
+516,Silicon Dioxide (SiO2),mg/L,,,,,,,silicon_dioxide
+517,Silver,mg/L,,,,,,,silver
+518,Simazine,mg/L,,,,,,,simazine
+519,"Sodium, Dissolved",mg/L,,,,,,,sodium
+520,Strontium,mg/L,,,,,,,strontium
+521,Styrene,mg/L,,,,,,,styrene
+522,"Sulfate, Dissolved",mg/L,,,,,,,sulfate
+523,Sulfur,mg/L,,,,,,,sulfur
+524,Tetrachloroethylene,mg/L,,,,,,,tetrachloroethylene
+525,Thallium,mg/L,,,,,,,thallium
+526,Chemical Oxygen Demand (COD),mg/L,,,,,,,chemical_oxygen_demand_cod
+527,Toluene,mg/L,,,,,,,toluene
+528,Total Coliforms (including fecal coliform and E. Coli),mg/L,,,,,,,total_coliforms_fecal_ecoli
+529,Total Dissolved Solids (TDS),mg/L,,,,,,,tds
+530,Total Petroleum Hydrocarbons (TPH),mg/L,,,,,,,total_petroleum_hydrocarbons_tph
+531,Total Suspended Solids (TSS),mg/L,,,,,,,tss
+532,Total Trihalomethanes (TTHMs),mg/L,,,,,,,trihalomethanes
+533,Toxaphene,mg/L,,,,,,,toxaphene
+534,Total Organic Carbon (TOC),mg/L,,,,,,,toc
+535,"trans-1,2-Dichloroethylene",mg/L,,,,,,,trans_1_2_dichloroethylene
+536,Trichloroethylene,mg/L,,,,,,,trichloroethylene
+537,Turbidity,mg/L,,,,,,,turbidity
+538,Ultraviolet Transmittance (UVT),%,,,,,,,ultraviolet_transmittance_uvt
+539,Uranium,pCi/L,,,,,,,uranium
+540,Vanadium,mg/L,,,,,,,vanadium
+541,Vinyl chloride,mg/L,,,,,,,vinyl_chloride
+542,Viruses (enteric),mg/L,,,,,,,viruses_enteric
+543,Volatile Organic Compounds (VOC),mg/L,,,,,,,volatile_organic_compounds_voc
+544,Xylenes (total),mg/L,,,,,,,xylenes_total
+545,Zinc,mg/L,,,,,,,zinc
+546,"1,1,1-Trichloroethane",mg/L,,,,,,,1_1_1_trichloroethane
+547,"1,1,2-Trichloroethane",mg/L,,,,,,,1_1_2_trichloroethane
+548,"1,1-Dichloroethylene",mg/L,,,,,,,1_1_dichloroethylene
+549,"1,2,4-Trichlorobenzene",mg/L,,,,,,,1_2_4_trichlorobenzene
+550,"1,2-Dibromo-3-chloropropane (DBCP)",mg/L,,,,,,,dbcp
+551,"1,2-Dichloroethane",mg/L,,,,,,,1_2_dichloroethane
+552,"1,2-Dichloropropane",mg/L,,,,,,,1_2_dichloropropane
+553,"2,4,5-TP (Silvex)",mg/L,,,,,,,silvex
+554,"2,4-D",mg/L,,,,,,,2_4_d
+555,Acrylamide,mg/L,,,,,,,acrylamide
+556,Alachlor,mg/L,,,,,,,alachlor
+557,Alkalinity as CaCO3,mg/L,,,,,,,alkalinity_as_caco3
+558,Alpha Particles,pCi/L,,,,,,,alpha_particles
+559,Aluminum,mg/L,,,,,,,aluminum
+560,Antimony,mg/L,,,,,,,antimony
+561,Ammonia Nitrogen,mg/L,,,,,,,ammonia_nitrogen
+562,Arsenic,mg/L,,,,,,,arsenic
+563,Nitrogen - Total ,mg/L,,,,,,,nitrogen
+564,Asbestos (fiber > 10 micrometers),MF/L,,,,,,,asbestos_fiber_10_micro_m
+565,Atrazine,mg/L,,,,,,,atrazine
+566,Barium,mg/L,,,,,,,barium
+567,Barium2,mg/L,,,,,,,barium2
+568,Benzene,mg/L,,,,,,,benzene
+569,Benzo(a)pyrene (PAHs),mg/L,,,,,,,pahs
+570,Beryllium,mg/L,,,,,,,beryllium
+571,Beryllium,mg/L,,,,,,,beryllium
+572,Beta Particles and Photon Emitters,pCi/L,,,,,,,beta_particles_and_photon_emitters
+573,Bicarbonate Alkalinity as CaCO3,mg/L,,,,,,,bicarbonate_alkalinity_as_caco3
+574,Biological Oxygen Demand (BOD),mg/L,,,,,,,bod
+575,"Boron, dissolved",mg/L,,,,,,,boron
+576,Bromate,mg/L,,,,,,,bromate
+577,Bromide,mg/L,,,,,,,bromide
+578,Cadmium,mg/L,,,,,,,cadmium
+579,Cadmium2,mg/L,,,,,,,cadmium2
+580,"Calcium, Dissolved",mg/L,,,,,,,calcium
+581,Carbofuran,mg/L,,,,,,,carbofuran
+582,Carbon tetrachloride,mg/L,,,,,,,carbon_tetrachloride
+583,Carbonate Alkalinity as CaCO3,mg/L,,,,,,,carbonate_alkalinity_as_caco3
+584,Chloramines (as Cl2),mg/L,,,,,,,chloramines_as_cl2
+585,Chlordane,mg/L,,,,,,,chlordane
+586,Chloride,mg/L,,,,,,,chloride
+587,Chlorine (as Cl2),mg/L,,,,,,,chlorine_as_cl2
+588,Chlorine dioxide (as ClO2),mg/L,,,,,,,chlorine_dioxide_as_clo2
+589,Chlorite,mg/L,,,,,,,chlorite
+590,Chlorobenzene,mg/L,,,,,,,chlorobenzene
+591,Chromium (hexavalent),mg/L,,,,,,,chromium_hexavalent
+592,Chromium (total),mg/L,,,,,,,chromium
+593,Chromium (total)2,mg/L,,,,,,,chromium_total2
+594,"cis-1,2-Dichloroethylene",mg/L,,,,,,,cis_1_2_dichloroethylene
+595,Cobalt,mg/L,,,,,,,cobalt
+596,Copper,mg/L,,,,,,,copper
+597,Phosphorus - Total,mg/L,,,,,,,phosphorus
+598,Cryptosporidium,mg/L,,,,,,,cryptosporidium
+599,Cyanide (as free cyanide),mg/L,,,,,,,cyanide_as_free
+600,Dalapon,mg/L,,,,,,,dalapon
+601,Deuterium (2H),pCi/L,,,,,,,deuterium_2h
+602,Di(2-ethylhexyl) adipate,mg/L,,,,,,,di_2_ethylhexyl_adipate
+603,Di(2-ethylhexyl) phthalate,mg/L,,,,,,,di_2_ethylhexyl_phthalate
+604,Dichloromethane,mg/L,,,,,,,dichloromethane
+605,Dinoseb,mg/L,,,,,,,dinoseb
+606,"Dioxin (2,3,7,8-TCDD)",mg/L,,,,,,,dioxin_2_3_7_8_tcdd
+607,Diquat,mg/L,,,,,,,diquat
+608,Dissolved Oxygen,mg/L,,,,,,,dissolved_oxygen
+609,Electrical_Conductivity,S/m,,,,,,,electrical_conductivity
+610,Endothall,mg/L,,,,,,,endothall
+611,Endrin,mg/L,,,,,,,endrin
+612,Epichlorohydrin,mg/L,,,,,,,epichlorohydrin
+613,Estradiol Equivalency (EEQ),mg/L,,,,,,,eeq
+614,Ethylbenzene,mg/L,,,,,,,ethylbenzene
+615,Ethylene dibromide,mg/L,,,,,,,ethylene_dibromide
+616,Fluoride,mg/L,,,,,,,fluoride
+617,Giardia lamblia,mg/L,,,,,,,giardia_lamblia
+618,Glyphosate,mg/L,,,,,,,glyphosate
+619,Haloacetic acids (HAA5),mg/L,,,,,,,haloacetic_acids
+620,Hardness,mg/L,,,,,,,hardness
+621,Heptachlor,mg/L,,,,,,,heptachlor
+622,Heptachlor epoxide,mg/L,,,,,,,heptachlor_epoxide
+623,Heterotrophic plate count (HPC),mg/L,,,,,,,hpc
+624,Hexachlorobenzene,mg/L,,,,,,,hexachlorobenzene
+625,Hexachlorocyclopentadiene,mg/L,,,,,,,hexachlorocyclopentadiene
+626,Hydroxide Alkalinity as CaCO3,mg/L,,,,,,,hydroxide_alkalinity_as_caco3
+627,Iron,mg/L,,,,,,,iron
+628,Lead,mg/L,,,,,,,lead
+629,Total Kjeldahl Nitrogen (TKN),mg/L,,,,,,,tkn
+630,Legionella,mg/L,,,,,,,legionella
+631,Lindane,mg/L,,,,,,,lindane
+632,Lithium,mg/L,,,,,,,lithium
+633,"Magnesium, Dissolved",mg/L,,,,,,,magnesium
+634,Manganese,mg/L,,,,,,,manganese
+635,Mercury,mg/L,,,,,,,mercury
+636,Mercury (inorganic),mg/L,,,,,,,mercury_inorganic
+637,Methoxychlor,mg/L,,,,,,,methoxychlor
+638,Molybdenum,mg/L,,,,,,,molybdenum
+639,Nickel,mg/L,,,,,,,nickel
+640,Nitrate (measured as Nitrogen),mg/L,,,,,,,nitrate_as_nitrogen
+641,"Nitrate-N, Dissolved",mg/L,,,,,,,nitrate
+642,Nitrite (measured as Nitrogen),mg/L,,,,,,,nitrite_as_nitrogen
+643,N-nitrosodimethylamine (NDMA),mg/L,,,,,,,ndma
+644,Nonvolatile TOC,mg/L,,,,,,,nonvolatile_toc
+645,o-Dichlorobenzene,mg/L,,,,,,,o_dichlorobenzene
+646,Oil and Grease,mg/L,,,,,,,oil_and_grease
+647,Oily Matter,mg/L,,,,,,,oily_matter
+648,Oxamyl (Vydate),mg/L,,,,,,,oxamyl_vydate
+649,Oxygen (18O),pCi/L,,,,,,,oxygen_18o
+650,p-Dichlorobenzene,mg/L,,,,,,,p_dichlorobenzene
+651,Pentachlorophenol,mg/L,,,,,,,pentachlorophenol
+652,Perfluorooctane sulfonate (PFOS),mg/L,,,,,,,perfluorooctane_sulfonate_pfos
+653,Perfluorootanoate (PFOA),mg/L,,,,,,,perfluorootanoate_pfoa
+654,pH_Max,pH,,,,,,,ph_max
+655,pH_Min,pH,,,,,,,ph_min
+656,"Phosphates, Dissolved",mg/L,,,,,,,phosphates
+657,Picloram,mg/L,,,,,,,picloram
+658,Polychlorinated biphenyls (PCBs),mg/L,,,,,,,polychlorinated_biphenyls_pcbs
+659,Polycyclic Aromatic Hydrocarbons (PAH),mg/L,,,,,,,polycyclic_aromatic_hydrocarbons_pah
+660,Potassium,mg/L,,,,,,,potassium
+661,Radium 226 and Radium 228 (combined),pCi/L,,,,,,,radium_226_and_radium_228_combined
+662,Radium-226,pCi/L,,,,,,,radium_226
+663,Radium-228,pCi/L,,,,,,,radium_228
+664,Selenium,mg/L,,,,,,,selenium
+665,Orthophosphate,mg/L,,,,,,,orthophosphate
+666,Silicon,mg/L,,,,,,,silicon
+667,Silicon Dioxide (SiO2),mg/L,,,,,,,silicon_dioxide
+668,Silver,mg/L,,,,,,,silver
+669,Simazine,mg/L,,,,,,,simazine
+670,"Sodium, Dissolved",mg/L,,,,,,,sodium
+671,Strontium,mg/L,,,,,,,strontium
+672,Styrene,mg/L,,,,,,,styrene
+673,"Sulfate, Dissolved",mg/L,,,,,,,sulfate
+674,Sulfur,mg/L,,,,,,,sulfur
+675,Tetrachloroethylene,mg/L,,,,,,,tetrachloroethylene
+676,Thallium,mg/L,,,,,,,thallium
+677,Chemical Oxygen Demand (COD),mg/L,,,,,,,chemical_oxygen_demand_cod
+678,Toluene,mg/L,,,,,,,toluene
+679,Total Coliforms (including fecal coliform and E. Coli),mg/L,,,,,,,total_coliforms_fecal_ecoli
+680,Total Dissolved Solids (TDS),mg/L,,,,,,,tds
+681,Total Petroleum Hydrocarbons (TPH),mg/L,,,,,,,total_petroleum_hydrocarbons_tph
+682,Total Suspended Solids (TSS),mg/L,,,,,,,tss
+683,Total Trihalomethanes (TTHMs),mg/L,,,,,,,trihalomethanes
+684,Toxaphene,mg/L,,,,,,,toxaphene
+685,Total Organic Carbon (TOC),mg/L,,,,,,,toc
+686,"trans-1,2-Dichloroethylene",mg/L,,,,,,,trans_1_2_dichloroethylene
+687,Trichloroethylene,mg/L,,,,,,,trichloroethylene
+688,Turbidity,mg/L,,,,,,,turbidity
+689,Ultraviolet Transmittance (UVT),%,,,,,,,ultraviolet_transmittance_uvt
+690,Uranium,pCi/L,,,,,,,uranium
+691,Vanadium,mg/L,,,,,,,vanadium
+692,Vinyl chloride,mg/L,,,,,,,vinyl_chloride
+693,Viruses (enteric),mg/L,,,,,,,viruses_enteric
+694,Volatile Organic Compounds (VOC),mg/L,,,,,,,volatile_organic_compounds_voc
+695,Xylenes (total),mg/L,,,,,,,xylenes_total
+696,Zinc,mg/L,,,,,,,zinc

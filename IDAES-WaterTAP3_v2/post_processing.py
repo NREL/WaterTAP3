@@ -15,8 +15,8 @@ from idaes.core.util.exceptions import ConfigurationError
 import case_study_trains
 import generate_constituent_list
 
-global scenario
-global case_study
+#global scenario
+#global case_study
 
 up_variables = [
     "fixed_cap_inv",
@@ -38,11 +38,11 @@ up_variables = [
 
 def get_results_table(m = None):
     # could make a dictionary if betteR?
-    unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
-                                                             case_study_trains.scenario)
+    #unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
+    #                                                         case_study_trains.scenario)
     
-    scenario = case_study_trains.scenario
-    case_study = case_study_trains.case_study
+    scenario = case_study_trains.train["scenario"]
+    case_study = case_study_trains.train["case_study"]
 
     up_name_list = []
     variable_list = []
@@ -163,5 +163,21 @@ def get_results_table(m = None):
     return df
 
 
+def compare_with_excel(excel_path, python_path):
 
+    excel = pd.read_excel(excel_path)
+    excel['Source'] = 'excel'
+
+    py = pd.read_csv(python_path)
+    py.rename(columns={"Unit Process Name": "Unit_Process", "Case Study": "Case_Study"}, inplace=True)
+    py['Source'] = 'python'
+
+    both = pd.concat([excel,py])
+    pivot = pd.pivot_table(both, values='Value', 
+                                index=['Case_Study','Scenario','Unit_Process','Variable','Unit'], 
+                                columns=['Source']).reset_index()
+    
+    pivot.to_csv('results/check_with_excel.csv',index=False)
+
+    return pivot
 

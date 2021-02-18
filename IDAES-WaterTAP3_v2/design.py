@@ -71,7 +71,7 @@ def add_unit_process(m = None, unit_process_name = None, unit_process_type = Non
 
 
 def add_water_source(m = None, source_name = None, link_to = None, 
-                     reference = None, water_type = None, case_study = None, flow = 0): # in design
+                     reference = None, water_type = None, case_study = None, flow = None): # in design
     
     import importfile
     
@@ -80,6 +80,8 @@ def add_water_source(m = None, source_name = None, link_to = None,
         reference = reference, water_type = water_type, 
         case_study = case_study)
     
+    #set the flow based on the case study if not specified. This should have already been set in case study .py
+    if flow is None: flow = df.loc["flow"].Value
     
     train_constituent_list = generate_constituent_list.run()
     
@@ -93,14 +95,9 @@ def add_water_source(m = None, source_name = None, link_to = None,
             getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].Value)        
         
         else:
-            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(1e-4)
+            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(0)
         
         getattr(m.fs, source_name).removal_fraction[:, constituent_name].fix(0)
-        
-    #getattr(m.fs, source_name).inlet.conc_mass[:, "TOC"].fix(df.loc["TOC"].Value)
-    #getattr(m.fs, source_name).inlet.conc_mass[:, "nitrates"].fix(df.loc["Nitrate"].Value) #TODO ChangeNitrate
-    #getattr(m.fs, source_name).inlet.conc_mass[:, "TDS"].fix(df.loc["TDS"].Value)
-    
     
     getattr(m.fs, source_name).inlet.temperature.fix(300)
     getattr(m.fs, source_name).inlet.pressure.fix(2e5)
@@ -118,32 +115,6 @@ def add_water_source(m = None, source_name = None, link_to = None,
         
     return m
 
-# NOT USED:
-def add_water_use(m = None, use_name = None, with_connection = False, inlet_list = ["inlet"],
-                    link_to = None, link_from = None, stream_name = None, end_use_constraint = False): # in design
-    
-    setattr(m.fs, use_name, Mixer1(default={
-        "property_package": m.fs.water,
-        "inlet_list": inlet_list}))
-
-
-    if end_use_constraint == True: 
-    
-        # Set removal and recovery fractions -> CAN WE JUST SET OUTLETS AND THAT'S IT? OR CLEANER WITH THE SAME FORMAT?
-        getattr(m.fs, split_name).water_recovery.fix(1)
-        getattr(m.fs, split_name).removal_fraction[:, "TDS"].fix(0.5)
-        # I took these values from the WaterTAP3 nf model
-        getattr(m.fs, split_name).removal_fraction[:, "TOC"].fix(0.5)
-        getattr(m.fs, split_name).removal_fraction[:, "nitrates"].fix(0.5)
-        # Also set pressure drops - for now I will set these to zero
-        getattr(m.fs, split_name).deltaP_outlet1.fix(1e-4)
-        getattr(m.fs, split_name).deltaP_outlet2.fix(1e-4)
-    
-    if link_to is not None: # TODO - potential for multiple streams
-        connect_blocks(m = m, up1 = link_from, up2 = link_to, connection_type = None, 
-                               stream_name = stream_name)
-        
-    return m
 
 def add_splitter(m = None, split_name = None, with_connection = False, outlet_list = None, outlet_fractions = None,
                     link_to = None, link_from = None, stream_name = None, unfix = False): # in design
@@ -171,7 +142,6 @@ def add_mixer(m = None, mixer_name = None, with_connection = False, inlet_list =
         "inlet_list": inlet_list}))
     
     return m
-
 
 
 

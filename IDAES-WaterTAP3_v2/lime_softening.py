@@ -60,7 +60,6 @@ fixed_op_cost_scaling_exp = 0.7
 
 # Get constituent list and removal rates for this unit process
 import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
 train_constituent_removal_factors = generate_constituent_list.get_removal_factors("lime_softening")
 
 ### data specific to UP - should probably be a chemical addition class ###

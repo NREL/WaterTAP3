@@ -89,6 +89,7 @@ def get_module(module_name):
         import municipal_drinking as up 
         
     if module_name == "sw_onshore_intake":
+        #print("goes in", module_name)
         import sw_onshore_intake as up  
         
     if module_name == "holding_tank":
@@ -135,7 +136,10 @@ def get_module(module_name):
     
     if module_name == "hcl_addition":
         import hcl_addition as up 
-        
+    
+    if module_name == "deep_well_injection":
+        import deep_well_injection as up
+                
      
         
     return up
