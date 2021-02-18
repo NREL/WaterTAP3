@@ -131,9 +131,11 @@ def get_module(module_name):
     if module_name == "fe_mn_removal":
         import fe_mn_removal as up 
 
-        
     if module_name == "well_field":
         import well_field as up 
+    
+    if module_name == "deep_well_injection":
+        import deep_well_injection as up
         
         
      
