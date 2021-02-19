@@ -54,7 +54,7 @@ def show_train1(G):
     import pyvis
     import networkx as nx
 
-    g = net.Network("500px", "100%", notebook=True, directed=True, heading="")
+    g = net.Network("1000px", "100%", notebook=True, directed=True, heading="")
     # g.show_buttons()
     g.from_nx(G)
     g.set_options(

@@ -31,33 +31,49 @@ from idaes.core.util.exceptions import ConfigurationError
 
 import pandas as pd
 import ml_regression
-
-
+global case_study
+import case_study_trains
 # TO DO - MOVE TO WHERE NEEDED -> global_costing_parameters
 
 # fixed_op_cost_scaling_exp = 0.7
 # basis_year = 2014  # meaning:
-analysis_yr_cost_indicies = 2020
+
 last_year_for_cost_indicies = 2050
 on_stream_factor = 1.0
+# case_study = case_study_trains.case_study
 
-salaries_percent_FCI = 0.001  # represented as a fraction. source:
-land_cost_precent_FCI = 0.0015  # represented as a fraction. source:
-working_cap_precent_FCI = 0.05  # represented as a fraction. source:
-maintinance_costs_precent_FCI = 0.008
-lab_fees_precent_FCI = 0.003
-insurance_taxes_precent_FCI = 0.002
-
-benefit_percent_of_salary = 0.9
-
-elec_price = 0.134
-    
-plant_lifetime_yrs = 20
-    
+ 
 # This first method is used at the flowsheet level and contains any global
 # parameters and methods
 
 ### THIS IS NOT CURRENTLY USED --> global_costing_parameters
+# def GlobalCostingParams():
+    
+case_study = 'Tampa_Bay'
+basis_data = pd.read_csv('data/case_study_basis.csv', index_col='case_study')
+elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
+
+location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
+elec_price = elec_cost.loc[location]
+salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_FCI'].loc[case_study].value)   # represented as a fraction. source:
+land_cost_precent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value) # represented as a fraction. source:
+working_cap_precent_FCI = float(basis_data[basis_data['variable'] == 'working_capital_percent'].loc[case_study].value)  # represented as a fraction. source:
+maintinance_costs_precent_FCI = float(basis_data[basis_data['variable'] == 'maintenance_cost_percent'].loc[case_study].value)
+lab_fees_precent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
+insurance_taxes_precent_FCI = float(basis_data[basis_data['variable'] == 'insurance_and_taxes_percent'].loc[case_study].value)
+benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 'employee_benefits_percent'].loc[case_study].value) 
+plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
+analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
+ 
+    
+#     return location, elec_price, salaries_percent_FCI, land_cost_precent_FCI, working_cap_precent_FCI, maintinance_costs_precent_FCI,
+# lab_fees_precent_FCI, insurance_taxes_precent_FCI, benefit_percent_of_salary, plant_lifetime_yrs, analysis_yr_cost_indicies
+
+
+
+
+
+
 
 def global_costing_parameters(self, year=None):
     # Define a default year if none is provided

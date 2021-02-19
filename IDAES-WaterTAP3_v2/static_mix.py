@@ -73,7 +73,7 @@ tpec_or_tic = 'TPEC'
 
 # Get constituent list and removal rates for this unit process
 import generate_constituent_list
-train_constituent_removal_factors = generate_constituent_list.get_removal_factors("sw_onshore_intake")
+train_constituent_removal_factors = generate_constituent_list.get_removal_factors("static_mix")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you

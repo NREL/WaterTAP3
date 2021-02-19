@@ -179,12 +179,13 @@ see property package for documentation.}"""))
             cost_method = 'wt'
             tpec_or_tic = 'TPEC'
             number_of_units = 2
-            lift_height = 100 # ft
+            lift_height = 100 * pyunits.ft # ft
             
-            caustic_soda_dose = 0.03 # kg/m3
-            caustic_soda_flow_rate = flow_in * caustic_soda_dose * 24 # kg/day
-            density_of_solution = 1540 # kg/m3
-            ratio_in_solution = 0.5 # 
+            caustic_soda_dose = 0.03 * (pyunits.kg / pyunits.m**3) # kg/m3
+            caustic_soda_flow_rate = flow_in * caustic_soda_dose # kg/hr
+            caustic_soda_flow_rate = pyunits.convert(caustic_soda_flow_rate, to_units=(pyunits.kg / pyunits.day)) # kg/day
+            density_of_solution = 1540 * (pyunits.kg / pyunits.m**3) # kg/m3
+            ratio_in_solution = 0.5 # dimensionless
             solution_vol_flow = caustic_soda_flow_rate / density_of_solution / ratio_in_solution # m3/day
             base_fixed_cap_cost = 1.95 
             cap_scaling_exp = 0.6195
@@ -202,9 +203,9 @@ see property package for documentation.}"""))
             
             def fixed_cap(flow_in, caustic_soda_flow_rate, solution_vol_flow): # m3/hr
                 
-                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
-                source_cost = 2262.8 * solution_flow_gpd ** 0.6195
-                caustic_soda_cap = (source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000 # M$
+                solution_vol_flow = pyunits.convert(solution_vol_flow, to_units=(pyunits.gallon / pyunits.day)) # kg/day
+                source_cost = 2262.8 * solution_vol_flow ** cap_scaling_exp
+                caustic_soda_cap = (source_cost * tpec_tic(tpec_or_tic) * number_of_units) * 1E-6 # M$
                 return caustic_soda_cap
               
             
@@ -263,7 +264,7 @@ see property package for documentation.}"""))
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col="Material")
                 chem_cost_sum = 0 
                 
-                chem_dic = {"Sodium_Hydroxide_(NaOH)" : caustic_soda_dose}
+                chem_dic = {"Sodium_Hydroxide_(NaOH)": caustic_soda_dose}
                 
                 for key in chem_dic.keys():
                     chem_cost = cat_chem_df.loc[key].Price # $ / kg 

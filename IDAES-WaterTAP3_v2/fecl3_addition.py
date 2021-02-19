@@ -185,11 +185,12 @@ see property package for documentation.}"""))
             cost_method = 'wt'
             tpec_or_tic = 'TPEC'
             number_of_units = 2
-            lift_height = 100 # ft
+            lift_height = 100 * pyunits.ft # ft # ft
             
-            fecl3_dose = 0.02 # kg/m3
+            fecl3_dose = 0.02 * (pyunits.kg / pyunits.m**3) # kg/m3# kg/m3
             fecl3_flow_rate = flow_in * fecl3_dose * 24 
-            density_of_solution = 1460 # kg/m3
+            fecl3_flow_rate = pyunits.convert(fecl3_flow_rate, to_units=(pyunits.kg / pyunits.day)) # kg/day
+            density_of_solution = 1460 * (pyunits.kg / pyunits.m**3) # kg/m3# kg/m3
             ratio_in_solution = 0.42 #
             solution_vol_flow = fecl3_flow_rate / density_of_solution / ratio_in_solution # m3/day
             base_fixed_cap_cost = 2.65
@@ -202,17 +203,15 @@ see property package for documentation.}"""))
             
             
             def fixed_cap(): # m3/hr
-                
-                solution_flow_gpd = solution_vol_flow * 264.172 #gpd
-                source_cost = 34153 * solution_flow_gpd ** 0.319
-                fecl3_cap =(source_cost * tpec_tic(tpec_or_tic) * number_of_units) / 1000000
+                solution_vol_flow = pyunits.convert(solution_vol_flow, to_units=(pyunits.gallon / pyunits.day))
+                source_cost = 34153 * solution_vol_flow ** cap_scaling_exp
+                fecl3_cap =(source_cost * tpec_tic(tpec_or_tic) * number_of_units) * 1E-6
                 return fecl3_cap # M$
               
             
             def electricity(): # m3/hr
-                
-                solution_flow_gpm = (solution_vol_flow * 264.17) / 1440 # m3/day to gal/min
-                electricity = (0.746 * solution_flow_gpm * lift_height / (3960 * pump_eff * motor_eff)) / flow_in # kWh/m3
+                solution_vol_flow = pyunits.convert(solution_vol_flow, to_units=(pyunits.gallon / pyunits.minute))
+                electricity = (0.746 * solution_vol_flow * lift_height / (3960 * pump_eff * motor_eff)) / flow_in # kWh/m3
                 return electricity
             
             
@@ -273,18 +272,19 @@ see property package for documentation.}"""))
                 self.electricity = electricity() # kwh/m3 
                 cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col="Material")
                 chem_cost_sum = 0 
-                
+                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
+
                 chem_dic = {"Iron_FeCl3" : fecl3_dose}
-                
+                # flow_in = pyunits.convert(flow_in, to_units=)
                 for key in chem_dic.keys():
                     chem_cost = cat_chem_df.loc[key].Price
-                    chem_cost_sum = chem_cost_sum + (self.parent_block().flow_vol_in[time] * chem_cost * self.catalysts_chemicals * chem_dic[key] * on_stream_factor * 365 * 24 * 3600 / 1000) #
+                    chem_cost_sum = chem_cost_sum + (flow_in_m3yr * chem_cost * self.catalysts_chemicals * 
+                                                     chem_dic[key] * on_stream_factor) #
                 
                 self.cat_and_chem_cost = chem_cost_sum / 1000000 
                 
-                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
                 self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price / 1000000),
+                        expr= ((self.electricity * flow_in_m3yr * elec_price) / 1000000),
                         doc="Electricity cost") # M$/yr
                 self.other_var_cost = 0 
                 self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
