@@ -307,14 +307,14 @@ def get_case_study(flow = None, m = None):
         
     # get source water information that will be used to get the flow in if not specified
     df_source = wt.importfile.feedwater(
-        input_file="data/case_study_water_sources_and_uses.csv",
+        input_file="data/case_study_water_sources.csv",
         reference = source_water["reference"], 
         water_type = source_water["water_type"], 
         case_study = source_water["case_study"],
         scenario = source_water["scenario"])
     
     #set the flow based on the case study if not specified.
-    if flow is None: flow = df_source.loc["flow"].Value
+    if flow is None: flow = df_source.loc["flow"].value
         
     case_study_library = "data/case_study_train_input_test.xlsx"
 

@@ -22,13 +22,13 @@ def run():
     df = df[df.case_study == train["case_study"]]
     df = df[df.scenario == train["scenario"]]
     
-    list1 = df[df.fractional_constituent_removal >=0].constituent.unique()
+    list1 = df[df.value >=0].constituent.unique()
     
     import importfile
     
     # grabs inlet water information
     df = importfile.feedwater(
-        input_file="data/case_study_water_sources_and_uses.csv",
+        input_file="data/case_study_water_sources.csv",
         reference = source_water["reference"], 
         water_type = source_water["water_type"], 
         case_study = source_water["case_study"],

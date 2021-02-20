@@ -179,23 +179,13 @@ see property package for documentation.}"""))
             
             lift_height = 100 # ft
             
-            chemical_dosage = .03 # kg/m3
+            chemical_dosage = 0.03 * (pyunits.kg / pyunits.m**3) # kg/m3
             number_of_units = 2
             density_of_solution = 1360 # kg/m3
             ratio_in_solution = .5
             
             def tpec_tic(tpec_or_tic):
-            
-                TPEC = 3.4
-                TIC = 1.65
-
-                if tpec_or_tic != "TPEC": 
-                    TPEC = 1
-
-                if tpec_or_tic != "TIC": 
-                    TIC = 1
-
-                return (TPEC * TIC)
+                return 3.4 if tpec_or_tic == 'TPEC' else 1.65
             
             
             def fixed_cap(flow_in): # m3/hr
@@ -275,12 +265,19 @@ see property package for documentation.}"""))
                 # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
                 # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
                 self.electricity = electricity(flow_in) # kwh/m3 
-                self.cat_and_chem_cost = 0  # TODO
-                
                 flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
-                elec_price = 0.098 # TODO...this is for Ashkelon
+
+                chem_dic = {"Iron_FeCl3" : chemical_dosage}
+                # flow_in = pyunits.convert(flow_in, to_units=)
+                for key in chem_dic.keys():
+                    chem_cost = cat_chem_df.loc[key].Price
+                    chem_cost_sum = chem_cost_sum + (flow_in_m3yr * chem_cost * self.catalysts_chemicals * 
+                                                     chem_dic[key] * on_stream_factor) #
+                
+                self.cat_and_chem_cost = chem_cost_sum / 1000000 
+                
                 self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
+                        expr= ((self.electricity * flow_in_m3yr * elec_price) / 1000000),
                         doc="Electricity cost") # M$/yr
                 self.other_var_cost = 0 # Expression(
                         #expr= self.cat_and_chem_cost - self.electricity_cost,
