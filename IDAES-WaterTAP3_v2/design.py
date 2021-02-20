@@ -50,7 +50,13 @@ def add_unit_process(m = None, unit_process_name = None, unit_process_type = Non
     
     setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
     
-    m = up_module.create(m, unit_process_name)
+    import constituent_removal_water_recovery
+    m = constituent_removal_water_recovery.create(m, unit_process_type)
+    
+    ### SET PARAMS HERE FOR UP ###
+    #PARAMS = 
+    import financials
+    getattr(m.fs, unit_process_type).get_costing(module=financials)
     
     if with_connection == True:
         
@@ -76,14 +82,15 @@ def add_water_source(m = None, source_name = None, link_to = None,
     import importfile
     
     df = importfile.feedwater(
-        input_file="data/case_study_water_sources_and_uses.csv",
+        input_file="data/case_study_water_sources.csv",
         reference = reference, water_type = water_type, 
         case_study = case_study)
     
     #set the flow based on the case study if not specified. This should have already been set in case study .py
-    if flow is None: flow = df.loc["flow"].Value
+    if flow is None: flow = float(df.loc["flow"].value)
     
     train_constituent_list = generate_constituent_list.run()
+    print(train_constituent_list)
     
     setattr(m.fs, source_name, Source(default={"property_package": m.fs.water}))
     
@@ -92,7 +99,7 @@ def add_water_source(m = None, source_name = None, link_to = None,
     for constituent_name in train_constituent_list:
         
         if constituent_name in df.index:
-            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].Value)        
+            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].value)        
         
         else:
             getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(0)

@@ -15,6 +15,9 @@ global pfd_dict
 import module_import
 
 def run():
+    import case_study_trains
+    train = case_study_trains.train 
+    source_water = case_study_trains.source_water 
     
     # getting the list of consituents with removal factors that are bigger than 0
     df = pd.read_csv("Data/constituent_removal.csv")
@@ -54,7 +57,10 @@ def run():
     return final_list
 
 def get_removal_factors(unit_process):
-
+    import case_study_trains
+    train = case_study_trains.train 
+    source_water = case_study_trains.source_water 
+    
     df = pd.read_csv("Data/constituent_removal.csv")
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]

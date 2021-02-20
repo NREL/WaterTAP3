@@ -328,10 +328,15 @@ def get_case_study(flow = None, m = None):
 
     # create the constituent list for the train that is automatically used to edit the water property package.
     import generate_constituent_list
-    
+    import financials
     generate_constituent_list.train = train
     generate_constituent_list.source_water = source_water
     generate_constituent_list.pfd_dict = pfd_dict
+    
+    financials.train = train
+    financials.source_water = source_water
+    financials.pfd_dict = pfd_dict
+    financials.get_system_specs(m.fs)
     
     train_constituent_list = generate_constituent_list.run()
 

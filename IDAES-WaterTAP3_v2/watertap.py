@@ -128,18 +128,13 @@ unit_process_library_list = [
 
 
 def watertap_setup(dynamic = False):
-    
-    # get constituents for treatment train needed for water property package
-    
+        
     # Create a Pyomo model
     m = ConcreteModel()
 
     # Add an IDAES FlowsheetBlock and set it to steady-state
     m.fs = FlowsheetBlock(default={"dynamic": dynamic})
-
-    # Add water property package (this can be updated to account for a more extensive list of properties)
-    #m.fs.water = WaterParameterBlock() -> THIS IS MOVED TO CASE STUDIES BECAUSE WE CAN'T ADD THIS WITHOUT KNOWING WHICH STUDY
-
+    
     return m
 
 
@@ -166,55 +161,21 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
     
     if print_model_results == True:
     
-        #print("degrees_of_freedom:", degrees_of_freedom(m))
+        # Display the inlets and outlets and cap cost of each unit
+        for b_unit in m.fs.component_objects(Block, descend_into=True):
 
-        # Display the inlets and outlets of each unit
-        for node in G.nodes():
+            
+            if hasattr(b_unit, 'inlet'):
+                print("----------------------------------------------------------------------")
+                print(b_unit)
+                b_unit.inlet.display()
+            if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
+            if hasattr(b_unit, 'waste'): b_unit.waste.display()
             print("----------------------------------------------------------------------")
-            print(node)
+            if hasattr(b_unit, 'costing'):
 
-            if "split" in (str(node).replace('fs.', '')): 
-                getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
-                getattr(m.fs, str(node).replace('fs.', '')).outlet1.display()
-                getattr(m.fs, str(node).replace('fs.', '')).outlet2.display()
-            elif "use" in (str(node).replace('fs.', '')): 
-                getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
-                getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
-            elif "mixer" in (str(node).replace('fs.', '')): 
-                getattr(m.fs, str(node).replace('fs.', '')).inlet1.display()
-                getattr(m.fs, str(node).replace('fs.', '')).inlet2.display()
-                getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
-            else:
-                getattr(m.fs, str(node).replace('fs.', '')).inlet.display()
-                getattr(m.fs, str(node).replace('fs.', '')).outlet.display()
-                getattr(m.fs, str(node).replace('fs.', '')).waste.display()
-
-
-            print("Show some costing values")
-            print("---------------------")
-
-            if "Seawater" in (str(node).replace('fs.', '')): 
-                print("should skip:", (str(node).replace('fs.', '')))
-                continue
-            elif "use" in (str(node).replace('fs.', '')): 
-                print("should skip:", (str(node).replace('fs.', '')))
-                continue
-            elif "split" in (str(node).replace('fs.', '')): 
-                print("should skip:", (str(node).replace('fs.', '')))
-                continue  
-            elif "mixer" in (str(node).replace('fs.', '')): 
-                print("should skip:", (str(node).replace('fs.', '')))
-                continue
-            else:
-                print("should have a cost", (str(node).replace('fs.', '')))
-                if getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost() is not None:
-                    print("total_up_cost:" , 
-                          getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost())
-
-                else:
-                    getattr(m.fs, str(node).replace('fs.', '')).costing.total_up_cost.display()
-
-            print("----------------------------------------------------------------------")
+                print("total_cap_investment:", b_unit.costing.total_cap_investment())
+                print("----------------------------------------------------------------------")
 
             
 def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
