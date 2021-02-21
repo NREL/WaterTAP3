@@ -195,7 +195,10 @@ def get_system_specs(self):
     b.analysis_yr_cost_indicies = system_specs.analysis_yr_cost_indicies
     b.benefit_percent_of_salary = system_specs.benefit_percent_of_salary
     b.working_cap_percent_FCI  = system_specs.working_cap_percent_FCI
-
+    
+    b.tpec = 3.4
+    b.tic = 1.65
+       
     # traditional parameters are the only Vars on the block and should be fixed
     #for v in b.component_objects(Var, descend_into=True):
     #    for i in v:

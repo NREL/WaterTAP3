@@ -30,7 +30,7 @@ from pyomo.environ import (
 
 # Import WaterTAP# financials module
 import financials
-from financials import * #ARIEL ADDED
+from financials import *
 
 from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
 from pyomo.network import Arc
@@ -45,21 +45,21 @@ from water_props import WaterParameterBlock
 # Below (in the unit), we define the parameters that we may want to change across case studies or analyses. Those parameters should be set as variables (eventually) and atttributed to the unit model (i.e. m.fs.UNIT_NAME.PARAMETERNAME). Anything specific to the costing only should be in  m.fs.UNIT_NAME.costing.PARAMETERNAME ######
 ##########################################
 
-## REFERENCE: from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
+## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "surface_discharge"
+module_name = "treated_storage"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 #tpec_or_tic = "TPEC"
-unit_basis_yr = 2020
+unit_basis_yr = 2006
 
-base_fixed_cap_cost = 35
-cap_scaling_exp = .873
-fixed_op_cost_scaling_exp = 0.7
 
+
+# tank_capacity = 37854.1 #  m3
+# FCI_per_tank = 6.88 # $MM source: DOE/NETL-2002/1169 - Process Equipment Cost Estimation Final Report
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -113,14 +113,14 @@ see property package for documentation.}"""))
     from unit_process_equations import initialization
     #unit_process_equations.get_base_unit_process()
 
-    #build(up_name = "sulfuric_acid_addition")
+    #build(up_name = "treated_storage")
     
     def build(self):
         import unit_process_equations
         return unit_process_equations.build_up(self, up_name_test = module_name)
     
     
-    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
+    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
         """
         We need a get_costing method here to provide a point to call the
         costing methods, but we call out to an external consting module
@@ -130,6 +130,11 @@ see property package for documentation.}"""))
         Within IDAES, the year argument is used to set the initial value for
         the cost index when we build the model.
         """
+        # Water pumping station power demands
+        # Adapted from Jenny's excel "Treated Water Storage" version in WaterTAP3 VAR tab
+        # https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
+        # Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+        
         # First, check to see if global costing module is in place
         # Construct it if not present and pass year argument
         if not hasattr(self.flowsheet(), "costing"):
@@ -142,62 +147,69 @@ see property package for documentation.}"""))
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
         
-        #up_costing(self.costing, cost_method=cost_method)
-        
-        # There are a couple of variables that IDAES expects to be present
-        # These are fairly obvious, but have pre-defined names
-       
+    
+    
+        # Build a costing method for each type of unit
+        def up_costing(self, cost_method="wt"):
+            
+            '''
+            This is where you create the variables and equations specific to each unit.
+            This method should mainly consider capital costs for the unit - operating
+            most costs should done for the entire flowsheet (e.g. common utilities).
+            Unit specific operating costs, such as chemicals, should be done here with
+            standard names that can be collected at the flowsheet level.
+
+            You can access variables from the unit model using:
+
+                self.parent_block().variable_name
+
+            You can also have unit specific parameters here, which could be retrieved
+            from the spreadsheet
+            '''
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
-    
-        time = self.flowsheet().config.time.first()
-        conc_mass_tot = 0     
         
-        for constituent in self.config.property_package.component_list:
-            conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
-            
-        density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
-                    
-        lift_height = 100 # ft            
+        self.base_fixed_cap_cost = 5575 # From Poseidon (assuming covered, concrete tank) -> should be based on type from params
+        self.cap_scaling_exp = -.39 # From Poseidon (assuming covered, concrete tank) -> should be based on type from params
+        self.fixed_op_cost_scaling_exp = 0.7
+        self.storage_duration = unit_params["hours"] # hours    
+        
+        # capital costs basis
+        def fixed_cap(flow_in):
 
-        def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
+            flow_in_m3_hr = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m**3/pyunits.hr)
+            vol_in_m3 = flow_in_m3_hr * self.storage_duration
 
-            capacity_basis = 10417 # kg/hr - from PML tab based on 250000 gallons per day
+            unit_cost = self.base_fixed_cap_cost * vol_in_m3 ** self.cap_scaling_exp # $/m3 (euros/m3)
+            fixed_cap = (unit_cost * vol_in_m3) / 1000000
 
-            total_flow_rate = self.total_mass # kg/hr - TOTAL MASS TODO
-
-            fixed_cap_unadj =  base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
-
-            return fixed_cap_unadj # M$
-
+            return fixed_cap # $MM 
 
 
-        def electricity(flow_in):
-            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute)
-            flow_in_m3hr = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m**3/pyunits.hour)
-            electricity = (.746 * flow_in_gpm * lift_height / (3960 * .9 * .9)) / flow_in_m3hr # kWh/m3
-
-            return electricity
-            
-            
-            
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
         # safe and use a general approach
+        time = self.flowsheet().config.time.first()
 
         # Get the inlet flow to the unit and convert to the correct units
+        # calculations are in MGD 
+
+        # pyunits.convert(self.parent_block().flow_vol_in[time],
+        #                             to_units=pyunits.Mgallons/pyunits.day)
+
         flow_in = pyunits.convert(self.flow_vol_in[time],
                                   to_units=pyunits.Mgallons/pyunits.day)
             
+            
+
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
-            doc="Unadjusted fixed capital investment") # $M
-
-        self.electricity = electricity(flow_in) # kwh/m3 
+            expr= fixed_cap(flow_in) * .995,
+            doc="Unadjusted fixed capital investment") # The cost curve source includes 0.5% of annual maintenance 
         
         # electricity consumption
+        self.electricity = 0
         
         self.chem_dict = {}
         
@@ -206,6 +218,8 @@ see property package for documentation.}"""))
         ##########################################        
         
         module.get_complete_costing(self.costing)
+                        
+        
         
            
         

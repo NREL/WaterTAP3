@@ -48,6 +48,8 @@ def add_unit_process(m = None, unit_process_name = None, unit_process_type = Non
     
     up_module = module_import.get_module(unit_process_type)
     
+    unit_params = m.fs.pfd_dict[unit_process_name]["Parameter"]
+    
     setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
     
     import constituent_removal_water_recovery
@@ -56,7 +58,7 @@ def add_unit_process(m = None, unit_process_name = None, unit_process_type = Non
     ### SET PARAMS HERE FOR UP ###
     #PARAMS = 
     import financials
-    getattr(m.fs, unit_process_type).get_costing(module=financials)
+    getattr(m.fs, unit_process_type).get_costing(module=financials, unit_params=unit_params)
     
     if with_connection == True:
         
@@ -90,7 +92,6 @@ def add_water_source(m = None, source_name = None, link_to = None,
     if flow is None: flow = float(df.loc["flow"].value)
     
     train_constituent_list = generate_constituent_list.run()
-    print(train_constituent_list)
     
     setattr(m.fs, source_name, Source(default={"property_package": m.fs.water}))
     

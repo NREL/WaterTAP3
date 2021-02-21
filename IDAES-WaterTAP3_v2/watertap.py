@@ -87,7 +87,7 @@ unit_process_library_list = [
     "coag_and_floc",
     "lime_softening",
     "ro_deep",
-    "treated_storage_24_hr",
+    "treated_storage",
     "sedimentation",
     "water_pumping_station",
     "sulfuric_acid_addition",
@@ -171,7 +171,6 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
                 b_unit.inlet.display()
             if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
             if hasattr(b_unit, 'waste'): b_unit.waste.display()
-            print("----------------------------------------------------------------------")
             if hasattr(b_unit, 'costing'):
 
                 print("total_cap_investment:", b_unit.costing.total_cap_investment())
