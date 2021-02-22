@@ -162,7 +162,8 @@ see property package for documentation.}"""))
         chemical_dosage = chemical_dosage / 264.172 # pyunits to kg/g
 
         chem_dict = {chem_name : chemical_dosage}
-
+        self.chem_dict = chem_dict
+        
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
@@ -205,8 +206,7 @@ see property package for documentation.}"""))
             expr=fixed_cap(flow_in),
             doc="Unadjusted fixed capital investment") # $M
         
-        self.chem_dict = chem_dict
-        
+       
         ## electricity consumption ##
         self.electricity = electricity(flow_in) # kwh/m3
         

@@ -9,15 +9,17 @@ def create(m, module_name):
     case_study_name = case_study_trains.train["case_study"]
     
     if case_study_name in df[df.unit_process == module_name].case_study:
-        flow_recovery_factor = float(df[((df.unit_process == module_name) & (df.case_study == case_study_name))].recovery)
+        if "calculated" not in df[((df.unit_process == module_name) & (df.case_study == case_study_name))].recovery.max():
+            flow_recovery_factor = float(df[((df.unit_process == module_name) & (df.case_study == case_study_name))].recovery)
+            getattr(m.fs, module_name).water_recovery.fix(flow_recovery_factor)
     else:
-        flow_recovery_factor = float(df[((df.unit_process == module_name) & (df.case_study == "Default"))].recovery)
-        
+        if "calculated" not in df[((df.unit_process == module_name) & (df.case_study == "Default"))].recovery.max():
+            flow_recovery_factor = float(df[((df.unit_process == module_name) & (df.case_study == "Default"))].recovery)
+            getattr(m.fs, module_name).water_recovery.fix(flow_recovery_factor)
+    
     # Get constituent list and removal rates for this unit process
     train_constituent_removal_factors = generate_constituent_list.get_removal_factors(module_name)
-    
-    # Set removal and recovery fractions
-    getattr(m.fs, module_name).water_recovery.fix(flow_recovery_factor)
+        
     for constituent_name in getattr(m.fs, module_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():

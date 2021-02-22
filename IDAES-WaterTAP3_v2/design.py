@@ -22,25 +22,6 @@ import pandas as pd
 
 import generate_constituent_list
 
-def connect_blocks(m = None, 
-                    stream_name = None,
-                    from_node = None,
-                    outlet_name = "outlet",
-                    to_node = None,
-                    inlet_name = "inlet"):
-    
-    '''default is outlet and inlet. if different - for example for mixer or splitter - need to specify the names'''
-    
-    f1 = getattr(m.fs, from_node)
-    f2 = getattr(f1, outlet_name)
-    t1 = getattr(m.fs, to_node)
-    t2 = getattr(t1, inlet_name)
-
-    setattr(m.fs, stream_name, Arc(source=f2, destination=t2))
-    
-    return m
-
-
 def add_unit_process(m = None, unit_process_name = None, unit_process_type = None, with_connection = False,
                      from_splitter = False, splitter_tream = None,
                     link_to = None, link_from = None, connection_type = "series", stream_name = None): # in design
