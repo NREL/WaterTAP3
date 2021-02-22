@@ -108,7 +108,9 @@ see property package for documentation.}"""))
 		##########################################
 		####### UNIT SPECIFIC VARIABLES AND CONSTANTS -> SET AS SELF OTHERWISE LEAVE AT TOP OF FILE ######
 		##########################################
-
+		time = self.flowsheet().config.time.first()
+		# Get the inlet flow to the unit and convert to the correct units for cost module.
+		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 		### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 		# get tic or tpec (could still be made more efficent code-wise, but could enough for now)
 		sys_cost_params = self.parent_block().costing_param
@@ -120,70 +122,55 @@ see property package for documentation.}"""))
 
 		# basis year for the unit model - based on reference for the method.
 		self.costing.basis_year = unit_basis_yr
-		conc_in = 750  # mg / L TDS
-		flow_lst = np.array([4.732, 48.106, 339.425, 3566.804, 11840.768])  # m3/hr
-		if conc_in >= 200 and conc_in < 600:
-			base_fixed_cap_cost = 0.0097
-			cap_scaling_exp = 0.7917
-			elec_lst = np.array([0.015, 0.008, 0.08, 0.086, 0.075])  # kWh / m3
-			elec_curve = curve_fit(power_curve, flow_lst, elec_lst)
-			a, b = elec_curve[0], elec_curve[1]
-		if conc_in >= 600 and conc_in < 1000:
-			base_fixed_cap_cost = 0.0092
-			cap_scaling_exp = 0.8115
-			elec_lst = np.array([0.034, 0.021, 0.105, 0.108, 0.082])  # kWh / m3
-			elec_curve = curve_fit(power_curve, flow_lst, elec_lst)
-			a, b = elec_curve[0], elec_curve[1]
-		if conc_in >= 150:
-			base_fixed_cap_cost = 0.0089
-			cap_scaling_exp = 0.8286
-			elec_lst = np.array([0.082, 0.052, 0.035, 0.132, 0.109])  # kWh / m3
-			elec_curve = curve_fit(power_curve, flow_lst, elec_lst)
-			a, b = elec_curve[0], elec_curve[1]
+		conc_in = self.conc_mass_in[plant_lifetime_yrs, 'TDS'] * 1E3  # mg / L TDS
+		base_fixed_cap_cost = 0.0089
+		cap_scaling_exp = 0.8286
+		flow_lst = np.array([4.732, 48.106, 339.425, 3566.804, 11840.768])  # m3 / hr
+		elec_lst = np.array([0.082, 0.052, 0.035, 0.132, 0.109])  # kWh / m3
+		elec_curve, _ = curve_fit(power_curve, flow_lst, elec_lst)
+		a, b = elec_curve[0], elec_curve[1]
 
 		# TODO -->> ADD THESE TO UNIT self.X
 
 		#### CHEMS ###
-		chem_name = unit_params["chemical_name"][0]
-		chemical_dosage = 0.01  # kg/m3 should be read from .csv
-		solution_density = 1781  # kg/m3
+		chem_name = ''
+		chemical_dosage = 0  # kg/m3 should be read from .csv
+		solution_density = 1  # kg/m3
 		chemical_dosage = chemical_dosage / 264.172  # pyunits to kg/g
 
-		chem_dict = {chem_name: chemical_dosage}
+		chem_dict = {}
 
 		##########################################
 		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
 		##########################################
 
-		def solution_vol_flow(flow_in):  # m3/hr
-			flow_in_m3h = flow_in * 189.4204
-			chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
-
-			return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
+		# def solution_vol_flow(flow_in):  # m3/hr
+		# flow_in_m3h = flow_in * 189.4204
+		# chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
+		#
+		# return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
 
 		def fixed_cap(flow_in):
-			source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp  # $
+			source_cost = base_fixed_cap_cost * flow_in ** cap_scaling_exp  # $
 
 			return source_cost * tpec_tic  # M$
 
 		def electricity(flow_in):  # m3/hr
-
-			electricity = a * solution_vol_flow(flow_in) ** b  # kWh/m3
+			electricity = a * flow_in ** b  # kWh/m3
 
 			return electricity
 
 		# Get the first time point in the time domain
 		# In many cases this will be the only point (steady-state), but lets be
 		# safe and use a general approach
-		time = self.flowsheet().config.time.first()
 
 		# Get the inlet flow to the unit and convert to the correct units for cost module.
-		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
 
 		## fixed_cap_inv_unadjusted ##
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
+														   doc="Unadjusted fixed capital investment")  # $M
 
-		self.chem_dict = chem_dict
+		self.chem_dict = {}
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3
