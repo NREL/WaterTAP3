@@ -31,71 +31,110 @@ from idaes.core.util.exceptions import ConfigurationError
 
 import pandas as pd
 import ml_regression
-global case_study
 import case_study_trains
+
+global train
+global source_water
+global pfd_dict
+
 # TO DO - MOVE TO WHERE NEEDED -> global_costing_parameters
 
-# fixed_op_cost_scaling_exp = 0.7
-# basis_year = 2014  # meaning:
 
 last_year_for_cost_indicies = 2050
 on_stream_factor = 1.0
-# case_study = case_study_trains.case_study
-
  
 # This first method is used at the flowsheet level and contains any global
 # parameters and methods
 
-### THIS IS NOT CURRENTLY USED --> global_costing_parameters
-# def GlobalCostingParams():
+
+class SystemSpecs():
+  
+    def __init__(self, train = None):
+        
+        basis_data = pd.read_csv('data/case_study_basis.csv', index_col='case_study')
+        elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
+        
+        case_study = train["case_study"]
+        print(case_study)
+        location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
+        
+        self.elec_price = float(elec_cost.loc[location])
+        self.salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_FCI'].loc[case_study].value)  
+        self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
+        self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] ==
+                                                        'working_capital_percent'].loc[case_study].value)
+
+        self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] == 
+                                                              'maintenance_cost_percent'].loc[case_study].value)
+        self.lab_fees_percent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
+
+        self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] == 
+                                                            'insurance_and_taxes_percent'].loc[case_study].value)
+        self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 
+                                                          'employee_benefits_percent'].loc[case_study].value) 
+        self.plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
+        self.analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
+
     
-case_study = 'Tampa_Bay'
-basis_data = pd.read_csv('data/case_study_basis.csv', index_col='case_study')
-elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
 
-location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
-elec_price = elec_cost.loc[location]
-salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_FCI'].loc[case_study].value)   # represented as a fraction. source:
-land_cost_precent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value) # represented as a fraction. source:
-working_cap_precent_FCI = float(basis_data[basis_data['variable'] == 'working_capital_percent'].loc[case_study].value)  # represented as a fraction. source:
-maintinance_costs_precent_FCI = float(basis_data[basis_data['variable'] == 'maintenance_cost_percent'].loc[case_study].value)
-lab_fees_precent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
-insurance_taxes_precent_FCI = float(basis_data[basis_data['variable'] == 'insurance_and_taxes_percent'].loc[case_study].value)
-benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 'employee_benefits_percent'].loc[case_study].value) 
-plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
-analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
- 
+################## WATERTAP METHOD ###########################################################
+
+def get_complete_costing(self):
     
-#     return location, elec_price, salaries_percent_FCI, land_cost_precent_FCI, working_cap_precent_FCI, maintinance_costs_precent_FCI,
-# lab_fees_precent_FCI, insurance_taxes_precent_FCI, benefit_percent_of_salary, plant_lifetime_yrs, analysis_yr_cost_indicies
+    sys_specs = self.parent_block().parent_block().costing_param
+    time = self.parent_block().flowsheet().config.time.first()
+    chem_dict = self.parent_block().chem_dict
+    electricity = self.parent_block().electricity
+    
+    df = get_ind_table(sys_specs.analysis_yr_cost_indicies)
+    self.cap_replacement_parts = df.loc[self.basis_year].Capital_Factor
+    self.catalysts_chemicals = df.loc[self.basis_year].CatChem_Factor
+    self.labor_and_other_fixed = df.loc[self.basis_year].Labor_Factor
+    self.consumer_price_index = df.loc[self.basis_year].CPI_Factor
 
+    self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
+    self.land_cost = self.fixed_cap_inv * sys_specs.land_cost_percent_FCI
+    self.working_cap = self.fixed_cap_inv * sys_specs.working_cap_percent_FCI 
+    self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
 
+    flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
+    
+    ## cat and chems ##
+    cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
+    chem_cost_sum = 0 
+    for key in chem_dict.keys():
+        chem_cost = cat_chem_df.loc[key].Price
+        chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * on_stream_factor
+    self.cat_and_chem_cost = chem_cost_sum
+        
+    self.electricity_cost = Expression(
+            expr= (electricity * flow_in_m3yr * sys_specs.electricity_price/1000000),
+            doc="Electricity cost") # M$/yr
+    self.other_var_cost = 0
 
+    self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
+    self.salaries = Expression(
+            expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
+            doc="Salaries")
+    self.benefits = self.salaries * sys_specs.benefit_percent_of_salary
+    self.maintenance = sys_specs.maintinance_costs_percent_FCI * self.fixed_cap_inv
+    self.lab = sys_specs.lab_fees_percent_FCI * self.fixed_cap_inv
+    self.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * self.fixed_cap_inv
+    self.total_fixed_op_cost = Expression(
+        expr = self.salaries + self.benefits + self.maintenance + self.lab + self.insurance_taxes)
 
-
-
-
-def global_costing_parameters(self, year=None):
-    # Define a default year if none is provided
-    if year is None:
-        year = '2018'
-
-    # Cost index $/year (method argument or 2018 default)
-    # I just took this from the IDAES costing methods as an example
-    # You could also link to an external database of values, such as the
-    # Excel spreadsheet
-    ce_index_dic = {'2019': 680, '2018': 671.1, '2017': 567.5, '2016': 541.7,
-                    '2015': 556.8, '2014': 576.1, '2013': 567.3, '2012': 584.6,
-                    '2011': 585.7, '2010': 550.8}
-
-    self.CE_index = Param(mutable=True, initialize=ce_index_dic[year],
-                          doc='Chemical Engineering Plant Cost Index $ year')
+    self.total_up_cost = (
+        self.total_cap_investment
+        + self.cat_and_chem_cost
+        + self.electricity_cost
+        + self.other_var_cost
+        + self.total_fixed_op_cost
+    )
     
     
-   
     
 # TO DO MOVE TO FUNCTION BELOW
-def get_ind_table():
+def get_ind_table(analysis_yr_cost_indicies):
     df = pd.read_csv("data/plant_cost_indices.csv")
 
     df1 = pd.DataFrame()
@@ -128,58 +167,38 @@ def get_ind_table():
 
 
 
-# There are a couple of variables that IDAES expects to be present
-# These are fairly obvious, but have pre-defined names
-
-### THIS IS NOT CURRENTLY USED --> _make_vars
-def _make_vars(self):
-    # build generic costing variables (all costing models need these vars)
-    self.base_cost = Var(initialize=1e5,
-                         domain=NonNegativeReals,
-                         doc='Unit Base Cost cost in $')
-    self.purchase_cost = Var(initialize=1e4,
-                             domain=NonNegativeReals,
-                             doc='Unit Purchase Cost in $')
-
-
 ####################################
 ###### FROM TIM's RO MODEL #######    
 ####################################
 # The parameters below should replace the constants above.
 ### THIS IS NOT CURRENTLY USED --> add_costing_param_block    
-def add_costing_param_block(self):
+
+def get_system_specs(self):
     self.costing_param = Block()
     b = self.costing_param
 
-    b.load_factor = Var(
-        initialize=0.9,
-        doc='Load factor [fraction of uptime]')
-    b.factor_total_investment = Var(
-        initialize=2,
-        doc='Total investment factor [investment cost/equipment cost]')
-    b.factor_MLC = Var(
-        initialize=0.03,
-        doc='Maintenance-labor-chemical factor [fraction of investment cost/year]')
-    b.factor_capital_annualization = Var(
-        initialize=0.1,
-        doc='Capital annualization factor [fraction of investment cost/year]')
-    b.factor_membrane_replacement = Var(
-        initialize=0.2,
-        doc='Membrane replacement factor [fraction of membrane replaced/year]')
-    b.electricity_cost = Var(
+    b.electricity_price = Var(
         initialize=0.07,
         doc='Electricity cost [$/kWh]')
-    b.mem_cost = Var(
-        initialize=30,
-        doc='Membrane cost [$/m2]')
-    b.hp_pump_cost = Var(
-        initialize=53 / 1e5 * 3600,
-        doc='High pressure pump cost [$/W]')
-    b.erd_cost = Var(
-        ['A', 'B'],
-        initialize={'A': 3134.7, 'B': 0.58},
-        doc='Energy recovery device cost parameters')
-
+    
+    # ADD THE REST AS VARIABLES.
+    
+    system_specs = SystemSpecs(train)
+    
+    b.electricity_price.fix(system_specs.elec_price)
+    b.salaries_percent_FCI = system_specs.salaries_percent_FCI
+    b.land_cost_percent_FCI = system_specs.land_cost_percent_FCI
+    b.maintinance_costs_percent_FCI = system_specs.maintinance_costs_percent_FCI
+    b.lab_fees_percent_FCI = system_specs.lab_fees_percent_FCI
+    b.insurance_taxes_percent_FCI = system_specs.insurance_taxes_percent_FCI
+    b.plant_lifetime_yrs = system_specs.plant_lifetime_yrs
+    b.analysis_yr_cost_indicies = system_specs.analysis_yr_cost_indicies
+    b.benefit_percent_of_salary = system_specs.benefit_percent_of_salary
+    b.working_cap_percent_FCI  = system_specs.working_cap_percent_FCI
+    
+    b.tpec = 3.4
+    b.tic = 1.65
+       
     # traditional parameters are the only Vars on the block and should be fixed
     #for v in b.component_objects(Var, descend_into=True):
     #    for i in v:
@@ -196,15 +215,6 @@ def get_system_costing(self):
         self.costing = Block()
     b = self.costing
 
-
-#     b.capital_investment_total = Var(
-#         initialize=1e6,
-#         domain=NonNegativeReals,
-#         doc='Total investment cost [$]')
-#     b.operating_cost_total = Var(
-#         initialize=1e5,
-#         domain=NonNegativeReals,
-#         doc='Total operating cost [$/year]')
 #     b.LCOW = Var(
 #         initialize=1e5,
 #         domain=NonNegativeReals,
@@ -213,22 +223,6 @@ def get_system_costing(self):
          initialize=0.01,
          domain=NonNegativeReals,
          doc='Captial recovery factor')  
-#     b.electricity_cost_total = Var(
-#         initialize=1e5,
-#         domain=NonNegativeReals,
-#         doc='Total electricity cost [$/year]')
-#     b.other_var_cost_total = Var(
-#         initialize=1e5,
-#         domain=NonNegativeReals,
-#         doc='Other variable cost [$/year]')    
-#     b.fixed_op_cost_total = Var(
-#         initialize=1e5,
-#         domain=NonNegativeReals,
-#         doc='Total fixed operating cost [$/year]')
-#     b.cat_and_chem_cost_total = Var(
-#         initialize=1e5,
-#         domain=NonNegativeReals,
-#         doc='Catalysts and chemicals cost [$/year]')    
     
     total_capital_investment_var_lst = []
     cat_and_chem_cost_lst = []
@@ -236,7 +230,9 @@ def get_system_costing(self):
     other_var_cost_lst = []
     total_fixed_op_cost_lst = []
     
-    b.capital_recovery_factor.fix(0.08)  
+    b.capital_recovery_factor.fix(0.08)  #TODO ANNA ARIEL KURBY
+    
+    plant_lifetime_yrs = self.costing_param.plant_lifetime_yrs
     
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
@@ -293,11 +289,8 @@ def get_system_costing(self):
             if len(getattr(b_unit, "outlet").arcs()) == 0:
 
                 if check_waste(b_unit) == "no":
-                #    print(b_unit)
                     recovered_water_flow = recovered_water_flow + b_unit.flow_vol_in[time]
-
-                #if check_waste(b_unit) == "yes":
-                #    print(b_unit)    
+ 
     b.treated_water = recovered_water_flow
    
     # TODO TOTAL WASTE = 
@@ -309,12 +302,23 @@ def get_system_costing(self):
     doc="Levelized Cost of Water in $/m3")
     
     
-#    (value(m.fs.costing.capital_investment_total) * value(m.fs.costing.capital_recovery_factor) +
-#value(m.fs.costing.operating_cost_total)/20)/((value(m.fs.costing.treated_water) * 3600*24*365/1e6))
     
-    
-    
-    
+### JUST TO GET IDAES TO RUN --> THESE SHOULd BE THE SYSTEM SPECS    
+def global_costing_parameters(self, year=None):
+    # Define a default year if none is provided
+    if year is None:
+        year = '2018'
+
+    # Cost index $/year (method argument or 2018 default)
+    # I just took this from the IDAES costing methods as an example
+    # You could also link to an external database of values, such as the
+    # Excel spreadsheet
+    ce_index_dic = {'2019': 680, '2018': 671.1, '2017': 567.5, '2016': 541.7,
+                    '2015': 556.8, '2014': 576.1, '2013': 567.3, '2012': 584.6,
+                    '2011': 585.7, '2010': 550.8}
+
+    self.CE_index = Param(mutable=True, initialize=ce_index_dic[year],
+                          doc='Chemical Engineering Plant Cost Index $ year')   
     
     
     

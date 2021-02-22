@@ -1,16 +1,12 @@
 ,case_study,scenario,unit_process,recovery,evaporation,reference
-0,Default,,0pt5_m_y_evaporation_ponds,0.05149999999999999,0.9485,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
+0,Default,,0pt5_m_y_evaporation_ponds,0.0515,0.9485,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
 1,Default,ZLD,0pt5_m_y_evaporation_ponds,0.0001,0.9999,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
-2,Default,,1pt0_m_y_evaporation_ponds,0.05149999999999999,0.9485,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
+2,Default,,1pt0_m_y_evaporation_ponds,0.0515,0.9485,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
 3,Default,ZLD,1pt0_m_y_evaporation_ponds,0.0001,0.9999,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
-4,Default,,2pt0_m_y_evaporation_ponds,0.05149999999999999,,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
+4,Default,,2pt0_m_y_evaporation_ponds,0.0515,,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
 5,Default,ZLD,2pt0_m_y_evaporation_ponds,0.0001,,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
 6,Default,,holding_tank,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
 7,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-8,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-9,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-10,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-11,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
 12,Default,,aeration_multi_stage_bubble_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 13,Default,,aeration_packed_tower_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 14,Pulp_and_Paper,Baseline,aeration_basin,1,,Defined based on the Pulp and Paper case study data.
@@ -83,7 +79,7 @@
 81,Default,,nano_filtration,0.85,,Texas Water Development Board IT3PR User Manual
 82,Default,,nuclear_cooling_tower,0.25,0.75,Based on Vogtle case study data. No costs for WT3 treatment.
 83,Default,,onsite_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-84,Heap Leaching,,ore_mining_to_ore_heap,0.9,0.09999999999999998,Heap leaching (gold/copper) case study.
+84,Heap Leaching,,ore_mining_to_ore_heap,0.9,0.1,Heap leaching (gold/copper) case study.
 85,Default,,ozonation,1,,Texas Water Development Board IT3PR User Manual
 86,Default,,ozonation_with_aop,1,,Texas Water Development Board IT3PR User Manual
 87,Default,,ph_decrease,1,,Placeholder. Not utilized in any case studies. 
@@ -100,13 +96,12 @@
 98,Cherokee,Baseline,settling_pond,1,,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
 99,Default,,sodium_bisulfite_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura).
 100,Default,,soil_aquifer_treatment,1,,Texas Water Development Board IT3PR User Manual
-101,Heap Leaching,,solution_distribution_and_recovery_plant,0.9222222222222223,,Heap leaching (gold/copper) case study.
+101,Heap Leaching,,solution_distribution_and_recovery_plant,0.922222222,,Heap leaching (gold/copper) case study.
 102,Default,,static_mixer,1,,"Chemical Engineering Design, 2nd Edition. Principles, Practice and Economics of Plant and Process Design, https://www.elsevier.com/books/chemical-engineering-design/towler/978-0-08-096659-5"
 103,Default,,sulfuric_acid_addition,1,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 104,Default,,surface_augmentation,1,,Texas Water Development Board IT3PR User Manual
 105,Default,,surface_discharge,1,,Lenntech https://www.lenntech.com/processes/surface-water-discharge-of-brine.htm.  Electricity consumption is based on Carlsbad data.
 106,Default,,sw_onshore_intake,1,,Intake and Pump Costs from Voutchkov (see capital cost curves in VAR). Energy consumption value based on 100-ft head pump and is consistent with reported Carlsbad data.
-107,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
 108,Default,,tri_media_filtration,1,,Texas Water Development Board IT3PR User Manual
 109,Default,,tri_media_filtration_with_backflush,0.9,,Texas Water Development Board IT3PR User Manual. Backflush based on Carlsbad case study.
 110,Tuscarora,Baseline,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.

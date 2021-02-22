@@ -64,8 +64,8 @@ def get_module(module_name):
     if module_name == "ro_deep_scnd_pass":
         import ro_deep_scnd_pass as up
         
-    if module_name == "treated_storage_24_hr":
-        import treated_storage_24_hr as up 
+    if module_name == "treated_storage":
+        import treated_storage as up 
     
     if module_name == "sedimentation":
         import sedimentation as up 

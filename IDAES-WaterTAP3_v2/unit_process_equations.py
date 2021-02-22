@@ -51,7 +51,7 @@ def build_up(self, up_name_test = None):
     if up_name_test == "coag_and_floc": import coag_and_floc as unit_process_model  
     if up_name_test == "lime_softening": import lime_softening as unit_process_model
     if up_name_test == "ro_deep": import ro_deep as unit_process_model 
-    if up_name_test == "treated_storage_24_hr": import treated_storage_24_hr as unit_process_model
+    if up_name_test == "treated_storage": import treated_storage as unit_process_model
     if up_name_test == "sedimentation": import sedimentation as unit_process_model
     if up_name_test == "water_pumping_station": import water_pumping_station as unit_process_model
     if up_name_test == "sulfuric_acid_addition": import sulfuric_acid_addition as unit_process_model   
@@ -77,6 +77,7 @@ def build_up(self, up_name_test = None):
     if up_name_test == 'fe_mn_removal': import fe_mn_removal as unit_process_model
     if up_name_test == 'hcl_addition': import hcl_addition as unit_process_model
     if up_name_test == 'deep_well_injection': import deep_well_injection as unit_process_model
+    if up_name_test == 'chemical_addition': import chemical_addition as unit_process_model
 
         
 
@@ -115,6 +116,7 @@ def build_up(self, up_name_test = None):
         
     self.flow_vol_in = Var(time,
                            initialize=1,
+                           domain=PositiveReals,
                            units=units_meta("volume")/units_meta("time"),
                            doc="Volumetric flowrate of water into unit")
     self.conc_mass_in = Var(time,
@@ -135,6 +137,7 @@ def build_up(self, up_name_test = None):
     # Add similar variables for outlet and waste stream
     self.flow_vol_out = Var(time,
                             initialize=1,
+                            domain=PositiveReals,
                             units=units_meta("volume")/units_meta("time"),
                             doc="Volumetric flowrate of water out of unit")
     self.conc_mass_out = Var(time,
@@ -155,6 +158,7 @@ def build_up(self, up_name_test = None):
     self.flow_vol_waste = Var(
         time,
         initialize=1,
+        #domain=PositiveReals,
         units=units_meta("volume")/units_meta("time"),
         doc="Volumetric flowrate of water in waste")
     self.conc_mass_waste = Var(

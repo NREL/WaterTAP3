@@ -30,7 +30,7 @@ from pyomo.environ import (
 
 # Import WaterTAP# financials module
 import financials
-from financials import * #ARIEL ADDED
+from financials import *
 
 from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
 from pyomo.network import Arc
@@ -48,13 +48,18 @@ from water_props import WaterParameterBlock
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "sulfuric_acid_addition"
+module_name = "treated_storage"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
-tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+#tpec_or_tic = "TPEC"
+unit_basis_yr = 2006
+
+
+
+# tank_capacity = 37854.1 #  m3
+# FCI_per_tank = 6.88 # $MM source: DOE/NETL-2002/1169 - Process Equipment Cost Estimation Final Report
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -63,16 +68,16 @@ class UnitProcessData(UnitModelBlockData):
        
     """
     This class describes the rules for a zeroth-order model for a unit
-    
-    The Config Block is used tpo process arguments from when the model is
-    instantiated. In IDAES, this serves two purposes:
-         1. Allows us to separate physical properties from unit models
-         2. Lets us give users options for configuring complex units
-    The dynamic and has_holdup options are expected arguments which must exist
-    The property package arguments let us define different sets of contaminants
-    without needing to write a new model.
     """
-        
+    # The Config Block is used tpo process arguments from when the model is
+    # instantiated. In IDAES, this serves two purposes:
+    #     1. Allows us to separate physical properties from unit models
+    #     2. Lets us give users options for configuring complex units
+    # For WaterTAP3, this will mainly be boilerplate to keep things consistent
+    # with ProteusLib and IDAES.
+    # The dynamic and has_holdup options are expected arguments which must exist
+    # The property package arguments let us define different sets of contaminants
+    # without needing to write a new model.
     CONFIG = ConfigBlock()
     CONFIG.declare("dynamic", ConfigValue(
         domain=In([False]),
@@ -106,12 +111,15 @@ and used when constructing these,
 see property package for documentation.}"""))
     
     from unit_process_equations import initialization
+    #unit_process_equations.get_base_unit_process()
+
+    #build(up_name = "treated_storage")
     
     def build(self):
         import unit_process_equations
         return unit_process_equations.build_up(self, up_name_test = module_name)
     
-    # NOTE ---> THIS SHOULD EVENTUaLLY BE JUST FOR COSTING INFO/EQUATIONS/FUNCTIONS. EVERYTHING ELSE IN ABOVE.
+    
     def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
         """
         We need a get_costing method here to provide a point to call the
@@ -122,6 +130,11 @@ see property package for documentation.}"""))
         Within IDAES, the year argument is used to set the initial value for
         the cost index when we build the model.
         """
+        # Water pumping station power demands
+        # Adapted from Jenny's excel "Treated Water Storage" version in WaterTAP3 VAR tab
+        # https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
+        # Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+        
         # First, check to see if global costing module is in place
         # Construct it if not present and pass year argument
         if not hasattr(self.flowsheet(), "costing"):
@@ -134,81 +147,71 @@ see property package for documentation.}"""))
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
         
-        ##########################################
-        ####### UNIT SPECIFIC VARIABLES AND CONSTANTS -> SET AS SELF OTHERWISE LEAVE AT TOP OF FILE ######
-        ##########################################   
-        
-        ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-        base_fixed_cap_cost = 900.97  # Carlsbad Treatment train VAR tab
-        cap_scaling_exp = .6179  # Carlsbad Treatment train VAR tab
-        fixed_op_cost_scaling_exp = 0.7
-        
-        # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
-        sys_cost_params = self.parent_block().costing_param
-        self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
-        
+    
+    
+        # Build a costing method for each type of unit
+        def up_costing(self, cost_method="wt"):
+            
+            '''
+            This is where you create the variables and equations specific to each unit.
+            This method should mainly consider capital costs for the unit - operating
+            most costs should done for the entire flowsheet (e.g. common utilities).
+            Unit specific operating costs, such as chemicals, should be done here with
+            standard names that can be collected at the flowsheet level.
+
+            You can access variables from the unit model using:
+
+                self.parent_block().variable_name
+
+            You can also have unit specific parameters here, which could be retrieved
+            from the spreadsheet
+            '''
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
         
-        # TODO -->> ADD THESE TO UNIT self.X 
-        number_of_units = 2
-        lift_height = 100 # ft
+        self.base_fixed_cap_cost = 5575 # From Poseidon (assuming covered, concrete tank) -> should be based on type from params
+        self.cap_scaling_exp = -.39 # From Poseidon (assuming covered, concrete tank) -> should be based on type from params
+        self.fixed_op_cost_scaling_exp = 0.7
+        self.storage_duration = unit_params["hours"] # hours    
         
-        #### CHEMS ###
-        chem_name = unit_params["chemical_name"][0]
-        chemical_dosage = 0.01 #  kg/m3 should be read from .csv
-        solution_density = 1781 # kg/m3
-        chemical_dosage = chemical_dosage / 264.172 # pyunits to kg/g
-
-        chem_dict = {chem_name : chemical_dosage}
-        self.chem_dict = chem_dict
-        
-        ##########################################
-        ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
-        ##########################################
-        
-        def solution_vol_flow(flow_in): # m3/hr
-            flow_in_m3h = flow_in * 189.4204
-            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-            
-            return (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
-        
-        
+        # capital costs basis
         def fixed_cap(flow_in):
 
-            source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp # $
+            flow_in_m3_hr = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m**3/pyunits.hr)
+            vol_in_m3 = flow_in_m3_hr * self.storage_duration
 
-            return (source_cost * tpec_tic * number_of_units)/1000000 # M$
+            unit_cost = self.base_fixed_cap_cost * vol_in_m3 ** self.cap_scaling_exp # $/m3 (euros/m3)
+            fixed_cap = (unit_cost * vol_in_m3) / 1000000
 
-        
-        def electricity(flow_in): # m3/hr   
-            flow_in_m3h = flow_in * 189.4204
-            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
+            return fixed_cap # $MM 
 
-            electricity = (.746 * (solution_vol_flow(flow_in) / 1440) * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
 
-            return electricity
-        
-        
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
         # safe and use a general approach
         time = self.flowsheet().config.time.first()
 
-        # Get the inlet flow to the unit and convert to the correct units for cost module.
+        # Get the inlet flow to the unit and convert to the correct units
+        # calculations are in MGD 
+
+        # pyunits.convert(self.parent_block().flow_vol_in[time],
+        #                             to_units=pyunits.Mgallons/pyunits.day)
+
         flow_in = pyunits.convert(self.flow_vol_in[time],
                                   to_units=pyunits.Mgallons/pyunits.day)
-        
-        
-        ## fixed_cap_inv_unadjusted ##
+            
+            
+
+        # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
-            doc="Unadjusted fixed capital investment") # $M
+            expr= fixed_cap(flow_in) * .995,
+            doc="Unadjusted fixed capital investment") # The cost curve source includes 0.5% of annual maintenance 
         
-       
-        ## electricity consumption ##
-        self.electricity = electricity(flow_in) # kwh/m3
+        # electricity consumption
+        self.electricity = 0
+        
+        self.chem_dict = {}
         
         ##########################################
         ####### GET REST OF UNIT COSTS ######
@@ -219,3 +222,6 @@ see property package for documentation.}"""))
         
         
            
+        
+        
+        

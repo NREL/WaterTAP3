@@ -324,17 +324,23 @@ def get_case_study(flow = None, m = None):
     df_units = filter_df(df_units)
 
     ### create pfd_dictionary for treatment train
-    pfd_dict = get_pfd_dict(df_units)
-
+    m.fs.pfd_dict = get_pfd_dict(df_units)
+    pfd_dict = m.fs.pfd_dict
+    
     # create the constituent list for the train that is automatically used to edit the water property package.
     import generate_constituent_list
-    
+    import financials
     generate_constituent_list.train = train
     generate_constituent_list.source_water = source_water
     generate_constituent_list.pfd_dict = pfd_dict
     
+    financials.train = train
+    financials.source_water = source_water
+    financials.pfd_dict = pfd_dict
+    financials.get_system_specs(m.fs)
+    
     train_constituent_list = generate_constituent_list.run()
-
+    
     # add the water parameter block to generate the list of constituent variables in the model
     m.fs.water = WaterParameterBlock()
 
@@ -347,7 +353,8 @@ def get_case_study(flow = None, m = None):
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
-    
+    m.fs.arc_dict = arc_dict
+        
     # gets list of unit processes and ports that need either a splitter or mixer 
     splitter_list, mixer_list = check_split_mixer_need(arc_dict)
     
@@ -582,7 +589,7 @@ def add_wate_streams(m, arc_i, pfd_dict, mixer_i):
                         i = i + 1
                         waste_inlet_list.append(("inlet%s" % i))
 
-    if len(waste_inlet_list) >= 1:
+    if len(waste_inlet_list) > 1:
         i = 0
         waste_mixer = "mixer%s" % mixer_i
         setattr(m.fs, waste_mixer,
@@ -607,7 +614,7 @@ def add_wate_streams(m, arc_i, pfd_dict, mixer_i):
                                                                destination = getattr(m.fs, "surface_discharge").inlet))
             arc_i = arc_i + 1
     
-    
+        
     return m, arc_i, mixer_i
 
 
