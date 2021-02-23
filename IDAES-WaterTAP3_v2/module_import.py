@@ -1,11 +1,3 @@
-from pylab import *
-import shutil
-import sys
-import os.path
-import pandas as pd
-import numpy as np
-import networkx as nx
-
 # TODO FIX IMPORTS
 # black
 def get_module(module_name):
@@ -103,45 +95,43 @@ def get_module(module_name):
         
     if module_name == "backwash_solids_handling":
         import backwash_solids_handling as up
-    
+
     if module_name == "surface_discharge":
         import surface_discharge as up
-        
+
     if module_name == "landfill":
         import landfill as up
-        
+
     if module_name == "coagulant_addition":
         import coagulant_addition as up
-    
-    if module_name == "fecl3_addition":
-        import fecl3_addition as up
-    
+
+    if module_name == "ferric_chloride_addition":
+        import ferric_chloride_addition as up
+
     if module_name == "caustic_soda_addition":
         import caustic_soda_addition as up
-    
-    if module_name == "static_mix":
-        import static_mix as up
+
+    if module_name == "static_mixer":
+        import static_mixer as up
 
     if module_name == 'uv_aop':
         import uv_aop as up
 
     if module_name == "anti_scalant_addition":
-        import anti_scalant_addition as up 
-       
+        import anti_scalant_addition as up
+
     if module_name == "fe_mn_removal":
-        import fe_mn_removal as up 
-  
+        import fe_mn_removal as up
+
     if module_name == "well_field":
-        import well_field as up 
-    
-    if module_name == "hcl_addition":
-        import hcl_addition as up 
-    
+        import well_field as up
+
+    if module_name == "hydrochloric_acid_addition":
+        import hydrochloric_acid_addition as up
+
     if module_name == "deep_well_injection":
         import deep_well_injection as up
-                
-     
-        
+
     return up
 
 

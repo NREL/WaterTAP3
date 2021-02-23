@@ -14,68 +14,51 @@
 Demonstration zeroth-order model for WaterTAP3
 """
 
+from pyomo.environ import PositiveReals  # ariel
 # Import Pyomo libraries
-from pyomo.common.config import ConfigBlock, ConfigValue, In
-from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
-from pyomo.environ import PositiveReals #ariel
+# Import WaterTAP# finanacilas module
+from financials import *  # ARIEL ADDED
+
 
 # Import IDAES cores
-from idaes.core import (declare_process_block_class,
-                        UnitModelBlockData,
-                        useDefault)
-from idaes.core.util.config import is_physical_parameter_block
-
-from pyomo.environ import (
-    Expression, Var, Param, NonNegativeReals, units as pyunits)
-
-# Import WaterTAP# finanacilas module
-import financials
-from financials import * #ARIEL ADDED
-
-from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
-from pyomo.network import Arc
-from idaes.core import FlowsheetBlock
 
 # Import properties and units from "WaterTAP Library"
-from water_props import WaterParameterBlock
 
-  
-    
-def build_up(self, up_name_test = None):
-    
+
+def build_up(self, up_name_test=None):
     if up_name_test == "nanofiltration_twb": import nanofiltration_twb as unit_process_model
     if up_name_test == "chlorination_twb": import chlorination_twb as unit_process_model
-    if up_name_test == "media_filtration": import media_filtration as unit_process_model  
-    if up_name_test == "coag_and_floc": import coag_and_floc as unit_process_model  
+    if up_name_test == "media_filtration": import media_filtration as unit_process_model
+    if up_name_test == "coag_and_floc": import coag_and_floc as unit_process_model
     if up_name_test == "lime_softening": import lime_softening as unit_process_model
-    if up_name_test == "ro_deep": import ro_deep as unit_process_model 
+    if up_name_test == "ro_deep": import ro_deep as unit_process_model
     if up_name_test == "treated_storage": import treated_storage as unit_process_model
     if up_name_test == "sedimentation": import sedimentation as unit_process_model
     if up_name_test == "water_pumping_station": import water_pumping_station as unit_process_model
-    if up_name_test == "sulfuric_acid_addition": import sulfuric_acid_addition as unit_process_model   
+    if up_name_test == "sulfuric_acid_addition": import sulfuric_acid_addition as unit_process_model
     if up_name_test == "sodium_bisulfite_addition": import sodium_bisulfite_addition as unit_process_model
     if up_name_test == "co2_addition": import co2_addition as unit_process_model
-    if up_name_test == "ammonia_addition": import ammonia_addition as unit_process_model 
-    if up_name_test == "municipal_drinking": import municipal_drinking as unit_process_model 
-    if up_name_test == "sw_onshore_intake": import sw_onshore_intake as unit_process_model 
-    if up_name_test == "holding_tank": import holding_tank as unit_process_model 
+    if up_name_test == "ammonia_addition": import ammonia_addition as unit_process_model
+    if up_name_test == "municipal_drinking": import municipal_drinking as unit_process_model
+    if up_name_test == "sw_onshore_intake": import sw_onshore_intake as unit_process_model
+    if up_name_test == "holding_tank": import holding_tank as unit_process_model
     if up_name_test == "tri_media_filtration": import tri_media_filtration as unit_process_model
-    if up_name_test == "cartridge_filtration": import cartridge_filtration as unit_process_model    
+    if up_name_test == "cartridge_filtration": import cartridge_filtration as unit_process_model
     if up_name_test == "backwash_solids_handling": import backwash_solids_handling as unit_process_model
-    if up_name_test == "surface_discharge": import surface_discharge as unit_process_model    
-    if up_name_test == "landfill": import landfill as unit_process_model   
-    if up_name_test == "coagulant_addition": import coagulant_addition as unit_process_model  
-    if up_name_test == "fecl3_addition": import fecl3_addition as unit_process_model  
-    if up_name_test == "caustic_soda_addition": import caustic_soda_addition as unit_process_model 
-    if up_name_test == "static_mix": import static_mix as unit_process_model    
+    if up_name_test == "surface_discharge": import surface_discharge as unit_process_model
+    if up_name_test == "landfill": import landfill as unit_process_model
+    if up_name_test == "coagulant_addition": import coagulant_addition as unit_process_model
+    if up_name_test == "ferric_chloride_addition": import ferric_chloride_addition as unit_process_model
+    if up_name_test == "caustic_soda_addition": import caustic_soda_addition as unit_process_model
+    if up_name_test == "static_mixer": import static_mixer as unit_process_model
     if up_name_test == "ro_deep_scnd_pass": import ro_deep_scnd_pass as unit_process_model
     if up_name_test == "anti_scalant_addition": import anti_scalant_addition as unit_process_model
     if up_name_test == 'uv_aop': import uv_aop as unit_process_model
     if up_name_test == 'well_field': import well_field as unit_process_model
     if up_name_test == 'fe_mn_removal': import fe_mn_removal as unit_process_model
-    if up_name_test == 'hcl_addition': import hcl_addition as unit_process_model
+    if up_name_test == 'hydrochloric_acid_addition': import hydrochloric_acid_addition as unit_process_model
     if up_name_test == 'deep_well_injection': import deep_well_injection as unit_process_model
     if up_name_test == 'chemical_addition': import chemical_addition as unit_process_model
 

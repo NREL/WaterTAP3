@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb 11 09:23:00 2021
+Created on Wed Feb  3 12:22:42 2021
 
 @author: ksitterl
 """
@@ -45,7 +45,7 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "anti_scalant_addition"
+module_name = "ferric_chloride_addition"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
@@ -134,14 +134,12 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-        base_fixed_cap_cost = 900.97  # Carlsbad Treatment train VAR tab
-        cap_scaling_exp = 0.6179  # Carlsbad Treatment train VAR tab
+        base_fixed_cap_cost = 34153
+        cap_scaling_exp = 0.319  # Carlsbad Treatment train VAR tab
         fixed_op_cost_scaling_exp = 0.7
         time = self.flowsheet().config.time.first()
-
-        # Get the inlet flow to the unit and convert to the correct units for cost module.
         flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.m ** 3 / pyunits.hr)
+                                  to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -155,10 +153,13 @@ see property package for documentation.}"""))
         lift_height = 100 * pyunits.ft  # ft # ft
         pump_eff = 0.9
         motor_eff = 0.9
+
         #### CHEMS ###
         chem_name = unit_params["chemical_name"][0]
-        chemical_dosage = 0.005 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
-        solution_density = 1490 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+        # chem_name = 'Iron_FeCl3'
+        ratio_in_solution = 0.42  #
+        chemical_dosage = 0.02 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
+        solution_density = 1460 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         chem_dict = {chem_name: chemical_dosage}
         self.chem_dict = chem_dict
 
@@ -169,14 +170,14 @@ see property package for documentation.}"""))
         def solution_vol_flow(flow_in):  # m3/hr
             chemical_rate = flow_in * chemical_dosage  # kg/hr
             chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
-            soln_vol_flow = chemical_rate / solution_density
+            soln_vol_flow = chemical_rate / solution_density / ratio_in_solution
             soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
             return soln_vol_flow  # m3/day to gal/day
 
         def fixed_cap(flow_in):
             source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp
-            hcl_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
-            return hcl_cap
+            fecl3_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
+            return fecl3_cap
 
         def electricity(flow_in):  # m3/hr
             soln_vol_flow = pyunits.convert(solution_vol_flow(flow_in), to_units=(pyunits.gallon / pyunits.minute))

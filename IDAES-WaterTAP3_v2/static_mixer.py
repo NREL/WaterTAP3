@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb 11 09:23:00 2021
+Created on Wed Feb  3 14:55:51 2021
 
 @author: ksitterl
 """
@@ -22,6 +22,7 @@ Created on Thu Feb 11 09:23:00 2021
 Demonstration zeroth-order model for WaterTAP3
 """
 
+import numpy as np
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -29,6 +30,7 @@ from idaes.core import (declare_process_block_class,
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
+from scipy.optimize import curve_fit
 
 # Import WaterTAP# financials module
 import financials
@@ -45,13 +47,13 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "anti_scalant_addition"
+module_name = "static_mixer"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2010
 
 
 # You don't really want to know what this decorator does
@@ -134,54 +136,56 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-        base_fixed_cap_cost = 900.97  # Carlsbad Treatment train VAR tab
-        cap_scaling_exp = 0.6179  # Carlsbad Treatment train VAR tab
-        fixed_op_cost_scaling_exp = 0.7
-        time = self.flowsheet().config.time.first()
 
-        # Get the inlet flow to the unit and convert to the correct units for cost module.
-        flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.m ** 3 / pyunits.hr)
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
-
+        time = self.flowsheet().config.time.first()
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
 
         # TODO -->> ADD THESE TO UNIT self.X
-        number_of_units = 2
-        lift_height = 100 * pyunits.ft  # ft # ft
-        pump_eff = 0.9
-        motor_eff = 0.9
+
         #### CHEMS ###
-        chem_name = unit_params["chemical_name"][0]
-        chemical_dosage = 0.005 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
-        solution_density = 1490 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
-        chem_dict = {chem_name: chemical_dosage}
+        chem_name = ''
+        chemical_dosage = 0  # kg/m3 should be read from .csv
+        solution_density = 0  # kg/m3
+        chemical_dosage = chemical_dosage / 264.172  # pyunits to kg/g
+
+        chem_dict = {}
         self.chem_dict = chem_dict
 
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
+        number_of_units = 2
+        lift_height = 100 * pyunits.ft  # ft
+        flow_cc = np.array([3.6, 18, 36, 72, 108, 144, 180])  # m3/hr
+        cost_cc = np.array([5916, 9511, 11930, 15123, 17444, 19336, 20960])  ## $$
+
+        def func(x, a, b, c):
+            return a + b * x ** c
+
+        cc_params, _ = curve_fit(func, flow_cc, cost_cc)
+        a, b, c = cc_params[0], cc_params[1], cc_params[2]
 
         def solution_vol_flow(flow_in):  # m3/hr
-            chemical_rate = flow_in * chemical_dosage  # kg/hr
-            chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
-            soln_vol_flow = chemical_rate / solution_density
-            soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
-            return soln_vol_flow  # m3/day to gal/day
+            flow_in_m3h = flow_in * 189.4204
+            chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
+
+            return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
 
         def fixed_cap(flow_in):
-            source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp
-            hcl_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
-            return hcl_cap
+            source_cost = a + b * flow_in ** c  # $
+
+            return (source_cost * tpec_tic * number_of_units) * 1E-6  # M$
 
         def electricity(flow_in):  # m3/hr
-            soln_vol_flow = pyunits.convert(solution_vol_flow(flow_in), to_units=(pyunits.gallon / pyunits.minute))
-            electricity = (0.746 * soln_vol_flow * lift_height / (
-                    3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
+            electricity = 0 * flow_in
+            # NEED ELECTRICITY DATA FOR STATIC MIX
             return electricity
 
         # Get the first time point in the time domain

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb 11 09:23:00 2021
+Created on Tue Feb 16 09:17:59 2021
 
 @author: ksitterl
 """
@@ -45,7 +45,7 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "anti_scalant_addition"
+module_name = "hydrochloric_acid_addition"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
@@ -155,9 +155,11 @@ see property package for documentation.}"""))
         lift_height = 100 * pyunits.ft  # ft # ft
         pump_eff = 0.9
         motor_eff = 0.9
+
         #### CHEMS ###
         chem_name = unit_params["chemical_name"][0]
-        chemical_dosage = 0.005 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
+        chemical_dosage = unit_params["dose"][0] * (pyunits.kg / pyunits.m ** 3)
+        # chemical_dosage = 0.01 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
         solution_density = 1490 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         chem_dict = {chem_name: chemical_dosage}
         self.chem_dict = chem_dict
