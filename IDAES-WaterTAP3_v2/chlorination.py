@@ -39,28 +39,38 @@ from idaes.core import FlowsheetBlock
 # Import properties and units from "WaterTAP Library"
 from water_props import WaterParameterBlock
 
+from pyomo.network import Arc, SequentialDecomposition
+import numpy as np
+import pandas as pd
+
 ##########################################
 ####### UNIT PARAMETERS ######
 # At this point (outside the unit), we define the unit parameters that do not change across case studies or analyses ######.
 # Below (in the unit), we define the parameters that we may want to change across case studies or analyses. Those parameters should be set as variables (eventually) and atttributed to the unit model (i.e. m.fs.UNIT_NAME.PARAMETERNAME). Anything specific to the costing only should be in  m.fs.UNIT_NAME.costing.PARAMETERNAME ######
 ##########################################
 
-## REFERENCE: from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
+## REFERENCE: Texas Water Board
 
 ### MODULE NAME ###
-module_name = "landfill"
+module_name = "chlorination"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
-#tpec_or_tic = "TPEC"
-unit_basis_yr = 2020
+tpec_or_tic = "TPEC"
+unit_basis_yr = 2014
 
-base_fixed_cap_cost = 1  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
-cap_scaling_exp = 0.7  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
-capacity_basis = 100000 # kg/hr - from PML tab
-cap_scaling_base_fac = 100000 ** 0.7
-fixed_op_cost_scaling_exp = 0.7
+#########################################################################
+#########################################################################
+# TODO: make this part of the model.
+contact_time = 1.5  # hours
+contact_time_mins = 1.5 * 60
+ct = 450  # mg/L-min ---> ASSUME CALI STANDARD FOR NOW
+chlorine_decay_rate = 3.0  # mg/Lh
+
+#########################################################################
+#########################################################################
+
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -111,14 +121,17 @@ and used when constructing these,
 **Valid values:** {
 see property package for documentation.}"""))
     
+    
     from unit_process_equations import initialization
+    #unit_process_equations.get_base_unit_process()
+
+    #build(up_name = "chlorination_twb")
     
     def build(self):
         import unit_process_equations
         return unit_process_equations.build_up(self, up_name_test = module_name)
     
-    
-    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
+    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
         """
         We need a get_costing method here to provide a point to call the
         costing methods, but we call out to an external consting module
@@ -136,45 +149,173 @@ see property package for documentation.}"""))
         # Next, add a sub-Block to the unit model to hold the cost calculations
         # This is to let us separate costs from model equations when solving
         self.costing = Block()
-
-         # basis year for the unit model - based on reference for the method.
-        self.costing.basis_year = unit_basis_yr
-    
-        time = self.flowsheet().config.time.first()
-        conc_mass_tot = 0     
+        # Then call the appropriate costing function out of the costing module
+        # The first argument is the Block in which to build the equations
+        # Can pass additional arguments as needed
         
-        for constituent in self.config.property_package.component_list:
-            conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
-            
-        density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
 
+        #################################
+        #################################
+
+        self.base_fixed_cap_cost = 2.5081
+        self.cap_scaling_exp = 0.3238
+        self.fixed_op_cost_scaling_exp = 0.7
+        
+        # basis year for the unit model - based on reference for the method.
+        self.costing.basis_year = unit_basis_yr
+        
+        def get_chlorine_dose_cost(flow_in, dose): # flow in mgd for this cost curve
+
+            import ml_regression
+            df = pd.read_csv("data/chlorine_dose_cost_twb.csv") # % dir_path)  # import data
+            #df = df[df.Dose != 15] # removing 15 because it would not provide an accurate cost curve - tables assume 10 and 15
+            # dose is the same. 15 vs. 10 gives a higher price.
+
+            new_dose_list = np.arange(0, 25.1, 0.5)
+
+            cost_list = []
+            flow_list = []
+            dose_list = []
+
+            for flow in df.Flow_mgd.unique():
+                df_hold = df[df.Flow_mgd == flow]
+                del df_hold['Flow_mgd']
+
+                if 0 not in df_hold.Cost.values:
+                    xs = np.hstack((0, df_hold.Dose.values)) # dont think we need the 0s
+                    ys = np.hstack((0, df_hold.Cost.values)) # dont think we need the 0s
+                else:
+                    xs = df_hold.Dose.values
+                    ys = df_hold.Cost.values
+
+                a = ml_regression.get_cost_curve_coefs(xs = xs, ys = ys)[0][0]
+                b = ml_regression.get_cost_curve_coefs(xs = xs, ys = ys)[0][1]
+
+                for new_dose in new_dose_list:
+                    if new_dose in df.Dose:
+                        if flow in df.Flow_mgd:
+                            cost_list.append(df[((df.Dose == new_dose) & (df.Flow_mgd == flow))].Cost.max())
+                        else:
+                            cost_list.append(a * new_dose ** b)
+                    else:
+                        cost_list.append(a * new_dose ** b)
+
+                    dose_list.append(new_dose)
+                    flow_list.append(flow)
+
+            dose_cost_table = pd.DataFrame()
+            dose_cost_table["flow_mgd"] = flow_list
+            dose_cost_table["dose"] = dose_list
+            dose_cost_table["cost"] = cost_list
+            
+            #print("dose:", dose)
+            df1 = dose_cost_table[dose_cost_table.dose == dose]
+            xs = np.hstack((0, df1.flow_mgd.values)) # dont think we need the 0s
+            ys = np.hstack((0, df1.cost.values)) # dont think we need the 0s
+            #print(xs)
+            #print(df1)
+            a = ml_regression.get_cost_curve_coefs(xs = xs, ys = ys)[0][0]
+            b = ml_regression.get_cost_curve_coefs(xs = xs, ys = ys)[0][1]
+
+            return (a * flow_in ** b) / 1000 # convert to mil
+    
+    
+
+        # Get the first time point in the time domain
+        # In many cases this will be the only point (steady-state), but lets be
+        # safe and use a general approach
+        time = self.flowsheet().config.time.first()
 
         # Get the inlet flow to the unit and convert to the correct units
         flow_in = pyunits.convert(self.flow_vol_in[time],
                                   to_units=pyunits.Mgallons/pyunits.day)
-            
 
+            
+        ###### APPLIED CHLORINE DOSE
+        self.applied_cl2_dose = chlorine_decay_rate * contact_time + ct / contact_time_mins
                 
-        total_flow_rate = self.total_mass # kg/hr - TOTAL MASS WASTE
+        ##############################################################################
 
         # capital costs (unit: MM$) ---> TCI IN EXCEL
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=(total_flow_rate / capacity_basis) ** cap_scaling_exp,
-            doc="Unadjusted fixed capital investment") # $M
-
-        self.electricity = 0  # kWh/m3
+        self.costing.fixed_cap_inv_unadjusted = get_chlorine_dose_cost(flow_in, self.applied_cl2_dose) # $M
         
-        self.chem_dict = {}
-        
+        chem_name = unit_params["chemical_name"][0]
+        chem_dict = {chem_name : self.applied_cl2_dose}
+        self.chem_dict = chem_dict
+                
+        self.electricity = .000005689  # kwh/m3 given in PML tab, no source TODO
+                
         ##########################################
         ####### GET REST OF UNIT COSTS ######
         ##########################################        
         
         module.get_complete_costing(self.costing)
+          
+        
+# TODO -> BASED ON BLOCKS IN TRAIN!
+def get_cl2_dem(m):
+    # unit is mg/L. order matters in this list. need a better way.
+
+    seq = SequentialDecomposition()
+    G = seq.create_graph(m)
+    up_type_list = []
+    for node in G.nodes():
+        up_type_list.append(str(node).replace('fs.', ''))
+
+    if "secondary_BODonly" in up_type_list:
+        return 0
+    if "secondary_nitrified" in up_type_list:
+        return 5
+    if "secondary_denitrified" in up_type_list:
+        return 5
+    if "mbr" in up_type_list:
+        return 4
+    if "tertiary_media_filtration" in up_type_list:
+        return 5
+    if "media_filtration" in up_type_list:
+        return 5
+    if "biologically_active_filtration" in up_type_list:
+        return 2
+    if "microfiltration" in up_type_list:
+
+        if "cas" in up_type_list:
+            return 12
+        elif "nas" in up_type_list:
+            return 4
+        elif "ozonation" in up_type_list:
+            return 3
+        elif "o3_baf" in up_type_list:
+            return 2
+        else:
+            return 0
+    if "ultrafiltration" in up_type_list:
+
+        if "cas" in up_type_list:
+            return 12
+        elif "nas" in up_type_list:
+            return 4
+        elif "ozonation" in up_type_list:
+            return 3
+        elif "o3_baf" in up_type_list:
+            return 2
+        else:
+            return 0
+    if "ozonation" in up_type_list:
+        return 3
+    if "uv" in up_type_list:
+        return 0
+    if "reverse_osomisis" in up_type_list:
+        return 0
+
+    print("assuming initial chlorine demand is 0")
+
+    return 0    
         
         
-           
-        
-        
-        
+def get_additional_variables(self, units_meta, time):
+    
+    self.cl2_dem = Var(time, initialize=0, units=pyunits.dimensionless, doc="initial chlorine demand")    
+    
+  
+
+

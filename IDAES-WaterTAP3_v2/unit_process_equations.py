@@ -46,7 +46,7 @@ from water_props import WaterParameterBlock
 def build_up(self, up_name_test = None):
     
     if up_name_test == "nanofiltration_twb": import nanofiltration_twb as unit_process_model
-    if up_name_test == "chlorination_twb": import chlorination_twb as unit_process_model
+    if up_name_test == "chlorination": import chlorination as unit_process_model
     if up_name_test == "media_filtration": import media_filtration as unit_process_model  
     if up_name_test == "coag_and_floc": import coag_and_floc as unit_process_model  
     if up_name_test == "lime_softening": import lime_softening as unit_process_model
@@ -105,7 +105,7 @@ def build_up(self, up_name_test = None):
     # Note that the concentration variable is indexed by components
     # I included temperature and pressure as these would commonly be used
     # in ProteusLib
-    if up_name_test == "chlorination_twb":
+    if up_name_test == "chlorination":
         unit_process_model.get_additional_variables(self, units_meta, time)
     if up_name_test == "ro_deep":
         unit_process_model.get_additional_variables(self, units_meta, time)

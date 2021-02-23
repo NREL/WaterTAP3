@@ -70,7 +70,7 @@ import idaes.core.util.scaling as iscale
 
 ### units that pre-exist ###
 unit_process_library_list = [
-    "chlorination_twb",
+    "chlorination",
     "media_filtration_twb",
     "microfiltration_twb",
     "ultrafiltration_twb",
