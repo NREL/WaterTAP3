@@ -1,11 +1,3 @@
-from pylab import *
-import shutil
-import sys
-import os.path
-import pandas as pd
-import numpy as np
-import networkx as nx
-
 # TODO FIX IMPORTS
 # black
 def get_module(module_name):
@@ -103,22 +95,22 @@ def get_module(module_name):
         
     if module_name == "backwash_solids_handling":
         import backwash_solids_handling as up
-    
+
     if module_name == "surface_discharge":
         import surface_discharge as up
-        
+
     if module_name == "landfill":
         import landfill as up
-        
+
     if module_name == "coagulant_addition":
         import coagulant_addition as up
-    
-    if module_name == "fecl3_addition":
-        import fecl3_addition as up
-    
+
+    if module_name == "ferric_chloride_addition":
+        import ferric_chloride_addition as up
+
     if module_name == "caustic_soda_addition":
         import caustic_soda_addition as up
-    
+
     if module_name == "static_mix":
         import static_mix as up
 

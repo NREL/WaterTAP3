@@ -1,72 +1,31 @@
-from pylab import *
-
-import shutil
-import sys
-import os.path
-import pandas as pd
-import numpy as np
-
-import matplotlib.pyplot as plt
-from scipy.optimize import fsolve
-from scipy.optimize import minimize
-import itertools
-import pyomo.environ as env
-import ast
-from pyomo.environ import *
-import networkx as nx
-from networkx.drawing.nx_agraph import write_dot, graphviz_layout
-from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
-from pyomo.network import Arc, SequentialDecomposition
-import pyomo.environ as env
-from idaes.core import FlowsheetBlock
-
-
-
 # Import properties and units from "WaterTAP Library"
-from water_props import WaterParameterBlock
-#from model_example import UnitProcess
-from source_example import Source
-from split_test2 import Separator1
-
-from mixer_example import Mixer1
-
-### WATER TAP MODULES ###
-import financials
-import display
-import watertap as wt
-import case_study_trains
-import importfile
-import module_import
-import design
-import case_study_trains
-from post_processing import *
-import app3 
+# from model_example import UnitProcess
 
 import warnings
+
+import case_study_trains
+### WATER TAP MODULES ###
+import watertap as wt
+from post_processing import *
+
 warnings.filterwarnings('ignore')
 
-from pyomo.environ import ConcreteModel, SolverFactory, TerminationCondition, \
-    value, Var, Constraint, Expression, Objective, TransformationFactory, units as pyunits
-from pyomo.network import Arc, SequentialDecomposition
+from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
+from pyomo.network import SequentialDecomposition
 from idaes.core import FlowsheetBlock
-from idaes.generic_models.unit_models import Mixer, Pump
-
-from idaes.generic_models.unit_models import Separator as Splitter
 
 from idaes.core.util.model_statistics import degrees_of_freedom
-from pyomo.util.check_units import assert_units_consistent
-import pyomo.util.infeasible as infeas
-import idaes.core.util.scaling as iscale
-#from src import treatment_train_design
-#from src import display
-#from src import get_graph_chars
-#from src import filter_processes
-#from src import post_processing
-#from src import get_model_chars
-#from src import save_train_module
-#from src import module_import
-#from src import model_constraints #as mc
-#from src import load_train_module
+
+# from src import treatment_train_design
+# from src import display
+# from src import get_graph_chars
+# from src import filter_processes
+# from src import post_processing
+# from src import get_model_chars
+# from src import save_train_module
+# from src import module_import
+# from src import model_constraints #as mc
+# from src import load_train_module
 
 ### units that pre-exist ###
 unit_process_library_list = [
@@ -103,10 +62,10 @@ unit_process_library_list = [
     "surface_discharge",
     "landfill",
     "coagulant_addition",
-    "fecl3_addition", 
-    "caustic_soda_addition", 
+    "ferric_chloride_addition",
+    "caustic_soda_addition",
     "static_mix",
-    "ro_deep_scnd_pass", 
+    "ro_deep_scnd_pass",
     "anti_scalant_addition",
     "ro_deep_scnd_pass",
     "uv_aop",

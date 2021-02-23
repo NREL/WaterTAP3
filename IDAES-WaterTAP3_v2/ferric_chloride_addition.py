@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Feb  22 16:22:42 2021
+Created on Wed Feb  3 12:22:42 2021
 
 @author: ksitterl
 """
@@ -45,7 +45,7 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "coagulant_addition"
+module_name = "ferric_chloride_addition"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
@@ -134,8 +134,8 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-        base_fixed_cap_cost = 15408
-        cap_scaling_exp = 0.5479  # Carlsbad Treatment train VAR tab
+        base_fixed_cap_cost = 34153
+        cap_scaling_exp = 0.319  # Carlsbad Treatment train VAR tab
         fixed_op_cost_scaling_exp = 0.7
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time],
@@ -157,9 +157,9 @@ see property package for documentation.}"""))
         #### CHEMS ###
         chem_name = unit_params["chemical_name"][0]
         # chem_name = 'Iron_FeCl3'
-        ratio_in_solution = 0.50  #
-        chemical_dosage = 0.03 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
-        solution_density = 1360 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+        ratio_in_solution = 0.42  #
+        chemical_dosage = 0.02 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
+        solution_density = 1460 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         chem_dict = {chem_name: chemical_dosage}
         self.chem_dict = chem_dict
 
@@ -176,8 +176,8 @@ see property package for documentation.}"""))
 
         def fixed_cap(flow_in):
             source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp
-            coag_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
-            return coag_cap
+            fecl3_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
+            return fecl3_cap
 
         def electricity(flow_in):  # m3/hr
             soln_vol_flow = pyunits.convert(solution_vol_flow(flow_in), to_units=(pyunits.gallon / pyunits.minute))
