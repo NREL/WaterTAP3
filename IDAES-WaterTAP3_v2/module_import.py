@@ -111,8 +111,8 @@ def get_module(module_name):
     if module_name == "caustic_soda_addition":
         import caustic_soda_addition as up
 
-    if module_name == "static_mix":
-        import static_mix as up
+    if module_name == "static_mixer":
+        import static_mixer as up
 
     if module_name == 'uv_aop':
         import uv_aop as up

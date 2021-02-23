@@ -97,7 +97,7 @@
 99,Default,,sodium_bisulfite_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura).
 100,Default,,soil_aquifer_treatment,1,,Texas Water Development Board IT3PR User Manual
 101,Heap Leaching,,solution_distribution_and_recovery_plant,0.922222222,,Heap leaching (gold/copper) case study.
-102,Default,,static_mix,1,,"Chemical Engineering Design, 2nd Edition. Principles, Practice and Economics of Plant and Process Design, https://www.elsevier.com/books/chemical-engineering-design/towler/978-0-08-096659-5"
+102,Default,,static_mixer,1,,"Chemical Engineering Design, 2nd Edition. Principles, Practice and Economics of Plant and Process Design, https://www.elsevier.com/books/chemical-engineering-design/towler/978-0-08-096659-5"
 103,Default,,sulfuric_acid_addition,1,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 104,Default,,surface_augmentation,1,,Texas Water Development Board IT3PR User Manual
 105,Default,,surface_discharge,1,,Lenntech https://www.lenntech.com/processes/surface-water-discharge-of-brine.htm.  Electricity consumption is based on Carlsbad data.

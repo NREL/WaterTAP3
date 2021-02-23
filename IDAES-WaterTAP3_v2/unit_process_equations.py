@@ -52,7 +52,7 @@ def build_up(self, up_name_test=None):
     if up_name_test == "coagulant_addition": import coagulant_addition as unit_process_model
     if up_name_test == "ferric_chloride_addition": import ferric_chloride_addition as unit_process_model
     if up_name_test == "caustic_soda_addition": import caustic_soda_addition as unit_process_model
-    if up_name_test == "static_mix": import static_mix as unit_process_model
+    if up_name_test == "static_mixer": import static_mixer as unit_process_model
     if up_name_test == "ro_deep_scnd_pass": import ro_deep_scnd_pass as unit_process_model
     if up_name_test == "anti_scalant_addition": import anti_scalant_addition as unit_process_model
     if up_name_test == 'uv_aop': import uv_aop as unit_process_model
