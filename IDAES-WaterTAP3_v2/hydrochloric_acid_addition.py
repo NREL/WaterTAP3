@@ -45,7 +45,7 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "hcl_addition"
+module_name = "hydrochloric_acid_addition"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.

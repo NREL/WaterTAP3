@@ -118,22 +118,20 @@ def get_module(module_name):
         import uv_aop as up
 
     if module_name == "anti_scalant_addition":
-        import anti_scalant_addition as up 
-       
+        import anti_scalant_addition as up
+
     if module_name == "fe_mn_removal":
-        import fe_mn_removal as up 
-  
+        import fe_mn_removal as up
+
     if module_name == "well_field":
-        import well_field as up 
-    
-    if module_name == "hcl_addition":
-        import hcl_addition as up 
-    
+        import well_field as up
+
+    if module_name == "hydrochloric_acid_addition":
+        import hydrochloric_acid_addition as up
+
     if module_name == "deep_well_injection":
         import deep_well_injection as up
-                
-     
-        
+
     return up
 
 

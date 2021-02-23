@@ -63,7 +63,7 @@
 65,Default,,gac_gravity_60_min,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 66,Default,,gac_pressure_30_min,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 67,Default,,gac_feed_pump,1,,Placeholder. Not utilized in any case studies. 
-68,Default,,hcl_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+68,Default,,hydrochloric_acid_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 69,Default,,injection_well,1,,Placeholder. Not utilized in any case studies. 
 70,Default,,iron_and_manganese_removal,1,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.lenntech.com/schema-of-an-iron-removal-system.htm, (4) https://www.osti.gov/servlets/purl/797810/"
 71,Default,,landfill,1,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
