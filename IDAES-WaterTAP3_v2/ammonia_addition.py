@@ -52,7 +52,6 @@ unit_basis_yr = 2007
 class UnitProcessData(UnitModelBlockData):
     """
     This class describes the rules for a zeroth-order model for a unit
-
     The Config Block is used tpo process arguments from when the model is
     instantiated. In IDAES, this serves two purposes:
          1. Allows us to separate physical properties from unit models
@@ -105,7 +104,6 @@ see property package for documentation.}"""))
         costing methods, but we call out to an external consting module
         for the actual calculations. This lets us easily swap in different
         methods if needed.
-
         Within IDAES, the year argument is used to set the initial value for
         the cost index when we build the model.
         """

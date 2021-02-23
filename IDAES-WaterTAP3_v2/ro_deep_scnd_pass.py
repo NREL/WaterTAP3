@@ -41,34 +41,30 @@ from water_props import WaterParameterBlock
 
 import numpy as np
 
-# Set inlet conditions to first unit
-# IDAES Does have Feed components for this, but that would require a bit
-# more work to set up to work (as it relies on things in the property package
-# that aren't implemented for this example).
-# I am just picking numbers for most of these
+##########################################
+####### UNIT PARAMETERS ######
+# At this point (outside the unit), we define the unit parameters that do not change across case studies or analyses ######.
+# Below (in the unit), we define the parameters that we may want to change across case studies or analyses. Those parameters should be set as variables (eventually) and atttributed to the unit model (i.e. m.fs.UNIT_NAME.PARAMETERNAME). Anything specific to the costing only should be in  m.fs.UNIT_NAME.costing.PARAMETERNAME ######
+##########################################
 
+## REFERENCE: # from McGivney/Kamakura figure 5.8.1. RO process based on DEEP model
 
-### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
-#flow_recovery_factor = 0.8
-#tds_removal_factor = 0.992
+### MODULE NAME ###
+module_name = "ro_deep_scnd_pass"
+
+# Cost assumptions for the unit, based on the method #
+# this is either cost curve or equation. if cost curve then reads in data from file.
+unit_cost_method = "cost_curve"
+tpec_or_tic = "TPEC"
+unit_basis_yr = 2007
 
 # captial costs basis
-#0.0258 and 0.7730 # from Voutch for second. Delta assumption. TBD TODO
-
-base_fixed_cap_cost = 0.0258  # from McGivney/Kamakura figure 5.8.1
-cap_scaling_exp = 0.7730  # from McGivney/Kamakura figure 5.8.1
-
-basis_year = 2007 # McGivney year
+base_fixed_cap_cost = 0.0258
+cap_scaling_exp = 0.7730
 fixed_op_cost_scaling_exp = 0.7
 
 
-# recycle_factor = (1 - recovery_factor) * (recyle_fraction_of_waste)
-# waste_factor = 1 - water_recovery  # - G.edges[edge]['recycle_factor']
-
-
 ### Model Parameters (DEEP model with Carlsbad values)
-
-
 # Plant specifications
 tim = 25 # (deg. C) feed water inlet temperature at RO element entry   (DEEP model default) *****
 
@@ -154,11 +150,6 @@ parallel_units = 1
 kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
 
 
-# Get constituent list and removal rates for this unit process
-import generate_constituent_list
-train_constituent_list = generate_constituent_list.run()
-train_constituent_removal_factors = generate_constituent_list.get_removal_factors("ro_deep")
-
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
@@ -215,10 +206,10 @@ see property package for documentation.}"""))
     
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = "ro_deep_scnd_pass")
+        return unit_process_equations.build_up(self, up_name_test = module_name)
     
     
-    def get_costing(self, module=financials, cost_method="wt", year=None):
+    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
         """
         We need a get_costing method here to provide a point to call the
         costing methods, but we call out to an external consting module
@@ -248,21 +239,18 @@ see property package for documentation.}"""))
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
         
-        def _make_vars(self):
-            # build generic costing variables (all costing models need these vars)
-            self.base_cost = Var(initialize=1e5,
-                                 domain=NonNegativeReals,
-                                 doc='Unit Base Cost cost in $')
-            self.purchase_cost = Var(initialize=1e4,
-                                     domain=NonNegativeReals,
-                                     doc='Unit Purchase Cost in $')
+        ################## DEEP METHOD ###########################################################
+        ##### excludes the cost of water storage, transportation, distribution
+        ##### *** are variables that are also in the watertap excel version of the DEEP mode   
+        
+        self.costing.basis_year = unit_basis_yr
         
         time = self.flowsheet().config.time.first()               
-        tds = self.conc_mass_in[time, "TDS"] * 1000 # convert from kg/m3 to mg/L
+        tds = self.conc_mass_in[time, "tds"] * 1000 # convert from kg/m3 to mg/L
                 
         # optimal recovery ratio; .526 for the Carlsbad case study
         self.recovery_constraint_eq = Constraint(
-            expr= self.water_recovery[time] == 1 - (ccalc/self.pmax[time]) * (self.conc_mass_in[time, "TDS"] * 1000))
+            expr= self.water_recovery[time] == 1 - (ccalc/self.pmax[time]) * (self.conc_mass_in[time, "tds"] * 1000))
         
         
         dso = tds / (1-self.water_recovery[time]) # (ppm) brine salinity ***
@@ -273,120 +261,68 @@ see property package for documentation.}"""))
         ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
         
         
-        # Build a costing method for each type of unit
-        def up_costing(self, cost_method="wt"):
-            
-            '''
-            This is where you create the variables and equations specific to each unit.
-            This method should mainly consider capital costs for the unit - operating
-            most costs should done for the entire flowsheet (e.g. common utilities).
-            Unit specific operating costs, such as chemicals, should be done here with
-            standard names that can be collected at the flowsheet level.
-
-            You can access variables from the unit model using:
-
-                self.parent_block().variable_name
-
-            You can also have unit specific parameters here, which could be retrieved
-            from the spreadsheet
-            '''
-            _make_vars(self)
-
-            self.base_fixed_cap_cost = Param(mutable=True,
-                                             initialize=base_fixed_cap_cost,
-                                             doc="Some parameter from TWB")
-            self.cap_scaling_exp = Param(mutable=True,
-                                         initialize=cap_scaling_exp,
-                                         doc="Another parameter from TWB")
-
-            # Get the first time point in the time domain
-            # In many cases this will be the only point (steady-state), but lets be
-            # safe and use a general approach
-            time = self.parent_block().flowsheet().config.time.first()
-
-            # Get the inlet flow to the unit and convert to the correct units
-            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.Mgallons/pyunits.day) # convert to MGD
-            
-            
-            
-            # assumed input flow_in is in MGD
-            # calculations are in m3/d and based on output capacity, not input flow.  
-            # Conversions from inflow to output capacity are done automatically by get_flow_out function
+        # Get the inlet flow to the unit and convert to the correct units
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.Mgallons/pyunits.day) # convert to MGD
 
 
-            
-            
-            
-            
-            ################### DEEP METHOD ###########################################################
-            ##### excludes the cost of water storage, transportation, distribution
-            ##### *** are variables that are also in the watertap excel version of the DEEP model
-            
-            # GET INLET TDS           
-            # CALCULATE RECOVERY RATE
-            
-            
-            
-            
-            #self.parent_block().water_recovery = 1 - (ccalc/self.pmax) * tds # optimal recovery ratio *****
-            
-            # flow_in = wacs / self.parent_block().water_recovery # (m3/d) feed flow (wfm in DEEP model)
-            # flow_in_m3_hr = flow_in / 24 # (m3/hr) feed flow
-            # wbm = flow_in - wacs # (m3/d) brine flow
-            
-#             dso = tds / (1-self.parent_block().water_recovery) # (ppm) brine salinity ***
-#             dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.parent_block().water_recovery))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
+        
+        # flow_in = wacs / self.water_recovery # (m3/d) feed flow (wfm in DEEP model)
+        # flow_in_m3_hr = flow_in / 24 # (m3/hr) feed flow
+        # wbm = flow_in - wacs # (m3/d) brine flow
+
+#             dso = tds / (1-self.water_recovery) # (ppm) brine salinity ***
+#             dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
 
 #             kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor***
-#             kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.parent_block().water_recovery)))*tds # salinity correction factor***
+#             kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.water_recovery)))*tds # salinity correction factor***
 #             ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
 
 
 
-            def energy_recovery(wacs):
-                fsms = wacs/self.parent_block().water_recovery[time] * (1000 / (24*3600)) # (kg/s) feed flow
+        def energy_recovery(wacs):
+            fsms = wacs/self.water_recovery[time] * (1000 / (24*3600)) # (kg/s) feed flow
 
-                dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise  *****
-                qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw  # (MW) high head pump power. Different in model vs. manual. This matches model 
-                #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Matches Mike's equation    *****
-                    
-                qer1 = -fsms * (1-self.parent_block().water_recovery[time])* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
-                qer2 =  -(1-self.parent_block().water_recovery[time]) * eer * qhp # (MW) energy recovery other *****
+            dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise  *****
+            qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw  # (MW) high head pump power. Different in model vs. manual. This matches model 
+            #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Matches Mike's equation    *****
 
-                return qer2
+            qer1 = -fsms * (1-self.water_recovery[time])* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
+            qer2 =  -(1-self.water_recovery[time]) * eer * qhp # (MW) energy recovery other *****
 
-            def power_demand(wacs):  # Total power use (qms) for a given plant output capacity (wacs)
-                fsms = wacs/self.parent_block().water_recovery[time] * (1000 / 24 / 3600) # (kg/s) feed flow
+            return qer2
 
-                dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise
-                
-                #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Different in model vs. manual.
-                                #(Model divides by eem and * kmsgsw, manual and Mike do not)
-                qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw # (MW) high head pump power. (Model version)
-                
-                #qsp = (fsms * dpsm) / (esm * 9866) # (MW) sw pumping power. Model divides by eem, manual and Mike do not *****
-                qsp = (fsms * dpsm) / (esm * eem * 9866) * kmsgsw # (MW) seawater pumping power. (Model version)
-                
-                #qbp = (fsms * dpbm) / (ebm  * 9866) # (MW) booster pump power. Model divides by eem, manual and Mike do not ***
-                qbp = (fsms * dpbm) / (ebm * eem * 9866) * kmsgsw # (MW) booster pump power. (Model version)
-                
-                qom = (wacs * qsom) / (24 * 1000) # (MW) other power  *****
+        def power_demand(wacs):  # Total power use (qms) for a given plant output capacity (wacs)
+            fsms = wacs/self.water_recovery[time] * (1000 / 24 / 3600) # (kg/s) feed flow
 
-                qms = qsp + qbp + qhp + energy_recovery(wacs) + qom # (MW) total power use *****
+            dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise
 
-                return qms #(MW) annually
+            #qhp = (fsms * dphm) / (ehm * ehhm * 9866) # (MW) high head pump power. Different in model vs. manual.
+                            #(Model divides by eem and * kmsgsw, manual and Mike do not)
+            qhp = (fsms * dphm) / (ehm * ehhm * eem * 9866) * kmsgsw # (MW) high head pump power. (Model version)
+
+            #qsp = (fsms * dpsm) / (esm * 9866) # (MW) sw pumping power. Model divides by eem, manual and Mike do not *****
+            qsp = (fsms * dpsm) / (esm * eem * 9866) * kmsgsw # (MW) seawater pumping power. (Model version)
+
+            #qbp = (fsms * dpbm) / (ebm  * 9866) # (MW) booster pump power. Model divides by eem, manual and Mike do not ***
+            qbp = (fsms * dpbm) / (ebm * eem * 9866) * kmsgsw # (MW) booster pump power. (Model version)
+
+            qom = (wacs * qsom) / (24 * 1000) # (MW) other power  *****
+
+            qms = qsp + qbp + qhp + energy_recovery(wacs) + qom # (MW) total power use *****
+
+            return qms #(MW) annually
 
 
 #             def energy_demand(wacs): # total energy (including energy recovery)
 #                 tot_pow = power_demand(wacs) * 24 * 365 * 1000
 
 #                 return tot_pow # (kWh) annual energy demand
-            
-            def electricity(wacs):
-                electricity = power_demand(wacs) * 24 / (wacs/self.parent_block().water_recovery[time]) * 1000  #kWh/m3
-                
-                return electricity
+
+        def electricity(wacs):
+            electricity = power_demand(wacs) * 24 / (wacs/self.water_recovery[time]) * 1000  #kWh/m3
+
+            return electricity
 
 
 #             def power_per_outlet(wacs):
@@ -395,18 +331,18 @@ see property package for documentation.}"""))
 #                 return qdp
 
 #             def power_per_inlet(wacs):
-#                 tppi = power_demand(wacs) / (wacs/self.parent_block().water_recovery) # (MW) specific power use per input feed
+#                 tppi = power_demand(wacs) / (wacs/self.water_recovery) # (MW) specific power use per input feed
 
 #                 return tppi
 
-            def get_osmotic_pressure(C,T): # 
-                osmotic_pressure = .0000348 * (T + 273) * (C/14.7)  # (bar) osmotic pressure function  
+        def get_osmotic_pressure(C,T): # 
+            osmotic_pressure = .0000348 * (T + 273) * (C/14.7)  # (bar) osmotic pressure function  
 
-                return osmotic_pressure
+            return osmotic_pressure
 
 
-            pavg = (get_osmotic_pressure(tds,tim) + get_osmotic_pressure(dso,tim))/2 * kmaiicf # (bar) average osmotic pressure
-            
+        pavg = (get_osmotic_pressure(tds,tim) + get_osmotic_pressure(dso,tim))/2 * kmaiicf # (bar) average osmotic pressure
+
 
 #             def cap_recovery(i,n):
 #                 lfc = (i * (1 + i)**n) / ((1 + i) ** n - 1)
@@ -414,7 +350,7 @@ see property package for documentation.}"""))
 #                 return lfc # capital recovery factor function
 
 
-            
+
 #             def fixed_cap(wacs):
 #                 cmio = csmo * cmu # in/outfall specific cost
 #                 cms = cmu * kmsus + cmio # total specific base cost
@@ -424,17 +360,17 @@ see property package for documentation.}"""))
 #                 cmscon = cmsab + dcmso + dcmsc # water plant total construction cost
 #                 idcs = cmscon * ((1 + ir) ** (lm/24) - 1 ) # interest during construction
 #                 cmsinv = cmscon + idcs # total investment cost
-                
+
 #                 return cmsinv/1000000 # $M; total investment cost
-                
-            
-            
+
+
+
 #             def capital_cost(wacs): # with capital recovery included
-                
+
 #                 amsfc = fixed_cap(wacs) * cap_recovery(i,lwp) 
 
 #                 return amsfc # $M, total annual capital cost
-  
+
 
 #             def annual_water_production(wacs):
 
@@ -467,21 +403,21 @@ see property package for documentation.}"""))
 
 #                 return cdom/1000000 # annual O&M cost; $ M                                        
 
-            
+
 #             def get_flow_out(flow_in): 
-#                 #flow_in_m3d = pyunits.convert(self.parent_block().flow_vol_in[time],
+#                 #flow_in_m3d = pyunits.convert(self.flow_vol_in[time],
 #                #                       to_units=pyunits.meter**3/pyunits.day) # conversion from MGD to m3/d
 #                 flow_in_m3d = flow_in * 3785.4118
-#                 flow_out = flow_in_m3d * self.parent_block().water_recovery[time]
+#                 flow_out = flow_in_m3d * self.water_recovery[time]
 
 #                 return flow_out #m3/d
-            
+
 
 #             def total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="deep"):
 #                 wacs = get_flow_out(flow_in) # flow_out m3/d; plant OUTPUT capacity and also called wacd in DEEP
 
 #                 adrev = capital_cost(wacs) + OM_cost(wacs) + energy_cost(wacs) # total annual cost; $ M
-               
+
 #                 lifetime_cost = adrev * lwp # $ M
 
 
@@ -493,159 +429,51 @@ see property package for documentation.}"""))
 #                             # total_up_cost must return lifetime_cost, not lifetime_cost_2
 
 #                 return levelized # lifetime levelized (M$/m3)
+
+
+
+        ################### WT METHOD ###########################################################            
             
-            
-            
-            ################### WT METHOD ###########################################################            
-            
-            
-            def fixed_cap_mcgiv(wacs):
-               
-                Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
-                
-                Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
-                
-                #mcgivney_cap_cost = 0.0258 * (wacs/24)**0.7730 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
-                #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
-                
-                return (Two_Pass_FCI - Single_Pass_FCI)
-            
+        def fixed_cap_mcgiv(wacs):
+
+            Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
+
+            Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
+
+            #mcgivney_cap_cost = 0.0258 * (wacs/24)**0.7730 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
+            #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
+
+            return (Two_Pass_FCI - Single_Pass_FCI)
             
 
-            ################### TWB METHOD ###########################################################
-            if cost_method == "twb":
-                    self.fixed_cap_inv_unadjusted = Expression(
-                        expr=self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp,
-                        doc="Unadjusted fixed capital investment")
-            ##############################################################################
+        # capital costs (unit: MM$) ---> TCI IN EXCEL
+        # Get the inlet flow to the unit and convert to the correct units
+        flow_out = pyunits.convert(self.flow_vol_out[time],
+                                  to_units=pyunits.Mgallons/pyunits.day) # convert to MGD  
 
-            
-            ################## WATERTAP METHOD ###########################################################
-            if cost_method == "wt":
-           
-                # cost index values - TODO MOVE THIS TO TOP
-                df = get_ind_table()
-                self.cap_replacement_parts = df.loc[basis_year].Capital_Factor
-                self.catalysts_chemicals = df.loc[basis_year].CatChem_Factor
-                self.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
-                self.consumer_price_index = df.loc[basis_year].CPI_Factor
+        wacs = self.flow_vol_out[time] * 3600 #what is this constant for
+        #wacs = flow_in * 3785.4118 * self.water_recovery[time]
 
-                # capital costs (unit: MM$) ---> TCI IN EXCEL
-                # Get the inlet flow to the unit and convert to the correct units
-                flow_out = pyunits.convert(self.parent_block().flow_vol_out[time],
-                                          to_units=pyunits.Mgallons/pyunits.day) # convert to MGD  
+        self.costing.fixed_cap_inv_unadjusted = Expression(
+            expr=fixed_cap_mcgiv(wacs),
+            doc="Unadjusted fixed capital investment")
+
+        self.electricity = electricity(wacs)  # kwh/m3 (PML note: based on data from Carlsbad case)
                 
-                wacs = self.parent_block().flow_vol_out[time] * 3600 #what is this constant for
-                #wacs = flow_in * 3785.4118 * self.parent_block().water_recovery[time]
-                
-                self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap_mcgiv(wacs),
-                    doc="Unadjusted fixed capital investment")
-
-                self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
-                self.land_cost = self.fixed_cap_inv * land_cost_precent_FCI
-                self.working_cap = self.fixed_cap_inv * working_cap_precent_FCI
-                self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
-
-                # variable operating costs (unit: MM$/yr) -> MIKE TO DO -> ---> CAT+CHEM IN EXCEL
-                # --> should be functions of what is needed!?
-                # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
-                # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = electricity(wacs)  # kwh/m3 (PML note: based on data from Carlsbad case)
-                self.cat_and_chem_cost = 0  # TODO
-                
-                flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m**3/pyunits.year))
-                self.electricity_cost = Expression(
-                        expr= (self.electricity * flow_in_m3yr * elec_price/1000000),
-                        doc="Electricity cost") # M$/yr
-                self.other_var_cost = 0 #Expression(
-                        #expr= self.cat_and_chem_cost - self.electricity_cost,
-                        #doc="Other variable cost")
-
-                # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-#                 self.base_employee_salary_cost = fixed_cap_mcgiv(wacs) * salaries_percent_FCI
-#                 self.salaries = (
-#                     self.labor_and_other_fixed
-#                     * self.base_employee_salary_cost
-#                     * flow_in ** fixed_op_cost_scaling_exp
-#                 )
-                
-#                 self.salaries = (
-#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
-#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
-               
-                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
-                self.salaries = Expression(
-                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
-                        doc="Salaries")
-                
-                self.benefits = self.salaries * benefit_percent_of_salary
-                self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
-                self.lab = lab_fees_precent_FCI * self.fixed_cap_inv
-                self.insurance_taxes = insurance_taxes_precent_FCI * self.fixed_cap_inv
-                self.total_fixed_op_cost = Expression(
-                    expr = self.salaries + self.benefits + self.maintenance + self.lab + self.insurance_taxes)
-                
-
-                # This self.total_up_cost ignores total_up_cost equation from the DEEP model (the call is commented out below) and only takes the fixed_cap equation to use in this block with the Mcgiv. base/exp stated at the top.  
-                self.total_up_cost = (
-                    self.total_cap_investment
-                    + self.cat_and_chem_cost
-                    + self.electricity_cost
-                    + self.other_var_cost
-                    + self.total_fixed_op_cost
-                )
-
-            if cost_method == "deep":
-                self.total_up_cost = total_up_cost(m=None, G=None, flow_in=flow_in, cost_method="deep") # TODO
-                
-
-            #return total_up_cost
-    
-        up_costing(self.costing, cost_method=cost_method)
+        self.chem_dict = {}      
+        
+        ##########################################
+        ####### GET REST OF UNIT COSTS ######
+        ##########################################        
+        
+        module.get_complete_costing(self.costing)
           
         
-# OTHER CALCS
-
-def create(m, up_name):
-    
-#     # Set removal and recovery fractions
-#     for constituent_name in train_constituent_list:
-        
-#         if constituent_name in train_constituent_removal_factors.keys():
-#             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
-#         else:
-#             getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(1e-7)
-    
-    getattr(m.fs, up_name).pmax.fix(85)
-    
-    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
-        
-        if constituent_name in train_constituent_removal_factors.keys():
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
-        else:
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
-            
-    #getattr(m.fs, up_name).water_recovery = getattr(m.fs, up_name).costing.rr
-    #getattr(m.fs, up_name).removal_fraction[:, "TDS"].fix(tds_removal_factor)
-    # I took these values from the WaterTAP3 nf model
-    #getattr(m.fs, up_name).removal_fraction[:, "TOC"].fix(toc_removal_factor)
-    #getattr(m.fs, up_name).removal_fraction[:, "nitrates"].fix(nitrates_removal_factor)
-
-    # Also set pressure drops - for now I will set these to zero
-    getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
-    getattr(m.fs, up_name).deltaP_waste.fix(1e-4)
-
-    # Adding costing for units - this is very basic for now so use default settings
-    getattr(m.fs, up_name).get_costing(module=financials)
-
-    return m        
+# OTHER VARIABLES --> SHOULD BE IN ABOVE FUNCTION. 
         
 def get_additional_variables(self, units_meta, time):
     
     self.pmax = Var(time, initialize=50, units=pyunits.bar, doc="pmax")   
-        
-           
-        
+    self.pmax.fix(85)  
         
         
