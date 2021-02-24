@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb 12 10:41:21 2021
+
+@author: ksitterl
+"""
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -25,10 +32,8 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-import numpy as np
-from scipy.optimize import curve_fit
+
 # Import properties and units from "WaterTAP Library"
-from pyomo.environ import *
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -39,7 +44,7 @@ from pyomo.environ import *
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "water_pumping_station"
+module_name = "iron_and_manganese_removal"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
@@ -131,7 +136,7 @@ see property package for documentation.}"""))
 
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.gallon / pyunits.minute)  # m3 /hr
+                                  to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -140,33 +145,20 @@ see property package for documentation.}"""))
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
 
-        def power_curve(x, a, b):
-            return a * x ** b
-
         # TODO -->> ADD THESE TO UNIT self.X
-        pump_type = unit_params['pump_type'][0]
-        tdh = unit_params['tdh'][0] * pyunits.ft
+        base_fixed_cap_cost = 12.18
+        cap_scaling_exp = 0.7
+        cap_scaling_val = 4732 * (pyunits.m ** 3 / pyunits.hour)
+        number_of_units = 6
+        filter_surf_area = 580 * pyunits.m ** 2
+        filter_surf_area = pyunits.convert(filter_surf_area, to_units=pyunits.ft ** 2)
+        air_water_ratio = 0.001 * pyunits.dimensionless  # v / v
+        air_flow_rate = air_water_ratio * cap_scaling_val
+        # Assumes 3 stage compressor, 85% efficiency
+        blower_power = (147.8 * (pyunits.hp / (pyunits.m ** 3 / pyunits.hour)) * air_flow_rate)
+        blower_power = pyunits.convert(blower_power, to_units=pyunits.kilowatt)
+        air_blower_cap = 100000  # fixed cost for air blower that should be changed
 
-        if pump_type == 'raw':
-            flow_lst = np.array([10, 19, 53, 79, 105, 132, 159, 185, 200])  # mgd
-            flow_cost = np.array([188032, 303010, 726314, 1050344, 1363933, 1677539, 1991145, 2299522, 2482431])  # $
-            cc, _ = curve_fit(power_curve, flow_lst, flow_cost)
-            a, b = cc[0], cc[1]
-
-        if pump_type == 'treated':
-            flow_lst = np.array([53, 80, 106, 131, 158, 185, 211, 238, 265, 300])  # mgd
-            flow_cost = np.array(
-                [1254215, 1775451, 2271801, 2755748, 3239590, 3711029, 4107735, 4616463, 5025624, 5633425])  # $
-            cc, _ = curve_fit(power_curve, flow_lst, flow_cost)
-            a, b = cc[0], cc[1]
-
-        motor_eff = 0.9
-        pump_eff = 0.9
-        tdh_lst = [25, 50, 75, 100, 200, 300, 400, 1000, 2500]  # TDH in ft
-        # tdh_elect = [*map(lambda x: (0.746 * value(flow_in) * x) / (3960 * motor_eff * pump_eff), tdh_lst)]
-        tdh_elect = [(0.746 * 440.29 * x) / (3960 * motor_eff * pump_eff) for x in tdh_lst]
-        cc, _ = curve_fit(power_curve, tdh_lst, tdh_elect)
-        c, d = cc[0], cc[1]
         #### CHEMS ###
 
         chem_dict = {}
@@ -177,16 +169,17 @@ see property package for documentation.}"""))
         ##########################################
 
         def fixed_cap(flow_in):
-            flow_in_cap = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-            if pump_type == 'raw':
-                return tpec_tic * a * flow_in_cap ** b * 1E-6  # $MM
-            if pump_type == 'treated':
-                return tpec_tic * a * flow_in_cap ** b * 1E-6
+            dual_media_filter_cap = 21377 + 38.319 * filter_surf_area
+            filter_backwash_cap = 92947 + 292.44 * filter_surf_area
+            total_cap_cost = (((air_blower_cap + filter_backwash_cap + (
+                    dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
+            cap_scaling_factor = flow_in / cap_scaling_val
+            fe_mn_cap = (cap_scaling_factor * total_cap_cost) ** cap_scaling_exp
+            return fe_mn_cap
 
-        def electricity(flow_in):  # m3/hr
-            flow_in_elect = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
-            electricity = (c * flow_in ** d) / flow_in_elect  # kWh / m3
-            # kWh/m3
+        def electricity(flow_in):
+            electricity = blower_power / flow_in  # kWh / m3
+
             return electricity
 
         # Get the first time point in the time domain

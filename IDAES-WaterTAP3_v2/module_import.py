@@ -120,8 +120,8 @@ def get_module(module_name):
     if module_name == "anti_scalant_addition":
         import anti_scalant_addition as up
 
-    if module_name == "fe_mn_removal":
-        import fe_mn_removal as up
+    if module_name == "iron_and_manganese_removal":
+        import iron_and_manganese_removal as up
 
     if module_name == "well_field":
         import well_field as up
@@ -131,6 +131,12 @@ def get_module(module_name):
 
     if module_name == "deep_well_injection":
         import deep_well_injection as up
+
+    if module_name == "anion_exchange":
+        import anion_exchange as up
+
+    if module_name == "cation_exchange":
+        import cation_exchange as up
 
     return up
 

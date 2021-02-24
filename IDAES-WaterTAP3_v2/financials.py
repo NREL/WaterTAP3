@@ -25,13 +25,11 @@ clearly document what variables are required for the cost methods and what they
 are called (ideally using the standard IDAES naming conventions where
 appropriate)
 """
-from pyomo.environ import (
-    Block, Constraint, Expression, Var, Param, NonNegativeReals, units as pyunits)
-from idaes.core.util.exceptions import ConfigurationError
-
 import pandas as pd
+from pyomo.environ import (
+    Block, Expression, Var, Param, NonNegativeReals, units as pyunits)
+
 import ml_regression
-import case_study_trains
 
 global train
 global source_water
@@ -254,14 +252,13 @@ def get_system_costing(self):
         expr=sum(other_var_cost_lst) * plant_lifetime_yrs)
     b.fixed_op_cost_total = Expression(
         expr=sum(total_fixed_op_cost_lst) * plant_lifetime_yrs)
-   
+
     b.operating_cost_total = Expression(
-        expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total 
-                                + b.other_var_cost_total + b.fixed_op_cost_total))
-    
-    
+        expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total
+              + b.other_var_cost_total))
+
     b.capital_investment_annual = Expression(
-        expr = sum(total_capital_investment_var_lst))
+        expr=sum(total_capital_investment_var_lst))
     b.cat_and_chem_cost_annual = Expression(
         expr=sum(cat_and_chem_cost_lst))
     b.electricity_cost_annual = Expression(
@@ -272,8 +269,8 @@ def get_system_costing(self):
         expr=sum(total_fixed_op_cost_lst))
    
     b.operating_cost_annual = Expression(
-        expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual 
-                                + b.other_var_cost_annual + b.fixed_op_cost_annual))    
+        expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual
+              + b.other_var_cost_annual))
     
     
     #RECOVERED WATER = IF OUTLET IS NOT GOING ANYWHERE
