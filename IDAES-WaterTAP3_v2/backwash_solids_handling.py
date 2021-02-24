@@ -39,24 +39,22 @@ from idaes.core import FlowsheetBlock
 # Import properties and units from "WaterTAP Library"
 from water_props import WaterParameterBlock
 
-# Set inlet conditions to first unit
-# IDAES Does have Feed components for this, but that would require a bit
-# more work to set up to work (as it relies on things in the property package
-# that aren't implemented for this example).
-# I am just picking numbers for most of these
+##########################################
+####### UNIT PARAMETERS ######
+# At this point (outside the unit), we define the unit parameters that do not change across case studies or analyses ######.
+# Below (in the unit), we define the parameters that we may want to change across case studies or analyses. Those parameters should be set as variables (eventually) and atttributed to the unit model (i.e. m.fs.UNIT_NAME.PARAMETERNAME). Anything specific to the costing only should be in  m.fs.UNIT_NAME.costing.PARAMETERNAME ######
+##########################################
 
+## REFERENCE:backwash_solids_handling unit process based on costs for Solids Handling in Table 5.7.1 in Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
-### FACTORS FOR ZEROTH ORDER MODEL -> TODO -> READ IN AUTOMATICALLY BASED ON UNIT PROCESS --> CREATE TABLE?!###
-flow_recovery_factor = 0.95 # ANNA CHECK TODO
+### MODULE NAME ###
+module_name = "backwash_solids_handling"
 
-# capital costs basis
-
-base_fixed_cap_cost = 9.76 # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO
-cap_scaling_exp = .918  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
-
-basis_year = 2007
-fixed_op_cost_scaling_exp = 0.7
-
+# Cost assumptions for the unit, based on the method #
+# this is either cost curve or equation. if cost curve then reads in data from file.
+unit_cost_method = "cost_curve"
+tpec_or_tic = "TPEC"
+unit_basis_yr = 2007
 
 filter_backwash_pumping_cost = 186458
 surface_wash_system = 99941
@@ -76,10 +74,6 @@ gravity_sludge_thickener_units = 1
 sludge_dewatering_lagoons_units = 3
 sand_drying_beds_units = 6
 
-
-# Get constituent list and removal rates for this unit process
-import generate_constituent_list
-train_constituent_removal_factors = generate_constituent_list.get_removal_factors("backwash_solids_handling")
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -131,16 +125,13 @@ and used when constructing these,
 see property package for documentation.}"""))
     
     from unit_process_equations import initialization
-    #unit_process_equations.get_base_unit_process()
-
-    #build(up_name = "nanofiltration_twb")
     
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = "backwash_solids_handling")
+        return unit_process_equations.build_up(self, up_name_test = module_name)
     
     
-    def get_costing(self, module=financials, cost_method="wt", year=None):
+    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
         """
         We need a get_costing method here to provide a point to call the
         costing methods, but we call out to an external consting module
@@ -162,227 +153,86 @@ see property package for documentation.}"""))
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
         
-        #up_costing(self.costing, cost_method=cost_method)
+        # capital costs basis
+        self.base_fixed_cap_cost = 9.76 # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO
+        self.cap_scaling_exp = .918  # from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
+        self.fixed_op_cost_scaling_exp = 0.7
+
+        # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
+        sys_cost_params = self.parent_block().costing_param
+        self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
+        tpec_tic = self.costing.tpec_tic 
         
-        # There are a couple of variables that IDAES expects to be present
-        # These are fairly obvious, but have pre-defined names
-        
-        def _make_vars(self):
-            # build generic costing variables (all costing models need these vars)
-            self.base_cost = Var(initialize=1e5,
-                                 domain=NonNegativeReals,
-                                 doc='Unit Base Cost cost in $')
-            self.purchase_cost = Var(initialize=1e4,
-                                     domain=NonNegativeReals,
-                                     doc='Unit Purchase Cost in $')
+        # basis year for the unit model - based on reference for the method.
+        self.costing.basis_year = unit_basis_yr
     
-    
-        # Build a costing method for each type of unit
-        def up_costing(self, cost_method="wt"):
-            
-            '''
-            This is where you create the variables and equations specific to each unit.
-            This method should mainly consider capital costs for the unit - operating
-            most costs should done for the entire flowsheet (e.g. common utilities).
-            Unit specific operating costs, such as chemicals, should be done here with
-            standard names that can be collected at the flowsheet level.
-
-            You can access variables from the unit model using:
-
-                self.parent_block().variable_name
-
-            You can also have unit specific parameters here, which could be retrieved
-            from the spreadsheet
-            '''
-            
-            # backwash_solids_handling unit process based on costs for Solids Handling in Table 5.7.1 in Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-            
-            lift_height = 100 # ft
-            
-            def tpec_tic():
-            
-                x = "TPEC" # changeable by user
-                TPEC = 3.4
-                TIC = 1.65
-
-                if x != "TPEC": 
-                    TPEC = 1
-
-                if x != "TIC": 
-                    TIC = 1
-                
-                return (TPEC * TIC)
-            
+        time = self.flowsheet().config.time.first()
+        conc_mass_tot = 0     
         
+        for constituent in self.config.property_package.component_list:
+            conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
+            
+        density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
+        self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
+        total_flow_rate = self.total_mass #kg/hr
         
-            def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
-                
-                fc = filter_backwash_pumping_cost * filter_backwash_pumping_cost_units
-                sc = surface_wash_system * surface_wash_system_units
-                ac = air_scour_system * air_scour_system_units 
-                sb = wash_water_surge_basins * wash_water_surge_basins_units 
-                st = wash_water_storage_tank * wash_water_storage_tank_units
-                gs = gravity_sludge_thickener * gravity_sludge_thickener_units 
-                sd = sludge_dewatering_lagoons *  sludge_dewatering_lagoons_units
-                db = sand_drying_beds * sand_drying_beds_units
-                
-                costs_list = [fc, sc, ac, sb, st, gs, sd, db]
-                
-                scaling_factor_list = [1.000, 1.000, 1.000, 0.751, 0.847, 1.305, 0.714, 0.875] # ANNA CHANGE TO VARIABLES
-                
-                base_fixed_cap_cost = sum(costs_list)/1000000 # $M
-                
-                cap_scaling_exp = sum(x * y for x, y in zip(scaling_factor_list, costs_list)) / sum(costs_list)
-                
-                capacity_basis = 1577255 # m3/s to kg/hr - CONSTANT BASED ON ASSUMPTION OF 100MGD BASIS
-                
-                total_flow_rate = 2042132 # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value --> TOTAL WEIGHT OF WATER COMING IN
-                
-                fixed_cap_unadj = (base_fixed_cap_cost * tpec_tic()) * (total_flow_rate / capacity_basis) ** cap_scaling_exp
-                
-                return fixed_cap_unadj # M$
+        lift_height = 100 # ft
+
+        def fixed_cap(flow_in, total_flow_rate): # TODO not based on flow, just have placeholder numbers for Carlsbad
+
+            fc = filter_backwash_pumping_cost * filter_backwash_pumping_cost_units
+            sc = surface_wash_system * surface_wash_system_units
+            ac = air_scour_system * air_scour_system_units 
+            sb = wash_water_surge_basins * wash_water_surge_basins_units 
+            st = wash_water_storage_tank * wash_water_storage_tank_units
+            gs = gravity_sludge_thickener * gravity_sludge_thickener_units 
+            sd = sludge_dewatering_lagoons *  sludge_dewatering_lagoons_units
+            db = sand_drying_beds * sand_drying_beds_units
+
+            costs_list = [fc, sc, ac, sb, st, gs, sd, db]
+
+            scaling_factor_list = [1.000, 1.000, 1.000, 0.751, 0.847, 1.305, 0.714, 0.875] # ANNA CHANGE TO VARIABLES
+
+            base_fixed_cap_cost = sum(costs_list)/1000000 # $M
+
+            cap_scaling_exp = sum(x * y for x, y in zip(scaling_factor_list, costs_list)) / sum(costs_list)
+
+            capacity_basis = 1577255 # m3/s to kg/hr - CONSTANT BASED ON ASSUMPTION OF 100MGD BASIS
+
+            fixed_cap_unadj = (self.base_fixed_cap_cost * tpec_tic) * (total_flow_rate / capacity_basis) ** self.cap_scaling_exp
+
+            return fixed_cap_unadj # M$
  
                
-            def electricity(flow_in): # m3/hr
-                flow_in_gpm = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.gallons/pyunits.minute)
-                flow_in_m3h = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
-                electricity = (.746 * flow_in_gpm * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
-                
-                return (electricity/1000) # grid_electricity PML value is divided by 1000- ask Mike
+        def electricity(flow_in): # m3/hr
+            flow_in_gpm = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.gallons/pyunits.minute)
+            flow_in_m3h = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m**3/pyunits.hour)
+            electricity = (.746 * flow_in_gpm * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
+
+            return (electricity/1000) # grid_electricity PML value is divided by 1000- ask Mike
     
-    
-    
-    
-            _make_vars(self)
 
-            self.base_fixed_cap_cost = Param(mutable=True,
-                                             initialize=base_fixed_cap_cost,
-                                             doc="Some parameter from TWB")
-            self.cap_scaling_exp = Param(mutable=True,
-                                         initialize=cap_scaling_exp,
-                                         doc="Another parameter from TWB")
+        # Get the inlet flow to the unit and convert to the correct units
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.Mgallons/pyunits.day)
 
-            # Get the first time point in the time domain
-            # In many cases this will be the only point (steady-state), but lets be
-            # safe and use a general approach
-            time = self.parent_block().flowsheet().config.time.first()
-
-            # Get the inlet flow to the unit and convert to the correct units
-            flow_in = pyunits.convert(self.parent_block().flow_vol_in[time],
-                                      to_units=pyunits.Mgallons/pyunits.day)
-            
-
-            ################### TWB METHOD ###########################################################
-            if cost_method == "twb":
-                    self.fixed_cap_inv_unadjusted = Expression(
-                        expr=self.base_fixed_cap_cost *
-                        flow_in ** self.cap_scaling_exp,
-                        doc="Unadjusted fixed capital investment")
-            ##############################################################################
-
-            ################## WATERTAP METHOD ###########################################################
-            if cost_method == "wt":
-
-                # cost index values - TODO MOVE THIS TO TOP
-                df = get_ind_table()
-                self.cap_replacement_parts = df.loc[basis_year].Capital_Factor
-                self.catalysts_chemicals = df.loc[basis_year].CatChem_Factor
-                self.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
-                self.consumer_price_index = df.loc[basis_year].CPI_Factor
-
-                # capital costs (unit: MM$) ---> TCI IN EXCEL
-                self.fixed_cap_inv_unadjusted = Expression(
-                    expr=fixed_cap(flow_in),
-                    doc="Unadjusted fixed capital investment") 
-
-                self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
-                self.land_cost = self.fixed_cap_inv * land_cost_precent_FCI
-                self.working_cap = self.fixed_cap_inv * working_cap_precent_FCI
-                self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
-
-                # variable operating costs (unit: MM$/yr) -> MIKE TO DO -> ---> CAT+CHEM IN EXCEL
-                # --> should be functions of what is needed!?
-                # cat_chem_df = pd.read_csv('catalyst_chemicals.csv')
-                # cat_and_chem = flow_in * 365 * on_stream_factor # TODO
-                self.electricity = electricity(flow_in) # kwh/m3 
-                self.cat_and_chem_cost = 0  # TODO
-                
-                total_flow_rate = 2042132 # kg/hr - from design tab. For Carlsbad only 
-                                            # TODO need to calculate this value
-                
-                # TODO need to calculate this value
-                self.electricity_cost = Expression(
-                        expr= (self.electricity * total_flow_rate * 24 * 365 * elec_price/1000000),  
-                        doc="Electricity cost") # M$/yr
-                self.other_var_cost = 0 #Expression(
-                        #expr= self.total_cap_investment - self.cat_and_chem_cost - self.electricity_cost,
-                        #doc="Other variable cost")
-
-                # fixed operating cost (unit: MM$/yr)  ---> FIXED IN EXCEL
-#                 self.base_employee_salary_cost = fixed_cap(flow_in) * salaries_percent_FCI #.00976 #excel value
-#                 self.salaries = (
-#                     self.labor_and_other_fixed
-#                     * self.base_employee_salary_cost 
-#                     * flow_in ** fixed_op_cost_scaling_exp
-#                 )
-                
-#                 self.salaries = (
-#                     (self.labor_and_other_fixed ** fixed_op_cost_scaling_exp) * (salaries_percent_FCI 
-#                           * self.fixed_cap_inv_unadjusted) ** fixed_op_cost_scaling_exp)
-               
-                self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * salaries_percent_FCI
-                self.salaries = Expression(
-                        expr= self.labor_and_other_fixed * self.base_employee_salary_cost,
-                        doc="Salaries")
-                
-                self.benefits = self.salaries * benefit_percent_of_salary
-                self.maintenance = maintinance_costs_precent_FCI * self.fixed_cap_inv
-                self.lab = lab_fees_precent_FCI * self.fixed_cap_inv
-                self.insurance_taxes = insurance_taxes_precent_FCI * self.fixed_cap_inv
-                self.total_fixed_op_cost = Expression(
-                    expr = self.salaries + self.benefits + self.maintenance + self.lab + self.insurance_taxes)
-
-                self.total_up_cost = (
-                    self.total_cap_investment
-                    + self.cat_and_chem_cost
-                    + self.electricity_cost
-                    + self.other_var_cost
-                    + self.total_fixed_op_cost
-                
-                )
-
-            #return total_up_cost
-    
-        up_costing(self.costing, cost_method=cost_method)
-          
         
-# OTHER CALCS
+        # capital costs (unit: MM$) ---> TCI IN EXCEL
+        self.costing.fixed_cap_inv_unadjusted = Expression(
+            expr=fixed_cap(flow_in, total_flow_rate),
+            doc="Unadjusted fixed capital investment") 
 
-def create(m, up_name):
-    
-    # Set removal and recovery fractions
-    getattr(m.fs, up_name).water_recovery.fix(flow_recovery_factor)
-    
-    for constituent_name in getattr(m.fs, up_name).config.property_package.component_list:
+        self.electricity = electricity(flow_in) # kwh/m3 
+                        
+        self.chem_dict = {}
         
-        if constituent_name in train_constituent_removal_factors.keys():
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(train_constituent_removal_factors[constituent_name])
-        else:
-            getattr(m.fs, up_name).removal_fraction[:, constituent_name].fix(0)
-
-    # Also set pressure drops - for now I will set these to zero
-    getattr(m.fs, up_name).deltaP_outlet.fix(1e-4)
-    getattr(m.fs, up_name).deltaP_waste.fix(1e-4)
-
-    # Adding costing for units - this is very basic for now so use default settings
-    getattr(m.fs, up_name).get_costing(module=financials)
-
-    return m        
+        ##########################################
+        ####### GET REST OF UNIT COSTS ######
+        ##########################################        
         
-        
+        module.get_complete_costing(self.costing)
            
         
         

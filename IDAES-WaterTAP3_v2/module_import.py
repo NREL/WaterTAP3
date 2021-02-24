@@ -17,8 +17,8 @@ def get_module(module_name):
     if module_name == "uv_twb":
         import uv_twb as up
 
-    if module_name == "chlorination_twb":
-        import chlorination_twb as up
+    if module_name == "chlorination":
+        import chlorination as up
 
     if module_name == "ro_twb":
         import ro_twb as up
