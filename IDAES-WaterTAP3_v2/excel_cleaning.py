@@ -1,25 +1,38 @@
 # Cleaning up input data csv's to be more python friendly
 
 # Import python libraries
+import logging 
+import sys
+
 import numpy as np
 import pandas as pd
 
+
+# logging setup
+fmt = '%(asctime)s - %(levelname)s - %(message)s'
+logging.basicConfig(format=fmt, level=logging.INFO)
+
 # Open excel file, split the sheets into separate csv's
-sheet1 = pd.read_excel('WT3Excel_Case_Study_Data_16Feb2021.xlsm', sheet_name='case_study_basis', index=True)
+logging.info('beginning to read excel files')
+
+excel_filename = 'WT3Excel_Case_Study_Data_16Feb2021.xlsm'
+
+sheet1 = pd.read_excel(excel_filename, sheet_name='case_study_basis', index=True)
 sheet1.to_csv("excel_case_study_basis.csv")
 
-sheet2 = pd.read_excel('WT3Excel_Case_Study_Data_16Feb2021.xlsm', sheet_name='case_study_results', index=True)
+sheet2 = pd.read_excel(excel_filename, sheet_name='case_study_results', index=True)
 sheet2.to_csv("excel_case_study_results.csv")
 
-sheet3 = pd.read_excel('WT3Excel_Case_Study_Data_16Feb2021.xlsm', sheet_name='case_study_water_sources', index=True)
+sheet3 = pd.read_excel(excel_filename, sheet_name='case_study_water_sources', index=True)
 sheet3.to_csv("excel_case_study_water_sources.csv")
 
-sheet4 = pd.read_excel('WT3Excel_Case_Study_Data_16Feb2021.xlsm', sheet_name='constituent_removal', index=True)
+sheet4 = pd.read_excel(excel_filename, sheet_name='constituent_removal', index=True)
 sheet4.to_csv("excel_constituent_removal.csv")
 
-sheet5 = pd.read_excel('WT3Excel_Case_Study_Data_16Feb2021.xlsm', sheet_name='water_recovery', index=True)
+sheet5 = pd.read_excel(excel_filename, sheet_name='water_recovery', index=True)
 sheet5.to_csv("excel_water_recovery.csv")
 
+logging.info('finished reading excel files')
 
 
 ############################################################################################################################################
@@ -54,10 +67,10 @@ dataset['variable'].replace(to_replace="Debt Financing Interest Rate", value="de
 dataset['variable'].replace(to_replace="Expected Return on Equity", value="exp_return_on_equity", inplace=True)
 dataset['variable'].replace(to_replace="Default Capital Multipler (TPEC > FCI)", value="default_tpec_multiplier", inplace=True)
 dataset['variable'].replace(to_replace="Default Capital Multipler (TIC > FCI)", value="default_tic_multiplier", inplace=True)
-dataset['variable'].replace(to_replace="Base Employee Salary Cost per FCI", value="base_salary_per_FCI", inplace=True)
+dataset['variable'].replace(to_replace="Base Employee Salary Cost per FCI", value="base_salary_per_fci", inplace=True)
 
 # Create new basis csv with friendlier python formatting
-dataset.to_csv('case_study_basis.csv')
+dataset.to_csv('data/case_study_basis.csv')
 
 
 
@@ -73,6 +86,23 @@ dataset.rename(columns={'Case_Study': 'case_study', 'Scenario': 'scenario', 'Tra
 
 # Duplicate "Variable" column and name it 'variable'
 dataset['variable'] = dataset['Variable']
+
+# Correct unit process names
+dataset['unit_process'].replace(to_replace="treated_storage_24_hr", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="6-Hour_Storage_Tank", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="1-Hour_Storage_Tank", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="12-Hour_Storage_Tank", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="3-Hour_Storage_Tank", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="onsite_storage", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="Treated_Water_Storage", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="Chlorine_Addition_Cylinder", value="chlorination", inplace=True)
+dataset['unit_process'].replace(to_replace="chlorination_twb", value="chlorination", inplace=True)
+dataset['unit_process'].replace(to_replace="tri_media_filtration_with_backflush", value="tri_media_filtration", inplace=True)
+dataset['unit_process'].replace(to_replace="Ferric_Chloride_FeCl3_Addition", value="ferric_chloride_addition", inplace=True)
+dataset['unit_process'].replace(to_replace="UV_Irradiation_with_AOP", value="uv_aop", inplace=True)
+dataset['unit_process'].replace(to_replace="Brine RO", value="ro_deep", inplace=True)
+dataset['unit_process'].replace(to_replace="Iron_Manganese_Removal", value="fe_mn_removal", inplace=True)
+
 
 
 # Simplify variable names in new python-friendly variable column
@@ -103,9 +133,10 @@ dataset['variable'].replace(to_replace="Outlet Water", value="flow_vol_out", inp
 
 # Rename the words in the variable column to be lowercase
 dataset['variable'] = dataset['variable'].str.lower()
+dataset['unit_process'] = dataset['unit_process'].str.lower()
 
 # Create new results csv with friendlier python formatting
-dataset.to_csv('case_study_results.csv')
+dataset.to_csv('data/case_study_results.csv')
 
 
 
@@ -117,7 +148,7 @@ dataset = pd.read_csv('excel_case_study_water_sources.csv', encoding='utf-8')
 dataset = dataset.drop(dataset.columns[0], axis=1)
 
 # Rename the columns to be lowercase
-dataset.rename(columns={'Value': 'value', 'Reference': 'reference', 'WaterType': 'water_type', 'CaseStudy': 'case_study', 'Project': 'project', 'SourceOrUse': 'source_or_use'}, inplace=True)
+dataset.rename(columns={'Value': 'value', 'Unit': 'unit', 'Reference': 'reference', 'WaterType': 'water_type', 'CaseStudy': 'case_study', 'Project': 'project', 'SourceOrUse': 'source_or_use'}, inplace=True)
 
 # Duplicate "Variable" column and name it 'variable'
 dataset['variable'] = dataset['Variable']
@@ -155,7 +186,29 @@ dataset['variable'].replace(to_replace="Total Kjeldahl Nitrogen (TKN)", value="t
 dataset['variable'].replace(to_replace="N-nitrosodimethylamine (NDMA)", value="ndma", inplace=True)
 dataset['variable'].replace(to_replace="Nitrogen - Total ", value="nitrogen", inplace=True)
 
+# Change the mg/L in the "unit" column to kg/m3
+dataset['unit'].replace(to_replace="mg/L", value="kg/m3", inplace=True)
 
+# Divide the values in the "value" column that are in kg/m3 by 1000
+dataset.loc[(dataset['unit'] == 'kg/m3'), 'value'] = dataset['value'] / 1000
+
+# Change the water_type names
+dataset['water_type'].replace(to_replace="Seawater_30", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_31", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_32", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_33", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_34", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_35", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_36", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_37", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_38", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_39", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_40", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_41", value="Seawater", inplace=True)
+dataset['water_type'].replace(to_replace="Seawater_42", value="Seawater", inplace=True)
+
+
+# Delete "Unnamed" columns
 a = range(8,52)
 for x in a:
     dataset.drop('Unnamed: %s' % (x), axis=1, inplace=True)
@@ -168,12 +221,21 @@ dataset['variable'] = dataset['variable'].replace(to_replace='\(', value='', reg
 dataset['variable'] = dataset['variable'].replace(to_replace="\)", value="", regex=True)
 dataset['variable'] = dataset['variable'].replace(to_replace="\.", value="", regex=True)
 
+# Replace parts of the variable names to make them more python-friendly
+dataset['water_type'] = dataset['water_type'].replace(to_replace=" ", value="_", regex=True)
+dataset['water_type'] = dataset['water_type'].replace(to_replace=",", value="_", regex=True)
+dataset['water_type'] = dataset['water_type'].replace(to_replace="-", value="_", regex=True)
+dataset['water_type'] = dataset['water_type'].replace(to_replace='\(', value='', regex=True)
+dataset['water_type'] = dataset['water_type'].replace(to_replace="\)", value="", regex=True)
+dataset['water_type'] = dataset['water_type'].replace(to_replace="\.", value="", regex=True)
+
 
 # Rename the words in the variable column to be lowercase
 dataset['variable'] = dataset['variable'].str.lower()
+#dataset['water_type'] = dataset['water_type'].str.lower()
 
 # Create new results csv with friendlier python formatting
-dataset.to_csv('case_study_water_sources.csv')
+dataset.to_csv('data/case_study_water_sources.csv')
 
 
 
@@ -186,10 +248,14 @@ dataset = pd.read_csv('excel_constituent_removal.csv', encoding='utf-8')
 dataset = dataset.drop(dataset.columns[0], axis=1)
 
 # Change "constituent" column to "constituent_longform"
-dataset.rename(columns = {'constituent' : 'constituent_longform'}, inplace=True)
+dataset.rename(columns = {'constituent' : 'constituent_longform', 'reference' : 'ref'}, inplace=True)
 
 # Duplicate "constituent_longform" column and name it 'constituent'
 dataset['constituent'] = dataset['constituent_longform']
+
+# Add two new columns
+dataset = dataset.assign(scenario='Baseline')
+dataset = dataset.assign(reference='NAWI')
 
 # Simplify constituent names in new python-friendly constituent column
 dataset['constituent'].replace(to_replace="Boron, dissolved", value="boron", inplace=True)
@@ -209,6 +275,16 @@ dataset['constituent'].replace(to_replace="Estradiol Equivalency (EEQ)", value="
 dataset['constituent'].replace(to_replace="N-nitrosodimethylamine (NDMA)", value="ndma", inplace=True)
 dataset['constituent'].replace(to_replace="Chemical Oxygen Demand (COD)", value="cod", inplace=True)
 
+# Correct unit process names
+dataset['unit_process'].replace(to_replace="Microscreen_Filtration", value="micro_filtration", inplace=True)
+dataset['unit_process'].replace(to_replace="tri_media_filtration_with_backflush", value="tri_media_filtration", inplace=True)
+dataset['unit_process'].replace(to_replace="UV_Irradiation_with_AOP", value="uv_aop", inplace=True)
+dataset['unit_process'].replace(to_replace="Iron_Manganese_Removal", value="fe_mn_removal", inplace=True)
+
+
+
+# Change the mg/L in the "unit" column to kg/m3
+dataset['units'].replace(to_replace="mg/L", value="kg/m3", inplace=True)
 
 a = range(7,16)
 for x in a:
@@ -225,9 +301,10 @@ dataset['constituent'] = dataset['constituent'].replace(to_replace="\.", value="
 
 # Rename the words in the constituent column to be lowercase
 dataset['constituent'] = dataset['constituent'].str.lower()
+dataset['unit_process'] = dataset['unit_process'].str.lower()
 
 # Create new results csv with friendlier python formatting
-dataset.to_csv('constituent_removal.csv')
+dataset.to_csv('data/constituent_removal.csv')
 
 
 
@@ -242,6 +319,9 @@ dataset = dataset.drop(dataset.columns[0], axis=1)
 # Rename the columns to be lowercase
 dataset.rename(columns={'Case_Study': 'case_study', 'Scenario': 'scenario', 'Unit_Process': 'unit_process', 'Recovery': 'recovery', 'Evaporation': 'evaporation', 'Reference': 'reference'}, inplace=True)
 
+# Add a new row to the dataframe
+new_row = {'case_study': 'Default', 'unit_process': 'ro_deep_scnd_pass', 'recovery': 'calculated', 'reference': 'Calculated value for total TDS removal from DEEP 5.1 model from IAEA'} 
+dataset = dataset.append(new_row, ignore_index = True) 
 
 # Simplify unit process names in new python-friendly unit process column
 dataset['unit_process'].replace(to_replace="1-Hour_Holding_Tank", value="holding_tank", inplace=True)
@@ -251,6 +331,20 @@ dataset['unit_process'].replace(to_replace="12-Hour_Storage_Tank", value="treate
 dataset['unit_process'].replace(to_replace="24-Hour_Storage_Tank", value="treated_storage", inplace=True)
 dataset['unit_process'].replace(to_replace="48-Hour_Storage_Tank", value="treated_storage", inplace=True)
 dataset['unit_process'].replace(to_replace="treated_storage_24_hr", value="treated_storage", inplace=True)
+dataset['unit_process'].replace(to_replace="CAS_", value="cas", inplace=True)
+dataset['unit_process'].replace(to_replace="CAS_+_Denitrif_", value="cas_denitrif", inplace=True)
+dataset['unit_process'].replace(to_replace="CAS_+_Nitrif_", value="cas_nitrif", inplace=True)
+dataset['unit_process'].replace(to_replace="Chlorination_", value="chlorination", inplace=True)
+dataset['unit_process'].replace(to_replace="Deep_Well_", value="deep_well", inplace=True)
+dataset['unit_process'].replace(to_replace="Microscreen_Filtration", value="micro_filtration", inplace=True)
+dataset['unit_process'].replace(to_replace="tri_media_filtration_with_backflush", value="tri_media_filtration", inplace=True)
+dataset['unit_process'].replace(to_replace="UV_Irradiation_with_AOP", value="uv_aop", inplace=True)
+dataset['unit_process'].replace(to_replace="Iron_Manganese_Removal", value="fe_mn_removal", inplace=True)
+
+
+
+
+
 
 # Replace parts of the unit process names to make them more python-friendly
 dataset['unit_process'] = dataset['unit_process'].replace(to_replace=" ", value="_", regex=True)
@@ -267,5 +361,8 @@ dataset['unit_process'] = dataset['unit_process'].replace(to_replace="\+", value
 # Rename the words in the unit process column to be lowercase
 dataset['unit_process'] = dataset['unit_process'].str.lower()
 
+# Drop any duplicate rows
+dataset = dataset.drop_duplicates()
+
 # Create new results csv with friendlier python formatting
-dataset.to_csv('water_recovery.csv')
+dataset.to_csv('data/water_recovery.csv')
