@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb 16 11:46:39 2021
+Created on Fri Feb 12 10:41:21 2021
 
 @author: ksitterl
 """
@@ -44,13 +44,13 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "deep_well_injection"
+module_name = "iron_and_manganese_removal"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2011
+unit_basis_yr = 2007
 
 
 # You don't really want to know what this decorator does
@@ -133,6 +133,7 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
+
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time],
                                   to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
@@ -145,22 +146,20 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
 
         # TODO -->> ADD THESE TO UNIT self.X
-        incl_piping = unit_params["incl_piping"][0]
-        if not incl_piping:
-            base_fixed_cap_cost = 16.9
-            pipe_cost_basis = 35000  # $ / (inch * mile)
-            pipe_distance = unit_params['pipe_distance'][0] * pyunits.miles
-            pipe_diameter = 8 * pyunits.inches
-            pipe_fixed_cap_cost = (pipe_cost_basis * pipe_distance * pipe_diameter) * 1E-6
-        else:
-            pipe_fixed_cap_cost = 0
-            base_fixed_cap_cost = 22.5
+        base_fixed_cap_cost = 12.18
         cap_scaling_exp = 0.7
-        cap_scaling_val = 473.2
-        # number_of_units = 1
-        lift_height = 400 * pyunits.ft
-        pump_eff = 0.9
-        motor_eff = 0.9
+        cap_scaling_val = 4732 * (pyunits.m ** 3 / pyunits.hour)
+        number_of_units = 6
+        filter_surf_area = 580 * pyunits.m ** 2
+        filter_surf_area = pyunits.convert(filter_surf_area, to_units=pyunits.ft ** 2)
+        air_water_ratio = 0.001 * pyunits.dimensionless  # v / v
+        air_flow_rate = air_water_ratio * cap_scaling_val
+        # Assumes 3 stage compressor, 85% efficiency
+        blower_power = (147.8 * (pyunits.hp / (pyunits.m ** 3 / pyunits.hour)) * air_flow_rate)
+        blower_power = pyunits.convert(blower_power, to_units=pyunits.kilowatt)
+        air_blower_cap = 100000  # fixed cost for air blower that should be changed
+
+        #### CHEMS ###
 
         chem_dict = {}
         self.chem_dict = chem_dict
@@ -170,17 +169,16 @@ see property package for documentation.}"""))
         ##########################################
 
         def fixed_cap(flow_in):
-
+            dual_media_filter_cap = 21377 + 38.319 * filter_surf_area
+            filter_backwash_cap = 92947 + 292.44 * filter_surf_area
+            total_cap_cost = (((air_blower_cap + filter_backwash_cap + (
+                    dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
             cap_scaling_factor = flow_in / cap_scaling_val
-            deep_well_cap = base_fixed_cap_cost * (cap_scaling_factor ** cap_scaling_exp)
-
-            return deep_well_cap + pipe_fixed_cap_cost
+            fe_mn_cap = (cap_scaling_factor * total_cap_cost) ** cap_scaling_exp
+            return fe_mn_cap
 
         def electricity(flow_in):
-
-            flow_in_e = pyunits.convert(flow_in, to_units=(pyunits.gallon / pyunits.minute))
-            electricity = (0.746 * flow_in_e * lift_height / (3960 * pump_eff * motor_eff)) / \
-                          pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
+            electricity = blower_power / flow_in  # kWh / m3
 
             return electricity
 

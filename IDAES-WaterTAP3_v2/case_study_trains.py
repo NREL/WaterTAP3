@@ -1,38 +1,28 @@
-from pylab import *
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import networkx as nx
-from networkx.drawing.nx_agraph import write_dot, graphviz_layout
-from pyomo.environ import ConcreteModel, SolverFactory, TerminationCondition, \
-    value, Var, Constraint, Expression, Objective, TransformationFactory, units as pyunits
-from pyomo.network import Arc, SequentialDecomposition
-from idaes.core.util.model_statistics import degrees_of_freedom
-
-from split_test2 import Separator1
-from mixer_example import Mixer1
-import watertap as wt
-import module_import
-
-import xlrd
 import ast
 
-#global case_study
-#global reference
-#global water_type
-#global scenario
+import numpy as np
+import pandas as pd
+from pyomo.network import Arc
+
+import watertap as wt
+from mixer_example import Mixer1
+from split_test2 import Separator1
+
+# global case_study
+# global reference
+# global water_type
+# global scenario
 
 global train
 global source_water
-global pfd_dict # this is set in function so not global.
+global pfd_dict  # this is set in function so not global.
 
 
 from water_props import WaterParameterBlock
 
 from pyomo.environ import (
-    Block, Constraint, Expression, Var, Param, NonNegativeReals, units as pyunits)
-from idaes.core.util.exceptions import ConfigurationError
-
+    Block)
 
 case_study_library = pd.read_csv("data/case_study_library.csv") #TODO EDIT THIS TO READ EXCEL FILE - ARIEL
 
@@ -346,6 +336,7 @@ def get_case_study(flow = None, m = None):
 
     # add units to model
     for key in pfd_dict.keys():
+        print(key)
         m = wt.design.add_unit_process(m = m, 
                                        unit_process_name = key, 
                                        unit_process_type = pfd_dict[key]['Unit'])

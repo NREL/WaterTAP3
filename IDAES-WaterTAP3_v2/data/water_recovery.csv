@@ -46,7 +46,7 @@
 48,Default,,crystallizer_waterreuse,0.95,,Default value based on 5% purge rate per source. Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 49,Default,,decarbonator_waterreuse,1,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 50,Default,,deep_bed_filtration,1,,Texas Water Development Board IT3PR User Manual
-51,Default,,deep_well_,1,,Placeholder. Not utilized in any case studies. 
+51,Default,,deep_well_injection,1,,Placeholder. Not utilized in any case studies. 
 52,Default,,direct_injection,1,,Texas Water Development Board IT3PR User Manual
 53,Default,,drainage_sump_pump1,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 54,Default,,drainage_sump_pump2,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
@@ -107,7 +107,7 @@
 110,Tuscarora,Baseline,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.
 111,San Luis,Baseline,uf_feed_pump,1,,Defined based on the San Luis case study data.
 112,Default,,ultra_filtration,0.95,,Texas Water Development Board IT3PR User Manual
-113,Default,,uv_irradiation,1,,Texas Water Development Board IT3PR User Manual
-114,Default,,uv_irradiation_with_aop,1,,Texas Water Development Board IT3PR User Manual
+113,Default,,uv,1,,Texas Water Development Board IT3PR User Manual
+114,Default,,uv_aop,1,,Texas Water Development Board IT3PR User Manual
 115,Kern County,Baseline,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 116,Default,,well_field,1,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
