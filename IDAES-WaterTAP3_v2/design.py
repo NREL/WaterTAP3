@@ -34,12 +34,12 @@ def add_unit_process(m = None, unit_process_name = None, unit_process_type = Non
     setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
     
     import constituent_removal_water_recovery
-    m = constituent_removal_water_recovery.create(m, unit_process_type)
+    m = constituent_removal_water_recovery.create(m, unit_process_type, unit_process_name)
     
     ### SET PARAMS HERE FOR UP ###
     #PARAMS = 
     import financials
-    getattr(m.fs, unit_process_type).get_costing(module=financials, unit_params=unit_params)
+    getattr(m.fs, unit_process_name).get_costing(module=financials, unit_params=unit_params)
     
     if with_connection == True:
         
