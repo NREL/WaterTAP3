@@ -369,10 +369,10 @@ def get_pfd_dict(df_units):
     pfd_dict = df_units.set_index('UnitName').T.to_dict()
     for key in pfd_dict.keys():
         # parameter from string to dict
-        if pfd_dict[key]['Parameter'] is not nan:
+        if pfd_dict[key]['Parameter'] is not np.nan:
             pfd_dict[key]['Parameter'] = ast.literal_eval(pfd_dict[key]['Parameter'])
 
-        if pfd_dict[key]['ToUnitName'] is not nan:
+        if pfd_dict[key]['ToUnitName'] is not np.nan:
             if "," in pfd_dict[key]['ToUnitName']:
                 pfd_dict[key]['ToUnitName'] = pfd_dict[key]['ToUnitName'].split(",")
                 pfd_dict[key]['FromPort'] = pfd_dict[key]['FromPort'].split(",")
@@ -454,10 +454,10 @@ def create_arc_dict(m, pfd_dict, flow):
     
     # create arcs *for single streams* from .csv table.
     for key in pfd_dict.keys():
-        if pfd_dict[key]["FromPort"] is not nan:
-            if isinstance(pfd_dict[key]["FromPort"], list):  
+        if pfd_dict[key]["FromPort"] is not np.nan:
+            if isinstance(pfd_dict[key]["FromPort"], list):
                 for port_i in range(0, len(pfd_dict[key]["FromPort"])):
-                    arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"][port_i], 
+                    arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"][port_i],
                                        pfd_dict[key]["ToUnitName"][port_i], "inlet"]
                     arc_i = arc_i + 1
             else:

@@ -132,6 +132,12 @@ def get_module(module_name):
     if module_name == "deep_well_injection":
         import deep_well_injection as up
 
+    if module_name == "anion_exchange":
+        import anion_exchange as up
+
+    if module_name == "cation_exchange":
+        import cation_exchange as up
+
     return up
 
 
