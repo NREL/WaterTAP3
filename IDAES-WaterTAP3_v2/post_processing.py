@@ -33,7 +33,7 @@ up_variables = [
     "insurance_taxes",
     "total_fixed_op_cost",
     "base_employee_salary_cost",
-    "electricity"]
+    "electricity_cost"]
 
 
 def get_results_table(m = None):

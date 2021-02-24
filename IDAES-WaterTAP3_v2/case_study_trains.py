@@ -1,38 +1,28 @@
-from pylab import *
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import networkx as nx
-from networkx.drawing.nx_agraph import write_dot, graphviz_layout
-from pyomo.environ import ConcreteModel, SolverFactory, TerminationCondition, \
-    value, Var, Constraint, Expression, Objective, TransformationFactory, units as pyunits
-from pyomo.network import Arc, SequentialDecomposition
-from idaes.core.util.model_statistics import degrees_of_freedom
-
-from split_test2 import Separator1
-from mixer_example import Mixer1
-import watertap as wt
-import module_import
-
-import xlrd
 import ast
 
-#global case_study
-#global reference
-#global water_type
-#global scenario
+import numpy as np
+import pandas as pd
+from pyomo.network import Arc
+
+import watertap as wt
+from mixer_example import Mixer1
+from split_test2 import Separator1
+
+# global case_study
+# global reference
+# global water_type
+# global scenario
 
 global train
 global source_water
-global pfd_dict # this is set in function so not global.
+global pfd_dict  # this is set in function so not global.
 
 
 from water_props import WaterParameterBlock
 
 from pyomo.environ import (
-    Block, Constraint, Expression, Var, Param, NonNegativeReals, units as pyunits)
-from idaes.core.util.exceptions import ConfigurationError
-
+    Block)
 
 case_study_library = pd.read_csv("data/case_study_library.csv") #TODO EDIT THIS TO READ EXCEL FILE - ARIEL
 
@@ -346,6 +336,7 @@ def get_case_study(flow = None, m = None):
 
     # add units to model
     for key in pfd_dict.keys():
+        print(key)
         m = wt.design.add_unit_process(m = m, 
                                        unit_process_name = key, 
                                        unit_process_type = pfd_dict[key]['Unit'])
@@ -378,10 +369,10 @@ def get_pfd_dict(df_units):
     pfd_dict = df_units.set_index('UnitName').T.to_dict()
     for key in pfd_dict.keys():
         # parameter from string to dict
-        if pfd_dict[key]['Parameter'] is not nan:
+        if pfd_dict[key]['Parameter'] is not np.nan:
             pfd_dict[key]['Parameter'] = ast.literal_eval(pfd_dict[key]['Parameter'])
 
-        if pfd_dict[key]['ToUnitName'] is not nan:
+        if pfd_dict[key]['ToUnitName'] is not np.nan:
             if "," in pfd_dict[key]['ToUnitName']:
                 pfd_dict[key]['ToUnitName'] = pfd_dict[key]['ToUnitName'].split(",")
                 pfd_dict[key]['FromPort'] = pfd_dict[key]['FromPort'].split(",")
@@ -463,10 +454,10 @@ def create_arc_dict(m, pfd_dict, flow):
     
     # create arcs *for single streams* from .csv table.
     for key in pfd_dict.keys():
-        if pfd_dict[key]["FromPort"] is not nan:
-            if isinstance(pfd_dict[key]["FromPort"], list):  
+        if pfd_dict[key]["FromPort"] is not np.nan:
+            if isinstance(pfd_dict[key]["FromPort"], list):
                 for port_i in range(0, len(pfd_dict[key]["FromPort"])):
-                    arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"][port_i], 
+                    arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"][port_i],
                                        pfd_dict[key]["ToUnitName"][port_i], "inlet"]
                     arc_i = arc_i + 1
             else:

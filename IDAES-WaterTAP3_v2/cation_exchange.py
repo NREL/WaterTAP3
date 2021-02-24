@@ -122,7 +122,7 @@ see property package for documentation.}"""))
 
 		# basis year for the unit model - based on reference for the method.
 		self.costing.basis_year = unit_basis_yr
-		conc_in = self.conc_mass_in[plant_lifetime_yrs, 'TDS'] * 1E3  # mg / L TDS
+		# conc_in = self.conc_mass_in[time, 'TDS'] * 1E3  # mg / L TDS
 		base_fixed_cap_cost = 0.0089
 		cap_scaling_exp = 0.8286
 		flow_lst = np.array([4.732, 48.106, 339.425, 3566.804, 11840.768])  # m3 / hr
@@ -170,7 +170,7 @@ see property package for documentation.}"""))
 		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
 														   doc="Unadjusted fixed capital investment")  # $M
 
-		self.chem_dict = {}
+		self.chem_dict = chem_dict
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3
