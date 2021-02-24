@@ -69,6 +69,6 @@ def get_removal_factors(unit_process):
     
     removal_dict = {}
     for constituent in df.constituent.unique():
-        removal_dict[constituent] = df[df.constituent == constituent].fractional_constituent_removal.max()
+        removal_dict[constituent] = df[df.constituent == constituent].value.max()
     
     return removal_dict

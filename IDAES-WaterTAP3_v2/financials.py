@@ -57,8 +57,10 @@ class SystemSpecs():
         location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
         
         self.elec_price = float(elec_cost.loc[location])
-        self.salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_FCI'].loc[case_study].value)  
-        self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
+        self.salaries_percent_FCI = float(
+            basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
+        self.land_cost_percent_FCI = float(
+            basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
         self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] ==
                                                         'working_capital_percent'].loc[case_study].value)
 
