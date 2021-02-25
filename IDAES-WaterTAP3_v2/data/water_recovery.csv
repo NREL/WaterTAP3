@@ -112,3 +112,5 @@
 115,Kern County,Baseline,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 116,Default,,well_field,1,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
 117,Default,,ro_deep_scnd_pass,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
+117,Default,,irwin_brine_management,1,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
+117,Default,,deep_well_injection,1,,

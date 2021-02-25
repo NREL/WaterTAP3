@@ -63,6 +63,8 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'chemical_addition': import chemical_addition as unit_process_model
     if up_name_test == 'anion_exchange': import anion_exchange as unit_process_model
     if up_name_test == 'cation_exchange': import cation_exchange as unit_process_model
+    if up_name_test == 'electrodialysis_reversal': import electrodialysis_reversal as unit_process_model
+    if up_name_test == 'irwin_brine_management': import irwin_brine_management as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules
