@@ -148,39 +148,59 @@ see property package for documentation.}"""))
 
         # Get the inlet flow to the unit and convert to the correct units
         flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.Mgallons/pyunits.day)
+                                  to_units=pyunits.m ** 3 / pyunits.hr)
             
         # capital costs basis
-        self.base_fixed_cap_cost = 2.8403 # from VAR tab
-        self.cap_scaling_exp = .7306  # from VAR tab
+        self.base_fixed_cap_cost = 2.8403  # from VAR tab
+        self.cap_scaling_exp = 0.7306  # from VAR tab
         self.fixed_op_cost_scaling_exp = 0.7
-        
+
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
-        
+
         #### CAT AND CHEMS START ###
-        #these are the constituents in the inlet water assuming seawater 35 g/L -> ASSUMED TO ONLY BE VALID FOR CARLSBAD?
-        co2 = 1.27 # mg/L NOT USED
-        bicarb_alk_CaCO3 = 0.56 # mg/L NOT USED
-        hydrox_alk_CaCO3 = 0.56 # mg/L NOT USED
-        magnesium_dissolved_lime = 2.3 # mg/L
-        magnesium_dissolved_factor = 30 # TODO
-        chemical_dosage = magnesium_dissolved_factor * magnesium_dissolved_lime / 1000 
+        # these are the constituents in the inlet water assuming seawater 35 g/L -> ASSUMED TO ONLY BE VALID FOR CARLSBAD?
+        co2 = 1.27  # mg/L NOT USED
+        bicarb_alk_CaCO3 = 0.56  # mg/L NOT USED
+        hydrox_alk_CaCO3 = 0.56  # mg/L NOT USED
+        magnesium_dissolved_lime = pyunits.convert(2.3 * (pyunits.mg / pyunits.L),
+                                                   to_units=(pyunits.kg / pyunits.m ** 3))
+        magnesium_dissolved_factor = 30 * pyunits.dimensionless  # TODO
+        chemical_dosage = magnesium_dissolved_factor * magnesium_dissolved_lime
+        lift_height = 100 * pyunits.ft
+        pump_eff = 0.9 * pyunits.dimensionless
+        motor_eff = 0.9 * pyunits.dimensionless
+        solution_density = 1460 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+
         # assumed to be Lime_Suspension_(Ca(OH)2). kg/m3
-        chemical_dosage = chemical_dosage / 264.172 # converted to kg/gal todo in pyunits
+        # chemical_dosage = chemical_dosage / 264.172 # converted to kg/gal todo in pyunits
+        def solution_vol_flow(flow_in):  # m3/hr
+            chemical_rate = flow_in * chemical_dosage  # kg/hr
+            chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
+            soln_vol_flow = chemical_rate / solution_density
+            soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
+            return soln_vol_flow
+
+        def electricity(flow_in):  # m3/hr
+            soln_vol_flow = pyunits.convert(solution_vol_flow(flow_in), to_units=(pyunits.gallon / pyunits.minute))
+            electricity = (0.746 * soln_vol_flow * lift_height / (
+                    3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
+            return electricity
 
         #### CHEMS ###
         chem_name = unit_params["chemical_name"][0]
-        chem_dict = {chem_name : chemical_dosage}
-        self.chem_dict = chem_dict        
- 
+        chem_dict = {chem_name: chemical_dosage}
+        self.chem_dict = chem_dict
+
+        self.electricity = electricity(flow_in)
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.Mgallons / pyunits.day)
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
             expr=self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp,
-            doc="Unadjusted fixed capital investment") 
+            doc="Unadjusted fixed capital investment")
+        # kwh/m3 given in PML tab, no source TODO
 
-        self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
-                
         ##########################################
         ####### GET REST OF UNIT COSTS ######
         ##########################################        

@@ -105,7 +105,7 @@ def get_complete_costing(self):
     for key in chem_dict.keys():
         chem_cost = cat_chem_df.loc[key].Price
         chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * on_stream_factor
-    self.cat_and_chem_cost = chem_cost_sum
+    self.cat_and_chem_cost = chem_cost_sum * 1E-6
         
     self.electricity_cost = Expression(
             expr= (electricity * flow_in_m3yr * sys_specs.electricity_price/1000000),
