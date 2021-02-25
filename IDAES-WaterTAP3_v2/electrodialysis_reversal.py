@@ -33,6 +33,7 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
+from pyomo.environ import Block, Constraint, units as pyunits
 
 # Import properties and units from "WaterTAP Library"
 
@@ -45,13 +46,13 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "media_filtration"
+module_name = "electrodialysis_reversal"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2016
 
 
 # You don't really want to know what this decorator does
@@ -134,9 +135,7 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-        base_fixed_cap_cost = 34153
-        cap_scaling_exp = 0.319  # Carlsbad Treatment train VAR tab
-        fixed_op_cost_scaling_exp = 0.7
+
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time],
                                   to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
@@ -149,43 +148,25 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
 
         # TODO -->> ADD THESE TO UNIT self.X
-        lift_height = 100 * pyunits.ft  # ft # ft
-        pump_eff = 0.9
-        motor_eff = 0.9
-        filtration_rate = 10 * (pyunits.meter / pyunits.hour)
-        number_of_units = 6
-        #### CHEMS ###
 
         chem_dict = {}
         self.chem_dict = chem_dict
+        tds_in = self.conc_mass_in[time, "tds"]
+        tds_out = self.conc_mass_out[time, 'tds']
+        del_tds = 1 + (tds_out - tds_in) * 1E3 * (pyunits.mg / pyunits.L)
+        base_tds = 630 * (pyunits.mg / pyunits.L)
 
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
-
-        def base_filter_surface_area(flow_in):
-            surface_area = pyunits.convert((flow_in / filtration_rate), to_units=pyunits.ft ** 2)  # conversion to ft2
-
-            return surface_area  # total surface area of the filter, in ft2
-
-        def dual_media_filter(flow_in):
-            dual_cost = (38.319 * base_filter_surface_area(
-                flow_in) + 21377) * number_of_units  # calculations done based on ft2
-
-            return dual_cost
-
-        def filter_backwash(flow_in):
-            filter_backwash_cost = 292.44 * base_filter_surface_area(flow_in) + 92497  # calculations done based on ft2
-
-            return filter_backwash_cost
-
+        # self.electricity = Var(time,
+        #                           doc="EDR electricity")
         def fixed_cap(flow_in):
-            media_filt_cap = (dual_media_filter(flow_in) + filter_backwash(flow_in)) * 1E-6
-            return media_filt_cap
+            ed_cap = 31  # $MM
+            return ed_cap
 
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
+        # self.electricity_eq = Constraint(expr=self.electricity[time] == self.conc_mass_in[time, "tds"] * 20)
+        # expr=self.electricity[time] == (del_tds / base_tds) * 0.337)
 
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
@@ -197,7 +178,7 @@ see property package for documentation.}"""))
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = del_tds / base_tds * 0.337  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

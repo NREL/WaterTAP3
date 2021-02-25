@@ -138,6 +138,12 @@ def get_module(module_name):
     if module_name == "cation_exchange":
         import cation_exchange as up
 
+    if module_name == "electrodialysis_reversal":
+        import electrodialysis_reversal as up
+
+    if module_name == "irwin_brine_management":
+        import irwin_brine_management as up
+
     return up
 
 

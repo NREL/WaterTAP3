@@ -62,6 +62,7 @@ def get_removal_factors(unit_process):
     source_water = case_study_trains.source_water 
     
     df = pd.read_csv("Data/constituent_removal.csv")
+    df.case_study = np.where(df.case_study == "Default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
     df = df[df.scenario == train["scenario"]]
