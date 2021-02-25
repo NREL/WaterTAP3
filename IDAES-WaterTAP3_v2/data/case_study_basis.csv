@@ -449,3 +449,4 @@ Heap_Leaching,Baseline,0.1,NAWI,exp_return_on_equity
 Heap_Leaching,Baseline,3.4,NAWI,default_tpec_multiplier
 Heap_Leaching,Baseline,1.65,NAWI,default_tic_multiplier
 Heap_Leaching,Baseline,0.0005,NAWI,base_salary_per_fci
+

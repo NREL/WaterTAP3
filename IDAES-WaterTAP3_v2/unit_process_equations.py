@@ -57,12 +57,12 @@ def build_up(self, up_name_test=None):
     if up_name_test == "anti_scalant_addition": import anti_scalant_addition as unit_process_model
     if up_name_test == 'uv_aop': import uv_aop as unit_process_model
     if up_name_test == 'well_field': import well_field as unit_process_model
-    if up_name_test == 'fe_mn_removal': import fe_mn_removal as unit_process_model
+    if up_name_test == 'iron_and_manganese_removal': import iron_and_manganese_removal as unit_process_model
     if up_name_test == 'hydrochloric_acid_addition': import hydrochloric_acid_addition as unit_process_model
     if up_name_test == 'deep_well_injection': import deep_well_injection as unit_process_model
     if up_name_test == 'chemical_addition': import chemical_addition as unit_process_model
-
-        
+    if up_name_test == 'anion_exchange': import anion_exchange as unit_process_model
+    if up_name_test == 'cation_exchange': import cation_exchange as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules
