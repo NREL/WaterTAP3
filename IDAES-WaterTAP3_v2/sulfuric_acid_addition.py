@@ -152,9 +152,11 @@ see property package for documentation.}"""))
         chem_name = unit_params["chemical_name"][0]
         chemical_dosage = 0.01 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
         solution_density = 1490 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
-        chem_dict = {chem_name: chemical_dosage}
+        chem_dict = {chem_name: 0.01}
         self.chem_dict = chem_dict
-
+        
+        self.chemical_dosage = chemical_dosage
+        
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
@@ -165,7 +167,8 @@ see property package for documentation.}"""))
             soln_vol_flow = chemical_rate / solution_density
             soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
             return soln_vol_flow  # m3/day to gal/day
-
+        
+        
         def fixed_cap(flow_in):
             source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp
             hcl_cap = (source_cost * tpec_tic * number_of_units) * 1E-6

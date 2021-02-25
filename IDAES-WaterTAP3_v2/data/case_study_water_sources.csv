@@ -1,699 +1,700 @@
-,Variable,unit,value,dumb,water_type,case_study,reference,source_or_use,variable,scenario
-0,"Boron, dissolved",kg/m3,0.0044,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,boron,Baseline
-1,Bromide,kg/m3,0.0663,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,bromide,Baseline
-2,"Calcium, Dissolved",kg/m3,0.4096,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,calcium,Baseline
-3,Chloride,kg/m3,19.162,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,chloride,Baseline
-4,"Magnesium, Dissolved",kg/m3,1.278,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,magnesium,Baseline
-5,pH_Max,pH,7,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,ph_max,Baseline
-6,pH_Min,pH,7,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,ph_min,Baseline
-7,Potassium,kg/m3,0.3953,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,potassium,Baseline
-8,"Sodium, Dissolved",kg/m3,10.679,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,sodium,Baseline
-9,Strontium,kg/m3,0.0013,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,strontium,Baseline
-10,"Sulfate, Dissolved",kg/m3,2.68,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,sulfate,Baseline
-11,Total Dissolved Solids (TDS),kg/m3,35,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,tds,Baseline
-12,Total Suspended Solids (TSS),kg/m3,0.03,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Carlsbad,NAWI,Source,tss,Baseline
-13,"Boron, dissolved",kg/m3,0.0044,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,boron,Baseline
-14,Bromide,kg/m3,0.0663,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,bromide,Baseline
-15,"Calcium, Dissolved",kg/m3,0.4096,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,calcium,Baseline
-16,Chloride,kg/m3,19.162,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,chloride,Baseline
-17,"Magnesium, Dissolved",kg/m3,1.278,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,magnesium,Baseline
-18,pH_Max,pH,7,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,ph_max,Baseline
-19,pH_Min,pH,7,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,ph_min,Baseline
-20,Potassium,kg/m3,0.3953,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,potassium,Baseline
-21,"Sodium, Dissolved",kg/m3,10.679,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,sodium,Baseline
-22,Strontium,kg/m3,0.0013,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,strontium,Baseline
-23,"Sulfate, Dissolved",kg/m3,2.68,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,sulfate,Baseline
-24,Total Dissolved Solids (TDS),kg/m3,35,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,tds,Baseline
-25,Total Suspended Solids (TSS),kg/m3,0.03,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,tss,Baseline
-,Flow,m3/s,0.309166667,https://www.britannica.com/science/seawater/Dissolved-inorganic-substance,Seawater,Santa_Barbara,NAWI,Source,flow,Baseline
-26,"Boron, dissolved",kg/m3,0.005028571,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,boron,Baseline
-27,Bromide,kg/m3,0.075771429,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,bromide,Baseline
-28,"Calcium, Dissolved",kg/m3,0.468114286,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,calcium,Baseline
-29,Chloride,kg/m3,21.89942857,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,chloride,Baseline
-30,"Magnesium, Dissolved",kg/m3,1.460571429,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,magnesium,Baseline
-31,pH_Max,pH,7,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,ph_max,Baseline
-32,pH_Min,pH,7,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,ph_min,Baseline
-33,Potassium,kg/m3,0.451771429,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,potassium,Baseline
-34,"Sodium, Dissolved",kg/m3,12.20457143,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,sodium,Baseline
-35,Strontium,kg/m3,0.001485714,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,strontium,Baseline
-36,"Sulfate, Dissolved",kg/m3,3.062857143,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,sulfate,Baseline
-37,Total Dissolved Solids (TDS),kg/m3,40.7,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,tds,Baseline
-38,Total Suspended Solids (TSS),kg/m3,0.034285714,Ratio from 35 g/L basis to Ashkelon basis of 40.7 g/L total salinity.,Seawater,Ashkelon,NAWI,Source,tss,Baseline
-39,"Boron, dissolved",kg/m3,0.003771429,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,boron,Baseline
-40,Bromide,kg/m3,0.056828571,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,bromide,Baseline
-41,"Calcium, Dissolved",kg/m3,0.351085714,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,calcium,Baseline
-42,Chloride,kg/m3,16.42457143,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,chloride,Baseline
-43,"Magnesium, Dissolved",kg/m3,1.095428571,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,magnesium,Baseline
-44,pH_Max,pH,7,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,ph_max,Baseline
-45,pH_Min,pH,7,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,ph_min,Baseline
-46,Potassium,kg/m3,0.338828571,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,potassium,Baseline
-47,"Sodium, Dissolved",kg/m3,9.153428571,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,sodium,Baseline
-48,Strontium,kg/m3,0.001114286,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,strontium,Baseline
-49,"Sulfate, Dissolved",kg/m3,2.297142857,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,sulfate,Baseline
-50,Total Dissolved Solids (TDS),kg/m3,30,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,tds,Baseline
-51,Total Suspended Solids (TSS),kg/m3,0.025714286,Ratio from 35 g/L basis to Tampa Bay basis of 30 g/L total salinity.,Seawater,Tampa-Bay,NAWI,Source,tss,Baseline
-52,Alkalinity as CaCO3,kg/m3,0.084,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,alkalinity_as_caco3,Baseline
-53,"Calcium, Dissolved",kg/m3,0.0096,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,calcium,Baseline
-54,Chloride,kg/m3,0.0083,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,chloride,Baseline
-55,Electrical_Conductivity,S/m,188,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,electrical_conductivity,Baseline
-56,"Magnesium, Dissolved",kg/m3,0.0024,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,magnesium,Baseline
-57,Nitrate (measured as Nitrogen),kg/m3,0.0036,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,nitrate_as_nitrogen,Baseline
-58,pH_Max,pH,6.64,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,ph_max,Baseline
-59,pH_Min,pH,6.64,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,ph_min,Baseline
-60,Potassium,kg/m3,0.0089,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,potassium,Baseline
-61,Silicon,kg/m3,0.0402,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,silicon,Baseline
-62,Silicon Dioxide (SiO2),kg/m3,0.09,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,silicon_dioxide,Baseline
-63,"Sodium, Dissolved",kg/m3,0.0235,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sodium,Baseline
-64,"Sulfate, Dissolved",kg/m3,0.0124,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sulfate,Baseline
-65,Sulfur,kg/m3,0.0044,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sulfur,Baseline
-66,Total Dissolved Solids (TDS),kg/m3,1.14,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,tds,Baseline
-67,Total Organic Carbon (TOC),kg/m3,0.00023,Tuscarora case study. ,Tuscarora_Make_Up,Tuscarora,NAWI,Source,toc,Baseline
-68,Alkalinity as CaCO3,kg/m3,0.26,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,alkalinity_as_caco3,Baseline
-69,"Calcium, Dissolved",kg/m3,0.003,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,calcium,Baseline
-70,Chloride,kg/m3,0.0199,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,chloride,Baseline
-71,Electrical_Conductivity,S/m,801,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,electrical_conductivity,Baseline
-72,"Magnesium, Dissolved",kg/m3,4.00E-05,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,magnesium,Baseline
-73,pH_Max,pH,6.05,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,ph_max,Baseline
-74,pH_Min,pH,6.05,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,ph_min,Baseline
-75,Potassium,kg/m3,0.0154,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,potassium,Baseline
-76,Silicon,kg/m3,0.0948,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,silicon,Baseline
-77,Silicon Dioxide (SiO2),kg/m3,0.22,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,silicon_dioxide,Baseline
-78,"Sodium, Dissolved",kg/m3,0.1278,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,sodium,Baseline
-79,"Sulfate, Dissolved",kg/m3,0.0501,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,sulfate,Baseline
-80,Sulfur,kg/m3,0.0296,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,sulfur,Baseline
-81,Total Dissolved Solids (TDS),kg/m3,1.855,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,tds,Baseline
-82,Total Organic Carbon (TOC),kg/m3,0.00052,Tuscarora case study. ,Tuscarora_Brine,Tuscarora,NAWI,Source,toc,Baseline
-83,Aluminum,kg/m3,2.43E-05,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,aluminum,Baseline
-84,Ammonia Nitrogen,kg/m3,6.00E-06,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,ammonia_nitrogen,Baseline
-85,Barium,kg/m3,3.07E-05,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,barium,Baseline
-86,Copper,kg/m3,0.00028,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,copper,Baseline
-87,Fluoride,kg/m3,0.00054,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,fluoride,Baseline
-88,Haloacetic acids (HAA5),kg/m3,1.50E-05,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,haloacetic_acids,Baseline
-89,Lead,kg/m3,1.09E-05,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,lead,Baseline
-90,"Magnesium, Dissolved",kg/m3,4.88E-06,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,magnesium,Baseline
-91,"Nitrate-N, Dissolved",kg/m3,2.00E-05,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,nitrate,Baseline
-92,"Sodium, Dissolved",kg/m3,0.0148,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,sodium,Baseline
-93,Total Trihalomethanes (TTHMs),kg/m3,2.46E-05,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,trihalomethanes,Baseline
-94,Turbidity,kg/m3,0.000135,Cherokee case study. ,Denver_City_Water,Cherokee,NAWI,Source,turbidity,Baseline
-95,Arsenic,kg/m3,2.50E-05,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,arsenic,Baseline
-96,Barium,kg/m3,2.00E-05,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,barium,Baseline
-97,Bicarbonate Alkalinity as CaCO3,kg/m3,0.1786,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
-98,"Calcium, Dissolved",kg/m3,0.00475,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,calcium,Baseline
-99,Chloride,kg/m3,0.1046,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,chloride,Baseline
-100,Fluoride,kg/m3,0.0051,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,fluoride,Baseline
-101,Hardness,kg/m3,0.0795,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,hardness,Baseline
-102,"Magnesium, Dissolved",kg/m3,0.0042,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,magnesium,Baseline
-103,Nitrate (measured as Nitrogen),kg/m3,0.0203,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,nitrate_as_nitrogen,Baseline
-104,"Nitrate-N, Dissolved",kg/m3,0.0203,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,nitrate,Baseline
-105,pH_Max,pH,7.79,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,ph_max,Baseline
-106,pH_Min,pH,7.79,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,ph_min,Baseline
-107,Potassium,kg/m3,0.0089,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,potassium,Baseline
-108,"Sodium, Dissolved",kg/m3,0.1678,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,sodium,Baseline
-109,Strontium,kg/m3,0.0004,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,strontium,Baseline
-110,"Sulfate, Dissolved",kg/m3,0.1239,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,sulfate,Baseline
-111,Total Dissolved Solids (TDS),kg/m3,0.69,Irwin case study.,Irwin_Brackish,Irwin,NAWI,Source,tds,Baseline
-112,Aluminum,kg/m3,6.16E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,aluminum,Baseline
-113,Arsenic,kg/m3,5.10E-07,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,arsenic,Baseline
-114,Barium,kg/m3,4.52E-05,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,barium,Baseline
-115,"Boron, dissolved",kg/m3,0.0004,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,boron,Baseline
-116,Bromide,kg/m3,1.00E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,bromide,Baseline
-117,"Calcium, Dissolved",kg/m3,0.08045,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,calcium,Baseline
-118,Chloride,kg/m3,0.29792,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,chloride,Baseline
-119,Chromium (total),kg/m3,1.90E-07,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,chromium,Baseline
-120,Cyanide (as free cyanide),kg/m3,2.67E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,cyanide_as_free,Baseline
-121,Electrical_Conductivity,S/m,0.17,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,electrical_conductivity,Baseline
-122,Fluoride,kg/m3,0.00097,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,fluoride,Baseline
-123,Hardness,kg/m3,0.312,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,hardness,Baseline
-124,Iron,kg/m3,0.00030225,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,iron,Baseline
-125,Lead,kg/m3,1.00E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,lead,Baseline
-126,"Magnesium, Dissolved",kg/m3,0.02701,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,magnesium,Baseline
-127,Manganese,kg/m3,5.26E-05,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,manganese,Baseline
-128,Mercury,kg/m3,1.00E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,mercury,Baseline
-129,Nickel,kg/m3,4.66E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,nickel,Baseline
-130,Nitrate (measured as Nitrogen),kg/m3,0.00864,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,nitrate_as_nitrogen,Baseline
-131,Nitrite (measured as Nitrogen),kg/m3,0.00069,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,nitrite_as_nitrogen,Baseline
-132,pH_Max,pH,7.28,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,ph_max,Baseline
-133,pH_Min,pH,7.28,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,ph_min,Baseline
-134,"Phosphates, Dissolved",kg/m3,0.00052,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,phosphates,Baseline
-135,Potassium,kg/m3,0.01897,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,potassium,Baseline
-136,Selenium,kg/m3,1.06E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,selenium,Baseline
-137,Silicon,kg/m3,0.02104,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,silicon,Baseline
-138,Silver,kg/m3,1.00E-06,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,silver,Baseline
-139,"Sodium, Dissolved",kg/m3,0.23158,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,sodium,Baseline
-140,"Sulfate, Dissolved",kg/m3,0.18825,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,sulfate,Baseline
-141,Total Coliforms (including fecal coliform and E. Coli),kg/m3,294.19623,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
-142,Total Dissolved Solids (TDS),kg/m3,0.98555,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,tds,Baseline
-143,Total Suspended Solids (TSS),kg/m3,0.006525,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,tss,Baseline
-144,Total Trihalomethanes (TTHMs),kg/m3,3.20E-07,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,trihalomethanes,Baseline
-145,Total Organic Carbon (TOC),kg/m3,0.00953,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,toc,Baseline
-146,Turbidity,kg/m3,0.0016,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,turbidity,Baseline
-147,Zinc,kg/m3,1.53E-05,Orange County Water District case study.,OCWD_Feed,OCWD,NAWI,Source,zinc,Baseline
-148,Aluminum,kg/m3,6.16E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,aluminum,Baseline
-149,Arsenic,kg/m3,5.10E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,arsenic,Baseline
-150,Barium,kg/m3,4.52E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,barium,Baseline
-151,Biological Oxygen Demand (BOD),kg/m3,0.25,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,bod,Baseline
-152,"Boron, dissolved",kg/m3,0.0004,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,boron,Baseline
-153,Bromide,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,bromide,Baseline
-154,"Calcium, Dissolved",kg/m3,0.08045,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,calcium,Baseline
-155,Chloride,kg/m3,0.29792,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,chloride,Baseline
-156,Chromium (total),kg/m3,1.90E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,chromium,Baseline
-157,Cyanide (as free cyanide),kg/m3,2.67E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,cyanide_as_free,Baseline
-158,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,electrical_conductivity,Baseline
-159,Fluoride,kg/m3,0.00097,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,fluoride,Baseline
-160,Hardness,kg/m3,0.312,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,hardness,Baseline
-161,Iron,kg/m3,0.00030225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,iron,Baseline
-162,Lead,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,lead,Baseline
-163,"Magnesium, Dissolved",kg/m3,0.02701,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,magnesium,Baseline
-164,Manganese,kg/m3,5.26E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,manganese,Baseline
-165,Mercury,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,mercury,Baseline
-166,Nickel,kg/m3,4.66E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nickel,Baseline
-167,Nitrate (measured as Nitrogen),kg/m3,0.00864,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nitrate_as_nitrogen,Baseline
-168,"Nitrate-N, Dissolved",kg/m3,0.04,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nitrate,Baseline
-169,Nitrite (measured as Nitrogen),kg/m3,0.00069,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,nitrite_as_nitrogen,Baseline
-170,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,ph_max,Baseline
-171,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,ph_min,Baseline
-172,"Phosphates, Dissolved",kg/m3,0.00052,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,phosphates,Baseline
-173,Potassium,kg/m3,0.01897,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,potassium,Baseline
-174,Selenium,kg/m3,1.06E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,selenium,Baseline
-175,Silicon,kg/m3,0.02104,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,silicon,Baseline
-176,Silver,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,silver,Baseline
-177,"Sodium, Dissolved",kg/m3,0.23158,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,sodium,Baseline
-178,"Sulfate, Dissolved",kg/m3,0.18825,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,sulfate,Baseline
-179,Total Coliforms (including fecal coliform and E. Coli),kg/m3,294.19623,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
-180,Total Dissolved Solids (TDS),kg/m3,0.98555,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,tds,Baseline
-181,Total Suspended Solids (TSS),kg/m3,0.006525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,tss,Baseline
-182,Total Trihalomethanes (TTHMs),kg/m3,3.20E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,trihalomethanes,Baseline
-183,Total Organic Carbon (TOC),kg/m3,0.00953,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,toc,Baseline
-184,Turbidity,kg/m3,0.0016,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,turbidity,Baseline
-185,Zinc,kg/m3,1.53E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Graywater,Solaire,NAWI,Source,zinc,Baseline
-186,Aluminum,kg/m3,6.16E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,aluminum,Baseline
-187,Arsenic,kg/m3,5.10E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,arsenic,Baseline
-188,Barium,kg/m3,4.52E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,barium,Baseline
-189,Biological Oxygen Demand (BOD),kg/m3,0.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,bod,Baseline
-190,"Boron, dissolved",kg/m3,0.0004,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,boron,Baseline
-191,Bromide,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,bromide,Baseline
-192,"Calcium, Dissolved",kg/m3,0.08045,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,calcium,Baseline
-193,Chloride,kg/m3,0.29792,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,chloride,Baseline
-194,Chromium (total),kg/m3,1.90E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,chromium,Baseline
-195,Cyanide (as free cyanide),kg/m3,2.67E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,cyanide_as_free,Baseline
-196,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,electrical_conductivity,Baseline
-197,Fluoride,kg/m3,0.00097,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,fluoride,Baseline
-198,Hardness,kg/m3,0.312,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,hardness,Baseline
-199,Iron,kg/m3,0.00030225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,iron,Baseline
-200,Lead,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,lead,Baseline
-201,"Magnesium, Dissolved",kg/m3,0.02701,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,magnesium,Baseline
-202,Manganese,kg/m3,5.26E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,manganese,Baseline
-203,Mercury,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,mercury,Baseline
-204,Nickel,kg/m3,4.66E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nickel,Baseline
-205,Nitrate (measured as Nitrogen),kg/m3,0.00864,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nitrate_as_nitrogen,Baseline
-206,"Nitrate-N, Dissolved",kg/m3,0.05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nitrate,Baseline
-207,Nitrite (measured as Nitrogen),kg/m3,0.00069,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,nitrite_as_nitrogen,Baseline
-208,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,ph_max,Baseline
-209,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,ph_min,Baseline
-210,"Phosphates, Dissolved",kg/m3,0.00052,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,phosphates,Baseline
-211,Potassium,kg/m3,0.01897,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,potassium,Baseline
-212,Selenium,kg/m3,1.06E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,selenium,Baseline
-213,Silicon,kg/m3,0.02104,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,silicon,Baseline
-214,Silver,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,silver,Baseline
-215,"Sodium, Dissolved",kg/m3,0.23158,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,sodium,Baseline
-216,"Sulfate, Dissolved",kg/m3,0.18825,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,sulfate,Baseline
-217,Total Coliforms (including fecal coliform and E. Coli),kg/m3,294.19623,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
-218,Total Dissolved Solids (TDS),kg/m3,0.98555,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,tds,Baseline
-219,Total Suspended Solids (TSS),kg/m3,0.006525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,tss,Baseline
-220,Total Trihalomethanes (TTHMs),kg/m3,3.20E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,trihalomethanes,Baseline
-221,Total Organic Carbon (TOC),kg/m3,0.00953,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,toc,Baseline
-222,Turbidity,kg/m3,0.0016,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,turbidity,Baseline
-223,Zinc,kg/m3,1.53E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Blackwater,Solaire,NAWI,Source,zinc,Baseline
-224,Aluminum,kg/m3,6.16E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,aluminum,Baseline
-225,Arsenic,kg/m3,5.10E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,arsenic,Baseline
-226,Barium,kg/m3,4.52E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,barium,Baseline
-227,Biological Oxygen Demand (BOD),kg/m3,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,bod,Baseline
-228,"Boron, dissolved",kg/m3,0.0004,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,boron,Baseline
-229,Bromide,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,bromide,Baseline
-230,"Calcium, Dissolved",kg/m3,0.08045,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,calcium,Baseline
-231,Chloride,kg/m3,0.29792,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,chloride,Baseline
-232,Chromium (total),kg/m3,1.90E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,chromium,Baseline
-233,Cyanide (as free cyanide),kg/m3,2.67E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,cyanide_as_free,Baseline
-234,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,electrical_conductivity,Baseline
-235,Fluoride,kg/m3,0.00097,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,fluoride,Baseline
-236,Hardness,kg/m3,0.312,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,hardness,Baseline
-237,Iron,kg/m3,0.00030225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,iron,Baseline
-238,Lead,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,lead,Baseline
-239,"Magnesium, Dissolved",kg/m3,0.02701,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,magnesium,Baseline
-240,Manganese,kg/m3,5.26E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,manganese,Baseline
-241,Mercury,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,mercury,Baseline
-242,Nickel,kg/m3,4.66E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nickel,Baseline
-243,Nitrate (measured as Nitrogen),kg/m3,0.00864,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nitrate_as_nitrogen,Baseline
-244,"Nitrate-N, Dissolved",kg/m3,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nitrate,Baseline
-245,Nitrite (measured as Nitrogen),kg/m3,0.00069,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,nitrite_as_nitrogen,Baseline
-246,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,ph_max,Baseline
-247,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,ph_min,Baseline
-248,"Phosphates, Dissolved",kg/m3,0.00052,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,phosphates,Baseline
-249,Potassium,kg/m3,0.01897,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,potassium,Baseline
-250,Selenium,kg/m3,1.06E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,selenium,Baseline
-251,Silicon,kg/m3,0.02104,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,silicon,Baseline
-252,Silver,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,silver,Baseline
-253,"Sodium, Dissolved",kg/m3,0.23158,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,sodium,Baseline
-254,"Sulfate, Dissolved",kg/m3,0.18825,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,sulfate,Baseline
-255,Total Coliforms (including fecal coliform and E. Coli),kg/m3,294.19623,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
-256,Total Dissolved Solids (TDS),kg/m3,0.98555,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,tds,Baseline
-257,Total Suspended Solids (TSS),kg/m3,0.006525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,tss,Baseline
-258,Total Trihalomethanes (TTHMs),kg/m3,3.20E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,trihalomethanes,Baseline
-259,Total Organic Carbon (TOC),kg/m3,0.00953,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,toc,Baseline
-260,Turbidity,kg/m3,0.0016,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,turbidity,Baseline
-261,Zinc,kg/m3,1.53E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Solaire_Stormwater,Solaire,NAWI,Source,zinc,Baseline
-262,Aluminum,kg/m3,6.16E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,aluminum,Baseline
-263,Arsenic,kg/m3,5.10E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,arsenic,Baseline
-264,Barium,kg/m3,4.52E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,barium,Baseline
-265,Biological Oxygen Demand (BOD),kg/m3,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,bod,Baseline
-266,"Boron, dissolved",kg/m3,0.0004,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,boron,Baseline
-267,Bromide,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,bromide,Baseline
-268,"Calcium, Dissolved",kg/m3,0.08045,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,calcium,Baseline
-269,Chloride,kg/m3,0.29792,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,chloride,Baseline
-270,Chromium (total),kg/m3,1.90E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,chromium,Baseline
-271,Cyanide (as free cyanide),kg/m3,2.67E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,cyanide_as_free,Baseline
-272,Electrical_Conductivity,S/m,0.17,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,electrical_conductivity,Baseline
-273,Fluoride,kg/m3,0.00097,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,fluoride,Baseline
-274,Hardness,kg/m3,0.312,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,hardness,Baseline
-275,Iron,kg/m3,0.00030225,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,iron,Baseline
-276,Lead,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,lead,Baseline
-277,"Magnesium, Dissolved",kg/m3,0.02701,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,magnesium,Baseline
-278,Manganese,kg/m3,5.26E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,manganese,Baseline
-279,Mercury,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,mercury,Baseline
-280,Nickel,kg/m3,4.66E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nickel,Baseline
-281,Nitrate (measured as Nitrogen),kg/m3,0.00864,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrate_as_nitrogen,Baseline
-282,"Nitrate-N, Dissolved",kg/m3,,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrate,Baseline
-283,Nitrite (measured as Nitrogen),kg/m3,0.00069,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrite_as_nitrogen,Baseline
-284,pH_Max,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,ph_max,Baseline
-285,pH_Min,pH,7.28,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,ph_min,Baseline
-286,"Phosphates, Dissolved",kg/m3,0.00052,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,phosphates,Baseline
-287,Potassium,kg/m3,0.01897,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,potassium,Baseline
-288,Selenium,kg/m3,1.06E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,selenium,Baseline
-289,Silicon,kg/m3,0.02104,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,silicon,Baseline
-290,Silver,kg/m3,1.00E-06,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,silver,Baseline
-291,"Sodium, Dissolved",kg/m3,0.23158,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,sodium,Baseline
-292,"Sulfate, Dissolved",kg/m3,0.18825,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,sulfate,Baseline
-293,Total Coliforms (including fecal coliform and E. Coli),kg/m3,294.19623,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
-294,Total Dissolved Solids (TDS),kg/m3,0.98555,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,tds,Baseline
-295,Total Suspended Solids (TSS),kg/m3,0.006525,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,tss,Baseline
-296,Total Trihalomethanes (TTHMs),kg/m3,3.20E-07,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,trihalomethanes,Baseline
-297,Total Organic Carbon (TOC),kg/m3,0.00953,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,toc,Baseline
-298,Turbidity,kg/m3,0.0016,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,turbidity,Baseline
-299,Zinc,kg/m3,1.53E-05,Placeholder from OCWD case study. Update with Solaire inputs if available. ,Big_Spring_Feed,Big_Spring,NAWI,Source,zinc,Baseline
-300,Alkalinity as CaCO3,kg/m3,0.08,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
-301,"Calcium, Dissolved",kg/m3,0.13,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,calcium,Baseline
-302,Chloride,kg/m3,1.18,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,chloride,Baseline
-303,Electrical_Conductivity,S/m,4200,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,electrical_conductivity,Baseline
-304,"Magnesium, Dissolved",kg/m3,0.03,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,magnesium,Baseline
-305,pH_Max,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,ph_max,Baseline
-306,pH_Min,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,ph_min,Baseline
-307,Potassium,kg/m3,0.016,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,potassium,Baseline
-308,Silicon Dioxide (SiO2),kg/m3,0.031,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,silicon_dioxide,Baseline
-309,"Sodium, Dissolved",kg/m3,0.77,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sodium,Baseline
-310,"Sulfate, Dissolved",kg/m3,0.23,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sulfate,Baseline
-311,Total Dissolved Solids (TDS),kg/m3,2.5,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Low,KBHDP,NAWI,Source,tds,Baseline
-312,Alkalinity as CaCO3,kg/m3,0.08,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
-313,"Calcium, Dissolved",kg/m3,0.13,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,calcium,Baseline
-314,Chloride,kg/m3,1.18,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,chloride,Baseline
-315,Electrical_Conductivity,S/m,4200,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,electrical_conductivity,Baseline
-316,"Magnesium, Dissolved",kg/m3,0.03,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,magnesium,Baseline
-317,pH_Max,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,ph_max,Baseline
-318,pH_Min,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,ph_min,Baseline
-319,Potassium,kg/m3,0.016,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,potassium,Baseline
-320,Silicon Dioxide (SiO2),kg/m3,0.031,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,silicon_dioxide,Baseline
-321,"Sodium, Dissolved",kg/m3,0.77,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sodium,Baseline
-322,"Sulfate, Dissolved",kg/m3,0.23,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sulfate,Baseline
-323,Total Dissolved Solids (TDS),kg/m3,2.5,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,tds,Baseline
-324,Alkalinity as CaCO3,kg/m3,0.0825,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
-325,"Calcium, Dissolved",kg/m3,0.145,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,calcium,Baseline
-326,Chloride,kg/m3,1.315,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,chloride,Baseline
-327,Electrical_Conductivity,S/m,4600,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,electrical_conductivity,Baseline
-328,"Magnesium, Dissolved",kg/m3,0.04,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,magnesium,Baseline
-329,pH_Max,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,ph_max,Baseline
-330,pH_Min,pH,7.6,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,ph_min,Baseline
-331,Potassium,kg/m3,0.019,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,potassium,Baseline
-332,Silicon Dioxide (SiO2),kg/m3,0.0345,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,silicon_dioxide,Baseline
-333,"Sodium, Dissolved",kg/m3,0.825,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,sodium,Baseline
-334,"Sulfate, Dissolved",kg/m3,0.29,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,sulfate,Baseline
-335,Total Dissolved Solids (TDS),kg/m3,2.75,Kay Bailey Hutchinson Desal Plant case study. ,KBHDP_Brackish_High,KBHDP,NAWI,Source,tds,Baseline
-336,Alkalinity as CaCO3,kg/m3,0.5375,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,alkalinity_as_caco3,Baseline
-337,Aluminum,kg/m3,7.80E-05,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,aluminum,Baseline
-338,Arsenic,kg/m3,7.50E-06,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,arsenic,Baseline
-339,Barium,kg/m3,0.000129,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,barium,Baseline
-340,Bicarbonate Alkalinity as CaCO3,kg/m3,0.662,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
-341,"Boron, dissolved",kg/m3,0.000193,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,boron,Baseline
-342,"Calcium, Dissolved",kg/m3,0.331,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,calcium,Baseline
-343,Chloride,kg/m3,0.565,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,chloride,Baseline
-344,Electrical_Conductivity,S/m,0.3476,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,electrical_conductivity,Baseline
-345,Fluoride,kg/m3,0.00032,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,fluoride,Baseline
-346,Iron,kg/m3,0.000387,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,iron,Baseline
-347,"Magnesium, Dissolved",kg/m3,0.284,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,magnesium,Baseline
-348,Manganese,kg/m3,0.000115,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,manganese,Baseline
-349,Nitrate (measured as Nitrogen),kg/m3,0.003,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,nitrate_as_nitrogen,Baseline
-350,Nitrite (measured as Nitrogen),kg/m3,1.00E-05,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,nitrite_as_nitrogen,Baseline
-351,pH_Max,pH,6.1,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,ph_max,Baseline
-352,pH_Min,pH,6.1,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,ph_min,Baseline
-353,"Phosphates, Dissolved",kg/m3,0.0002,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,phosphates,Baseline
-354,Potassium,kg/m3,0.0098,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,potassium,Baseline
-355,Silicon,kg/m3,0.0612,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,silicon,Baseline
-356,"Sodium, Dissolved",kg/m3,0.2787,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,sodium,Baseline
-357,Strontium,kg/m3,0.0016,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,strontium,Baseline
-358,"Sulfate, Dissolved",kg/m3,0.58,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,sulfate,Baseline
-359,Total Dissolved Solids (TDS),kg/m3,2.33,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,tds,Baseline
-360,Zinc,kg/m3,5.20E-05,Eastern Municipal Water District case study.,EMWD_CA_Brackish,EMWD,NAWI,Source,zinc,Baseline
-361,Arsenic,kg/m3,2.50E-05,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,arsenic,Baseline
-362,Barium,kg/m3,2.00E-05,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,barium,Baseline
-363,Bicarbonate Alkalinity as CaCO3,kg/m3,0.1786,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
-364,"Calcium, Dissolved",kg/m3,0.00475,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,calcium,Baseline
-365,Chloride,kg/m3,0.1046,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,chloride,Baseline
-366,Fluoride,kg/m3,0.0051,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,fluoride,Baseline
-367,Hardness,kg/m3,0.0795,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,hardness,Baseline
-368,"Magnesium, Dissolved",kg/m3,0.0042,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,magnesium,Baseline
-369,Nitrate (measured as Nitrogen),kg/m3,0.0203,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,nitrate_as_nitrogen,Baseline
-370,"Nitrate-N, Dissolved",kg/m3,0.0203,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,nitrate,Baseline
-371,pH_Max,pH,7.79,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,ph_max,Baseline
-372,pH_Min,pH,7.79,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,ph_min,Baseline
-373,Potassium,kg/m3,0.0089,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,potassium,Baseline
-374,"Sodium, Dissolved",kg/m3,0.1678,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,sodium,Baseline
-375,Strontium,kg/m3,0.0004,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,strontium,Baseline
-376,"Sulfate, Dissolved",kg/m3,0.1239,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,sulfate,Baseline
-377,Total Dissolved Solids (TDS),kg/m3,0.69,Fort Irwin Water Works case study. ,Irwin_Brackish,Irwin,NAWI,Source,tds,Baseline
-378,Arsenic,kg/m3,0.000283715,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,arsenic,Baseline
-379,Barium,kg/m3,0.000253181,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,barium,Baseline
-380,Bicarbonate Alkalinity as CaCO3,kg/m3,1.886768448,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
-381,"Calcium, Dissolved",kg/m3,0.056037474,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,calcium,Baseline
-382,Chloride,kg/m3,1.185750636,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,chloride,Baseline
-383,Fluoride,kg/m3,0.053435115,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,fluoride,Baseline
-384,Hardness,kg/m3,0.935114504,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,hardness,Baseline
-385,"Magnesium, Dissolved",kg/m3,0.048346056,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,magnesium,Baseline
-386,Nitrate (measured as Nitrogen),kg/m3,0.227735369,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,nitrate_as_nitrogen,Baseline
-387,"Nitrate-N, Dissolved",kg/m3,0.227735369,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,nitrate,Baseline
-388,pH_Max,pH,7.85,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,ph_max,Baseline
-389,pH_Min,pH,7.85,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,ph_min,Baseline
-390,Potassium,kg/m3,0.10178117,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,potassium,Baseline
-391,"Sodium, Dissolved",kg/m3,1.856234097,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,sodium,Baseline
-392,Strontium,kg/m3,0.004834606,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,strontium,Baseline
-393,"Sulfate, Dissolved",kg/m3,1.455470738,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,sulfate,Baseline
-394,Total Dissolved Solids (TDS),kg/m3,7.099236641,Fort Irwin Water Works case study. ,Irwin_Brine,Irwin,NAWI,Source,tds,Baseline
-395,"1,1,1-Trichloroethane",kg/m3,,,,,,,1_1_1_trichloroethane,Baseline
-396,"1,1,2-Trichloroethane",kg/m3,,,,,,,1_1_2_trichloroethane,Baseline
-397,"1,1-Dichloroethylene",kg/m3,,,,,,,1_1_dichloroethylene,Baseline
-398,"1,2,4-Trichlorobenzene",kg/m3,,,,,,,1_2_4_trichlorobenzene,Baseline
-399,"1,2-Dibromo-3-chloropropane (DBCP)",kg/m3,,,,,,,dbcp,Baseline
-400,"1,2-Dichloroethane",kg/m3,,,,,,,1_2_dichloroethane,Baseline
-401,"1,2-Dichloropropane",kg/m3,,,,,,,1_2_dichloropropane,Baseline
-402,"2,4,5-TP (Silvex)",kg/m3,,,,,,,silvex,Baseline
-403,"2,4-D",kg/m3,,,,,,,2_4_d,Baseline
-404,Acrylamide,kg/m3,,,,,,,acrylamide,Baseline
-405,Alachlor,kg/m3,,,,,,,alachlor,Baseline
-406,Alkalinity as CaCO3,kg/m3,,,,,,,alkalinity_as_caco3,Baseline
-407,Alpha Particles,pCi/L,,,,,,,alpha_particles,Baseline
-408,Aluminum,kg/m3,,,,,,,aluminum,Baseline
-409,Antimony,kg/m3,,,,,,,antimony,Baseline
-410,Ammonia Nitrogen,kg/m3,,,,,,,ammonia_nitrogen,Baseline
-411,Arsenic,kg/m3,,,,,,,arsenic,Baseline
-412,Nitrogen - Total ,kg/m3,,,,,,,nitrogen,Baseline
-413,Asbestos (fiber > 10 micrometers),MF/L,,,,,,,asbestos_fiber_10_micro_m,Baseline
-414,Atrazine,kg/m3,,,,,,,atrazine,Baseline
-415,Barium,kg/m3,,,,,,,barium,Baseline
-416,Barium2,kg/m3,,,,,,,barium2,Baseline
-417,Benzene,kg/m3,,,,,,,benzene,Baseline
-418,Benzo(a)pyrene (PAHs),kg/m3,,,,,,,pahs,Baseline
-419,Beryllium,kg/m3,,,,,,,beryllium,Baseline
-420,Beryllium,kg/m3,,,,,,,beryllium,Baseline
-421,Beta Particles and Photon Emitters,pCi/L,,,,,,,beta_particles_and_photon_emitters,Baseline
-422,Bicarbonate Alkalinity as CaCO3,kg/m3,,,,,,,bicarbonate_alkalinity_as_caco3,Baseline
-423,Biological Oxygen Demand (BOD),kg/m3,,,,,,,bod,Baseline
-424,"Boron, dissolved",kg/m3,,,,,,,boron,Baseline
-425,Bromate,kg/m3,,,,,,,bromate,Baseline
-426,Bromide,kg/m3,,,,,,,bromide,Baseline
-427,Cadmium,kg/m3,,,,,,,cadmium,Baseline
-428,Cadmium2,kg/m3,,,,,,,cadmium2,Baseline
-429,"Calcium, Dissolved",kg/m3,,,,,,,calcium,Baseline
-430,Carbofuran,kg/m3,,,,,,,carbofuran,Baseline
-431,Carbon tetrachloride,kg/m3,,,,,,,carbon_tetrachloride,Baseline
-432,Carbonate Alkalinity as CaCO3,kg/m3,,,,,,,carbonate_alkalinity_as_caco3,Baseline
-433,Chloramines (as Cl2),kg/m3,,,,,,,chloramines_as_cl2,Baseline
-434,Chlordane,kg/m3,,,,,,,chlordane,Baseline
-435,Chloride,kg/m3,,,,,,,chloride,Baseline
-436,Chlorine (as Cl2),kg/m3,,,,,,,chlorine_as_cl2,Baseline
-437,Chlorine dioxide (as ClO2),kg/m3,,,,,,,chlorine_dioxide_as_clo2,Baseline
-438,Chlorite,kg/m3,,,,,,,chlorite,Baseline
-439,Chlorobenzene,kg/m3,,,,,,,chlorobenzene,Baseline
-440,Chromium (hexavalent),kg/m3,,,,,,,chromium_hexavalent,Baseline
-441,Chromium (total),kg/m3,,,,,,,chromium,Baseline
-442,Chromium (total)2,kg/m3,,,,,,,chromium_total2,Baseline
-443,"cis-1,2-Dichloroethylene",kg/m3,,,,,,,cis_1_2_dichloroethylene,Baseline
-444,Cobalt,kg/m3,,,,,,,cobalt,Baseline
-445,Copper,kg/m3,,,,,,,copper,Baseline
-446,Phosphorus - Total,kg/m3,,,,,,,phosphorus,Baseline
-447,Cryptosporidium,kg/m3,,,,,,,cryptosporidium,Baseline
-448,Cyanide (as free cyanide),kg/m3,,,,,,,cyanide_as_free,Baseline
-449,Dalapon,kg/m3,,,,,,,dalapon,Baseline
-450,Deuterium (2H),pCi/L,,,,,,,deuterium_2h,Baseline
-451,Di(2-ethylhexyl) adipate,kg/m3,,,,,,,di_2_ethylhexyl_adipate,Baseline
-452,Di(2-ethylhexyl) phthalate,kg/m3,,,,,,,di_2_ethylhexyl_phthalate,Baseline
-453,Dichloromethane,kg/m3,,,,,,,dichloromethane,Baseline
-454,Dinoseb,kg/m3,,,,,,,dinoseb,Baseline
-455,"Dioxin (2,3,7,8-TCDD)",kg/m3,,,,,,,dioxin_2_3_7_8_tcdd,Baseline
-456,Diquat,kg/m3,,,,,,,diquat,Baseline
-457,Dissolved Oxygen,kg/m3,,,,,,,dissolved_oxygen,Baseline
-458,Electrical_Conductivity,S/m,,,,,,,electrical_conductivity,Baseline
-459,Endothall,kg/m3,,,,,,,endothall,Baseline
-460,Endrin,kg/m3,,,,,,,endrin,Baseline
-461,Epichlorohydrin,kg/m3,,,,,,,epichlorohydrin,Baseline
-462,Estradiol Equivalency (EEQ),kg/m3,,,,,,,eeq,Baseline
-463,Ethylbenzene,kg/m3,,,,,,,ethylbenzene,Baseline
-464,Ethylene dibromide,kg/m3,,,,,,,ethylene_dibromide,Baseline
-465,Fluoride,kg/m3,,,,,,,fluoride,Baseline
-466,Giardia lamblia,kg/m3,,,,,,,giardia_lamblia,Baseline
-467,Glyphosate,kg/m3,,,,,,,glyphosate,Baseline
-468,Haloacetic acids (HAA5),kg/m3,,,,,,,haloacetic_acids,Baseline
-469,Hardness,kg/m3,,,,,,,hardness,Baseline
-470,Heptachlor,kg/m3,,,,,,,heptachlor,Baseline
-471,Heptachlor epoxide,kg/m3,,,,,,,heptachlor_epoxide,Baseline
-472,Heterotrophic plate count (HPC),kg/m3,,,,,,,hpc,Baseline
-473,Hexachlorobenzene,kg/m3,,,,,,,hexachlorobenzene,Baseline
-474,Hexachlorocyclopentadiene,kg/m3,,,,,,,hexachlorocyclopentadiene,Baseline
-475,Hydroxide Alkalinity as CaCO3,kg/m3,,,,,,,hydroxide_alkalinity_as_caco3,Baseline
-476,Iron,kg/m3,,,,,,,iron,Baseline
-477,Lead,kg/m3,,,,,,,lead,Baseline
-478,Total Kjeldahl Nitrogen (TKN),kg/m3,,,,,,,tkn,Baseline
-479,Legionella,kg/m3,,,,,,,legionella,Baseline
-480,Lindane,kg/m3,,,,,,,lindane,Baseline
-481,Lithium,kg/m3,,,,,,,lithium,Baseline
-482,"Magnesium, Dissolved",kg/m3,,,,,,,magnesium,Baseline
-483,Manganese,kg/m3,,,,,,,manganese,Baseline
-484,Mercury,kg/m3,,,,,,,mercury,Baseline
-485,Mercury (inorganic),kg/m3,,,,,,,mercury_inorganic,Baseline
-486,Methoxychlor,kg/m3,,,,,,,methoxychlor,Baseline
-487,Molybdenum,kg/m3,,,,,,,molybdenum,Baseline
-488,Nickel,kg/m3,,,,,,,nickel,Baseline
-489,Nitrate (measured as Nitrogen),kg/m3,,,,,,,nitrate_as_nitrogen,Baseline
-490,"Nitrate-N, Dissolved",kg/m3,,,,,,,nitrate,Baseline
-491,Nitrite (measured as Nitrogen),kg/m3,,,,,,,nitrite_as_nitrogen,Baseline
-492,N-nitrosodimethylamine (NDMA),kg/m3,,,,,,,ndma,Baseline
-493,Nonvolatile TOC,kg/m3,,,,,,,nonvolatile_toc,Baseline
-494,o-Dichlorobenzene,kg/m3,,,,,,,o_dichlorobenzene,Baseline
-495,Oil and Grease,kg/m3,,,,,,,oil_and_grease,Baseline
-496,Oily Matter,kg/m3,,,,,,,oily_matter,Baseline
-497,Oxamyl (Vydate),kg/m3,,,,,,,oxamyl_vydate,Baseline
-498,Oxygen (18O),pCi/L,,,,,,,oxygen_18o,Baseline
-499,p-Dichlorobenzene,kg/m3,,,,,,,p_dichlorobenzene,Baseline
-500,Pentachlorophenol,kg/m3,,,,,,,pentachlorophenol,Baseline
-501,Perfluorooctane sulfonate (PFOS),kg/m3,,,,,,,perfluorooctane_sulfonate_pfos,Baseline
-502,Perfluorootanoate (PFOA),kg/m3,,,,,,,perfluorootanoate_pfoa,Baseline
-503,pH_Max,pH,,,,,,,ph_max,Baseline
-504,pH_Min,pH,,,,,,,ph_min,Baseline
-505,"Phosphates, Dissolved",kg/m3,,,,,,,phosphates,Baseline
-506,Picloram,kg/m3,,,,,,,picloram,Baseline
-507,Polychlorinated biphenyls (PCBs),kg/m3,,,,,,,polychlorinated_biphenyls_pcbs,Baseline
-508,Polycyclic Aromatic Hydrocarbons (PAH),kg/m3,,,,,,,polycyclic_aromatic_hydrocarbons_pah,Baseline
-509,Potassium,kg/m3,,,,,,,potassium,Baseline
-510,Radium 226 and Radium 228 (combined),pCi/L,,,,,,,radium_226_and_radium_228_combined,Baseline
-511,Radium-226,pCi/L,,,,,,,radium_226,Baseline
-512,Radium-228,pCi/L,,,,,,,radium_228,Baseline
-513,Selenium,kg/m3,,,,,,,selenium,Baseline
-514,Orthophosphate,kg/m3,,,,,,,orthophosphate,Baseline
-515,Silicon,kg/m3,,,,,,,silicon,Baseline
-516,Silicon Dioxide (SiO2),kg/m3,,,,,,,silicon_dioxide,Baseline
-517,Silver,kg/m3,,,,,,,silver,Baseline
-518,Simazine,kg/m3,,,,,,,simazine,Baseline
-519,"Sodium, Dissolved",kg/m3,,,,,,,sodium,Baseline
-520,Strontium,kg/m3,,,,,,,strontium,Baseline
-521,Styrene,kg/m3,,,,,,,styrene,Baseline
-522,"Sulfate, Dissolved",kg/m3,,,,,,,sulfate,Baseline
-523,Sulfur,kg/m3,,,,,,,sulfur,Baseline
-524,Tetrachloroethylene,kg/m3,,,,,,,tetrachloroethylene,Baseline
-525,Thallium,kg/m3,,,,,,,thallium,Baseline
-526,Chemical Oxygen Demand (COD),kg/m3,,,,,,,chemical_oxygen_demand_cod,Baseline
-527,Toluene,kg/m3,,,,,,,toluene,Baseline
-528,Total Coliforms (including fecal coliform and E. Coli),kg/m3,,,,,,,total_coliforms_fecal_ecoli,Baseline
-529,Total Dissolved Solids (TDS),kg/m3,,,,,,,tds,Baseline
-530,Total Petroleum Hydrocarbons (TPH),kg/m3,,,,,,,total_petroleum_hydrocarbons_tph,Baseline
-531,Total Suspended Solids (TSS),kg/m3,,,,,,,tss,Baseline
-532,Total Trihalomethanes (TTHMs),kg/m3,,,,,,,trihalomethanes,Baseline
-533,Toxaphene,kg/m3,,,,,,,toxaphene,Baseline
-534,Total Organic Carbon (TOC),kg/m3,,,,,,,toc,Baseline
-535,"trans-1,2-Dichloroethylene",kg/m3,,,,,,,trans_1_2_dichloroethylene,Baseline
-536,Trichloroethylene,kg/m3,,,,,,,trichloroethylene,Baseline
-537,Turbidity,kg/m3,,,,,,,turbidity,Baseline
-538,Ultraviolet Transmittance (UVT),%,,,,,,,ultraviolet_transmittance_uvt,Baseline
-539,Uranium,pCi/L,,,,,,,uranium,Baseline
-540,Vanadium,kg/m3,,,,,,,vanadium,Baseline
-541,Vinyl chloride,kg/m3,,,,,,,vinyl_chloride,Baseline
-542,Viruses (enteric),kg/m3,,,,,,,viruses_enteric,Baseline
-543,Volatile Organic Compounds (VOC),kg/m3,,,,,,,volatile_organic_compounds_voc,Baseline
-544,Xylenes (total),kg/m3,,,,,,,xylenes_total,Baseline
-545,Zinc,kg/m3,,,,,,,zinc,Baseline
-546,"1,1,1-Trichloroethane",kg/m3,,,,,,,1_1_1_trichloroethane,Baseline
-547,"1,1,2-Trichloroethane",kg/m3,,,,,,,1_1_2_trichloroethane,Baseline
-548,"1,1-Dichloroethylene",kg/m3,,,,,,,1_1_dichloroethylene,Baseline
-549,"1,2,4-Trichlorobenzene",kg/m3,,,,,,,1_2_4_trichlorobenzene,Baseline
-550,"1,2-Dibromo-3-chloropropane (DBCP)",kg/m3,,,,,,,dbcp,Baseline
-551,"1,2-Dichloroethane",kg/m3,,,,,,,1_2_dichloroethane,Baseline
-552,"1,2-Dichloropropane",kg/m3,,,,,,,1_2_dichloropropane,Baseline
-553,"2,4,5-TP (Silvex)",kg/m3,,,,,,,silvex,Baseline
-554,"2,4-D",kg/m3,,,,,,,2_4_d,Baseline
-555,Acrylamide,kg/m3,,,,,,,acrylamide,Baseline
-556,Alachlor,kg/m3,,,,,,,alachlor,Baseline
-557,Alkalinity as CaCO3,kg/m3,,,,,,,alkalinity_as_caco3,Baseline
-558,Alpha Particles,pCi/L,,,,,,,alpha_particles,Baseline
-559,Aluminum,kg/m3,,,,,,,aluminum,Baseline
-560,Antimony,kg/m3,,,,,,,antimony,Baseline
-561,Ammonia Nitrogen,kg/m3,,,,,,,ammonia_nitrogen,Baseline
-562,Arsenic,kg/m3,,,,,,,arsenic,Baseline
-563,Nitrogen - Total ,kg/m3,,,,,,,nitrogen,Baseline
-564,Asbestos (fiber > 10 micrometers),MF/L,,,,,,,asbestos_fiber_10_micro_m,Baseline
-565,Atrazine,kg/m3,,,,,,,atrazine,Baseline
-566,Barium,kg/m3,,,,,,,barium,Baseline
-567,Barium2,kg/m3,,,,,,,barium2,Baseline
-568,Benzene,kg/m3,,,,,,,benzene,Baseline
-569,Benzo(a)pyrene (PAHs),kg/m3,,,,,,,pahs,Baseline
-570,Beryllium,kg/m3,,,,,,,beryllium,Baseline
-571,Beryllium,kg/m3,,,,,,,beryllium,Baseline
-572,Beta Particles and Photon Emitters,pCi/L,,,,,,,beta_particles_and_photon_emitters,Baseline
-573,Bicarbonate Alkalinity as CaCO3,kg/m3,,,,,,,bicarbonate_alkalinity_as_caco3,Baseline
-574,Biological Oxygen Demand (BOD),kg/m3,,,,,,,bod,Baseline
-575,"Boron, dissolved",kg/m3,,,,,,,boron,Baseline
-576,Bromate,kg/m3,,,,,,,bromate,Baseline
-577,Bromide,kg/m3,,,,,,,bromide,Baseline
-578,Cadmium,kg/m3,,,,,,,cadmium,Baseline
-579,Cadmium2,kg/m3,,,,,,,cadmium2,Baseline
-580,"Calcium, Dissolved",kg/m3,,,,,,,calcium,Baseline
-581,Carbofuran,kg/m3,,,,,,,carbofuran,Baseline
-582,Carbon tetrachloride,kg/m3,,,,,,,carbon_tetrachloride,Baseline
-583,Carbonate Alkalinity as CaCO3,kg/m3,,,,,,,carbonate_alkalinity_as_caco3,Baseline
-584,Chloramines (as Cl2),kg/m3,,,,,,,chloramines_as_cl2,Baseline
-585,Chlordane,kg/m3,,,,,,,chlordane,Baseline
-586,Chloride,kg/m3,,,,,,,chloride,Baseline
-587,Chlorine (as Cl2),kg/m3,,,,,,,chlorine_as_cl2,Baseline
-588,Chlorine dioxide (as ClO2),kg/m3,,,,,,,chlorine_dioxide_as_clo2,Baseline
-589,Chlorite,kg/m3,,,,,,,chlorite,Baseline
-590,Chlorobenzene,kg/m3,,,,,,,chlorobenzene,Baseline
-591,Chromium (hexavalent),kg/m3,,,,,,,chromium_hexavalent,Baseline
-592,Chromium (total),kg/m3,,,,,,,chromium,Baseline
-593,Chromium (total)2,kg/m3,,,,,,,chromium_total2,Baseline
-594,"cis-1,2-Dichloroethylene",kg/m3,,,,,,,cis_1_2_dichloroethylene,Baseline
-595,Cobalt,kg/m3,,,,,,,cobalt,Baseline
-596,Copper,kg/m3,,,,,,,copper,Baseline
-597,Phosphorus - Total,kg/m3,,,,,,,phosphorus,Baseline
-598,Cryptosporidium,kg/m3,,,,,,,cryptosporidium,Baseline
-599,Cyanide (as free cyanide),kg/m3,,,,,,,cyanide_as_free,Baseline
-600,Dalapon,kg/m3,,,,,,,dalapon,Baseline
-601,Deuterium (2H),pCi/L,,,,,,,deuterium_2h,Baseline
-602,Di(2-ethylhexyl) adipate,kg/m3,,,,,,,di_2_ethylhexyl_adipate,Baseline
-603,Di(2-ethylhexyl) phthalate,kg/m3,,,,,,,di_2_ethylhexyl_phthalate,Baseline
-604,Dichloromethane,kg/m3,,,,,,,dichloromethane,Baseline
-605,Dinoseb,kg/m3,,,,,,,dinoseb,Baseline
-606,"Dioxin (2,3,7,8-TCDD)",kg/m3,,,,,,,dioxin_2_3_7_8_tcdd,Baseline
-607,Diquat,kg/m3,,,,,,,diquat,Baseline
-608,Dissolved Oxygen,kg/m3,,,,,,,dissolved_oxygen,Baseline
-609,Electrical_Conductivity,S/m,,,,,,,electrical_conductivity,Baseline
-610,Endothall,kg/m3,,,,,,,endothall,Baseline
-611,Endrin,kg/m3,,,,,,,endrin,Baseline
-612,Epichlorohydrin,kg/m3,,,,,,,epichlorohydrin,Baseline
-613,Estradiol Equivalency (EEQ),kg/m3,,,,,,,eeq,Baseline
-614,Ethylbenzene,kg/m3,,,,,,,ethylbenzene,Baseline
-615,Ethylene dibromide,kg/m3,,,,,,,ethylene_dibromide,Baseline
-616,Fluoride,kg/m3,,,,,,,fluoride,Baseline
-617,Giardia lamblia,kg/m3,,,,,,,giardia_lamblia,Baseline
-618,Glyphosate,kg/m3,,,,,,,glyphosate,Baseline
-619,Haloacetic acids (HAA5),kg/m3,,,,,,,haloacetic_acids,Baseline
-620,Hardness,kg/m3,,,,,,,hardness,Baseline
-621,Heptachlor,kg/m3,,,,,,,heptachlor,Baseline
-622,Heptachlor epoxide,kg/m3,,,,,,,heptachlor_epoxide,Baseline
-623,Heterotrophic plate count (HPC),kg/m3,,,,,,,hpc,Baseline
-624,Hexachlorobenzene,kg/m3,,,,,,,hexachlorobenzene,Baseline
-625,Hexachlorocyclopentadiene,kg/m3,,,,,,,hexachlorocyclopentadiene,Baseline
-626,Hydroxide Alkalinity as CaCO3,kg/m3,,,,,,,hydroxide_alkalinity_as_caco3,Baseline
-627,Iron,kg/m3,,,,,,,iron,Baseline
-628,Lead,kg/m3,,,,,,,lead,Baseline
-629,Total Kjeldahl Nitrogen (TKN),kg/m3,,,,,,,tkn,Baseline
-630,Legionella,kg/m3,,,,,,,legionella,Baseline
-631,Lindane,kg/m3,,,,,,,lindane,Baseline
-632,Lithium,kg/m3,,,,,,,lithium,Baseline
-633,"Magnesium, Dissolved",kg/m3,,,,,,,magnesium,Baseline
-634,Manganese,kg/m3,,,,,,,manganese,Baseline
-635,Mercury,kg/m3,,,,,,,mercury,Baseline
-636,Mercury (inorganic),kg/m3,,,,,,,mercury_inorganic,Baseline
-637,Methoxychlor,kg/m3,,,,,,,methoxychlor,Baseline
-638,Molybdenum,kg/m3,,,,,,,molybdenum,Baseline
-639,Nickel,kg/m3,,,,,,,nickel,Baseline
-640,Nitrate (measured as Nitrogen),kg/m3,,,,,,,nitrate_as_nitrogen,Baseline
-641,"Nitrate-N, Dissolved",kg/m3,,,,,,,nitrate,Baseline
-642,Nitrite (measured as Nitrogen),kg/m3,,,,,,,nitrite_as_nitrogen,Baseline
-643,N-nitrosodimethylamine (NDMA),kg/m3,,,,,,,ndma,Baseline
-644,Nonvolatile TOC,kg/m3,,,,,,,nonvolatile_toc,Baseline
-645,o-Dichlorobenzene,kg/m3,,,,,,,o_dichlorobenzene,Baseline
-646,Oil and Grease,kg/m3,,,,,,,oil_and_grease,Baseline
-647,Oily Matter,kg/m3,,,,,,,oily_matter,Baseline
-648,Oxamyl (Vydate),kg/m3,,,,,,,oxamyl_vydate,Baseline
-649,Oxygen (18O),pCi/L,,,,,,,oxygen_18o,Baseline
-650,p-Dichlorobenzene,kg/m3,,,,,,,p_dichlorobenzene,Baseline
-651,Pentachlorophenol,kg/m3,,,,,,,pentachlorophenol,Baseline
-652,Perfluorooctane sulfonate (PFOS),kg/m3,,,,,,,perfluorooctane_sulfonate_pfos,Baseline
-653,Perfluorootanoate (PFOA),kg/m3,,,,,,,perfluorootanoate_pfoa,Baseline
-654,pH_Max,pH,,,,,,,ph_max,Baseline
-655,pH_Min,pH,,,,,,,ph_min,Baseline
-656,"Phosphates, Dissolved",kg/m3,,,,,,,phosphates,Baseline
-657,Picloram,kg/m3,,,,,,,picloram,Baseline
-658,Polychlorinated biphenyls (PCBs),kg/m3,,,,,,,polychlorinated_biphenyls_pcbs,Baseline
-659,Polycyclic Aromatic Hydrocarbons (PAH),kg/m3,,,,,,,polycyclic_aromatic_hydrocarbons_pah,Baseline
-660,Potassium,kg/m3,,,,,,,potassium,Baseline
-661,Radium 226 and Radium 228 (combined),pCi/L,,,,,,,radium_226_and_radium_228_combined,Baseline
-662,Radium-226,pCi/L,,,,,,,radium_226,Baseline
-663,Radium-228,pCi/L,,,,,,,radium_228,Baseline
-664,Selenium,kg/m3,,,,,,,selenium,Baseline
-665,Orthophosphate,kg/m3,,,,,,,orthophosphate,Baseline
-666,Silicon,kg/m3,,,,,,,silicon,Baseline
-667,Silicon Dioxide (SiO2),kg/m3,,,,,,,silicon_dioxide,Baseline
-668,Silver,kg/m3,,,,,,,silver,Baseline
-669,Simazine,kg/m3,,,,,,,simazine,Baseline
-670,"Sodium, Dissolved",kg/m3,,,,,,,sodium,Baseline
-671,Strontium,kg/m3,,,,,,,strontium,Baseline
-672,Styrene,kg/m3,,,,,,,styrene,Baseline
-673,"Sulfate, Dissolved",kg/m3,,,,,,,sulfate,Baseline
-674,Sulfur,kg/m3,,,,,,,sulfur,Baseline
-675,Tetrachloroethylene,kg/m3,,,,,,,tetrachloroethylene,Baseline
-676,Thallium,kg/m3,,,,,,,thallium,Baseline
-677,Chemical Oxygen Demand (COD),kg/m3,,,,,,,chemical_oxygen_demand_cod,Baseline
-678,Toluene,kg/m3,,,,,,,toluene,Baseline
-679,Total Coliforms (including fecal coliform and E. Coli),kg/m3,,,,,,,total_coliforms_fecal_ecoli,Baseline
-680,Total Dissolved Solids (TDS),kg/m3,,,,,,,tds,Baseline
-681,Total Petroleum Hydrocarbons (TPH),kg/m3,,,,,,,total_petroleum_hydrocarbons_tph,Baseline
-682,Total Suspended Solids (TSS),kg/m3,,,,,,,tss,Baseline
-683,Total Trihalomethanes (TTHMs),kg/m3,,,,,,,trihalomethanes,Baseline
-684,Toxaphene,kg/m3,,,,,,,toxaphene,Baseline
-685,Total Organic Carbon (TOC),kg/m3,,,,,,,toc,Baseline
-686,"trans-1,2-Dichloroethylene",kg/m3,,,,,,,trans_1_2_dichloroethylene,Baseline
-687,Trichloroethylene,kg/m3,,,,,,,trichloroethylene,Baseline
-688,Turbidity,kg/m3,,,,,,,turbidity,Baseline
-689,Ultraviolet Transmittance (UVT),%,,,,,,,ultraviolet_transmittance_uvt,Baseline
-690,Uranium,pCi/L,,,,,,,uranium,Baseline
-691,Vanadium,kg/m3,,,,,,,vanadium,Baseline
-692,Vinyl chloride,kg/m3,,,,,,,vinyl_chloride,Baseline
-693,Viruses (enteric),kg/m3,,,,,,,viruses_enteric,Baseline
-694,Volatile Organic Compounds (VOC),kg/m3,,,,,,,volatile_organic_compounds_voc,Baseline
-695,Xylenes (total),kg/m3,,,,,,,xylenes_total,Baseline
-696,Zinc,kg/m3,,,,,,,zinc,Baseline
+unit,value,water_type,case_study,reference,source_or_use,variable,scenario
+kg/m3,0.0044,Seawater,Carlsbad,NAWI,Source,boron,Baseline
+kg/m3,0.0663,Seawater,Carlsbad,NAWI,Source,bromide,Baseline
+kg/m3,0.4096,Seawater,Carlsbad,NAWI,Source,calcium,Baseline
+kg/m3,19.162,Seawater,Carlsbad,NAWI,Source,chloride,Baseline
+kg/m3,1.278,Seawater,Carlsbad,NAWI,Source,magnesium,Baseline
+pH,7,Seawater,Carlsbad,NAWI,Source,ph_max,Baseline
+pH,7,Seawater,Carlsbad,NAWI,Source,ph_min,Baseline
+kg/m3,0.3953,Seawater,Carlsbad,NAWI,Source,potassium,Baseline
+kg/m3,10.679,Seawater,Carlsbad,NAWI,Source,sodium,Baseline
+kg/m3,0.0013,Seawater,Carlsbad,NAWI,Source,strontium,Baseline
+kg/m3,2.68,Seawater,Carlsbad,NAWI,Source,sulfate,Baseline
+kg/m3,35,Seawater,Carlsbad,NAWI,Source,tds,Baseline
+m3/s,4.5833,Seawater,Carlsbad,NAWI,Source,flow,Baseline
+kg/m3,0.03,Seawater,Carlsbad,NAWI,Source,tss,Baseline
+kg/m3,0.0044,Seawater,Santa_Barbara,NAWI,Source,boron,Baseline
+kg/m3,0.0663,Seawater,Santa_Barbara,NAWI,Source,bromide,Baseline
+kg/m3,0.4096,Seawater,Santa_Barbara,NAWI,Source,calcium,Baseline
+kg/m3,19.162,Seawater,Santa_Barbara,NAWI,Source,chloride,Baseline
+kg/m3,1.278,Seawater,Santa_Barbara,NAWI,Source,magnesium,Baseline
+pH,7,Seawater,Santa_Barbara,NAWI,Source,ph_max,Baseline
+pH,7,Seawater,Santa_Barbara,NAWI,Source,ph_min,Baseline
+kg/m3,0.3953,Seawater,Santa_Barbara,NAWI,Source,potassium,Baseline
+kg/m3,10.679,Seawater,Santa_Barbara,NAWI,Source,sodium,Baseline
+kg/m3,0.0013,Seawater,Santa_Barbara,NAWI,Source,strontium,Baseline
+kg/m3,2.68,Seawater,Santa_Barbara,NAWI,Source,sulfate,Baseline
+kg/m3,35,Seawater,Santa_Barbara,NAWI,Source,tds,Baseline
+kg/m3,0.03,Seawater,Santa_Barbara,NAWI,Source,tss,Baseline
+kg/m3,0.005028571,Seawater,Ashkelon,NAWI,Source,boron,Baseline
+kg/m3,0.075771429,Seawater,Ashkelon,NAWI,Source,bromide,Baseline
+kg/m3,0.468114286,Seawater,Ashkelon,NAWI,Source,calcium,Baseline
+kg/m3,21.89942857,Seawater,Ashkelon,NAWI,Source,chloride,Baseline
+kg/m3,1.460571429,Seawater,Ashkelon,NAWI,Source,magnesium,Baseline
+pH,7,Seawater,Ashkelon,NAWI,Source,ph_max,Baseline
+pH,7,Seawater,Ashkelon,NAWI,Source,ph_min,Baseline
+kg/m3,0.451771429,Seawater,Ashkelon,NAWI,Source,potassium,Baseline
+kg/m3,12.20457143,Seawater,Ashkelon,NAWI,Source,sodium,Baseline
+kg/m3,0.001485714,Seawater,Ashkelon,NAWI,Source,strontium,Baseline
+kg/m3,3.062857143,Seawater,Ashkelon,NAWI,Source,sulfate,Baseline
+kg/m3,40.7,Seawater,Ashkelon,NAWI,Source,tds,Baseline
+kg/m3,0.034285714,Seawater,Ashkelon,NAWI,Source,tss,Baseline
+kg/m3,0.003771429,Seawater,Tampa-Bay,NAWI,Source,boron,Baseline
+kg/m3,0.056828571,Seawater,Tampa-Bay,NAWI,Source,bromide,Baseline
+kg/m3,0.351085714,Seawater,Tampa-Bay,NAWI,Source,calcium,Baseline
+kg/m3,16.42457143,Seawater,Tampa-Bay,NAWI,Source,chloride,Baseline
+kg/m3,1.095428571,Seawater,Tampa-Bay,NAWI,Source,magnesium,Baseline
+pH,7,Seawater,Tampa-Bay,NAWI,Source,ph_max,Baseline
+pH,7,Seawater,Tampa-Bay,NAWI,Source,ph_min,Baseline
+kg/m3,0.338828571,Seawater,Tampa-Bay,NAWI,Source,potassium,Baseline
+kg/m3,9.153428571,Seawater,Tampa-Bay,NAWI,Source,sodium,Baseline
+kg/m3,0.001114286,Seawater,Tampa-Bay,NAWI,Source,strontium,Baseline
+kg/m3,2.297142857,Seawater,Tampa-Bay,NAWI,Source,sulfate,Baseline
+kg/m3,30,Seawater,Tampa-Bay,NAWI,Source,tds,Baseline
+kg/m3,0.025714286,Seawater,Tampa-Bay,NAWI,Source,tss,Baseline
+kg/m3,0.084,Tuscarora_Make_Up,Tuscarora,NAWI,Source,alkalinity_as_caco3,Baseline
+kg/m3,0.0096,Tuscarora_Make_Up,Tuscarora,NAWI,Source,calcium,Baseline
+kg/m3,0.0083,Tuscarora_Make_Up,Tuscarora,NAWI,Source,chloride,Baseline
+S/m,188,Tuscarora_Make_Up,Tuscarora,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.0024,Tuscarora_Make_Up,Tuscarora,NAWI,Source,magnesium,Baseline
+kg/m3,0.0036,Tuscarora_Make_Up,Tuscarora,NAWI,Source,nitrate_as_nitrogen,Baseline
+pH,6.64,Tuscarora_Make_Up,Tuscarora,NAWI,Source,ph_max,Baseline
+pH,6.64,Tuscarora_Make_Up,Tuscarora,NAWI,Source,ph_min,Baseline
+kg/m3,0.0089,Tuscarora_Make_Up,Tuscarora,NAWI,Source,potassium,Baseline
+kg/m3,0.0402,Tuscarora_Make_Up,Tuscarora,NAWI,Source,silicon,Baseline
+kg/m3,0.09,Tuscarora_Make_Up,Tuscarora,NAWI,Source,silicon_dioxide,Baseline
+kg/m3,0.0235,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sodium,Baseline
+kg/m3,0.0124,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sulfate,Baseline
+kg/m3,0.0044,Tuscarora_Make_Up,Tuscarora,NAWI,Source,sulfur,Baseline
+kg/m3,1.14,Tuscarora_Make_Up,Tuscarora,NAWI,Source,tds,Baseline
+kg/m3,0.00023,Tuscarora_Make_Up,Tuscarora,NAWI,Source,toc,Baseline
+kg/m3,0.26,Tuscarora_Brine,Tuscarora,NAWI,Source,alkalinity_as_caco3,Baseline
+kg/m3,0.003,Tuscarora_Brine,Tuscarora,NAWI,Source,calcium,Baseline
+kg/m3,0.0199,Tuscarora_Brine,Tuscarora,NAWI,Source,chloride,Baseline
+S/m,801,Tuscarora_Brine,Tuscarora,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,4.00E-05,Tuscarora_Brine,Tuscarora,NAWI,Source,magnesium,Baseline
+pH,6.05,Tuscarora_Brine,Tuscarora,NAWI,Source,ph_max,Baseline
+pH,6.05,Tuscarora_Brine,Tuscarora,NAWI,Source,ph_min,Baseline
+kg/m3,0.0154,Tuscarora_Brine,Tuscarora,NAWI,Source,potassium,Baseline
+kg/m3,0.0948,Tuscarora_Brine,Tuscarora,NAWI,Source,silicon,Baseline
+kg/m3,0.22,Tuscarora_Brine,Tuscarora,NAWI,Source,silicon_dioxide,Baseline
+kg/m3,0.1278,Tuscarora_Brine,Tuscarora,NAWI,Source,sodium,Baseline
+kg/m3,0.0501,Tuscarora_Brine,Tuscarora,NAWI,Source,sulfate,Baseline
+kg/m3,0.0296,Tuscarora_Brine,Tuscarora,NAWI,Source,sulfur,Baseline
+kg/m3,1.855,Tuscarora_Brine,Tuscarora,NAWI,Source,tds,Baseline
+kg/m3,0.00052,Tuscarora_Brine,Tuscarora,NAWI,Source,toc,Baseline
+kg/m3,2.43E-05,Denver_City_Water,Cherokee,NAWI,Source,aluminum,Baseline
+kg/m3,6.00E-06,Denver_City_Water,Cherokee,NAWI,Source,ammonia_nitrogen,Baseline
+kg/m3,3.07E-05,Denver_City_Water,Cherokee,NAWI,Source,barium,Baseline
+kg/m3,0.00028,Denver_City_Water,Cherokee,NAWI,Source,copper,Baseline
+kg/m3,0.00054,Denver_City_Water,Cherokee,NAWI,Source,fluoride,Baseline
+kg/m3,1.50E-05,Denver_City_Water,Cherokee,NAWI,Source,haloacetic_acids,Baseline
+kg/m3,1.09E-05,Denver_City_Water,Cherokee,NAWI,Source,lead,Baseline
+kg/m3,4.88E-06,Denver_City_Water,Cherokee,NAWI,Source,magnesium,Baseline
+kg/m3,2.00E-05,Denver_City_Water,Cherokee,NAWI,Source,nitrate,Baseline
+kg/m3,0.0148,Denver_City_Water,Cherokee,NAWI,Source,sodium,Baseline
+kg/m3,2.46E-05,Denver_City_Water,Cherokee,NAWI,Source,trihalomethanes,Baseline
+kg/m3,0.000135,Denver_City_Water,Cherokee,NAWI,Source,turbidity,Baseline
+kg/m3,2.50E-05,Irwin_Brackish,Irwin,NAWI,Source,arsenic,Baseline
+kg/m3,2.00E-05,Irwin_Brackish,Irwin,NAWI,Source,barium,Baseline
+kg/m3,0.1786,Irwin_Brackish,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
+kg/m3,0.00475,Irwin_Brackish,Irwin,NAWI,Source,calcium,Baseline
+kg/m3,0.1046,Irwin_Brackish,Irwin,NAWI,Source,chloride,Baseline
+kg/m3,0.0051,Irwin_Brackish,Irwin,NAWI,Source,fluoride,Baseline
+kg/m3,0.0795,Irwin_Brackish,Irwin,NAWI,Source,hardness,Baseline
+kg/m3,0.0042,Irwin_Brackish,Irwin,NAWI,Source,magnesium,Baseline
+kg/m3,0.0203,Irwin_Brackish,Irwin,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,0.0203,Irwin_Brackish,Irwin,NAWI,Source,nitrate,Baseline
+pH,7.79,Irwin_Brackish,Irwin,NAWI,Source,ph_max,Baseline
+pH,7.79,Irwin_Brackish,Irwin,NAWI,Source,ph_min,Baseline
+kg/m3,0.0089,Irwin_Brackish,Irwin,NAWI,Source,potassium,Baseline
+kg/m3,0.1678,Irwin_Brackish,Irwin,NAWI,Source,sodium,Baseline
+kg/m3,0.0004,Irwin_Brackish,Irwin,NAWI,Source,strontium,Baseline
+kg/m3,0.1239,Irwin_Brackish,Irwin,NAWI,Source,sulfate,Baseline
+kg/m3,0.69,Irwin_Brackish,Irwin,NAWI,Source,tds,Baseline
+kg/m3,6.16E-06,OCWD_Feed,OCWD,NAWI,Source,aluminum,Baseline
+kg/m3,5.10E-07,OCWD_Feed,OCWD,NAWI,Source,arsenic,Baseline
+kg/m3,4.52E-05,OCWD_Feed,OCWD,NAWI,Source,barium,Baseline
+kg/m3,0.0004,OCWD_Feed,OCWD,NAWI,Source,boron,Baseline
+kg/m3,1.00E-06,OCWD_Feed,OCWD,NAWI,Source,bromide,Baseline
+kg/m3,0.08045,OCWD_Feed,OCWD,NAWI,Source,calcium,Baseline
+kg/m3,0.29792,OCWD_Feed,OCWD,NAWI,Source,chloride,Baseline
+kg/m3,1.90E-07,OCWD_Feed,OCWD,NAWI,Source,chromium,Baseline
+kg/m3,2.67E-06,OCWD_Feed,OCWD,NAWI,Source,cyanide_as_free,Baseline
+S/m,0.17,OCWD_Feed,OCWD,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.00097,OCWD_Feed,OCWD,NAWI,Source,fluoride,Baseline
+kg/m3,0.312,OCWD_Feed,OCWD,NAWI,Source,hardness,Baseline
+kg/m3,0.00030225,OCWD_Feed,OCWD,NAWI,Source,iron,Baseline
+kg/m3,1.00E-06,OCWD_Feed,OCWD,NAWI,Source,lead,Baseline
+kg/m3,0.02701,OCWD_Feed,OCWD,NAWI,Source,magnesium,Baseline
+kg/m3,5.26E-05,OCWD_Feed,OCWD,NAWI,Source,manganese,Baseline
+kg/m3,1.00E-06,OCWD_Feed,OCWD,NAWI,Source,mercury,Baseline
+kg/m3,4.66E-06,OCWD_Feed,OCWD,NAWI,Source,nickel,Baseline
+kg/m3,0.00864,OCWD_Feed,OCWD,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,0.00069,OCWD_Feed,OCWD,NAWI,Source,nitrite_as_nitrogen,Baseline
+pH,7.28,OCWD_Feed,OCWD,NAWI,Source,ph_max,Baseline
+pH,7.28,OCWD_Feed,OCWD,NAWI,Source,ph_min,Baseline
+kg/m3,0.00052,OCWD_Feed,OCWD,NAWI,Source,phosphates,Baseline
+kg/m3,0.01897,OCWD_Feed,OCWD,NAWI,Source,potassium,Baseline
+kg/m3,1.06E-06,OCWD_Feed,OCWD,NAWI,Source,selenium,Baseline
+kg/m3,0.02104,OCWD_Feed,OCWD,NAWI,Source,silicon,Baseline
+kg/m3,1.00E-06,OCWD_Feed,OCWD,NAWI,Source,silver,Baseline
+kg/m3,0.23158,OCWD_Feed,OCWD,NAWI,Source,sodium,Baseline
+kg/m3,0.18825,OCWD_Feed,OCWD,NAWI,Source,sulfate,Baseline
+kg/m3,294.19623,OCWD_Feed,OCWD,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
+kg/m3,0.98555,OCWD_Feed,OCWD,NAWI,Source,tds,Baseline
+kg/m3,0.006525,OCWD_Feed,OCWD,NAWI,Source,tss,Baseline
+kg/m3,3.20E-07,OCWD_Feed,OCWD,NAWI,Source,trihalomethanes,Baseline
+kg/m3,0.00953,OCWD_Feed,OCWD,NAWI,Source,toc,Baseline
+kg/m3,0.0016,OCWD_Feed,OCWD,NAWI,Source,turbidity,Baseline
+kg/m3,1.53E-05,OCWD_Feed,OCWD,NAWI,Source,zinc,Baseline
+kg/m3,6.16E-06,Solaire_Graywater,Solaire,NAWI,Source,aluminum,Baseline
+kg/m3,5.10E-07,Solaire_Graywater,Solaire,NAWI,Source,arsenic,Baseline
+kg/m3,4.52E-05,Solaire_Graywater,Solaire,NAWI,Source,barium,Baseline
+kg/m3,0.25,Solaire_Graywater,Solaire,NAWI,Source,bod,Baseline
+kg/m3,0.0004,Solaire_Graywater,Solaire,NAWI,Source,boron,Baseline
+kg/m3,1.00E-06,Solaire_Graywater,Solaire,NAWI,Source,bromide,Baseline
+kg/m3,0.08045,Solaire_Graywater,Solaire,NAWI,Source,calcium,Baseline
+kg/m3,0.29792,Solaire_Graywater,Solaire,NAWI,Source,chloride,Baseline
+kg/m3,1.90E-07,Solaire_Graywater,Solaire,NAWI,Source,chromium,Baseline
+kg/m3,2.67E-06,Solaire_Graywater,Solaire,NAWI,Source,cyanide_as_free,Baseline
+S/m,0.17,Solaire_Graywater,Solaire,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.00097,Solaire_Graywater,Solaire,NAWI,Source,fluoride,Baseline
+kg/m3,0.312,Solaire_Graywater,Solaire,NAWI,Source,hardness,Baseline
+kg/m3,0.00030225,Solaire_Graywater,Solaire,NAWI,Source,iron,Baseline
+kg/m3,1.00E-06,Solaire_Graywater,Solaire,NAWI,Source,lead,Baseline
+kg/m3,0.02701,Solaire_Graywater,Solaire,NAWI,Source,magnesium,Baseline
+kg/m3,5.26E-05,Solaire_Graywater,Solaire,NAWI,Source,manganese,Baseline
+kg/m3,1.00E-06,Solaire_Graywater,Solaire,NAWI,Source,mercury,Baseline
+kg/m3,4.66E-06,Solaire_Graywater,Solaire,NAWI,Source,nickel,Baseline
+kg/m3,0.00864,Solaire_Graywater,Solaire,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,0.04,Solaire_Graywater,Solaire,NAWI,Source,nitrate,Baseline
+kg/m3,0.00069,Solaire_Graywater,Solaire,NAWI,Source,nitrite_as_nitrogen,Baseline
+pH,7.28,Solaire_Graywater,Solaire,NAWI,Source,ph_max,Baseline
+pH,7.28,Solaire_Graywater,Solaire,NAWI,Source,ph_min,Baseline
+kg/m3,0.00052,Solaire_Graywater,Solaire,NAWI,Source,phosphates,Baseline
+kg/m3,0.01897,Solaire_Graywater,Solaire,NAWI,Source,potassium,Baseline
+kg/m3,1.06E-06,Solaire_Graywater,Solaire,NAWI,Source,selenium,Baseline
+kg/m3,0.02104,Solaire_Graywater,Solaire,NAWI,Source,silicon,Baseline
+kg/m3,1.00E-06,Solaire_Graywater,Solaire,NAWI,Source,silver,Baseline
+kg/m3,0.23158,Solaire_Graywater,Solaire,NAWI,Source,sodium,Baseline
+kg/m3,0.18825,Solaire_Graywater,Solaire,NAWI,Source,sulfate,Baseline
+kg/m3,294.19623,Solaire_Graywater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
+kg/m3,0.98555,Solaire_Graywater,Solaire,NAWI,Source,tds,Baseline
+kg/m3,0.006525,Solaire_Graywater,Solaire,NAWI,Source,tss,Baseline
+kg/m3,3.20E-07,Solaire_Graywater,Solaire,NAWI,Source,trihalomethanes,Baseline
+kg/m3,0.00953,Solaire_Graywater,Solaire,NAWI,Source,toc,Baseline
+kg/m3,0.0016,Solaire_Graywater,Solaire,NAWI,Source,turbidity,Baseline
+kg/m3,1.53E-05,Solaire_Graywater,Solaire,NAWI,Source,zinc,Baseline
+kg/m3,6.16E-06,Solaire_Blackwater,Solaire,NAWI,Source,aluminum,Baseline
+kg/m3,5.10E-07,Solaire_Blackwater,Solaire,NAWI,Source,arsenic,Baseline
+kg/m3,4.52E-05,Solaire_Blackwater,Solaire,NAWI,Source,barium,Baseline
+kg/m3,0.28,Solaire_Blackwater,Solaire,NAWI,Source,bod,Baseline
+kg/m3,0.0004,Solaire_Blackwater,Solaire,NAWI,Source,boron,Baseline
+kg/m3,1.00E-06,Solaire_Blackwater,Solaire,NAWI,Source,bromide,Baseline
+kg/m3,0.08045,Solaire_Blackwater,Solaire,NAWI,Source,calcium,Baseline
+kg/m3,0.29792,Solaire_Blackwater,Solaire,NAWI,Source,chloride,Baseline
+kg/m3,1.90E-07,Solaire_Blackwater,Solaire,NAWI,Source,chromium,Baseline
+kg/m3,2.67E-06,Solaire_Blackwater,Solaire,NAWI,Source,cyanide_as_free,Baseline
+S/m,0.17,Solaire_Blackwater,Solaire,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.00097,Solaire_Blackwater,Solaire,NAWI,Source,fluoride,Baseline
+kg/m3,0.312,Solaire_Blackwater,Solaire,NAWI,Source,hardness,Baseline
+kg/m3,0.00030225,Solaire_Blackwater,Solaire,NAWI,Source,iron,Baseline
+kg/m3,1.00E-06,Solaire_Blackwater,Solaire,NAWI,Source,lead,Baseline
+kg/m3,0.02701,Solaire_Blackwater,Solaire,NAWI,Source,magnesium,Baseline
+kg/m3,5.26E-05,Solaire_Blackwater,Solaire,NAWI,Source,manganese,Baseline
+kg/m3,1.00E-06,Solaire_Blackwater,Solaire,NAWI,Source,mercury,Baseline
+kg/m3,4.66E-06,Solaire_Blackwater,Solaire,NAWI,Source,nickel,Baseline
+kg/m3,0.00864,Solaire_Blackwater,Solaire,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,0.05,Solaire_Blackwater,Solaire,NAWI,Source,nitrate,Baseline
+kg/m3,0.00069,Solaire_Blackwater,Solaire,NAWI,Source,nitrite_as_nitrogen,Baseline
+pH,7.28,Solaire_Blackwater,Solaire,NAWI,Source,ph_max,Baseline
+pH,7.28,Solaire_Blackwater,Solaire,NAWI,Source,ph_min,Baseline
+kg/m3,0.00052,Solaire_Blackwater,Solaire,NAWI,Source,phosphates,Baseline
+kg/m3,0.01897,Solaire_Blackwater,Solaire,NAWI,Source,potassium,Baseline
+kg/m3,1.06E-06,Solaire_Blackwater,Solaire,NAWI,Source,selenium,Baseline
+kg/m3,0.02104,Solaire_Blackwater,Solaire,NAWI,Source,silicon,Baseline
+kg/m3,1.00E-06,Solaire_Blackwater,Solaire,NAWI,Source,silver,Baseline
+kg/m3,0.23158,Solaire_Blackwater,Solaire,NAWI,Source,sodium,Baseline
+kg/m3,0.18825,Solaire_Blackwater,Solaire,NAWI,Source,sulfate,Baseline
+kg/m3,294.19623,Solaire_Blackwater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
+kg/m3,0.98555,Solaire_Blackwater,Solaire,NAWI,Source,tds,Baseline
+kg/m3,0.006525,Solaire_Blackwater,Solaire,NAWI,Source,tss,Baseline
+kg/m3,3.20E-07,Solaire_Blackwater,Solaire,NAWI,Source,trihalomethanes,Baseline
+kg/m3,0.00953,Solaire_Blackwater,Solaire,NAWI,Source,toc,Baseline
+kg/m3,0.0016,Solaire_Blackwater,Solaire,NAWI,Source,turbidity,Baseline
+kg/m3,1.53E-05,Solaire_Blackwater,Solaire,NAWI,Source,zinc,Baseline
+kg/m3,6.16E-06,Solaire_Stormwater,Solaire,NAWI,Source,aluminum,Baseline
+kg/m3,5.10E-07,Solaire_Stormwater,Solaire,NAWI,Source,arsenic,Baseline
+kg/m3,4.52E-05,Solaire_Stormwater,Solaire,NAWI,Source,barium,Baseline
+kg/m3,,Solaire_Stormwater,Solaire,NAWI,Source,bod,Baseline
+kg/m3,0.0004,Solaire_Stormwater,Solaire,NAWI,Source,boron,Baseline
+kg/m3,1.00E-06,Solaire_Stormwater,Solaire,NAWI,Source,bromide,Baseline
+kg/m3,0.08045,Solaire_Stormwater,Solaire,NAWI,Source,calcium,Baseline
+kg/m3,0.29792,Solaire_Stormwater,Solaire,NAWI,Source,chloride,Baseline
+kg/m3,1.90E-07,Solaire_Stormwater,Solaire,NAWI,Source,chromium,Baseline
+kg/m3,2.67E-06,Solaire_Stormwater,Solaire,NAWI,Source,cyanide_as_free,Baseline
+S/m,0.17,Solaire_Stormwater,Solaire,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.00097,Solaire_Stormwater,Solaire,NAWI,Source,fluoride,Baseline
+kg/m3,0.312,Solaire_Stormwater,Solaire,NAWI,Source,hardness,Baseline
+kg/m3,0.00030225,Solaire_Stormwater,Solaire,NAWI,Source,iron,Baseline
+kg/m3,1.00E-06,Solaire_Stormwater,Solaire,NAWI,Source,lead,Baseline
+kg/m3,0.02701,Solaire_Stormwater,Solaire,NAWI,Source,magnesium,Baseline
+kg/m3,5.26E-05,Solaire_Stormwater,Solaire,NAWI,Source,manganese,Baseline
+kg/m3,1.00E-06,Solaire_Stormwater,Solaire,NAWI,Source,mercury,Baseline
+kg/m3,4.66E-06,Solaire_Stormwater,Solaire,NAWI,Source,nickel,Baseline
+kg/m3,0.00864,Solaire_Stormwater,Solaire,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,,Solaire_Stormwater,Solaire,NAWI,Source,nitrate,Baseline
+kg/m3,0.00069,Solaire_Stormwater,Solaire,NAWI,Source,nitrite_as_nitrogen,Baseline
+pH,7.28,Solaire_Stormwater,Solaire,NAWI,Source,ph_max,Baseline
+pH,7.28,Solaire_Stormwater,Solaire,NAWI,Source,ph_min,Baseline
+kg/m3,0.00052,Solaire_Stormwater,Solaire,NAWI,Source,phosphates,Baseline
+kg/m3,0.01897,Solaire_Stormwater,Solaire,NAWI,Source,potassium,Baseline
+kg/m3,1.06E-06,Solaire_Stormwater,Solaire,NAWI,Source,selenium,Baseline
+kg/m3,0.02104,Solaire_Stormwater,Solaire,NAWI,Source,silicon,Baseline
+kg/m3,1.00E-06,Solaire_Stormwater,Solaire,NAWI,Source,silver,Baseline
+kg/m3,0.23158,Solaire_Stormwater,Solaire,NAWI,Source,sodium,Baseline
+kg/m3,0.18825,Solaire_Stormwater,Solaire,NAWI,Source,sulfate,Baseline
+kg/m3,294.19623,Solaire_Stormwater,Solaire,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
+kg/m3,0.98555,Solaire_Stormwater,Solaire,NAWI,Source,tds,Baseline
+kg/m3,0.006525,Solaire_Stormwater,Solaire,NAWI,Source,tss,Baseline
+kg/m3,3.20E-07,Solaire_Stormwater,Solaire,NAWI,Source,trihalomethanes,Baseline
+kg/m3,0.00953,Solaire_Stormwater,Solaire,NAWI,Source,toc,Baseline
+kg/m3,0.0016,Solaire_Stormwater,Solaire,NAWI,Source,turbidity,Baseline
+kg/m3,1.53E-05,Solaire_Stormwater,Solaire,NAWI,Source,zinc,Baseline
+kg/m3,6.16E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,aluminum,Baseline
+kg/m3,5.10E-07,Big_Spring_Feed,Big_Spring,NAWI,Source,arsenic,Baseline
+kg/m3,4.52E-05,Big_Spring_Feed,Big_Spring,NAWI,Source,barium,Baseline
+kg/m3,,Big_Spring_Feed,Big_Spring,NAWI,Source,bod,Baseline
+kg/m3,0.0004,Big_Spring_Feed,Big_Spring,NAWI,Source,boron,Baseline
+kg/m3,1.00E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,bromide,Baseline
+kg/m3,0.08045,Big_Spring_Feed,Big_Spring,NAWI,Source,calcium,Baseline
+kg/m3,0.29792,Big_Spring_Feed,Big_Spring,NAWI,Source,chloride,Baseline
+kg/m3,1.90E-07,Big_Spring_Feed,Big_Spring,NAWI,Source,chromium,Baseline
+kg/m3,2.67E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,cyanide_as_free,Baseline
+S/m,0.17,Big_Spring_Feed,Big_Spring,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.00097,Big_Spring_Feed,Big_Spring,NAWI,Source,fluoride,Baseline
+kg/m3,0.312,Big_Spring_Feed,Big_Spring,NAWI,Source,hardness,Baseline
+kg/m3,0.00030225,Big_Spring_Feed,Big_Spring,NAWI,Source,iron,Baseline
+kg/m3,1.00E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,lead,Baseline
+kg/m3,0.02701,Big_Spring_Feed,Big_Spring,NAWI,Source,magnesium,Baseline
+kg/m3,5.26E-05,Big_Spring_Feed,Big_Spring,NAWI,Source,manganese,Baseline
+kg/m3,1.00E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,mercury,Baseline
+kg/m3,4.66E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,nickel,Baseline
+kg/m3,0.00864,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrate,Baseline
+kg/m3,0.00069,Big_Spring_Feed,Big_Spring,NAWI,Source,nitrite_as_nitrogen,Baseline
+pH,7.28,Big_Spring_Feed,Big_Spring,NAWI,Source,ph_max,Baseline
+pH,7.28,Big_Spring_Feed,Big_Spring,NAWI,Source,ph_min,Baseline
+kg/m3,0.00052,Big_Spring_Feed,Big_Spring,NAWI,Source,phosphates,Baseline
+kg/m3,0.01897,Big_Spring_Feed,Big_Spring,NAWI,Source,potassium,Baseline
+kg/m3,1.06E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,selenium,Baseline
+kg/m3,0.02104,Big_Spring_Feed,Big_Spring,NAWI,Source,silicon,Baseline
+kg/m3,1.00E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,silver,Baseline
+kg/m3,0.23158,Big_Spring_Feed,Big_Spring,NAWI,Source,sodium,Baseline
+kg/m3,0.18825,Big_Spring_Feed,Big_Spring,NAWI,Source,sulfate,Baseline
+kg/m3,294.19623,Big_Spring_Feed,Big_Spring,NAWI,Source,total_coliforms_fecal_ecoli,Baseline
+kg/m3,0.98555,Big_Spring_Feed,Big_Spring,NAWI,Source,tds,Baseline
+kg/m3,0.006525,Big_Spring_Feed,Big_Spring,NAWI,Source,tss,Baseline
+kg/m3,3.20E-07,Big_Spring_Feed,Big_Spring,NAWI,Source,trihalomethanes,Baseline
+kg/m3,0.00953,Big_Spring_Feed,Big_Spring,NAWI,Source,toc,Baseline
+kg/m3,0.0016,Big_Spring_Feed,Big_Spring,NAWI,Source,turbidity,Baseline
+kg/m3,1.53E-05,Big_Spring_Feed,Big_Spring,NAWI,Source,zinc,Baseline
+kg/m3,0.08,KBHDP_Brackish_Low,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
+kg/m3,0.13,KBHDP_Brackish_Low,KBHDP,NAWI,Source,calcium,Baseline
+kg/m3,1.18,KBHDP_Brackish_Low,KBHDP,NAWI,Source,chloride,Baseline
+S/m,4200,KBHDP_Brackish_Low,KBHDP,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.03,KBHDP_Brackish_Low,KBHDP,NAWI,Source,magnesium,Baseline
+pH,7.6,KBHDP_Brackish_Low,KBHDP,NAWI,Source,ph_max,Baseline
+pH,7.6,KBHDP_Brackish_Low,KBHDP,NAWI,Source,ph_min,Baseline
+kg/m3,0.016,KBHDP_Brackish_Low,KBHDP,NAWI,Source,potassium,Baseline
+kg/m3,0.031,KBHDP_Brackish_Low,KBHDP,NAWI,Source,silicon_dioxide,Baseline
+kg/m3,0.77,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sodium,Baseline
+kg/m3,0.23,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sulfate,Baseline
+kg/m3,2.5,KBHDP_Brackish_Low,KBHDP,NAWI,Source,tds,Baseline
+kg/m3,0.08,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
+kg/m3,0.13,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,calcium,Baseline
+kg/m3,1.18,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,chloride,Baseline
+S/m,4200,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.03,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,magnesium,Baseline
+pH,7.6,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,ph_max,Baseline
+pH,7.6,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,ph_min,Baseline
+kg/m3,0.016,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,potassium,Baseline
+kg/m3,0.031,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,silicon_dioxide,Baseline
+kg/m3,0.77,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sodium,Baseline
+kg/m3,0.23,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sulfate,Baseline
+kg/m3,2.5,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,tds,Baseline
+kg/m3,0.0825,KBHDP_Brackish_High,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
+kg/m3,0.145,KBHDP_Brackish_High,KBHDP,NAWI,Source,calcium,Baseline
+kg/m3,1.315,KBHDP_Brackish_High,KBHDP,NAWI,Source,chloride,Baseline
+S/m,4600,KBHDP_Brackish_High,KBHDP,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.04,KBHDP_Brackish_High,KBHDP,NAWI,Source,magnesium,Baseline
+pH,7.6,KBHDP_Brackish_High,KBHDP,NAWI,Source,ph_max,Baseline
+pH,7.6,KBHDP_Brackish_High,KBHDP,NAWI,Source,ph_min,Baseline
+kg/m3,0.019,KBHDP_Brackish_High,KBHDP,NAWI,Source,potassium,Baseline
+kg/m3,0.0345,KBHDP_Brackish_High,KBHDP,NAWI,Source,silicon_dioxide,Baseline
+kg/m3,0.825,KBHDP_Brackish_High,KBHDP,NAWI,Source,sodium,Baseline
+kg/m3,0.29,KBHDP_Brackish_High,KBHDP,NAWI,Source,sulfate,Baseline
+kg/m3,2.75,KBHDP_Brackish_High,KBHDP,NAWI,Source,tds,Baseline
+kg/m3,0.5375,EMWD_CA_Brackish,EMWD,NAWI,Source,alkalinity_as_caco3,Baseline
+kg/m3,7.80E-05,EMWD_CA_Brackish,EMWD,NAWI,Source,aluminum,Baseline
+kg/m3,7.50E-06,EMWD_CA_Brackish,EMWD,NAWI,Source,arsenic,Baseline
+kg/m3,0.000129,EMWD_CA_Brackish,EMWD,NAWI,Source,barium,Baseline
+kg/m3,0.662,EMWD_CA_Brackish,EMWD,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
+kg/m3,0.000193,EMWD_CA_Brackish,EMWD,NAWI,Source,boron,Baseline
+kg/m3,0.331,EMWD_CA_Brackish,EMWD,NAWI,Source,calcium,Baseline
+kg/m3,0.565,EMWD_CA_Brackish,EMWD,NAWI,Source,chloride,Baseline
+S/m,0.3476,EMWD_CA_Brackish,EMWD,NAWI,Source,electrical_conductivity,Baseline
+kg/m3,0.00032,EMWD_CA_Brackish,EMWD,NAWI,Source,fluoride,Baseline
+kg/m3,0.000387,EMWD_CA_Brackish,EMWD,NAWI,Source,iron,Baseline
+kg/m3,0.284,EMWD_CA_Brackish,EMWD,NAWI,Source,magnesium,Baseline
+kg/m3,0.000115,EMWD_CA_Brackish,EMWD,NAWI,Source,manganese,Baseline
+kg/m3,0.003,EMWD_CA_Brackish,EMWD,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,1.00E-05,EMWD_CA_Brackish,EMWD,NAWI,Source,nitrite_as_nitrogen,Baseline
+pH,6.1,EMWD_CA_Brackish,EMWD,NAWI,Source,ph_max,Baseline
+pH,6.1,EMWD_CA_Brackish,EMWD,NAWI,Source,ph_min,Baseline
+kg/m3,0.0002,EMWD_CA_Brackish,EMWD,NAWI,Source,phosphates,Baseline
+kg/m3,0.0098,EMWD_CA_Brackish,EMWD,NAWI,Source,potassium,Baseline
+kg/m3,0.0612,EMWD_CA_Brackish,EMWD,NAWI,Source,silicon,Baseline
+kg/m3,0.2787,EMWD_CA_Brackish,EMWD,NAWI,Source,sodium,Baseline
+kg/m3,0.0016,EMWD_CA_Brackish,EMWD,NAWI,Source,strontium,Baseline
+kg/m3,0.58,EMWD_CA_Brackish,EMWD,NAWI,Source,sulfate,Baseline
+kg/m3,2.33,EMWD_CA_Brackish,EMWD,NAWI,Source,tds,Baseline
+kg/m3,5.20E-05,EMWD_CA_Brackish,EMWD,NAWI,Source,zinc,Baseline
+kg/m3,2.50E-05,Irwin_Brackish,Irwin,NAWI,Source,arsenic,Baseline
+kg/m3,2.00E-05,Irwin_Brackish,Irwin,NAWI,Source,barium,Baseline
+kg/m3,0.1786,Irwin_Brackish,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
+kg/m3,0.00475,Irwin_Brackish,Irwin,NAWI,Source,calcium,Baseline
+kg/m3,0.1046,Irwin_Brackish,Irwin,NAWI,Source,chloride,Baseline
+kg/m3,0.0051,Irwin_Brackish,Irwin,NAWI,Source,fluoride,Baseline
+kg/m3,0.0795,Irwin_Brackish,Irwin,NAWI,Source,hardness,Baseline
+kg/m3,0.0042,Irwin_Brackish,Irwin,NAWI,Source,magnesium,Baseline
+kg/m3,0.0203,Irwin_Brackish,Irwin,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,0.0203,Irwin_Brackish,Irwin,NAWI,Source,nitrate,Baseline
+pH,7.79,Irwin_Brackish,Irwin,NAWI,Source,ph_max,Baseline
+pH,7.79,Irwin_Brackish,Irwin,NAWI,Source,ph_min,Baseline
+kg/m3,0.0089,Irwin_Brackish,Irwin,NAWI,Source,potassium,Baseline
+kg/m3,0.1678,Irwin_Brackish,Irwin,NAWI,Source,sodium,Baseline
+kg/m3,0.0004,Irwin_Brackish,Irwin,NAWI,Source,strontium,Baseline
+kg/m3,0.1239,Irwin_Brackish,Irwin,NAWI,Source,sulfate,Baseline
+kg/m3,0.69,Irwin_Brackish,Irwin,NAWI,Source,tds,Baseline
+kg/m3,0.000283715,Irwin_Brine,Irwin,NAWI,Source,arsenic,Baseline
+kg/m3,0.000253181,Irwin_Brine,Irwin,NAWI,Source,barium,Baseline
+kg/m3,1.886768448,Irwin_Brine,Irwin,NAWI,Source,bicarbonate_alkalinity_as_caco3,Baseline
+kg/m3,0.056037474,Irwin_Brine,Irwin,NAWI,Source,calcium,Baseline
+kg/m3,1.185750636,Irwin_Brine,Irwin,NAWI,Source,chloride,Baseline
+kg/m3,0.053435115,Irwin_Brine,Irwin,NAWI,Source,fluoride,Baseline
+kg/m3,0.935114504,Irwin_Brine,Irwin,NAWI,Source,hardness,Baseline
+kg/m3,0.048346056,Irwin_Brine,Irwin,NAWI,Source,magnesium,Baseline
+kg/m3,0.227735369,Irwin_Brine,Irwin,NAWI,Source,nitrate_as_nitrogen,Baseline
+kg/m3,0.227735369,Irwin_Brine,Irwin,NAWI,Source,nitrate,Baseline
+pH,7.85,Irwin_Brine,Irwin,NAWI,Source,ph_max,Baseline
+pH,7.85,Irwin_Brine,Irwin,NAWI,Source,ph_min,Baseline
+kg/m3,0.10178117,Irwin_Brine,Irwin,NAWI,Source,potassium,Baseline
+kg/m3,1.856234097,Irwin_Brine,Irwin,NAWI,Source,sodium,Baseline
+kg/m3,0.004834606,Irwin_Brine,Irwin,NAWI,Source,strontium,Baseline
+kg/m3,1.455470738,Irwin_Brine,Irwin,NAWI,Source,sulfate,Baseline
+kg/m3,7.099236641,Irwin_Brine,Irwin,NAWI,Source,tds,Baseline
+kg/m3,,,,,,1_1_1_trichloroethane,Baseline
+kg/m3,,,,,,1_1_2_trichloroethane,Baseline
+kg/m3,,,,,,1_1_dichloroethylene,Baseline
+kg/m3,,,,,,1_2_4_trichlorobenzene,Baseline
+kg/m3,,,,,,dbcp,Baseline
+kg/m3,,,,,,1_2_dichloroethane,Baseline
+kg/m3,,,,,,1_2_dichloropropane,Baseline
+kg/m3,,,,,,silvex,Baseline
+kg/m3,,,,,,2_4_d,Baseline
+kg/m3,,,,,,acrylamide,Baseline
+kg/m3,,,,,,alachlor,Baseline
+kg/m3,,,,,,alkalinity_as_caco3,Baseline
+pCi/L,,,,,,alpha_particles,Baseline
+kg/m3,,,,,,aluminum,Baseline
+kg/m3,,,,,,antimony,Baseline
+kg/m3,,,,,,ammonia_nitrogen,Baseline
+kg/m3,,,,,,arsenic,Baseline
+kg/m3,,,,,,nitrogen,Baseline
+MF/L,,,,,,asbestos_fiber_10_micro_m,Baseline
+kg/m3,,,,,,atrazine,Baseline
+kg/m3,,,,,,barium,Baseline
+kg/m3,,,,,,barium2,Baseline
+kg/m3,,,,,,benzene,Baseline
+kg/m3,,,,,,pahs,Baseline
+kg/m3,,,,,,beryllium,Baseline
+kg/m3,,,,,,beryllium,Baseline
+pCi/L,,,,,,beta_particles_and_photon_emitters,Baseline
+kg/m3,,,,,,bicarbonate_alkalinity_as_caco3,Baseline
+kg/m3,,,,,,bod,Baseline
+kg/m3,,,,,,boron,Baseline
+kg/m3,,,,,,bromate,Baseline
+kg/m3,,,,,,bromide,Baseline
+kg/m3,,,,,,cadmium,Baseline
+kg/m3,,,,,,cadmium2,Baseline
+kg/m3,,,,,,calcium,Baseline
+kg/m3,,,,,,carbofuran,Baseline
+kg/m3,,,,,,carbon_tetrachloride,Baseline
+kg/m3,,,,,,carbonate_alkalinity_as_caco3,Baseline
+kg/m3,,,,,,chloramines_as_cl2,Baseline
+kg/m3,,,,,,chlordane,Baseline
+kg/m3,,,,,,chloride,Baseline
+kg/m3,,,,,,chlorine_as_cl2,Baseline
+kg/m3,,,,,,chlorine_dioxide_as_clo2,Baseline
+kg/m3,,,,,,chlorite,Baseline
+kg/m3,,,,,,chlorobenzene,Baseline
+kg/m3,,,,,,chromium_hexavalent,Baseline
+kg/m3,,,,,,chromium,Baseline
+kg/m3,,,,,,chromium_total2,Baseline
+kg/m3,,,,,,cis_1_2_dichloroethylene,Baseline
+kg/m3,,,,,,cobalt,Baseline
+kg/m3,,,,,,copper,Baseline
+kg/m3,,,,,,phosphorus,Baseline
+kg/m3,,,,,,cryptosporidium,Baseline
+kg/m3,,,,,,cyanide_as_free,Baseline
+kg/m3,,,,,,dalapon,Baseline
+pCi/L,,,,,,deuterium_2h,Baseline
+kg/m3,,,,,,di_2_ethylhexyl_adipate,Baseline
+kg/m3,,,,,,di_2_ethylhexyl_phthalate,Baseline
+kg/m3,,,,,,dichloromethane,Baseline
+kg/m3,,,,,,dinoseb,Baseline
+kg/m3,,,,,,dioxin_2_3_7_8_tcdd,Baseline
+kg/m3,,,,,,diquat,Baseline
+kg/m3,,,,,,dissolved_oxygen,Baseline
+S/m,,,,,,electrical_conductivity,Baseline
+kg/m3,,,,,,endothall,Baseline
+kg/m3,,,,,,endrin,Baseline
+kg/m3,,,,,,epichlorohydrin,Baseline
+kg/m3,,,,,,eeq,Baseline
+kg/m3,,,,,,ethylbenzene,Baseline
+kg/m3,,,,,,ethylene_dibromide,Baseline
+kg/m3,,,,,,fluoride,Baseline
+kg/m3,,,,,,giardia_lamblia,Baseline
+kg/m3,,,,,,glyphosate,Baseline
+kg/m3,,,,,,haloacetic_acids,Baseline
+kg/m3,,,,,,hardness,Baseline
+kg/m3,,,,,,heptachlor,Baseline
+kg/m3,,,,,,heptachlor_epoxide,Baseline
+kg/m3,,,,,,hpc,Baseline
+kg/m3,,,,,,hexachlorobenzene,Baseline
+kg/m3,,,,,,hexachlorocyclopentadiene,Baseline
+kg/m3,,,,,,hydroxide_alkalinity_as_caco3,Baseline
+kg/m3,,,,,,iron,Baseline
+kg/m3,,,,,,lead,Baseline
+kg/m3,,,,,,tkn,Baseline
+kg/m3,,,,,,legionella,Baseline
+kg/m3,,,,,,lindane,Baseline
+kg/m3,,,,,,lithium,Baseline
+kg/m3,,,,,,magnesium,Baseline
+kg/m3,,,,,,manganese,Baseline
+kg/m3,,,,,,mercury,Baseline
+kg/m3,,,,,,mercury_inorganic,Baseline
+kg/m3,,,,,,methoxychlor,Baseline
+kg/m3,,,,,,molybdenum,Baseline
+kg/m3,,,,,,nickel,Baseline
+kg/m3,,,,,,nitrate_as_nitrogen,Baseline
+kg/m3,,,,,,nitrate,Baseline
+kg/m3,,,,,,nitrite_as_nitrogen,Baseline
+kg/m3,,,,,,ndma,Baseline
+kg/m3,,,,,,nonvolatile_toc,Baseline
+kg/m3,,,,,,o_dichlorobenzene,Baseline
+kg/m3,,,,,,oil_and_grease,Baseline
+kg/m3,,,,,,oily_matter,Baseline
+kg/m3,,,,,,oxamyl_vydate,Baseline
+pCi/L,,,,,,oxygen_18o,Baseline
+kg/m3,,,,,,p_dichlorobenzene,Baseline
+kg/m3,,,,,,pentachlorophenol,Baseline
+kg/m3,,,,,,perfluorooctane_sulfonate_pfos,Baseline
+kg/m3,,,,,,perfluorootanoate_pfoa,Baseline
+pH,,,,,,ph_max,Baseline
+pH,,,,,,ph_min,Baseline
+kg/m3,,,,,,phosphates,Baseline
+kg/m3,,,,,,picloram,Baseline
+kg/m3,,,,,,polychlorinated_biphenyls_pcbs,Baseline
+kg/m3,,,,,,polycyclic_aromatic_hydrocarbons_pah,Baseline
+kg/m3,,,,,,potassium,Baseline
+pCi/L,,,,,,radium_226_and_radium_228_combined,Baseline
+pCi/L,,,,,,radium_226,Baseline
+pCi/L,,,,,,radium_228,Baseline
+kg/m3,,,,,,selenium,Baseline
+kg/m3,,,,,,orthophosphate,Baseline
+kg/m3,,,,,,silicon,Baseline
+kg/m3,,,,,,silicon_dioxide,Baseline
+kg/m3,,,,,,silver,Baseline
+kg/m3,,,,,,simazine,Baseline
+kg/m3,,,,,,sodium,Baseline
+kg/m3,,,,,,strontium,Baseline
+kg/m3,,,,,,styrene,Baseline
+kg/m3,,,,,,sulfate,Baseline
+kg/m3,,,,,,sulfur,Baseline
+kg/m3,,,,,,tetrachloroethylene,Baseline
+kg/m3,,,,,,thallium,Baseline
+kg/m3,,,,,,chemical_oxygen_demand_cod,Baseline
+kg/m3,,,,,,toluene,Baseline
+kg/m3,,,,,,total_coliforms_fecal_ecoli,Baseline
+kg/m3,,,,,,tds,Baseline
+kg/m3,,,,,,total_petroleum_hydrocarbons_tph,Baseline
+kg/m3,,,,,,tss,Baseline
+kg/m3,,,,,,trihalomethanes,Baseline
+kg/m3,,,,,,toxaphene,Baseline
+kg/m3,,,,,,toc,Baseline
+kg/m3,,,,,,trans_1_2_dichloroethylene,Baseline
+kg/m3,,,,,,trichloroethylene,Baseline
+kg/m3,,,,,,turbidity,Baseline
+%,,,,,,ultraviolet_transmittance_uvt,Baseline
+pCi/L,,,,,,uranium,Baseline
+kg/m3,,,,,,vanadium,Baseline
+kg/m3,,,,,,vinyl_chloride,Baseline
+kg/m3,,,,,,viruses_enteric,Baseline
+kg/m3,,,,,,volatile_organic_compounds_voc,Baseline
+kg/m3,,,,,,xylenes_total,Baseline
+kg/m3,,,,,,zinc,Baseline
+kg/m3,,,,,,1_1_1_trichloroethane,Baseline
+kg/m3,,,,,,1_1_2_trichloroethane,Baseline
+kg/m3,,,,,,1_1_dichloroethylene,Baseline
+kg/m3,,,,,,1_2_4_trichlorobenzene,Baseline
+kg/m3,,,,,,dbcp,Baseline
+kg/m3,,,,,,1_2_dichloroethane,Baseline
+kg/m3,,,,,,1_2_dichloropropane,Baseline
+kg/m3,,,,,,silvex,Baseline
+kg/m3,,,,,,2_4_d,Baseline
+kg/m3,,,,,,acrylamide,Baseline
+kg/m3,,,,,,alachlor,Baseline
+kg/m3,,,,,,alkalinity_as_caco3,Baseline
+pCi/L,,,,,,alpha_particles,Baseline
+kg/m3,,,,,,aluminum,Baseline
+kg/m3,,,,,,antimony,Baseline
+kg/m3,,,,,,ammonia_nitrogen,Baseline
+kg/m3,,,,,,arsenic,Baseline
+kg/m3,,,,,,nitrogen,Baseline
+MF/L,,,,,,asbestos_fiber_10_micro_m,Baseline
+kg/m3,,,,,,atrazine,Baseline
+kg/m3,,,,,,barium,Baseline
+kg/m3,,,,,,barium2,Baseline
+kg/m3,,,,,,benzene,Baseline
+kg/m3,,,,,,pahs,Baseline
+kg/m3,,,,,,beryllium,Baseline
+kg/m3,,,,,,beryllium,Baseline
+pCi/L,,,,,,beta_particles_and_photon_emitters,Baseline
+kg/m3,,,,,,bicarbonate_alkalinity_as_caco3,Baseline
+kg/m3,,,,,,bod,Baseline
+kg/m3,,,,,,boron,Baseline
+kg/m3,,,,,,bromate,Baseline
+kg/m3,,,,,,bromide,Baseline
+kg/m3,,,,,,cadmium,Baseline
+kg/m3,,,,,,cadmium2,Baseline
+kg/m3,,,,,,calcium,Baseline
+kg/m3,,,,,,carbofuran,Baseline
+kg/m3,,,,,,carbon_tetrachloride,Baseline
+kg/m3,,,,,,carbonate_alkalinity_as_caco3,Baseline
+kg/m3,,,,,,chloramines_as_cl2,Baseline
+kg/m3,,,,,,chlordane,Baseline
+kg/m3,,,,,,chloride,Baseline
+kg/m3,,,,,,chlorine_as_cl2,Baseline
+kg/m3,,,,,,chlorine_dioxide_as_clo2,Baseline
+kg/m3,,,,,,chlorite,Baseline
+kg/m3,,,,,,chlorobenzene,Baseline
+kg/m3,,,,,,chromium_hexavalent,Baseline
+kg/m3,,,,,,chromium,Baseline
+kg/m3,,,,,,chromium_total2,Baseline
+kg/m3,,,,,,cis_1_2_dichloroethylene,Baseline
+kg/m3,,,,,,cobalt,Baseline
+kg/m3,,,,,,copper,Baseline
+kg/m3,,,,,,phosphorus,Baseline
+kg/m3,,,,,,cryptosporidium,Baseline
+kg/m3,,,,,,cyanide_as_free,Baseline
+kg/m3,,,,,,dalapon,Baseline
+pCi/L,,,,,,deuterium_2h,Baseline
+kg/m3,,,,,,di_2_ethylhexyl_adipate,Baseline
+kg/m3,,,,,,di_2_ethylhexyl_phthalate,Baseline
+kg/m3,,,,,,dichloromethane,Baseline
+kg/m3,,,,,,dinoseb,Baseline
+kg/m3,,,,,,dioxin_2_3_7_8_tcdd,Baseline
+kg/m3,,,,,,diquat,Baseline
+kg/m3,,,,,,dissolved_oxygen,Baseline
+S/m,,,,,,electrical_conductivity,Baseline
+kg/m3,,,,,,endothall,Baseline
+kg/m3,,,,,,endrin,Baseline
+kg/m3,,,,,,epichlorohydrin,Baseline
+kg/m3,,,,,,eeq,Baseline
+kg/m3,,,,,,ethylbenzene,Baseline
+kg/m3,,,,,,ethylene_dibromide,Baseline
+kg/m3,,,,,,fluoride,Baseline
+kg/m3,,,,,,giardia_lamblia,Baseline
+kg/m3,,,,,,glyphosate,Baseline
+kg/m3,,,,,,haloacetic_acids,Baseline
+kg/m3,,,,,,hardness,Baseline
+kg/m3,,,,,,heptachlor,Baseline
+kg/m3,,,,,,heptachlor_epoxide,Baseline
+kg/m3,,,,,,hpc,Baseline
+kg/m3,,,,,,hexachlorobenzene,Baseline
+kg/m3,,,,,,hexachlorocyclopentadiene,Baseline
+kg/m3,,,,,,hydroxide_alkalinity_as_caco3,Baseline
+kg/m3,,,,,,iron,Baseline
+kg/m3,,,,,,lead,Baseline
+kg/m3,,,,,,tkn,Baseline
+kg/m3,,,,,,legionella,Baseline
+kg/m3,,,,,,lindane,Baseline
+kg/m3,,,,,,lithium,Baseline
+kg/m3,,,,,,magnesium,Baseline
+kg/m3,,,,,,manganese,Baseline
+kg/m3,,,,,,mercury,Baseline
+kg/m3,,,,,,mercury_inorganic,Baseline
+kg/m3,,,,,,methoxychlor,Baseline
+kg/m3,,,,,,molybdenum,Baseline
+kg/m3,,,,,,nickel,Baseline
+kg/m3,,,,,,nitrate_as_nitrogen,Baseline
+kg/m3,,,,,,nitrate,Baseline
+kg/m3,,,,,,nitrite_as_nitrogen,Baseline
+kg/m3,,,,,,ndma,Baseline
+kg/m3,,,,,,nonvolatile_toc,Baseline
+kg/m3,,,,,,o_dichlorobenzene,Baseline
+kg/m3,,,,,,oil_and_grease,Baseline
+kg/m3,,,,,,oily_matter,Baseline
+kg/m3,,,,,,oxamyl_vydate,Baseline
+pCi/L,,,,,,oxygen_18o,Baseline
+kg/m3,,,,,,p_dichlorobenzene,Baseline
+kg/m3,,,,,,pentachlorophenol,Baseline
+kg/m3,,,,,,perfluorooctane_sulfonate_pfos,Baseline
+kg/m3,,,,,,perfluorootanoate_pfoa,Baseline
+pH,,,,,,ph_max,Baseline
+pH,,,,,,ph_min,Baseline
+kg/m3,,,,,,phosphates,Baseline
+kg/m3,,,,,,picloram,Baseline
+kg/m3,,,,,,polychlorinated_biphenyls_pcbs,Baseline
+kg/m3,,,,,,polycyclic_aromatic_hydrocarbons_pah,Baseline
+kg/m3,,,,,,potassium,Baseline
+pCi/L,,,,,,radium_226_and_radium_228_combined,Baseline
+pCi/L,,,,,,radium_226,Baseline
+pCi/L,,,,,,radium_228,Baseline
+kg/m3,,,,,,selenium,Baseline
+kg/m3,,,,,,orthophosphate,Baseline
+kg/m3,,,,,,silicon,Baseline
+kg/m3,,,,,,silicon_dioxide,Baseline
+kg/m3,,,,,,silver,Baseline
+kg/m3,,,,,,simazine,Baseline
+kg/m3,,,,,,sodium,Baseline
+kg/m3,,,,,,strontium,Baseline
+kg/m3,,,,,,styrene,Baseline
+kg/m3,,,,,,sulfate,Baseline
+kg/m3,,,,,,sulfur,Baseline
+kg/m3,,,,,,tetrachloroethylene,Baseline
+kg/m3,,,,,,thallium,Baseline
+kg/m3,,,,,,chemical_oxygen_demand_cod,Baseline
+kg/m3,,,,,,toluene,Baseline
+kg/m3,,,,,,total_coliforms_fecal_ecoli,Baseline
+kg/m3,,,,,,tds,Baseline
+kg/m3,,,,,,total_petroleum_hydrocarbons_tph,Baseline
+kg/m3,,,,,,tss,Baseline
+kg/m3,,,,,,trihalomethanes,Baseline
+kg/m3,,,,,,toxaphene,Baseline
+kg/m3,,,,,,toc,Baseline
+kg/m3,,,,,,trans_1_2_dichloroethylene,Baseline
+kg/m3,,,,,,trichloroethylene,Baseline
+kg/m3,,,,,,turbidity,Baseline
+%,,,,,,ultraviolet_transmittance_uvt,Baseline
+pCi/L,,,,,,uranium,Baseline
+kg/m3,,,,,,vanadium,Baseline
+kg/m3,,,,,,vinyl_chloride,Baseline
+kg/m3,,,,,,viruses_enteric,Baseline
+kg/m3,,,,,,volatile_organic_compounds_voc,Baseline
+kg/m3,,,,,,xylenes_total,Baseline
+kg/m3,,,,,,zinc,Baseline
+,,,,,,,Baseline
