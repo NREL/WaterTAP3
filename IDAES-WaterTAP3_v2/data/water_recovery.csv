@@ -102,7 +102,7 @@
 104,Default,,surface_augmentation,1,,Texas Water Development Board IT3PR User Manual
 105,Default,,surface_discharge,1,,Lenntech https://www.lenntech.com/processes/surface-water-discharge-of-brine.htm.  Electricity consumption is based on Carlsbad data.
 106,Default,,sw_onshore_intake,1,,Intake and Pump Costs from Voutchkov (see capital cost curves in VAR). Energy consumption value based on 100-ft head pump and is consistent with reported Carlsbad data.
-108,Default,,tri_media_filtration,1,,Texas Water Development Board IT3PR User Manual
+108,Default,,tri_media_filtration,0.9,,Texas Water Development Board IT3PR User Manual
 109,Default,,tri_media_filtration_with_backflush,0.9,,Texas Water Development Board IT3PR User Manual. Backflush based on Carlsbad case study.
 110,Tuscarora,Baseline,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.
 111,San Luis,Baseline,uf_feed_pump,1,,Defined based on the San Luis case study data.
@@ -112,3 +112,4 @@
 115,Kern County,Baseline,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 116,Default,,well_field,1,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
 117,Default,,ro_deep_scnd_pass,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
+118,Default,,irwin_brine_management,0.92,,
