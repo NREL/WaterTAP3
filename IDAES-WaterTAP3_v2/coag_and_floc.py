@@ -64,10 +64,10 @@ unit_basis_yr = 2020
 
 ### NEED TO MOVE THIS TO PARAMS? TODO ###
 Al2_SO4_3_Dosage_Rate = 10 # mg/L # MIKE ASSUMPTION NEEDED
-Al2_SO4_3_Dosage_Rate = (Al2_SO4_3_Dosage_Rate / 1000 ) / 264.172 # converted to kg/gal todo in pyunits
+Al2_SO4_3_Dosage_Rate = (Al2_SO4_3_Dosage_Rate / 1000 ) #/ 264.172 # converted to kg/gal todo in pyunits
 
 Polymer_Dosage = 0.1 # mg/L # MIKE ASSUMPTION NEEDED
-Polymer_Dosage = (Polymer_Dosage / 1000 ) / 264.172
+Polymer_Dosage = (Polymer_Dosage / 1000 ) # to kg/m3
 
 Aluminum_Al2_SO4_3 = Al2_SO4_3_Dosage_Rate # MIKE ASSUMPTION NEEDED
 Anionic_Polymer = Polymer_Dosage / 2 # MIKE ASSUMPTION NEEDED
