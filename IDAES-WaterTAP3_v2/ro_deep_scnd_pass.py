@@ -320,7 +320,7 @@ see property package for documentation.}"""))
 #                 return tot_pow # (kWh) annual energy demand
 
         def electricity(wacs):
-            electricity = power_demand(wacs) * 24 / (wacs/self.water_recovery[time]) * 1000  #kWh/m3
+            electricity = power_demand(wacs) * 24 / (wacs/self.water_recovery[time]) * 1000  #kWh/m3 # could just be flow in?
 
             return electricity
 
@@ -451,8 +451,7 @@ see property package for documentation.}"""))
         flow_out = pyunits.convert(self.flow_vol_out[time],
                                   to_units=pyunits.Mgallons/pyunits.day) # convert to MGD  
 
-        wacs = self.flow_vol_out[time] * 3600 #what is this constant for
-        #wacs = flow_in * 3785.4118 * self.water_recovery[time]
+        wacs = self.flow_vol_out[time] * 3600 #what is this constant for --> flow_in * 3785.4118 * self.water_recovery[time]
 
         self.costing.fixed_cap_inv_unadjusted = Expression(
             expr=fixed_cap_mcgiv(wacs),

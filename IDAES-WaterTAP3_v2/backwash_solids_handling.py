@@ -176,6 +176,9 @@ see property package for documentation.}"""))
         self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
         total_flow_rate = self.total_mass #kg/hr
         
+        self.water_recovery.fix(unit_params["recovery"])
+        
+        
         lift_height = 100 # ft
 
         def fixed_cap(flow_in, total_flow_rate): # TODO not based on flow, just have placeholder numbers for Carlsbad

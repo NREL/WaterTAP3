@@ -148,7 +148,7 @@ see property package for documentation.}"""))
         chem_name = unit_params["chemical_name"][0]
         chemical_dosage = 0.01 #  kg/m3 should be read from .csv
         solution_density = 1480 # kg/m3
-        chemical_dosage = chemical_dosage / 264.172 # pyunits to kg/g
+        chemical_dosage = chemical_dosage #/ 264.172 # pyunits to kg/g
 
         chem_dict = {chem_name : chemical_dosage}
         self.chem_dict = chem_dict        
