@@ -316,6 +316,7 @@ kg/m3,0.031,KBHDP_Brackish_Low,KBHDP,NAWI,Source,silicon_dioxide,Baseline
 kg/m3,0.77,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sodium,Baseline
 kg/m3,0.23,KBHDP_Brackish_Low,KBHDP,NAWI,Source,sulfate,Baseline
 kg/m3,2.5,KBHDP_Brackish_Low,KBHDP,NAWI,Source,tds,Baseline
+m3/s,1.336277778,KBHDP_Brackish_Low,KBHDP,NAWI,Source,flow,Baseline
 kg/m3,0.08,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
 kg/m3,0.13,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,calcium,Baseline
 kg/m3,1.18,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,chloride,Baseline
@@ -328,6 +329,7 @@ kg/m3,0.031,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,silicon_dioxide,Baseline
 kg/m3,0.77,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sodium,Baseline
 kg/m3,0.23,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,sulfate,Baseline
 kg/m3,2.5,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,tds,Baseline
+m3/s,1.336277778,KBHDP_Brackish_Ave,KBHDP,NAWI,Source,flow,Baseline
 kg/m3,0.0825,KBHDP_Brackish_High,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
 kg/m3,0.145,KBHDP_Brackish_High,KBHDP,NAWI,Source,calcium,Baseline
 kg/m3,1.315,KBHDP_Brackish_High,KBHDP,NAWI,Source,chloride,Baseline
@@ -340,6 +342,7 @@ kg/m3,0.0345,KBHDP_Brackish_High,KBHDP,NAWI,Source,silicon_dioxide,Baseline
 kg/m3,0.825,KBHDP_Brackish_High,KBHDP,NAWI,Source,sodium,Baseline
 kg/m3,0.29,KBHDP_Brackish_High,KBHDP,NAWI,Source,sulfate,Baseline
 kg/m3,2.75,KBHDP_Brackish_High,KBHDP,NAWI,Source,tds,Baseline
+m3/s,1.336277778,KBHDP_Brackish_High,KBHDP,NAWI,Source,flow,Baseline
 kg/m3,0.5375,EMWD_CA_Brackish,EMWD,NAWI,Source,alkalinity_as_caco3,Baseline
 kg/m3,7.80E-05,EMWD_CA_Brackish,EMWD,NAWI,Source,aluminum,Baseline
 kg/m3,7.50E-06,EMWD_CA_Brackish,EMWD,NAWI,Source,arsenic,Baseline
