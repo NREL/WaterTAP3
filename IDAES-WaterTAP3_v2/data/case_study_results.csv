@@ -2435,35 +2435,35 @@
 2433,KBHDP,Baseline,A,media_filtration,Grid_Electricity,kWh,0,electricity
 2434,KBHDP,Baseline,A,media_filtration,Inlet Water,m3/hr,5129.732806,flow_vol_in
 2435,KBHDP,Baseline,A,media_filtration,Outlet Water,m3/hr,5129.732806,flow_vol_out
-2436,KBHDP,Baseline,A,anti-scalant_addition,Fixed Capital Investment (FCI),$MM,0.167306725,fixed_cap_inv
-2437,KBHDP,Baseline,A,anti-scalant_addition,Land_Cost,$MM,0.00025096,land_cost
-2438,KBHDP,Baseline,A,anti-scalant_addition,Working Capital,$MM,0.008365336,working_cap
-2439,KBHDP,Baseline,A,anti-scalant_addition,Total Capital Investment (TCI),$MM,0.175923021,total_cap_investment
-2440,KBHDP,Baseline,A,anti-scalant_addition,Catalysts and Chemicals,$MM/yr,0.784141216,cat_and_chem_cost
-2441,KBHDP,Baseline,A,anti-scalant_addition,Electricity,$MM/yr,1.23E-06,electricity_cost
-2442,KBHDP,Baseline,A,anti-scalant_addition,Fuel and Other Utilities,$MM/yr,0,none
-2443,KBHDP,Baseline,A,anti-scalant_addition,Replacement Parts,$MM/yr,0,none
-2444,KBHDP,Baseline,A,anti-scalant_addition,Other Operating Costs,$MM/yr,0,other_var_cost
-2445,KBHDP,Baseline,A,anti-scalant_addition,Total Variable Operating Costs,$MM/yr,0.784142444,none
-2446,KBHDP,Baseline,A,anti-scalant_addition,Employee Salaries,$MM/yr,0.000167333,salaries
-2447,KBHDP,Baseline,A,anti-scalant_addition,Benefits,$MM/yr,0.0001506,benefits
-2448,KBHDP,Baseline,A,anti-scalant_addition,Maintenance,$MM/yr,0.001338454,maintenance
-2449,KBHDP,Baseline,A,anti-scalant_addition,Laboratory,$MM/yr,0.000446151,lab
-2450,KBHDP,Baseline,A,anti-scalant_addition,Insurance and Taxes,$MM/yr,0.000312306,insurance_taxes
-2451,KBHDP,Baseline,A,anti-scalant_addition,Total Fixed Operating Costs,$MM/yr,0.002414844,total_fixed_op_cost
-2452,KBHDP,Baseline,A,anti-scalant_addition,Capacity_Basis_for_Fixed_Capital_Cost,,10000,none
-2453,KBHDP,Baseline,A,anti-scalant_addition,Base_Fixed_Capital_Cost,$MM,0.212349955,none
-2454,KBHDP,Baseline,A,anti-scalant_addition,Capital_Scaling_Exponent,,0.6179,none
-2455,KBHDP,Baseline,A,anti-scalant_addition,Base_Employee_Salary_Cost,$MM/yr,0.00021235,base_employee_salary_cost
-2456,KBHDP,Baseline,A,anti-scalant_addition,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-2457,KBHDP,Baseline,A,anti-scalant_addition,Basis_Year,,2007,base_year
-2458,KBHDP,Baseline,A,anti-scalant_addition,Capital_and_Replacement_Parts,,1.190128031,cap_replacement_parts
-2459,KBHDP,Baseline,A,anti-scalant_addition,Catalysts_and_Chemicals,,1.44979311,catalysts_chemicals
-2460,KBHDP,Baseline,A,anti-scalant_addition,Labor_and_Other_Fixed_Costs,,1.257370474,labor_and_other_fixed
-2461,KBHDP,Baseline,A,anti-scalant_addition,Consumer_Price_Index,,1.258749457,consumer_price_index
-2462,KBHDP,Baseline,A,anti-scalant_addition,Grid_Electricity,kWh,5.01E-07,electricity
-2463,KBHDP,Baseline,A,anti-scalant_addition,Inlet Water,m3/hr,5129.732806,flow_vol_in
-2464,KBHDP,Baseline,A,anti-scalant_addition,Outlet Water,m3/hr,5129.732806,flow_vol_out
+2436,KBHDP,Baseline,A,anti_scalant_addition,Fixed Capital Investment (FCI),$MM,0.167306725,fixed_cap_inv
+2437,KBHDP,Baseline,A,anti_scalant_addition,Land_Cost,$MM,0.00025096,land_cost
+2438,KBHDP,Baseline,A,anti_scalant_addition,Working Capital,$MM,0.008365336,working_cap
+2439,KBHDP,Baseline,A,anti_scalant_addition,Total Capital Investment (TCI),$MM,0.175923021,total_cap_investment
+2440,KBHDP,Baseline,A,anti_scalant_addition,Catalysts and Chemicals,$MM/yr,0.784141216,cat_and_chem_cost
+2441,KBHDP,Baseline,A,anti_scalant_addition,Electricity,$MM/yr,1.23E-06,electricity_cost
+2442,KBHDP,Baseline,A,anti_scalant_addition,Fuel and Other Utilities,$MM/yr,0,none
+2443,KBHDP,Baseline,A,anti_scalant_addition,Replacement Parts,$MM/yr,0,none
+2444,KBHDP,Baseline,A,anti_scalant_addition,Other Operating Costs,$MM/yr,0,other_var_cost
+2445,KBHDP,Baseline,A,anti_scalant_addition,Total Variable Operating Costs,$MM/yr,0.784142444,none
+2446,KBHDP,Baseline,A,anti_scalant_addition,Employee Salaries,$MM/yr,0.000167333,salaries
+2447,KBHDP,Baseline,A,anti_scalant_addition,Benefits,$MM/yr,0.0001506,benefits
+2448,KBHDP,Baseline,A,anti_scalant_addition,Maintenance,$MM/yr,0.001338454,maintenance
+2449,KBHDP,Baseline,A,anti_scalant_addition,Laboratory,$MM/yr,0.000446151,lab
+2450,KBHDP,Baseline,A,anti_scalant_addition,Insurance and Taxes,$MM/yr,0.000312306,insurance_taxes
+2451,KBHDP,Baseline,A,anti_scalant_addition,Total Fixed Operating Costs,$MM/yr,0.002414844,total_fixed_op_cost
+2452,KBHDP,Baseline,A,anti_scalant_addition,Capacity_Basis_for_Fixed_Capital_Cost,,10000,none
+2453,KBHDP,Baseline,A,anti_scalant_addition,Base_Fixed_Capital_Cost,$MM,0.212349955,none
+2454,KBHDP,Baseline,A,anti_scalant_addition,Capital_Scaling_Exponent,,0.6179,none
+2455,KBHDP,Baseline,A,anti_scalant_addition,Base_Employee_Salary_Cost,$MM/yr,0.00021235,base_employee_salary_cost
+2456,KBHDP,Baseline,A,anti_scalant_addition,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
+2457,KBHDP,Baseline,A,anti_scalant_addition,Basis_Year,,2007,base_year
+2458,KBHDP,Baseline,A,anti_scalant_addition,Capital_and_Replacement_Parts,,1.190128031,cap_replacement_parts
+2459,KBHDP,Baseline,A,anti_scalant_addition,Catalysts_and_Chemicals,,1.44979311,catalysts_chemicals
+2460,KBHDP,Baseline,A,anti_scalant_addition,Labor_and_Other_Fixed_Costs,,1.257370474,labor_and_other_fixed
+2461,KBHDP,Baseline,A,anti_scalant_addition,Consumer_Price_Index,,1.258749457,consumer_price_index
+2462,KBHDP,Baseline,A,anti_scalant_addition,Grid_Electricity,kWh,5.01E-07,electricity
+2463,KBHDP,Baseline,A,anti_scalant_addition,Inlet Water,m3/hr,5129.732806,flow_vol_in
+2464,KBHDP,Baseline,A,anti_scalant_addition,Outlet Water,m3/hr,5129.732806,flow_vol_out
 2465,KBHDP,Baseline,A,ro_deep,Fixed Capital Investment (FCI),$MM,100.4462257,fixed_cap_inv
 2466,KBHDP,Baseline,A,ro_deep,Land_Cost,$MM,0.150669338,land_cost
 2467,KBHDP,Baseline,A,ro_deep,Working Capital,$MM,5.022311283,working_cap
@@ -2522,35 +2522,35 @@
 2520,KBHDP,Baseline,A,caustic_soda_addition,Grid_Electricity,kWh,3.99E-06,electricity
 2521,KBHDP,Baseline,A,caustic_soda_addition,Inlet Water,m3/hr,4331.969479,flow_vol_in
 2522,KBHDP,Baseline,A,caustic_soda_addition,Outlet Water,m3/hr,4331.969479,flow_vol_out
-2523,KBHDP,Baseline,A,chlorination  ,Fixed Capital Investment (FCI),$MM,5.158885578,fixed_cap_inv
-2524,KBHDP,Baseline,A,chlorination  ,Land_Cost,$MM,0.007738328,land_cost
-2525,KBHDP,Baseline,A,chlorination  ,Working Capital,$MM,0.257944279,working_cap
-2526,KBHDP,Baseline,A,chlorination  ,Total Capital Investment (TCI),$MM,5.424568185,total_cap_investment
-2527,KBHDP,Baseline,A,chlorination  ,Catalysts and Chemicals,$MM/yr,0.060640988,cat_and_chem_cost
-2528,KBHDP,Baseline,A,chlorination  ,Electricity,$MM/yr,0.020681689,electricity_cost
-2529,KBHDP,Baseline,A,chlorination  ,Fuel and Other Utilities,$MM/yr,0,none
-2530,KBHDP,Baseline,A,chlorination  ,Replacement Parts,$MM/yr,0,none
-2531,KBHDP,Baseline,A,chlorination  ,Other Operating Costs,$MM/yr,0,other_var_cost
-2532,KBHDP,Baseline,A,chlorination  ,Total Variable Operating Costs,$MM/yr,0.081322677,none
-2533,KBHDP,Baseline,A,chlorination  ,Employee Salaries,$MM/yr,0.006079207,salaries
-2534,KBHDP,Baseline,A,chlorination  ,Benefits,$MM/yr,0.005471286,benefits
-2535,KBHDP,Baseline,A,chlorination  ,Maintenance,$MM/yr,0.041271085,maintenance
-2536,KBHDP,Baseline,A,chlorination  ,Laboratory,$MM/yr,0.013757028,lab
-2537,KBHDP,Baseline,A,chlorination  ,Insurance and Taxes,$MM/yr,0.00962992,insurance_taxes
-2538,KBHDP,Baseline,A,chlorination  ,Total Fixed Operating Costs,$MM/yr,0.076208526,total_fixed_op_cost
-2539,KBHDP,Baseline,A,chlorination  ,Capacity_Basis_for_Fixed_Capital_Cost,,2271.246833,none
-2540,KBHDP,Baseline,A,chlorination  ,Base_Fixed_Capital_Cost,$MM,3.382038836,none
-2541,KBHDP,Baseline,A,chlorination  ,Capital_Scaling_Exponent,,0.527034,none
-2542,KBHDP,Baseline,A,chlorination  ,Base_Employee_Salary_Cost,$MM/yr,0.003382039,base_employee_salary_cost
-2543,KBHDP,Baseline,A,chlorination  ,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-2544,KBHDP,Baseline,A,chlorination  ,Basis_Year,,2014,base_year
-2545,KBHDP,Baseline,A,chlorination  ,Capital_and_Replacement_Parts,,1.085390154,cap_replacement_parts
-2546,KBHDP,Baseline,A,chlorination  ,Catalysts_and_Chemicals,,1.094884618,catalysts_chemicals
-2547,KBHDP,Baseline,A,chlorination  ,Labor_and_Other_Fixed_Costs,,1.143861925,labor_and_other_fixed
-2548,KBHDP,Baseline,A,chlorination  ,Consumer_Price_Index,,1.102458561,consumer_price_index
-2549,KBHDP,Baseline,A,chlorination  ,Grid_Electricity,kWh,0.01,electricity
-2550,KBHDP,Baseline,A,chlorination  ,Inlet Water,m3/hr,4331.969479,flow_vol_in
-2551,KBHDP,Baseline,A,chlorination  ,Outlet Water,m3/hr,4331.969479,flow_vol_out
+2523,KBHDP,Baseline,A,chlorination,Fixed Capital Investment (FCI),$MM,5.158885578,fixed_cap_inv
+2524,KBHDP,Baseline,A,chlorination,Land_Cost,$MM,0.007738328,land_cost
+2525,KBHDP,Baseline,A,chlorination,Working Capital,$MM,0.257944279,working_cap
+2526,KBHDP,Baseline,A,chlorination,Total Capital Investment (TCI),$MM,5.424568185,total_cap_investment
+2527,KBHDP,Baseline,A,chlorination,Catalysts and Chemicals,$MM/yr,0.060640988,cat_and_chem_cost
+2528,KBHDP,Baseline,A,chlorination,Electricity,$MM/yr,0.020681689,electricity_cost
+2529,KBHDP,Baseline,A,chlorination,Fuel and Other Utilities,$MM/yr,0,none
+2530,KBHDP,Baseline,A,chlorination,Replacement Parts,$MM/yr,0,none
+2531,KBHDP,Baseline,A,chlorination,Other Operating Costs,$MM/yr,0,other_var_cost
+2532,KBHDP,Baseline,A,chlorination,Total Variable Operating Costs,$MM/yr,0.081322677,none
+2533,KBHDP,Baseline,A,chlorination,Employee Salaries,$MM/yr,0.006079207,salaries
+2534,KBHDP,Baseline,A,chlorination,Benefits,$MM/yr,0.005471286,benefits
+2535,KBHDP,Baseline,A,chlorination,Maintenance,$MM/yr,0.041271085,maintenance
+2536,KBHDP,Baseline,A,chlorination,Laboratory,$MM/yr,0.013757028,lab
+2537,KBHDP,Baseline,A,chlorination,Insurance and Taxes,$MM/yr,0.00962992,insurance_taxes
+2538,KBHDP,Baseline,A,chlorination,Total Fixed Operating Costs,$MM/yr,0.076208526,total_fixed_op_cost
+2539,KBHDP,Baseline,A,chlorination,Capacity_Basis_for_Fixed_Capital_Cost,,2271.246833,none
+2540,KBHDP,Baseline,A,chlorination,Base_Fixed_Capital_Cost,$MM,3.382038836,none
+2541,KBHDP,Baseline,A,chlorination,Capital_Scaling_Exponent,,0.527034,none
+2542,KBHDP,Baseline,A,chlorination,Base_Employee_Salary_Cost,$MM/yr,0.003382039,base_employee_salary_cost
+2543,KBHDP,Baseline,A,chlorination,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
+2544,KBHDP,Baseline,A,chlorination,Basis_Year,,2014,base_year
+2545,KBHDP,Baseline,A,chlorination,Capital_and_Replacement_Parts,,1.085390154,cap_replacement_parts
+2546,KBHDP,Baseline,A,chlorination,Catalysts_and_Chemicals,,1.094884618,catalysts_chemicals
+2547,KBHDP,Baseline,A,chlorination,Labor_and_Other_Fixed_Costs,,1.143861925,labor_and_other_fixed
+2548,KBHDP,Baseline,A,chlorination,Consumer_Price_Index,,1.102458561,consumer_price_index
+2549,KBHDP,Baseline,A,chlorination,Grid_Electricity,kWh,0.01,electricity
+2550,KBHDP,Baseline,A,chlorination,Inlet Water,m3/hr,4331.969479,flow_vol_in
+2551,KBHDP,Baseline,A,chlorination,Outlet Water,m3/hr,4331.969479,flow_vol_out
 2552,KBHDP,Baseline,A,treated_storage,Fixed Capital Investment (FCI),$MM,13.86578505,fixed_cap_inv
 2553,KBHDP,Baseline,A,treated_storage,Land_Cost,$MM,0.020798678,land_cost
 2554,KBHDP,Baseline,A,treated_storage,Working Capital,$MM,0.693289252,working_cap
@@ -3102,35 +3102,35 @@
 3100,Irwin,Baseline,A,treated_storage,Grid_Electricity,,0,electricity
 3101,Irwin,Baseline,A,treated_storage,Inlet Water,,1017.092969,flow_vol_in
 3102,Irwin,Baseline,A,treated_storage,Outlet Water,,1017.092969,flow_vol_out
-3103,Irwin,Baseline,A,media_fitration,Fixed Capital Investment (FCI),,2.424179872,fixed_cap_inv
-3104,Irwin,Baseline,A,media_fitration,Land_Cost,,0.00363627,land_cost
-3105,Irwin,Baseline,A,media_fitration,Working Capital,,0.121208994,working_cap
-3106,Irwin,Baseline,A,media_fitration,Total Capital Investment (TCI),,2.549025136,total_cap_investment
-3107,Irwin,Baseline,A,media_fitration,Catalysts and Chemicals,,0,cat_and_chem_cost
-3108,Irwin,Baseline,A,media_fitration,Electricity,,0,electricity_cost
-3109,Irwin,Baseline,A,media_fitration,Fuel and Other Utilities,,0,none
-3110,Irwin,Baseline,A,media_fitration,Replacement Parts,,0,none
-3111,Irwin,Baseline,A,media_fitration,Other Operating Costs,,0,other_var_cost
-3112,Irwin,Baseline,A,media_fitration,Total Variable Operating Costs,,0,none
-3113,Irwin,Baseline,A,media_fitration,Employee Salaries,,0.00214473,salaries
-3114,Irwin,Baseline,A,media_fitration,Benefits,,0.001930257,benefits
-3115,Irwin,Baseline,A,media_fitration,Maintenance,,0.019393439,maintenance
-3116,Irwin,Baseline,A,media_fitration,Laboratory,,0.00646448,lab
-3117,Irwin,Baseline,A,media_fitration,Insurance and Taxes,,0.004525136,insurance_taxes
-3118,Irwin,Baseline,A,media_fitration,Total Fixed Operating Costs,,0.034458041,total_fixed_op_cost
-3119,Irwin,Baseline,A,media_fitration,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764235,none
-3120,Irwin,Baseline,A,media_fitration,Base_Fixed_Capital_Cost,,5.5,none
-3121,Irwin,Baseline,A,media_fitration,Capital_Scaling_Exponent,,0.5862,none
-3122,Irwin,Baseline,A,media_fitration,Base_Employee_Salary_Cost,,0.0055,base_employee_salary_cost
-3123,Irwin,Baseline,A,media_fitration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-3124,Irwin,Baseline,A,media_fitration,Basis_Year,,2014,base_year
-3125,Irwin,Baseline,A,media_fitration,Capital_and_Replacement_Parts,,1.085390154,cap_replacement_parts
-3126,Irwin,Baseline,A,media_fitration,Catalysts_and_Chemicals,,1.094884618,catalysts_chemicals
-3127,Irwin,Baseline,A,media_fitration,Labor_and_Other_Fixed_Costs,,1.143861925,labor_and_other_fixed
-3128,Irwin,Baseline,A,media_fitration,Consumer_Price_Index,,1.102458561,consumer_price_index
-3129,Irwin,Baseline,A,media_fitration,Grid_Electricity,,0,electricity
-3130,Irwin,Baseline,A,media_fitration,Inlet Water,,1017.092969,flow_vol_in
-3131,Irwin,Baseline,A,media_fitration,Outlet Water,,1017.092969,flow_vol_out
+3103,Irwin,Baseline,A,media_filtration,Fixed Capital Investment (FCI),,2.424179872,fixed_cap_inv
+3104,Irwin,Baseline,A,media_filtration,Land_Cost,,0.00363627,land_cost
+3105,Irwin,Baseline,A,media_filtration,Working Capital,,0.121208994,working_cap
+3106,Irwin,Baseline,A,media_filtration,Total Capital Investment (TCI),,2.549025136,total_cap_investment
+3107,Irwin,Baseline,A,media_filtration,Catalysts and Chemicals,,0,cat_and_chem_cost
+3108,Irwin,Baseline,A,media_filtration,Electricity,,0,electricity_cost
+3109,Irwin,Baseline,A,media_filtration,Fuel and Other Utilities,,0,none
+3110,Irwin,Baseline,A,media_filtration,Replacement Parts,,0,none
+3111,Irwin,Baseline,A,media_filtration,Other Operating Costs,,0,other_var_cost
+3112,Irwin,Baseline,A,media_filtration,Total Variable Operating Costs,,0,none
+3113,Irwin,Baseline,A,media_filtration,Employee Salaries,,0.00214473,salaries
+3114,Irwin,Baseline,A,media_filtration,Benefits,,0.001930257,benefits
+3115,Irwin,Baseline,A,media_filtration,Maintenance,,0.019393439,maintenance
+3116,Irwin,Baseline,A,media_filtration,Laboratory,,0.00646448,lab
+3117,Irwin,Baseline,A,media_filtration,Insurance and Taxes,,0.004525136,insurance_taxes
+3118,Irwin,Baseline,A,media_filtration,Total Fixed Operating Costs,,0.034458041,total_fixed_op_cost
+3119,Irwin,Baseline,A,media_filtration,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764235,none
+3120,Irwin,Baseline,A,media_filtration,Base_Fixed_Capital_Cost,,5.5,none
+3121,Irwin,Baseline,A,media_filtration,Capital_Scaling_Exponent,,0.5862,none
+3122,Irwin,Baseline,A,media_filtration,Base_Employee_Salary_Cost,,0.0055,base_employee_salary_cost
+3123,Irwin,Baseline,A,media_filtration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
+3124,Irwin,Baseline,A,media_filtration,Basis_Year,,2014,base_year
+3125,Irwin,Baseline,A,media_filtration,Capital_and_Replacement_Parts,,1.085390154,cap_replacement_parts
+3126,Irwin,Baseline,A,media_filtration,Catalysts_and_Chemicals,,1.094884618,catalysts_chemicals
+3127,Irwin,Baseline,A,media_filtration,Labor_and_Other_Fixed_Costs,,1.143861925,labor_and_other_fixed
+3128,Irwin,Baseline,A,media_filtration,Consumer_Price_Index,,1.102458561,consumer_price_index
+3129,Irwin,Baseline,A,media_filtration,Grid_Electricity,,0,electricity
+3130,Irwin,Baseline,A,media_filtration,Inlet Water,,1017.092969,flow_vol_in
+3131,Irwin,Baseline,A,media_filtration,Outlet Water,,1017.092969,flow_vol_out
 3132,Irwin,Baseline,A,hydrochloric_acid_addition,Fixed Capital Investment (FCI),,0.074793809,fixed_cap_inv
 3133,Irwin,Baseline,A,hydrochloric_acid_addition,Land_Cost,,0.000112191,land_cost
 3134,Irwin,Baseline,A,hydrochloric_acid_addition,Working Capital,,0.00373969,working_cap
@@ -3160,35 +3160,35 @@
 3158,Irwin,Baseline,A,hydrochloric_acid_addition,Grid_Electricity,,6.87E-07,electricity
 3159,Irwin,Baseline,A,hydrochloric_acid_addition,Inlet Water,,1017.092969,flow_vol_in
 3160,Irwin,Baseline,A,hydrochloric_acid_addition,Outlet Water,,1017.092969,flow_vol_out
-3161,Irwin,Baseline,A,anti-scalant_addition,Fixed Capital Investment (FCI),,0.121368847,fixed_cap_inv
-3162,Irwin,Baseline,A,anti-scalant_addition,Land_Cost,,0.000182053,land_cost
-3163,Irwin,Baseline,A,anti-scalant_addition,Working Capital,,0.006068442,working_cap
-3164,Irwin,Baseline,A,anti-scalant_addition,Total Capital Investment (TCI),,0.127619343,total_cap_investment
-3165,Irwin,Baseline,A,anti-scalant_addition,Catalysts and Chemicals,,0.466424596,cat_and_chem_cost
-3166,Irwin,Baseline,A,anti-scalant_addition,Electricity,,1.80E-06,electricity_cost
-3167,Irwin,Baseline,A,anti-scalant_addition,Fuel and Other Utilities,,0,none
-3168,Irwin,Baseline,A,anti-scalant_addition,Replacement Parts,,0,none
-3169,Irwin,Baseline,A,anti-scalant_addition,Other Operating Costs,,0,other_var_cost
-3170,Irwin,Baseline,A,anti-scalant_addition,Total Variable Operating Costs,,0.466426392,none
-3171,Irwin,Baseline,A,anti-scalant_addition,Employee Salaries,,0.000106287,salaries
-3172,Irwin,Baseline,A,anti-scalant_addition,Benefits,,9.57E-05,benefits
-3173,Irwin,Baseline,A,anti-scalant_addition,Maintenance,,0.000970951,maintenance
-3174,Irwin,Baseline,A,anti-scalant_addition,Laboratory,,0.00032365,lab
-3175,Irwin,Baseline,A,anti-scalant_addition,Insurance and Taxes,,0.000226555,insurance_taxes
-3176,Irwin,Baseline,A,anti-scalant_addition,Total Fixed Operating Costs,,0.001723102,total_fixed_op_cost
-3177,Irwin,Baseline,A,anti-scalant_addition,Capacity_Basis_for_Fixed_Capital_Cost,,10000,none
-3178,Irwin,Baseline,A,anti-scalant_addition,Base_Fixed_Capital_Cost,,0.418663786,none
-3179,Irwin,Baseline,A,anti-scalant_addition,Capital_Scaling_Exponent,,0.6179,none
-3180,Irwin,Baseline,A,anti-scalant_addition,Base_Employee_Salary_Cost,,0.000418664,base_employee_salary_cost
-3181,Irwin,Baseline,A,anti-scalant_addition,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-3182,Irwin,Baseline,A,anti-scalant_addition,Basis_Year,,2007,base_year
-3183,Irwin,Baseline,A,anti-scalant_addition,Capital_and_Replacement_Parts,,1.190128031,cap_replacement_parts
-3184,Irwin,Baseline,A,anti-scalant_addition,Catalysts_and_Chemicals,,1.44979311,catalysts_chemicals
-3185,Irwin,Baseline,A,anti-scalant_addition,Labor_and_Other_Fixed_Costs,,1.257370474,labor_and_other_fixed
-3186,Irwin,Baseline,A,anti-scalant_addition,Consumer_Price_Index,,1.258749457,consumer_price_index
-3187,Irwin,Baseline,A,anti-scalant_addition,Grid_Electricity,,1.50E-06,electricity
-3188,Irwin,Baseline,A,anti-scalant_addition,Inlet Water,,1017.092969,flow_vol_in
-3189,Irwin,Baseline,A,anti-scalant_addition,Outlet Water,,1017.092969,flow_vol_out
+3161,Irwin,Baseline,A,anti_scalant_addition,Fixed Capital Investment (FCI),,0.121368847,fixed_cap_inv
+3162,Irwin,Baseline,A,anti_scalant_addition,Land_Cost,,0.000182053,land_cost
+3163,Irwin,Baseline,A,anti_scalant_addition,Working Capital,,0.006068442,working_cap
+3164,Irwin,Baseline,A,anti_scalant_addition,Total Capital Investment (TCI),,0.127619343,total_cap_investment
+3165,Irwin,Baseline,A,anti_scalant_addition,Catalysts and Chemicals,,0.466424596,cat_and_chem_cost
+3166,Irwin,Baseline,A,anti_scalant_addition,Electricity,,1.80E-06,electricity_cost
+3167,Irwin,Baseline,A,anti_scalant_addition,Fuel and Other Utilities,,0,none
+3168,Irwin,Baseline,A,anti_scalant_addition,Replacement Parts,,0,none
+3169,Irwin,Baseline,A,anti_scalant_addition,Other Operating Costs,,0,other_var_cost
+3170,Irwin,Baseline,A,anti_scalant_addition,Total Variable Operating Costs,,0.466426392,none
+3171,Irwin,Baseline,A,anti_scalant_addition,Employee Salaries,,0.000106287,salaries
+3172,Irwin,Baseline,A,anti_scalant_addition,Benefits,,9.57E-05,benefits
+3173,Irwin,Baseline,A,anti_scalant_addition,Maintenance,,0.000970951,maintenance
+3174,Irwin,Baseline,A,anti_scalant_addition,Laboratory,,0.00032365,lab
+3175,Irwin,Baseline,A,anti_scalant_addition,Insurance and Taxes,,0.000226555,insurance_taxes
+3176,Irwin,Baseline,A,anti_scalant_addition,Total Fixed Operating Costs,,0.001723102,total_fixed_op_cost
+3177,Irwin,Baseline,A,anti_scalant_addition,Capacity_Basis_for_Fixed_Capital_Cost,,10000,none
+3178,Irwin,Baseline,A,anti_scalant_addition,Base_Fixed_Capital_Cost,,0.418663786,none
+3179,Irwin,Baseline,A,anti_scalant_addition,Capital_Scaling_Exponent,,0.6179,none
+3180,Irwin,Baseline,A,anti_scalant_addition,Base_Employee_Salary_Cost,,0.000418664,base_employee_salary_cost
+3181,Irwin,Baseline,A,anti_scalant_addition,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
+3182,Irwin,Baseline,A,anti_scalant_addition,Basis_Year,,2007,base_year
+3183,Irwin,Baseline,A,anti_scalant_addition,Capital_and_Replacement_Parts,,1.190128031,cap_replacement_parts
+3184,Irwin,Baseline,A,anti_scalant_addition,Catalysts_and_Chemicals,,1.44979311,catalysts_chemicals
+3185,Irwin,Baseline,A,anti_scalant_addition,Labor_and_Other_Fixed_Costs,,1.257370474,labor_and_other_fixed
+3186,Irwin,Baseline,A,anti_scalant_addition,Consumer_Price_Index,,1.258749457,consumer_price_index
+3187,Irwin,Baseline,A,anti_scalant_addition,Grid_Electricity,,1.50E-06,electricity
+3188,Irwin,Baseline,A,anti_scalant_addition,Inlet Water,,1017.092969,flow_vol_in
+3189,Irwin,Baseline,A,anti_scalant_addition,Outlet Water,,1017.092969,flow_vol_out
 3190,Irwin,Baseline,A,sodium_bisulfite_addition,Fixed Capital Investment (FCI),,0.096489381,fixed_cap_inv
 3191,Irwin,Baseline,A,sodium_bisulfite_addition,Land_Cost,,0.000144734,land_cost
 3192,Irwin,Baseline,A,sodium_bisulfite_addition,Working Capital,,0.004824469,working_cap

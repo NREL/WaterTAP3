@@ -171,11 +171,10 @@ see property package for documentation.}"""))
         def fixed_cap(flow_in):
             dual_media_filter_cap = 21377 + 38.319 * filter_surf_area
             filter_backwash_cap = 92947 + 292.44 * filter_surf_area
-            total_cap_cost = (((air_blower_cap + filter_backwash_cap + (
-                    dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
+            total_cap_cost = (((air_blower_cap + filter_backwash_cap + (dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
             cap_scaling_factor = flow_in / cap_scaling_val
             fe_mn_cap = (cap_scaling_factor * total_cap_cost) ** cap_scaling_exp
-            return fe_mn_cap
+            return fe_mn_cap * tpec_tic
 
         def electricity(flow_in):
             electricity = blower_power / flow_in  # kWh / m3
