@@ -637,35 +637,35 @@
 635,Ashkelon,Baseline,A,static_mixer,Grid_Electricity,kWh,0,electricity
 636,Ashkelon,Baseline,A,static_mixer,Inlet Water,m3/hr,28015.2,flow_vol_in
 637,Ashkelon,Baseline,A,static_mixer,Outlet Water,m3/hr,28015.2,flow_vol_out
-638,Ashkelon,Baseline,A,tri-media_filtration,Fixed Capital Investment (FCI),$MM,16.93215444,fixed_cap_inv
-639,Ashkelon,Baseline,A,tri-media_filtration,Land_Cost,$MM,0.025398232,land_cost
-640,Ashkelon,Baseline,A,tri-media_filtration,Working Capital,$MM,0.846607722,working_cap
-641,Ashkelon,Baseline,A,tri-media_filtration,Total Capital Investment (TCI),$MM,17.80416039,total_cap_investment
-642,Ashkelon,Baseline,A,tri-media_filtration,Catalysts and Chemicals,$MM/yr,0,cat_and_chem_cost
-643,Ashkelon,Baseline,A,tri-media_filtration,Electricity,$MM/yr,4.765100259,electricity_cost
-644,Ashkelon,Baseline,A,tri-media_filtration,Fuel and Other Utilities,$MM/yr,0,none
-645,Ashkelon,Baseline,A,tri-media_filtration,Replacement Parts,$MM/yr,1.939671294,none
-646,Ashkelon,Baseline,A,tri-media_filtration,Other Operating Costs,$MM/yr,0,other_var_cost
-647,Ashkelon,Baseline,A,tri-media_filtration,Total Variable Operating Costs,$MM/yr,6.704771553,none
-648,Ashkelon,Baseline,A,tri-media_filtration,Employee Salaries,$MM/yr,0.021847197,salaries
-649,Ashkelon,Baseline,A,tri-media_filtration,Benefits,$MM/yr,0.019662478,benefits
-650,Ashkelon,Baseline,A,tri-media_filtration,Maintenance,$MM/yr,0.135457235,maintenance
-651,Ashkelon,Baseline,A,tri-media_filtration,Laboratory,$MM/yr,0.045152412,lab
-652,Ashkelon,Baseline,A,tri-media_filtration,Insurance and Taxes,$MM/yr,0.031606688,insurance_taxes
-653,Ashkelon,Baseline,A,tri-media_filtration,Total Fixed Operating Costs,$MM/yr,0.253726011,total_fixed_op_cost
-654,Ashkelon,Baseline,A,tri-media_filtration,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764235,none
-655,Ashkelon,Baseline,A,tri-media_filtration,Base_Fixed_Capital_Cost,$MM,5.5,none
-656,Ashkelon,Baseline,A,tri-media_filtration,Capital_Scaling_Exponent,,0.5862,none
-657,Ashkelon,Baseline,A,tri-media_filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055,base_employee_salary_cost
-658,Ashkelon,Baseline,A,tri-media_filtration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-659,Ashkelon,Baseline,A,tri-media_filtration,Basis_Year,,2014,base_year
-660,Ashkelon,Baseline,A,tri-media_filtration,Capital_and_Replacement_Parts,,1.085390154,cap_replacement_parts
-661,Ashkelon,Baseline,A,tri-media_filtration,Catalysts_and_Chemicals,,1.094884618,catalysts_chemicals
-662,Ashkelon,Baseline,A,tri-media_filtration,Labor_and_Other_Fixed_Costs,,1.143861925,labor_and_other_fixed
-663,Ashkelon,Baseline,A,tri-media_filtration,Consumer_Price_Index,,1.102458561,consumer_price_index
-664,Ashkelon,Baseline,A,tri-media_filtration,Grid_Electricity,kWh,0.198129039,electricity
-665,Ashkelon,Baseline,A,tri-media_filtration,Inlet Water,m3/hr,28015.2,flow_vol_in
-666,Ashkelon,Baseline,A,tri-media_filtration,Outlet Water,m3/hr,28015.2,flow_vol_out
+638,Ashkelon,Baseline,A,tri_media_filtration,Fixed Capital Investment (FCI),$MM,16.93215444,fixed_cap_inv
+639,Ashkelon,Baseline,A,tri_media_filtration,Land_Cost,$MM,0.025398232,land_cost
+640,Ashkelon,Baseline,A,tri_media_filtration,Working Capital,$MM,0.846607722,working_cap
+641,Ashkelon,Baseline,A,tri_media_filtration,Total Capital Investment (TCI),$MM,17.80416039,total_cap_investment
+642,Ashkelon,Baseline,A,tri_media_filtration,Catalysts and Chemicals,$MM/yr,0,cat_and_chem_cost
+643,Ashkelon,Baseline,A,tri_media_filtration,Electricity,$MM/yr,4.765100259,electricity_cost
+644,Ashkelon,Baseline,A,tri_media_filtration,Fuel and Other Utilities,$MM/yr,0,none
+645,Ashkelon,Baseline,A,tri_media_filtration,Replacement Parts,$MM/yr,1.939671294,none
+646,Ashkelon,Baseline,A,tri_media_filtration,Other Operating Costs,$MM/yr,0,other_var_cost
+647,Ashkelon,Baseline,A,tri_media_filtration,Total Variable Operating Costs,$MM/yr,6.704771553,none
+648,Ashkelon,Baseline,A,tri_media_filtration,Employee Salaries,$MM/yr,0.021847197,salaries
+649,Ashkelon,Baseline,A,tri_media_filtration,Benefits,$MM/yr,0.019662478,benefits
+650,Ashkelon,Baseline,A,tri_media_filtration,Maintenance,$MM/yr,0.135457235,maintenance
+651,Ashkelon,Baseline,A,tri_media_filtration,Laboratory,$MM/yr,0.045152412,lab
+652,Ashkelon,Baseline,A,tri_media_filtration,Insurance and Taxes,$MM/yr,0.031606688,insurance_taxes
+653,Ashkelon,Baseline,A,tri_media_filtration,Total Fixed Operating Costs,$MM/yr,0.253726011,total_fixed_op_cost
+654,Ashkelon,Baseline,A,tri_media_filtration,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764235,none
+655,Ashkelon,Baseline,A,tri_media_filtration,Base_Fixed_Capital_Cost,$MM,5.5,none
+656,Ashkelon,Baseline,A,tri_media_filtration,Capital_Scaling_Exponent,,0.5862,none
+657,Ashkelon,Baseline,A,tri_media_filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055,base_employee_salary_cost
+658,Ashkelon,Baseline,A,tri_media_filtration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
+659,Ashkelon,Baseline,A,tri_media_filtration,Basis_Year,,2014,base_year
+660,Ashkelon,Baseline,A,tri_media_filtration,Capital_and_Replacement_Parts,,1.085390154,cap_replacement_parts
+661,Ashkelon,Baseline,A,tri_media_filtration,Catalysts_and_Chemicals,,1.094884618,catalysts_chemicals
+662,Ashkelon,Baseline,A,tri_media_filtration,Labor_and_Other_Fixed_Costs,,1.143861925,labor_and_other_fixed
+663,Ashkelon,Baseline,A,tri_media_filtration,Consumer_Price_Index,,1.102458561,consumer_price_index
+664,Ashkelon,Baseline,A,tri_media_filtration,Grid_Electricity,kWh,0.198129039,electricity
+665,Ashkelon,Baseline,A,tri_media_filtration,Inlet Water,m3/hr,28015.2,flow_vol_in
+666,Ashkelon,Baseline,A,tri_media_filtration,Outlet Water,m3/hr,28015.2,flow_vol_out
 667,Ashkelon,Baseline,A,ro_deep,Fixed Capital Investment (FCI),$MM,342.8021517,fixed_cap_inv
 668,Ashkelon,Baseline,A,ro_deep,Land_Cost,$MM,0.514203228,land_cost
 669,Ashkelon,Baseline,A,ro_deep,Working Capital,$MM,17.14010758,working_cap

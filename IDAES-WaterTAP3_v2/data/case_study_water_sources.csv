@@ -27,6 +27,7 @@ kg/m3,2.68,Seawater,Santa_Barbara,NAWI,Source,sulfate,Baseline
 kg/m3,35,Seawater,Santa_Barbara,NAWI,Source,tds,Baseline
 kg/m3,0.03,Seawater,Santa_Barbara,NAWI,Source,tss,Baseline
 m3/s,0.3092,Seawater,Santa_Barbara,NAWI,Source,flow,Baseline
+%,0.68,Seawater,Santa_Barbara,NAWI,Source,ultraviolet_transmittance_uvt,Baseline
 kg/m3,0.005028571,Seawater,Ashkelon,NAWI,Source,boron,Baseline
 kg/m3,0.075771429,Seawater,Ashkelon,NAWI,Source,bromide,Baseline
 kg/m3,0.468114286,Seawater,Ashkelon,NAWI,Source,calcium,Baseline
