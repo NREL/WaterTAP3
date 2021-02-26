@@ -152,7 +152,7 @@ see property package for documentation.}"""))
 
         dose_in = unit_params['uv_dose'][0] * (pyunits.millijoule / pyunits.cm ** 2)  # from Excel
         # uvt_in = self.conc_mass_in[time, "ultraviolet_transmittance_uvt"]
-        uvt_in = 0.83
+        uvt_in = 0.68 # constant from EXCEL for Santa Barbara, needs to be read in dynamically
         #### CHEMS ###
         aop = unit_params['aop'][0]
         if aop:
