@@ -144,6 +144,27 @@ def get_module(module_name):
     if module_name == "irwin_brine_management":
         import irwin_brine_management as up
 
+    if module_name == "fixed_bed_pressure_vessel":
+        import fixed_bed_pressure_vessel as up
+
+    if module_name == "fixed_bed_gravity_basin":
+        import fixed_bed_gravity_basin as up
+
+    if module_name == "fluidized_bed":
+        import fluidized_bed as up
+
+    if module_name == "multi_stage_bubble_aeration":
+        import multi_stage_bubble_aeration as up
+
+    if module_name == "packed_tower_aeration":
+        import packed_tower_aeration as up
+
+    if module_name == "gac_pressure_vessel":
+        import gac_pressure_vessel as up
+
+    if module_name == "gac_gravity":
+        import gac_gravity as up
+
     return up
 
 
