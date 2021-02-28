@@ -6,8 +6,8 @@
 4,Default,,2pt0_m_y_evaporation_ponds,0.0515,,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
 5,Default,ZLD,2pt0_m_y_evaporation_ponds,0.0001,,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
 14,Pulp_and_Paper,Baseline,aeration_basin,1,,Defined based on the Pulp and Paper case study data.
-12,Default,,aeration_multi_stage_bubble_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-13,Default,,aeration_packed_tower_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+12,Default,,multi_stage_bubble_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+13,Default,,packed_tower_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 15,Iron_and_Steel,Baseline,aeration_tank,1,,Defined based on the Iron and Steel case study data.
 16,Heap_Leaching,Baseline,agglomoration_and_stacking_system,1,,Heap leaching (gold/copper) case study.
 17,Default,,ammonia_addition,1,,Based on costs for AQUA AMMONIA FEED 29% SOLUTION Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
@@ -16,9 +16,9 @@
 20,Default,,anti_scalant_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 21,Default,,backwash_solids_handling,0.95,,Based on costs for Solids Handling in Table 5.7.1 in Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura). Recovery is an assumption considering recovered solids will have moisture content. 
 22,Default,,bio_active_filtration,0.95,,Texas Water Development Board IT3PR User Manual
-23,Default,,biological_treatment_fixed_bed_gravity_basin,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-24,Default,,biological_treatment_fixed_bed_pressure_vessel,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-25,Default,,biological_treatment_fluidized_bed,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+23,Default,,fixed_bed_gravity_basin,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+24,Default,,fixed_bed_pressure_vessel,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+25,Default,,fluidized_bed,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 27,San_Luis,Baseline,bioreactor,1,,Defined based on the San Luis case study data.
 28,San_Luis,Baseline,bioreactor_bw_pump,1,,Defined based on the San Luis case study data.
 26,San_Luis,Baseline,bioreactor_effluent_pump,1,,Defined based on the San Luis case study data.
@@ -59,7 +59,7 @@
 62,Default,,feed_water_tank,1,,Placeholder. Not utilized in any case studies. 
 63,Default,,ferric_chloride_addition,1,,Based on costs for Ferric Choride Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 67,Default,,gac_feed_pump,1,,Placeholder. Not utilized in any case studies. 
-65,Default,,gac_gravity_60_min,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+65,Default,,gac_gravity,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 66,Default,,gac_pressure_30_min,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 64,Default,,gac_pressure_vessel,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 6,Default,,holding_tank,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation

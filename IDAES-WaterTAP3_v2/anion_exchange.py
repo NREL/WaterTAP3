@@ -21,7 +21,7 @@ from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
 from scipy.optimize import curve_fit
-
+from cost_curves import cost_curve
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
@@ -109,55 +109,46 @@ see property package for documentation.}"""))
 		####### UNIT SPECIFIC VARIABLES AND CONSTANTS -> SET AS SELF OTHERWISE LEAVE AT TOP OF FILE ######
 		##########################################
 		time = self.flowsheet().config.time.first()
-
 		# Get the inlet flow to the unit and convert to the correct units for cost module.
-		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
+		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 		### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 		# get tic or tpec (could still be made more efficent code-wise, but could enough for now)
 		sys_cost_params = self.parent_block().costing_param
 		self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
 		tpec_tic = self.costing.tpec_tic
 
-		def power_curve(x, a, b):
-			return a * x ** b
-
 		# basis year for the unit model - based on reference for the method.
 		self.costing.basis_year = unit_basis_yr
-		conc_in = self.conc_mass_in[time, 'sulfate'] * 1E3  # mg / L SO4
-		base_fixed_cap_cost = 0.0056
-		cap_scaling_exp = 0.824
-		flow_lst = np.array([48.106, 339.425, 3566.804, 11840.768])  # m3/hr
-		elec_lst = np.array([0.0026, 0.0884, 0.0710, 0.0697])  # kWh / m3
-		elec_curve, _ = curve_fit(power_curve, flow_lst, elec_lst)
-		a, b = elec_curve[0], elec_curve[1]
+		# conc_in = self.conc_mass_in[time, 'TDS'] * 1E3  # mg / L TDS
+		tds_in = unit_params['tds_in']
+		cost_coeffs, elect_coeffs, mats_name, mats_cost, _ = cost_curve(module_name, tds_in=tds_in)
 
 		# TODO -->> ADD THESE TO UNIT self.X
 
 		#### CHEMS ###
-		chem_name = ''
-		chemical_dosage = 0  # kg/m3 should be read from .csv
-		solution_density = 1  # kg/m3
-		chemical_dosage = chemical_dosage / 264.172  # pyunits to kg/g
+		for k, v in mats_cost.items():
+			mats_cost[k] = v * (pyunits.kg / pyunits.m ** 3)
 
-		chem_dict = {}
+		chem_dict = mats_cost
+		self.chem_dict = chem_dict
 
 		##########################################
 		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
 		##########################################
-		#
+
 		# def solution_vol_flow(flow_in):  # m3/hr
-		# 	flow_in_m3h = flow_in * 189.4204
-		# 	chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
+		# flow_in_m3h = flow_in * 189.4204
+		# chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
 		#
-		# 	return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
+		# return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
 
 		def fixed_cap(flow_in):
-			source_cost = base_fixed_cap_cost * flow_in ** cap_scaling_exp  # $
+			source_cost = cost_coeffs[0] * flow_in ** cost_coeffs[1]  # $
 
-			return source_cost * tpec_tic  # M$
+			return source_cost * tpec_tic * 1E-6  # M$
 
 		def electricity(flow_in):  # m3/hr
-			electricity = a * flow_in ** b  # kWh/m3
+			electricity = elect_coeffs[0] * flow_in ** elect_coeffs[1]  # kWh/m3
 
 			return electricity
 
@@ -165,11 +156,10 @@ see property package for documentation.}"""))
 		# In many cases this will be the only point (steady-state), but lets be
 		# safe and use a general approach
 
-		## fixed_cap_inv_unadjusted ##
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
-														   doc="Unadjusted fixed capital investment")  # $M
+		# Get the inlet flow to the unit and convert to the correct units for cost module.
 
-		self.chem_dict = chem_dict
+		## fixed_cap_inv_unadjusted ##
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3

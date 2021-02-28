@@ -28,54 +28,6 @@ from pyomo.util.check_units import assert_units_consistent
 import pyomo.util.infeasible as infeas
 import idaes.core.util.scaling as iscale
 
-### units that pre-exist ###
-unit_process_library_list = [
-    "chlorination",
-    "media_filtration_twb",
-    "microfiltration_twb",
-    "ultrafiltration_twb",
-    "nanofiltration_twb",
-    "coag_and_floc"
-    "ro_twb",
-    "uv_twb",
-    "ro_bor",
-    "uvozone_twb",
-    "mbr",
-    "water_pumping_station",
-    "ro_deep",
-    "media_filtration",
-    "coag_and_floc",
-    "lime_softening",
-    "ro_deep",
-    "treated_storage",
-    "sedimentation",
-    "water_pumping_station",
-    "sulfuric_acid_addition",
-    "sodium_bisulfite_addition",
-    "co2_addition",
-    "ammonia_addition",
-    "municipal_drinking",
-    "sw_onshore_intake",
-    "holding_tank",
-    "tri_media_filtration",
-    "cartridge_filtration",
-    "backwash_solids_handling",
-    "surface_discharge",
-    "landfill",
-    "coagulant_addition",
-    "fecl3_addition", 
-    "caustic_soda_addition", 
-    "static_mix",
-    "ro_deep_scnd_pass", 
-    "anti_scalant_addition",
-    "ro_deep_scnd_pass",
-    "uv_aop",
-    "well_field",
-    "fe_mn_removal",
-    "hcl_addition",
-    "deep_well_injection"]
-
-
 
 def watertap_setup(dynamic = False):
         

@@ -37,7 +37,7 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "cation_exchange"
+module_name = "fixed_bed_pressure_vessel"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
@@ -120,8 +120,7 @@ see property package for documentation.}"""))
 		# basis year for the unit model - based on reference for the method.
 		self.costing.basis_year = unit_basis_yr
 		# conc_in = self.conc_mass_in[time, 'TDS'] * 1E3  # mg / L TDS
-		tds_in = unit_params['tds_in']
-		cost_coeffs, elect_coeffs, mats_name, mats_cost, _ = cost_curve(module_name, tds_in=tds_in)
+		cost_coeffs, elect_coeffs, mats_name, mats_cost, _ = cost_curve(module_name)
 
 		# TODO -->> ADD THESE TO UNIT self.X
 
@@ -159,8 +158,7 @@ see property package for documentation.}"""))
 		# Get the inlet flow to the unit and convert to the correct units for cost module.
 
 		## fixed_cap_inv_unadjusted ##
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
-														   doc="Unadjusted fixed capital investment")  # $M
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3

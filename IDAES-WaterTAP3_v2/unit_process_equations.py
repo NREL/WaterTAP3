@@ -65,6 +65,13 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'cation_exchange': import cation_exchange as unit_process_model
     if up_name_test == 'electrodialysis_reversal': import electrodialysis_reversal as unit_process_model
     if up_name_test == 'irwin_brine_management': import irwin_brine_management as unit_process_model
+    if up_name_test == 'fixed_bed_pressure_vessel': import fixed_bed_pressure_vessel as unit_process_model
+    if up_name_test == 'fixed_bed_gravity_basin': import fixed_bed_gravity_basin as unit_process_model
+    if up_name_test == 'fluidized_bed': import fluidized_bed as unit_process_model
+    if up_name_test == 'multi_stage_bubble_aeration': import multi_stage_bubble_aeration as unit_process_model
+    if up_name_test == 'packed_tower_aeration': import packed_tower_aeration as unit_process_model
+    if up_name_test == 'gac_pressure_vessel': import gac_pressure_vessel as unit_process_model
+    if up_name_test == 'gac_gravity': import gac_gravity as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules
