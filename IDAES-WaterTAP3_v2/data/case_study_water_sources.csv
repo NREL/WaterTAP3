@@ -153,6 +153,7 @@ kg/m3,3.20E-07,OCWD_Feed,OCWD,NAWI,Source,trihalomethanes,Baseline
 kg/m3,0.00953,OCWD_Feed,OCWD,NAWI,Source,toc,Baseline
 kg/m3,0.0016,OCWD_Feed,OCWD,NAWI,Source,turbidity,Baseline
 kg/m3,1.53E-05,OCWD_Feed,OCWD,NAWI,Source,zinc,Baseline
+m3/s,5.70E+00,OCWD_Feed,OCWD,NAWI,Source,flow,Baseline
 kg/m3,6.16E-06,Solaire_Graywater,Solaire,NAWI,Source,aluminum,Baseline
 kg/m3,5.10E-07,Solaire_Graywater,Solaire,NAWI,Source,arsenic,Baseline
 kg/m3,4.52E-05,Solaire_Graywater,Solaire,NAWI,Source,barium,Baseline
