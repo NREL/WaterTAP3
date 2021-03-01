@@ -27,11 +27,12 @@ from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefa
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
+import numpy as np
+from scipy.optimize import curve_fit
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-from chlorination.UnitProcess.costing import get_chlorine_dose_cost
 
 # Import properties and units from "WaterTAP Library"
 
@@ -50,7 +51,7 @@ module_name = "ozone_aop"
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2014
 
 
 # You don't really want to know what this decorator does
@@ -128,16 +129,41 @@ see property package for documentation.}"""))
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
         # toc_in = self.conc_mass_in[time, "toc"] * (pyunits.mg / pyunits.liter)
-        toc_in = 10 * (pyunits.mg / pyunits.liter)
-        contact_time = unit_params['contact_time'] * pyunits.minute
-        ct = unit_params['ct'] * (pyunits.mg / (pyunits.liter * pyunits.minute))
+        toc_in = 10
+        contact_time = unit_params['contact_time']
+        ct = unit_params['ct']
         mass_transfer = unit_params['mass_transfer']
-        ozone_consumption = toc_in + ct / contact_time
+        ozone_consumption = (toc_in + ct / contact_time) / mass_transfer
         o3_toc_ratio = 1 + (ct / contact_time / toc_in)
+
+        def power(x, a, b):
+            return a * x ** b
+
+        cost_list = []
+        flow_list = []
+        dose_list = []
+        df = pd.read_csv("data/ozone_dose_cost.csv")
+        doses = np.arange(0.1, 25.1, 0.1)
+        for flow in df.Flow_mgd.unique():
+            for dose in doses:
+                x = df[df.Flow_mgd == flow].Dose.to_list()
+                y = df[df.Flow_mgd == flow].Cost.to_list()
+                params, _ = curve_fit(power, x, y)
+                a, b = params[0], params[1]
+                cost_list.append(a * dose ** b)
+                dose_list.append(round(dose, 1))
+                flow_list.append(flow)
+        tups = zip(flow_list, cost_list, dose_list)
+        df = pd.DataFrame(tups, columns=['flow_mgd', 'cost', 'dose'])
+        idx = df['dose'].sub(ozone_consumption).abs().idxmin()
+        idx_dose = df.loc[idx].dose
+        df = df[df.dose == idx_dose]
+        params, _ = curve_fit(power, df.flow_mgd, df.cost)
+        a, b = params[0], params[1]
 
         aop = unit_params['aop']
         if aop:
-            chemical_dosage = 0.5 * o3_toc_ratio * toc_in
+            chemical_dosage = pyunits.convert((0.5 * o3_toc_ratio * toc_in) * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
             chem_name = unit_params["chemical_name"][0]
             chem_dict = {chem_name: chemical_dosage}
             h2o2_base_cap = 1228
@@ -147,18 +173,7 @@ see property package for documentation.}"""))
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
         # TODO -->> ADD THESE TO UNIT self.X
-        number_of_units = 2
-        lift_height = 100 * pyunits.ft  # ft # ft
-        pump_eff = 0.9
-        motor_eff = 0.9
 
-        #### CHEMS ###
-        chem_name = unit_params["chemical_name"][0]
-        # chem_name = 'Iron_FeCl3'
-        ratio_in_solution = 0.42  #
-        chemical_dosage = 0.02 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
-        solution_density = 1460 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
-        chem_dict = {chem_name: chemical_dosage}
         self.chem_dict = chem_dict
 
         ##########################################
@@ -167,19 +182,23 @@ see property package for documentation.}"""))
 
         def solution_vol_flow(flow_in):  # m3/hr
             chemical_rate = flow_in * chemical_dosage  # kg/hr
-            chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
-            soln_vol_flow = chemical_rate / solution_density / ratio_in_solution
-            soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
-            return soln_vol_flow  # m3/day to gal/day
+            chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
+            soln_vol_flow = chemical_rate
+            return soln_vol_flow  # lb / day
 
         def fixed_cap(flow_in):
-            source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp
-            fecl3_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
-            return fecl3_cap
+            if aop:
+                h2o2_cap = h2o2_base_cap * solution_vol_flow(flow_in) ** h2o2_cap_exp
+                flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
+                ozone_aop_cap = (a * flow_in_mgd ** b + h2o2_cap) * 1E-3 * tpec_tic
+            else:
+                flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
+                ozone_aop_cap = (a * flow_in_mgd ** b) * 1E-3 * tpec_tic
+            # ozone_aop_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
+            return ozone_aop_cap
 
         def electricity(flow_in):  # m3/hr
-            soln_vol_flow = pyunits.convert(solution_vol_flow(flow_in), to_units=(pyunits.gallon / pyunits.minute))
-            electricity = (0.746 * soln_vol_flow * lift_height / (3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
+            electricity = 0.1  # kWh/m3
             return electricity
 
         # Get the first time point in the time domain

@@ -165,6 +165,9 @@ def get_module(module_name):
     if module_name == "gac_gravity":
         import gac_gravity as up
 
+    if module_name == "ozone_aop":
+        import ozone_aop as up
+
     return up
 
 
