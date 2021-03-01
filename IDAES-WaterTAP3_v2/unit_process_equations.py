@@ -73,6 +73,7 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'gac_pressure_vessel': import gac_pressure_vessel as unit_process_model
     if up_name_test == 'gac_gravity': import gac_gravity as unit_process_model
     if up_name_test == 'ozone_aop': import ozone_aop as unit_process_model
+    if up_name_test == 'microfiltration': import microfiltration as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules

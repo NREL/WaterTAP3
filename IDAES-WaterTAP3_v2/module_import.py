@@ -168,6 +168,9 @@ def get_module(module_name):
     if module_name == "ozone_aop":
         import ozone_aop as up
 
+    if module_name == "microfiltration":
+        import microfiltration as up
+
     return up
 
 
