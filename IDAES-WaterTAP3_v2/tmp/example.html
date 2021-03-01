@@ -46,17 +46,87 @@
     // This method is responsible for drawing the graph, returns the drawn network
     function drawGraph() {
         var container = document.getElementById('mynetwork');
-        
-        
+
 
         // parsing and collecting nodes and edges from the python
-        nodes = new vis.DataSet([{"id": "Seawater", "label": "Seawater", "shape": "dot", "size": 10}, {"id": "sw_onshore_intake", "label": "sw_onshore_intake", "shape": "dot", "size": 10}, {"id": "sulfuric_acid_addition", "label": "sulfuric_acid_addition", "shape": "dot", "size": 10}, {"id": "fecl3_addition", "label": "fecl3_addition", "shape": "dot", "size": 10}, {"id": "mixer2", "label": "mixer2", "shape": "dot", "size": 10}, {"id": "chlorination_twb", "label": "chlorination_twb", "shape": "dot", "size": 10}, {"id": "surface_discharge", "label": "surface_discharge", "shape": "dot", "size": 10}, {"id": "coagulant_addition", "label": "coagulant_addition", "shape": "dot", "size": 10}, {"id": "static_mix", "label": "static_mix", "shape": "dot", "size": 10}, {"id": "mixer1", "label": "mixer1", "shape": "dot", "size": 10}, {"id": "tri_media_filtration", "label": "tri_media_filtration", "shape": "dot", "size": 10}, {"id": "cartridge_filtration", "label": "cartridge_filtration", "shape": "dot", "size": 10}, {"id": "backwash_solids_handling", "label": "backwash_solids_handling", "shape": "dot", "size": 10}, {"id": "ro_deep", "label": "ro_deep", "shape": "dot", "size": 10}, {"id": "lime_softening", "label": "lime_softening", "shape": "dot", "size": 10}, {"id": "chlorination_twb_2", "label": "chlorination_twb_2", "shape": "dot", "size": 10}, {"id": "caustic_soda_addition", "label": "caustic_soda_addition", "shape": "dot", "size": 10}, {"id": "ammonia_addition", "label": "ammonia_addition", "shape": "dot", "size": 10}, {"id": "treated_storage_24_hr", "label": "treated_storage_24_hr", "shape": "dot", "size": 10}, {"id": "municipal_drinking", "label": "municipal_drinking", "shape": "dot", "size": 10}]);
-        edges = new vis.DataSet([{"arrows": "to", "from": "Seawater", "to": "sw_onshore_intake", "weight": 1}, {"arrows": "to", "from": "sw_onshore_intake", "to": "sulfuric_acid_addition", "weight": 1}, {"arrows": "to", "from": "sulfuric_acid_addition", "to": "fecl3_addition", "weight": 1}, {"arrows": "to", "from": "sulfuric_acid_addition", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "fecl3_addition", "to": "chlorination_twb", "weight": 1}, {"arrows": "to", "from": "fecl3_addition", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "mixer2", "to": "surface_discharge", "weight": 1}, {"arrows": "to", "from": "chlorination_twb", "to": "coagulant_addition", "weight": 1}, {"arrows": "to", "from": "chlorination_twb", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "coagulant_addition", "to": "static_mix", "weight": 1}, {"arrows": "to", "from": "coagulant_addition", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "static_mix", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "static_mix", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "mixer1", "to": "tri_media_filtration", "weight": 1}, {"arrows": "to", "from": "tri_media_filtration", "to": "cartridge_filtration", "weight": 1}, {"arrows": "to", "from": "tri_media_filtration", "to": "backwash_solids_handling", "weight": 1}, {"arrows": "to", "from": "cartridge_filtration", "to": "ro_deep", "weight": 1}, {"arrows": "to", "from": "cartridge_filtration", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "backwash_solids_handling", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "backwash_solids_handling", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "ro_deep", "to": "lime_softening", "weight": 1}, {"arrows": "to", "from": "ro_deep", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "lime_softening", "to": "chlorination_twb_2", "weight": 1}, {"arrows": "to", "from": "lime_softening", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "chlorination_twb_2", "to": "caustic_soda_addition", "weight": 1}, {"arrows": "to", "from": "chlorination_twb_2", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "caustic_soda_addition", "to": "ammonia_addition", "weight": 1}, {"arrows": "to", "from": "caustic_soda_addition", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "ammonia_addition", "to": "treated_storage_24_hr", "weight": 1}, {"arrows": "to", "from": "ammonia_addition", "to": "mixer2", "weight": 1}, {"arrows": "to", "from": "treated_storage_24_hr", "to": "municipal_drinking", "weight": 1}, {"arrows": "to", "from": "treated_storage_24_hr", "to": "mixer2", "weight": 1}]);
+        nodes = new vis.DataSet([{"id": "Seawater", "label": "Seawater", "shape": "dot", "size": 10}, {
+            "id": "sw_onshore_intake",
+            "label": "sw_onshore_intake",
+            "shape": "dot",
+            "size": 10
+        }, {"id": "cation_exchange", "label": "cation_exchange", "shape": "dot", "size": 10}, {
+            "id": "fixed_bed_gravity_basin",
+            "label": "fixed_bed_gravity_basin",
+            "shape": "dot",
+            "size": 10
+        }, {"id": "mixer1", "label": "mixer1", "shape": "dot", "size": 10}, {
+            "id": "fixed_bed_pressure_vessel",
+            "label": "fixed_bed_pressure_vessel",
+            "shape": "dot",
+            "size": 10
+        }, {"id": "surface_discharge", "label": "surface_discharge", "shape": "dot", "size": 10}, {
+            "id": "gac_pressure_vessel",
+            "label": "gac_pressure_vessel",
+            "shape": "dot",
+            "size": 10
+        }, {"id": "gac_gravity", "label": "gac_gravity", "shape": "dot", "size": 10}, {
+            "id": "fluidized_bed",
+            "label": "fluidized_bed",
+            "shape": "dot",
+            "size": 10
+        }, {"id": "multi_stage_bubble_aeration", "label": "multi_stage_bubble_aeration", "shape": "dot", "size": 10}, {
+            "id": "packed_tower_aeration",
+            "label": "packed_tower_aeration",
+            "shape": "dot",
+            "size": 10
+        }, {"id": "anion_exchange", "label": "anion_exchange", "shape": "dot", "size": 10}, {"id": "municipal_drinking", "label": "municipal_drinking", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": "Seawater", "to": "sw_onshore_intake", "weight": 1}, {
+            "arrows": "to",
+            "from": "sw_onshore_intake",
+            "to": "cation_exchange",
+            "weight": 1
+        }, {"arrows": "to", "from": "cation_exchange", "to": "fixed_bed_gravity_basin", "weight": 1}, {"arrows": "to", "from": "cation_exchange", "to": "mixer1", "weight": 1}, {
+            "arrows": "to",
+            "from": "fixed_bed_gravity_basin",
+            "to": "fixed_bed_pressure_vessel",
+            "weight": 1
+        }, {"arrows": "to", "from": "fixed_bed_gravity_basin", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "mixer1", "to": "surface_discharge", "weight": 1}, {
+            "arrows": "to",
+            "from": "fixed_bed_pressure_vessel",
+            "to": "gac_pressure_vessel",
+            "weight": 1
+        }, {"arrows": "to", "from": "fixed_bed_pressure_vessel", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "gac_pressure_vessel", "to": "gac_gravity", "weight": 1}, {
+            "arrows": "to",
+            "from": "gac_pressure_vessel",
+            "to": "mixer1",
+            "weight": 1
+        }, {"arrows": "to", "from": "gac_gravity", "to": "fluidized_bed", "weight": 1}, {"arrows": "to", "from": "gac_gravity", "to": "mixer1", "weight": 1}, {
+            "arrows": "to",
+            "from": "fluidized_bed",
+            "to": "multi_stage_bubble_aeration",
+            "weight": 1
+        }, {"arrows": "to", "from": "fluidized_bed", "to": "mixer1", "weight": 1}, {"arrows": "to", "from": "multi_stage_bubble_aeration", "to": "packed_tower_aeration", "weight": 1}, {
+            "arrows": "to",
+            "from": "multi_stage_bubble_aeration",
+            "to": "mixer1",
+            "weight": 1
+        }, {"arrows": "to", "from": "packed_tower_aeration", "to": "anion_exchange", "weight": 1}, {"arrows": "to", "from": "packed_tower_aeration", "to": "mixer1", "weight": 1}, {
+            "arrows": "to",
+            "from": "anion_exchange",
+            "to": "municipal_drinking",
+            "weight": 1
+        }, {"arrows": "to", "from": "anion_exchange", "to": "mixer1", "weight": 1}]);
 
         // adding nodes and edges to the graph
         data = {nodes: nodes, edges: edges};
 
-        var options = {"nodes": {"font": {"size": 16, "background": "rgba(255,255,255,1)"}}, "edges": {"color": {"inherit": true}, "smooth": {"type": "continuous", "forceDirection": "none"}}, "layout": {"hierarchical": {"enabled": true, "levelSeparation": 220, "nodeSpacing": 145, "treeSpacing": 195, "direction": "LR", "sortMethod": "directed"}}, "interaction": {"navigationButtons": true}, "physics": {"hierarchicalRepulsion": {"centralGravity": 1}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        var options = {
+            "nodes": {"font": {"size": 16, "background": "rgba(255,255,255,1)"}},
+            "edges": {"color": {"inherit": true}, "smooth": {"type": "continuous", "forceDirection": "none"}},
+            "layout": {"hierarchical": {"enabled": true, "levelSeparation": 220, "nodeSpacing": 145, "treeSpacing": 195, "direction": "LR", "sortMethod": "directed"}},
+            "interaction": {"navigationButtons": true},
+            "physics": {"hierarchicalRepulsion": {"centralGravity": 1}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}
+        };
         
         
 
