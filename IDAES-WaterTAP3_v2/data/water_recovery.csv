@@ -6,8 +6,11 @@
 4,Default,,2pt0_m_y_evaporation_ponds,0.0515,,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
 5,Default,ZLD,2pt0_m_y_evaporation_ponds,0.0001,,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
 14,Pulp_and_Paper,Baseline,aeration_basin,1,,Defined based on the Pulp and Paper case study data.
+,Default,,air_flotation,1,,
 12,Default,,multi_stage_bubble_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 13,Default,,packed_tower_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+15,Default,,aeration_tank,1,,Defined based on the Iron and Steel case study data.
+16,Default,,agglomoration_and_stacking_system,1,,Heap leaching (gold/copper) case study.
 15,Iron_and_Steel,Baseline,aeration_tank,1,,Defined based on the Iron and Steel case study data.
 16,Heap_Leaching,Baseline,agglomoration_and_stacking_system,1,,Heap leaching (gold/copper) case study.
 17,Default,,ammonia_addition,1,,Based on costs for AQUA AMMONIA FEED 29% SOLUTION Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
@@ -15,10 +18,15 @@
 19,Default,,anti_oxidant_addition,1,,No specific references were identified. Costs are based on seemingly comparable addition systems. 
 20,Default,,anti_scalant_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 21,Default,,backwash_solids_handling,0.95,,Based on costs for Solids Handling in Table 5.7.1 in Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura). Recovery is an assumption considering recovered solids will have moisture content. 
-22,Default,,bio_active_filtration,0.95,,Texas Water Development Board IT3PR User Manual
+22,Default,,backwash_solids_handling,0.95,,Texas Water Development Board IT3PR User Manual
 23,Default,,fixed_bed_gravity_basin,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 24,Default,,fixed_bed_pressure_vessel,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 25,Default,,fluidized_bed,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+27,Default,,bioreactor,1,,Defined based on the San Luis case study data.
+28,Default,,bioreactor_bw_pump,1,,Defined based on the San Luis case study data.
+26,Default,,bioreactor_effluent_pump,1,,Defined based on the San Luis case study data.
+29,Default,,bioreactor_feed_pump,1,,Defined based on the San Luis case study data.
+30,Default,,blending_reservoir,1,,Defined based on the San Luis case study data.
 27,San_Luis,Baseline,bioreactor,1,,Defined based on the San Luis case study data.
 28,San_Luis,Baseline,bioreactor_bw_pump,1,,Defined based on the San Luis case study data.
 26,San_Luis,Baseline,bioreactor_effluent_pump,1,,Defined based on the San Luis case study data.
@@ -27,6 +35,7 @@
 31,Default,,brine_concentrator_us_bor,calculated,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 32,Default,,brine_concentrator_waterreuse,calculated,,U.S. Department of the Interior Bureau of Reclamation - SOUTHERN CALIFORNIA REGIONAL BRINE-CONCENTRATE MANAGEMENT STUDY – PHASE I
 33,Default,,brine_ro,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
+,Default,,buffer_tank,1,,
 35,Default,,cartridge_filtration,1,,Texas Water Development Board IT3PR User Manual
 34,Default,,cartridge_filtration_with_backflush,0.9,,Defined based on the Carlsbad case study data.
 36,Default,,cas,1,,Texas Water Development Board IT3PR User Manual
@@ -71,9 +80,10 @@
 72,Default,,lime_addition,1,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 73,Default,ZLD,lime_softener_waterreuse,calculated,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 74,Default,,lime_softening,1,,"(1) Consumption rates for Lime and Soda Ash are calculated based on the methods presented by Minnesota Rural Water Association, Chapter 16 Lime Softening (https://www.mrwa.com/WaterWorksMnl/Chapter%2016%20Lime%20Softening.pdf), (2) Capital costs (and other operating cost data) are based on “Approximate Costs of Lime Softening” from Nancrede Engineering Co (https://www.necoindustrialwater.com/analysis-ion-exchange-vs-lime-softening/). "
-75,Default,,mbr_and_denitrification,1,,Texas Water Development Board IT3PR User Manual
-76,Default,,mbr_and_nitrification,1,,Texas Water Development Board IT3PR User Manual
+75,Default,,mbr_denitrification,1,,Texas Water Development Board IT3PR User Manual
+76,Default,,mbr_nitrification,1,,Texas Water Development Board IT3PR User Manual
 77,Default,,media_filtration,1,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+,Default,,microscreen_filtration,1,,
 78,Default,,microfiltration,0.95,,Texas Water Development Board IT3PR User Manual
 79,Default,,micro_filtration,0.9999,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
 80,Default,,municipal_drinking,1,,"Distribution costs are based on pump cost calculations in ""Pumping Station"" in VAR. Electricity consumption is based on 300-ft head pump and is consistent with Carslbad data."
@@ -94,6 +104,7 @@
 95,Default,,ro_deep_mcgivney,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
 117,Default,,ro_deep_scnd_pass,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
 97,Default,,sedimentation,0.9999,,"(1) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (2) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)"
+,Default,,settling_pond,0,,
 98,Cherokee,Baseline,settling_pond,1,,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
 99,Default,,sodium_bisulfite_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura).
 100,Default,,soil_aquifer_treatment,1,,Texas Water Development Board IT3PR User Manual
@@ -106,11 +117,16 @@
 7,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
 108,Default,,tri_media_filtration,0.9,,Texas Water Development Board IT3PR User Manual
 109,Default,,tri_media_filtration_with_backflush,0.9,,Texas Water Development Board IT3PR User Manual. Backflush based on Carlsbad case study.
+110,Default,,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.
+111,Default,,uf_feed_pump,1,,Defined based on the San Luis case study data.
 110,Tuscarora,Baseline,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.
 111,San Luis,Baseline,uf_feed_pump,1,,Defined based on the San Luis case study data.
 112,Default,,ultra_filtration,0.95,,Texas Water Development Board IT3PR User Manual
 114,Default,,uv_aop,1,,Texas Water Development Board IT3PR User Manual
 113,Default,,uv_irradiation,1,,Texas Water Development Board IT3PR User Manual
+115,Default,,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 115,Kern County,Baseline,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 90,Default,,water_pumping_station,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 116,Default,,well_field,1,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
+,Default,,recharge_pump_well,1,,
+,Default,,basic_unit,1,,
