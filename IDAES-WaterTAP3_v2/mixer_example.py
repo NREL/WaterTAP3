@@ -281,7 +281,7 @@ linked to all inlet states and the mixed state,
             for p in inlet_list:
                 temperature_sum = getattr(b, ("temperature_%s" % p))[t] + temperature_sum
             
-            return temperature_sum / len(inlet_list) == b.temperature_out[t] + 1e-4
+            return temperature_sum / len(inlet_list) == b.temperature_out[t] #+ 1e-4
         
         
         @self.Constraint(time, doc="Outlet pressure equation")
@@ -291,7 +291,7 @@ linked to all inlet states and the mixed state,
             for p in inlet_list:
                 pressure_sum = getattr(b, ("pressure_%s" % p))[t] + pressure_sum            
             
-            return pressure_sum / len(inlet_list) == b.pressure_out[t] + 1e-4
+            return pressure_sum / len(inlet_list) == b.pressure_out[t] #+ 1e-4
         
 #         # Get phase component list(s)
 #         phase_component_list = self._get_phase_comp_list()
