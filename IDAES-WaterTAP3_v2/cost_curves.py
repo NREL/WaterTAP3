@@ -63,3 +63,12 @@ def cost_curve(unit_process, **kwargs):
 	a, b = cost[0], cost[1]
 
 	return cost, elect, mats_name, mats_cost, df
+
+def basic_unit(unit_process):
+	df = pd.read_csv('data/basic_unit.csv', index_col='unit_process')
+	df = df.loc[unit_process]
+	flow_basis = df.flow_basis
+	cap_basis = df.cap_basis
+	cap_exp = df.cap_exp
+	year = df.year
+	return flow_basis, cap_basis, cap_exp, year

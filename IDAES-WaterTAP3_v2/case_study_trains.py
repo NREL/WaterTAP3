@@ -323,32 +323,51 @@ def get_case_study(flow = None, m = None):
     generate_constituent_list.train = train
     generate_constituent_list.source_water = source_water
     generate_constituent_list.pfd_dict = pfd_dict
-    
+
     financials.train = train
     financials.source_water = source_water
     financials.pfd_dict = pfd_dict
     financials.get_system_specs(m.fs)
-    
+
     train_constituent_list = generate_constituent_list.run()
-    
+
     # add the water parameter block to generate the list of constituent variables in the model
     m.fs.water = WaterParameterBlock()
 
+    temp_dict = {}
+    new_dict = {}
     # add units to model
     for key in pfd_dict.keys():
         print(key)
-        m = wt.design.add_unit_process(m = m, 
-                                       unit_process_name = key, 
-                                       unit_process_type = pfd_dict[key]['Unit'])
+        m = wt.design.add_unit_process(m=m, unit_process_name=key, unit_process_type=pfd_dict[key]['Unit'])
 
+    for k, v in pfd_dict.items():
+        if "basic_unit" not in k:
+            temp_dict[k] = k
+        else:
+            magic_name = v['Parameter']['unit_process_name']
+            temp_dict[k] = magic_name
 
+    for k, v in pfd_dict.items():
+        if 'basic_unit' in v.values():
+            v['ToUnitName'] = temp_dict[v['ToUnitName']]
+
+    for k, v in pfd_dict.items():
+        if 'basic_unit' in k:
+            #         print(temp_dict[k])
+            name = temp_dict[k]
+            new_dict[name] = v
+        else:
+            new_dict[k] = v
+    pfd_dict = new_dict
+    m.fs.pfd_dict = pfd_dict
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
     m.fs.arc_dict = arc_dict
-        
+
     # gets list of unit processes and ports that need either a splitter or mixer 
     splitter_list, mixer_list = check_split_mixer_need(arc_dict)
-    
+
     # add the mixers if needed, and add the arcs around the mixers to the arc dictionary
     m, arc_dict, mixer_i, arc_i = create_mixers(m, mixer_list, arc_dict, arc_i)
     
