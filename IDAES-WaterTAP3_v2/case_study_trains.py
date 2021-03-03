@@ -96,7 +96,7 @@ def get_case_study(flow=None, m=None):
 	# add the waste arcs to the model
 	m, arc_i, mixer_i = add_wate_streams(m, arc_i, pfd_dict, mixer_i)
 
-	return m, df_source
+	return m
 
 
 ### create pfd_dictionary for treatment train
