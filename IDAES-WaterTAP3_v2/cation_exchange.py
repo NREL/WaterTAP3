@@ -136,12 +136,6 @@ see property package for documentation.}"""))
 		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
 		##########################################
 
-		# def solution_vol_flow(flow_in):  # m3/hr
-		# flow_in_m3h = flow_in * 189.4204
-		# chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
-		#
-		# return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
-
 		def fixed_cap(flow_in):
 			source_cost = cost_coeffs[0] * flow_in ** cost_coeffs[1]  # $
 
@@ -152,15 +146,8 @@ see property package for documentation.}"""))
 
 			return electricity
 
-		# Get the first time point in the time domain
-		# In many cases this will be the only point (steady-state), but lets be
-		# safe and use a general approach
-
-		# Get the inlet flow to the unit and convert to the correct units for cost module.
-
 		## fixed_cap_inv_unadjusted ##
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
-														   doc="Unadjusted fixed capital investment")  # $M
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3

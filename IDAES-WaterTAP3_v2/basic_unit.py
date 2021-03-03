@@ -27,7 +27,7 @@ from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefa
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
@@ -107,7 +107,7 @@ see property package for documentation.}"""))
         flow_basis, cap_basis, cap_exp, year = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
-
+        print(f'flow basis = {flow_basis}\ncap basis = {cap_basis}\ncap_exp = {cap_exp}\nyear = {year}\n\n')
         # Next, add a sub-Block to the unit model to hold the cost calculations
         # This is to let us separate costs from model equations when solving
         self.costing = Block()
@@ -122,8 +122,9 @@ see property package for documentation.}"""))
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
-        flow_basis = flow_basis * (pyunits.m ** 3 / pyunits.hour)
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
+        self.flow_in = flow_in  # m3 /hr
+        self.flow_basis = flow_basis * (pyunits.m ** 3 / pyunits.hour)
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -134,13 +135,14 @@ see property package for documentation.}"""))
 
         chem_dict = {}
         self.chem_dict = chem_dict
+        self.flow_factor = self.flow_in / self.flow_basis
 
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
 
         def fixed_cap(flow_in):
-            basic_cap = cap_basis * (flow_basis / flow_in) ** cap_exp
+            basic_cap = cap_basis * self.flow_factor ** cap_exp
             return basic_cap
 
         def electricity(flow_in):  # m3/hr

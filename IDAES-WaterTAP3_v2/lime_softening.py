@@ -142,7 +142,7 @@ see property package for documentation.}"""))
 		bicarb_alk_CaCO3 = 0.56  # mg/L NOT USED
 		hydrox_alk_CaCO3 = 0.56  # mg/L NOT USED
 		chem_name = unit_params["chemical_name"][0]
-		magnesium_dissolved_lime = pyunits.convert(unit_params["lime"][0] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))
+		magnesium_dissolved_lime = pyunits.convert(unit_params["lime"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
 		magnesium_dissolved_factor = 30 * pyunits.dimensionless  # TODO
 		chemical_dosage = magnesium_dissolved_factor * magnesium_dissolved_lime
 		lift_height = 100 * pyunits.ft
@@ -155,8 +155,8 @@ see property package for documentation.}"""))
 		def solution_vol_flow(flow_in):  # m3/hr
 			chemical_rate = flow_in * chemical_dosage  # kg/hr
 			chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
-			soln_vol_flow = chemical_rate / solution_density # m3 / d
-			return soln_vol_flow # m3 / d
+			soln_vol_flow = chemical_rate / solution_density  # m3 / d
+			return soln_vol_flow  # m3 / d
 
 		def fixed_cap(flow_in):
 			lime_cap = base_fixed_cap_cost * flow_in ** cap_scaling_exp
@@ -176,14 +176,8 @@ see property package for documentation.}"""))
 
 		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")
 
-
 		##########################################
 		####### GET REST OF UNIT COSTS ######
 		##########################################
 
 		module.get_complete_costing(self.costing)
-
-
-
-
-

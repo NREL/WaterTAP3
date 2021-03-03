@@ -125,24 +125,24 @@ Irwin,Baseline,0.1,NAWI,exp_return_on_equity
 Irwin,Baseline,3.4,NAWI,default_tpec_multiplier
 Irwin,Baseline,1.65,NAWI,default_tic_multiplier
 Irwin,Baseline,0.0005,NAWI,base_salary_per_fci
-Battery_Park,Baseline,2020,NAWI,analysis_year
-Battery_Park,Baseline,New York,NAWI,location_basis
-Battery_Park,Baseline,30,NAWI,plant_life_yrs
-Battery_Park,Baseline,0.0015,NAWI,land_cost_percent
-Battery_Park,Baseline,0.05,NAWI,working_capital_percent
-Battery_Park,Baseline,0.001,NAWI,salaries_percent
-Battery_Park,Baseline,0.9,NAWI,employee_benefits_percent
-Battery_Park,Baseline,0.008,NAWI,maintenance_cost_percent
-Battery_Park,Baseline,0.003,NAWI,laboratory_fees_percent
-Battery_Park,Baseline,0.002,NAWI,insurance_and_taxes_percent
-Battery_Park,Baseline,0.7,NAWI,default_cap_scaling_exp
-Battery_Park,Baseline,0.7,NAWI,default_opex_scaling_exp
-Battery_Park,Baseline,0,NAWI,cap_by_equity
-Battery_Park,Baseline,0.05,NAWI,debt_interest_rate
-Battery_Park,Baseline,0.1,NAWI,exp_return_on_equity
-Battery_Park,Baseline,3.4,NAWI,default_tpec_multiplier
-Battery_Park,Baseline,1.65,NAWI,default_tic_multiplier
-Battery_Park,Baseline,0.0005,NAWI,base_salary_per_fci
+Solaire,Baseline,2020,NAWI,analysis_year
+Solaire,Baseline,New York,NAWI,location_basis
+Solaire,Baseline,30,NAWI,plant_life_yrs
+Solaire,Baseline,0.0015,NAWI,land_cost_percent
+Solaire,Baseline,0.05,NAWI,working_capital_percent
+Solaire,Baseline,0.001,NAWI,salaries_percent
+Solaire,Baseline,0.9,NAWI,employee_benefits_percent
+Solaire,Baseline,0.008,NAWI,maintenance_cost_percent
+Solaire,Baseline,0.003,NAWI,laboratory_fees_percent
+Solaire,Baseline,0.002,NAWI,insurance_and_taxes_percent
+Solaire,Baseline,0.7,NAWI,default_cap_scaling_exp
+Solaire,Baseline,0.7,NAWI,default_opex_scaling_exp
+Solaire,Baseline,0,NAWI,cap_by_equity
+Solaire,Baseline,0.05,NAWI,debt_interest_rate
+Solaire,Baseline,0.1,NAWI,exp_return_on_equity
+Solaire,Baseline,3.4,NAWI,default_tpec_multiplier
+Solaire,Baseline,1.65,NAWI,default_tic_multiplier
+Solaire,Baseline,0.0005,NAWI,base_salary_per_fci
 Big_Spring,Baseline,2020,NAWI,analysis_year
 Big_Spring,Baseline,Texas,NAWI,location_basis
 Big_Spring,Baseline,30,NAWI,plant_life_yrs
@@ -449,4 +449,3 @@ Heap_Leaching,Baseline,0.1,NAWI,exp_return_on_equity
 Heap_Leaching,Baseline,3.4,NAWI,default_tpec_multiplier
 Heap_Leaching,Baseline,1.65,NAWI,default_tic_multiplier
 Heap_Leaching,Baseline,0.0005,NAWI,base_salary_per_fci
-

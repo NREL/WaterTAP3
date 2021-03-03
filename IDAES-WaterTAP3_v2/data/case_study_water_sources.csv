@@ -192,6 +192,7 @@ kg/m3,3.20E-07,Solaire_Graywater,Solaire,NAWI,Source,trihalomethanes,Baseline
 kg/m3,0.00953,Solaire_Graywater,Solaire,NAWI,Source,toc,Baseline
 kg/m3,0.0016,Solaire_Graywater,Solaire,NAWI,Source,turbidity,Baseline
 kg/m3,1.53E-05,Solaire_Graywater,Solaire,NAWI,Source,zinc,Baseline
+m3/s,8.89E-04,Solaire_Graywater,Solaire,NAWI,Source,flow,Baseline
 kg/m3,6.16E-06,Solaire_Blackwater,Solaire,NAWI,Source,aluminum,Baseline
 kg/m3,5.10E-07,Solaire_Blackwater,Solaire,NAWI,Source,arsenic,Baseline
 kg/m3,4.52E-05,Solaire_Blackwater,Solaire,NAWI,Source,barium,Baseline
@@ -229,6 +230,7 @@ kg/m3,0.006525,Solaire_Blackwater,Solaire,NAWI,Source,tss,Baseline
 kg/m3,3.20E-07,Solaire_Blackwater,Solaire,NAWI,Source,trihalomethanes,Baseline
 kg/m3,0.00953,Solaire_Blackwater,Solaire,NAWI,Source,toc,Baseline
 kg/m3,0.0016,Solaire_Blackwater,Solaire,NAWI,Source,turbidity,Baseline
+m3/s,2.22E-04,Solaire_Blackwater,Solaire,NAWI,Source,flow,Baseline
 kg/m3,1.53E-05,Solaire_Blackwater,Solaire,NAWI,Source,zinc,Baseline
 kg/m3,6.16E-06,Solaire_Stormwater,Solaire,NAWI,Source,aluminum,Baseline
 kg/m3,5.10E-07,Solaire_Stormwater,Solaire,NAWI,Source,arsenic,Baseline
@@ -268,6 +270,7 @@ kg/m3,3.20E-07,Solaire_Stormwater,Solaire,NAWI,Source,trihalomethanes,Baseline
 kg/m3,0.00953,Solaire_Stormwater,Solaire,NAWI,Source,toc,Baseline
 kg/m3,0.0016,Solaire_Stormwater,Solaire,NAWI,Source,turbidity,Baseline
 kg/m3,1.53E-05,Solaire_Stormwater,Solaire,NAWI,Source,zinc,Baseline
+m3/s,5.56E-04,Solaire_Stormwater,Solaire,NAWI,Source,flow,Baseline
 kg/m3,6.16E-06,Big_Spring_Feed,Big_Spring,NAWI,Source,aluminum,Baseline
 kg/m3,5.10E-07,Big_Spring_Feed,Big_Spring,NAWI,Source,arsenic,Baseline
 kg/m3,4.52E-05,Big_Spring_Feed,Big_Spring,NAWI,Source,barium,Baseline
@@ -306,6 +309,7 @@ kg/m3,3.20E-07,Big_Spring_Feed,Big_Spring,NAWI,Source,trihalomethanes,Baseline
 kg/m3,0.00953,Big_Spring_Feed,Big_Spring,NAWI,Source,toc,Baseline
 kg/m3,0.0016,Big_Spring_Feed,Big_Spring,NAWI,Source,turbidity,Baseline
 kg/m3,1.53E-05,Big_Spring_Feed,Big_Spring,NAWI,Source,zinc,Baseline
+m3/s,0.075,Big_Spring_Feed,Big_Spring,NAWI,Source,flow,Baseline
 kg/m3,0.08,KBHDP_Brackish_Low,KBHDP,NAWI,Source,alkalinity_as_caco3,Baseline
 kg/m3,0.13,KBHDP_Brackish_Low,KBHDP,NAWI,Source,calcium,Baseline
 kg/m3,1.18,KBHDP_Brackish_Low,KBHDP,NAWI,Source,chloride,Baseline
@@ -406,6 +410,18 @@ kg/m3,1.856234097,Irwin_Brine,Irwin,NAWI,Source,sodium,Baseline
 kg/m3,0.004834606,Irwin_Brine,Irwin,NAWI,Source,strontium,Baseline
 kg/m3,1.455470738,Irwin_Brine,Irwin,NAWI,Source,sulfate,Baseline
 kg/m3,7.099236641,Irwin_Brine,Irwin,NAWI,Source,tds,Baseline
+kg/m3,1.98E-05,HRSD_Municipal,HRSD,NAWI,Source,bromide,Baseline
+kg/m3,0.007919408,HRSD_Municipal,HRSD,NAWI,Source,boron,Baseline
+kg/m3,1.592790934,HRSD_Municipal,HRSD,NAWI,Source,calcium,Baseline
+kg/m3,5.898375078,HRSD_Municipal,HRSD,NAWI,Source,chloride,Baseline
+kg/m3,0.07919408,HRSD_Municipal,HRSD,NAWI,Source,fluoride,Baseline
+kg/m3,0.534758025,HRSD_Municipal,HRSD,NAWI,Source,magnesium,Baseline
+kg/m3,0.375577924,HRSD_Municipal,HRSD,NAWI,Source,potassium,Baseline
+kg/m3,4.584941262,HRSD_Municipal,HRSD,NAWI,Source,sodium,Baseline
+kg/m3,3.72707139,HRSD_Municipal,HRSD,NAWI,Source,sulfate,Baseline
+kg/m3,12.4730676,HRSD_Municipal,HRSD,NAWI,Source,tds,Baseline
+kg/m3,326.100722,HRSD_Municipal,HRSD,NAWI,Source,tss,Baseline
+m3/s,0.737861111,HRSD_Municipal,HRSD,NAWI,Source,flow,Baseline
 kg/m3,,,,,,1_1_1_trichloroethane,Baseline
 kg/m3,,,,,,1_1_2_trichloroethane,Baseline
 kg/m3,,,,,,1_1_dichloroethylene,Baseline

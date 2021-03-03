@@ -26,6 +26,7 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, wit
                      stream_name=None):  # in design
 
     import constituent_removal_water_recovery
+    import financials
 
     up_module = module_import.get_module(unit_process_type)
 
@@ -42,7 +43,6 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, wit
 
     ### SET PARAMS HERE FOR UP ###
     # PARAMS =
-    import financials
     getattr(m.fs, unit_process_name).get_costing(module=financials, unit_params=unit_params)
 
     if with_connection == True:

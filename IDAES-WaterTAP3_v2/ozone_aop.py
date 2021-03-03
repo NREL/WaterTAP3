@@ -190,10 +190,10 @@ see property package for documentation.}"""))
             if aop:
                 h2o2_cap = h2o2_base_cap * solution_vol_flow(flow_in) ** h2o2_cap_exp
                 flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-                ozone_aop_cap = (a * flow_in_mgd ** b + h2o2_cap) * 1E-3 * tpec_tic
+                ozone_aop_cap = (a * flow_in_mgd ** b + h2o2_cap) * 1E-3
             else:
                 flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-                ozone_aop_cap = (a * flow_in_mgd ** b) * 1E-3 * tpec_tic
+                ozone_aop_cap = (a * flow_in_mgd ** b) * 1E-3
             # ozone_aop_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
             return ozone_aop_cap
 

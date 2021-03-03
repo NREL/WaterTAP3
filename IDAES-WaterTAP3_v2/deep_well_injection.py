@@ -145,11 +145,11 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
 
         # TODO -->> ADD THESE TO UNIT self.X
-        incl_piping = unit_params["incl_piping"][0]
+        incl_piping = unit_params["incl_piping"]
         if not incl_piping:
             base_fixed_cap_cost = 16.9
             pipe_cost_basis = 35000  # $ / (inch * mile)
-            pipe_distance = unit_params['pipe_distance'][0] * pyunits.miles
+            pipe_distance = unit_params['pipe_distance'] * pyunits.miles
             pipe_diameter = 8 * pyunits.inches
             pipe_fixed_cap_cost = (pipe_cost_basis * pipe_distance * pipe_diameter) * 1E-6
         else:
