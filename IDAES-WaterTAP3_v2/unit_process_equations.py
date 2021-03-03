@@ -14,7 +14,7 @@
 Demonstration zeroth-order model for WaterTAP3
 """
 
-from pyomo.environ import PositiveReals  # ariel
+from pyomo.environ import NonNegativeReals, PositiveReals  # ariel
 # Import Pyomo libraries
 from pyomo.network import Port
 
@@ -109,16 +109,8 @@ def build_up(self, up_name_test=None):
     # if up_name_test == "uv_aop":
     #     unit_process_model.get_additional_variables(self, units_meta, time)
         
-    self.flow_vol_in = Var(time,
-                           initialize=1,
-                           domain=PositiveReals,
-                           units=units_meta("volume")/units_meta("time"),
-                           doc="Volumetric flowrate of water into unit")
-    self.conc_mass_in = Var(time,
-                            self.config.property_package.component_list,
-                            initialize=1e-5,
-                            #bounds=(1e-6, 1e10),
-                            units=units_meta("mass")/units_meta("volume"),
+    self.flow_vol_in = Var(time, initialize=1, domain=NonNegativeReals, units=units_meta("volume") / units_meta("time"), doc="Volumetric flowrate of water into unit")
+    self.conc_mass_in = Var(time, self.config.property_package.component_list, initialize=1e-5, domain=NonNegativeReals, units=units_meta("mass") / units_meta("volume"),
                             doc="Mass concentration of species at inlet")
     self.temperature_in = Var(time,
                               initialize=300,
@@ -130,16 +122,8 @@ def build_up(self, up_name_test=None):
                            doc="Pressure at inlet")
 
     # Add similar variables for outlet and waste stream
-    self.flow_vol_out = Var(time,
-                            initialize=1,
-                            domain=PositiveReals,
-                            units=units_meta("volume")/units_meta("time"),
-                            doc="Volumetric flowrate of water out of unit")
-    self.conc_mass_out = Var(time,
-                             self.config.property_package.component_list,
-                             initialize=0,
-                             #bounds=(1e-6, 1e10),
-                             units=units_meta("mass")/units_meta("volume"),
+    self.flow_vol_out = Var(time, initialize=1, domain=NonNegativeReals, units=units_meta("volume") / units_meta("time"), doc="Volumetric flowrate of water out of unit")
+    self.conc_mass_out = Var(time, self.config.property_package.component_list, initialize=0, domain=NonNegativeReals, units=units_meta("mass") / units_meta("volume"),
                              doc="Mass concentration of species at outlet")
     self.temperature_out = Var(time,
                                initialize=300,
@@ -150,18 +134,8 @@ def build_up(self, up_name_test=None):
                             units=units_meta("pressure"),
                             doc="Pressure at outlet")
 
-    self.flow_vol_waste = Var(
-        time,
-        initialize=1,
-        #domain=PositiveReals,
-        units=units_meta("volume")/units_meta("time"),
-        doc="Volumetric flowrate of water in waste")
-    self.conc_mass_waste = Var(
-        time,
-        self.config.property_package.component_list,
-        initialize=0,
-        #bounds=(1e-6, 1e10),
-        units=units_meta("mass")/units_meta("volume"),
+    self.flow_vol_waste = Var(time, initialize=1, domain=NonNegativeReals, units=units_meta("volume") / units_meta("time"), doc="Volumetric flowrate of water in waste")
+    self.conc_mass_waste = Var(time, self.config.property_package.component_list, initialize=0, domain=NonNegativeReals, units=units_meta("mass") / units_meta("volume"),
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,
                                  initialize=300,
@@ -184,8 +158,8 @@ def build_up(self, up_name_test=None):
 
     # Then, recovery and removal variables
     self.water_recovery = Var(time,
-                              initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
-                              #within=PositiveReals,
+                              initialize=0.8,  # TODO: NEEDS TO BE DIFFERENT?
+                              # within=Non,
                               units=pyunits.dimensionless,
                               bounds=(0.000001, 1.0000001),
                               doc="Water recovery fraction")
