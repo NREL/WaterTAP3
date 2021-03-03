@@ -107,7 +107,6 @@ see property package for documentation.}"""))
         flow_basis, cap_basis, cap_exp, year = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
-        print(f'flow basis = {flow_basis}\ncap basis = {cap_basis}\ncap_exp = {cap_exp}\nyear = {year}\n\n')
         # Next, add a sub-Block to the unit model to hold the cost calculations
         # This is to let us separate costs from model equations when solving
         self.costing = Block()
