@@ -15,9 +15,7 @@ Demonstration zeroth-order model for WaterTAP3
 """
 
 # Import IDAES cores
-from idaes.core import (declare_process_block_class,
-                        UnitModelBlockData,
-                        useDefault)
+from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
@@ -28,7 +26,6 @@ from financials import *  # ARIEL ADDED
 
 # Import properties and units from "WaterTAP Library"
 from water_props import WaterParameterBlock
-
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -41,166 +38,125 @@ from water_props import WaterParameterBlock
 ### MODULE NAME ###
 module_name = "sodium_bisulfite_addition"
 
-
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
 unit_basis_yr = 2007
 
+
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
 class UnitProcessData(UnitModelBlockData):
-    """
-    This class describes the rules for a zeroth-order model for a unit
+	"""
+	This class describes the rules for a zeroth-order model for a unit
 
-    The Config Block is used tpo process arguments from when the model is
-    instantiated. In IDAES, this serves two purposes:
-         1. Allows us to separate physical properties from unit models
-         2. Lets us give users options for configuring complex units
-    The dynamic and has_holdup options are expected arguments which must exist
-    The property package arguments let us define different sets of contaminants
-    without needing to write a new model.
-    """
+	The Config Block is used tpo process arguments from when the model is
+	instantiated. In IDAES, this serves two purposes:
+		 1. Allows us to separate physical properties from unit models
+		 2. Lets us give users options for configuring complex units
+	The dynamic and has_holdup options are expected arguments which must exist
+	The property package arguments let us define different sets of contaminants
+	without needing to write a new model.
+	"""
 
-    CONFIG = ConfigBlock()
-    CONFIG.declare("dynamic", ConfigValue(
-        domain=In([False]),
-        default=False,
-        description="Dynamic model flag - must be False",
-        doc="""Indicates whether this model will be dynamic or not,
+	CONFIG = ConfigBlock()
+	CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-    CONFIG.declare("has_holdup", ConfigValue(
-        default=False,
-        domain=In([False]),
-        description="Holdup construction flag - must be False",
-        doc="""Indicates whether holdup terms should be constructed or not.
+	CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-    CONFIG.declare("property_package", ConfigValue(
-        default=useDefault,
-        domain=is_physical_parameter_block,
-        description="Property package to use for control volume",
-        doc="""Property parameter object used to define property calculations,
+	CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-    CONFIG.declare("property_package_args", ConfigBlock(
-        implicit=True,
-        description="Arguments to use for constructing property packages",
-        doc="""A ConfigBlock with arguments to be passed to a property block(s)
+	CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
 see property package for documentation.}"""))
 
-    def build(self):
-        import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = module_name)
-    
-    
-    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
+	def build(self):
+		import unit_process_equations
+		return unit_process_equations.build_up(self, up_name_test=module_name)
 
-        """
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
+	def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
+		"""
+		We need a get_costing method here to provide a point to call the
+		costing methods, but we call out to an external consting module
+		for the actual calculations. This lets us easily swap in different
+		methods if needed.
 
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        """
-        # First, check to see if global costing module is in place
-        # Construct it if not present and pass year argument
-        if not hasattr(self.flowsheet(), "costing"):
-            self.flowsheet().get_costing(module=module, year=year)
+		Within IDAES, the year argument is used to set the initial value for
+		the cost index when we build the model.
+		"""
+		# First, check to see if global costing module is in place
+		# Construct it if not present and pass year argument
+		if not hasattr(self.flowsheet(), "costing"):
+			self.flowsheet().get_costing(module=module, year=year)
 
-        # Next, add a sub-Block to the unit model to hold the cost calculations
-        # This is to let us separate costs from model equations when solving
-        self.costing = Block()
-        # Then call the appropriate costing function out of the costing module
-        # The first argument is the Block in which to build the equations
-        # Can pass additional arguments as needed                
-        # There are a couple of variables that IDAES expects to be present
-        # These are fairly obvious, but have pre-defined names
-        
-        
-        # basis year for the unit model - based on reference for the method.
-        self.costing.basis_year = unit_basis_yr
-        
-        self.base_fixed_cap_cost = 900.97  # from Carlsbad Treatment train VAR tab
-        self.cap_scaling_exp = .6179  # from Carlsbad Treatment train VAR tab
-        self.fixed_op_cost_scaling_exp = 0.7
+		# Next, add a sub-Block to the unit model to hold the cost calculations
+		# This is to let us separate costs from model equations when solving
+		self.costing = Block()
+		# Then call the appropriate costing function out of the costing module
+		# The first argument is the Block in which to build the equations
+		# Can pass additional arguments as needed
+		# There are a couple of variables that IDAES expects to be present
+		# These are fairly obvious, but have pre-defined names
 
-    
-        # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
-        sys_cost_params = self.parent_block().costing_param
-        self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
+		# basis year for the unit model - based on reference for the method.
+		self.costing.basis_year = unit_basis_yr
 
-        
-        number_of_units = 2
-        lift_height = 100 # ft
+		base_fixed_cap_cost = 900.97  # from Carlsbad Treatment train VAR tab
+		cap_scaling_exp = 0.6179  # from Carlsbad Treatment train VAR tab
 
-        #### CHEMS ###
-        chem_name = unit_params["chemical_name"][0]
-        chemical_dosage = 0.01 #  kg/m3 should be read from .csv
-        solution_density = 1480 # kg/m3
-        chemical_dosage = chemical_dosage #/ 264.172 # pyunits to kg/g
+		time = self.flowsheet().config.time.first()
+		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 
-        chem_dict = {chem_name : chemical_dosage}
-        self.chem_dict = chem_dict        
-        
-          
-        def fixed_cap(flow_in): # m3/hr
-            flow_in_m3h = pyunits.convert(self.flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
+		# get tic or tpec (could still be made more efficent code-wise, but could enough for now)
+		sys_cost_params = self.parent_block().costing_param
+		self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
+		tpec_tic = self.costing.tpec_tic
 
-            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-            solution_vol_flow = (chemical_rate / solution_density) * 264.17 # m3/day to gal/day
+		number_of_units = 2
+		lift_height = 100 * pyunits.ft
+		pump_eff = 0.9 * pyunits.dimensionless
+		motor_eff = 0.9 * pyunits.dimensionless
 
-            source_cost = self.base_fixed_cap_cost * solution_vol_flow ** self.cap_scaling_exp # $
+		#### CHEMS ###
+		chem_name = unit_params["chemical_name"][0]
+		chemical_dosage = unit_params['dose'] * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+		solution_density = 1480 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+		chem_dict = {chem_name: chemical_dosage}
+		self.chem_dict = chem_dict
 
+		def solution_vol_flow(flow_in):  # m3/hr
+			chemical_rate = flow_in * chemical_dosage  # kg/hr
+			chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
+			soln_vol_flow = chemical_rate / solution_density
+			soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
+			return soln_vol_flow  # gal/day
 
-            return (source_cost * tpec_tic * number_of_units)/1000000 # M$
+		def fixed_cap(flow_in):
+			source_cost = base_fixed_cap_cost * solution_vol_flow(flow_in) ** cap_scaling_exp
+			bisulfite_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
+			return bisulfite_cap
 
+		def electricity(flow_in):  # m3/hr
+			soln_vol_flow = pyunits.convert(solution_vol_flow(flow_in), to_units=(pyunits.gallon / pyunits.minute))
+			electricity = (0.746 * soln_vol_flow * lift_height / (3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
+			return electricity
 
+		# capital costs
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $MM
 
-        def electricity(flow_in): # m3/hr
-            flow_in_m3h = pyunits.convert(self.flow_vol_in[time],
-                                      to_units=pyunits.m**3/pyunits.hour)
+		## electricity consumption ##
+		self.electricity = electricity(flow_in)  # kwh/m3
 
-            chemical_rate = flow_in_m3h * chemical_dosage * 24 # kg/day
-            solution_vol_flow = (chemical_rate / solution_density) * 264.17 / 1440 # m3/day to gal/min
+		##########################################
+		####### GET REST OF UNIT COSTS ######
+		##########################################
 
-            electricity = (.746 * solution_vol_flow * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
-
-            return electricity
-            
-            
-        # Get the first time point in the time domain
-        # In many cases this will be the only point (steady-state), but lets be
-        # safe and use a general approach
-        time = self.flowsheet().config.time.first()
-
-        # Get the inlet flow to the unit and convert to the correct units for the calcs below
-        flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.Mgallons/pyunits.day)
-            
-
-        # capital costs (unit: MM$) ---> TCI IN EXCEL
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
-            doc="Unadjusted fixed capital investment") # $M
-
-        ## electricity consumption ##
-        self.electricity = electricity(flow_in) # kwh/m3
-        
-        ##########################################
-        ####### GET REST OF UNIT COSTS ######
-        ##########################################        
-        
-        module.get_complete_costing(self.costing)
-           
+		module.get_complete_costing(self.costing)

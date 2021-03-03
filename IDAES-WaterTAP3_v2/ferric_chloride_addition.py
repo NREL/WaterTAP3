@@ -150,15 +150,14 @@ see property package for documentation.}"""))
 
         # TODO -->> ADD THESE TO UNIT self.X
         number_of_units = 2
-        lift_height = 100 * pyunits.ft  # ft # ft
-        pump_eff = 0.9
-        motor_eff = 0.9
+        lift_height = 100 * pyunits.ft
+        pump_eff = 0.9 * pyunits.dimensionless
+        motor_eff = 0.9 * pyunits.dimensionless
 
         #### CHEMS ###
         chem_name = unit_params["chemical_name"][0]
-        # chem_name = 'Iron_FeCl3'
         ratio_in_solution = 0.42  #
-        chemical_dosage = 0.02 * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
+        chemical_dosage = unit_params["dose"] * (pyunits.kg / pyunits.m ** 3)  # kg/m3 should be read from .csv
         solution_density = 1460 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         chem_dict = {chem_name: chemical_dosage}
         self.chem_dict = chem_dict

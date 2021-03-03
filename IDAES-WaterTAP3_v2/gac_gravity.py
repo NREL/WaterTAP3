@@ -109,9 +109,8 @@ see property package for documentation.}"""))
 		####### UNIT SPECIFIC VARIABLES AND CONSTANTS -> SET AS SELF OTHERWISE LEAVE AT TOP OF FILE ######
 		##########################################
 		time = self.flowsheet().config.time.first()
-		# Get the inlet flow to the unit and convert to the correct units for cost module.
 		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-		### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
+
 		# get tic or tpec (could still be made more efficent code-wise, but could enough for now)
 		sys_cost_params = self.parent_block().costing_param
 		self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -119,7 +118,6 @@ see property package for documentation.}"""))
 
 		# basis year for the unit model - based on reference for the method.
 		self.costing.basis_year = unit_basis_yr
-		# conc_in = self.conc_mass_in[time, 'TDS'] * 1E3  # mg / L TDS
 		ebct = unit_params['ebct']
 		cost_coeffs, elect_coeffs, mats_name, mats_cost, _ = cost_curve(module_name, ebct=ebct)
 
@@ -136,12 +134,6 @@ see property package for documentation.}"""))
 		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
 		##########################################
 
-		# def solution_vol_flow(flow_in):  # m3/hr
-		# flow_in_m3h = flow_in * 189.4204
-		# chemical_rate = flow_in_m3h * chemical_dosage * 24  # kg/day
-		#
-		# return (chemical_rate / solution_density) * 264.17  # m3/day to gal/day
-
 		def fixed_cap(flow_in):
 			source_cost = cost_coeffs[0] * flow_in ** cost_coeffs[1]  # $
 
@@ -152,11 +144,6 @@ see property package for documentation.}"""))
 
 			return electricity
 
-		# Get the first time point in the time domain
-		# In many cases this will be the only point (steady-state), but lets be
-		# safe and use a general approach
-
-		# Get the inlet flow to the unit and convert to the correct units for cost module.
 
 		## fixed_cap_inv_unadjusted ##
 		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M

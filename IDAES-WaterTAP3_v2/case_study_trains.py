@@ -76,25 +76,25 @@ def get_case_study(flow = None, m = None):
         print(key)
         m = wt.design.add_unit_process(m=m, unit_process_name=key, unit_process_type=pfd_dict[key]['Unit'])
 
-    for k, v in pfd_dict.items():
-        if "basic_unit" not in k:
-            temp_dict[k] = k
-        else:
-            magic_name = v['Parameter']['unit_process_name']
-            temp_dict[k] = magic_name
-
-    for k, v in pfd_dict.items():
-        if 'basic_unit' in v.values():
-            v['ToUnitName'] = temp_dict[v['ToUnitName']]
-
-    for k, v in pfd_dict.items():
-        if 'basic_unit' in k:
-            #         print(temp_dict[k])
-            name = temp_dict[k]
-            new_dict[name] = v
-        else:
-            new_dict[k] = v
-    pfd_dict = new_dict
+    # for k, v in pfd_dict.items():
+    #     if "basic_unit" not in k:
+    #         temp_dict[k] = k
+    #     else:
+    #         magic_name = v['Parameter']['unit_process_name']
+    #         temp_dict[k] = magic_name
+    #
+    # for k, v in pfd_dict.items():
+    #     if 'basic_unit' in v.values():
+    #         v['ToUnitName'] = temp_dict[v['ToUnitName']]
+    #
+    # for k, v in pfd_dict.items():
+    #     if 'basic_unit' in k:
+    #         #         print(temp_dict[k])
+    #         name = temp_dict[k]
+    #         new_dict[name] = v
+    #     else:
+    #         new_dict[k] = v
+    # pfd_dict = new_dict
     m.fs.pfd_dict = pfd_dict
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)

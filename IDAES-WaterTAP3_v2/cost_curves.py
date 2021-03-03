@@ -26,7 +26,7 @@ def cost_curve(unit_process, **kwargs):
 					df = df[df.tds_in == 600]
 				else:
 					df = df[df.tds_in == 200]
-			else:
+			elif unit_process == 'anion_exchange':
 				if v >= 150:
 					df = df[df.tds_in == 150]
 				elif v < 150 and v >= 100:
@@ -60,7 +60,6 @@ def cost_curve(unit_process, **kwargs):
 
 	cost, _ = curve_fit(power, x, y_cost)
 	elect, _ = curve_fit(power, x, y_elect)
-	a, b = cost[0], cost[1]
 
 	return cost, elect, mats_name, mats_cost, df
 
