@@ -27,7 +27,7 @@ from idaes.core.util.model_statistics import degrees_of_freedom
 from pyomo.util.check_units import assert_units_consistent
 import pyomo.util.infeasible as infeas
 import idaes.core.util.scaling as iscale
-
+import pyomo.environ as env
 
 def watertap_setup(dynamic = False):
         
@@ -40,7 +40,7 @@ def watertap_setup(dynamic = False):
     return m
 
 
-def run_water_tap(m = None, solver_results = False, print_model_results = False):
+def run_water_tap(m = None, solver_results = False, print_model_results = False, objective=False):
     import financials
     financials.get_system_costing(m.fs)
     
@@ -49,9 +49,14 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False)
     seq = SequentialDecomposition()
     G = seq.create_graph(m)
     
+    if objective == True:
+        #m.fs.objective_function = env.Objective(expr=m.fs.reverse_osmosis.flow_vol_in[0], sense=env.maximize)
+        m.fs.objective_function = env.Objective(expr=m.fs.costing.LCOW, sense=env.minimize)    
+    
     # Set up a solver in Pyomo and solve
-
     solver1 = SolverFactory('ipopt')
+    #solver1.options = {'nlp_scaling_method': 'user-scaling'}
+    #m.fs.initialize(optarg=solver1.options)
     
     import logging
 

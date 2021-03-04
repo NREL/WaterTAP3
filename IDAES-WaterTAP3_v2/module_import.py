@@ -170,6 +170,9 @@ def get_module(module_name):
 
     if module_name == "microfiltration":
         import microfiltration as up
+    
+    if module_name == "reverse_osmosis":
+        import reverse_osmosis as up
 
     if module_name == "basic_unit":
         import basic_unit as up
