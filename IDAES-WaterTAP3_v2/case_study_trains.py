@@ -38,8 +38,16 @@ def get_case_study(flow = None, m = None):
         case_study = source_water["case_study"],
         scenario = source_water["scenario"])
     
+    if isinstance(source_water['water_type'], list) and not flow:
+        flow = {}
+        for water in source_water['water_type']:
+            temp = df_source[df_source.water_type == water]
+            flow[water] = temp.loc['flow'].value
+    elif not flow:
+        flow = df_source.loc['flow'].value
+
     #set the flow based on the case study if not specified.
-    if flow is None: flow = df_source.loc["flow"].value
+#     if flow is None: fow = df_source.loc["flow"].value
         
     case_study_library = "data/case_study_train_input_test.xlsx"
 
@@ -146,12 +154,12 @@ def create_arc_dict(m, pfd_dict, flow):
     arc_dict = {}
     arc_i = 1
 
-    for key in pfd_dict.keys():
 
+    for key in pfd_dict.keys():
+        #print(key)
         # if the unit is an intake process
         if pfd_dict[key]["Type"] == "intake":
             source_exists = False
-
             num_sources = len(pfd_dict[key]["Parameter"]["source_type"])
             num_unique_sources = len(np.unique(pfd_dict[key]["Parameter"]["source_type"]))
 
@@ -160,31 +168,27 @@ def create_arc_dict(m, pfd_dict, flow):
                 print("error: multiple sources with same name for 1 intake")
 
             for node in range(0, len(pfd_dict[key]["Parameter"]["source_type"])):
-                
                 node_name = pfd_dict[key]["Parameter"]["source_type"][node]
-                
+
                 if isinstance(source_water["water_type"], list):
                     source_name = source_water["water_type"][node]
                     water_type = source_water["water_type"][node]
                     reference = source_water["reference"][node]
                     case_study = source_water["case_study"][node]
+                    source_flow = flow[source_name]
                 else:
                     source_name = node_name
                     water_type = source_water["water_type"]
                     reference = source_water["reference"]
                     case_study = source_water["case_study"]
+                    source_flow = flow
 
-                # check if source (and name?) already exists. if so, then skip, otherwise add node.
-                for b_unit in m.fs.component_objects(Block, descend_into=False):
-                    source_exists = True if source_name in str(b_unit) else False
-
-                if source_exists == False:
-                    m = wt.design.add_water_source(m = m, source_name = source_name, 
-                                                   reference = reference, water_type = water_type, 
-                                         case_study = case_study, flow = flow)
+                m = wt.design.add_water_source(m = m, source_name = source_name, 
+                                               reference = reference, water_type = water_type, 
+                                     case_study = case_study, flow = source_flow)
 
                 arc_dict[arc_i] = [source_name, "outlet", key, "inlet"] 
-                arc_i = arc_i + 1      
+                arc_i = arc_i + 1   
     
     
     # create arcs *for single streams* from .csv table.
@@ -224,7 +228,7 @@ def check_split_mixer_need(arc_dict):
         else:
             if [arc_dict[key][2], arc_dict[key][3]] not in mixer_list: 
                 mixer_list.append([arc_dict[key][2], arc_dict[key][3]])
-
+    print(mixer_list)
     return splitter_list, mixer_list
 
 
@@ -305,44 +309,47 @@ def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
     # get number of units going to automatic waste disposal units
     i = 0
     waste_inlet_list = []
-
-    for b_unit in m.fs.component_objects(Block, descend_into=False):
-        if hasattr(b_unit, 'waste'):
-
-            if len(getattr(b_unit, "waste").arcs()) == 0:
-                if str(b_unit)[3:] in list(pfd_dict.keys()): #
-                    if pfd_dict[str(b_unit)[3:]]["Type"] == "treatment":
-                        i = i + 1
-                        waste_inlet_list.append(("inlet%s" % i))
-
-    if len(waste_inlet_list) > 1:
-        i = 0
-        waste_mixer = "mixer%s" % mixer_i
-        setattr(m.fs, waste_mixer,
-                Mixer1(default={"property_package": m.fs.water, "inlet_list": waste_inlet_list}))
-
+    
+    if "surface_discharge" in pfd_dict.keys():
+    
         for b_unit in m.fs.component_objects(Block, descend_into=False):
-             if hasattr(b_unit, 'waste'):
+            if hasattr(b_unit, 'waste'):
 
                 if len(getattr(b_unit, "waste").arcs()) == 0:
-
-                    if str(b_unit)[3:] in list(pfd_dict.keys()):
+                    if str(b_unit)[3:] in list(pfd_dict.keys()): #
                         if pfd_dict[str(b_unit)[3:]]["Type"] == "treatment":
                             i = i + 1
-                            setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(b_unit, "waste"),  
-                                                               destination = getattr(getattr(m.fs, waste_mixer),
-                                                                                     "inlet%s" % i)))
-                            arc_i = arc_i + 1
+                            waste_inlet_list.append(("inlet%s" % i))
 
-        # add connection for waste mixer to surface dicharge -->
-        if "surface_discharge" in list(pfd_dict.keys()):
-            setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(m.fs, waste_mixer).outlet,  
-                                                               destination = getattr(m.fs, "surface_discharge").inlet))
-            arc_i = arc_i + 1
-    
+        if len(waste_inlet_list) > 1:
+            i = 0
+            waste_mixer = "mixer%s" % mixer_i
+            setattr(m.fs, waste_mixer,
+                    Mixer1(default={"property_package": m.fs.water, "inlet_list": waste_inlet_list}))
+
+            for b_unit in m.fs.component_objects(Block, descend_into=False):
+                 if hasattr(b_unit, 'waste'):
+
+                    if len(getattr(b_unit, "waste").arcs()) == 0:
+
+                        if str(b_unit)[3:] in list(pfd_dict.keys()):
+                            if pfd_dict[str(b_unit)[3:]]["Type"] == "treatment":
+                                i = i + 1
+                                setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(b_unit, "waste"),  
+                                                                   destination = getattr(getattr(m.fs, waste_mixer),
+                                                                                         "inlet%s" % i)))
+                                arc_i = arc_i + 1
+
+            # add connection for waste mixer to surface dicharge -->
+            if "surface_discharge" in list(pfd_dict.keys()):
+                setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(m.fs, waste_mixer).outlet,  
+                                                                   destination = getattr(m.fs, "surface_discharge").inlet))
+                arc_i = arc_i + 1
+        return m, arc_i, mixer_i
+
+    else:  
+        return m, arc_i, mixer_i
         
-    return m, arc_i, mixer_i
-
 
 
 

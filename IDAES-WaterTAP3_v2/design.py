@@ -74,17 +74,14 @@ def add_water_source(m = None, source_name = None, link_to = None,
         case_study = case_study)
     
     #set the flow based on the case study if not specified. This should have already been set in case study .py
-    if flow is None: flow = float(df.loc["flow"].value)
+    #if flow is None: flow = float(df.loc["flow"].value)
     
     train_constituent_list = generate_constituent_list.run()
     
     
-# setattr(m.fs, splitter_name, splitter_mar1.UnitProcess(default={"property_package": m.fs.water}))
-# getattr(m.fs, splitter_name).get_split(outlet_list=outlet_list)
+    import source_example as source_example
     
-    import source_example as source
-    
-    setattr(m.fs, source_name, source.UnitProcess(default={"property_package": m.fs.water}))
+    setattr(m.fs, source_name, source_example.UnitProcess(default={"property_package": m.fs.water}))
     getattr(m.fs, source_name).set_source()
     
     getattr(m.fs, source_name).flow_vol_in.fix(flow)
@@ -95,21 +92,8 @@ def add_water_source(m = None, source_name = None, link_to = None,
             getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(df.loc[constituent_name].value)        
         
         else:
-            getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(0)
+            getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(1e-5)
         
-#         getattr(m.fs, source_name).removal_fraction[:, constituent_name].fix(0)
-    
-#     getattr(m.fs, source_name).temperature_in.fix(300)
-#     getattr(m.fs, source_name).pressure_in.fix(1)
-    
-    
-#     # Set removal and recovery fractions -> CAN WE JUST SET OUTLETS AND THAT'S IT? OR CLEANER WITH THE SAME FORMAT?
-#     getattr(m.fs, source_name).water_recovery.fix(1.0)
-
-    
-#     if link_to is not None: # TODO - potential for multiple streams
-#         connect_blocks(m = m, up1 = source_name, up2 = link_to, connection_type = None, 
-#                                stream_name = ("%s_stream" % source_name))
         
     return m
 
