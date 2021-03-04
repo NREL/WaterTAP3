@@ -61,7 +61,13 @@ mem_cost = 30
 factor_membrane_replacement = 0.2
 pump_cost = 53 / 1e5 * 3600 #$ per w
 pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
-
+a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
+pressure_in = 50 #bar pressure at inlet. should be unfixed.
+p_atm = 1 #bar atmospheric pressure
+#p_ret = p_in - pressure_drop # momentum balance
+pw = 1000 # density of water kg/m3
+b_constant = 3.5e-8 # Salt permeability coefficient m s-1
+        
 ##########################################
 ##########################################
 
@@ -165,14 +171,7 @@ see property package for documentation.}"""))
         t = self.flowsheet().config.time.first()               
         time = self.flowsheet().config.time
         
-        a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
-        pressure_in = 50 #bar pressure at inlet. should be unfixed.
-        p_atm = 1 #bar atmospheric pressure
-        #p_ret = p_in - pressure_drop # momentum balance
-        pw = 1000 # density of water kg/m3
-        b_constant = 3.5e-8 # Salt permeability coefficient m s-1
-        
-   
+  
         # DEFINE VARIABLES
         # Mass Fraction
         def set_flow_mass(self):
@@ -224,7 +223,7 @@ see property package for documentation.}"""))
             
             self.conc_mass_total = Var(time,
                                   initialize=1,
-                                  domain=NonNegativeReals,
+                                  #domain=NonNegativeReals,
                                   units=units_meta("mass")/units_meta("volume"),
                                   doc="density")
     
@@ -233,7 +232,7 @@ see property package for documentation.}"""))
             self.pressure = Var(time,
                                   initialize=50,
                                   domain=NonNegativeReals,
-                                  #bounds=(1, 95),
+                                  bounds=(10, 85),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         def set_water_flux(self):
@@ -400,22 +399,28 @@ see property package for documentation.}"""))
             
         
         ########################################################################
-        
+        b_cost = self.costing
         ########################################################################          
         
          ################ Electricity consumption is assumed to be only the pump before the RO unit 
         self.pressure_diff = (feed.pressure[t] - 1)*1e5 # assumes atm pressure before pump. change to Pa
-        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff / pump_eff) / 1000 #kw
+        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff / pump_eff) #w
         ########################################################################  
         
-        b_cost = self.costing
+        ################ Energy Recovery
+        x_value = (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t]) / retenate.conc_mass_total[t] * 3600
         
+        b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
+        
+                
         ################ captial
         # membrane capital cost       
         b_cost.mem_capital_cost = mem_cost * self.membrane_area[t] 
         
         # pump capital cost
-        b_cost.pump_capital_cost = self.pump_power * pump_cost * 1000
+        # DOES NOT WORK: b_cost.pump_capital_cost = self.pump_power * pump_cost # cost is per W
+        # BELOW IS MGD BASED OFF EXCEL WATER PUMPING
+        b_cost.pump_capital_cost = 40299 * (22.824465227271 * self.flow_vol_in[t]) ** .8657
         
         # total capital investment
         b_cost.fixed_cap_inv_unadjusted = (self.costing.pump_capital_cost 
@@ -429,8 +434,8 @@ see property package for documentation.}"""))
         
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
-        self.electricity = self.pump_power / self.flow_vol_out[t]
-        b_cost.electricity_cost = self.pump_power*365*24*sys_specs.electricity_price*1e-6 #$MM/yr
+        self.electricity = (self.pump_power / 1000) / self.flow_vol_out[t]
+        b_cost.electricity_cost = 1e-6*(self.pump_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
         
         self.chem_dict = {"unit_cost": 0.01} 
                 
