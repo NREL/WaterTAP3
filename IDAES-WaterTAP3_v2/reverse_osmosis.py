@@ -19,7 +19,6 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
-
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -55,14 +54,13 @@ module_name = "reverse_osmosis"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
-unit_cost_method = "cost_curve"
-tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2018
 
-# captial costs basis
-base_fixed_cap_cost = 12.612  # from McGivney/Kamakura figure 5.8.1
-cap_scaling_exp = 0.7177  # from McGivney/Kamakura figure 5.8.1
-fixed_op_cost_scaling_exp = 0.7
+pump_eff = 0.85 # efficiency of pump
+mem_cost = 30
+factor_membrane_replacement = 0.2
+pump_cost = 53 / 1e5 * 3600 #$ per w
+pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
 
 ##########################################
 ##########################################
@@ -167,13 +165,12 @@ see property package for documentation.}"""))
         t = self.flowsheet().config.time.first()               
         time = self.flowsheet().config.time
         
-        a = 4.2E-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
+        a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
         pressure_in = 50 #bar pressure at inlet. should be unfixed.
         p_atm = 1 #bar atmospheric pressure
-        pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
         #p_ret = p_in - pressure_drop # momentum balance
         pw = 1000 # density of water kg/m3
-        b_constant = 3.5E-8 # Salt permeability coefficient m s-1
+        b_constant = 3.5e-8 # Salt permeability coefficient m s-1
         
    
         # DEFINE VARIABLES
@@ -191,53 +188,39 @@ see property package for documentation.}"""))
                                   units=units_meta("mass")/units_meta("time"),
                                   doc="mass flow rate")            
         
-#             self.mass_flow_total = Var(time,
-#                                   initialize=1000,
-#                                   domain=NonNegativeReals,
-#                                   units=units_meta("mass")/units_meta("time"),
-#                                   doc="mass_total h20 and tds") 
-            
         def set_mass_frac(self):
             self.mass_frac_h20 = Var(time,
                                   initialize=0.35,
-                                  domain=NonNegativeReals,
-                                  bounds=(1e-6, 1.0),
+                                  #domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
                                   doc="mass_fraction")
                         
             self.mass_frac_tds = Var(time,
                                   initialize=0.35,
-                                  domain=NonNegativeReals,
-                                  bounds=(1e-6, 1.0),
+                                  #domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
                                   doc="mass_fraction")
                                     
         def set_pressure_osm(self): # BAR
             self.pressure_osm = Var(time,
                                   initialize=50,
-                                  domain=NonNegativeReals,
+                                  #domain=NonNegativeReals,
                                   #units=pyunits.dimensionless,
                                   doc="x")
             
         def set_osm_coeff(self):
             self.osm_coeff = Var(time,
                                   initialize=0.1,
-                                  domain=NonNegativeReals,
+                                  #domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
                                   doc="x")            
             
         def set_conc_mass(self):
             self.conc_mass_h20 = Var(time,
                                   initialize=0.35,
-                                  domain=NonNegativeReals,
+                                  #domain=NonNegativeReals,
                                   units=units_meta("mass")/units_meta("volume"),
                                   doc="h20 mass density")               
-            
-#             self.conc_mass_tds = Var(time,
-#                                   initialize=0.35,
-#                                   domain=NonNegativeReals,
-#                                   units=units_meta("mass")/units_meta("volume"),
-#                                   doc="tds mass density")               
             
             self.conc_mass_total = Var(time,
                                   initialize=1,
@@ -250,12 +233,13 @@ see property package for documentation.}"""))
             self.pressure = Var(time,
                                   initialize=50,
                                   domain=NonNegativeReals,
+                                  #bounds=(1, 95),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         def set_water_flux(self):
             self.water_flux = Var(time,
                                   initialize=1,
-                                  domain=NonNegativeReals,
+                                  #domain=NonNegativeReals,
                                   #units=pyunits.dimensionless,
                                   doc="water flux")  
                                        
@@ -264,11 +248,11 @@ see property package for documentation.}"""))
             set_flow_mass(b)
             set_mass_frac(b)
             set_conc_mass(b)
+            set_osm_coeff(b)
+            set_pressure_osm(b)
             if str(b) == "permeate":
                 continue 
             else:
-                set_osm_coeff(b)
-                set_pressure_osm(b)
                 set_pressure(b)                         
                 set_water_flux(b)    
         
@@ -282,7 +266,8 @@ see property package for documentation.}"""))
         
         ########################################################################
         ########################################################################                                     
-        # get the variables of the feed       
+        # get the variables of the feed 
+        
         feed.eq1 = Constraint(
             expr = feed.conc_mass_total[t] ==  0.6312*self.conc_mass_in[t, "tds"] + 997.86 #kg/m3
         )
@@ -298,7 +283,9 @@ see property package for documentation.}"""))
             expr = feed.mass_flow_tds[t] == self.conc_mass_in[t, "tds"] * self.flow_vol_in[t] #kg/s
         )            
         feed.eq5 = Constraint(
-            expr = feed.mass_frac_tds[t] == self.conc_mass_in[t, "tds"] / feed.conc_mass_total[t] 
+            expr = feed.mass_frac_tds[t] * (feed.mass_flow_h20[t] + feed.mass_flow_tds[t]) 
+            == feed.mass_flow_tds[t]
+            #* feed.conc_mass_total[t] == self.conc_mass_in[t, "tds"] 
         )        
         feed.eq6 = Constraint(
             expr = feed.mass_frac_h20[t] == 1 - feed.mass_frac_tds[t]
@@ -307,15 +294,15 @@ see property package for documentation.}"""))
             expr = feed.osm_coeff[t] == 4.92*feed.mass_frac_tds[t]**2 + feed.mass_frac_tds[t]*0.0889 + 0.918 #unitless
         )            
         feed.eq8 = Constraint(
-            expr = feed.pressure_osm[t] == 1e-5 * (8.45e7 * feed.osm_coeff[t]
-                                                   * feed.mass_frac_tds[t] / (1 - feed.mass_frac_tds[t])) #bar
+            expr = feed.pressure_osm[t]* 1e5* (1 - feed.mass_frac_tds[t])
+            == 8.45e7 * feed.osm_coeff[t]* feed.mass_frac_tds[t]#bar
         )
 
         feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.
         
         # get water flux in
         feed.water_flux_eq = Constraint(
-            expr= feed.water_flux[t] == pw*a*((feed.pressure[t] - p_atm) 
+            expr= feed.water_flux[t] == pw* a*((feed.pressure[t] - p_atm) 
                                                   - (feed.pressure_osm[t]))
                                              ) #                                      
         
@@ -331,7 +318,7 @@ see property package for documentation.}"""))
         )         
                           
         retenate.eq6 = Constraint(
-            expr = retenate.mass_frac_tds[t] == self.conc_mass_waste[t, "tds"] / retenate.conc_mass_total[t]
+            expr = retenate.mass_frac_tds[t] * retenate.conc_mass_total[t] == self.conc_mass_waste[t, "tds"]
         )        
         retenate.eq7 = Constraint(
             expr = retenate.mass_frac_h20[t] == 1 - retenate.mass_frac_tds[t]
@@ -341,8 +328,8 @@ see property package for documentation.}"""))
             + retenate.mass_frac_tds[t]*0.0889 + 0.918 #unitless
         )            
         retenate.eq9 = Constraint(
-            expr = retenate.pressure_osm[t] == 1e-5 * (8.45e7 * retenate.osm_coeff[t]
-                                       * retenate.mass_frac_tds[t] / (1 - retenate.mass_frac_tds[t])) #bar 
+            expr = retenate.pressure_osm[t] * 1e5 *  (1 - retenate.mass_frac_tds[t]) 
+            == 8.45e7 * retenate.osm_coeff[t] * retenate.mass_frac_tds[t] #bar 
         )
         
         # momentum (pressure) balance
@@ -352,22 +339,26 @@ see property package for documentation.}"""))
         
         # get water flux retenate
         retenate.water_flux_retenate_eq = Constraint(
-            expr= retenate.water_flux[t] == pw*a*((retenate.pressure[t] - p_atm) 
+            expr= retenate.water_flux[t] == pw* a*((retenate.pressure[t] - p_atm) 
                                                   - (retenate.pressure_osm[t]))
-        ) #                                        
+        ) # 
+        
+        self.flow_vol_eq2 = Constraint(
+            expr = self.flow_vol_waste[t] * retenate.conc_mass_total[t] == (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t])
+        )
                                      
         ########################################################################
         ########################################################################        
                                              
         # get the variables of the permeate
         permeate.eq1 = Constraint(
-            expr = permeate.conc_mass_total[t] == 756*permeate.mass_frac_tds[t]+995 
+            expr = permeate.conc_mass_total[t] == 756*permeate.mass_frac_tds[t]*1e-6 +995 
         )
         permeate.eq2 = Constraint(
-            expr = self.conc_mass_out[t, "tds"] == permeate.conc_mass_total[t] * permeate.mass_frac_tds[t]
+            expr = self.conc_mass_out[t, "tds"] == permeate.conc_mass_total[t] * permeate.mass_frac_tds[t]*1e-6
         )            
         permeate.eq3 = Constraint(
-            expr = permeate.mass_flow_h20[t] == 1000 * 0.5 * self.membrane_area[t] 
+            expr = permeate.mass_flow_h20[t] == 0.5 * self.membrane_area[t] 
             * (feed.water_flux[t] + retenate.water_flux[t])
         )
         permeate.eq4 = Constraint(
@@ -375,28 +366,29 @@ see property package for documentation.}"""))
             * b_constant * (self.conc_mass_in[t, "tds"] + self.conc_mass_waste[t, "tds"]) 
         )            
         permeate.eq5 = Constraint(
-            expr = permeate.mass_frac_tds[t] == permeate.mass_flow_tds[t] / 
-            (permeate.mass_flow_tds[t] + permeate.mass_flow_h20[t])
+            expr = permeate.mass_frac_tds[t] * (permeate.mass_flow_tds[t] + permeate.mass_flow_h20[t]) 
+            == 1e6 * permeate.mass_flow_tds[t]
         )        
 
         
-        permeate.eq7 = Constraint(
-            expr = permeate.osm_coeff[t] == 4.92 * permeate.mass_frac_tds[t]**2 
-            + permeate.mass_frac_tds[t]*0.0889 + 0.918 #unitless
-        )            
-        permeate.eq8 = Constraint(
-            expr = permeate.pressure_osm[t] == 1e-5 * (8.45e7 * permeate.osm_coeff[t]
-                                       * permeate.mass_frac_tds[t] / (1 - permeate.mass_frac_tds[t])) #bar 
-        )
+#         permeate.eq7 = Constraint(
+#             expr = permeate.osm_coeff[t] == 4.92 * (permeate.mass_frac_tds[t]*1e-6)**2 
+#             + permeate.mass_frac_tds[t]*1e-6*0.0889 + 0.918 #unitless
+#         )            
+#         permeate.eq8 = Constraint(
+#             expr = permeate.pressure_osm[t] == 1e-5 * (8.45e7 * permeate.osm_coeff[t]
+#                                        * permeate.mass_frac_tds[t]*1e-6 / (1 - permeate.mass_frac_tds[t]*1e-6)) #bar 
+#         )
 
 
         self.flow_vol_eq1 = Constraint(
-            expr = self.flow_vol_out[t] == (permeate.mass_flow_tds[t] + permeate.mass_flow_h20[t]) / permeate.conc_mass_total[t]
+            expr = self.flow_vol_out[t] * permeate.conc_mass_total[t] == 
+            (permeate.mass_flow_tds[t] + permeate.mass_flow_h20[t])
         )
     
         ########################################################################
         ########################################################################                 
-            
+                
         # Mass balances   
         self.mass_balance_h20 = Constraint(
             expr =  feed.mass_flow_h20[t] == permeate.mass_flow_h20[t] + retenate.mass_flow_h20[t]
@@ -408,29 +400,40 @@ see property package for documentation.}"""))
             
         
         ########################################################################
+        
         ########################################################################          
         
-        ################ Electricity consumption is assumed to be only the pump before the RO unit ############
-        pump_eff = 0.85 # efficiency of pump
+         ################ Electricity consumption is assumed to be only the pump before the RO unit 
         self.pressure_diff = (feed.pressure[t] - 1)*1e5 # assumes atm pressure before pump. change to Pa
         self.pump_power = (self.flow_vol_in[t] * self.pressure_diff / pump_eff) / 1000 #kw
-        ########################################################################
+        ########################################################################  
+        
+        b_cost = self.costing
+        
+        ################ captial
+        # membrane capital cost       
+        b_cost.mem_capital_cost = mem_cost * self.membrane_area[t] 
+        
+        # pump capital cost
+        b_cost.pump_capital_cost = self.pump_power * pump_cost * 1000
+        
+        # total capital investment
+        b_cost.fixed_cap_inv_unadjusted = (self.costing.pump_capital_cost 
+        + self.costing.mem_capital_cost) * 1e-6 #$MM
         
         
-        def fixed_cap_mcgiv(flow_out):
-
-            Single_Pass_FCI = (0.3337 * flow_out ** 0.7177) * ((0.0936 * flow_out ** 0.7837) / (0.1203 * flow_out ** 0.7807))
-
-            return Single_Pass_FCI        
+        ################ operating
+        # membrane operating cost
+        self.mem_operating_cost = factor_membrane_replacement * mem_cost * self.membrane_area[t]
+        b_cost.other_var_cost = self.mem_operating_cost * 1e-6   
         
+        ####### electricity and chems
+        sys_specs = self.parent_block().costing_param
+        self.electricity = self.pump_power / self.flow_vol_out[t]
+        b_cost.electricity_cost = self.pump_power*365*24*sys_specs.electricity_price*1e-6 #$MM/yr
         
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap_mcgiv(self.flow_vol_out[t] * 3600),
-            doc="Unadjusted fixed capital investment")
+        self.chem_dict = {"unit_cost": 0.01} 
                 
-        self.electricity = self.pump_power / (self.flow_vol_in[t]*3600) # kwh/m3 (PML note: based on data from Carlsbad case)
-        
-        self.chem_dict = {}        
         ##########################################
         ####### GET REST OF UNIT COSTS ######
         ##########################################        
@@ -438,13 +441,4 @@ see property package for documentation.}"""))
         module.get_complete_costing(self.costing)        
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-
-
+  

@@ -18,7 +18,7 @@ Demonstration source model for WaterTAP3. This is the same as a unit process, bu
 from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
-
+from pyomo.environ import PositiveReals, NonNegativeReals
 # Import IDAES cores
 from idaes.core import (declare_process_block_class,
                         UnitModelBlockData,
@@ -28,11 +28,12 @@ from idaes.core.util.config import is_physical_parameter_block
 # Import WaterTAP# finanacilas module
 import financials
 
+module_name = "source_example"
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
-@declare_process_block_class("Source")
-class SourceData(UnitModelBlockData):
+@declare_process_block_class("UnitProcess")
+class UnitProcessData(UnitModelBlockData):
     """
     This class describes the rules for a zeroth-order model for a NF unit
     """
@@ -76,15 +77,24 @@ and used when constructing these,
 **default** - None.
 **Valid values:** {
 see property package for documentation.}"""))
-
+    
+    from unit_process_equations import initialization
+    
     def build(self):
-        """
-        The build method is the core of the unit model, and contains the rules
-        for building the Vars and Constraints that make up the unit model.
-        """
+        
+        import source_example as unit_process_model
+        
         # build always starts by calling super().build()
         # This triggers a lot of boilerplate in the background for you
-        super(SourceData, self).build()
+        super(unit_process_model.UnitProcessData, self).build()        
+        
+        units_meta = self.config.property_package.get_metadata().get_derived_units
+        
+        return print("adding source")
+    
+    def set_source(self): #, unit_params = None): #, module=financials, cost_method="wt", year=None):
+
+        
 
         # Next, get the base units of measurement from the property definition
         units_meta = self.config.property_package.get_metadata().get_derived_units
@@ -92,33 +102,20 @@ see property package for documentation.}"""))
         # Also need to get time domain
         # This will not be used for WaterTAP3, but will be needed to integrate
         # with ProteusLib dynamic models
-        time = self.flowsheet().config.time
+        time = self.flowsheet().config.time       
+        
+        # add inlet ports
+        self.inlet = Port(noruleinit=True, doc="Inlet Port") #ARIEL
 
-        # Add variables representing flow at inlet
-        # Note that Vars are indexed by time and have units derived from
-        # property package
-        # Property metadata does not currently support concentration or volumetric
-        # flow, but I will fix that.
-        # Note that the concentration variable is indexed by components
-        # I included temperature and pressure as these would commonly be used
-        # in ProteusLib
-        
-        # TO DO -> THIS IS TOGET PUMP TO WORK _>Add state variables
-        #self.flow_mass_comp = Var(
-        #    time,
-        #    initialize=1,
-        #    units=units_meta("volume")/units_meta("time"),
-        #    #domain=NonNegativeReals,
-        #    doc='Mass flow rate [kg/s]')
-        
-        
         self.flow_vol_in = Var(time,
                                initialize=1,
+                               domain=NonNegativeReals,
                                units=units_meta("volume")/units_meta("time"),
                                doc="Volumetric flowrate of water into unit")
         self.conc_mass_in = Var(time,
                                 self.config.property_package.component_list,
-                                initialize=0,
+                                domain=NonNegativeReals,
+                                initialize=1e-5,
                                 units=units_meta("mass")/units_meta("volume"),
                                 doc="Mass concentration of species at inlet")
         self.temperature_in = Var(time,
@@ -130,14 +127,21 @@ see property package for documentation.}"""))
                                units=units_meta("pressure"),
                                doc="Pressure at inlet")
 
+        
+        
+        # add outlet ports
+        self.outlet = Port(noruleinit=True, doc="outlet Port") #ARIEL
+
         # Add similar variables for outlet and waste stream
         self.flow_vol_out = Var(time,
                                 initialize=1,
+                                domain=NonNegativeReals,
                                 units=units_meta("volume")/units_meta("time"),
                                 doc="Volumetric flowrate of water out of unit")
         self.conc_mass_out = Var(time,
                                  self.config.property_package.component_list,
                                  initialize=0,
+                                 domain=NonNegativeReals,
                                  units=units_meta("mass")/units_meta("volume"),
                                  doc="Mass concentration of species at outlet")
         self.temperature_out = Var(time,
@@ -149,96 +153,8 @@ see property package for documentation.}"""))
                                 units=units_meta("pressure"),
                                 doc="Pressure at outlet")
 
-        self.flow_vol_waste = Var(
-            time,
-            initialize=1,
-            units=units_meta("volume")/units_meta("time"),
-            doc="Volumetric flowrate of water in waste")
-        self.conc_mass_waste = Var(
-            time,
-            self.config.property_package.component_list,
-            initialize=0,
-            units=units_meta("mass")/units_meta("volume"),
-            doc="Mass concentration of species in waste")
+
         
-        self.temperature_waste = Var(time,
-                                     initialize=300,
-                                     units=units_meta("temperature"),
-                                     doc="Temperature of waste")
-        self.pressure_waste = Var(time,
-                                  initialize=1e5,
-                                  units=units_meta("pressure"),
-                                  doc="Pressure of waste")
-
-        # Next, add additional variables for unit performance
-        self.deltaP_outlet = Var(time,
-                                 initialize=1e4,
-                                 units=units_meta("pressure"),
-                                 doc="Pressure change between inlet and outlet")
-        self.deltaP_waste = Var(time,
-                                initialize=1e4,
-                                units=units_meta("pressure"),
-                                doc="Pressure change between inlet and waste")
-
-        # Then, recovery and removal variables
-        self.water_recovery = Var(time,
-                                  initialize=1.0,
-                                  units=pyunits.dimensionless,
-                                  doc="Water recovery fraction")
-        self.removal_fraction = Var(time,
-                                    self.config.property_package.component_list,
-                                    initialize=1e4,
-                                    units=pyunits.dimensionless,
-                                    doc="Component removal fraction")
-
-        # Next, add constraints linking these
-        @self.Constraint(time, doc="Overall flow balance")
-        def flow_balance(b, t):
-            return b.flow_vol_in[t] == b.flow_vol_out[t] + b.flow_vol_waste[t]
-
-        @self.Constraint(time,
-                         self.config.property_package.component_list,
-                         doc="Component mass balances")
-        def component_mass_balance(b, t, j):
-            return (b.flow_vol_in[t]*b.conc_mass_in[t, j] ==
-                    b.flow_vol_out[t]*b.conc_mass_out[t, j] +
-                    b.flow_vol_waste[t]*b.conc_mass_waste[t, j])
-
-        @self.Constraint(time, doc="Outlet temperature equation")
-        def outlet_temperature_constraint(b, t):
-            return b.temperature_in[t] == b.temperature_out[t]
-
-        @self.Constraint(time, doc="Waste temperature equation")
-        def waste_temperature_constraint(b, t):
-            return b.temperature_in[t] == b.temperature_waste[t]
-
-        @self.Constraint(time, doc="Outlet pressure equation")
-        def outlet_pressure_constraint(b, t):
-            return (b.pressure_in[t] ==
-                    b.pressure_out[t] + b.deltaP_outlet[t])
-
-        @self.Constraint(time, doc="Waste pressure equation")
-        def waste_pressure_constraint(b, t):
-            return (b.pressure_in[t] ==
-                    b.pressure_waste[t] + b.deltaP_waste[t])
-
-        # Finally, add removal and recovery equations
-        @self.Constraint(time, doc="Water recovery equation")
-        def recovery_equation(b, t):
-            return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
-
-        @self.Constraint(time,
-                         self.config.property_package.component_list,
-                         doc="Component removal equation")
-        def component_removal_equation(b, t, j):
-            return (b.removal_fraction[t, j] *
-                    b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
-                    b.flow_vol_waste[t] * b.conc_mass_waste[t, j])
-
-        # The last step is to create Ports representing the three streams
-        # Add an empty Port for the inlet
-        self.inlet = Port(noruleinit=True, doc="Inlet Port")
-
         # Populate Port with inlet variables
         self.inlet.add(self.flow_vol_in, "flow_vol")
         self.inlet.add(self.conc_mass_in, "conc_mass")
@@ -246,46 +162,202 @@ see property package for documentation.}"""))
         self.inlet.add(self.pressure_in, "pressure")
 
         # Add Ports for outlet and waste streams
-        self.outlet = Port(noruleinit=True, doc="Outlet Port")
         self.outlet.add(self.flow_vol_out, "flow_vol")
         self.outlet.add(self.conc_mass_out, "conc_mass")
         self.outlet.add(self.temperature_out, "temperature")
         self.outlet.add(self.pressure_out, "pressure")
-        #self.outlet.add(self.flow_mass_comp, "flow_mass_comp") # TODO for pump
+        
+        t = self.flowsheet().config.time.first()
+        
+        self.temperature_in.fix(300)
+        self.pressure_in.fix(1)
+
+        for j in self.config.property_package.component_list:
+            setattr(self, ("%s_eq" % j), Constraint(expr = self.conc_mass_in[t, j] 
+                                                    == self.conc_mass_out[t, j]))
+
+        self.eq_flow = Constraint(expr = self.flow_vol_in[t] == self.flow_vol_out[t])
+
+        self.eq_temp = Constraint(expr = self.temperature_in[t] == self.temperature_out[t])
+
+        self.eq_pres = Constraint(expr = self.pressure_in[t] == self.pressure_out[t])                
+            
+            
+        
+#         self.flow_vol_in = Var(time,
+#                                initialize=1,
+#                                units=units_meta("volume")/units_meta("time"),
+#                                doc="Volumetric flowrate of water into unit")
+#         self.conc_mass_in = Var(time,
+#                                 self.config.property_package.component_list,
+#                                 initialize=0,
+#                                 units=units_meta("mass")/units_meta("volume"),
+#                                 doc="Mass concentration of species at inlet")
+#         self.temperature_in = Var(time,
+#                                   initialize=300,
+#                                   units=units_meta("temperature"),
+#                                   doc="Temperature at inlet")
+#         self.pressure_in = Var(time,
+#                                initialize=1e5,
+#                                units=units_meta("pressure"),
+#                                doc="Pressure at inlet")
+
+#         # Add similar variables for outlet and waste stream
+#         self.flow_vol_out = Var(time,
+#                                 initialize=1,
+#                                 units=units_meta("volume")/units_meta("time"),
+#                                 doc="Volumetric flowrate of water out of unit")
+#         self.conc_mass_out = Var(time,
+#                                  self.config.property_package.component_list,
+#                                  initialize=0,
+#                                  units=units_meta("mass")/units_meta("volume"),
+#                                  doc="Mass concentration of species at outlet")
+#         self.temperature_out = Var(time,
+#                                    initialize=300,
+#                                    units=units_meta("temperature"),
+#                                    doc="Temperature at outlet")
+#         self.pressure_out = Var(time,
+#                                 initialize=1e5,
+#                                 units=units_meta("pressure"),
+#                                 doc="Pressure at outlet")
+
+#         self.flow_vol_waste = Var(
+#             time,
+#             initialize=1,
+#             units=units_meta("volume")/units_meta("time"),
+#             doc="Volumetric flowrate of water in waste")
+#         self.conc_mass_waste = Var(
+#             time,
+#             self.config.property_package.component_list,
+#             initialize=0,
+#             units=units_meta("mass")/units_meta("volume"),
+#             doc="Mass concentration of species in waste")
+        
+#         self.temperature_waste = Var(time,
+#                                      initialize=300,
+#                                      units=units_meta("temperature"),
+#                                      doc="Temperature of waste")
+#         self.pressure_waste = Var(time,
+#                                   initialize=1e5,
+#                                   units=units_meta("pressure"),
+#                                   doc="Pressure of waste")
+
+#         # Next, add additional variables for unit performance
+#         self.deltaP_outlet = Var(time,
+#                                  initialize=1e4,
+#                                  units=units_meta("pressure"),
+#                                  doc="Pressure change between inlet and outlet")
+#         self.deltaP_waste = Var(time,
+#                                 initialize=1e4,
+#                                 units=units_meta("pressure"),
+#                                 doc="Pressure change between inlet and waste")
+
+#         # Then, recovery and removal variables
+#         self.water_recovery = Var(time,
+#                                   initialize=1.0,
+#                                   units=pyunits.dimensionless,
+#                                   doc="Water recovery fraction")
+#         self.removal_fraction = Var(time,
+#                                     self.config.property_package.component_list,
+#                                     initialize=1e4,
+#                                     units=pyunits.dimensionless,
+#                                     doc="Component removal fraction")
+
+#         # Next, add constraints linking these
+#         @self.Constraint(time, doc="Overall flow balance")
+#         def flow_balance(b, t):
+#             return b.flow_vol_in[t] == b.flow_vol_out[t] + b.flow_vol_waste[t]
+
+#         @self.Constraint(time,
+#                          self.config.property_package.component_list,
+#                          doc="Component mass balances")
+#         def component_mass_balance(b, t, j):
+#             return (b.flow_vol_in[t]*b.conc_mass_in[t, j] ==
+#                     b.flow_vol_out[t]*b.conc_mass_out[t, j] +
+#                     b.flow_vol_waste[t]*b.conc_mass_waste[t, j])
+
+#         @self.Constraint(time, doc="Outlet temperature equation")
+#         def outlet_temperature_constraint(b, t):
+#             return b.temperature_in[t] == b.temperature_out[t]
+
+#         @self.Constraint(time, doc="Waste temperature equation")
+#         def waste_temperature_constraint(b, t):
+#             return b.temperature_in[t] == b.temperature_waste[t]
+
+#         @self.Constraint(time, doc="Outlet pressure equation")
+#         def outlet_pressure_constraint(b, t):
+#             return (b.pressure_in[t] ==
+#                     b.pressure_out[t] + b.deltaP_outlet[t])
+
+#         @self.Constraint(time, doc="Waste pressure equation")
+#         def waste_pressure_constraint(b, t):
+#             return (b.pressure_in[t] ==
+#                     b.pressure_waste[t])
+
+#         # Finally, add removal and recovery equations
+#         @self.Constraint(time, doc="Water recovery equation")
+#         def recovery_equation(b, t):
+#             return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
+
+#         @self.Constraint(time,
+#                          self.config.property_package.component_list,
+#                          doc="Component removal equation")
+#         def component_removal_equation(b, t, j):
+#             return (b.removal_fraction[t, j] *
+#                     b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
+#                     b.flow_vol_waste[t] * b.conc_mass_waste[t, j])
+
+#         # The last step is to create Ports representing the three streams
+#         # Add an empty Port for the inlet
+#         self.inlet = Port(noruleinit=True, doc="Inlet Port")
+
+#         # Populate Port with inlet variables
+#         self.inlet.add(self.flow_vol_in, "flow_vol")
+#         self.inlet.add(self.conc_mass_in, "conc_mass")
+#         self.inlet.add(self.temperature_in, "temperature")
+#         self.inlet.add(self.pressure_in, "pressure")
+
+#         # Add Ports for outlet and waste streams
+#         self.outlet = Port(noruleinit=True, doc="Outlet Port")
+#         self.outlet.add(self.flow_vol_out, "flow_vol")
+#         self.outlet.add(self.conc_mass_out, "conc_mass")
+#         self.outlet.add(self.temperature_out, "temperature")
+#         self.outlet.add(self.pressure_out, "pressure")
+#         #self.outlet.add(self.flow_mass_comp, "flow_mass_comp") # TODO for pump
         
         
-        self.waste = Port(noruleinit=True, doc="Waste Port")
-        self.waste.add(self.flow_vol_waste, "flow_vol")
-        self.waste.add(self.conc_mass_waste, "conc_mass")
-        self.waste.add(self.temperature_waste, "temperature")
-        self.waste.add(self.pressure_waste, "pressure")
+#         self.waste = Port(noruleinit=True, doc="Waste Port")
+#         self.waste.add(self.flow_vol_waste, "flow_vol")
+#         self.waste.add(self.conc_mass_waste, "conc_mass")
+#         self.waste.add(self.temperature_waste, "temperature")
+#         self.waste.add(self.pressure_waste, "pressure")
 
-    def initialization(self, *args, **kwargs):
-        # All IDAES models are expected ot have an initialization routine
-        # We will need to add one here and it will be fairly simple,
-        # but I will skip it for now
-        pass
+#     def initialization(self, *args, **kwargs):
+#         # All IDAES models are expected ot have an initialization routine
+#         # We will need to add one here and it will be fairly simple,
+#         # but I will skip it for now
+#         pass
 
-    def get_costing(self, module=financials, cost_method="wt", year=None):
-        """
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
+#     def get_costing(self, module=financials, cost_method="wt", year=None):
+#         """
+#         We need a get_costing method here to provide a point to call the
+#         costing methods, but we call out to an external consting module
+#         for the actual calculations. This lets us easily swap in different
+#         methods if needed.
 
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        """
-        # First, check to see if global costing module is in place
-        # Construct it if not present and pass year argument
-        if not hasattr(self.flowsheet(), "costing"):
-            self.flowsheet().get_costing(module=module, year=year)
+#         Within IDAES, the year argument is used to set the initial value for
+#         the cost index when we build the model.
+#         """
+#         # First, check to see if global costing module is in place
+#         # Construct it if not present and pass year argument
+#         if not hasattr(self.flowsheet(), "costing"):
+#             self.flowsheet().get_costing(module=module, year=year)
 
-        # Next, add a sub-Block to the unit model to hold the cost calculations
-        # This is to let us separate costs from model equations when solving
-        self.costing = Block()
-        # Then call the appropriate costing function out of the costing module
-        # The first argument is the Block in which to build the equations
-        # Can pass additional arguments a needed
-        module.up_costing(self.costing,
-                          cost_method=cost_method)
+#         # Next, add a sub-Block to the unit model to hold the cost calculations
+#         # This is to let us separate costs from model equations when solving
+#         self.costing = Block()
+#         # Then call the appropriate costing function out of the costing module
+#         # The first argument is the Block in which to build the equations
+#         # Can pass additional arguments a needed
+#         module.up_costing(self.costing,
+#                           cost_method=cost_method)

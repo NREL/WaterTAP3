@@ -62,7 +62,7 @@ def get_case_study(flow = None, m = None):
     financials.train = train
     financials.source_water = source_water
     financials.pfd_dict = pfd_dict
-    financials.get_system_specs(m.fs)
+    financials.get_system_specs(m.fs, train)
     
     train_constituent_list = generate_constituent_list.run()
     
@@ -94,7 +94,7 @@ def get_case_study(flow = None, m = None):
     m = create_arcs(m, arc_dict) 
     
     # add the waste arcs to the model
-    m, arc_i, mixer_i = add_wate_streams(m, arc_i, pfd_dict, mixer_i)
+    m, arc_i, mixer_i = add_waste_streams(m, arc_i, pfd_dict, mixer_i)
 
     return m
     
@@ -288,11 +288,6 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
         
         getattr(m.fs, splitter_name).get_split(outlet_list=outlet_list)
             
-#         setattr(m.fs, splitter_name, Separator1(default={
-#             "property_package": m.fs.water,
-#             "ideal_separation": False,
-#             "outlet_list": outlet_list}))
-
         # arc from mixer outlet to node
         arc_dict[arc_i] = [j[0], j[1], splitter_name, "inlet"]
         arc_i = arc_i + 1
@@ -305,7 +300,7 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
 ################################################    
 #### ADD CONNECTIONS TO SURFACE DISCHARGE ### TO DO --> CHECK WASTE DISPOSALS. IF NOT IN DESIGN, THEN INCLUDE HERE.
 ################################################    
-def add_wate_streams(m, arc_i, pfd_dict, mixer_i):
+def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
 
     # get number of units going to automatic waste disposal units
     i = 0

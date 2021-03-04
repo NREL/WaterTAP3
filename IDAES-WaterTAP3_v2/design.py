@@ -13,9 +13,9 @@ import financials
 
 from pyomo.environ import Block, Constraint, Var, units as pyunits
 import module_import
-from source_example import Source
+#from source_example import source
 from mixer_example import Mixer1
-from split_test2 import Separator1
+#from split_test2 import Separator1
 from pyomo.network import Arc, SequentialDecomposition
 
 import pandas as pd
@@ -74,33 +74,38 @@ def add_water_source(m = None, source_name = None, link_to = None,
     
     train_constituent_list = generate_constituent_list.run()
     
-    setattr(m.fs, source_name, Source(default={"property_package": m.fs.water}))
     
-    getattr(m.fs, source_name).inlet.flow_vol.fix(flow)
-        
+# setattr(m.fs, splitter_name, splitter_mar1.UnitProcess(default={"property_package": m.fs.water}))
+# getattr(m.fs, splitter_name).get_split(outlet_list=outlet_list)
+    
+    import source_example as source
+    
+    setattr(m.fs, source_name, source.UnitProcess(default={"property_package": m.fs.water}))
+    getattr(m.fs, source_name).set_source()
+    
+    getattr(m.fs, source_name).flow_vol_in.fix(flow)
+    
     for constituent_name in train_constituent_list:
         
         if constituent_name in df.index:
-            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(df.loc[constituent_name].value)        
+            getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(df.loc[constituent_name].value)        
         
         else:
-            getattr(m.fs, source_name).inlet.conc_mass[:, constituent_name].fix(0)
+            getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(0)
         
-        getattr(m.fs, source_name).removal_fraction[:, constituent_name].fix(0)
+#         getattr(m.fs, source_name).removal_fraction[:, constituent_name].fix(0)
     
-    getattr(m.fs, source_name).inlet.temperature.fix(300)
-    getattr(m.fs, source_name).inlet.pressure.fix(2e5)
+#     getattr(m.fs, source_name).temperature_in.fix(300)
+#     getattr(m.fs, source_name).pressure_in.fix(1)
     
     
-    # Set removal and recovery fractions -> CAN WE JUST SET OUTLETS AND THAT'S IT? OR CLEANER WITH THE SAME FORMAT?
-    getattr(m.fs, source_name).water_recovery.fix(1.0)
-    # Also set pressure drops - for now I will set these to zero
-    getattr(m.fs, source_name).deltaP_outlet.fix(1e-4)
-    getattr(m.fs, source_name).deltaP_waste.fix(1e-4)
+#     # Set removal and recovery fractions -> CAN WE JUST SET OUTLETS AND THAT'S IT? OR CLEANER WITH THE SAME FORMAT?
+#     getattr(m.fs, source_name).water_recovery.fix(1.0)
+
     
-    if link_to is not None: # TODO - potential for multiple streams
-        connect_blocks(m = m, up1 = source_name, up2 = link_to, connection_type = None, 
-                               stream_name = ("%s_stream" % source_name))
+#     if link_to is not None: # TODO - potential for multiple streams
+#         connect_blocks(m = m, up1 = source_name, up2 = link_to, connection_type = None, 
+#                                stream_name = ("%s_stream" % source_name))
         
     return m
 

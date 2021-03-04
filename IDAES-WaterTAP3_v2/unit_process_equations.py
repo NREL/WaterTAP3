@@ -14,7 +14,7 @@
 Demonstration zeroth-order model for WaterTAP3
 """
 
-from pyomo.environ import PositiveReals  # ariel
+from pyomo.environ import PositiveReals, NonNegativeReals  # ariel
 # Import Pyomo libraries
 from pyomo.network import Port
 
@@ -74,7 +74,8 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'gac_gravity': import gac_gravity as unit_process_model
     if up_name_test == 'ozone_aop': import ozone_aop as unit_process_model
     if up_name_test == 'microfiltration': import microfiltration as unit_process_model
-
+    if up_name_test == 'reverse_osmosis': import reverse_osmosis as unit_process_model
+    
     """
     The build method is the core of the unit model, and contains the rules
     for building the Vars and Constraints that make up the unit model.
@@ -110,13 +111,14 @@ def build_up(self, up_name_test=None):
         
     self.flow_vol_in = Var(time,
                            initialize=1,
-                           domain=PositiveReals,
+                           domain=NonNegativeReals,
                            units=units_meta("volume")/units_meta("time"),
+                           bounds=(1e-6, 1e2),
                            doc="Volumetric flowrate of water into unit")
     self.conc_mass_in = Var(time,
                             self.config.property_package.component_list,
                             initialize=1e-5,
-                            #bounds=(1e-6, 1e10),
+                            domain=NonNegativeReals,
                             units=units_meta("mass")/units_meta("volume"),
                             doc="Mass concentration of species at inlet")
     self.temperature_in = Var(time,
@@ -131,13 +133,13 @@ def build_up(self, up_name_test=None):
     # Add similar variables for outlet and waste stream
     self.flow_vol_out = Var(time,
                             initialize=1,
-                            domain=PositiveReals,
+                            domain=NonNegativeReals,
                             units=units_meta("volume")/units_meta("time"),
                             doc="Volumetric flowrate of water out of unit")
     self.conc_mass_out = Var(time,
                              self.config.property_package.component_list,
                              initialize=0,
-                             #bounds=(1e-6, 1e10),
+                             domain=NonNegativeReals,
                              units=units_meta("mass")/units_meta("volume"),
                              doc="Mass concentration of species at outlet")
     self.temperature_out = Var(time,
@@ -152,14 +154,14 @@ def build_up(self, up_name_test=None):
     self.flow_vol_waste = Var(
         time,
         initialize=1,
-        #domain=PositiveReals,
+        domain=NonNegativeReals,
         units=units_meta("volume")/units_meta("time"),
         doc="Volumetric flowrate of water in waste")
     self.conc_mass_waste = Var(
         time,
         self.config.property_package.component_list,
+        domain=NonNegativeReals,
         initialize=0,
-        #bounds=(1e-6, 1e10),
         units=units_meta("mass")/units_meta("volume"),
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,
@@ -171,33 +173,49 @@ def build_up(self, up_name_test=None):
                               units=units_meta("pressure"),
                               doc="Pressure of waste")
 
-    # Next, add additional variables for unit performance
-    self.deltaP_outlet = Var(time,
-                             initialize=1e4,
-                             units=units_meta("pressure"),
-                             doc="Pressure change between inlet and outlet")
-    self.deltaP_waste = Var(time,
-                            initialize=1e4,
-                            units=units_meta("pressure"),
-                            doc="Pressure change between inlet and waste")
+#     # Next, add additional variables for unit performance
+#     self.deltaP_outlet = Var(time,
+#                              initialize=1e4,
+#                              units=units_meta("pressure"),
+#                              doc="Pressure change between inlet and outlet")
+#     self.deltaP_waste = Var(time,
+#                             initialize=1e4,
+#                             units=units_meta("pressure"),
+#                             doc="Pressure change between inlet and waste")
 
     # Then, recovery and removal variables
     self.water_recovery = Var(time,
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
-                              #within=PositiveReals,
+                              domain=NonNegativeReals,
                               units=pyunits.dimensionless,
                               bounds=(0.000001, 1.0000001),
                               doc="Water recovery fraction")
     self.removal_fraction = Var(time,
                                 self.config.property_package.component_list,
+                                domain=NonNegativeReals,
                                 initialize=0.01, #TODO: NEEDS TO BE DIFFERENT?
                                 units=pyunits.dimensionless,
                                 doc="Component removal fraction")
+    
+   
+    if up_name_test is not "reverse_osmosis":
+        
+        @self.Constraint(time, doc="Water recovery equation")
+        def recovery_equation(b, t):
+            return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
 
-    # Next, add constraints linking these
-    @self.Constraint(time, doc="Overall flow balance")
-    def flow_balance(b, t):
-        return b.flow_vol_in[t] == b.flow_vol_out[t] + b.flow_vol_waste[t]
+        @self.Constraint(time,
+                         self.config.property_package.component_list,
+                         doc="Component removal equation")
+        def component_removal_equation(b, t, j):
+            return (b.removal_fraction[t, j] *
+                    b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
+                    b.flow_vol_waste[t] * b.conc_mass_waste[t, j])    
+        
+        # Next, add constraints linking these
+        @self.Constraint(time, doc="Overall flow balance")
+        def flow_balance(b, t):
+            return b.flow_vol_in[t] == b.flow_vol_out[t] + b.flow_vol_waste[t]
 
     @self.Constraint(time,
                      self.config.property_package.component_list,
@@ -218,25 +236,13 @@ def build_up(self, up_name_test=None):
     @self.Constraint(time, doc="Outlet pressure equation")
     def outlet_pressure_constraint(b, t):
         return (b.pressure_in[t] ==
-                b.pressure_out[t] + b.deltaP_outlet[t])
+                b.pressure_out[t])# + b.deltaP_outlet[t])
 
     @self.Constraint(time, doc="Waste pressure equation")
     def waste_pressure_constraint(b, t):
         return (b.pressure_in[t] ==
-                b.pressure_waste[t] + b.deltaP_waste[t])
+                b.pressure_waste[t])# + b.deltaP_waste[t])
 
-    # Finally, add removal and recovery equations
-    @self.Constraint(time, doc="Water recovery equation")
-    def recovery_equation(b, t):
-        return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
-
-    @self.Constraint(time,
-                     self.config.property_package.component_list,
-                     doc="Component removal equation")
-    def component_removal_equation(b, t, j):
-        return (b.removal_fraction[t, j] *
-                b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
-                b.flow_vol_waste[t] * b.conc_mass_waste[t, j])
 
     # The last step is to create Ports representing the three streams
     # Add an empty Port for the inlet

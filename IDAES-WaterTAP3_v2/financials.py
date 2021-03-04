@@ -103,14 +103,21 @@ def get_complete_costing(self):
     cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col = "Material")
     chem_cost_sum = 0 
     for key in chem_dict.keys():
-        chem_cost = cat_chem_df.loc[key].Price
-        chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * on_stream_factor
-    self.cat_and_chem_cost = chem_cost_sum * 1E-6
-        
-    self.electricity_cost = Expression(
-            expr= (electricity * flow_in_m3yr * sys_specs.electricity_price/1000000),
-            doc="Electricity cost") # M$/yr
-    self.other_var_cost = 0
+        if "unit_cost" == key:
+            chem_cost_sum  = chem_dict[key] * self.fixed_cap_inv * 1e6
+        else:
+            chem_cost = cat_chem_df.loc[key].Price
+            chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * on_stream_factor
+            
+    self.cat_and_chem_cost = chem_cost_sum * 1e-6
+    
+    if not hasattr(self, "electricity_cost"): 
+        self.electricity_cost = Expression(
+                expr= (electricity * flow_in_m3yr * sys_specs.electricity_price/1000000),
+                doc="Electricity cost") # M$/yr
+    
+    if not hasattr(self, "other_var_cost"): 
+        self.other_var_cost = 0
 
     self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
     self.salaries = Expression(
@@ -173,7 +180,7 @@ def get_ind_table(analysis_yr_cost_indicies):
 # The parameters below should replace the constants above.
 ### THIS IS NOT CURRENTLY USED --> add_costing_param_block    
 
-def get_system_specs(self):
+def get_system_specs(self, train=None):
     self.costing_param = Block()
     b = self.costing_param
 
@@ -220,7 +227,7 @@ def get_system_costing(self):
 #         domain=NonNegativeReals,
 #         doc='Levelized cost of water [$/m3]')
     b.capital_recovery_factor = Var(
-         initialize=0.01,
+         initialize=0.1,
          domain=NonNegativeReals,
          doc='Captial recovery factor')  
     
@@ -284,11 +291,12 @@ def get_system_costing(self):
     
     for b_unit in self.component_objects(Block, descend_into=False):
         if hasattr(b_unit, 'outlet'):
-
             if len(getattr(b_unit, "outlet").arcs()) == 0:
-
-                if check_waste(b_unit) == "no":
-                    recovered_water_flow = recovered_water_flow + b_unit.flow_vol_in[time]
+                if hasattr(b_unit.parent_block(), "pfd_dict"):
+                    if b_unit.parent_block().pfd_dict[str(b_unit)[3:]]["Type"] == "use":
+                        recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
+                else:
+                    recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
  
     b.treated_water = recovered_water_flow
    

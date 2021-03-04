@@ -119,20 +119,12 @@ see property package for documentation.}"""))
     
     
     def get_split(self, outlet_list=None):
-        """
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
 
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        """
         
         #print(outlet_list)
         
-        if not hasattr(self.flowsheet(), "costing"):
-            self.flowsheet().get_costing(module=module, year=year)
+#         if not hasattr(self.flowsheet(), "costing"):
+#             self.flowsheet().get_costing(module=module, year=year)
             
             
         # Add ports and variables for outlets and inlets

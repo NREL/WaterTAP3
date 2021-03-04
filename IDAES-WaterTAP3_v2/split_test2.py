@@ -302,20 +302,20 @@ linked the mixed state and all outlet states,
 
         @self.Constraint(time, self.outlet_idx, doc="Overall flow balance 2")
         def flow_balance2(b, t, o):           
-            return getattr(b, ("flow_vol_%s" % o))[t] == b.flow_vol_in[t] * b.split_fraction[t, o] + 1e-4
+            return getattr(b, ("flow_vol_%s" % o))[t] == b.flow_vol_in[t] * b.split_fraction[t, o] #+ 1e-4
         
         @self.Constraint(time,
                          self.outlet_idx,
                          doc="Pressure equality constraint 2")
         def pressure_equality_eqn(b, t, o):
-            return getattr(b, ("pressure_%s" % o))[t] == b.pressure_in[t] + 1e-4
+            return getattr(b, ("pressure_%s" % o))[t] == b.pressure_in[t] #+ 1e-4
 
         
         @self.Constraint(time,
                          self.outlet_idx,
                          doc="Temperature equality constraint 2")
         def temperature_equality_eqn(b, t, o):
-            return getattr(b, ("temperature_%s" % o))[t] == b.temperature_in[t] + 1e-4   
+            return getattr(b, ("temperature_%s" % o))[t] == b.temperature_in[t] #+ 1e-4   
         
         
         @self.Constraint(time,
@@ -323,7 +323,7 @@ linked the mixed state and all outlet states,
                          self.config.property_package.component_list,
                          doc="component equality constraint 2")
         def component_equality_eqn(b, t, o, j):
-            return getattr(b, ("conc_mass_%s" % o))[t, j] == b.conc_mass_in[t, j] + 1e-4      
+            return getattr(b, ("conc_mass_%s" % o))[t, j] == b.conc_mass_in[t, j] #+ 1e-4      
         
     #ARIEL         
         
