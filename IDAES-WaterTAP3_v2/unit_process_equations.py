@@ -157,17 +157,10 @@ def build_up(self, up_name_test=None):
                             doc="Pressure change between inlet and waste")
 
     # Then, recovery and removal variables
-    self.water_recovery = Var(time,
-                              initialize=0.8,  # TODO: NEEDS TO BE DIFFERENT?
-                              # within=Non,
-                              units=pyunits.dimensionless,
-                              bounds=(0.000001, 1.0000001),
-                              doc="Water recovery fraction")
-    self.removal_fraction = Var(time,
-                                self.config.property_package.component_list,
-                                initialize=0.01, #TODO: NEEDS TO BE DIFFERENT?
-                                units=pyunits.dimensionless,
-                                doc="Component removal fraction")
+    self.water_recovery = Var(time, initialize=0.8,  # TODO: NEEDS TO BE DIFFERENT?
+                              domain=NonNegativeReals, units=pyunits.dimensionless, doc="Water recovery fraction")
+    self.removal_fraction = Var(time, self.config.property_package.component_list, initialize=0.01,  # TODO: NEEDS TO BE DIFFERENT?
+                                domain=NonNegativeReals, units=pyunits.dimensionless, doc="Component removal fraction")
 
     # Next, add constraints linking these
     @self.Constraint(time, doc="Overall flow balance")

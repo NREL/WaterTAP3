@@ -129,3 +129,4 @@
 115,Kern County,Baseline,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 90,Default,,water_pumping_station,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 116,Default,,well_field,1,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
+,HRSD,Baseline,coag_and_floc,0.95,,
