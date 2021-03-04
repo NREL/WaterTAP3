@@ -187,6 +187,7 @@ def build_up(self, up_name_test=None):
 #                             doc="Pressure change between inlet and waste")
 
     # Then, recovery and removal variables
+
     self.water_recovery = Var(time,
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
                               domain=NonNegativeReals,

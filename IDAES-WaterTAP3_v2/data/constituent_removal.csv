@@ -282,34 +282,23 @@
 279,Strontium,kg/m3,fractional_constituent_removal,ro_deep,OCWD,0.801370197,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,Baseline,NAWI
 280,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,OCWD,0.801370197,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,Baseline,NAWI
 281,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,OCWD,0.801370197,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,bromide,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,boron,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,calcium,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,chloride,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,fluoride,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,magnesium,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,potassium,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,sodium,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,sulfate,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,tds,Baseline,NAWI
-,,,,ro_deep,HRSD,1,,tss,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.6,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
-,,,,mbr_nitrification ,Solaire,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-,,,,ozone_aop,Solaire,0.294787264,Texas Water Development Board IT3PR User Manual,cryptosporidium,,
-,,,,ozone_aop,Solaire,0.989434048,Texas Water Development Board IT3PR User Manual,eeq,,
-,,,,ozone_aop,Solaire,0.903239078,Texas Water Development Board IT3PR User Manual,giardia_lamblia,,
-,,,,ozone_aop,Solaire,0.997224955,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
-,,,,ozone_aop,Solaire,0.728304707,Texas Water Development Board IT3PR User Manual,toc,,
-,,,,ozone_aop,Solaire,0.997224955,Texas Water Development Board IT3PR User Manual,viruses_enteric,,
-,,,,uv_aop,Solaire,0.999988544,Texas Water Development Board IT3PR User Manual,cryptosporidium,,
-,,,,uv_aop,Solaire,0.13095531,Texas Water Development Board IT3PR User Manual,eeq,,
-,,,,uv_aop,Solaire,0.999988544,Texas Water Development Board IT3PR User Manual,giardia_lamblia,,
-,,,,uv_aop,Solaire,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
-,,,,uv_aop,Solaire,0.17460708,Texas Water Development Board IT3PR User Manual,toc,,
-,,,,uv_aop,Solaire,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,,
+,,kg/m3,,mbr_nitrification ,Solaire,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,0.6,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+,,kg/m3,,mbr_nitrification ,Solaire,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+,,kg/m3,,ozone_aop,Solaire,0.294787264,Texas Water Development Board IT3PR User Manual,cryptosporidium,,
+,,kg/m3,,ozone_aop,Solaire,0.989434048,Texas Water Development Board IT3PR User Manual,eeq,,
+,,kg/m3,,ozone_aop,Solaire,0.903239078,Texas Water Development Board IT3PR User Manual,giardia_lamblia,,
+,,kg/m3,,ozone_aop,Solaire,0.997224955,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
+,,kg/m3,,ozone_aop,Solaire,0.728304707,Texas Water Development Board IT3PR User Manual,toc,,
+,,kg/m3,,ozone_aop,Solaire,0.997224955,Texas Water Development Board IT3PR User Manual,viruses_enteric,,
+,,kg/m3,,uv_aop,Solaire,0.999988544,Texas Water Development Board IT3PR User Manual,cryptosporidium,,
+,,kg/m3,,uv_aop,Solaire,0.13095531,Texas Water Development Board IT3PR User Manual,eeq,,
+,,kg/m3,,uv_aop,Solaire,0.999988544,Texas Water Development Board IT3PR User Manual,giardia_lamblia,,
+,,kg/m3,,uv_aop,Solaire,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
+,,kg/m3,,uv_aop,Solaire,0.17460708,Texas Water Development Board IT3PR User Manual,toc,,
+,,kg/m3,,uv_aop,Solaire,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,,

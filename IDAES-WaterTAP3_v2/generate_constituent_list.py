@@ -21,6 +21,7 @@ def run():
     
     # getting the list of consituents with removal factors that are bigger than 0
     df = pd.read_csv("data/constituent_removal.csv")
+    df.case_study = np.where(df.case_study == "Default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
     df = df[df.scenario == train["scenario"]]
@@ -59,9 +60,9 @@ def run():
 def get_removal_factors(unit_process):
     import case_study_trains
     train = case_study_trains.train 
-    source_water = case_study_trains.source_water 
-    
-    df = pd.read_csv("Data/constituent_removal.csv")
+    source_water = case_study_trains.source_water
+
+    df = pd.read_csv("data/constituent_removal.csv")
     df.case_study = np.where(df.case_study == "Default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
