@@ -22,27 +22,31 @@ import pandas as pd
 
 import generate_constituent_list
 
-def add_unit_process(m = None, unit_process_name = None, unit_process_type = None, with_connection = False,
-                     from_splitter = False, splitter_tream = None,
-                    link_to = None, link_from = None, connection_type = "series", stream_name = None): # in design
-             
-    
-    up_module = module_import.get_module(unit_process_type)
-    
-    unit_params = m.fs.pfd_dict[unit_process_name]["Parameter"]
-    
-    setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
-    
+def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, with_connection=False, from_splitter=False, splitter_tream=None, link_to=None, link_from=None, connection_type="series",
+                     stream_name=None):  # in design
+
     import constituent_removal_water_recovery
-    m = constituent_removal_water_recovery.create(m, unit_process_type, unit_process_name)
-    
-    ### SET PARAMS HERE FOR UP ###
-    #PARAMS = 
     import financials
+
+    up_module = module_import.get_module(unit_process_type)
+
+    unit_params = m.fs.pfd_dict[unit_process_name]["Parameter"]
+
+    if 'basic_unit' in unit_process_name:
+        unit_process_name = unit_params['unit_process_name']
+        setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
+        m = constituent_removal_water_recovery.create(m, unit_process_name, unit_process_name)
+
+    else:
+        setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
+        m = constituent_removal_water_recovery.create(m, unit_process_type, unit_process_name)
+
+    ### SET PARAMS HERE FOR UP ###
+    # PARAMS =
     getattr(m.fs, unit_process_name).get_costing(module=financials, unit_params=unit_params)
-    
+
     if with_connection == True:
-        
+
         if from_splitter == True:
             
             setattr(m.fs, splitter_tream, 

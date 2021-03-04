@@ -15,6 +15,7 @@ Demonstration zeroth-order model for WaterTAP3
 """
 
 from pyomo.environ import PositiveReals, NonNegativeReals  # ariel
+
 # Import Pyomo libraries
 from pyomo.network import Port
 
@@ -75,7 +76,8 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'ozone_aop': import ozone_aop as unit_process_model
     if up_name_test == 'microfiltration': import microfiltration as unit_process_model
     if up_name_test == 'reverse_osmosis': import reverse_osmosis as unit_process_model
-    
+    if up_name_test == 'basic_unit': import basic_unit as unit_process_model
+
     """
     The build method is the core of the unit model, and contains the rules
     for building the Vars and Constraints that make up the unit model.
@@ -163,6 +165,7 @@ def build_up(self, up_name_test=None):
         domain=NonNegativeReals,
         initialize=0,
         units=units_meta("mass")/units_meta("volume"),
+
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,
                                  initialize=300,

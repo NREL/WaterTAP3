@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb 16 11:46:39 2021
+Created on Wed Feb  3 12:22:42 2021
 
 @author: ksitterl
 """
+
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -22,16 +23,15 @@ Demonstration zeroth-order model for WaterTAP3
 """
 
 # Import IDAES cores
-from idaes.core import (declare_process_block_class,
-                        UnitModelBlockData,
-                        useDefault)
+from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
+from cost_curves import basic_unit
 
 # Import properties and units from "WaterTAP Library"
 
@@ -44,13 +44,12 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "deep_well_injection"
+module_name = "basic_unit"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2011
 
 
 # You don't really want to know what this decorator does
@@ -70,32 +69,17 @@ class UnitProcessData(UnitModelBlockData):
     """
 
     CONFIG = ConfigBlock()
-    CONFIG.declare("dynamic", ConfigValue(
-        domain=In([False]),
-        default=False,
-        description="Dynamic model flag - must be False",
-        doc="""Indicates whether this model will be dynamic or not,
+    CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-    CONFIG.declare("has_holdup", ConfigValue(
-        default=False,
-        domain=In([False]),
-        description="Holdup construction flag - must be False",
-        doc="""Indicates whether holdup terms should be constructed or not.
+    CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-    CONFIG.declare("property_package", ConfigValue(
-        default=useDefault,
-        domain=is_physical_parameter_block,
-        description="Property package to use for control volume",
-        doc="""Property parameter object used to define property calculations,
+    CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-    CONFIG.declare("property_package_args", ConfigBlock(
-        implicit=True,
-        description="Arguments to use for constructing property packages",
-        doc="""A ConfigBlock with arguments to be passed to a property block(s)
+    CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
@@ -118,9 +102,11 @@ see property package for documentation.}"""))
         """
         # First, check to see if global costing module is in place
         # Construct it if not present and pass year argument
+        unit_process_name = unit_params['unit_process_name']
+
+        flow_basis, cap_basis, cap_exp, year = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
-
         # Next, add a sub-Block to the unit model to hold the cost calculations
         # This is to let us separate costs from model equations when solving
         self.costing = Block()
@@ -133,55 +119,33 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
+
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
+        self.flow_in = flow_in  # m3 /hr
+        self.flow_basis = flow_basis * (pyunits.m ** 3 / pyunits.hour)
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
 
         # basis year for the unit model - based on reference for the method.
-        self.costing.basis_year = unit_basis_yr
-
-        # TODO -->> ADD THESE TO UNIT self.X
-        incl_piping = unit_params["incl_piping"]
-        if not incl_piping:
-            base_fixed_cap_cost = 16.9
-            pipe_cost_basis = 35000  # $ / (inch * mile)
-            pipe_distance = unit_params['pipe_distance'] * pyunits.miles
-            pipe_diameter = 8 * pyunits.inches
-            pipe_fixed_cap_cost = (pipe_cost_basis * pipe_distance * pipe_diameter) * 1E-6
-        else:
-            pipe_fixed_cap_cost = 0
-            base_fixed_cap_cost = 22.5
-        cap_scaling_exp = 0.7
-        cap_scaling_val = 473.2
-        # number_of_units = 1
-        lift_height = 400 * pyunits.ft
-        pump_eff = 0.9
-        motor_eff = 0.9
+        self.costing.basis_year = year
 
         chem_dict = {}
         self.chem_dict = chem_dict
+        self.flow_factor = self.flow_in / self.flow_basis
 
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
 
         def fixed_cap(flow_in):
+            basic_cap = cap_basis * self.flow_factor ** cap_exp
+            return basic_cap
 
-            cap_scaling_factor = flow_in / cap_scaling_val
-            deep_well_cap = base_fixed_cap_cost * (cap_scaling_factor ** cap_scaling_exp)
-
-            return deep_well_cap + pipe_fixed_cap_cost
-
-        def electricity(flow_in):
-
-            flow_in_e = pyunits.convert(flow_in, to_units=(pyunits.gallon / pyunits.minute))
-            electricity = (0.746 * flow_in_e * lift_height / (3960 * pump_eff * motor_eff)) / \
-                          pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
-
+        def electricity(flow_in):  # m3/hr
+            electricity = 0
             return electricity
 
         # Get the first time point in the time domain
@@ -189,9 +153,7 @@ see property package for documentation.}"""))
         # safe and use a general approach
 
         ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
-            doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
         self.electricity = electricity(flow_in)  # kwh/m3

@@ -24,7 +24,10 @@ def feedwater(
         df = df[df.reference == reference]
 
     if water_type is not None:
-        df = df[df.water_type == water_type]
+        if isinstance(water_type, list):
+            pass
+        else:
+            df = df[df.water_type == water_type]
 
     if case_study is not None:
         df = df[df.case_study == case_study]

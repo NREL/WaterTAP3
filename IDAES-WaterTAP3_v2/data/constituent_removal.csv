@@ -55,30 +55,30 @@
 52,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,cas ,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
 53,Ultraviolet Transmittance (UVT),%,absolute_value,cas ,Default,60,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
 54,Viruses (enteric),kg/m3,fractional_constituent_removal,cas ,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-55,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,cas_with_nitrification ,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-56,Nonvolatile TOC,kg/m3,fractional_constituent_removal,cas_with_nitrification ,Default,0.5,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
-57,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,cas_with_nitrification ,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
-58,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,cas_with_nitrification ,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-59,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,cas_with_nitrification ,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-60,Ultraviolet Transmittance (UVT),%,absolute_value,cas_with_nitrification ,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
-61,Viruses (enteric),kg/m3,fractional_constituent_removal,cas_with_nitrification ,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-62,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-63,"Nitrate-N, Dissolved",kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.8,Texas Water Development Board IT3PR User Manual,nitrate,Baseline,NAWI
-64,Nonvolatile TOC,kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.7,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
-65,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
-66,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-67,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-68,Ultraviolet Transmittance (UVT),%,absolute_value,cas_with_denitrification ,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
-69,Viruses (enteric),kg/m3,fractional_constituent_removal,cas_with_denitrification ,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-70,Cryptosporidium,kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
-71,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-72,Nonvolatile TOC,kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.6,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
-73,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
-74,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-75,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-76,Ultraviolet Transmittance (UVT),%,absolute_value,mbr_with_nitrification ,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
-77,Viruses (enteric),kg/m3,fractional_constituent_removal,mbr_with_nitrification ,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-78,Cryptosporidium,kg/m3,fractional_constituent_removal,mbr_with_denitrification ,Default,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+55,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,cas_nitrif,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+56,Nonvolatile TOC,kg/m3,fractional_constituent_removal,cas_nitrif,Default,0.5,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
+57,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,cas_nitrif,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+58,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,cas_nitrif,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+59,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,cas_nitrif,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+60,Ultraviolet Transmittance (UVT),%,absolute_value,cas_nitrif,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+61,Viruses (enteric),kg/m3,fractional_constituent_removal,cas_nitrif,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+62,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+63,"Nitrate-N, Dissolved",kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.8,Texas Water Development Board IT3PR User Manual,nitrate,Baseline,NAWI
+64,Nonvolatile TOC,kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.7,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
+65,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+66,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+67,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+68,Ultraviolet Transmittance (UVT),%,absolute_value,cas_denitrif,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+69,Viruses (enteric),kg/m3,fractional_constituent_removal,cas_denitrif,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+70,Cryptosporidium,kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+71,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+72,Nonvolatile TOC,kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.6,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
+73,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+74,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+75,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+76,Ultraviolet Transmittance (UVT),%,absolute_value,mbr_nitrification,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+77,Viruses (enteric),kg/m3,fractional_constituent_removal,mbr_nitrification,Default,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+78,Cryptosporidium,kg/m3,fractional_constituent_removal,mbr_denitrification ,Default,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
 79,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,mbr_with_denitrification ,Default,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
 80,Nonvolatile TOC,kg/m3,fractional_constituent_removal,mbr_with_denitrification ,Default,0.9,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
 81,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,mbr_with_denitrification ,Default,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
@@ -117,12 +117,12 @@
 114,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,cartridge_filtration,Default,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
 115,Ultraviolet Transmittance (UVT),fraction,absolute_value,cartridge_filtration,Default,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
 116,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,sedimentation,Default,0.990825688,"(1) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (2) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)",tss,Baseline,NAWI
-117,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,micro_filtration,Default,0.95,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc.",tss,Baseline,NAWI
-118,Cryptosporidium,kg/m3,fractional_constituent_removal,micro-filtration  ,Default,0.999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
-119,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,micro-filtration  ,Default,0.3,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-120,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,micro-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-121,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,micro-filtration  ,Default,0.1,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-122,Ultraviolet Transmittance (UVT),%,absolute_value,micro-filtration  ,Default,75,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+117,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,microfiltration,Default,0.95,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc.",tss,Baseline,NAWI
+118,Cryptosporidium,kg/m3,fractional_constituent_removal,microfiltration,Default,0.999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+119,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,microfiltration,Default,0.3,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+120,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,microfiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+121,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,microfiltration,Default,0.1,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+122,Ultraviolet Transmittance (UVT),%,absolute_value,microfiltration,Default,75,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
 123,"Boron, dissolved",kg/m3,fractional_constituent_removal,bioreactor,Default,0.8,Texas Water Development Board IT3PR User Manual,boron,Baseline,NAWI
 124,Selenium,kg/m3,fractional_constituent_removal,bioreactor,Default,0.965,Texas Water Development Board IT3PR User Manual,selenium,Baseline,NAWI
 125,Iron,kg/m3,fractional_constituent_removal,iron_and_manganese_removal,Default,0.9,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.lenntech.com/schema-of-an-iron-removal-system.htm, (4) https://www.osti.gov/servlets/purl/797810/",iron,Baseline,NAWI
@@ -136,31 +136,31 @@
 133,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,ozonation,Default,0.997224955,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
 134,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,ozonation,Default,0.728304707,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
 135,Viruses (enteric),kg/m3,fractional_constituent_removal,ozonation,Default,0.997224955,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-136,Cryptosporidium,kg/m3,fractional_constituent_removal,ultra-filtration  ,Default,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
-137,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,ultra-filtration  ,Default,0.3,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-138,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,ultra-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-139,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,ultra-filtration  ,Default,0.3,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-140,Ultraviolet Transmittance (UVT),%,absolute_value,ultra-filtration  ,Default,75,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
-141,Endothall,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.8,Texas Water Development Board IT3PR User Manual,endothall,Baseline,NAWI
-142,Endrin,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.8,Texas Water Development Board IT3PR User Manual,endrin,Baseline,NAWI
-143,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.75,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-144,Hardness,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,hardness,Baseline,NAWI
-145,Hydroxide Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,hydroxide_alkalinity_as_caco3,Baseline,NAWI
-146,Iron,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.8,Texas Water Development Board IT3PR User Manual,iron,Baseline,NAWI
-147,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.99,Texas Water Development Board IT3PR User Manual,magnesium,Baseline,NAWI
-148,Manganese,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.8,Texas Water Development Board IT3PR User Manual,manganese,Baseline,NAWI
-149,N-nitrosodimethylamine (NDMA),kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.05,Texas Water Development Board IT3PR User Manual,ndma,Baseline,NAWI
-150,Nonvolatile TOC,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.93,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
-151,Perfluorooctane sulfonate (PFOS),kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.9,Texas Water Development Board IT3PR User Manual,perfluorooctane_sulfonate_pfos,Baseline,NAWI
-152,Perfluorootanoate (PFOA),kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.9,Texas Water Development Board IT3PR User Manual,perfluorootanoate_pfoa,Baseline,NAWI
-153,"Phosphates, Dissolved",kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.99,Texas Water Development Board IT3PR User Manual,phosphates,Baseline,NAWI
-154,Potassium,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.99,Texas Water Development Board IT3PR User Manual,potassium,Baseline,NAWI
-155,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,sodium,Baseline,NAWI
-156,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,sulfate,Baseline,NAWI
-157,Sulfur,kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,sulfur,Baseline,NAWI
-158,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.97,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
-159,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,nano-filtration  ,Default,0.75,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-160,Ultraviolet Transmittance (UVT),%,absolute_value,nano-filtration  ,Default,90,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+136,Cryptosporidium,kg/m3,fractional_constituent_removal,ultrafiltration,Default,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+137,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,ultrafiltration,Default,0.3,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+138,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,ultrafiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+139,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,ultrafiltration,Default,0.3,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+140,Ultraviolet Transmittance (UVT),%,absolute_value,ultrafiltration,Default,75,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+141,Endothall,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.8,Texas Water Development Board IT3PR User Manual,endothall,Baseline,NAWI
+142,Endrin,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.8,Texas Water Development Board IT3PR User Manual,endrin,Baseline,NAWI
+143,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,nanofiltration,Default,0.75,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+144,Hardness,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,hardness,Baseline,NAWI
+145,Hydroxide Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,hydroxide_alkalinity_as_caco3,Baseline,NAWI
+146,Iron,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.8,Texas Water Development Board IT3PR User Manual,iron,Baseline,NAWI
+147,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,nanofiltration,Default,0.99,Texas Water Development Board IT3PR User Manual,magnesium,Baseline,NAWI
+148,Manganese,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.8,Texas Water Development Board IT3PR User Manual,manganese,Baseline,NAWI
+149,N-nitrosodimethylamine (NDMA),kg/m3,fractional_constituent_removal,nanofiltration,Default,0.05,Texas Water Development Board IT3PR User Manual,ndma,Baseline,NAWI
+150,Nonvolatile TOC,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.93,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
+151,Perfluorooctane sulfonate (PFOS),kg/m3,fractional_constituent_removal,nanofiltration,Default,0.9,Texas Water Development Board IT3PR User Manual,perfluorooctane_sulfonate_pfos,Baseline,NAWI
+152,Perfluorootanoate (PFOA),kg/m3,fractional_constituent_removal,nanofiltration,Default,0.9,Texas Water Development Board IT3PR User Manual,perfluorootanoate_pfoa,Baseline,NAWI
+153,"Phosphates, Dissolved",kg/m3,fractional_constituent_removal,nanofiltration,Default,0.99,Texas Water Development Board IT3PR User Manual,phosphates,Baseline,NAWI
+154,Potassium,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.99,Texas Water Development Board IT3PR User Manual,potassium,Baseline,NAWI
+155,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,nanofiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,sodium,Baseline,NAWI
+156,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,nanofiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,sulfate,Baseline,NAWI
+157,Sulfur,kg/m3,fractional_constituent_removal,nanofiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,sulfur,Baseline,NAWI
+158,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,nanofiltration,Default,0.97,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+159,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,nanofiltration,Default,0.75,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+160,Ultraviolet Transmittance (UVT),%,absolute_value,nanofiltration,Default,90,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
 161,Chloride,kg/m3,fractional_constituent_removal,walnut_shell_filter ,Default,0.95,Kern County case study.,chloride,Baseline,NAWI
 162,Electrical_Conductivity,S/m,fractional_constituent_removal,walnut_shell_filter ,Default,0.95,Kern County case study.,electrical_conductivity,Baseline,NAWI
 163,Nonvolatile TOC,kg/m3,fractional_constituent_removal,walnut_shell_filter ,Default,0.2,Kern County case study.,nonvolatile_toc,Baseline,NAWI
@@ -202,24 +202,24 @@
 199,Strontium,kg/m3,fractional_constituent_removal,electrodialysis_reversal,Default,0.95,Irwin case study.,strontium,Baseline,NAWI
 200,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,electrodialysis_reversal,Default,0.923325262,Irwin case study.,sulfate,Baseline,NAWI
 201,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,electrodialysis_reversal,Default,0.808695652,Irwin case study.,tds,Baseline,NAWI
-202,Cryptosporidium,kg/m3,fractional_constituent_removal,ozonation_with_aop ,Default,0.294787264,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
-203,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,ozonation_with_aop ,Default,0.989434048,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-204,Giardia lamblia,kg/m3,fractional_constituent_removal,ozonation_with_aop ,Default,0.903239078,Texas Water Development Board IT3PR User Manual,giardia_lamblia,Baseline,NAWI
-205,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,ozonation_with_aop ,Default,0.997224955,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
-206,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,ozonation_with_aop ,Default,0.728304707,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-207,Viruses (enteric),kg/m3,fractional_constituent_removal,ozonation_with_aop ,Default,0.997224955,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+202,Cryptosporidium,kg/m3,fractional_constituent_removal,ozone_aop,Default,0.294787264,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+203,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,ozone_aop,Default,0.989434048,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+204,Giardia lamblia,kg/m3,fractional_constituent_removal,ozone_aop,Default,0.903239078,Texas Water Development Board IT3PR User Manual,giardia_lamblia,Baseline,NAWI
+205,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,ozone_aop,Default,0.997224955,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+206,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,ozone_aop,Default,0.728304707,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+207,Viruses (enteric),kg/m3,fractional_constituent_removal,ozone_aop,Default,0.997224955,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
 208,Cryptosporidium,kg/m3,fractional_constituent_removal,uv_irradiation  ,Default,0.999988544,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
 209,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,uv_irradiation  ,Default,0.054564712,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
 210,Giardia lamblia,kg/m3,fractional_constituent_removal,uv_irradiation  ,Default,0.999988544,Texas Water Development Board IT3PR User Manual,giardia_lamblia,Baseline,NAWI
 211,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,uv_irradiation  ,Default,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
 212,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,uv_irradiation  ,Default,0.054564712,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
 213,Viruses (enteric),kg/m3,fractional_constituent_removal,uv_irradiation  ,Default,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
-214,Cryptosporidium,kg/m3,fractional_constituent_removal,uv_irradiation_with_aop ,Default,0.999988544,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
-215,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,uv_irradiation_with_aop ,Default,0.13095531,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
-216,Giardia lamblia,kg/m3,fractional_constituent_removal,uv_irradiation_with_aop ,Default,0.999988544,Texas Water Development Board IT3PR User Manual,giardia_lamblia,Baseline,NAWI
-217,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,uv_irradiation_with_aop ,Default,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
-218,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,uv_irradiation_with_aop ,Default,0.17460708,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
-219,Viruses (enteric),kg/m3,fractional_constituent_removal,uv_irradiation_with_aop ,Default,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+214,Cryptosporidium,kg/m3,fractional_constituent_removal,uv_aop,Default,0.999988544,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+215,Estradiol Equivalency (EEQ),kg/m3,fractional_constituent_removal,uv_aop,Default,0.13095531,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+216,Giardia lamblia,kg/m3,fractional_constituent_removal,uv_aop,Default,0.999988544,Texas Water Development Board IT3PR User Manual,giardia_lamblia,Baseline,NAWI
+217,Total Coliforms (including fecal coliform and E. Coli),kg/m3,fractional_constituent_removal,uv_aop,Default,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+218,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,uv_aop,Default,0.17460708,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+219,Viruses (enteric),kg/m3,fractional_constituent_removal,uv_aop,Default,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
 220,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,settling_pond,Default,0.990825688,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. ",tss,Baseline,NAWI
 221,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,clarifier,Default,0.990825688,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. ",tss,Baseline,NAWI
 222,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,ro_deep,KBHDP,0.987749433,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,Baseline,NAWI
@@ -282,3 +282,34 @@
 279,Strontium,kg/m3,fractional_constituent_removal,ro_deep,OCWD,0.801370197,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,Baseline,NAWI
 280,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,OCWD,0.801370197,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,Baseline,NAWI
 281,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,OCWD,0.801370197,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,bromide,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,boron,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,calcium,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,chloride,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,fluoride,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,magnesium,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,potassium,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,sodium,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,sulfate,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,tds,Baseline,NAWI
+,,,,ro_deep,HRSD,1,,tss,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.9999,Texas Water Development Board IT3PR User Manual,cryptosporidium,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.88,Texas Water Development Board IT3PR User Manual,eeq,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.6,Texas Water Development Board IT3PR User Manual,nonvolatile_toc,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.998798126,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.5,Texas Water Development Board IT3PR User Manual,tss,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.70854,Texas Water Development Board IT3PR User Manual,toc,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,70,Texas Water Development Board IT3PR User Manual,ultraviolet_transmittance_uvt,Baseline,NAWI
+,,,,mbr_nitrification ,Solaire,0.99,Texas Water Development Board IT3PR User Manual,viruses_enteric,Baseline,NAWI
+,,,,ozone_aop,Solaire,0.294787264,Texas Water Development Board IT3PR User Manual,cryptosporidium,,
+,,,,ozone_aop,Solaire,0.989434048,Texas Water Development Board IT3PR User Manual,eeq,,
+,,,,ozone_aop,Solaire,0.903239078,Texas Water Development Board IT3PR User Manual,giardia_lamblia,,
+,,,,ozone_aop,Solaire,0.997224955,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
+,,,,ozone_aop,Solaire,0.728304707,Texas Water Development Board IT3PR User Manual,toc,,
+,,,,ozone_aop,Solaire,0.997224955,Texas Water Development Board IT3PR User Manual,viruses_enteric,,
+,,,,uv_aop,Solaire,0.999988544,Texas Water Development Board IT3PR User Manual,cryptosporidium,,
+,,,,uv_aop,Solaire,0.13095531,Texas Water Development Board IT3PR User Manual,eeq,,
+,,,,uv_aop,Solaire,0.999988544,Texas Water Development Board IT3PR User Manual,giardia_lamblia,,
+,,,,uv_aop,Solaire,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
+,,,,uv_aop,Solaire,0.17460708,Texas Water Development Board IT3PR User Manual,toc,,
+,,,,uv_aop,Solaire,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,,

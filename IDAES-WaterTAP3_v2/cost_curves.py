@@ -26,7 +26,7 @@ def cost_curve(unit_process, **kwargs):
 					df = df[df.tds_in == 600]
 				else:
 					df = df[df.tds_in == 200]
-			else:
+			elif unit_process == 'anion_exchange':
 				if v >= 150:
 					df = df[df.tds_in == 150]
 				elif v < 150 and v >= 100:
@@ -60,6 +60,14 @@ def cost_curve(unit_process, **kwargs):
 
 	cost, _ = curve_fit(power, x, y_cost)
 	elect, _ = curve_fit(power, x, y_elect)
-	a, b = cost[0], cost[1]
 
 	return cost, elect, mats_name, mats_cost, df
+
+def basic_unit(unit_process):
+	df = pd.read_csv('data/basic_unit.csv', index_col='unit_process')
+	df = df.loc[unit_process]
+	flow_basis = df.flow_basis
+	cap_basis = df.cap_basis
+	cap_exp = df.cap_exp
+	year = df.year
+	return flow_basis, cap_basis, cap_exp, year
