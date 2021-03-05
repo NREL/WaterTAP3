@@ -104,7 +104,7 @@ see property package for documentation.}"""))
         # Construct it if not present and pass year argument
         unit_process_name = unit_params['unit_process_name']
 
-        flow_basis, cap_basis, cap_exp, unit_year = basic_unit(unit_process_name)
+        flow_basis, cap_basis, cap_exp, year = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
         # Next, add a sub-Block to the unit model to hold the cost calculations
@@ -130,7 +130,7 @@ see property package for documentation.}"""))
         tpec_tic = self.costing.tpec_tic
 
         # basis year for the unit model - based on reference for the method.
-        self.costing.basis_year = unit_year
+        self.costing.basis_year = year
 
         chem_dict = {}
         self.chem_dict = chem_dict

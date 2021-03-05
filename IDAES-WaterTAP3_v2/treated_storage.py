@@ -140,35 +140,72 @@ see property package for documentation.}"""))
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
 
+        # Next, add a sub-Block to the unit model to hold the cost calculations
+        # This is to let us separate costs from model equations when solving
         self.costing = Block()
+        # Then call the appropriate costing function out of the costing module
+        # The first argument is the Block in which to build the equations
+        # Can pass additional arguments as needed
+        
+    
+    
+        # Build a costing method for each type of unit
+        def up_costing(self, cost_method="wt"):
+            
+            '''
+            This is where you create the variables and equations specific to each unit.
+            This method should mainly consider capital costs for the unit - operating
+            most costs should done for the entire flowsheet (e.g. common utilities).
+            Unit specific operating costs, such as chemicals, should be done here with
+            standard names that can be collected at the flowsheet level.
 
-        time = self.flowsheet().config.time.first()
+            You can access variables from the unit model using:
 
+                self.parent_block().variable_name
 
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3/ pyunits.hour)
-
+            You can also have unit specific parameters here, which could be retrieved
+            from the spreadsheet
+            '''
+        # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
-        a = 0.00344
-        b = 0.72093
-        self.storage_duration = unit_params["hours"] * pyunits.hours # hours
-        capacity_needed = flow_in * self.storage_duration
+        
+        self.base_fixed_cap_cost = 5575 # From Poseidon (assuming covered, concrete tank) -> should be based on type from params
+        self.cap_scaling_exp = -.39 # From Poseidon (assuming covered, concrete tank) -> should be based on type from params
+        self.fixed_op_cost_scaling_exp = 0.7
+        self.storage_duration = unit_params["hours"] # hours    
         
         # capital costs basis
         def fixed_cap(flow_in):
-            storage_cap = a * capacity_needed ** b
-            return storage_cap # $MM
+
+            flow_in_m3_hr = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m**3/pyunits.hr)
+            vol_in_m3 = flow_in_m3_hr * self.storage_duration
+
+            unit_cost = self.base_fixed_cap_cost * vol_in_m3 ** self.cap_scaling_exp # $/m3 (euros/m3)
+            fixed_cap = (unit_cost * vol_in_m3) / 1000000
+
+            return fixed_cap # $MM 
 
 
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
         # safe and use a general approach
+        time = self.flowsheet().config.time.first()
 
+        # Get the inlet flow to the unit and convert to the correct units
+        # calculations are in MGD 
+
+        # pyunits.convert(self.parent_block().flow_vol_in[time],
+        #                             to_units=pyunits.Mgallons/pyunits.day)
+
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.Mgallons/pyunits.day)
             
             
 
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr= fixed_cap(flow_in),
+            expr= fixed_cap(flow_in) * .995,
             doc="Unadjusted fixed capital investment") # The cost curve source includes 0.5% of annual maintenance 
         
         # electricity consumption
