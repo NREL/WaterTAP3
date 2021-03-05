@@ -138,8 +138,9 @@ see property package for documentation.}"""))
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
         
-        self.base_fixed_cap_cost = 0.464  # based on PML tab values and converted to MGD units
-        self.cap_scaling_exp = 0.7  # from Mike's PML tab
+        self.base_fixed_cap_cost = .464  # based on PML tab values and converted to MGD units
+        self.cap_scaling_exp = .7  # from Mike's PML tab
+        self.fixed_op_cost_scaling_exp = 0.7
 
         time = self.flowsheet().config.time.first()
 
