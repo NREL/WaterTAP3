@@ -20,13 +20,10 @@ from pyomo.environ import Block, Constraint, Var, units as pyunits
 from pyomo.network import Port
 
 # Import IDAES cores
-from idaes.core import (declare_process_block_class,
-                        UnitModelBlockData,
-                        useDefault)
+from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 
-from pyomo.environ import (
-    Expression, Var, Param, NonNegativeReals, units as pyunits)
+from pyomo.environ import (Expression, Var, Param, NonNegativeReals, units as pyunits)
 
 # Import WaterTAP# financials module
 import financials
@@ -56,68 +53,51 @@ unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
 unit_basis_yr = 2019
 
+
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
 class UnitProcessData(UnitModelBlockData):
-       
-    """
+	"""
     This class describes the rules for a zeroth-order model for a unit
     """
-    # The Config Block is used tpo process arguments from when the model is
-    # instantiated. In IDAES, this serves two purposes:
-    #     1. Allows us to separate physical properties from unit models
-    #     2. Lets us give users options for configuring complex units
-    # For WaterTAP3, this will mainly be boilerplate to keep things consistent
-    # with ProteusLib and IDAES.
-    # The dynamic and has_holdup options are expected arguments which must exist
-    # The property package arguments let us define different sets of contaminants
-    # without needing to write a new model.
-    CONFIG = ConfigBlock()
-    CONFIG.declare("dynamic", ConfigValue(
-        domain=In([False]),
-        default=False,
-        description="Dynamic model flag - must be False",
-        doc="""Indicates whether this model will be dynamic or not,
+	# The Config Block is used tpo process arguments from when the model is
+	# instantiated. In IDAES, this serves two purposes:
+	#     1. Allows us to separate physical properties from unit models
+	#     2. Lets us give users options for configuring complex units
+	# For WaterTAP3, this will mainly be boilerplate to keep things consistent
+	# with ProteusLib and IDAES.
+	# The dynamic and has_holdup options are expected arguments which must exist
+	# The property package arguments let us define different sets of contaminants
+	# without needing to write a new model.
+	CONFIG = ConfigBlock()
+	CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-    CONFIG.declare("has_holdup", ConfigValue(
-        default=False,
-        domain=In([False]),
-        description="Holdup construction flag - must be False",
-        doc="""Indicates whether holdup terms should be constructed or not.
+	CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-    CONFIG.declare("property_package", ConfigValue(
-        default=useDefault,
-        domain=is_physical_parameter_block,
-        description="Property package to use for control volume",
-        doc="""Property parameter object used to define property calculations,
+	CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-    CONFIG.declare("property_package_args", ConfigBlock(
-        implicit=True,
-        description="Arguments to use for constructing property packages",
-        doc="""A ConfigBlock with arguments to be passed to a property block(s)
+	CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
 see property package for documentation.}"""))
-    
-    from unit_process_equations import initialization
-    #unit_process_equations.get_base_unit_process()
 
-    #build(up_name = "co2_addition")
-    
-    def build(self):
-        import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test = module_name)
-    
-    
-    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params = None):
-        
-        """
+	from unit_process_equations import initialization
+	# unit_process_equations.get_base_unit_process()
+
+	# build(up_name = "co2_addition")
+
+	def build(self):
+		import unit_process_equations
+		return unit_process_equations.build_up(self, up_name_test=module_name)
+
+	def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
+		"""
         We need a get_costing method here to provide a point to call the
         costing methods, but we call out to an external consting module
         for the actual calculations. This lets us easily swap in different
@@ -126,43 +106,38 @@ see property package for documentation.}"""))
         Within IDAES, the year argument is used to set the initial value for
         the cost index when we build the model.
         """
-        # First, check to see if global costing module is in place
-        # Construct it if not present and pass year argument
-        if not hasattr(self.flowsheet(), "costing"):
-            self.flowsheet().get_costing(module=module, year=year)
+		# First, check to see if global costing module is in place
+		# Construct it if not present and pass year argument
+		if not hasattr(self.flowsheet(), "costing"):
+			self.flowsheet().get_costing(module=module, year=year)
 
-        # Next, add a sub-Block to the unit model to hold the cost calculations
-        # This is to let us separate costs from model equations when solving
-        self.costing = Block()
-        # Then call the appropriate costing function out of the costing module
-        # The first argument is the Block in which to build the equations
-        # Can pass additional arguments as needed
-        
-        self.base_fixed_cap_cost = .464  # based on PML tab values and converted to MGD units
-        self.cap_scaling_exp = .7  # from Mike's PML tab
-        self.fixed_op_cost_scaling_exp = 0.7
+		# Next, add a sub-Block to the unit model to hold the cost calculations
+		# This is to let us separate costs from model equations when solving
+		self.costing = Block()
+		# Then call the appropriate costing function out of the costing module
+		# The first argument is the Block in which to build the equations
+		# Can pass additional arguments as needed
 
-        time = self.flowsheet().config.time.first()
+		self.base_fixed_cap_cost = 0.464  # based on PML tab values and converted to MGD units
+		self.cap_scaling_exp = 0.7  # from Mike's PML tab
 
-        # Get the inlet flow to the unit and convert to the correct units
-        flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.Mgallons/pyunits.day)
-            
-        # basis year for the unit model - based on reference for the method.
-        self.costing.basis_year = unit_basis_yr
-        
-        # capital costs (unit: MM$) ---> TCI IN EXCEL
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=self.base_fixed_cap_cost *
-            flow_in ** self.cap_scaling_exp,
-            doc="Unadjusted fixed capital investment") # $M
+		time = self.flowsheet().config.time.first()
 
-        self.chem_dict = {}
-        self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
-        
-        ##########################################
-        ####### GET REST OF UNIT COSTS ######
-        ##########################################        
-        
-        module.get_complete_costing(self.costing)        
-        
+		# Get the inlet flow to the unit and convert to the correct units
+		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
+
+		# basis year for the unit model - based on reference for the method.
+		self.costing.basis_year = unit_basis_yr
+
+		# capital costs (unit: MM$) ---> TCI IN EXCEL
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp, doc="Unadjusted fixed capital investment")  # $M
+
+		self.chem_dict = {}
+		self.electricity = .01  # kwh/m3 given in PML tab, no source TODO
+
+		##########################################
+		####### GET REST OF UNIT COSTS ######
+		##########################################
+
+		module.get_complete_costing(self.costing)
+
