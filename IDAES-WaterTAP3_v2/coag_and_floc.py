@@ -63,19 +63,9 @@ unit_basis_yr = 2020
 
 
 ### NEED TO MOVE THIS TO PARAMS? TODO ###
-Al2_SO4_3_Dosage_Rate = 10 # mg/L # MIKE ASSUMPTION NEEDED
-Al2_SO4_3_Dosage_Rate = (Al2_SO4_3_Dosage_Rate / 1000 ) #/ 264.172 # converted to kg/gal todo in pyunits
 
-Polymer_Dosage = 0.1 # mg/L # MIKE ASSUMPTION NEEDED
-Polymer_Dosage = (Polymer_Dosage / 1000 ) # to kg/m3
 
-Aluminum_Al2_SO4_3 = Al2_SO4_3_Dosage_Rate # MIKE ASSUMPTION NEEDED
-Anionic_Polymer = Polymer_Dosage / 2 # MIKE ASSUMPTION NEEDED
-Cationic_Polymer = Polymer_Dosage / 2 # MIKE ASSUMPTION NEEDED
 
-chem_dict = {"Aluminum_Al2_SO4_3" : Aluminum_Al2_SO4_3, 
-            "Anionic_Polymer" : Anionic_Polymer, 
-            "Cationic_Polymer" : Cationic_Polymer}
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -164,13 +154,18 @@ see property package for documentation.}"""))
         # Then call the appropriate costing function out of the costing module
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
-        
+        time = self.flowsheet().config.time.first()
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         #up_costing(self.costing, cost_method=cost_method)
         
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
+        alum_dose = pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))# mg/L # MIKE ASSUMPTION NEEDED
+        polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
 
-            
+        an_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
+        cat_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
+        chem_dict = {"Aluminum_Al2_SO4_3": alum_dose, "Anionic_Polymer": an_polymer, "Cationic_Polymer": cat_polymer}
         # Coagulation and Flocculation (High G) with Aluminum Sulfate
         rapid_mixers = 1
         floc_mixers = 3
@@ -178,21 +173,19 @@ see property package for documentation.}"""))
         floc_processes = 2
         coag_processes = 1
         floc_injection_processes = 1
-        poly_dosage = .1 # mg/L dosage rate
-        rapid_mix_retention_time = 5.5 # seconds (rapid mix)
-        floc_retention_time =  12 # minutes
-        al2so43_density = 8.34 * 1.33 # lb/gal
-        al2so43_dosage = 10 # mg/L dosage rate
+        poly_dosage = 0.1 * (pyunits.mg / pyunits.liter) # mg/L dosage rate
+        rapid_mix_retention_time = 5.5 * pyunits.seconds # seconds (rapid mix)
+        floc_retention_time =  12 * pyunits.minutes # minutes
+        al2so43_density = (8.34 * 1.33) * (pyunits.pound / pyunits.gallon) # lb/gal
+        alum_dosage = 10 * (pyunits.mg / pyunits.liter) # mg/L dosage rate
         
         self.chem_dict = chem_dict
         
-        time = self.flowsheet().config.time.first()
-        
+
         # capital costs basis
-        self.base_fixed_cap_cost = .0968 # + 1.6389? # ANNA - IS THIS USED?!?!?
+        self.base_fixed_cap_cost = 0.0968 # + 1.6389? # ANNA - IS THIS USED?!?!?
         self.cap_scaling_exp =  1 # ANNA - IS THIS USED?!?!?
-        self.fixed_op_cost_scaling_exp = 0.7 # ANNA - IS THIS USED?!?!?
-        
+
         
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
@@ -204,35 +197,34 @@ see property package for documentation.}"""))
         
         # calculations are in GPM? ANNA CHECK
         def fixed_cap(flow_in):
-            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute) 
-                        # MGD to GPM
-
-            rapid_mix_basin_volume = (rapid_mix_retention_time / 60) * flow_in_gpm # gallons
+            flow_in_gpm = pyunits.convert(flow_in, to_units=pyunits.gallons / pyunits.minute)# MGD to GPM
+            rapid_mix_basin_volume = pyunits.convert(rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm # gallons
             floc_basin_volume = floc_retention_time * flow_in_gpm # gallons 
-            al2so43_dosage_lb_per_hour = al2so43_dosage * .00050073 * flow_in_gpm 
-            poly_dosage_lb_per_hour = poly_dosage * .00050073 * flow_in_gpm 
+            alum_flow = alum_dose * flow_in # kg / hr
+            alum_flow = alum_flow * 2.2046 # lb / hr
+            poly_flow = poly_dosage * flow_in # kg / hr
+            poly_flow = poly_flow * 2.2046 # lb / hr
 
             rapid_G = (7.0814 * rapid_mix_basin_volume + 33269) * rapid_mix_processes # $
-            floc_G = (952902 * floc_basin_volume/1000000 + 177335) * floc_processes # $
-            coag_injection = (212.32 * al2so43_dosage_lb_per_hour + 73225) * coag_processes # $
-            floc_injection = (13662 * poly_dosage_lb_per_hour * 24 + 20861) * floc_injection_processes # $
+            floc_G = (952902 * (floc_basin_volume * 1E-6)  + 177335) * floc_processes # $
+            coag_injection = (212.32 * alum_flow + 73225) * coag_processes # $
+            floc_injection = (13662 * poly_flow * 24 + 20861) * floc_injection_processes # $
 
-            return ((rapid_G + floc_G + coag_injection + floc_injection)/1000000) * tpec_tic # $M
+            return ((rapid_G + floc_G + coag_injection + floc_injection) * 1E-6) * tpec_tic # $M
 
 
         def electricity(flow_in): # TODO
-            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute) 
-                        # MGD to GPM
-            flow_in_m3h = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m**3/pyunits.hour) 
-                        # MGD to m3/hr
+            flow_in_gpm = pyunits.convert(flow_in, to_units=pyunits.gallons/pyunits.minute)  # MGD to GPM
+            flow_in_m3h = pyunits.convert(flow_in, to_units=pyunits.m**3/pyunits.hour) # MGD to m3/hr
 
-            rapid_mix_basin_volume = ((rapid_mix_retention_time / 60) * flow_in_gpm) / 264.172 # gallons to m3
+            rapid_mix_basin_volume = (pyunits.convert(rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm)
+            rapid_mix_basin_volume = pyunits.convert(rapid_mix_basin_volume, to_units=pyunits.m ** 3) # gallons to m3
 
-            rapid_mix_power_consumption = 900**2 * .001 * rapid_mix_basin_volume # W
+            rapid_mix_power_consumption = 900 ** 2 * 0.001 * rapid_mix_basin_volume # W
             rapid_mix_power = rapid_mix_power_consumption * rapid_mixers # W
 
             floc_basin_volume = floc_retention_time * flow_in_gpm / 264.172 # gallons to m3
-            floc_power_consumption = 80**2 * .001 * floc_basin_volume # W
+            floc_power_consumption = 80 ** 2 * 0.001 * floc_basin_volume # W
             floc_mix_power = floc_power_consumption * floc_mixers # W
 
             total_power = rapid_mix_power + floc_mix_power
@@ -242,7 +234,7 @@ see property package for documentation.}"""))
             
 
         # Get the inlet flow to the unit and convert to the correct units
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons/pyunits.day)
+
             
 
         # capital costs (unit: MM$) ---> TCI IN EXCEL

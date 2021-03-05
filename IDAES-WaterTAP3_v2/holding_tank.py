@@ -19,7 +19,8 @@ from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefa
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from cost_curves import cost_curve
+from scipy.optimize import curve_fit
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
@@ -109,19 +110,22 @@ see property package for documentation.}"""))
 		##########################################
 
 		### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-		base_fixed_cap_cost = 0.00344
-		cap_scaling_exp = 0.72093  # Carlsbad Treatment train VAR tab
 		time = self.flowsheet().config.time.first()
 		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
 		# get tic or tpec (could still be made more efficent code-wise, but could enough for now)
 		sys_cost_params = self.parent_block().costing_param
 		self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
 		tpec_tic = self.costing.tpec_tic
-		avg_storage_time = unit_params['avg_storage_time'] * pyunits.days
-		surge_cap = unit_params['surge_cap'] * pyunits.dimensionless
-		capacity_needed = (flow_in / pyunits.convert(avg_storage_time, to_units=pyunits.hr)) * 1 / (1 + surge_cap)
+		avg_storage_time = unit_params['avg_storage_time'] * pyunits.hours
+		capacity_needed = flow_in * avg_storage_time
 
-		# basis year for the unit model - based on reference for the method.
+		def power(x, a, b):
+			return a * x ** b
+
+		y = [0.151967998, 0.197927546, 0.366661915, 0.780071937, 1.745265206, 2.643560777, 4.656835949, 6.8784383]
+		x = [191.2, 375.6, 1101.1, 3030, 8806, 16908, 29610, 37854.1]
+		coeffs, _ = curve_fit(power, x, y)
+		a, b = coeffs[0], coeffs[1]
 		self.costing.basis_year = unit_basis_yr
 
 		# TODO -->> ADD THESE TO UNIT self.X
@@ -129,15 +133,8 @@ see property package for documentation.}"""))
 		chem_dict = {}
 		self.chem_dict = chem_dict
 
-		##########################################
-		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
-		##########################################
-
-		def solution_vol_flow(flow_in):  # m3/hr
-			return 0  # m3/day to gal/day
-
 		def fixed_cap(flow_in):
-			tank_cap = (base_fixed_cap_cost * tpec_tic * capacity_needed ** cap_scaling_exp)
+			tank_cap = a * capacity_needed ** b
 			return tank_cap
 
 		def electricity(flow_in):  # m3/hr
@@ -150,8 +147,5 @@ see property package for documentation.}"""))
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3
 
-		##########################################
-		####### GET REST OF UNIT COSTS ######
-		##########################################
 
 		module.get_complete_costing(self.costing)

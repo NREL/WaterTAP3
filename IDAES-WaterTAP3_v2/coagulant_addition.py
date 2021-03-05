@@ -152,7 +152,7 @@ see property package for documentation.}"""))
 			chemical_rate = flow_in * chemical_dosage  # kg/hr
 			chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
 			soln_vol_flow = chemical_rate / solution_density / ratio_in_solution
-			soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
+			soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.hour))
 			return soln_vol_flow  # m3/day to gal/day
 
 		def fixed_cap(flow_in):
