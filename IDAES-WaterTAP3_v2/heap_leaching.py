@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 12 10:41:21 2021
+Created on Tue Feb 16 11:46:39 2021
 
 @author: ksitterl
 """
@@ -44,13 +44,13 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "iron_and_manganese_removal"
+module_name = "heap_leaching"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2008
 
 
 # You don't really want to know what this decorator does
@@ -133,7 +133,6 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time],
                                   to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
@@ -141,25 +140,20 @@ see property package for documentation.}"""))
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
-
+        mining_capacity = unit_params['mining_capacity'] * (pyunits.tonnes / pyunits.day)
+        mine_equip = 0.00124 * mining_capacity ** 0.93454
+        mine_develop = 0.01908 * mining_capacity ** 0.43068
+        crushing = 0.0058 * mining_capacity ** 0.6651
+        leach = 0.0005 * mining_capacity ** 0.94819
+        stacking = 0.00197 * mining_capacity ** 0.77839
+        dist_recov = 0.00347 * mining_capacity ** 0.71917
+        subtotal = (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
+        other = 0.73 * subtotal
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
 
         # TODO -->> ADD THESE TO UNIT self.X
-        base_fixed_cap_cost = 12.18
-        cap_scaling_exp = 0.7
-        cap_scaling_val = 4732 * (pyunits.m ** 3 / pyunits.hour)
-        number_of_units = 6
-        filter_surf_area = 580 * pyunits.m ** 2
-        filter_surf_area = pyunits.convert(filter_surf_area, to_units=pyunits.ft ** 2)
-        air_water_ratio = 0.001 * pyunits.dimensionless  # v / v
-        air_flow_rate = air_water_ratio * cap_scaling_val
-        # Assumes 3 stage compressor, 85% efficiency
-        blower_power = (147.8 * (pyunits.hp / (pyunits.m ** 3 / pyunits.hour)) * air_flow_rate)
-        blower_power = pyunits.convert(blower_power, to_units=pyunits.kilowatt)
-        air_blower_cap = 100000  # fixed cost for air blower that should be changed
 
-        #### CHEMS ###
 
         chem_dict = {}
         self.chem_dict = chem_dict
@@ -169,15 +163,12 @@ see property package for documentation.}"""))
         ##########################################
 
         def fixed_cap(flow_in):
-            dual_media_filter_cap = 21377 + 38.319 * filter_surf_area
-            filter_backwash_cap = 92947 + 292.44 * filter_surf_area
-            total_cap_cost = (((air_blower_cap + filter_backwash_cap + (dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
-            cap_scaling_factor = flow_in / cap_scaling_val
-            fe_mn_cap = (cap_scaling_factor * total_cap_cost) ** cap_scaling_exp
-            return fe_mn_cap
+            heap_cap = other + subtotal
+
+            return heap_cap
 
         def electricity(flow_in):
-            electricity = blower_power / flow_in  # kWh / m3
+            electricity = 0
 
             return electricity
 

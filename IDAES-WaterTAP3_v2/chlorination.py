@@ -239,7 +239,7 @@ see property package for documentation.}"""))
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = get_chlorine_dose_cost(flow_in, self.applied_cl2_dose) # $M
         
-        chem_name = unit_params["chemical_name"][0]
+        chem_name = unit_params["chemical_name"]
         chem_dict = {chem_name : self.applied_cl2_dose / 1000}
         self.chem_dict = chem_dict
                 
