@@ -20,74 +20,92 @@ global pfd_dict  # this is set in function so not global.
 
 from water_props import WaterParameterBlock
 
-from pyomo.environ import (Block)
 
-case_study_library = pd.read_csv("data/case_study_library.csv")  # TODO EDIT THIS TO READ EXCEL FILE - ARIEL
+from pyomo.environ import (
+    Block)
 
+case_study_library = pd.read_csv("data/case_study_library.csv") #TODO EDIT THIS TO READ EXCEL FILE - ARIEL
 
-def get_case_study(flow=None, m=None):
-	# get source water information that will be used to get the flow in if not specified
-	df_source = wt.importfile.feedwater(input_file="data/case_study_water_sources.csv", reference=source_water["reference"], water_type=source_water["water_type"],
-		case_study=source_water["case_study"], scenario=source_water["scenario"])
+    
+def get_case_study(flow = None, m = None):    
+    
+        
+    # get source water information that will be used to get the flow in if not specified
+    df_source = wt.importfile.feedwater(
+        input_file="data/case_study_water_sources.csv",
+        reference = source_water["reference"], 
+        water_type = source_water["water_type"], 
+        case_study = source_water["case_study"],
+        scenario = source_water["scenario"])
+    
+    if isinstance(source_water['water_type'], list) and not flow:
+        flow = {}
+        for water in source_water['water_type']:
+            temp = df_source[df_source.water_type == water]
+            flow[water] = temp.loc['flow'].value
+    elif not flow:
+        flow = df_source.loc['flow'].value
 
-	# set the flow based on the case study if not specified.
-	if flow is None: flow = df_source.loc["flow"].value
+    #set the flow based on the case study if not specified.
+#     if flow is None: fow = df_source.loc["flow"].value
+        
+    case_study_library = "data/case_study_train_input_test.xlsx"
 
-	case_study_library = "data/case_study_train_input_test.xlsx"
+    # set up tables of design (how units are connected) and units (list of all units needed for the train)
+    #df_design = pd.read_excel(case_study_library, sheet_name='design')
+    df_units = pd.read_excel(case_study_library, sheet_name='units')
+    df_units = filter_df(df_units)
 
-	# set up tables of design (how units are connected) and units (list of all units needed for the train)
-	# df_design = pd.read_excel(case_study_library, sheet_name='design')
-	df_units = pd.read_excel(case_study_library, sheet_name='units')
-	df_units = filter_df(df_units)
+    ### create pfd_dictionary for treatment train
+    m.fs.pfd_dict = get_pfd_dict(df_units)
+    pfd_dict = m.fs.pfd_dict
+    
+    # create the constituent list for the train that is automatically used to edit the water property package.
+    import generate_constituent_list
+    import financials
+    generate_constituent_list.train = train
+    generate_constituent_list.source_water = source_water
+    generate_constituent_list.pfd_dict = pfd_dict
+    
+    financials.train = train
+    financials.source_water = source_water
+    financials.pfd_dict = pfd_dict
+    financials.get_system_specs(m.fs, train)
+    
+    train_constituent_list = generate_constituent_list.run()
+    
+    # add the water parameter block to generate the list of constituent variables in the model
+    m.fs.water = WaterParameterBlock()
 
-	### create pfd_dictionary for treatment train
-	m.fs.pfd_dict = get_pfd_dict(df_units)
-	pfd_dict = m.fs.pfd_dict
-
-	# create the constituent list for the train that is automatically used to edit the water property package.
-	import generate_constituent_list
-	import financials
-	generate_constituent_list.train = train
-	generate_constituent_list.source_water = source_water
-	generate_constituent_list.pfd_dict = pfd_dict
-
-	financials.train = train
-	financials.source_water = source_water
-	financials.pfd_dict = pfd_dict
-	financials.get_system_specs(m.fs, train)
-
-	train_constituent_list = generate_constituent_list.run()
-
-	# add the water parameter block to generate the list of constituent variables in the model
-	m.fs.water = WaterParameterBlock()
-
-	# add units to model
-	for key in pfd_dict.keys():
-		print(key)
-		m = wt.design.add_unit_process(m=m, unit_process_name=key, unit_process_type=pfd_dict[key]['Unit'])
-
-	# create a dictionary with all the arcs in the network based on the pfd_dict
-	m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
-	m.fs.arc_dict = arc_dict
-
-	# gets list of unit processes and ports that need either a splitter or mixer
-	splitter_list, mixer_list = check_split_mixer_need(arc_dict)
-
-	# add the mixers if needed, and add the arcs around the mixers to the arc dictionary
-	m, arc_dict, mixer_i, arc_i = create_mixers(m, mixer_list, arc_dict, arc_i)
-
-	# add the splitters if needed, and add the arcs around the splitters to the arc dictionary
-	m, arc_dict, splitter_i, arc_i = create_splitters(m, splitter_list, arc_dict, arc_i)
-
-	# add the arcs to the model
-	m = create_arcs(m, arc_dict)
-
-	# add the waste arcs to the model
-	m, arc_i, mixer_i = add_waste_streams(m, arc_i, pfd_dict, mixer_i)
-
-	return m
+    # add units to model
+    for key in pfd_dict.keys():
+        print(key)
+        m = wt.design.add_unit_process(m = m, 
+                                       unit_process_name = key, 
+                                       unit_process_type = pfd_dict[key]['Unit'])
 
 
+    # create a dictionary with all the arcs in the network based on the pfd_dict
+    m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
+    m.fs.arc_dict = arc_dict
+        
+    # gets list of unit processes and ports that need either a splitter or mixer 
+    splitter_list, mixer_list = check_split_mixer_need(arc_dict)
+    
+    # add the mixers if needed, and add the arcs around the mixers to the arc dictionary
+    m, arc_dict, mixer_i, arc_i = create_mixers(m, mixer_list, arc_dict, arc_i)
+    
+    # add the splitters if needed, and add the arcs around the splitters to the arc dictionary
+    m, arc_dict, splitter_i, arc_i = create_splitters(m, splitter_list, arc_dict, arc_i)
+    
+    # add the arcs to the model
+    m = create_arcs(m, arc_dict) 
+    
+    # add the waste arcs to the model
+    m, arc_i, mixer_i = add_waste_streams(m, arc_i, pfd_dict, mixer_i)
+
+    return m
+    
 ### create pfd_dictionary for treatment train
 def get_pfd_dict(df_units):
 	### create pfd_dictionary for treatment train
@@ -132,8 +150,60 @@ def create_arcs(m, arc_dict):
 
 # create arc dictionary, add sources, add source to inlet arcs
 def create_arc_dict(m, pfd_dict, flow):
-	arc_dict = {}
-	arc_i = 1
+    arc_dict = {}
+    arc_i = 1
+
+
+    for key in pfd_dict.keys():
+        #print(key)
+        # if the unit is an intake process
+        if pfd_dict[key]["Type"] == "intake":
+            source_exists = False
+            num_sources = len(pfd_dict[key]["Parameter"]["source_type"])
+            num_unique_sources = len(np.unique(pfd_dict[key]["Parameter"]["source_type"]))
+
+            ### check if multiple sources with same name for 1 intake
+            if num_sources != num_unique_sources:
+                print("error: multiple sources with same name for 1 intake")
+
+            for node in range(0, len(pfd_dict[key]["Parameter"]["source_type"])):
+                node_name = pfd_dict[key]["Parameter"]["source_type"][node]
+
+                if isinstance(source_water["water_type"], list):
+                    source_name = source_water["water_type"][node]
+                    water_type = source_water["water_type"][node]
+                    reference = source_water["reference"][node]
+                    case_study = source_water["case_study"][node]
+                    source_flow = flow[source_name]
+                else:
+                    source_name = node_name
+                    water_type = source_water["water_type"]
+                    reference = source_water["reference"]
+                    case_study = source_water["case_study"]
+                    source_flow = flow
+
+                m = wt.design.add_water_source(m = m, source_name = source_name, 
+                                               reference = reference, water_type = water_type, 
+                                     case_study = case_study, flow = source_flow)
+
+                arc_dict[arc_i] = [source_name, "outlet", key, "inlet"] 
+                arc_i = arc_i + 1   
+    
+    
+    # create arcs *for single streams* from .csv table.
+    for key in pfd_dict.keys():
+        if pfd_dict[key]["FromPort"] is not np.nan:
+            if isinstance(pfd_dict[key]["FromPort"], list):
+                for port_i in range(0, len(pfd_dict[key]["FromPort"])):
+                    arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"][port_i],
+                                       pfd_dict[key]["ToUnitName"][port_i], "inlet"]
+                    arc_i = arc_i + 1
+            else:
+                arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"], pfd_dict[key]["ToUnitName"], "inlet"]
+                arc_i = arc_i + 1
+    
+    return m, arc_dict, arc_i
+    
 
 	for key in pfd_dict.keys():
 
@@ -141,12 +211,15 @@ def create_arc_dict(m, pfd_dict, flow):
 		if pfd_dict[key]["Type"] == "intake":
 			source_exists = False
 
-			num_sources = len(pfd_dict[key]["Parameter"]["source_type"])
-			num_unique_sources = len(np.unique(pfd_dict[key]["Parameter"]["source_type"]))
 
-			### check if multiple sources with same name for 1 intake
-			if num_sources != num_unique_sources:
-				print("error: multiple sources with same name for 1 intake")
+        # FOR MIXER    
+        if [arc_dict[key][2], arc_dict[key][3]] not in unique_name_list2: 
+            unique_name_list2.append([arc_dict[key][2], arc_dict[key][3]])
+        else:
+            if [arc_dict[key][2], arc_dict[key][3]] not in mixer_list: 
+                mixer_list.append([arc_dict[key][2], arc_dict[key][3]])
+    print(mixer_list)
+    return splitter_list, mixer_list
 
 			for node in range(0, len(pfd_dict[key]["Parameter"]["source_type"])):
 
@@ -173,57 +246,50 @@ def create_arc_dict(m, pfd_dict, flow):
 				arc_dict[arc_i] = [source_name, "outlet", key, "inlet"]
 				arc_i = arc_i + 1
 
-				# create arcs *for single streams* from .csv table.
-	for key in pfd_dict.keys():
-		if pfd_dict[key]["FromPort"] is not np.nan:
-			if isinstance(pfd_dict[key]["FromPort"], list):
-				for port_i in range(0, len(pfd_dict[key]["FromPort"])):
-					arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"][port_i], pfd_dict[key]["ToUnitName"][port_i], "inlet"]
-					arc_i = arc_i + 1
-			else:
-				arc_dict[arc_i] = [key, pfd_dict[key]["FromPort"], pfd_dict[key]["ToUnitName"], "inlet"]
-				arc_i = arc_i + 1
+    # get number of units going to automatic waste disposal units
+    i = 0
+    waste_inlet_list = []
+    
+    if "surface_discharge" in pfd_dict.keys():
+    
+        for b_unit in m.fs.component_objects(Block, descend_into=False):
+            if hasattr(b_unit, 'waste'):
 
-	return m, arc_dict, arc_i
+                if len(getattr(b_unit, "waste").arcs()) == 0:
+                    if str(b_unit)[3:] in list(pfd_dict.keys()): #
+                        if pfd_dict[str(b_unit)[3:]]["Type"] == "treatment":
+                            i = i + 1
+                            waste_inlet_list.append(("inlet%s" % i))
 
+        if len(waste_inlet_list) > 1:
+            i = 0
+            waste_mixer = "mixer%s" % mixer_i
+            setattr(m.fs, waste_mixer,
+                    Mixer1(default={"property_package": m.fs.water, "inlet_list": waste_inlet_list}))
 
-# check if a mixer or splitter is needed
-def check_split_mixer_need(arc_dict):
-	mixer_list = []
-	splitter_list = []
-	unique_name_list1 = []
-	unique_name_list2 = []
+            for b_unit in m.fs.component_objects(Block, descend_into=False):
+                 if hasattr(b_unit, 'waste'):
 
-	for key in arc_dict.keys():
-		# FOR SPLITTER
-		if [arc_dict[key][0], arc_dict[key][1]] not in unique_name_list1:
-			unique_name_list1.append([arc_dict[key][0], arc_dict[key][1]])
-		else:
-			if [arc_dict[key][0], arc_dict[key][1]] not in splitter_list:
-				splitter_list.append([arc_dict[key][0], arc_dict[key][1]])
+                    if len(getattr(b_unit, "waste").arcs()) == 0:
 
-		# FOR MIXER
-		if [arc_dict[key][2], arc_dict[key][3]] not in unique_name_list2:
-			unique_name_list2.append([arc_dict[key][2], arc_dict[key][3]])
-		else:
-			if [arc_dict[key][2], arc_dict[key][3]] not in mixer_list:
-				mixer_list.append([arc_dict[key][2], arc_dict[key][3]])
+                        if str(b_unit)[3:] in list(pfd_dict.keys()):
+                            if pfd_dict[str(b_unit)[3:]]["Type"] == "treatment":
+                                i = i + 1
+                                setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(b_unit, "waste"),  
+                                                                   destination = getattr(getattr(m.fs, waste_mixer),
+                                                                                         "inlet%s" % i)))
+                                arc_i = arc_i + 1
 
-	return splitter_list, mixer_list
+            # add connection for waste mixer to surface dicharge -->
+            if "surface_discharge" in list(pfd_dict.keys()):
+                setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(m.fs, waste_mixer).outlet,  
+                                                                   destination = getattr(m.fs, "surface_discharge").inlet))
+                arc_i = arc_i + 1
+        return m, arc_i, mixer_i
 
-
-def create_mixers(m, mixer_list, arc_dict, arc_i):
-	mixer_i = 1
-	inlet_i = 1
-	for j in mixer_list:
-		inlet_list = []
-		mixer_name = "mixer%s" % mixer_i
-		for key in list(arc_dict.keys()):
-			if ((arc_dict[key][2] == j[0]) & (arc_dict[key][3] == j[1])):
-				# inlet list for when mixer is added to model
-				inlet_name = "inlet%s" % inlet_i
-				inlet_list.append(inlet_name)
-				inlet_i = inlet_i + 1
+    else:  
+        return m, arc_i, mixer_i
+        
 
 				# add new arc to arc dict
 				arc_dict[arc_i] = [arc_dict[key][0], arc_dict[key][1], mixer_name, inlet_name]

@@ -62,12 +62,12 @@ factor_membrane_replacement = 0.2
 pump_cost = 53 / 1e5 * 3600 #$ per w
 pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
 a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
-pressure_in = 50 #bar pressure at inlet. should be unfixed.
+pressure_in = 65 #bar pressure at inlet. should be unfixed.
 p_atm = 1 #bar atmospheric pressure
 #p_ret = p_in - pressure_drop # momentum balance
 pw = 1000 # density of water kg/m3
 b_constant = 3.5e-8 # Salt permeability coefficient m s-1
-        
+membrane_area_in = 50    
 ##########################################
 ##########################################
 
@@ -232,7 +232,7 @@ see property package for documentation.}"""))
             self.pressure = Var(time,
                                   initialize=50,
                                   domain=NonNegativeReals,
-                                  bounds=(10, 85),
+                                  bounds=(10, 100),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         def set_water_flux(self):
@@ -256,12 +256,19 @@ see property package for documentation.}"""))
                 set_water_flux(b)    
         
         self.membrane_area = Var(time,
-                      initialize=40,
+                      initialize=4000,
                       domain=NonNegativeReals,
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
-        self.membrane_area.fix(50) # area per module m2
+        if unit_params == None:
+            self.membrane_area.fix(membrane_area_in) # area per module m2
+            feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.    
+        else:
+            self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
+            feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
+        #self.membrane_area = 50 * 1000 * self.flow_vol_in[t]
+        
         
         ########################################################################
         ########################################################################                                     
@@ -297,8 +304,7 @@ see property package for documentation.}"""))
             == 8.45e7 * feed.osm_coeff[t]* feed.mass_frac_tds[t]#bar
         )
 
-        feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.
-        
+               
         # get water flux in
         feed.water_flux_eq = Constraint(
             expr= feed.water_flux[t] == pw* a*((feed.pressure[t] - p_atm) 
@@ -357,7 +363,7 @@ see property package for documentation.}"""))
             expr = self.conc_mass_out[t, "tds"] == permeate.conc_mass_total[t] * permeate.mass_frac_tds[t]*1e-6
         )            
         permeate.eq3 = Constraint(
-            expr = permeate.mass_flow_h20[t] == 0.5 * self.membrane_area[t] 
+            expr = permeate.mass_flow_h20[t] == 0.5 * self.membrane_area[t]
             * (feed.water_flux[t] + retenate.water_flux[t])
         )
         permeate.eq4 = Constraint(
@@ -420,11 +426,12 @@ see property package for documentation.}"""))
         # pump capital cost
         # DOES NOT WORK: b_cost.pump_capital_cost = self.pump_power * pump_cost # cost is per W
         # BELOW IS MGD BASED OFF EXCEL WATER PUMPING
-        b_cost.pump_capital_cost = 40299 * (22.824465227271 * self.flow_vol_in[t]) ** .8657
+        #b_cost.pump_capital_cost = 40299 * (22.824465227271 * self.flow_vol_in[t]) ** .8657
+        b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         
         # total capital investment
         b_cost.fixed_cap_inv_unadjusted = (self.costing.pump_capital_cost 
-        + self.costing.mem_capital_cost) * 1e-6 #$MM
+        + self.costing.mem_capital_cost + b_cost.erd_capital_cost) * 1e-6 #$MM
         
         
         ################ operating
