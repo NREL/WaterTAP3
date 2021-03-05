@@ -144,7 +144,7 @@ see property package for documentation.}"""))
 		def fixed_cap(flow_in):
 			source_cost = cost_coeffs[0] * flow_in ** cost_coeffs[1]  # $
 
-			return source_cost * tpec_tic * 1E-6  # M$
+			return source_cost * 1E-6  # M$
 
 		def electricity(flow_in):  # m3/hr
 			electricity = elect_coeffs[0] * flow_in ** elect_coeffs[1]  # kWh/m3
