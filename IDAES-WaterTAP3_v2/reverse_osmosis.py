@@ -176,34 +176,34 @@ see property package for documentation.}"""))
         # Mass Fraction
         def set_flow_mass(self):
             self.mass_flow_h20 = Var(time,
-                                  initialize=0.35,
+                                  #initialize=1000,
                                   domain=NonNegativeReals,
                                   units=units_meta("mass")/units_meta("time"),
                                   doc="mass flow rate")
             
             self.mass_flow_tds = Var(time,
-                                  initialize=0.35,
+                                  #initialize=50,
                                   domain=NonNegativeReals,
                                   units=units_meta("mass")/units_meta("time"),
                                   doc="mass flow rate")            
         
         def set_mass_frac(self):
             self.mass_frac_h20 = Var(time,
-                                  initialize=0.35,
+                                  #initialize=0.75,
                                   #domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
                                   doc="mass_fraction")
                         
             self.mass_frac_tds = Var(time,
-                                  initialize=0.35,
+                                  #initialize=0.35,
                                   #domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
                                   doc="mass_fraction")
                                     
-        def set_pressure_osm(self): # BAR
+        def set_pressure_osm(self): # 
             self.pressure_osm = Var(time,
-                                  initialize=50,
-                                  #domain=NonNegativeReals,
+                                  #initialize=20,
+                                  domain=NonNegativeReals,
                                   #units=pyunits.dimensionless,
                                   doc="x")
             
@@ -216,29 +216,32 @@ see property package for documentation.}"""))
             
         def set_conc_mass(self):
             self.conc_mass_h20 = Var(time,
-                                  initialize=0.35,
-                                  #domain=NonNegativeReals,
+                                  #initialize=900,
+                                  domain=NonNegativeReals,
                                   units=units_meta("mass")/units_meta("volume"),
                                   doc="h20 mass density")               
             
             self.conc_mass_total = Var(time,
-                                  initialize=1,
-                                  #domain=NonNegativeReals,
+                                  #initialize=1000,
+                                  domain=NonNegativeReals,
                                   units=units_meta("mass")/units_meta("volume"),
                                   doc="density")
     
   
         def set_pressure(self):
             self.pressure = Var(time,
-                                  initialize=50,
+                                  initialize=30,
                                   domain=NonNegativeReals,
-                                  bounds=(10, 100),
+                                  bounds=(5, 90),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         def set_water_flux(self):
             self.water_flux = Var(time,
-                                  initialize=1,
-                                  #domain=NonNegativeReals,
+                                  initialize=5e-3,
+                                  bounds=(1e-4, 1e3),
+                                  units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
+                                  domain=NonNegativeReals,
+                                  #bounds=(0.001, 0.05),
                                   #units=pyunits.dimensionless,
                                   doc="water flux")  
                                        
@@ -256,8 +259,9 @@ see property package for documentation.}"""))
                 set_water_flux(b)    
         
         self.membrane_area = Var(time,
-                      initialize=4000,
+                      initialize=1e5,
                       domain=NonNegativeReals,
+                      bounds=(1e4, 1e9),
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
@@ -291,7 +295,6 @@ see property package for documentation.}"""))
         feed.eq5 = Constraint(
             expr = feed.mass_frac_tds[t] * (feed.mass_flow_h20[t] + feed.mass_flow_tds[t]) 
             == feed.mass_flow_tds[t]
-            #* feed.conc_mass_total[t] == self.conc_mass_in[t, "tds"] 
         )        
         feed.eq6 = Constraint(
             expr = feed.mass_frac_h20[t] == 1 - feed.mass_frac_tds[t]
@@ -408,16 +411,33 @@ see property package for documentation.}"""))
         b_cost = self.costing
         ########################################################################          
         
+        def fixed_cap_mcgiv(wacs):
+
+            Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
+            Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
+            
+            #mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
+            #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
+            if unit_params is None:
+                return Single_Pass_FCI
+            else:
+                if unit_params["pass"] == "first": 
+                    return Single_Pass_FCI
+                if unit_params["pass"] == "second":
+                    return (Two_Pass_FCI - Single_Pass_FCI)
+
+        
+        
          ################ Electricity consumption is assumed to be only the pump before the RO unit 
         self.pressure_diff = (feed.pressure[t] - 1)*1e5 # assumes atm pressure before pump. change to Pa
-        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff / pump_eff) #w
+        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
         ########################################################################  
         
         ################ Energy Recovery
         x_value = (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t]) / retenate.conc_mass_total[t] * 3600
         
         b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
-        
+        self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / 0.95
                 
         ################ captial
         # membrane capital cost       
@@ -430,6 +450,7 @@ see property package for documentation.}"""))
         b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         
         # total capital investment
+        #b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)
         b_cost.fixed_cap_inv_unadjusted = (self.costing.pump_capital_cost 
         + self.costing.mem_capital_cost + b_cost.erd_capital_cost) * 1e-6 #$MM
         
@@ -441,8 +462,10 @@ see property package for documentation.}"""))
         
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
-        self.electricity = (self.pump_power / 1000) / self.flow_vol_out[t]
-        b_cost.electricity_cost = 1e-6*(self.pump_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
+        self.electricity = (self.pump_power / 1000) / (self.flow_vol_out[t]*3600) #kwh/m3
+        b_cost.pump_electricity_cost = 1e-6*(self.pump_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
+        b_cost.erd_electricity_sold = 1e-6*(self.erd_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
+        b_cost.electricity_cost = b_cost.pump_electricity_cost - b_cost.erd_electricity_sold
         
         self.chem_dict = {"unit_cost": 0.01} 
                 
