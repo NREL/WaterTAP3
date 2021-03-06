@@ -27,7 +27,7 @@ appropriate)
 """
 import pandas as pd
 from pyomo.environ import (
-    Block, Expression, Var, Param, NonNegativeReals, units as pyunits)
+    Block, Expression, Var, Param, Constraint, NonNegativeReals, units as pyunits)
 
 import ml_regression
 
@@ -296,8 +296,20 @@ def get_system_costing(self):
                     if b_unit.parent_block().pfd_dict[str(b_unit)[3:]]["Type"] == "use":
                         recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
                 else:
-                    recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
- 
+                    if "reverse_osmosis" in str(b_unit):
+                        recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
+    
+#     b.treated_water = Var(time,
+#                           #initialize=0.5,
+#                           #domain=NonNegativeReals,
+#                           #units=units_meta("volume")/units_meta("time"),
+#                           doc="mass flow rate")
+    
+#     # Treated water   
+#     self.treated_train_eq = Constraint(
+#         expr =  b.treated_water[time] == recovered_water_flow
+#     )    
+    
     b.treated_water = recovered_water_flow
    
     # TODO TOTAL WASTE = 

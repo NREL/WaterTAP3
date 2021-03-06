@@ -51,7 +51,8 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     
     if objective == True:
         #m.fs.objective_function = env.Objective(expr=m.fs.reverse_osmosis.flow_vol_in[0], sense=env.maximize)
-        m.fs.objective_function = env.Objective(expr=m.fs.costing.LCOW, sense=env.minimize)    
+        m.fs.objective_function = env.Objective(expr=m.fs.costing.LCOW, sense=env.minimize)
+        #m.fs.objective_function2 = env.Objective(expr=m.fs.municipal_drinking.flow_vol_in[0], sense=env.minimize)
     
     # Set up a solver in Pyomo and solve
     solver1 = SolverFactory('ipopt')
@@ -76,6 +77,10 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
                 print("----------------------------------------------------------------------")
                 print(b_unit)
                 b_unit.inlet.display()
+            if hasattr(b_unit, 'inlet1'):
+                print("----------------------------------------------------------------------")
+                print(b_unit)
+                b_unit.inlet1.display()
             if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
             if hasattr(b_unit, 'waste'): b_unit.waste.display()
             if hasattr(b_unit, 'costing'):
