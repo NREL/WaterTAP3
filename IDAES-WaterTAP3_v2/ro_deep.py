@@ -240,6 +240,8 @@ see property package for documentation.}"""))
         tds = self.conc_mass_in[time, "tds"] * 1000 # convert from kg/m3 to mg/L
         
         
+        self.pmax.fix(unit_params["feed_pressure"])
+        
         ################## DEEP METHOD ###########################################################
         ##### excludes the cost of water storage, transportation, distribution
         ##### *** are variables that are also in the watertap excel version of the DEEP mode                
@@ -249,8 +251,10 @@ see property package for documentation.}"""))
         
         
         dso = tds / (1-self.water_recovery[time]) # (ppm) brine salinity ***
-        dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery[time]))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
-
+        self.dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery[time]))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
+        
+        
+        
         #kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor*** ariel moved to top
         kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.water_recovery[time])))*tds # salinity correction factor***
         ndp = dflux/(nflux*kmscf) * ndpn * kmtcf/kmff # (bar) design net driving pressure ***
@@ -432,11 +436,17 @@ see property package for documentation.}"""))
         def fixed_cap_mcgiv(wacs):
 
             Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
-
+            Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
+            
             #mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
             #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
-
-            return Single_Pass_FCI
+            if unit_params is None:
+                return Single_Pass_FCI
+            else:
+                if unit_params["pass"] == "first": 
+                    return Single_Pass_FCI
+                if unit_params["pass"] == "second":
+                    return (Two_Pass_FCI - Single_Pass_FCI)
             
 
 
@@ -467,7 +477,7 @@ see property package for documentation.}"""))
 def get_additional_variables(self, units_meta, time):
     
     self.pmax = Var(time, initialize=50, units=pyunits.bar, doc="pmax")   
-    self.pmax.fix(85)   
+       
            
         
         

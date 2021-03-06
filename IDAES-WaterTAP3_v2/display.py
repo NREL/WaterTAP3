@@ -211,7 +211,7 @@ def show_train2(GG = None, model_name = None):
     for edge in GG.edges():
         GG2.add_edge(edge[0].getname(), edge[1].getname())
 
-    g = net.Network("1500px", "100%", notebook=True, directed=True, heading="")
+    g = net.Network("500px", "100%", notebook=True, directed=True, heading="")
     # g.show_buttons()
     g.from_nx(GG2)
     g.set_options(
