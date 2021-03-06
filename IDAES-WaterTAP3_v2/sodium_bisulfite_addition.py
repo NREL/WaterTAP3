@@ -126,8 +126,8 @@ see property package for documentation.}"""))
 		motor_eff = 0.9 * pyunits.dimensionless
 
 		#### CHEMS ###
-		chem_name = unit_params["chemical_name"][0]
-		chemical_dosage = unit_params['dose'] * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+		chem_name = unit_params["chemical_name"]
+		chemical_dosage = pyunits.convert(unit_params["dose"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))  # kg/m3
 		solution_density = 1480 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
 		chem_dict = {chem_name: chemical_dosage}
 		self.chem_dict = chem_dict

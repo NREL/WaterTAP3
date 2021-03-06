@@ -61,46 +61,46 @@ unit_basis_yr = 2006
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
 class UnitProcessData(UnitModelBlockData):
-	"""
+    """
     This class describes the rules for a zeroth-order model for a unit
     """
-	# The Config Block is used tpo process arguments from when the model is
-	# instantiated. In IDAES, this serves two purposes:
-	#     1. Allows us to separate physical properties from unit models
-	#     2. Lets us give users options for configuring complex units
-	# For WaterTAP3, this will mainly be boilerplate to keep things consistent
-	# with ProteusLib and IDAES.
-	# The dynamic and has_holdup options are expected arguments which must exist
-	# The property package arguments let us define different sets of contaminants
-	# without needing to write a new model.
-	CONFIG = ConfigBlock()
-	CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
+    # The Config Block is used tpo process arguments from when the model is
+    # instantiated. In IDAES, this serves two purposes:
+    #     1. Allows us to separate physical properties from unit models
+    #     2. Lets us give users options for configuring complex units
+    # For WaterTAP3, this will mainly be boilerplate to keep things consistent
+    # with ProteusLib and IDAES.
+    # The dynamic and has_holdup options are expected arguments which must exist
+    # The property package arguments let us define different sets of contaminants
+    # without needing to write a new model.
+    CONFIG = ConfigBlock()
+    CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-	CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
+    CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-	CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
+    CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-	CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
+    CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
 see property package for documentation.}"""))
 
-	from unit_process_equations import initialization
-	# unit_process_equations.get_base_unit_process()
+    from unit_process_equations import initialization
+    # unit_process_equations.get_base_unit_process()
 
-	# build(up_name = "treated_storage")
+    # build(up_name = "treated_storage")
 
-	def build(self):
-		import unit_process_equations
-		return unit_process_equations.build_up(self, up_name_test=module_name)
+    def build(self):
+        import unit_process_equations
+        return unit_process_equations.build_up(self, up_name_test=module_name)
 
-	def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
-		"""
+    def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
+        """
         We need a get_costing method here to provide a point to call the
         costing methods, but we call out to an external consting module
         for the actual calculations. This lets us easily swap in different
@@ -109,53 +109,47 @@ see property package for documentation.}"""))
         Within IDAES, the year argument is used to set the initial value for
         the cost index when we build the model.
         """
-		# Water pumping station power demands
-		# Adapted from Jenny's excel "Treated Water Storage" version in WaterTAP3 VAR tab
-		# https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
-		# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+        # Water pumping station power demands
+        # Adapted from Jenny's excel "Treated Water Storage" version in WaterTAP3 VAR tab
+        # https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
+        # Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
-		# First, check to see if global costing module is in place
-		# Construct it if not present and pass year argument
-		if not hasattr(self.flowsheet(), "costing"):
-			self.flowsheet().get_costing(module=module, year=year)
+        # First, check to see if global costing module is in place
+        # Construct it if not present and pass year argument
+        if not hasattr(self.flowsheet(), "costing"):
+            self.flowsheet().get_costing(module=module, year=year)
 
-		self.costing = Block()
+        self.costing = Block()
 
-		time = self.flowsheet().config.time.first()
+        time = self.flowsheet().config.time.first()
 
-		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
 
-		self.costing.basis_year = unit_basis_yr
-		a = 0.00344
-		b = 0.72093
-		self.storage_duration = unit_params["hours"] * pyunits.hours  # hours
-		capacity_needed = flow_in * self.storage_duration
+        self.costing.basis_year = unit_basis_yr
+        a = 0.00344
+        b = 0.72093
+        self.storage_duration = unit_params["hours"] * pyunits.hours  # hours
+        capacity_needed = flow_in * self.storage_duration
 
-		# capital costs basis
-		def fixed_cap(flow_in):
-			storage_cap = a * capacity_needed ** b
-			return storage_cap  # $MM
+        # capital costs basis
+        def fixed_cap(flow_in):
+            storage_cap = a * capacity_needed ** b
+            return storage_cap  # $MM
 
-		# Get the first time point in the time domain
-		# In many cases this will be the only point (steady-state), but lets be
-		# safe and use a general approach
+        # Get the first time point in the time domain
+        # In many cases this will be the only point (steady-state), but lets be
+        # safe and use a general approach
 
-		# capital costs (unit: MM$) ---> TCI IN EXCEL
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # The cost curve source includes 0.5% of annual maintenance
+        # capital costs (unit: MM$) ---> TCI IN EXCEL
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # The cost curve source includes 0.5% of annual maintenance
 
-		# electricity consumption
-		self.electricity = 0
+        # electricity consumption
+        self.electricity = 0
 
-		self.chem_dict = {}
+        self.chem_dict = {}
 
-		##########################################
-		####### GET REST OF UNIT COSTS ######
-		##########################################
+        ##########################################
+        ####### GET REST OF UNIT COSTS ######
+        ##########################################
 
-		module.get_complete_costing(self.costing)
-
-
-
-
-
-
+        module.get_complete_costing(self.costing)

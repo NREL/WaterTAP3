@@ -141,7 +141,7 @@ see property package for documentation.}"""))
 		co2 = 1.27  # mg/L NOT USED
 		bicarb_alk_CaCO3 = 0.56  # mg/L NOT USED
 		hydrox_alk_CaCO3 = 0.56  # mg/L NOT USED
-		chem_name = unit_params["chemical_name"][0]
+		chem_name = unit_params["chemical_name"]
 		magnesium_dissolved_lime = pyunits.convert(unit_params["lime"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
 		magnesium_dissolved_factor = 30 * pyunits.dimensionless  # TODO
 		chemical_dosage = magnesium_dissolved_factor * magnesium_dissolved_lime
