@@ -119,7 +119,6 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-
         cap_scaling_exp = 0.46  # Carlsbad Treatment train VAR tab
         fixed_op_cost_scaling_exp = 0.7
         time = self.flowsheet().config.time.first()
@@ -128,8 +127,9 @@ see property package for documentation.}"""))
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
-        # toc_in = self.conc_mass_in[time, "toc"] * (pyunits.mg / pyunits.liter)
-        toc_in = 10
+        toc_in = value(self.conc_mass_in[time, "toc"])
+        # print(f'\n\ntoc = {toc_in}\n\n')
+        # toc_in = 10
         contact_time = unit_params['contact_time']
         ct = unit_params['ct']
         mass_transfer = unit_params['mass_transfer']
