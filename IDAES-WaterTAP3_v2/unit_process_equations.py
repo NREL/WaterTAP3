@@ -115,7 +115,7 @@ def build_up(self, up_name_test=None):
                            initialize=1,
                            domain=NonNegativeReals,
                            units=units_meta("volume")/units_meta("time"),
-                           bounds=(1e-6, 1e2),
+                           bounds=(1e-8, 1e2),
                            doc="Volumetric flowrate of water into unit")
     self.conc_mass_in = Var(time,
                             self.config.property_package.component_list,

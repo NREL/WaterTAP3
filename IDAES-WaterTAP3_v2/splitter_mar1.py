@@ -136,23 +136,27 @@ see property package for documentation.}"""))
             setattr(self, p, Port(noruleinit=True, doc="Outlet Port")) #ARIEL  
 
             setattr(self, ("flow_vol_%s" % p), Var(time,
-                                    initialize=1,
+                                    #initialize=0.5,
+                                    domain=NonNegativeReals,
+                                    bounds=(1e-9, 1e2),
                                     units=units_meta("volume")/units_meta("time"),
                                     doc="Volumetric flowrate of water out of unit"))
 
             setattr(self, ("conc_mass_%s" % p), Var(time,
                                      self.config.property_package.component_list,
-                                     initialize=0,
+                                     initialize=1e-3,
                                      units=units_meta("mass")/units_meta("volume"),
                                      doc="Mass concentration of species at outlet"))
 
             setattr(self, ("pressure_%s" % p), Var(time,
                                     initialize=1e5,
+                                    domain=NonNegativeReals,
                                     units=units_meta("pressure"),
                                     doc="Pressure at outlet"))
 
             setattr(self, ("temperature_%s" % p), Var(time,
                                        initialize=300,
+                                       domain=NonNegativeReals,
                                        units=units_meta("temperature"),
                                        doc="Temperature at outlet"))
 
@@ -164,12 +168,14 @@ see property package for documentation.}"""))
         self.inlet = Port(noruleinit=True, doc="Inlet Port") #ARIEL
 
         self.flow_vol_in = Var(time,
-                                initialize=1,
+                                #initialize=1,
+                                domain=NonNegativeReals,
+                                bounds=(1e-9, 1e2),
                                 units=units_meta("volume")/units_meta("time"),
                                 doc="Volumetric flowrate of water out of unit")
         self.conc_mass_in = Var(time,
                                  self.config.property_package.component_list,
-                                 initialize=0,
+                                 initialize=1e-3,
                                  units=units_meta("mass")/units_meta("volume"),
                                  doc="Mass concentration of species at outlet")
         self.temperature_in = Var(time,
@@ -195,14 +201,20 @@ see property package for documentation.}"""))
 
         t = self.flowsheet().config.time.first() 
         
+
         for p in outlet_list:
             for j in self.config.property_package.component_list:
                 setattr(self, ("%s_%s_eq" % (p, j)), Constraint(expr = self.conc_mass_in[t, j] 
                                                         == getattr(self, ("conc_mass_%s" % p))[t, j]))
             
         for p in outlet_list:
-            setattr(self, ("%s_eq_flow" % p), Constraint(expr = self.split_fraction[t] * self.flow_vol_in[t]
-                                                    == getattr(self, ("flow_vol_%s" % p))[t]))
+            setattr(self, ("%s_eq_flow" % p), 
+                    Constraint(
+                        expr = self.split_fraction[t] * pyunits.convert(self.flow_vol_in[t], 
+                                                                        to_units=pyunits.m ** 3 / pyunits.hr)
+                                                    == pyunits.convert(getattr(self, ("flow_vol_%s" % p))[t],
+                    to_units=pyunits.m ** 3 / pyunits.hr)
+                    ))
 
         for p in outlet_list:
             setattr(self, ("%s_eq_temp" % (p)), Constraint(expr = self.temperature_in[t] 
@@ -210,43 +222,13 @@ see property package for documentation.}"""))
                 
         for p in outlet_list:
             setattr(self, ("%s_eq_pres" % (p)), Constraint(expr = self.pressure_in[t] 
-                                                    == getattr(self, ("pressure_%s" % p))[t]))                
-#         @self.Constraint(time,
-#                          outlet_list,
-#                          doc="Component removal equation")
-#         def flow_balance(b, t, o):        
-#             return self.split_fraction[t] * b.flow_vol_in[t] == getattr(b, ("flow_vol_%s" % o))[t]        
+                                                    == getattr(self, ("pressure_%s" % p))[t]))       
+            
+            
 
+#         for p in outlet_list:
+#             setattr(self, ("%s_eq_flow" % p), Constraint(expr = self.split_fraction[t] * self.flow_vol_in[t]
+#                                                     == getattr(self, ("flow_vol_%s" % p))[t]))
 
-#         @self.Constraint(time,
-#                          self.config.property_package.component_list,
-#                          doc="Component mass balances")
-#         def component_mass_balance(b, t, j):
-#             component_sum = 0
-#             for p in outlet_list:
-#                 component_sum = getattr(b, ("flow_vol_%s" % p))[t] * getattr(b, ("conc_mass_%s" % p))[t, j] + component_sum
-
-#             return component_sum == b.flow_vol_in[t]*b.conc_mass_in[t, j]       
-
-#         @self.Constraint(time, doc="Outlet temperature equation")
-#         def outlet_temperature_constraint(b, t):
-
-#             temperature_sum = 0 
-#             for p in outlet_list:
-#                 temperature_sum = getattr(b, ("temperature_%s" % p))[t] + temperature_sum
-
-#             return temperature_sum / len(outlet_list) == b.temperature_in[t]
-
-
-#         @self.Constraint(time, doc="Outlet pressure equation")
-#         def outlet_pressure_constraint(b, t):
-
-#             pressure_sum = 0 
-#             for p in outlet_list:
-#                 pressure_sum = getattr(b, ("pressure_%s" % p))[t] + pressure_sum            
-
-#             return pressure_sum / len(outlet_list) == b.pressure_in[t]  
-        
-        
-        
-        
+             
+    

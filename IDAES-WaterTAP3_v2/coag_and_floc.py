@@ -137,8 +137,8 @@ see property package for documentation.}"""))
 
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
-        alum_dose = pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
-        polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
+        alum_dose = 0 #pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
+        polymer_dose = 0 #pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
 
         an_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
         cat_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
@@ -185,7 +185,7 @@ see property package for documentation.}"""))
             coag_injection = (212.32 * alum_flow + 73225) * coag_processes  # $
             floc_injection = (13662 * poly_flow * 24 + 20861) * floc_injection_processes  # $
 
-            return ((rapid_G + floc_G + coag_injection + floc_injection) * 1E-6) * tpec_tic  # $M
+            return ((rapid_G + floc_G + coag_injection + floc_injection) * 1E-6) / 1000 # ariel fix to remove TPEc and div by 1000* tpec_tic  # $M
 
         def electricity(flow_in):  # TODO
             flow_in_gpm = pyunits.convert(flow_in, to_units=pyunits.gallons / pyunits.minute)  # MGD to GPM

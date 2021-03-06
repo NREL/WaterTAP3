@@ -40,7 +40,8 @@ def watertap_setup(dynamic = False):
     return m
 
 
-def run_water_tap(m = None, solver_results = False, print_model_results = False, objective=False):
+def run_water_tap(m = None, solver_results = False, print_model_results = False, 
+                  objective=False, return_results = True, max_attemps = 0):
     import financials
     financials.get_system_costing(m.fs)
     
@@ -55,7 +56,7 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
         #m.fs.objective_function2 = env.Objective(expr=m.fs.municipal_drinking.flow_vol_in[0], sense=env.minimize)
     
     # Set up a solver in Pyomo and solve
-    solver1 = SolverFactory('ipopt')
+    solver = SolverFactory('ipopt')
     #solver1.options = {'nlp_scaling_method': 'user-scaling'}
     #m.fs.initialize(optarg=solver1.options)
     
@@ -65,7 +66,25 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     
     print("degrees_of_freedom:", degrees_of_freedom(m))
     
-    solver1.solve(m, tee=solver_results)
+    #solver.options = {'nlp_scaling_method': 'user-scaling'}
+    #m.fs.initialize(optarg=solver.options)
+    
+    #solver.solve(m, tee=solver_results)
+    
+    results = solver.solve(m, tee=solver_results)
+    
+    attempt_number = 1
+    while ((results.solver.termination_condition == "infeasible") & (attempt_number <= max_attemps)):
+        print("WaterTAP3 solver returned an infeasible solution")
+        print("Running again with updated initial conditions --- attempt %s" % (attempt_number))
+        results = solver.solve(m, tee=solver_results)
+        
+        attempt_number = attempt_number + 1
+    
+    print("WaterTAP3 solution", results.solver.termination_condition)
+
+    if results.solver.termination_condition == "infeasible":
+        print("WaterTAP3 solver returned an infeasible FINAL solution. Check option to run model with updated initial conditions")
     
     if print_model_results == True:
     
@@ -87,7 +106,9 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
 
                 print("total_cap_investment:", b_unit.costing.total_cap_investment())
                 print("----------------------------------------------------------------------")
-
+       
+    if return_results == True: return results
+    
             
 def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
     import pandas as pd
