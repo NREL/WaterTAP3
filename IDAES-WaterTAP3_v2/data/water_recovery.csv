@@ -5,128 +5,128 @@
 3,Default,ZLD,1pt0_m_y_evaporation_ponds,0.0001,0.9999,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
 4,Default,,2pt0_m_y_evaporation_ponds,0.0515,,"Evaporation fractions defined from Lithium mining case study. Fractions can be variable, however, depending on designs and configurations. "
 5,Default,ZLD,2pt0_m_y_evaporation_ponds,0.0001,,ZLD evaporation ponds are assumed to have higher evaporation fractions. 
-14,Pulp_and_Paper,Baseline,aeration_basin,1,,Defined based on the Pulp and Paper case study data.
-15,Default,,aeration_tank,1,,Defined based on the Iron and Steel case study data.
-15,Iron_and_Steel,Baseline,aeration_tank,1,,Defined based on the Iron and Steel case study data.
-16,Default,,agglomoration_and_stacking_system,1,,Heap leaching (gold/copper) case study.
-16,Heap_Leaching,Baseline,agglomoration_and_stacking_system,1,,Heap leaching (gold/copper) case study.
-,Default,,agriculture,1,,
-,Default,,air_flotation,1,,
-17,Default,,ammonia_addition,1,,Based on costs for AQUA AMMONIA FEED 29% SOLUTION Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-18,Default,,anion_exchange,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-19,Default,,anti_oxidant_addition,1,,No specific references were identified. Costs are based on seemingly comparable addition systems. 
-20,Default,,anti_scalant_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+14,Pulp_and_Paper,Baseline,aeration_basin,0.9999,,Defined based on the Pulp and Paper case study data.
+15,Default,,aeration_tank,0.9999,,Defined based on the Iron and Steel case study data.
+15,Iron_and_Steel,Baseline,aeration_tank,0.9999,,Defined based on the Iron and Steel case study data.
+16,Default,,agglomoration_and_stacking_system,0.9999,,Heap leaching (gold/copper) case study.
+16,Heap_Leaching,Baseline,agglomoration_and_stacking_system,0.9999,,Heap leaching (gold/copper) case study.
+,Default,,agriculture,0.9999,,
+,Default,,air_flotation,0.9999,,
+17,Default,,ammonia_addition,0.9999,,Based on costs for AQUA AMMONIA FEED 29% SOLUTION Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+18,Default,,anion_exchange,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+19,Default,,anti_oxidant_addition,0.9999,,No specific references were identified. Costs are based on seemingly comparable addition systems. 
+20,Default,,anti_scalant_addition,0.9999,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 21,Default,,backwash_solids_handling,0.95,,Based on costs for Solids Handling in Table 5.7.1 in Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura). Recovery is an assumption considering recovered solids will have moisture content. 
-,Default,,basic_unit,1,,
-27,Default,,bioreactor,1,,Defined based on the San Luis case study data.
-27,San_Luis,Baseline,bioreactor,1,,Defined based on the San Luis case study data.
-28,Default,,bioreactor_bw_pump,1,,Defined based on the San Luis case study data.
-28,San_Luis,Baseline,bioreactor_bw_pump,1,,Defined based on the San Luis case study data.
-26,Default,,bioreactor_effluent_pump,1,,Defined based on the San Luis case study data.
-26,San_Luis,Baseline,bioreactor_effluent_pump,1,,Defined based on the San Luis case study data.
-29,Default,,bioreactor_feed_pump,1,,Defined based on the San Luis case study data.
-29,San_Luis,Baseline,bioreactor_feed_pump,1,,Defined based on the San Luis case study data.
-30,Default,,blending_reservoir,1,,Defined based on the San Luis case study data.
-30,San_Luis,Baseline,blending_reservoir,1,,Defined based on the San Luis case study data.
+,Default,,basic_unit,0.9999,,
+27,Default,,bioreactor,0.9999,,Defined based on the San Luis case study data.
+27,San_Luis,Baseline,bioreactor,0.9999,,Defined based on the San Luis case study data.
+28,Default,,bioreactor_bw_pump,0.9999,,Defined based on the San Luis case study data.
+28,San_Luis,Baseline,bioreactor_bw_pump,0.9999,,Defined based on the San Luis case study data.
+26,Default,,bioreactor_effluent_pump,0.9999,,Defined based on the San Luis case study data.
+26,San_Luis,Baseline,bioreactor_effluent_pump,0.9999,,Defined based on the San Luis case study data.
+29,Default,,bioreactor_feed_pump,0.9999,,Defined based on the San Luis case study data.
+29,San_Luis,Baseline,bioreactor_feed_pump,0.9999,,Defined based on the San Luis case study data.
+30,Default,,blending_reservoir,0.9999,,Defined based on the San Luis case study data.
+30,San_Luis,Baseline,blending_reservoir,0.9999,,Defined based on the San Luis case study data.
 31,Default,,brine_concentrator_us_bor,calculated,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 32,Default,,brine_concentrator_waterreuse,calculated,,U.S. Department of the Interior Bureau of Reclamation - SOUTHERN CALIFORNIA REGIONAL BRINE-CONCENTRATE MANAGEMENT STUDY – PHASE I
 33,Default,,brine_ro,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
-,Default,,buffer_tank,1,,
-35,Default,,cartridge_filtration,1,,Texas Water Development Board IT3PR User Manual
+,Default,,buffer_tank,0.9999,,
+35,Default,,cartridge_filtration,0.9999,,Texas Water Development Board IT3PR User Manual
 34,Default,,cartridge_filtration_with_backflush,0.9,,Defined based on the Carlsbad case study data.
-36,Default,,cas,1,,Texas Water Development Board IT3PR User Manual
-37,Default,,cas_denitrif,1,,Texas Water Development Board IT3PR User Manual
-38,Default,,cas_nitrif,1,,Texas Water Development Board IT3PR User Manual
-39,Default,,cation_exchange,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-40,Default,,caustic_soda_addition,1,,Based on costs for Sodium Hydroxide Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-41,Default,,chlorination,1,,Texas Water Development Board IT3PR User Manual
-42,Default,,chlorine_addition_cylinder,1,,Based on costs for Chlorine Storage and Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+36,Default,,cas,0.9999,,Texas Water Development Board IT3PR User Manual
+37,Default,,cas_denitrif,0.9999,,Texas Water Development Board IT3PR User Manual
+38,Default,,cas_nitrif,0.9999,,Texas Water Development Board IT3PR User Manual
+39,Default,,cation_exchange,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+40,Default,,caustic_soda_addition,0.9999,,Based on costs for Sodium Hydroxide Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+41,Default,,chlorination,0.9999,,Texas Water Development Board IT3PR User Manual
+42,Default,,chlorine_addition_cylinder,0.9999,,Based on costs for Chlorine Storage and Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 43,Default,,clarifier,0.999,,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
-44,Default,,co2_addition,1,,No specific references were identified. Based on costs for Chlorine Storage and Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-45,Default,,coag_and_floc,1,,"(1) https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagulation.pdf, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.iwapublishing.com/news/coagulation-and-flocculation-water-and-wastewater-treatment, (4) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)."
-46,Default,,coagulant_addition,1,,Based on costs for Aluminum Sulfate (Liquid Alum Feed) from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+44,Default,,co2_addition,0.9999,,No specific references were identified. Based on costs for Chlorine Storage and Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+45,Default,,coag_and_floc,0.9999,,"(1) https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagulation.pdf, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.iwapublishing.com/news/coagulation-and-flocculation-water-and-wastewater-treatment, (4) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)."
+46,Default,,coagulant_addition,0.9999,,Based on costs for Aluminum Sulfate (Liquid Alum Feed) from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 47,Default,,coal_plant_cooling_tower,0.25,0.75,Based on Vogtle case study data. No costs for WT3 treatment.
 48,Default,,crystallizer_waterreuse,0.95,,Default value based on 5% purge rate per source. Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
-49,Default,,decarbonator_waterreuse,1,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
-50,Default,,deep_bed_filtration,1,,Texas Water Development Board IT3PR User Manual
-51,Default,,deep_well,1,,Placeholder. Not utilized in any case studies. 
-117,Default,,deep_well_injection,1,,
-52,Default,,direct_injection,1,,Texas Water Development Board IT3PR User Manual
-53,Default,,drainage_sump_pump1,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
-54,Default,,drainage_sump_pump2,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+49,Default,,decarbonator_waterreuse,0.9999,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
+50,Default,,deep_bed_filtration,0.9999,,Texas Water Development Board IT3PR User Manual
+51,Default,,deep_well,0.9999,,Placeholder. Not utilized in any case studies. 
+117,Default,,deep_well_injection,0.9999,,
+52,Default,,direct_injection,0.9999,,Texas Water Development Board IT3PR User Manual
+53,Default,,drainage_sump_pump1,0.9999,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+54,Default,,drainage_sump_pump2,0.9999,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 55,Default,,dual_media_filtration,0.99,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 56,Default,,electro_deionization,0.99,,Placeholder. Not utilized in any case studies. 
 57,Default,,electrodialysis_reversal,0.92234,,"(1) Based on costs from Fort Irwin / Irwin Water Works case study including ""Project Compares Brackish Water Desalination Technologies, Parts 1 and 2"". (2) Energy costs from 80% Current Efficiency Basis ==> https://www.saltworkstech.com/articles/what-is-electrodialysis-reversal-and-its-new-innovations/"
-58,Default,,engineered_buffer_with_chloramine,1,,Texas Water Development Board IT3PR User Manual
-59,Default,,engineered_buffer_with_chlorine,1,,Texas Water Development Board IT3PR User Manual
+58,Default,,engineered_buffer_with_chloramine,0.9999,,Texas Water Development Board IT3PR User Manual
+59,Default,,engineered_buffer_with_chlorine,0.9999,,Texas Water Development Board IT3PR User Manual
 60,Default,ZLD,evaporation_pond_waterreuse,0.0001,0.9999,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 61,Default,,fc_crystallizer_us_bor,0.95,,Default value based on 5% purge rate per source. U.S. Department of the Interior Bureau of Reclamation - SOUTHERN CALIFORNIA REGIONAL BRINE-CONCENTRATE MANAGEMENT STUDY – PHASE I BRINE-CONCENTRATE TREATMENT AND DISPOSAL OPTIONS REPORT
-62,Default,,feed_water_tank,1,,Placeholder. Not utilized in any case studies. 
-63,Default,,ferric_chloride_addition,1,,Based on costs for Ferric Choride Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-23,Default,,fixed_bed_gravity_basin,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-24,Default,,fixed_bed_pressure_vessel,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-25,Default,,fluidized_bed,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-67,Default,,gac_feed_pump,1,,Placeholder. Not utilized in any case studies. 
+62,Default,,feed_water_tank,0.9999,,Placeholder. Not utilized in any case studies. 
+63,Default,,ferric_chloride_addition,0.9999,,Based on costs for Ferric Choride Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+23,Default,,fixed_bed_gravity_basin,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+24,Default,,fixed_bed_pressure_vessel,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+25,Default,,fluidized_bed,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+67,Default,,gac_feed_pump,0.9999,,Placeholder. Not utilized in any case studies. 
 65,Default,,gac_gravity,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 66,Default,,gac_pressure_30_min,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 64,Default,,gac_pressure_vessel,0.96,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-6,Default,,holding_tank,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-68,Default,,hydrochloric_acid_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-69,Default,,injection_well,1,,Placeholder. Not utilized in any case studies. 
-70,Default,,iron_and_manganese_removal,1,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.lenntech.com/schema-of-an-iron-removal-system.htm, (4) https://www.osti.gov/servlets/purl/797810/"
-117,Default,,irwin_brine_management,1,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
-71,Default,,landfill,1,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
-72,Default,,lime_addition,1,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+6,Default,,holding_tank,0.9999,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
+68,Default,,hydrochloric_acid_addition,0.9999,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+69,Default,,injection_well,0.9999,,Placeholder. Not utilized in any case studies. 
+70,Default,,iron_and_manganese_removal,0.9999,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.lenntech.com/schema-of-an-iron-removal-system.htm, (4) https://www.osti.gov/servlets/purl/797810/"
+117,Default,,irwin_brine_management,0.9999,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
+71,Default,,landfill,0.9999,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
+72,Default,,lime_addition,0.9999,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 73,Default,ZLD,lime_softener_waterreuse,calculated,,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
-74,Default,,lime_softening,1,,"(1) Consumption rates for Lime and Soda Ash are calculated based on the methods presented by Minnesota Rural Water Association, Chapter 16 Lime Softening (https://www.mrwa.com/WaterWorksMnl/Chapter%2016%20Lime%20Softening.pdf), (2) Capital costs (and other operating cost data) are based on “Approximate Costs of Lime Softening” from Nancrede Engineering Co (https://www.necoindustrialwater.com/analysis-ion-exchange-vs-lime-softening/). "
-75,Default,,mbr_denitrification,1,,Texas Water Development Board IT3PR User Manual
-76,Default,,mbr_nitrification,1,,Texas Water Development Board IT3PR User Manual
-77,Default,,media_filtration,1,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+74,Default,,lime_softening,0.9999,,"(1) Consumption rates for Lime and Soda Ash are calculated based on the methods presented by Minnesota Rural Water Association, Chapter 16 Lime Softening (https://www.mrwa.com/WaterWorksMnl/Chapter%2016%20Lime%20Softening.pdf), (2) Capital costs (and other operating cost data) are based on “Approximate Costs of Lime Softening” from Nancrede Engineering Co (https://www.necoindustrialwater.com/analysis-ion-exchange-vs-lime-softening/). "
+75,Default,,mbr_denitrification,0.9999,,Texas Water Development Board IT3PR User Manual
+76,Default,,mbr_nitrification,0.9999,,Texas Water Development Board IT3PR User Manual
+77,Default,,media_filtration,0.9999,,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 78,Default,,microfiltration,0.95,,Texas Water Development Board IT3PR User Manual
-,Default,,microscreen_filtration,1,,
-12,Default,,multi_stage_bubble_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-80,Default,,municipal_drinking,1,,"Distribution costs are based on pump cost calculations in ""Pumping Station"" in VAR. Electricity consumption is based on 300-ft head pump and is consistent with Carslbad data."
+,Default,,microscreen_filtration,0.9999,,
+12,Default,,multi_stage_bubble_aeration,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+80,Default,,municipal_drinking,0.9999,,"Distribution costs are based on pump cost calculations in ""Pumping Station"" in VAR. Electricity consumption is based on 300-ft head pump and is consistent with Carslbad data."
 81,Default,,nano_filtration,0.85,,Texas Water Development Board IT3PR User Manual
 82,Default,,nuclear_cooling_tower,0.25,0.75,Based on Vogtle case study data. No costs for WT3 treatment.
-83,Default,,onsite_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
+83,Default,,onsite_storage,0.9999,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
 84,Heap Leaching,,ore_mining_to_ore_heap,0.9,0.1,Heap leaching (gold/copper) case study.
-86,Default,,ozonation_with_aop,1,,Texas Water Development Board IT3PR User Manual
-85,Default,,ozone_aop,1,,Texas Water Development Board IT3PR User Manual
-13,Default,,packed_tower_aeration,1,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-87,Default,,ph_decrease,1,,Placeholder. Not utilized in any case studies. 
-88,Default,,ph_increase,1,,Placeholder. Not utilized in any case studies. 
+86,Default,,ozonation_with_aop,0.9999,,Texas Water Development Board IT3PR User Manual
+85,Default,,ozone_aop,0.9999,,Texas Water Development Board IT3PR User Manual
+13,Default,,packed_tower_aeration,0.9999,,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+87,Default,,ph_decrease,0.9999,,Placeholder. Not utilized in any case studies. 
+88,Default,,ph_increase,0.9999,,Placeholder. Not utilized in any case studies. 
 89,Iron_and_Steel,Baseline,primary_separator,0.999,,Defined based on the Iron and Steel case study data.
-91,Default,,raw_water_pump,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
-92,Default,,raw_water_pump1,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
-93,Default,,raw_water_pump2,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
-,Default,,recharge_pump_well,1,,
+91,Default,,raw_water_pump,0.9999,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+92,Default,,raw_water_pump1,0.9999,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+93,Default,,raw_water_pump2,0.9999,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+,Default,,recharge_pump_well,0.9999,,
 96,Default,,ro_deep,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
 94,Default,,ro_deep_guo,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
 95,Default,,ro_deep_mcgivney,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
 117,Default,,ro_deep_scnd_pass,calculated,,Calculated value for total TDS removal from DEEP 5.1 model from IAEA
 97,Default,,sedimentation,0.9999,,"(1) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (2) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)"
 ,Default,,settling_pond,0,,
-98,Cherokee,Baseline,settling_pond,1,,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
-99,Default,,sodium_bisulfite_addition,1,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura).
-100,Default,,soil_aquifer_treatment,1,,Texas Water Development Board IT3PR User Manual
+98,Cherokee,Baseline,settling_pond,0.9999,,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
+99,Default,,sodium_bisulfite_addition,0.9999,,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura).
+100,Default,,soil_aquifer_treatment,0.9999,,Texas Water Development Board IT3PR User Manual
 101,Heap Leaching,,solution_distribution_and_recovery_plant,0.922222222,,Heap leaching (gold/copper) case study.
-102,Default,,static_mixer,1,,"Chemical Engineering Design, 2nd Edition. Principles, Practice and Economics of Plant and Process Design, https://www.elsevier.com/books/chemical-engineering-design/towler/978-0-08-096659-5"
-103,Default,,sulfuric_acid_addition,1,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-104,Default,,surface_augmentation,1,,Texas Water Development Board IT3PR User Manual
-105,Default,,surface_discharge,1,,Lenntech https://www.lenntech.com/processes/surface-water-discharge-of-brine.htm.  Electricity consumption is based on Carlsbad data.
-106,Default,,sw_onshore_intake,1,,Intake and Pump Costs from Voutchkov (see capital cost curves in VAR). Energy consumption value based on 100-ft head pump and is consistent with reported Carlsbad data.
-7,Default,,treated_storage,1,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
+102,Default,,static_mixer,0.9999,,"Chemical Engineering Design, 2nd Edition. Principles, Practice and Economics of Plant and Process Design, https://www.elsevier.com/books/chemical-engineering-design/towler/978-0-08-096659-5"
+103,Default,,sulfuric_acid_addition,0.9999,,Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+104,Default,,surface_augmentation,0.9999,,Texas Water Development Board IT3PR User Manual
+105,Default,,surface_discharge,0.9999,,Lenntech https://www.lenntech.com/processes/surface-water-discharge-of-brine.htm.  Electricity consumption is based on Carlsbad data.
+106,Default,,sw_onshore_intake,0.9999,,Intake and Pump Costs from Voutchkov (see capital cost curves in VAR). Energy consumption value based on 100-ft head pump and is consistent with reported Carlsbad data.
+7,Default,,treated_storage,0.9999,,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
 108,Default,,tri_media_filtration,0.9,,Texas Water Development Board IT3PR User Manual
 109,Default,,tri_media_filtration_with_backflush,0.9,,Texas Water Development Board IT3PR User Manual. Backflush based on Carlsbad case study.
 110,Default,,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.
 110,Tuscarora,Baseline,tuscarora_md,0.25,,Defined based on the Tuscarora case study data.
-111,Default,,uf_feed_pump,1,,Defined based on the San Luis case study data.
-111,San Luis,Baseline,uf_feed_pump,1,,Defined based on the San Luis case study data.
+111,Default,,uf_feed_pump,0.9999,,Defined based on the San Luis case study data.
+111,San Luis,Baseline,uf_feed_pump,0.9999,,Defined based on the San Luis case study data.
 112,Default,,ultra_filtration,0.95,,Texas Water Development Board IT3PR User Manual
-114,Default,,uv_aop,1,,Texas Water Development Board IT3PR User Manual
-113,Default,,uv_irradiation,1,,Texas Water Development Board IT3PR User Manual
+114,Default,,uv_aop,0.9999,,Texas Water Development Board IT3PR User Manual
+113,Default,,uv_irradiation,0.9999,,Texas Water Development Board IT3PR User Manual
 115,Default,,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
 115,Kern County,Baseline,walnut_shell_filter,0.99,,Defined based on the Kern County case study data.
-90,Default,,water_pumping_station,1,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
-116,Default,,well_field,1,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
+90,Default,,water_pumping_station,0.9999,,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
+116,Default,,well_field,0.9999,,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
 ,HRSD,Baseline,coag_and_floc,0.95,,
