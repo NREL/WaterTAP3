@@ -176,6 +176,9 @@ def get_module(module_name):
 
     if module_name == "basic_unit":
         import basic_unit as up
+    
+    if module_name == "cooling_tower":
+        import cooling_tower as up
 
     return up
 

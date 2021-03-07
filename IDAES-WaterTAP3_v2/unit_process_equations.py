@@ -77,6 +77,7 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'microfiltration': import microfiltration as unit_process_model
     if up_name_test == 'reverse_osmosis': import reverse_osmosis as unit_process_model
     if up_name_test == 'basic_unit': import basic_unit as unit_process_model
+    if up_name_test == 'cooling_tower': import cooling_tower as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules
