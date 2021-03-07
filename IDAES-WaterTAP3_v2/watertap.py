@@ -16,6 +16,7 @@ import case_study_trains
 import watertap as wt
 from post_processing import *
 import app3
+import optimize_setup
 
 warnings.filterwarnings('ignore')
 

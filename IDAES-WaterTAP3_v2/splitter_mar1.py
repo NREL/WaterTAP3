@@ -118,7 +118,7 @@ see property package for documentation.}"""))
         return print("adding splitter") #unit_process_equations.build_up(self, up_name_test = module_name)
     
     
-    def get_split(self, outlet_list=None):
+    def get_split(self, outlet_list=None, unit_params = None):
 
         
         #print(outlet_list)
@@ -159,6 +159,13 @@ see property package for documentation.}"""))
                                        domain=NonNegativeReals,
                                        units=units_meta("temperature"),
                                        doc="Temperature at outlet"))
+            
+            setattr(self, ("split_fraction_%s" % p), Var(time,
+                                        initialize=0.5,
+                                        domain=NonNegativeReals,
+                                        bounds=(0.01, 0.99),                 
+                                        #units=units_meta("pressure"),
+                                        doc="split fraction"))
 
             getattr(self, p).add(getattr(self, ("temperature_%s" % p)), "temperature")
             getattr(self, p).add(getattr(self, ("pressure_%s" % p)), "pressure")
@@ -187,20 +194,25 @@ see property package for documentation.}"""))
                                 units=units_meta("pressure"),
                                 doc="Pressure at outlet")
 
-        self.split_fraction = Var(time,
-                                initialize=0.5,
-                                units=units_meta("pressure"),
-                                doc="split fraction")
 
         self.inlet.add(self.flow_vol_in, "flow_vol")
         self.inlet.add(self.conc_mass_in, "conc_mass")
         self.inlet.add(self.temperature_in, "temperature")
         self.inlet.add(self.pressure_in, "pressure")
         
-        self.split_fraction.fix(1 / len(outlet_list))
+        ## set the split fraction as equal unless, stated otherwise.
 
+        i = 0
+        for p in outlet_list:
+            #self.split_fraction.fix(1 / len(outlet_list))
+            if "split_fraction" in unit_params.keys():
+                getattr(self, ("split_fraction_%s" % p)).fix(unit_params["split_fraction"][i])                    
+            else:
+                getattr(self, ("split_fraction_%s" % p)).fix(1 / len(outlet_list))
+            i = i + 1
+                    
+            
         t = self.flowsheet().config.time.first() 
-        
 
         for p in outlet_list:
             for j in self.config.property_package.component_list:
@@ -210,7 +222,7 @@ see property package for documentation.}"""))
         for p in outlet_list:
             setattr(self, ("%s_eq_flow" % p), 
                     Constraint(
-                        expr = self.split_fraction[t] * pyunits.convert(self.flow_vol_in[t], 
+                        expr = getattr(self, ("split_fraction_%s" % p))[t] * pyunits.convert(self.flow_vol_in[t], 
                                                                         to_units=pyunits.m ** 3 / pyunits.hr)
                                                     == pyunits.convert(getattr(self, ("flow_vol_%s" % p))[t],
                     to_units=pyunits.m ** 3 / pyunits.hr)
