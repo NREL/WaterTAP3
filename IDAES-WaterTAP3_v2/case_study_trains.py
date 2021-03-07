@@ -9,11 +9,6 @@ import watertap as wt
 from mixer_example import Mixer1
 from split_test2 import Separator1
 
-# global case_study
-# global reference
-# global water_type
-# global scenario
-
 global train
 global source_water
 global pfd_dict  # this is set in function so not global.
@@ -289,9 +284,14 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
         import splitter_mar1
          
         setattr(m.fs, splitter_name, splitter_mar1.UnitProcess(default={"property_package": m.fs.water}))
+        unit_params = m.fs.pfd_dict[j[0]]["Parameter"]   
+        getattr(m.fs, splitter_name).outlet_list = outlet_list
+        if "split_fraction" in unit_params:
+            print("params into splitter -->", unit_params["split_fraction"])
+        # could just have self call the split list directly without reading in unit params. same for all 
+        getattr(m.fs, splitter_name).get_split(outlet_list=outlet_list, unit_params=unit_params)
         
-        getattr(m.fs, splitter_name).get_split(outlet_list=outlet_list)
-            
+        
         # arc from mixer outlet to node
         arc_dict[arc_i] = [j[0], j[1], splitter_name, "inlet"]
         arc_i = arc_i + 1
