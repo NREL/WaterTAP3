@@ -127,9 +127,9 @@ see property package for documentation.}"""))
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
-        toc_in = value(self.conc_mass_in[time, "toc"])
+        # toc_in = value(self.conc_mass_in[time, "toc"])
         # print(f'\n\ntoc = {toc_in}\n\n')
-        # toc_in = 10
+        toc_in = 10
         contact_time = unit_params['contact_time']
         ct = unit_params['ct']
         mass_transfer = unit_params['mass_transfer']
