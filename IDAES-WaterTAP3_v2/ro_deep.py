@@ -253,7 +253,12 @@ see property package for documentation.}"""))
         dso = tds / (1-self.water_recovery[time]) # (ppm) brine salinity ***
         self.dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery[time]))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
         
+        self.removal_fraction[time, "tds"].unfix()
+        self.tds_removal_eq = Constraint(
+            expr= self.removal_fraction[time, "tds"] == 1 - ((self.dspms/ 1000) / self.conc_mass_in[time, "tds"])
+        )
         
+        #self.removal_fraction[time, "tds"].fix(1 - (self.dspms / self.conc_mass_in[time, "tds"]))
         
         #kmtcf = np.exp(a * (1/(tim+273) - 1/(298))) # temperature correction factor*** ariel moved to top
         kmscf = 1.5 - .000015 * .5 * (1 + (1/(1-self.water_recovery[time])))*tds # salinity correction factor***
