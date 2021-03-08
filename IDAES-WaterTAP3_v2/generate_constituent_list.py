@@ -14,6 +14,17 @@ global pfd_dict
 
 import module_import
 
+def get_def_source(reference, water_type, case_study, scenario):
+    import importfile
+    df = importfile.feedwater(
+        input_file="data/case_study_water_sources.csv",
+        reference = reference, 
+        water_type = water_type, 
+        case_study = case_study,
+        scenario = scenario)
+    
+    return df
+
 def run():
     import case_study_trains
     train = case_study_trains.train 
@@ -27,19 +38,22 @@ def run():
     df = df[df.scenario == train["scenario"]]
     
     list1 = df[df.value >=0].constituent.unique()
-    
-    import importfile
-    
+        
     # grabs inlet water information
-    df = importfile.feedwater(
-        input_file="data/case_study_water_sources.csv",
-        reference = source_water["reference"], 
-        water_type = source_water["water_type"], 
-        case_study = source_water["case_study"],
-        scenario = source_water["scenario"])
+    if isinstance(source_water['water_type'], list):
+        list2 = []
+        for water_type in source_water['water_type']:
+            df = get_def_source(source_water['reference'], water_type, source_water['case_study'], source_water['scenario'])
+            list2 = list(df.index) + list2
+        list2 = list(set(list2))
+    else:
+        df = get_def_source(source_water['reference'], source_water['water_type'], 
+                            source_water['case_study'], source_water['scenario'])
+        list2 = df.index
     
-    # gets list of consituents in inlet water
-    list2 = df.index
+    
+    # gets list of consituents in inlet water --> REMOVE?
+    #list2 = df.index
     
     # combines list
     final_list = [x for x in list1 if x in list2]
@@ -61,7 +75,7 @@ def get_removal_factors(unit_process):
     import case_study_trains
     train = case_study_trains.train 
     source_water = case_study_trains.source_water
-
+       
     df = pd.read_csv("data/constituent_removal.csv")
     df.case_study = np.where(df.case_study == "Default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]

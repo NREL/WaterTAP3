@@ -32,7 +32,7 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, wit
 
     unit_params = m.fs.pfd_dict[unit_process_name]["Parameter"]
 
-    if 'basic_unit' in unit_process_name:
+    if 'basic_unit' in unit_process_type:
         unit_process_name = unit_params['unit_process_name']
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
         m = constituent_removal_water_recovery.create(m, unit_process_name, unit_process_name)
@@ -76,7 +76,8 @@ def add_water_source(m = None, source_name = None, link_to = None,
     #set the flow based on the case study if not specified. This should have already been set in case study .py
     #if flow is None: flow = float(df.loc["flow"].value)
     
-    train_constituent_list = generate_constituent_list.run()
+    
+    #train_constituent_list = generate_constituent_list.run()
     
     
     import source_example as source_example
@@ -85,6 +86,8 @@ def add_water_source(m = None, source_name = None, link_to = None,
     getattr(m.fs, source_name).set_source()
     
     getattr(m.fs, source_name).flow_vol_in.fix(flow)
+    
+    train_constituent_list = list(getattr(m.fs, source_name).config.property_package.component_list)
     
     for constituent_name in train_constituent_list:
         

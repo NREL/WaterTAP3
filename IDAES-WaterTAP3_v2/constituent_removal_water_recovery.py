@@ -26,9 +26,10 @@ def create(m, unit_process_type, unit_process_name):
     
     # Get constituent list and removal rates for this unit process
     train_constituent_removal_factors = generate_constituent_list.get_removal_factors(unit_process_type)
-
+    #if unit_process_type == "ro_deep": print(train_constituent_removal_factors)
+        
     for constituent_name in getattr(m.fs, unit_process_name).config.property_package.component_list:
-
+        
         if constituent_name in train_constituent_removal_factors.keys():
             getattr(m.fs, unit_process_name).removal_fraction[:, constituent_name].fix(
                 train_constituent_removal_factors[constituent_name])
