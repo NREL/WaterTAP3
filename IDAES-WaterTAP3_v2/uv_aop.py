@@ -29,6 +29,7 @@ from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
 from scipy.interpolate import interp1d
+from pyomo.environ import value
 
 # Import WaterTAP# financials module
 import financials
@@ -130,8 +131,8 @@ see property package for documentation.}"""))
 		# TODO -->> ADD THESE TO UNIT self.X
 
 		dose_in = unit_params['uv_dose'] * (pyunits.millijoule / pyunits.cm ** 2)  # from Excel
-		# uvt_in = self.conc_mass_in[time, "ultraviolet_transmittance_uvt"]
-		uvt_in = 0.68  # constant from EXCEL for Santa Barbara, needs to be read in dynamically
+		uvt_in = value(self.conc_mass_in[time, "ultraviolet_transmittance_uvt"])
+		# uvt_in = 1E-5
 		#### CHEMS ###
 		aop = unit_params['aop']
 		if aop:
@@ -144,7 +145,7 @@ see property package for documentation.}"""))
 			chem_dict = {}
 
 		self.chem_dict = chem_dict
-
+		print(chem_dict)
 		##########################################
 		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
 		##########################################
@@ -195,7 +196,11 @@ see property package for documentation.}"""))
 			soln_vol_flow = chemical_rate
 			return soln_vol_flow  # lb / day
 
-		def fixed_cap(flow_in):
+		def fixed_cap(flow_in, uvt_in):
+			print(f'\n\nuvt_in = {uvt_in}\n\n')
+
+			if uvt_in == 1E-5:
+				return 1
 			uv_cost_csv = pd.read_csv('data/uv_cost.csv')  # Needed to interpolate and calculate cost
 			uv_cost_csv.set_index(['Flow', 'UVDose'], inplace=True)  # Needed to interpolate and calculate cost
 			flow_list = [1, 3, 5, 10, 25]  # flow in mgd
@@ -216,7 +221,7 @@ see property package for documentation.}"""))
 			return electricity
 
 		## fixed_cap_inv_unadjusted ##
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in, uvt_in), doc="Unadjusted fixed capital investment")  # $M
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3
