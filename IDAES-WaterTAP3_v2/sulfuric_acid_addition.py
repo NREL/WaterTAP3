@@ -19,7 +19,7 @@ from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefa
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
@@ -131,7 +131,7 @@ see property package for documentation.}"""))
 		#### CHEMS ###
 		chem_name = unit_params["chemical_name"][0]
 		chemical_dosage = pyunits.convert(unit_params["dose"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))  # kg/m3 should be read from .csv
-		solution_density = 1490 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+		solution_density = 1781 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
 		chem_dict = {chem_name: chemical_dosage}
 		self.chem_dict = chem_dict
 

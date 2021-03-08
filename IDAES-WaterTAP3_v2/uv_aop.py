@@ -131,8 +131,8 @@ see property package for documentation.}"""))
 		# TODO -->> ADD THESE TO UNIT self.X
 
 		dose_in = unit_params['uv_dose'] * (pyunits.millijoule / pyunits.cm ** 2)  # from Excel
-		uvt_in = value(self.conc_mass_in[time, "ultraviolet_transmittance_uvt"])
-		# uvt_in = 1E-5
+		# uvt_in = value(self.conc_mass_in[time, "ultraviolet_transmittance_uvt"])
+		uvt_in = 0.68
 		#### CHEMS ###
 		aop = unit_params['aop']
 		if aop:
@@ -145,7 +145,6 @@ see property package for documentation.}"""))
 			chem_dict = {}
 
 		self.chem_dict = chem_dict
-		print(chem_dict)
 		##########################################
 		####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
 		##########################################
@@ -197,8 +196,6 @@ see property package for documentation.}"""))
 			return soln_vol_flow  # lb / day
 
 		def fixed_cap(flow_in, uvt_in):
-			print(f'\n\nuvt_in = {uvt_in}\n\n')
-
 			if uvt_in == 1E-5:
 				return 1
 			uv_cost_csv = pd.read_csv('data/uv_cost.csv')  # Needed to interpolate and calculate cost
