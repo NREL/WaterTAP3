@@ -63,9 +63,6 @@ class PhysicalParameterData(PhysicalParameterBlock):
         #for constituent_name in ["TOC", "nitrates", "TDS"]:
             setattr(self, constituent_name, Component())
 
-        #self.TOC = Component()
-        #self.nitrates = Component()
-        #self.TDS = Component()
 
     @classmethod
     def define_metadata(cls, obj):

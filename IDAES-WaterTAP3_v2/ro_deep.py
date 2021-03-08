@@ -250,7 +250,7 @@ see property package for documentation.}"""))
             expr= self.water_recovery[time] == 1 - (ccalc/self.pmax[time]) * (self.conc_mass_in[time, "tds"] * 1000))
         
         
-        dso = tds / (1-self.water_recovery[time]) # (ppm) brine salinity ***
+        dso = self.conc_mass_out[time, "tds"] * 1000 # (ppm) brine salinity ***
         self.dspms = .0025 * tds * (nflux/dflux) * .5 * (1 + (1/(1-self.water_recovery[time]))) * (1+(tim - 25)*.03) # (ppm) permeate salinity ***
         
         self.removal_fraction[time, "tds"].unfix()

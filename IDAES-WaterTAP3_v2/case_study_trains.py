@@ -21,25 +21,31 @@ from pyomo.environ import (
 
 case_study_library = pd.read_csv("data/case_study_library.csv") #TODO EDIT THIS TO READ EXCEL FILE - ARIEL
 
+
+def get_def_source(reference, water_type, case_study, scenario):
+
+    df = wt.importfile.feedwater(
+        input_file="data/case_study_water_sources.csv",
+        reference = reference, 
+        water_type = water_type, 
+        case_study = case_study,
+        scenario = scenario)
+    
+    return df
     
 def get_case_study(flow = None, m = None):    
     
         
     # get source water information that will be used to get the flow in if not specified
-    df_source = wt.importfile.feedwater(
-        input_file="data/case_study_water_sources.csv",
-        reference = source_water["reference"], 
-        water_type = source_water["water_type"], 
-        case_study = source_water["case_study"],
-        scenario = source_water["scenario"])
-    
+    flow = {}
     if isinstance(source_water['water_type'], list) and not flow:
-        flow = {}
-        for water in source_water['water_type']:
-            temp = df_source[df_source.water_type == water]
-            flow[water] = temp.loc['flow'].value
+        for water_type in source_water['water_type']:
+            df = get_def_source(source_water['reference'], water_type, source_water['case_study'], source_water['scenario'])
+            flow[water_type] = df.loc['flow'].value
     elif not flow:
-        flow = df_source.loc['flow'].value
+        df = get_def_source(source_water['reference'], source_water['water_type'], 
+                            source_water['case_study'], source_water['scenario'])
+        flow[source_water['water_type']] = df.loc['flow'].value
 
     #set the flow based on the case study if not specified.
 #     if flow is None: fow = df_source.loc["flow"].value
@@ -67,7 +73,7 @@ def get_case_study(flow = None, m = None):
     financials.pfd_dict = pfd_dict
     financials.get_system_specs(m.fs, train)
     
-    train_constituent_list = generate_constituent_list.run()
+    #train_constituent_list = generate_constituent_list.run()
     
     # add the water parameter block to generate the list of constituent variables in the model
     m.fs.water = WaterParameterBlock()
@@ -106,6 +112,7 @@ def get_pfd_dict(df_units):
     ### create pfd_dictionary for treatment train
     pfd_dict = df_units.set_index('UnitName').T.to_dict()
     for key in pfd_dict.keys():
+        print(key, "ToUnitName -->", pfd_dict[key]['ToUnitName'])
         # parameter from string to dict
         if pfd_dict[key]['Parameter'] is not np.nan:
             pfd_dict[key]['Parameter'] = ast.literal_eval(pfd_dict[key]['Parameter'])
@@ -155,35 +162,26 @@ def create_arc_dict(m, pfd_dict, flow):
         # if the unit is an intake process
         if pfd_dict[key]["Type"] == "intake":
             source_exists = False
-            num_sources = len(pfd_dict[key]["Parameter"]["source_type"])
-            num_unique_sources = len(np.unique(pfd_dict[key]["Parameter"]["source_type"]))
+            num_sources = len(pfd_dict[key]["Parameter"]["water_type"])
+            num_unique_sources = len(np.unique(pfd_dict[key]["Parameter"]["water_type"]))
 
             ### check if multiple sources with same name for 1 intake
             if num_sources != num_unique_sources:
                 print("error: multiple sources with same name for 1 intake")
 
-            for node in range(0, len(pfd_dict[key]["Parameter"]["source_type"])):
-                node_name = pfd_dict[key]["Parameter"]["source_type"][node]
-
-                if isinstance(source_water["water_type"], list):
-                    source_name = source_water["water_type"][node]
-                    water_type = source_water["water_type"][node]
-                    reference = source_water["reference"][node]
-                    case_study = source_water["case_study"][node]
-                    source_flow = flow[source_name]
-                else:
-                    source_name = node_name
-                    water_type = source_water["water_type"]
+            for water_type in pfd_dict[key]["Parameter"]["water_type"]:
+                    source_name = water_type
+                    water_type = water_type
                     reference = source_water["reference"]
                     case_study = source_water["case_study"]
-                    source_flow = flow
+                    source_flow = flow[source_name]
 
-                m = wt.design.add_water_source(m = m, source_name = source_name, 
-                                               reference = reference, water_type = water_type, 
-                                     case_study = case_study, flow = source_flow)
+                    m = wt.design.add_water_source(m = m, source_name = source_name, 
+                                                   reference = reference, water_type = water_type, 
+                                         case_study = case_study, flow = source_flow)
 
-                arc_dict[arc_i] = [source_name, "outlet", key, "inlet"] 
-                arc_i = arc_i + 1   
+                    arc_dict[arc_i] = [source_name, "outlet", key, "inlet"] 
+                    arc_i = arc_i + 1   
     
     
     # create arcs *for single streams* from .csv table.
