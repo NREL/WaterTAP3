@@ -302,3 +302,15 @@
 ,,kg/m3,,uv_aop,Solaire,0.999994284,Texas Water Development Board IT3PR User Manual,total_coliforms_fecal_ecoli,,
 ,,kg/m3,,uv_aop,Solaire,0.17460708,Texas Water Development Board IT3PR User Manual,toc,,
 ,,kg/m3,,uv_aop,Solaire,0.965402814,Texas Water Development Board IT3PR User Manual,viruses_enteric,,
+258,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,Baseline,NAWI
+259,Bromide,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,Baseline,NAWI
+260,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,Baseline,NAWI
+261,Chloride,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,Baseline,NAWI
+262,Fluoride,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,Baseline,NAWI
+263,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,Baseline,NAWI
+264,Potassium,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,Baseline,NAWI
+265,Silicon,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,Baseline,NAWI
+266,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,Baseline,NAWI
+267,Strontium,kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,Baseline,NAWI
+268,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,Baseline,NAWI
+269,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,reverse_osmosis,Big_Spring,0.97309686,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,Baseline,NAWI
