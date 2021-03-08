@@ -208,7 +208,12 @@ def build_up(self, up_name_test=None):
         @self.Constraint(time, doc="Water recovery equation")
         def recovery_equation(b, t):
             return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
-
+        
+        # Next, add constraints linking these
+        @self.Constraint(time, doc="Overall flow balance")
+        def flow_balance(b, t):
+            return b.flow_vol_in[t] == b.flow_vol_out[t] + b.flow_vol_waste[t]
+    
         @self.Constraint(time,
                          self.config.property_package.component_list,
                          doc="Component removal equation")
@@ -216,11 +221,6 @@ def build_up(self, up_name_test=None):
             return (b.removal_fraction[t, j] *
                     b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
                     b.flow_vol_waste[t] * b.conc_mass_waste[t, j])    
-        
-        # Next, add constraints linking these
-        @self.Constraint(time, doc="Overall flow balance")
-        def flow_balance(b, t):
-            return b.flow_vol_in[t] == b.flow_vol_out[t] + b.flow_vol_waste[t]
 
     @self.Constraint(time,
                      self.config.property_package.component_list,
