@@ -121,10 +121,7 @@ and used when constructing these,
 see property package for documentation.}"""))
     
     from unit_process_equations import initialization
-    #unit_process_equations.get_base_unit_process()
 
-    #build(up_name = "nanofiltration_twb")
-    
     def build(self):
         import unit_process_equations
         return unit_process_equations.build_up(self, up_name_test = module_name)
@@ -238,11 +235,9 @@ see property package for documentation.}"""))
         def set_water_flux(self):
             self.water_flux = Var(time,
                                   initialize=5e-3,
-                                  bounds=(1e-4, 1e3),
+                                  bounds=(1e-5, 1e3),
                                   units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
                                   domain=NonNegativeReals,
-                                  #bounds=(0.001, 0.05),
-                                  #units=pyunits.dimensionless,
                                   doc="water flux")  
                                        
             
@@ -261,7 +256,7 @@ see property package for documentation.}"""))
         self.membrane_area = Var(time,
                       initialize=1e5,
                       domain=NonNegativeReals,
-                      bounds=(1e4, 1e9),
+                      bounds=(1e3, 1e9),
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
@@ -406,6 +401,26 @@ see property package for documentation.}"""))
             expr = feed.mass_flow_tds[t] == permeate.mass_flow_tds[t] + retenate.mass_flow_tds[t]
         )
             
+        ########################################################################
+        ########################################################################    
+        
+        self.const_list2 = list(self.config.property_package.component_list) #.remove("tds")
+        self.const_list2.remove("tds")
+
+        for j in self.const_list2:
+            setattr(self, ("%s_eq" % j), Constraint(
+                expr = self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j] 
+                == self.flow_vol_waste[t] * self.conc_mass_waste[t, j]
+                ))
+            
+#         for j in self.const_list2:
+#             setattr(self, ("%s_eq_mb" % j), Constraint(
+#                 expr = self.flow_vol_in[t]*self.conc_mass_in[t, j] ==
+#                         self.flow_vol_out[t]*self.conc_mass_out[t, j] +
+#                         self.flow_vol_waste[t]*self.conc_mass_waste[t, j]
+#                 ))        
+        
+                
         
         ########################################################################
         b_cost = self.costing
