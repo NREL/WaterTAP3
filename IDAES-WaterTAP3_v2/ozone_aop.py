@@ -129,7 +129,11 @@ see property package for documentation.}"""))
         tpec_tic = self.costing.tpec_tic
         # toc_in = value(self.conc_mass_in[time, "toc"])
         # print(f'\n\ntoc = {toc_in}\n\n')
-        toc_in = 10
+        # toc_in = 10
+        try:
+            toc_in = unit_params['toc_in']
+        except:
+            toc_in = 10
         contact_time = unit_params['contact_time']
         ct = unit_params['ct']
         mass_transfer = unit_params['mass_transfer']

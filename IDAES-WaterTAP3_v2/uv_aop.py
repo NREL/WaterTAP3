@@ -132,7 +132,10 @@ see property package for documentation.}"""))
 
 		dose_in = unit_params['uv_dose'] * (pyunits.millijoule / pyunits.cm ** 2)  # from Excel
 		# uvt_in = value(self.conc_mass_in[time, "ultraviolet_transmittance_uvt"])
-		uvt_in = 0.68
+		try:
+			uvt_in = unit_params['uvt_in']
+		except:
+			uvt_in = 0.68
 		#### CHEMS ###
 		aop = unit_params['aop']
 		if aop:

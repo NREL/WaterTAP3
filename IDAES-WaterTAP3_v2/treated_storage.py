@@ -16,14 +16,12 @@ Demonstration zeroth-order model for WaterTAP3
 
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-from pyomo.environ import Block, Constraint, Var, units as pyunits
-from pyomo.network import Port
+
 
 # Import IDAES cores
 from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
-
-from pyomo.environ import (Expression, Var, Param, NonNegativeReals, units as pyunits)
+from pyomo.environ import value
 
 # Import WaterTAP# financials module
 import financials
@@ -51,7 +49,8 @@ module_name = "treated_storage"
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 # tpec_or_tic = "TPEC"
-unit_basis_yr = 2006
+unit_basis_yr = 2002
+
 
 
 # tank_capacity = 37854.1 #  m3
@@ -130,15 +129,12 @@ see property package for documentation.}"""))
         b = 0.72093
         self.storage_duration = unit_params["hours"] * pyunits.hours  # hours
         capacity_needed = flow_in * self.storage_duration
+        print(value(capacity_needed))
 
         # capital costs basis
         def fixed_cap(flow_in):
             storage_cap = a * capacity_needed ** b
             return storage_cap  # $MM
-
-        # Get the first time point in the time domain
-        # In many cases this will be the only point (steady-state), but lets be
-        # safe and use a general approach
 
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # The cost curve source includes 0.5% of annual maintenance
