@@ -180,6 +180,9 @@ def get_module(module_name):
     if module_name == "cooling_tower":
         import cooling_tower as up
 
+    if module_name == "evaporation_pond":
+        import evaporation_pond as up
+
     return up
 
 
