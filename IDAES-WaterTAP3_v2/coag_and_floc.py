@@ -15,26 +15,15 @@ Demonstration zeroth-order model for WaterTAP3
 """
 
 # Import Pyomo libraries
-from pyomo.common.config import ConfigBlock, ConfigValue, In
-from pyomo.environ import Block, Constraint, Var, units as pyunits
-from pyomo.network import Port
-from pyomo.environ import value
 # Import IDAES cores
 from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
-
-from pyomo.environ import (Expression, Var, Param, NonNegativeReals, units as pyunits)
-
-# Import WaterTAP financials module
+# Import Pyomo libraries
+from pyomo.common.config import ConfigBlock, ConfigValue, In
+from pyomo.environ import value
+# Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-
-from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
-from pyomo.network import Arc
-from idaes.core import FlowsheetBlock
-
-# Import properties and units from "WaterTAP Library"
-from water_props import WaterParameterBlock
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -129,9 +118,14 @@ see property package for documentation.}"""))
 
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
-        alum_dose = pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
-        polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))  # mg/L # MIKE ASSUMPTION NEEDED
-
+        print(unit_params)
+        print(unit_params["alum_dose"])
+        alum_dose = pyunits.convert(unit_params["alum_dose"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg/pyunits.m**3))
+        polymer_dose = pyunits.convert(unit_params["polymer_dose"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg/pyunits.m**3))
+        
+        #polymer_dose = 0# pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg/pyunits.m**3))  # mg/L # MIKE ASSUMPTION NEEDED
+                
+        
         an_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
         cat_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
         chem_dict = {"Aluminum_Al2_SO4_3": alum_dose, "Anionic_Polymer": an_polymer, "Cationic_Polymer": cat_polymer}
@@ -143,8 +137,8 @@ see property package for documentation.}"""))
         floc_injection_processes = 1 * pyunits.dimensionless
         rapid_mix_retention_time = 5.5 * pyunits.seconds  # seconds (rapid mix)
         floc_retention_time = 12 * pyunits.minutes  # minutes
-        al2so43_density = (8.34 * 1.33) * (pyunits.pound / pyunits.gallon)  # lb/gal
-        alum_dosage = 10 * (pyunits.mg / pyunits.liter)  # mg/L dosage rate
+        #al2so43_density = (8.34 * 1.33) * (pyunits.pound / pyunits.gallon)  # lb/gal
+        #alum_dosage = 10 * (pyunits.mg / pyunits.liter)  # mg/L dosage rate
 
         self.chem_dict = chem_dict
 
