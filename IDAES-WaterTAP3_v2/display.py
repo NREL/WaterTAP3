@@ -177,7 +177,9 @@ def show_train(G):
 
 
 def show_train2(GG = None, model_name = None):
-
+    
+    dummy_model = model_name
+    
     import shutil
     import sys
     import os.path
@@ -202,15 +204,20 @@ def show_train2(GG = None, model_name = None):
     import networkx as nx
     
     if GG == None:
-        TransformationFactory("network.expand_arcs").apply_to(model_name)
+        TransformationFactory("network.expand_arcs").apply_to(dummy_model)
         seq1 = SequentialDecomposition()
-        GG = seq1.create_graph(model_name)
+        GG = seq1.create_graph(dummy_model)
 
     #G2 = nx.Graph()
     GG2 = nx.DiGraph(directed=True)
     for edge in GG.edges():
         GG2.add_edge(edge[0].getname(), edge[1].getname())
-
+    
+    if "surface_discharge" in list(GG2.nodes()):
+        print("removes node")
+        GG2.remove_node("surface_discharge")
+        GG2.remove_node(dummy_model.fs.water_mixer_name)
+        
     g = net.Network("500px", "100%", notebook=True, directed=True, heading="")
     # g.show_buttons()
     g.from_nx(GG2)
