@@ -118,8 +118,7 @@ see property package for documentation.}"""))
 
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
-        print(unit_params)
-        print(unit_params["alum_dose"])
+
         alum_dose = pyunits.convert(unit_params["alum_dose"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg/pyunits.m**3))
         polymer_dose = pyunits.convert(unit_params["polymer_dose"] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg/pyunits.m**3))
         

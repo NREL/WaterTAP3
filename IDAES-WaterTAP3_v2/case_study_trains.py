@@ -46,7 +46,7 @@ def get_case_study(flow = None, m = None):
         df = get_def_source(source_water['reference'], source_water['water_type'], 
                             source_water['case_study'], source_water['scenario'])
         flow[source_water['water_type']] = df.loc['flow'].value
-
+    m.fs.flow_in_dict = flow
     #set the flow based on the case study if not specified.
 #     if flow is None: fow = df_source.loc["flow"].value
         
@@ -79,12 +79,13 @@ def get_case_study(flow = None, m = None):
     m.fs.water = WaterParameterBlock()
 
     # add units to model
+    print("------- Adding Unit Processes -------")
     for key in pfd_dict.keys():
         print(key)
         m = wt.design.add_unit_process(m = m, 
                                        unit_process_name = key, 
                                        unit_process_type = pfd_dict[key]['Unit'])
-
+    print("-------------------------------------")
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
@@ -112,7 +113,6 @@ def get_pfd_dict(df_units):
     ### create pfd_dictionary for treatment train
     pfd_dict = df_units.set_index('UnitName').T.to_dict()
     for key in pfd_dict.keys():
-        print(key, "ToUnitName -->", pfd_dict[key]['ToUnitName'])
         # parameter from string to dict
         if pfd_dict[key]['Parameter'] is not np.nan:
             pfd_dict[key]['Parameter'] = ast.literal_eval(pfd_dict[key]['Parameter'])
@@ -138,16 +138,20 @@ def filter_df(df):
     
 # ADDING ARCS TO MODEL
 def create_arcs(m, arc_dict):
+    print("----- Connecting Unit Processes -----")
 
     for key in arc_dict.keys():
         source = arc_dict[key][0]
         source_port = arc_dict[key][1]
         outlet = arc_dict[key][2]
         outlet_port = arc_dict[key][3]
+        
+        print(source, "ToUnitName -->", outlet)
 
         setattr(m.fs, ("arc%s" % key), Arc(source = getattr(getattr(m.fs, source), source_port),  
                                            destination = getattr(getattr(m.fs, outlet), outlet_port))) 
-    
+        
+    print("-------------------------------------")
     return m    
     
     
@@ -221,7 +225,7 @@ def check_split_mixer_need(arc_dict):
         else:
             if [arc_dict[key][2], arc_dict[key][3]] not in mixer_list: 
                 mixer_list.append([arc_dict[key][2], arc_dict[key][3]])
-    print(mixer_list)
+    #print(mixer_list)
     return splitter_list, mixer_list
 
 
@@ -322,6 +326,7 @@ def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
         if len(waste_inlet_list) > 1:
             i = 0
             waste_mixer = "mixer%s" % mixer_i
+            m.fs.water_mixer_name = waste_mixer # used for displaying train. not used for model
             setattr(m.fs, waste_mixer,
                     Mixer1(default={"property_package": m.fs.water, "inlet_list": waste_inlet_list}))
 

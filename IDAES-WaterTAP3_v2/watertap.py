@@ -30,6 +30,40 @@ import pyomo.util.infeasible as infeas
 import idaes.core.util.scaling as iscale
 import pyomo.environ as env
 
+
+def run_water_tap(m = None, solver_results = False, print_model_results = False, 
+                  objective=False, max_attemps = 0):
+    
+    small_flow = False
+    
+    for key in m.fs.flow_in_dict.keys():
+        if m.fs.flow_in_dict[key] < 1:
+            getattr(m.fs, key).flow_vol_in.fix(2)
+            small_flow = True
+    
+    if small_flow is True: 
+        print("initial inflow to train is relatively small (< 1 m3/s). running model with dummy flows to initialize.")
+        run_model(m = m, solver_results = False, print_model_results = False, 
+                          objective=False, max_attemps = 1)
+
+        print("model finished running to initialize conditions. now running with actual inflows.")
+        for key in m.fs.flow_in_dict.keys():
+            getattr(m.fs, key).flow_vol_in.fix(m.fs.flow_in_dict[key])
+            
+        run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
+                          objective=objective, max_attemps = max_attemps)
+        
+    else:
+        run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
+                          objective=objective, max_attemps = max_attemps)
+    
+    if print_model_results is True: 
+        print_results(m)
+    
+    #if return_results == True: return results
+
+
+
 def watertap_setup(dynamic = False):
         
     # Create a Pyomo model
@@ -41,8 +75,8 @@ def watertap_setup(dynamic = False):
     return m
 
 
-def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, return_results = True, max_attemps = 0):
+def run_model(m = None, solver_results = False, print_model_results = False, 
+                  objective=False, max_attemps = 0):
     import financials
     financials.get_system_costing(m.fs)
     
@@ -66,12 +100,7 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
     
     print("degrees_of_freedom:", degrees_of_freedom(m))
-    
-    #solver.options = {'nlp_scaling_method': 'user-scaling'}
-    #m.fs.initialize(optarg=solver.options)
-    
-    #solver.solve(m, tee=solver_results)
-    
+
     results = solver.solve(m, tee=solver_results)
     
     attempt_number = 1
@@ -87,30 +116,47 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     if results.solver.termination_condition == "infeasible":
         print("WaterTAP3 solver returned an infeasible FINAL solution. Check option to run model with updated initial conditions")
     
-    if print_model_results == True:
-    
-        # Display the inlets and outlets and cap cost of each unit
-        for b_unit in m.fs.component_objects(Block, descend_into=True):
 
-            
-            if hasattr(b_unit, 'inlet'):
-                print("----------------------------------------------------------------------")
-                print(b_unit)
-                b_unit.inlet.display()
-            if hasattr(b_unit, 'inlet1'):
-                print("----------------------------------------------------------------------")
-                print(b_unit)
-                b_unit.inlet1.display()
-            if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
-            if hasattr(b_unit, 'waste'): b_unit.waste.display()
-            if hasattr(b_unit, 'costing'):
 
-                print("total_cap_investment:", b_unit.costing.total_cap_investment())
-                print("----------------------------------------------------------------------")
-       
-    if return_results == True: return results
+
+
     
-            
+def print_results(m):
+    
+    # Display the inlets and outlets and cap cost of each unit
+    for b_unit in m.fs.component_objects(Block, descend_into=True):
+
+
+        if hasattr(b_unit, 'inlet'):
+            print("----------------------------------------------------------------------")
+            print(b_unit)
+            b_unit.inlet.display()
+        if hasattr(b_unit, 'inlet1'):
+            print("----------------------------------------------------------------------")
+            print(b_unit)
+            b_unit.inlet1.display()
+        if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
+        if hasattr(b_unit, 'waste'): b_unit.waste.display()
+        if hasattr(b_unit, 'costing'):
+
+            print("total_cap_investment:", b_unit.costing.total_cap_investment())
+            print("----------------------------------------------------------------------")    
+    
+    for b_unit in m.fs.component_objects(Block, descend_into=True):
+        if hasattr(b_unit, 'costing'):
+            print(b_unit)
+            print("total_cap_investment:", b_unit.costing.total_cap_investment())
+            print("----------------------------------------------------------------------")
+
+    sum_of_inflow = 0
+    for key in m.fs.flow_in_dict.keys():
+        sum_of_inflow = sum_of_inflow + m.fs.flow_in_dict[key] 
+
+    print("Treated water --->", m.fs.costing.treated_water())
+    print("Total water recovery --->", m.fs.costing.treated_water() / sum_of_inflow)
+    print("LCOW ---> ", m.fs.costing.LCOW())
+
+    
 def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
     import pandas as pd
     final_df = pd.DataFrame()
