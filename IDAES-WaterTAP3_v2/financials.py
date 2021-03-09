@@ -298,7 +298,8 @@ def get_system_costing(self):
                 else:
                     if "reverse_osmosis" in str(b_unit):
                         recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
-    
+                    if "cooling_tower" in str(b_unit):
+                        recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]    
 #     b.treated_water = Var(time,
 #                           #initialize=0.5,
 #                           #domain=NonNegativeReals,
