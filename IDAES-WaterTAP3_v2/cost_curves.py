@@ -69,5 +69,16 @@ def basic_unit(unit_process):
 	flow_basis = df.flow_basis
 	cap_basis = df.cap_basis
 	cap_exp = df.cap_exp
+	elect = df.elect
 	year = df.year
-	return flow_basis, cap_basis, cap_exp, year
+	return flow_basis, cap_basis, cap_exp, elect, year
+
+def basic_mass_based(unit_process):
+	df = pd.read_csv('data/basic_mass_based.csv', index_col='unit_process')
+	df = df.loc[unit_process]
+	mass_basis = df.mass_basis
+	cap_basis = df.cap_basis
+	cap_exp = df.cap_exp
+	elect = df.elect
+	year = df.year
+	return mass_basis, cap_basis, cap_exp, elect, year

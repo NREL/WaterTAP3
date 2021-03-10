@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  3 12:22:42 2021
+
+@author: ksitterl
+"""
+
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -19,14 +27,13 @@ from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefa
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-import numpy as np
-from scipy.optimize import curve_fit
+from cost_curves import basic_mass_based
+
 # Import properties and units from "WaterTAP Library"
-from pyomo.environ import *
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -37,13 +44,12 @@ from pyomo.environ import *
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "evaporation_pond"
+module_name = "basic_mass_based"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
 
 
 # You don't really want to know what this decorator does
@@ -96,9 +102,11 @@ see property package for documentation.}"""))
         """
         # First, check to see if global costing module is in place
         # Construct it if not present and pass year argument
+        unit_process_name = unit_params['unit_process_name']
+
+        mass_basis, cap_basis, cap_exp, elect, unit_year = basic_mass_based(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
-
         # Next, add a sub-Block to the unit model to hold the cost calculations
         # This is to let us separate costs from model equations when solving
         self.costing = Block()
@@ -112,48 +120,45 @@ see property package for documentation.}"""))
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
-        time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)  # m3 /hr
+
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
 
         # basis year for the unit model - based on reference for the method.
-        self.costing.basis_year = unit_basis_yr
+        self.costing.basis_year = unit_year
 
-        #### CHEMS ###
-        tds_in = self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
-        tds_in = pyunits.convert(tds_in, to_units=(pyunits.mg / pyunits.liter))
+        time = self.flowsheet().config.time.first()
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
+        self.mass_basis = mass_basis * (pyunits.kg / pyunits.hour)
 
+        mass_in = 0
 
+        for constituent in self.config.property_package.component_list:
+            mass_in += self.conc_mass_in[time, constituent]
+
+        density = 0.6312 * mass_in + 997.86  # kg / m3
+        self.total_mass_in = density * self.flow_in  # kg / hr
+        mass_factor = self.total_mass_in / self.mass_basis
         chem_dict = {}
         self.chem_dict = chem_dict
-
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
 
-        def fixed_cap(flow_in, tds_in):
-            evap_pond_cap = (1.6227 * flow_in + 0.1821) * (0.9179 * log(tds_in) - 10.442)
-            return evap_pond_cap
-
-
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
+        def fixed_cap():
+            basic_cap = cap_basis * mass_factor ** cap_exp
+            return basic_cap
 
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
         # safe and use a general approach
 
         ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in, tds_in),
-            doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(), doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = elect  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

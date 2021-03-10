@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 16 11:46:39 2021
+
+@author: ksitterl
+"""
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -15,18 +22,18 @@ Demonstration zeroth-order model for WaterTAP3
 """
 
 # Import IDAES cores
-from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
+from idaes.core import (declare_process_block_class,
+                        UnitModelBlockData,
+                        useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-import numpy as np
-from scipy.optimize import curve_fit
+
 # Import properties and units from "WaterTAP Library"
-from pyomo.environ import *
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -37,13 +44,13 @@ from pyomo.environ import *
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "evaporation_pond"
+module_name = "agglom_stacking"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2008
 
 
 # You don't really want to know what this decorator does
@@ -63,17 +70,32 @@ class UnitProcessData(UnitModelBlockData):
     """
 
     CONFIG = ConfigBlock()
-    CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
+    CONFIG.declare("dynamic", ConfigValue(
+        domain=In([False]),
+        default=False,
+        description="Dynamic model flag - must be False",
+        doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-    CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
+    CONFIG.declare("has_holdup", ConfigValue(
+        default=False,
+        domain=In([False]),
+        description="Holdup construction flag - must be False",
+        doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-    CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
+    CONFIG.declare("property_package", ConfigValue(
+        default=useDefault,
+        domain=is_physical_parameter_block,
+        description="Property package to use for control volume",
+        doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-    CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
+    CONFIG.declare("property_package_args", ConfigBlock(
+        implicit=True,
+        description="Arguments to use for constructing property packages",
+        doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
@@ -111,20 +133,46 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)  # m3 /hr
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
+        try:
+            mining_capacity = unit_params['mining_capacity'] * (pyunits.tonnes / pyunits.day)
+            ore_heap_soln = unit_params['ore_heap_soln'] * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = 85 / 500 * ore_heap_soln * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = pyunits.convert(make_up_water * mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
+        except:
+            mining_capacity = 922 * (pyunits.tonnes / pyunits.day)
+            ore_heap_soln = 500 * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = 85 * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = pyunits.convert(make_up_water * mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
 
+        mine_equip = 0.00124 * mining_capacity ** 0.93454
+        mine_develop = 0.01908 * mining_capacity ** 0.43068
+        crushing = 0.0058 * mining_capacity ** 0.6651
+        leach = 0.0005 * mining_capacity ** 0.94819
+        stacking = 0.00197 * mining_capacity ** 0.77839
+        dist_recov = 0.00347 * mining_capacity ** 0.71917
+        subtotal = (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
+        perc = 0.3102 * mining_capacity ** 0.1119 # regression made by kurby in excel - mining capacity vs percent of subtotal
+        if value(perc) > 1:
+            perc = 1
+        other = subtotal * perc
+        stacking_basis = stacking * (1 + perc)
+        stacking_exp = (mine_equip * 0.935 + mine_develop * 0.431 + crushing * 0.665 + leach * 0.948 + stacking * 0.778 + dist_recov * 0.719) / (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
+
+        stacking_op = 6.28846 * mining_capacity ** 0.56932
+        dist_recov_op = 7.71759 * mining_capacity ** 0.91475
+
+        stacking_other = stacking_op / make_up_water # make_up_flow needs to be in m3/day?
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
+        flow_factor = flow_in / 65
 
-        #### CHEMS ###
-        tds_in = self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
-        tds_in = pyunits.convert(tds_in, to_units=(pyunits.mg / pyunits.liter))
+        # TODO -->> ADD THESE TO UNIT self.X
 
 
         chem_dict = {}
@@ -134,27 +182,20 @@ see property package for documentation.}"""))
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
 
-        def fixed_cap(flow_in, tds_in):
-            evap_pond_cap = (1.6227 * flow_in + 0.1821) * (0.9179 * log(tds_in) - 10.442)
-            return evap_pond_cap
+        def fixed_cap(flow_in):
+            stacking_cap = flow_factor * stacking_basis ** stacking_exp
 
-
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
-
-        # Get the first time point in the time domain
-        # In many cases this will be the only point (steady-state), but lets be
-        # safe and use a general approach
+            return stacking_cap
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in, tds_in),
+            expr=fixed_cap(flow_in),
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = 0  # kwh/m3
 
+        self.other_var_cost = stacking_other
         ##########################################
         ####### GET REST OF UNIT COSTS ######
         ##########################################

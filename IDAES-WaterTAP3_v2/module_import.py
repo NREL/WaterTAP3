@@ -183,6 +183,15 @@ def get_module(module_name):
     if module_name == "evaporation_pond":
         import evaporation_pond as up
 
+    if module_name == "basic_mass_based":
+        import basic_mass_based as up
+
+    if module_name == "heap_leaching":
+        import heap_leaching as up
+
+    if module_name == "agglom_stacking":
+        import agglom_stacking as up
+
     return up
 
 
