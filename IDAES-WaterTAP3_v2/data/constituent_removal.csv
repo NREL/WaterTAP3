@@ -281,3 +281,76 @@
 279,Strontium,kg/m3,fractional_constituent_removal,ro_deep,ocwd,0.8013701965589467,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
 280,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,ocwd,0.8013701965589467,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
 281,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,ocwd,0.8013701965589467,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+282,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,baseline,nawi
+283,Bromide,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,baseline,nawi
+284,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,baseline,nawi
+285,Chloride,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,baseline,nawi
+286,Fluoride,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,baseline,nawi
+287,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,baseline,nawi
+288,Potassium,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,baseline,nawi
+289,Silicon,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,baseline,nawi
+290,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,baseline,nawi
+291,Strontium,kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
+292,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
+293,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,cherokee,0.9530075127877238,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+294,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,baseline,nawi
+295,Bromide,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,baseline,nawi
+296,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,baseline,nawi
+297,Chloride,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,baseline,nawi
+298,Fluoride,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,baseline,nawi
+299,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,baseline,nawi
+300,Potassium,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,baseline,nawi
+301,Silicon,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,baseline,nawi
+302,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,baseline,nawi
+303,Strontium,kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
+304,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
+305,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,uranium,0.988923992966752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+306,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,baseline,nawi
+307,Bromide,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,baseline,nawi
+308,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,baseline,nawi
+309,Chloride,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,baseline,nawi
+310,Fluoride,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,baseline,nawi
+311,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,baseline,nawi
+312,Potassium,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,baseline,nawi
+313,Silicon,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,baseline,nawi
+314,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,baseline,nawi
+315,Strontium,kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
+316,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
+317,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,brine_ro,uranium,0.9923478842319196,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+318,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,baseline,nawi
+319,Bromide,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,baseline,nawi
+320,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,baseline,nawi
+321,Chloride,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,baseline,nawi
+322,Fluoride,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,baseline,nawi
+323,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,baseline,nawi
+324,Potassium,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,baseline,nawi
+325,Silicon,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,baseline,nawi
+326,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,baseline,nawi
+327,Strontium,kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
+328,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
+329,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,damodar_pr,0.9793,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+330,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,baseline,nawi
+331,Bromide,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,baseline,nawi
+332,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,baseline,nawi
+333,Chloride,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,baseline,nawi
+334,Fluoride,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,baseline,nawi
+335,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,baseline,nawi
+336,Potassium,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,baseline,nawi
+337,Silicon,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,baseline,nawi
+338,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,baseline,nawi
+339,Strontium,kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
+340,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
+341,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,damodar_sj,0.9784,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+342,Bicarbonate Alkalinity as CaCO3,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bicarbonate_alkalinity_as_caco3,baseline,nawi
+343,Bromide,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,bromide,baseline,nawi
+344,"Calcium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,calcium,baseline,nawi
+345,Chloride,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,chloride,baseline,nawi
+346,Fluoride,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,fluoride,baseline,nawi
+347,"Magnesium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,magnesium,baseline,nawi
+348,Potassium,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,potassium,baseline,nawi
+349,Silicon,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,silicon,baseline,nawi
+350,"Sodium, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sodium,baseline,nawi
+351,Strontium,kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,strontium,baseline,nawi
+352,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
+353,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
+354,,,,,san_luis,,,,baseline,nawi
