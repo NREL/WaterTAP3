@@ -1,0 +1,10 @@
+unit_process,mass_basis,cap_basis,cap_exp,elect,year
+decarbonator_waterreuse,1577254.91,0.15,1,0,2007
+crystallizer_waterreuse,16001.13677,10.14504124,1,0.061694427,2007
+evaporation_pond_waterreuse,22712.4,4.656144248,1,0,2007
+smp,100000,1,0.7,0,2020
+silica_solution,100000,1,0.7,0,2020
+tramp_oil_tank,100000,1,0.7,0,2020
+waiv,1,0.146162352,1,0,2020
+municipal_wwtp,100000,1,0.7,0,2020
+irwin_brine_management,9463.52946,35,0.7,0,2016

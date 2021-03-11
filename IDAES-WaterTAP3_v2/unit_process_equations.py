@@ -78,6 +78,10 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'reverse_osmosis': import reverse_osmosis as unit_process_model
     if up_name_test == 'basic_unit': import basic_unit as unit_process_model
     if up_name_test == 'cooling_tower': import cooling_tower as unit_process_model
+    if up_name_test == 'evaporation_pond': import evaporation_pond as unit_process_model
+    if up_name_test == 'basic_mass_based': import basic_mass_based as unit_process_model
+    if up_name_test == 'heap_leaching': import heap_leaching as unit_process_model
+    if up_name_test == 'agglom_stacking': import agglom_stacking as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules
@@ -129,7 +133,8 @@ def build_up(self, up_name_test=None):
                               units=units_meta("temperature"),
                               doc="Temperature at inlet")
     self.pressure_in = Var(time,
-                           initialize=1e5,
+                           initialize=1,
+                           domain=NonNegativeReals,
                            units=units_meta("pressure"),
                            doc="Pressure at inlet")
 
@@ -150,7 +155,8 @@ def build_up(self, up_name_test=None):
                                units=units_meta("temperature"),
                                doc="Temperature at outlet")
     self.pressure_out = Var(time,
-                            initialize=1e5,
+                            initialize=1,
+                            domain=NonNegativeReals,
                             units=units_meta("pressure"),
                             doc="Pressure at outlet")
 
@@ -170,22 +176,26 @@ def build_up(self, up_name_test=None):
         doc="Mass concentration of species in waste")
     self.temperature_waste = Var(time,
                                  initialize=300,
+                                 domain=NonNegativeReals,
                                  units=units_meta("temperature"),
                                  doc="Temperature of waste")
     self.pressure_waste = Var(time,
-                              initialize=1e5,
+                              initialize=1,
+                              domain=NonNegativeReals,
                               units=units_meta("pressure"),
                               doc="Pressure of waste")
 
-#     # Next, add additional variables for unit performance
-#     self.deltaP_outlet = Var(time,
-#                              initialize=1e4,
-#                              units=units_meta("pressure"),
-#                              doc="Pressure change between inlet and outlet")
-#     self.deltaP_waste = Var(time,
-#                             initialize=1e4,
-#                             units=units_meta("pressure"),
-#                             doc="Pressure change between inlet and waste")
+    # Next, add additional variables for unit performance
+    self.deltaP_outlet = Var(time,
+                             initialize=1e-6,
+                             domain=NonNegativeReals,
+                             units=units_meta("pressure"),
+                             doc="Pressure change between inlet and outlet")
+    self.deltaP_waste = Var(time,
+                            initialize=1e-6,
+                            domain=NonNegativeReals,
+                            units=units_meta("pressure"),
+                            doc="Pressure change between inlet and waste")
 
     # Then, recovery and removal variables
 
@@ -193,7 +203,7 @@ def build_up(self, up_name_test=None):
                               initialize=0.8, #TODO: NEEDS TO BE DIFFERENT?
                               domain=NonNegativeReals,
                               units=pyunits.dimensionless,
-                              bounds=(0.000001, 1.0000001),
+                              bounds=(1e-8, 1.0000001),
                               doc="Water recovery fraction")
     self.removal_fraction = Var(time,
                                 self.config.property_package.component_list,
@@ -205,6 +215,20 @@ def build_up(self, up_name_test=None):
    
     if up_name_test is not "reverse_osmosis":
         
+        if up_name_test is not "ro_deep":
+            
+            print("includes pressure constraint in equations")
+            
+            @self.Constraint(time, doc="Outlet pressure equation")
+            def outlet_pressure_constraint(b, t):
+                return (b.pressure_in[t] + b.deltaP_outlet[t] ==
+                        b.pressure_out[t])
+
+            @self.Constraint(time, doc="Waste pressure equation")
+            def waste_pressure_constraint(b, t):
+                return (b.pressure_in[t] + b.deltaP_waste[t] ==
+                        b.pressure_waste[t])
+
         @self.Constraint(time, doc="Water recovery equation")
         def recovery_equation(b, t):
             return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
@@ -220,7 +244,8 @@ def build_up(self, up_name_test=None):
         def component_removal_equation(b, t, j):
             return (b.removal_fraction[t, j] *
                     b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
-                    b.flow_vol_waste[t] * b.conc_mass_waste[t, j])    
+                    b.flow_vol_waste[t] * b.conc_mass_waste[t, j])  
+        
 
     @self.Constraint(time,
                      self.config.property_package.component_list,
@@ -238,15 +263,7 @@ def build_up(self, up_name_test=None):
     def waste_temperature_constraint(b, t):
         return b.temperature_in[t] == b.temperature_waste[t]
 
-    @self.Constraint(time, doc="Outlet pressure equation")
-    def outlet_pressure_constraint(b, t):
-        return (b.pressure_in[t] ==
-                b.pressure_out[t])# + b.deltaP_outlet[t])
 
-    @self.Constraint(time, doc="Waste pressure equation")
-    def waste_pressure_constraint(b, t):
-        return (b.pressure_in[t] ==
-                b.pressure_waste[t])# + b.deltaP_waste[t])
 
 
     # The last step is to create Ports representing the three streams

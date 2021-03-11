@@ -118,7 +118,7 @@ see property package for documentation.}"""))
         tpec_tic = self.costing.tpec_tic
         avg_storage_time = unit_params['avg_storage_time'] * pyunits.hours
         surge_cap = unit_params['surge_cap'] * pyunits.dimensionless
-        capacity_needed = (flow_in * avg_storage_time) * (1 + surge_cap)
+        capacity_needed = 37854 / avg_storage_time / (1 + surge_cap)
 
 
         def power(x, a, b):

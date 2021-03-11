@@ -32,7 +32,7 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, wit
 
     unit_params = m.fs.pfd_dict[unit_process_name]["Parameter"]
 
-    if 'basic_unit' in unit_process_type:
+    if 'basic' in unit_process_type:
         unit_process_name = unit_params['unit_process_name']
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
         m = constituent_removal_water_recovery.create(m, unit_process_name, unit_process_name)
@@ -96,7 +96,8 @@ def add_water_source(m = None, source_name = None, link_to = None,
         
         else:
             getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(1e-5)
-        
+    
+    getattr(m.fs, source_name).pressure_in.fix(1)
         
     return m
 

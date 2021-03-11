@@ -28,7 +28,7 @@ from idaes.core import (declare_process_block_class,
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
@@ -139,8 +139,17 @@ see property package for documentation.}"""))
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
-        mining_capacity = unit_params['mining_capacity'] * (pyunits.tonnes / pyunits.day)
+        try:
+            mining_capacity = unit_params['mining_capacity'] * (pyunits.tonnes / pyunits.day)
+            ore_heap_soln = unit_params['ore_heap_soln'] * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = 85 / 500 * ore_heap_soln * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = pyunits.convert(make_up_water * mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
+        except:
+            mining_capacity = 922 * (pyunits.tonnes / pyunits.day)
+            ore_heap_soln = 500 * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = 85 * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = pyunits.convert(make_up_water * mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
+
         mine_equip = 0.00124 * mining_capacity ** 0.93454
         mine_develop = 0.01908 * mining_capacity ** 0.43068
         crushing = 0.0058 * mining_capacity ** 0.6651
@@ -148,9 +157,26 @@ see property package for documentation.}"""))
         stacking = 0.00197 * mining_capacity ** 0.77839
         dist_recov = 0.00347 * mining_capacity ** 0.71917
         subtotal = (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
-        other = 0.73 * subtotal
+        perc = 0.3102 * mining_capacity ** 0.1119 # regression made by kurby in excel - mining capacity vs percent of subtotal
+        if value(perc) > 1:
+            perc = 1
+        other = subtotal * perc
+        mining_to_heap_basis = (mine_equip + mine_develop + crushing + leach) * (1 + perc)
+        mining_to_heap_exp = (mine_equip * 0.935 + mine_develop * 0.431 + crushing *  0.665 + leach * 0.948) / (mine_equip + mine_develop + crushing + leach)
+        stacking_basis = stacking * (1 + perc)
+        stacking_exp = (mine_equip * 0.935 + mine_develop * 0.431 + crushing * 0.665 + leach * 0.948 + stacking * 0.778 + dist_recov * 0.719) / (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
+
+        mine_equip_op = 22.54816 * mining_capacity ** 0.74807
+        crushing_op = 4.466 * mining_capacity ** 0.8794
+        leach_op = 6.34727 * 0.68261
+        stacking_op = 6.28846 * mining_capacity ** 0.56932
+        dist_recov_op = 7.71759 * mining_capacity ** 0.91475
+
+        mining_to_heap_other = (mine_equip_op + crushing_op + leach_op) / make_up_water
+        stacking_other = stacking_op / make_up_water # make_up_flow needs to be in m3/day?
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
+        flow_factor = flow_in / 73
 
         # TODO -->> ADD THESE TO UNIT self.X
 
@@ -163,14 +189,9 @@ see property package for documentation.}"""))
         ##########################################
 
         def fixed_cap(flow_in):
-            heap_cap = other + subtotal
+            heap_cap = flow_factor * mining_to_heap_basis ** mining_to_heap_exp
 
             return heap_cap
-
-        def electricity(flow_in):
-            electricity = 0
-
-            return electricity
 
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
@@ -182,8 +203,9 @@ see property package for documentation.}"""))
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = 0  # kwh/m3
 
+        self.other_var_cost = mining_to_heap_other
         ##########################################
         ####### GET REST OF UNIT COSTS ######
         ##########################################
