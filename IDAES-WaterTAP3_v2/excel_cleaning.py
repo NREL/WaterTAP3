@@ -15,7 +15,7 @@ logging.basicConfig(format=fmt, level=logging.INFO)
 # Open excel file, split the sheets into separate csv's
 logging.info('beginning to read excel files')
 
-excel_filename = 'WT3Excel_Case_Study_Data_25Feb2021.xlsm'
+excel_filename = 'WT3Excel_Case_Study_Data_09Mar2021.xlsm'
 
 sheet1 = pd.read_excel(excel_filename, sheet_name='case_study_basis', index=True)
 sheet1.to_csv("excel_case_study_basis.csv")
@@ -114,10 +114,11 @@ dataset['unit_process'].replace(to_replace="onsite_storage", value="treated_stor
 dataset['unit_process'].replace(to_replace="Treated_Water_Storage", value="treated_storage", inplace=True)
 dataset['unit_process'].replace(to_replace="Chlorine_Addition_Cylinder", value="chlorination", inplace=True)
 dataset['unit_process'].replace(to_replace="chlorination_twb", value="chlorination", inplace=True)
-dataset['unit_process'].replace(to_replace="chlorination  ", value="chlorination", inplace=True)
+dataset['unit_process'].replace(to_replace="Chlorination  ", value="chlorination", inplace=True)
 dataset['unit_process'].replace(to_replace="tri_media_filtration_with_backflush", value="tri_media_filtration", inplace=True)
 dataset['unit_process'].replace(to_replace="Ferric_Chloride_FeCl3_Addition", value="ferric_chloride_addition", inplace=True)
 dataset['unit_process'].replace(to_replace="UV_Irradiation_with_AOP ", value="uv_aop", inplace=True)
+dataset['unit_process'].replace(to_replace="UV_Irradiation_with_AOP", value="uv_aop", inplace=True)
 dataset['unit_process'].replace(to_replace="UV_Irradiation  ", value="uv_irradiation", inplace=True)
 dataset['unit_process'].replace(to_replace="Brine RO", value="ro_deep", inplace=True)
 dataset['unit_process'].replace(to_replace="Iron_Manganese_Removal", value="iron_and_manganese_removal", inplace=True)
@@ -129,6 +130,7 @@ dataset['unit_process'].replace(to_replace="Pumping_Station", value="water_pumpi
 dataset['unit_process'].replace(to_replace="Biological_Treatment_Fixed_Bed_Gravity_Basin", value="fixed_bed_gravity_basin", inplace=True)
 dataset['unit_process'].replace(to_replace="Recharge_Basin_Pump_and_Well", value="recharge_pump_well", inplace=True)
 dataset['unit_process'].replace(to_replace="Micro-Filtration  ", value="microfiltration", inplace=True)
+dataset['unit_process'].replace(to_replace="micro_fitration", value="microfiltration", inplace=True)
 
 
 
@@ -291,13 +293,16 @@ dataset['variable'] = dataset['variable'].replace(to_replace='\(', value='', reg
 dataset['variable'] = dataset['variable'].replace(to_replace="\)", value="", regex=True)
 dataset['variable'] = dataset['variable'].replace(to_replace="\.", value="", regex=True)
 
-# Replace parts of the variable names to make them more python-friendly
+# Replace parts of the water_type names to make them more python-friendly
 dataset['water_type'] = dataset['water_type'].replace(to_replace=" ", value="_", regex=True)
 dataset['water_type'] = dataset['water_type'].replace(to_replace=",", value="_", regex=True)
 dataset['water_type'] = dataset['water_type'].replace(to_replace="-", value="_", regex=True)
 dataset['water_type'] = dataset['water_type'].replace(to_replace='\(', value='', regex=True)
 dataset['water_type'] = dataset['water_type'].replace(to_replace="\)", value="", regex=True)
 dataset['water_type'] = dataset['water_type'].replace(to_replace="\.", value="", regex=True)
+
+# Replace parts of the case_study names to make them more python-friendly
+dataset['case_study'] = dataset['case_study'].replace(to_replace="-", value="_", regex=True)
 
 
 # Rename all the strings to be lowercase
@@ -367,9 +372,6 @@ dataset['unit_process'].replace(to_replace="Micro-Filtration  ", value="microfil
 # Change the mg/L in the "unit" column to kg/m3
 dataset['units'].replace(to_replace="mg/L", value="kg/m3", inplace=True)
 
-a = range(7,16)
-for x in a:
-    dataset.drop('Unnamed: %s' % (x), axis=1, inplace=True)
 
 # Replace parts of the constituent names to make them more python-friendly
 dataset['constituent'] = dataset['constituent'].replace(to_replace=" ", value="_", regex=True)
