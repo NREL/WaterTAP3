@@ -104,7 +104,7 @@ see property package for documentation.}"""))
         # Construct it if not present and pass year argument
         unit_process_name = unit_params['unit_process_name']
 
-        flow_basis, cap_basis, cap_exp, unit_year = basic_unit(unit_process_name)
+        flow_basis, cap_basis, cap_exp, elect, unit_year = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
         # Next, add a sub-Block to the unit model to hold the cost calculations
@@ -127,7 +127,6 @@ see property package for documentation.}"""))
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
 
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_year
@@ -140,23 +139,15 @@ see property package for documentation.}"""))
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
 
-        def fixed_cap(flow_in):
+        def fixed_cap():
             basic_cap = cap_basis * self.flow_factor ** cap_exp
             return basic_cap
 
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
-
-        # Get the first time point in the time domain
-        # In many cases this will be the only point (steady-state), but lets be
-        # safe and use a general approach
-
         ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(), doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = elect  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

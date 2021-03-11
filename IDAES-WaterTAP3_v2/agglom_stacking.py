@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Feb  3 12:22:42 2021
+Created on Tue Feb 16 11:46:39 2021
 
 @author: ksitterl
 """
-
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -29,11 +28,10 @@ from idaes.core import (declare_process_block_class,
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-
+from pyomo.environ import value
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-from pyomo.environ import Block, Constraint, units as pyunits
 
 # Import properties and units from "WaterTAP Library"
 
@@ -46,13 +44,13 @@ from pyomo.environ import Block, Constraint, units as pyunits
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "electrodialysis_reversal"
+module_name = "agglom_stacking"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2016
+unit_basis_yr = 2008
 
 
 # You don't really want to know what this decorator does
@@ -135,41 +133,59 @@ see property package for documentation.}"""))
         ##########################################
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
-
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
+        flow_in = pyunits.convert(self.flow_vol_in[time],
+                                  to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
+        try:
+            mining_capacity = unit_params['mining_capacity'] * (pyunits.tonnes / pyunits.day)
+            ore_heap_soln = unit_params['ore_heap_soln'] * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = 85 / 500 * ore_heap_soln * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = pyunits.convert(make_up_water * mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
+        except:
+            mining_capacity = 922 * (pyunits.tonnes / pyunits.day)
+            ore_heap_soln = 500 * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = 85 * (pyunits.gallons / pyunits.tonnes)
+            make_up_water = pyunits.convert(make_up_water * mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
 
+        mine_equip = 0.00124 * mining_capacity ** 0.93454
+        mine_develop = 0.01908 * mining_capacity ** 0.43068
+        crushing = 0.0058 * mining_capacity ** 0.6651
+        leach = 0.0005 * mining_capacity ** 0.94819
+        stacking = 0.00197 * mining_capacity ** 0.77839
+        dist_recov = 0.00347 * mining_capacity ** 0.71917
+        subtotal = (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
+        perc = 0.3102 * mining_capacity ** 0.1119 # regression made by kurby in excel - mining capacity vs percent of subtotal
+        if value(perc) > 1:
+            perc = 1
+        other = subtotal * perc
+        stacking_basis = stacking * (1 + perc)
+        stacking_exp = (mine_equip * 0.935 + mine_develop * 0.431 + crushing * 0.665 + leach * 0.948 + stacking * 0.778 + dist_recov * 0.719) / (mine_equip + mine_develop + crushing + leach + stacking + dist_recov)
+
+        stacking_op = 6.28846 * mining_capacity ** 0.56932
+        dist_recov_op = 7.71759 * mining_capacity ** 0.91475
+
+        stacking_other = stacking_op / make_up_water # make_up_flow needs to be in m3/day?
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
+        flow_factor = flow_in / 65
 
         # TODO -->> ADD THESE TO UNIT self.X
 
+
         chem_dict = {}
         self.chem_dict = chem_dict
-        # tds_in = self.conc_mass_in[time, "tds"]
-        # tds_out = self.conc_mass_out[time, 'tds']
-        # del_tds = 1 + (tds_out - tds_in) * 1E3 * (pyunits.mg / pyunits.L)
-        # base_tds = 630 * (pyunits.mg / pyunits.L)
 
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
-        # self.electricity = Var(time,
-        #                           doc="EDR electricity")
+
         def fixed_cap(flow_in):
-            ed_cap = 31  # $MM
-            return ed_cap
+            stacking_cap = flow_factor * stacking_basis ** stacking_exp
 
-        # self.electricity_eq = Constraint(expr=self.electricity[time] == self.conc_mass_in[time, "tds"] * 20)
-        # expr=self.electricity[time] == (del_tds / base_tds) * 0.337)
-
-        # Get the first time point in the time domain
-        # In many cases this will be the only point (steady-state), but lets be
-        # safe and use a general approach
+            return stacking_cap
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
@@ -177,8 +193,9 @@ see property package for documentation.}"""))
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = 0.302174902  # kwh/m3
+        self.electricity = 0  # kwh/m3
 
+        self.other_var_cost = stacking_other
         ##########################################
         ####### GET REST OF UNIT COSTS ######
         ##########################################

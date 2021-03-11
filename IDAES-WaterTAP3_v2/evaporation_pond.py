@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb  3 12:22:42 2021
-
-@author: ksitterl
-"""
-
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -23,9 +15,7 @@ Demonstration zeroth-order model for WaterTAP3
 """
 
 # Import IDAES cores
-from idaes.core import (declare_process_block_class,
-                        UnitModelBlockData,
-                        useDefault)
+from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
@@ -33,9 +23,10 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-from pyomo.environ import Block, Constraint, units as pyunits
-
+import numpy as np
+from scipy.optimize import curve_fit
 # Import properties and units from "WaterTAP Library"
+from pyomo.environ import *
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -46,13 +37,13 @@ from pyomo.environ import Block, Constraint, units as pyunits
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "electrodialysis_reversal"
+module_name = "evaporation_pond"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2016
+unit_basis_yr = 2007
 
 
 # You don't really want to know what this decorator does
@@ -72,32 +63,17 @@ class UnitProcessData(UnitModelBlockData):
     """
 
     CONFIG = ConfigBlock()
-    CONFIG.declare("dynamic", ConfigValue(
-        domain=In([False]),
-        default=False,
-        description="Dynamic model flag - must be False",
-        doc="""Indicates whether this model will be dynamic or not,
+    CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-    CONFIG.declare("has_holdup", ConfigValue(
-        default=False,
-        domain=In([False]),
-        description="Holdup construction flag - must be False",
-        doc="""Indicates whether holdup terms should be constructed or not.
+    CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-    CONFIG.declare("property_package", ConfigValue(
-        default=useDefault,
-        domain=is_physical_parameter_block,
-        description="Property package to use for control volume",
-        doc="""Property parameter object used to define property calculations,
+    CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-    CONFIG.declare("property_package_args", ConfigBlock(
-        implicit=True,
-        description="Arguments to use for constructing property packages",
-        doc="""A ConfigBlock with arguments to be passed to a property block(s)
+    CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
@@ -137,7 +113,7 @@ see property package for documentation.}"""))
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -146,26 +122,26 @@ see property package for documentation.}"""))
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
 
-        # TODO -->> ADD THESE TO UNIT self.X
+        #### CHEMS ###
+        tds_in = self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
+        tds_in = pyunits.convert(tds_in, to_units=(pyunits.mg / pyunits.liter))
+
 
         chem_dict = {}
         self.chem_dict = chem_dict
-        # tds_in = self.conc_mass_in[time, "tds"]
-        # tds_out = self.conc_mass_out[time, 'tds']
-        # del_tds = 1 + (tds_out - tds_in) * 1E3 * (pyunits.mg / pyunits.L)
-        # base_tds = 630 * (pyunits.mg / pyunits.L)
 
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
-        # self.electricity = Var(time,
-        #                           doc="EDR electricity")
-        def fixed_cap(flow_in):
-            ed_cap = 31  # $MM
-            return ed_cap
 
-        # self.electricity_eq = Constraint(expr=self.electricity[time] == self.conc_mass_in[time, "tds"] * 20)
-        # expr=self.electricity[time] == (del_tds / base_tds) * 0.337)
+        def fixed_cap(flow_in, tds_in):
+            evap_pond_cap = (1.6227 * flow_in + 0.1821) * (0.9179 * log(tds_in) - 10.442)
+            return evap_pond_cap
+
+
+        def electricity(flow_in):  # m3/hr
+            electricity = 0
+            return electricity
 
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
@@ -173,11 +149,11 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
+            expr=fixed_cap(flow_in, tds_in),
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = 0.302174902  # kwh/m3
+        self.electricity = electricity(flow_in)  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

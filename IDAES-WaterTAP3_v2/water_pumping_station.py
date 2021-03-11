@@ -165,9 +165,8 @@ see property package for documentation.}"""))
 				return tpec_tic * a * flow_in_cap ** b * 1E-6
 
 		def electricity(flow_in):  # m3/hr
-			flow_in_elect = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
-			electricity = (c * flow_in ** d) / flow_in_elect  # kWh / m3
-			# kWh/m3
+			flow_in_elect = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
+			electricity = (c * (flow_in_elect / 440.29) ** d) / flow_in # kWh / m3
 			return electricity
 
 		# Get the first time point in the time domain
