@@ -412,15 +412,31 @@ see property package for documentation.}"""))
                 expr = self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j] 
                 == self.flow_vol_waste[t] * self.conc_mass_waste[t, j]
                 ))
-            
-#         for j in self.const_list2:
-#             setattr(self, ("%s_eq_mb" % j), Constraint(
-#                 expr = self.flow_vol_in[t]*self.conc_mass_in[t, j] ==
-#                         self.flow_vol_out[t]*self.conc_mass_out[t, j] +
-#                         self.flow_vol_waste[t]*self.conc_mass_waste[t, j]
-#                 ))        
+                 
         
-                
+     ########################################################################
+        ########################################################################           
+
+#          #retenate pressure difference vs. inlet pressure
+#         self.pressure_waste_outlet_eq = Constraint(
+#         expr = self.pressure_in[t] + self.deltaP_waste[t] == self.pressure_waste[t]
+#         )   
+
+#          #retenate pressure difference vs. inlet pressure
+#         self.pressure_outlet_eq = Constraint(
+#         expr = self.pressure_in[t] + self.deltaP_outlet[t] == self.pressure_out[t]
+#         )           
+        
+                #retenate pressure difference vs. inlet pressure
+        self.pressure_waste_outlet_eq = Constraint(
+        expr = self.feed.pressure[t] - pressure_drop == self.pressure_waste[t]
+        )        
+        
+        # permeate pressure
+        self.p_out_eq = Constraint(
+                expr = 1 == self.pressure_out[t]
+            )
+        
         
         ########################################################################
         b_cost = self.costing

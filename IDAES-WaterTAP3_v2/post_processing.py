@@ -36,7 +36,7 @@ up_variables = [
     "electricity_cost"]
 
 
-def get_results_table(m = None):
+def get_results_table(m = None, filename = None):
     # could make a dictionary if betteR?
     #unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
     #                                                         case_study_trains.scenario)
@@ -53,6 +53,14 @@ def get_results_table(m = None):
     name_lup = pd.read_csv("data/excel_to_python_names.csv", index_col="Python_variable")
 
     for b_unit in m.fs.component_objects(Block, descend_into=False):
+        if hasattr(b_unit, 'electricity'):
+            #m.fs.sw_onshore_intake.electricity()
+            up_name_list.append(str(b_unit)[3:])
+            variable_list.append("Electricity Intensity")
+            value_list.append(value(getattr(b_unit, "electricity")))
+            unit_list.append("kwh/m3")
+            category.append("Electricity")
+            
         if hasattr(b_unit, 'costing'):
             for variable in up_variables:
                 up_name_list.append(str(b_unit)[3:])
@@ -92,19 +100,19 @@ def get_results_table(m = None):
                 ### MASS IN KG PER M3
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_in[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
-                category.append("Inlet Constituent")
+                category.append("Inlet Constituent Density")
                 variable_list.append(conc)
                 unit_list.append("kg/m3")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_out[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
-                category.append("Outlet Constituent")
+                category.append("Outlet Constituent Density")
                 variable_list.append(conc)
                 unit_list.append("kg/m3")
 
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_waste[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
-                category.append("Waste Constituent")
+                category.append("Waste Constituent Density")
                 variable_list.append(conc)
                 unit_list.append("kg/m3")
 
@@ -158,7 +166,8 @@ def get_results_table(m = None):
                             
     df.Value = df.Value.round(3)
     
-    df.to_csv("results/%s_%s_results.csv" % (case_study, scenario))
+    if filename is not None:
+        df.to_csv("results/%s.csv" % filename, index=False)
     
     return df
 
