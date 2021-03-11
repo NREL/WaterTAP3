@@ -37,8 +37,12 @@ def run():
     df = df[df.case_study == train["case_study"]]
     df = df[df.scenario == train["scenario"]]
     
+#     list1a = df[df.value == "calculated"].constituent.unique()
+#     df = df[df.value != "calculated"]
+#     df.value = df.value.astype(float)
     list1 = df[df.value >=0].constituent.unique()
-        
+#     list1 = list(list1b) + list(list1a)
+
     # grabs inlet water information
     if isinstance(source_water['water_type'], list):
         list2 = []
@@ -77,7 +81,7 @@ def get_removal_factors(unit_process):
     source_water = case_study_trains.source_water
        
     df = pd.read_csv("data/constituent_removal.csv")
-    df.case_study = np.where(df.case_study == "Default", train["case_study"], df.case_study)
+    df.case_study = np.where(df.case_study == "default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
     df = df[df.scenario == train["scenario"]]

@@ -217,7 +217,7 @@ def build_up(self, up_name_test=None):
         
         if up_name_test is not "ro_deep":
             
-            print("includes pressure constraint in equations")
+            #print("includes pressure constraint in equations")
             
             @self.Constraint(time, doc="Outlet pressure equation")
             def outlet_pressure_constraint(b, t):

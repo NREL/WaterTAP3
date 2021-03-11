@@ -13,7 +13,6 @@ def feedwater(
     reference=None,
     water_type=None,
     case_study=None,
-    source_or_use=None,
     scenario=None,
 ):
     # TO DO: add file type for imports,
@@ -32,15 +31,13 @@ def feedwater(
     if case_study is not None:
         df = df[df.case_study == case_study]
 
-    if source_or_use is not None:
-        df = df[df.source_or_use == source_or_use]
     
     if scenario is not None:
         df = df[df.scenario == scenario]
 
     df = df.set_index(df.index) # TODO - BE BETTER 
-    df["feedwater"] = df.value
-    df["SourceNodeName"] = "source_node"
+#     df["feedwater"] = df.value
+#     df["SourceNodeName"] = "source_node"
     # add a verbose function that returns statements
 
     # ADD OPTION IF INPUT FILE IS NONE??? OR DEFINE WATER SOURCE?!?!?!?

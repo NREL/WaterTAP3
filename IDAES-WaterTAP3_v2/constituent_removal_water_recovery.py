@@ -10,20 +10,16 @@ def create(m, unit_process_type, unit_process_name):
     if unit_process_type == "reverse_osmosis": unit_process_type = "ro_deep" # until reverse osmosis is in table input
         
     if case_study_name in df[df.unit_process == unit_process_type].case_study:
-        if "calculated" not in df[
-            ((df.unit_process == unit_process_type) & (df.case_study == case_study_name))].recovery.max():
-            flow_recovery_factor = float(
-                df[((df.unit_process == unit_process_type) & (df.case_study == case_study_name))].recovery)
+        if "calculated" not in df[((df.unit_process == unit_process_type) & (df.case_study == case_study_name))].recovery.max():
+            flow_recovery_factor = float(df[((df.unit_process == unit_process_type) & (df.case_study == case_study_name))].recovery)
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)
     else:
-        if "calculated" not in df[
-            ((df.unit_process == unit_process_type) & (df.case_study == "Default"))].recovery.max():
-            flow_recovery_factor = float(
-                df[((df.unit_process == unit_process_type) & (df.case_study == "Default"))].recovery)
+        if "calculated" not in df[((df.unit_process == unit_process_type) & (df.case_study == "default"))].recovery.max():
+            flow_recovery_factor = float(df[((df.unit_process == unit_process_type) & (df.case_study == "default"))].recovery)
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)
     
     if unit_process_type != "ro_deep":
-        print(unit_process_type)
+        #print(unit_process_type)
         if unit_process_type == "ro_deep": print("should not go here")
         getattr(m.fs, unit_process_name).deltaP_waste.fix(0)
         getattr(m.fs, unit_process_name).deltaP_outlet.fix(0)
@@ -35,6 +31,7 @@ def create(m, unit_process_type, unit_process_name):
     for constituent_name in getattr(m.fs, unit_process_name).config.property_package.component_list:
         
         if constituent_name in train_constituent_removal_factors.keys():
+            
             getattr(m.fs, unit_process_name).removal_fraction[:, constituent_name].fix(
                 train_constituent_removal_factors[constituent_name])
         else:
