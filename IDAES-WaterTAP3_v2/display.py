@@ -214,7 +214,6 @@ def show_train2(GG = None, model_name = None):
         GG2.add_edge(edge[0].getname(), edge[1].getname())
     
     if "surface_discharge" in list(GG2.nodes()):
-        print("removes node")
         GG2.remove_node("surface_discharge")
         GG2.remove_node(dummy_model.fs.water_mixer_name)
         

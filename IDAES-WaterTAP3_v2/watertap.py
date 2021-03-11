@@ -154,9 +154,10 @@ def print_results(m):
     for key in m.fs.flow_in_dict.keys():
         sum_of_inflow = sum_of_inflow + m.fs.flow_in_dict[key] 
 
-    print("Treated water --->", m.fs.costing.treated_water())
-    print("Total water recovery --->", m.fs.costing.treated_water() / sum_of_inflow)
-    print("LCOW ---> ", m.fs.costing.LCOW())
+    print("Treated water (m3/s) --->", m.fs.costing.treated_water())
+    print("Total water recovery (fraction) --->", m.fs.costing.treated_water() / sum_of_inflow)
+    print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
+    print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
 
     
 def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):

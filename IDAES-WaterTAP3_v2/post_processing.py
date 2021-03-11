@@ -151,7 +151,15 @@ def get_results_table(m = None, filename = None):
             value_list.append(value(getattr(m.fs.costing, variable_str)))
             unit_list.append(name_lup.loc[variable_str].Unit)
             category.append("Cost")
-
+    
+    m.fs.electricity_intensity 
+    
+    value_list.append(value(m.fs.costing.electricity_intensity))
+    up_name_list.append("System")
+    category.append("Electricity")
+    variable_list.append("Electricity Intensity")
+    unit_list.append("kwh/m3")
+    
     df = pd.DataFrame()
     df["Unit Process Name"] = up_name_list
     df["Variable"] = variable_list

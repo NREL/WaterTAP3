@@ -171,17 +171,17 @@ see property package for documentation.}"""))
         
         for constituent in self.config.property_package.component_list:
             conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
-            
+        
+        self.conc_mass_tot = conc_mass_tot
         density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
+        self.total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr for Mike's Excel needs
         total_flow_rate = self.total_mass #kg/hr
         
         #self.water_recovery.fix(unit_params["recovery"])
         
-        
         lift_height = 100 # ft
 
-        def fixed_cap(flow_in, total_flow_rate): # TODO not based on flow, just have placeholder numbers for Carlsbad
+        def fixed_cap(total_flow_rate): # TODO not based on flow, just have placeholder numbers for Carlsbad
 
             fc = filter_backwash_pumping_cost * filter_backwash_pumping_cost_units
             sc = surface_wash_system * surface_wash_system_units
@@ -202,7 +202,7 @@ see property package for documentation.}"""))
 
             capacity_basis = 1577255 # m3/s to kg/hr - CONSTANT BASED ON ASSUMPTION OF 100MGD BASIS
 
-            fixed_cap_unadj = (self.base_fixed_cap_cost * tpec_tic) * (total_flow_rate / capacity_basis) ** self.cap_scaling_exp
+            fixed_cap_unadj = self.base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** self.cap_scaling_exp
 
             return fixed_cap_unadj # M$
  
@@ -224,7 +224,7 @@ see property package for documentation.}"""))
         
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in, total_flow_rate),
+            expr=fixed_cap(total_flow_rate),
             doc="Unadjusted fixed capital investment") 
 
         self.electricity = electricity(flow_in) # kwh/m3 

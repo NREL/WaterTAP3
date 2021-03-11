@@ -51,11 +51,10 @@ class SystemSpecs():
         
         basis_data = pd.read_csv('data/case_study_basis.csv', index_col='case_study')
         elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
-        
+        elec_cost.index = elec_cost.index.str.lower()
         case_study = train["case_study"]
         print(case_study)
         location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
-        
         self.elec_price = float(elec_cost.loc[location])
         self.salaries_percent_FCI = float(
             basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
@@ -314,7 +313,13 @@ def get_system_costing(self):
     b.treated_water = recovered_water_flow
    
     # TODO TOTAL WASTE = 
-    ## HERE GET TOTAL ELECTRICITY CONSUMPTION IN KWH AS WELL?
+    
+    ## HERE GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water
+    #kwh per year
+    b.electricity_intensity = Expression(
+        expr = (b.electricity_cost_annual*1e6 / b.parent_block().costing_param.electricity_price)  
+        / (b.treated_water * 3600 * 24 * 365),
+         doc="Electricity Intensity in kwh/m3")
     
     b.LCOW = Expression(
         expr=(1e6*(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 

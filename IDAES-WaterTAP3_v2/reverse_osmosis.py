@@ -260,12 +260,22 @@ see property package for documentation.}"""))
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
+            
         if unit_params == None:
+            print("No parameters given. Assumes default single pass with default area and pressure -- check values")
             self.membrane_area.fix(membrane_area_in) # area per module m2
             feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.    
         else:
-            self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
-            feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
+            if unit_params["type"] == "pass": 
+                self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
+                feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
+            if unit_params["type"] == "stage": 
+                self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
+                  
+                self.pressure_into_stage_eq = Constraint(
+                    expr = feed.pressure[t] == self.pressure_in[t]
+                ) #bar pressure at inlet. should be unfixed.
+                
         #self.membrane_area = 50 * 1000 * self.flow_vol_in[t]
         
         
@@ -462,6 +472,7 @@ see property package for documentation.}"""))
          ################ Electricity consumption is assumed to be only the pump before the RO unit 
         self.pressure_diff = (feed.pressure[t] - 1)*1e5 # assumes atm pressure before pump. change to Pa
         self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
+        b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         ########################################################################  
         
         ################ Energy Recovery
@@ -469,7 +480,13 @@ see property package for documentation.}"""))
         
         b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
         self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / 0.95
-                
+        
+        if unit_params["type"] == "stage": 
+            self.pump_power = 0
+            self.erd_power = 0
+            b_cost.erd_capital_cost = 0
+            b_cost.pump_capital_cost = 0
+            
         ################ captial
         # membrane capital cost       
         b_cost.mem_capital_cost = mem_cost * self.membrane_area[t] 
@@ -478,7 +495,6 @@ see property package for documentation.}"""))
         # DOES NOT WORK: b_cost.pump_capital_cost = self.pump_power * pump_cost # cost is per W
         # BELOW IS MGD BASED OFF EXCEL WATER PUMPING
         #b_cost.pump_capital_cost = 40299 * (22.824465227271 * self.flow_vol_in[t]) ** .8657
-        b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         
         # total capital investment
         #b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)

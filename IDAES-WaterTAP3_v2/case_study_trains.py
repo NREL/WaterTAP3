@@ -55,6 +55,9 @@ def get_case_study(flow = None, m = None):
     # set up tables of design (how units are connected) and units (list of all units needed for the train)
     #df_design = pd.read_excel(case_study_library, sheet_name='design')
     df_units = pd.read_excel(case_study_library, sheet_name='units')
+    df_units.CaseStudy = df_units.CaseStudy.str.lower()
+    df_units.Reference = df_units.Reference.str.lower()
+    df_units.Scenario = df_units.Scenario.str.lower()
     df_units = filter_df(df_units)
 
     ### create pfd_dictionary for treatment train
