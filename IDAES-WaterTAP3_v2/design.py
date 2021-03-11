@@ -96,7 +96,8 @@ def add_water_source(m = None, source_name = None, link_to = None,
         
         else:
             getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(1e-5)
-        
+    
+    getattr(m.fs, source_name).pressure_in.fix(1)
         
     return m
 

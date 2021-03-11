@@ -85,7 +85,7 @@ kmsgc = 1.04 # specific gravity of concentrate correction factor *****
 kmsgsw = 1.02 # specific gravity of seawater feed correction factor  ##### Not used in Excel version
 
 # Pump data
-dpspd = 2 # (bar) pressure drop across the system *****
+dpspd = 3 # (bar) pressure drop across the system ***** Ariel changed this to 3.
 dppp = 1 # (bar) permeate pressure losses *****
 dpps = 1 # (bar) pump suction pressure *****
 dpcd = .5 # (bar) concentrate discharge pressure *****
@@ -239,9 +239,28 @@ see property package for documentation.}"""))
         time = self.flowsheet().config.time.first()               
         tds = self.conc_mass_in[time, "tds"] * 1000 # convert from kg/m3 to mg/L
         
+        # get inlet pressure based stage or pass
+        if unit_params["type"] == "stage":
+            
+            self.pmax_eq = Constraint(
+                expr =  self.pmax[time] == self.pressure_in[time]
+            )
+            
+        if unit_params["type"] == "pass": 
+            self.pmax.fix(unit_params["feed_pressure"])
+            
+
+        # retenate pressure difference vs. inlet pressure
+        self.pressure_waste_outlet_eq = Constraint(
+        expr = self.pmax[time] - dpspd == self.pressure_waste[time]
+        )        
         
-        self.pmax.fix(unit_params["feed_pressure"])
+        # permeate pressure
+        self.p_out_eq = Constraint(
+                expr = 1 == self.pressure_out[time]
+            )
         
+       
         ################## DEEP METHOD ###########################################################
         ##### excludes the cost of water storage, transportation, distribution
         ##### *** are variables that are also in the watertap excel version of the DEEP mode                
