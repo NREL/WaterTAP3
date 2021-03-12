@@ -192,6 +192,9 @@ def get_module(module_name):
     if module_name == "agglom_stacking":
         import agglom_stacking as up
 
+    if module_name == "solution_distribution_and_recovery_plant":
+        import solution_distribution_and_recovery_plant as up
+
     return up
 
 
