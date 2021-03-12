@@ -115,6 +115,7 @@ def get_case_study(flow = None, m = None):
 def get_pfd_dict(df_units):
     ### create pfd_dictionary for treatment train
     pfd_dict = df_units.set_index('UnitName').T.to_dict()
+    #print(pfd_dict)
     for key in pfd_dict.keys():
         # parameter from string to dict
         if pfd_dict[key]['Parameter'] is not np.nan:
