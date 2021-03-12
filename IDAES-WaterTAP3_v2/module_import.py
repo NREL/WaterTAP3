@@ -195,6 +195,9 @@ def get_module(module_name):
     if module_name == "solution_distribution_and_recovery_plant":
         import solution_distribution_and_recovery_plant as up
 
+    if module_name == "lime_addition":
+        import lime_addition as up
+
     return up
 
 

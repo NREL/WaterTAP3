@@ -83,7 +83,7 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'heap_leaching': import heap_leaching as unit_process_model
     if up_name_test == 'agglom_stacking': import agglom_stacking as unit_process_model
     if up_name_test == 'solution_distribution_and_recovery_plant': import solution_distribution_and_recovery_plant as unit_process_model
-
+    if up_name_test == 'lime_addition': import lime_addition as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules
