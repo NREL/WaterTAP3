@@ -267,10 +267,9 @@ see property package for documentation.}"""))
             feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.    
         else:
             self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
-            
-            if unit_params["type"] == "pass": 
+            if unit_params["pump"] == "yes":
                 feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
-            if unit_params["type"] == "stage":                   
+            if unit_params["pump"] == "no":                   
                 self.pressure_into_stage_eq = Constraint(
                     expr = feed.pressure[t] == self.pressure_in[t]
                 ) #bar pressure at inlet. should be unfixed.
@@ -470,13 +469,13 @@ see property package for documentation.}"""))
         
          ################ Electricity consumption is assumed to be only the pump before the RO unit 
         # pass assumes permeate is coming in, so pump is required
-        if unit_params["type"] == "pass": 
+        if unit_params["pump"] == "yes": 
             self.pressure_diff = (feed.pressure[t] - self.pressure_in[t])*1e5 # assumes atm pressure before pump. change to Pa
             self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
             b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         
         # assumes no pump needed for stage, but could change in future.
-        if unit_params["type"] == "stage":
+        if unit_params["pump"] == "no":
             self.pump_power = 0
             b_cost.pump_capital_cost = 0
         ########################################################################  
@@ -498,8 +497,8 @@ see property package for documentation.}"""))
         
         # total capital investment
         #b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)
-        b_cost.fixed_cap_inv_unadjusted = (self.costing.pump_capital_cost 
-        + self.costing.mem_capital_cost + b_cost.erd_capital_cost) * 1e-6 #$MM
+        b_cost.fixed_cap_inv_unadjusted = 1.65 * (self.costing.pump_capital_cost 
+        + self.costing.mem_capital_cost + b_cost.erd_capital_cost) * 1e-6 #$MM ### 1.65 -> TIC -> ARIEL TO DO 
         
         ################ operating
         # membrane operating cost

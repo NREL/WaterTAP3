@@ -354,3 +354,6 @@
 352,"Sulfate, Dissolved",kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,sulfate,baseline,nawi
 353,Total Dissolved Solids (TDS),kg/m3,fractional_constituent_removal,ro_deep,upw,0.9752,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,tds,baseline,nawi
 354,,,,,san_luis,,,,baseline,nawi
+,Total Suspended Solids (TSS),kg/m3,fractional_constituent_removal,backwash_solids_handling,default,0.95,,tss,baseline,nawi
+,Total Organic Carbon (TOC),kg/m3,fractional_constituent_removal,backwash_solids_handling,default,0.95,,toc,baseline,nawi
+,Nitrate (measured as Nitrogen),kg/m3,fractional_constituent_removal,backwash_solids_handling,default,0.95,,nitrate,baseline,nawi

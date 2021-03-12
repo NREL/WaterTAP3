@@ -32,7 +32,7 @@ import pyomo.environ as env
 
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, max_attemps = 3, initialize_flow = 2):
+                  objective=False, max_attemps = 3, initialize_flow = 3):
     
     small_flow = False
     
@@ -153,9 +153,6 @@ def print_results(m, print_model_results):
                 print("total_cap_investment:", b_unit.costing.total_cap_investment())
                 print("----------------------------------------------------------------------")
 
-        sum_of_inflow = 0
-        for key in m.fs.flow_in_dict.keys():
-            sum_of_inflow = sum_of_inflow + m.fs.flow_in_dict[key] 
             
         print("----------------------------------------------------------------------")
         print("------------------- System Level Metrics and Costs -------------------")
@@ -166,7 +163,7 @@ def print_results(m, print_model_results):
         print("Annual Other Variable Costs ($MM/yr)", m.fs.costing.other_var_cost_annual())
         print("Annual Operating Costs ($MM/yr)", m.fs.costing.operating_cost_annual())
         print("Treated water (m3/s) --->", m.fs.costing.treated_water())
-        print("Total water recovery (%) --->", 100 * m.fs.costing.treated_water() / sum_of_inflow)
+        print("Total water recovery (%) --->", 100 * m.fs.costing.system_recovery())
         print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
         print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
         print("Electricity portion of LCOW (%) --->", 100 * m.fs.costing.elec_frac_LCOW())
