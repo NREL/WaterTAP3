@@ -190,12 +190,12 @@ def build_up(self, up_name_test=None):
     # Next, add additional variables for unit performance
     self.deltaP_outlet = Var(time,
                              initialize=1e-6,
-                             domain=NonNegativeReals,
+                             #domain=NonNegativeReals,
                              units=units_meta("pressure"),
                              doc="Pressure change between inlet and outlet")
     self.deltaP_waste = Var(time,
                             initialize=1e-6,
-                            domain=NonNegativeReals,
+                            #domain=NonNegativeReals,
                             units=units_meta("pressure"),
                             doc="Pressure change between inlet and waste")
 

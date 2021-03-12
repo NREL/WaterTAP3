@@ -266,12 +266,11 @@ see property package for documentation.}"""))
             self.membrane_area.fix(membrane_area_in) # area per module m2
             feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.    
         else:
+            self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
+            
             if unit_params["type"] == "pass": 
-                self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
                 feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
-            if unit_params["type"] == "stage": 
-                self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
-                  
+            if unit_params["type"] == "stage":                   
                 self.pressure_into_stage_eq = Constraint(
                     expr = feed.pressure[t] == self.pressure_in[t]
                 ) #bar pressure at inlet. should be unfixed.
@@ -452,55 +451,55 @@ see property package for documentation.}"""))
         b_cost = self.costing
         ########################################################################          
         
-        def fixed_cap_mcgiv(wacs):
+#         def fixed_cap_mcgiv(wacs): --> can use this to compare with Excel, if needed.
 
-            Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
-            Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
+#             Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
+#             Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
             
-            #mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
-            #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
-            if unit_params is None:
-                return Single_Pass_FCI
-            else:
-                if unit_params["pass"] == "first": 
-                    return Single_Pass_FCI
-                if unit_params["pass"] == "second":
-                    return (Two_Pass_FCI - Single_Pass_FCI)
+#             #mcgivney_cap_cost = .3337 * (wacs/24)**.7177 * cost_factor_for_number_of_passes * parallel_units # Mike's UP $M
+#             #guo_cap_cost =  0.13108 * (wacs/24) ** 0.82523 * cost_factor_for_number_of_passes * parallel_units # Mike's $M
+#             if unit_params is None:
+#                 return Single_Pass_FCI
+#             else:
+#                 if unit_params["pass"] == "first": 
+#                     return Single_Pass_FCI
+#                 if unit_params["pass"] == "second":
+#                     return (Two_Pass_FCI - Single_Pass_FCI)
 
         
         
          ################ Electricity consumption is assumed to be only the pump before the RO unit 
-        self.pressure_diff = (feed.pressure[t] - 1)*1e5 # assumes atm pressure before pump. change to Pa
-        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
-        b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
+        # pass assumes permeate is coming in, so pump is required
+        if unit_params["type"] == "pass": 
+            self.pressure_diff = (feed.pressure[t] - self.pressure_in[t])*1e5 # assumes atm pressure before pump. change to Pa
+            self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
+            b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
+        
+        # assumes no pump needed for stage, but could change in future.
+        if unit_params["type"] == "stage":
+            self.pump_power = 0
+            b_cost.pump_capital_cost = 0
         ########################################################################  
         
         ################ Energy Recovery
-        x_value = (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t]) / retenate.conc_mass_total[t] * 3600
+        # assumes atmospheric pressure out
+        if unit_params["erd"] == "yes": 
+            x_value = (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t]) / retenate.conc_mass_total[t] * 3600
+            b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
+            self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / 0.95
         
-        b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
-        self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / 0.95
-        
-        if unit_params["type"] == "stage": 
-            self.pump_power = 0
+        if unit_params["erd"] == "no": 
             self.erd_power = 0
             b_cost.erd_capital_cost = 0
-            b_cost.pump_capital_cost = 0
             
         ################ captial
         # membrane capital cost       
         b_cost.mem_capital_cost = mem_cost * self.membrane_area[t] 
         
-        # pump capital cost
-        # DOES NOT WORK: b_cost.pump_capital_cost = self.pump_power * pump_cost # cost is per W
-        # BELOW IS MGD BASED OFF EXCEL WATER PUMPING
-        #b_cost.pump_capital_cost = 40299 * (22.824465227271 * self.flow_vol_in[t]) ** .8657
-        
         # total capital investment
         #b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)
         b_cost.fixed_cap_inv_unadjusted = (self.costing.pump_capital_cost 
         + self.costing.mem_capital_cost + b_cost.erd_capital_cost) * 1e-6 #$MM
-        
         
         ################ operating
         # membrane operating cost

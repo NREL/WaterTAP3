@@ -21,8 +21,8 @@ def create(m, unit_process_type, unit_process_name):
     if unit_process_type != "ro_deep":
         #print(unit_process_type)
         if unit_process_type == "ro_deep": print("should not go here")
-        getattr(m.fs, unit_process_name).deltaP_waste.fix(0)
-        getattr(m.fs, unit_process_name).deltaP_outlet.fix(0)
+        getattr(m.fs, unit_process_name).deltaP_waste.fix(1e-6)
+        getattr(m.fs, unit_process_name).deltaP_outlet.fix(1e-6)
 
     # Get constituent list and removal rates for this unit process
     train_constituent_removal_factors = generate_constituent_list.get_removal_factors(unit_process_type)
@@ -35,7 +35,7 @@ def create(m, unit_process_type, unit_process_name):
             getattr(m.fs, unit_process_name).removal_fraction[:, constituent_name].fix(
                 train_constituent_removal_factors[constituent_name])
         else:
-            getattr(m.fs, unit_process_name).removal_fraction[:, constituent_name].fix(0)
+            getattr(m.fs, unit_process_name).removal_fraction[:, constituent_name].fix(1e-6)
 
 
     return m

@@ -36,13 +36,15 @@ up_variables = [
     "electricity_cost"]
 
 
-def get_results_table(m = None, filename = None):
+def get_results_table(m = None, scenario = None, case_study = None, save = True):
     # could make a dictionary if betteR?
     #unit_process_names = case_study_trains.get_unit_processes(case_study_trains.case_study, 
     #                                                         case_study_trains.scenario)
     
-    scenario = case_study_trains.train["scenario"]
-    case_study = case_study_trains.train["case_study"]
+    if scenario is None:
+        scenario = case_study_trains.train["scenario"]
+    if case_study is None:
+        case_study = case_study_trains.train["case_study"]
 
     up_name_list = []
     variable_list = []
@@ -144,6 +146,10 @@ def get_results_table(m = None, filename = None):
             continue
         elif "capital_recovery_factor" in str(variable):
             continue
+        elif "electricity_intensity" in str(variable):
+            continue
+        elif "elec_frac_LCOW" in str(variable):
+            continue
         else:
             variable_str = str(variable)[11:]
             up_name_list.append("System")
@@ -151,9 +157,7 @@ def get_results_table(m = None, filename = None):
             value_list.append(value(getattr(m.fs.costing, variable_str)))
             unit_list.append(name_lup.loc[variable_str].Unit)
             category.append("Cost")
-    
-    m.fs.electricity_intensity 
-    
+        
     value_list.append(value(m.fs.costing.electricity_intensity))
     up_name_list.append("System")
     category.append("Electricity")
@@ -174,11 +178,27 @@ def get_results_table(m = None, filename = None):
                             
     df.Value = df.Value.round(3)
     
-    if filename is not None:
-        df.to_csv("results/%s.csv" % filename, index=False)
+    if save is True:
+        df.to_csv("results/case_studies/%s_%s.csv" % (case_study, scenario), index=False)
     
     return df
 
+
+def combine_case_study_results(case_study = None, save = True):
+    import os
+
+    final_df = pd.DataFrame()
+    keyword = ('%s_' % case_study)
+    for fname in os.listdir('./results/case_studies'):
+        if keyword in fname:
+            df = pd.read_csv('./results/case_studies/%s' % fname)
+
+        final_df = pd.concat([final_df,df])
+
+    if save is True:
+        final_df.to_csv("%s_all_scenarios" % case_study)    
+    
+    return final_df
 
 def compare_with_excel(excel_path, python_path):
 

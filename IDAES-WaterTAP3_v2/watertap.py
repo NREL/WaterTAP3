@@ -32,7 +32,7 @@ import pyomo.environ as env
 
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, max_attemps = 0, initialize_flow = 1):
+                  objective=False, max_attemps = 3, initialize_flow = 2):
     
     small_flow = False
     
@@ -59,8 +59,8 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
         run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
                           objective=objective, max_attemps = max_attemps)
     
-    if print_model_results is True: 
-        print_results(m)
+    if print_model_results: 
+        print_results(m, print_model_results)
     
     #if return_results == True: return results
 
@@ -90,7 +90,7 @@ def run_model(m = None, solver_results = False, print_model_results = False,
     if objective == True:
         #m.fs.objective_function = env.Objective(expr=m.fs.reverse_osmosis.flow_vol_in[0], sense=env.maximize)
         m.fs.objective_function = env.Objective(expr=m.fs.costing.LCOW, sense=env.minimize)
-        #m.fs.objective_function2 = env.Objective(expr=m.fs.municipal_drinking.flow_vol_in[0], sense=env.minimize)
+        #m.fs.objective_function2 = env.Objective(expr=m.fs.costing.elec_frac_LCOW, sense=env.minimize)
     
     # Set up a solver in Pyomo and solve
     solver = SolverFactory('ipopt')
@@ -123,41 +123,54 @@ def run_model(m = None, solver_results = False, print_model_results = False,
 
 
     
-def print_results(m):
+def print_results(m, print_model_results):
     
+    if print_model_results == "full":
+        print("----------------------------------------------------------------------")
     # Display the inlets and outlets and cap cost of each unit
-    for b_unit in m.fs.component_objects(Block, descend_into=True):
+        for b_unit in m.fs.component_objects(Block, descend_into=True):
+            
+            if hasattr(b_unit, 'inlet'):
+                print("----------------------------------------------------------------------")
+                print(b_unit)
+                b_unit.inlet.display()
+            if hasattr(b_unit, 'inlet1'):
+                print("----------------------------------------------------------------------")
+                print(b_unit)
+                b_unit.inlet1.display()
+            if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
+            if hasattr(b_unit, 'waste'): b_unit.waste.display()
+            if hasattr(b_unit, 'costing'):
 
-
-        if hasattr(b_unit, 'inlet'):
-            print("----------------------------------------------------------------------")
-            print(b_unit)
-            b_unit.inlet.display()
-        if hasattr(b_unit, 'inlet1'):
-            print("----------------------------------------------------------------------")
-            print(b_unit)
-            b_unit.inlet1.display()
-        if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
-        if hasattr(b_unit, 'waste'): b_unit.waste.display()
-        if hasattr(b_unit, 'costing'):
-
-            print("total_cap_investment:", b_unit.costing.total_cap_investment())
-            print("----------------------------------------------------------------------")    
+                print("total_cap_investment:", b_unit.costing.total_cap_investment())
+                print("----------------------------------------------------------------------")    
     
-    for b_unit in m.fs.component_objects(Block, descend_into=True):
-        if hasattr(b_unit, 'costing'):
-            print(b_unit)
-            print("total_cap_investment:", b_unit.costing.total_cap_investment())
-            print("----------------------------------------------------------------------")
+    if print_model_results == "summary":
+        
+        for b_unit in m.fs.component_objects(Block, descend_into=True):
+            if hasattr(b_unit, 'costing'):
+                print(b_unit)
+                print("total_cap_investment:", b_unit.costing.total_cap_investment())
+                print("----------------------------------------------------------------------")
 
-    sum_of_inflow = 0
-    for key in m.fs.flow_in_dict.keys():
-        sum_of_inflow = sum_of_inflow + m.fs.flow_in_dict[key] 
-
-    print("Treated water (m3/s) --->", m.fs.costing.treated_water())
-    print("Total water recovery (fraction) --->", m.fs.costing.treated_water() / sum_of_inflow)
-    print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
-    print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
+        sum_of_inflow = 0
+        for key in m.fs.flow_in_dict.keys():
+            sum_of_inflow = sum_of_inflow + m.fs.flow_in_dict[key] 
+            
+        print("----------------------------------------------------------------------")
+        print("------------------- System Level Metrics and Costs -------------------")
+        print("Total Capital Investment ($MM)", m.fs.costing.capital_investment_total())
+        print("Annual Fixed Operating Cost ($MM/yr)", m.fs.costing.fixed_op_cost_annual())
+        print("Annual Catalysts and Chemicals Cost ($MM/yr)", m.fs.costing.cat_and_chem_cost_annual())
+        print("Annual Electricity Costs ($MM/yr)", m.fs.costing.electricity_cost_annual())
+        print("Annual Other Variable Costs ($MM/yr)", m.fs.costing.other_var_cost_annual())
+        print("Annual Operating Costs ($MM/yr)", m.fs.costing.operating_cost_annual())
+        print("Treated water (m3/s) --->", m.fs.costing.treated_water())
+        print("Total water recovery (%) --->", 100 * m.fs.costing.treated_water() / sum_of_inflow)
+        print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
+        print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
+        print("Electricity portion of LCOW (%) --->", 100 * m.fs.costing.elec_frac_LCOW())
+        print("----------------------------------------------------------------------")
 
     
 def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):
