@@ -120,6 +120,8 @@ and used when constructing these,
 **Valid values:** {
 see property package for documentation.}"""))
     
+    
+    
     from unit_process_equations import initialization
 
     def build(self):
@@ -168,7 +170,8 @@ see property package for documentation.}"""))
         t = self.flowsheet().config.time.first()               
         time = self.flowsheet().config.time
         
-  
+        sys_cost_params = self.parent_block().costing_param
+        
         # DEFINE VARIABLES
         # Mass Fraction
         def set_flow_mass(self):
@@ -465,7 +468,7 @@ see property package for documentation.}"""))
 #                 if unit_params["pass"] == "second":
 #                     return (Two_Pass_FCI - Single_Pass_FCI)
 
-        
+        plant_cap_utilization = 1
         
          ################ Electricity consumption is assumed to be only the pump before the RO unit 
         # pass assumes permeate is coming in, so pump is required
@@ -502,15 +505,15 @@ see property package for documentation.}"""))
         
         ################ operating
         # membrane operating cost
-        self.mem_operating_cost = factor_membrane_replacement * mem_cost * self.membrane_area[t]
-        b_cost.other_var_cost = self.mem_operating_cost * 1e-6   
+        self.mem_operating_cost = factor_membrane_replacement * mem_cost * self.membrane_area[t] * sys_cost_params.plant_cap_utilization
+        b_cost.other_var_cost = self.mem_operating_cost * 1e-6 * sys_cost_params.plant_cap_utilization   
         
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
         self.electricity = (self.pump_power / 1000) / (self.flow_vol_out[t]*3600) #kwh/m3
         b_cost.pump_electricity_cost = 1e-6*(self.pump_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
         b_cost.erd_electricity_sold = 1e-6*(self.erd_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
-        b_cost.electricity_cost = b_cost.pump_electricity_cost - b_cost.erd_electricity_sold
+        b_cost.electricity_cost = (b_cost.pump_electricity_cost - b_cost.erd_electricity_sold) * sys_cost_params.plant_cap_utilization
         
         self.chem_dict = {"unit_cost": 0.01} 
                 
