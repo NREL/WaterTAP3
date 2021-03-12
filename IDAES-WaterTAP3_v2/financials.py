@@ -39,7 +39,6 @@ global pfd_dict
 
 
 last_year_for_cost_indicies = 2050
-on_stream_factor = 1.0
  
 # This first method is used at the flowsheet level and contains any global
 # parameters and methods
@@ -106,17 +105,17 @@ def get_complete_costing(self):
             chem_cost_sum  = chem_dict[key] * self.fixed_cap_inv * 1e6
         else:
             chem_cost = cat_chem_df.loc[key].Price
-            chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * on_stream_factor
+            chem_cost_sum = chem_cost_sum + self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * sys_specs.plant_cap_utilization
             
     self.cat_and_chem_cost = chem_cost_sum * 1e-6
     
     if not hasattr(self, "electricity_cost"): 
         self.electricity_cost = Expression(
-                expr= (electricity * flow_in_m3yr * sys_specs.electricity_price/1000000),
+                expr= (electricity * flow_in_m3yr * sys_specs.electricity_price/1000000) * sys_specs.plant_cap_utilization,
                 doc="Electricity cost") # M$/yr
     
     if not hasattr(self, "other_var_cost"): 
-        self.other_var_cost = 0
+        self.other_var_cost = 0 * sys_specs.plant_cap_utilization
 
     self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
     self.salaries = Expression(
@@ -201,6 +200,7 @@ def get_system_specs(self, train=None):
     b.analysis_yr_cost_indicies = system_specs.analysis_yr_cost_indicies
     b.benefit_percent_of_salary = system_specs.benefit_percent_of_salary
     b.working_cap_percent_FCI  = system_specs.working_cap_percent_FCI
+    b.plant_cap_utilization = 1.0
     
     b.tpec = 3.4
     b.tic = 1.65
@@ -220,7 +220,8 @@ def get_system_costing(self):
     if not hasattr(self, 'costing'):
         self.costing = Block()
     b = self.costing
-
+    
+    sys_specs = self.costing_param
 #     b.LCOW = Var(
 #         initialize=1e5,
 #         domain=NonNegativeReals,
@@ -329,11 +330,11 @@ def get_system_costing(self):
     
     b.LCOW = Expression(
         expr=(1e6*(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 
-    / (b.treated_water * 3600 * 24 * 365)),
+    / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization)),
     doc="Levelized Cost of Water in $/m3")
     
     b.elec_frac_LCOW = Expression(
-        expr= ((1e6*(b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365))) / b.LCOW,
+        expr= ((1e6*(b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
     doc="elec_frac_LCOW fraction")
     
     
