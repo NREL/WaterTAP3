@@ -15,7 +15,7 @@ logging.basicConfig(format=fmt, level=logging.INFO)
 # Open excel file, split the sheets into separate csv's
 logging.info('beginning to read excel files')
 
-excel_filename = 'WT3Excel_Case_Study_Data_09Mar2021.xlsm'
+excel_filename = 'WT3Excel_Case_Study_Data_12Mar2021.xlsm'
 
 sheet1 = pd.read_excel(excel_filename, sheet_name='case_study_basis', index=True)
 sheet1.to_csv("excel_case_study_basis.csv")
@@ -49,7 +49,7 @@ dataset.rename(columns={'Case_Study': 'case_study', 'Scenario': 'scenario', 'Val
 dataset['variable'] = dataset['Variable']
 
 # Add 'scenario' column
-dataset = dataset.assign(reference='NAWI')
+dataset = dataset.assign(reference='nawi')
 
 # Delete 'Variable' column
 dataset.drop('Variable',axis=1,inplace=True)
@@ -80,7 +80,67 @@ dataset['scenario'] = dataset['scenario'].str.lower()
 dataset['reference'] = dataset['reference'].str.lower()
 dataset['variable'] = dataset['variable'].str.lower()
 
-# Divide the values in the "value" column that are in kg/m3 by 1000
+# Replace parts of the case_study names to make them more python-friendly
+dataset['case_study'] = dataset['case_study'].replace(to_replace="-", value="_", regex=True)
+
+# Add rows for plant capacity utilization for each unit process
+new_row = {'case_study': 'ashkelon', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'carlsbad', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'tampa_bay', 'scenario': 'baseline', 'value': '.75', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'santa_barbara', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'kbhdp', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'emwd', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'irwin', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'battery_park', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'big_spring', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'hrsd', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'ocwd', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'cherokee', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'uranium', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'san_luis', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'iron_and_steel', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'vogtle_nuclear', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'damodar', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'kern_county', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'ultra_pure_water', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'pulp_and_paper', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'monterey_one_water', 'scenario': 'baseline', 'value': '.78', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'tuscarora', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'lithium', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'iatan_coal', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'heap_leaching', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'beef_processing', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'case_study': 'produced_water_injection', 'scenario': 'baseline', 'value': '1', 'reference': 'nawi', 'variable': 'plant_cap_utilization'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+
+
+# Make the locations lowercase in the "value" column
 dataset.loc[(dataset['variable'] == 'location_basis'), 'value'] = dataset['value'].str.lower()
 
 # Create new basis csv with friendlier python formatting
@@ -313,6 +373,8 @@ dataset['source_or_use'] = dataset['source_or_use'].str.lower()
 dataset['variable'] = dataset['variable'].str.lower()
 dataset['scenario'] = dataset['scenario'].str.lower()
 
+# Drop any duplicate rows
+dataset = dataset.drop_duplicates()
 
 # Create new results csv with friendlier python formatting
 dataset.to_csv('data/case_study_water_sources.csv')
@@ -327,7 +389,7 @@ dataset.to_csv('data/case_study_water_sources.csv')
 dataset = pd.read_csv('excel_constituent_removal.csv', encoding='utf-8')
 dataset = dataset.drop(dataset.columns[0], axis=1)
 
-# Change "constituent" column to "constituent_longform"
+# Change "constituent" and "reference" columns
 dataset.rename(columns = {'constituent' : 'constituent_longform', 'reference' : 'ref'}, inplace=True)
 
 # Duplicate "constituent_longform" column and name it 'constituent'
@@ -336,6 +398,14 @@ dataset['constituent'] = dataset['constituent_longform']
 # Add two new columns
 dataset = dataset.assign(scenario='Baseline')
 dataset = dataset.assign(reference='NAWI')
+
+# Add new rows to the dataframe
+new_row = {'constituent_longform': 'Nitrate (measured as Nitrogen)', 'units': 'kg/m3', 'calculation_type': 'fractional_constituent_removal', 'unit_process': 'backwash_solids_handling', 'case_study': 'default', 'value': '.95', 'ref': 'default', 'constituent': 'nitrate', 'scenario': 'baseline', 'reference': 'nawi'} 
+dataset = dataset.append(new_row, ignore_index = True) 
+new_row = {'constituent_longform': 'Total Suspended Solids (TSS))', 'units': 'kg/m3', 'calculation_type': 'fractional_constituent_removal', 'unit_process': 'backwash_solids_handling', 'case_study': 'default', 'value': '.95', 'ref': 'default', 'constituent': 'tss', 'scenario': 'baseline', 'reference': 'nawi'} 
+dataset = dataset.append(new_row, ignore_index = True)
+new_row = {'constituent_longform': 'Total Organic Carbon (TOC)', 'units': 'kg/m3', 'calculation_type': 'fractional_constituent_removal', 'unit_process': 'backwash_solids_handling', 'case_study': 'default', 'value': '.95', 'ref': 'default', 'constituent': 'toc', 'scenario': 'baseline', 'reference': 'nawi'} 
+dataset = dataset.append(new_row, ignore_index = True)
 
 # Simplify constituent names in new python-friendly constituent column
 dataset['constituent'].replace(to_replace="Boron, dissolved", value="boron", inplace=True)
@@ -369,7 +439,7 @@ dataset['unit_process'].replace(to_replace="CAS_with_Nitrification ", value="cas
 dataset['unit_process'].replace(to_replace="Micro-Filtration  ", value="microfiltration", inplace=True)
 
 
-# Change the mg/L in the "unit" column to kg/m3
+# Change the "mg/L" in the "units" column to "kg/m3"
 dataset['units'].replace(to_replace="mg/L", value="kg/m3", inplace=True)
 
 
@@ -389,6 +459,9 @@ dataset['reference'] = dataset['reference'].str.lower()
 dataset['scenario'] = dataset['scenario'].str.lower()
 dataset['constituent'] = dataset['constituent'].str.lower()
 dataset['unit_process'] = dataset['unit_process'].str.lower()
+
+# Drop any duplicate rows
+dataset = dataset.drop_duplicates()
 
 # Create new results csv with friendlier python formatting
 dataset.to_csv('data/constituent_removal.csv')
@@ -459,6 +532,24 @@ dataset['recovery'].replace(to_replace="1", value=".9999", inplace=True)
 dataset['case_study'] = dataset['case_study'].str.lower()
 dataset['scenario'] = dataset['scenario'].str.lower()
 dataset['unit_process'] = dataset['unit_process'].str.lower()
+
+# Change the water recovery for tri_media_filtration to 0.9
+#dataset.loc[(dataset['unit_process'] == 'tri_media_filtration'), 'recovery'].replace(to_replace='0.9999', value='0.9', inplace=True)
+
+# Change the water recovery for coag_and_floc to 0.9
+#dataset.loc[(dataset['unit_process'] == 'coag_and_floc'), 'recovery'].replace(to_replace='0.9999', value='0.9', inplace=True)
+
+# Remove coag_and_floc and tri_media_filtration
+dataset = dataset[dataset.unit_process != 'coag_and_floc']
+dataset = dataset[dataset.unit_process != 'tri_media_filtration']
+
+# Add new coag_and_floc and tri_media_filtration rows with correct recovery rates
+new_row = {'case_study': 'default', 'unit_process': 'coag_and_floc', 'recovery': '.9', 'reference': '(1) https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagulation.pdf, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.iwapublishing.com/news/coagulation-and-flocculation-water-and-wastewater-treatment, (4) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis).'} 
+dataset = dataset.append(new_row, ignore_index = True)
+
+
+new_row = {'case_study': 'default', 'unit_process': 'tri_media_filtration', 'recovery': '.9', 'reference': 'Texas Water Development Board IT3PR User Manual'} 
+dataset = dataset.append(new_row, ignore_index = True) 
 
 # Drop any duplicate rows
 dataset = dataset.drop_duplicates()
