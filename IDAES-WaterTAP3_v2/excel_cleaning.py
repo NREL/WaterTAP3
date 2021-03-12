@@ -15,7 +15,7 @@ logging.basicConfig(format=fmt, level=logging.INFO)
 # Open excel file, split the sheets into separate csv's
 logging.info('beginning to read excel files')
 
-excel_filename = 'WT3Excel_Case_Study_Data_11Mar2021.xlsm'
+excel_filename = 'WT3Excel_Case_Study_Data_12Mar2021.xlsm'
 
 sheet1 = pd.read_excel(excel_filename, sheet_name='case_study_basis', index=False)
 sheet1.to_csv("excel_case_study_basis.csv")
@@ -49,7 +49,7 @@ dataset.rename(columns={'Case_Study': 'case_study', 'Scenario': 'scenario', 'Val
 dataset['variable'] = dataset['Variable']
 
 # Add 'scenario' column
-dataset = dataset.assign(reference='NAWI')
+dataset = dataset.assign(reference='nawi')
 
 # Delete 'Variable' column
 dataset.drop('Variable',axis=1,inplace=True)
