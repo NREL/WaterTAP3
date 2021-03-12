@@ -305,7 +305,7 @@ see property package for documentation.}"""))
 
 
 
-        def energy_recovery(wacs):
+        def energy_recovery(wacs, unit_params):
             fsms = wacs/self.water_recovery[time] * (1000 / (24*3600)) # (kg/s) feed flow
 
             dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise  *****
@@ -314,10 +314,14 @@ see property package for documentation.}"""))
 
             qer1 = -fsms * (1-self.water_recovery[time])* eer * (dphm - dpspd- dpcd) * kmsgc / 10000 # (MW) energy recovery PLT *****
             qer2 =  -(1-self.water_recovery[time]) * eer * qhp # (MW) energy recovery other *****
+            
+            # only if specified
+            if unit_params["erd"] == "yes":
+                return qer2
+            if unit_params["erd"] == "no":
+                return 0
 
-            return qer2
-
-        def power_demand(wacs):  # Total power use (qms) for a given plant output capacity (wacs)
+        def power_demand(wacs, unit_params):  # Total power use (qms) for a given plant output capacity (wacs)
             fsms = wacs/self.water_recovery[time] * (1000 / 24 / 3600) # (kg/s) feed flow
 
             dphm = pavg + ndp + dpspd/2 + dppp + dpps # (bar) high head pump pressure rise
@@ -334,18 +338,22 @@ see property package for documentation.}"""))
 
             qom = (wacs * qsom) / (24 * 1000) # (MW) other power  *****
 
-            qms = qsp + qbp + qhp + energy_recovery(wacs) + qom # (MW) total power use *****
+            qms = qsp + qbp + qhp + energy_recovery(wacs, unit_params) + qom # (MW) total power use *****
+            
+            # assumes only pass needs a pump
+            if unit_params["pass"]:
+                return qms #(MW) annually
 
-            return qms #(MW) annually
-
-
+            if unit_params["stage"]:
+                return 0 #(MW) annually
+            
 #             def energy_demand(wacs): # total energy (including energy recovery)
 #                 tot_pow = power_demand(wacs) * 24 * 365 * 1000
 
 #                 return tot_pow # (kWh) annual energy demand
 
-        def electricity(wacs):
-            electricity = power_demand(wacs) * 24 / (wacs/self.water_recovery[time]) * 1000  #kWh/m3
+        def electricity(wacs, unit_params):
+            electricity = power_demand(wacs, unit_params) * 24 / (wacs/self.water_recovery[time]) * 1000  #kWh/m3
 
             return electricity
 
@@ -457,7 +465,7 @@ see property package for documentation.}"""))
             
                         
             
-        def fixed_cap_mcgiv(wacs):
+        def fixed_cap_mcgiv(wacs, unit_params):
 
             Single_Pass_FCI = (0.3337 * wacs ** 0.7177) * ((0.0936 * wacs ** 0.7837) / (0.1203 * wacs ** 0.7807))
             Two_Pass_FCI = (0.3337 * wacs ** 0.7177)
@@ -483,10 +491,10 @@ see property package for documentation.}"""))
         #wacs = flow_in * 3785.4118 * self.parent_block().water_recovery[time]
 
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap_mcgiv(wacs),
+            expr=fixed_cap_mcgiv(wacs, unit_params),
             doc="Unadjusted fixed capital investment")
                 
-        self.electricity = electricity(wacs)  # kwh/m3 (PML note: based on data from Carlsbad case)
+        self.electricity = electricity(wacs, unit_params)  # kwh/m3 (PML note: based on data from Carlsbad case)
         
         self.chem_dict = {}        
         ##########################################

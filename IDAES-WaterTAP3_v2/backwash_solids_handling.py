@@ -214,7 +214,7 @@ see property package for documentation.}"""))
                                   to_units=pyunits.m**3/pyunits.hour)
             electricity = (.746 * flow_in_gpm * lift_height / (3960 * .9 * .9)) / flow_in_m3h # kWh/m3
 
-            return (electricity/1000) # grid_electricity PML value is divided by 1000- ask Mike
+            return (electricity) # grid_electricity PML value is divided by 1000- ask Mike
     
 
         # Get the inlet flow to the unit and convert to the correct units

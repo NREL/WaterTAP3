@@ -326,6 +326,9 @@ def get_system_costing(self):
     / (b.treated_water * 3600 * 24 * 365)),
     doc="Levelized Cost of Water in $/m3")
     
+    b.elec_frac_LCOW = Expression(
+        expr= ((1e6*(b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365))) / b.LCOW,
+    doc="elec_frac_LCOW fraction")
     
     
 ### JUST TO GET IDAES TO RUN --> THESE SHOULd BE THE SYSTEM SPECS    
