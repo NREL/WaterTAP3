@@ -6948,1250 +6948,235 @@
 7102,upw,baseline,c,cooling_supply,Grid_Electricity,kWh,0.05119933171218356,electricity
 7103,upw,baseline,c,cooling_supply,Inlet Water,m3/hr,73.32675741844993,flow_vol_in
 7104,upw,baseline,c,cooling_supply,Outlet Water,m3/hr,73.32675741844993,flow_vol_out
-7105,beef_processing,baseline,a,screen,Fixed Capital Investment (FCI),$MM,0.24543532857508624,fixed_cap_inv
-7106,beef_processing,baseline,a,screen,Land_Cost,$MM,0.0003681529928626294,land_cost
-7107,beef_processing,baseline,a,screen,Working Capital,$MM,0.012271766428754313,working_cap
-7108,beef_processing,baseline,a,screen,Total Capital Investment (TCI),$MM,0.2580752479967032,total_cap_investment
-7109,beef_processing,baseline,a,screen,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7110,beef_processing,baseline,a,screen,Electricity,$MM/yr,0.0,electricity_cost
-7111,beef_processing,baseline,a,screen,Fuel and Other Utilities,$MM/yr,0.0,none
-7112,beef_processing,baseline,a,screen,Replacement Parts,$MM/yr,0.0,none
-7113,beef_processing,baseline,a,screen,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7114,beef_processing,baseline,a,screen,Total Variable Operating Costs,$MM/yr,0.0,none
-7115,beef_processing,baseline,a,screen,Employee Salaries,$MM/yr,0.000438550310208228,salaries
-7116,beef_processing,baseline,a,screen,Benefits,$MM/yr,0.00039469527918740526,benefits
-7117,beef_processing,baseline,a,screen,Maintenance,$MM/yr,0.0019634826286006896,maintenance
-7118,beef_processing,baseline,a,screen,Laboratory,$MM/yr,0.0006544942095335635,lab
-7119,beef_processing,baseline,a,screen,Insurance and Taxes,$MM/yr,0.00045814594667349434,insurance_taxes
-7120,beef_processing,baseline,a,screen,Total Fixed Operating Costs,$MM/yr,0.003909368374203381,total_fixed_op_cost
-7121,beef_processing,baseline,a,screen,Capacity_Basis_for_Fixed_Capital_Cost,,16666.666666666668,none
-7122,beef_processing,baseline,a,screen,Base_Fixed_Capital_Cost,$MM,3.25,none
-7123,beef_processing,baseline,a,screen,Capital_Scaling_Exponent,,0.9,none
-7124,beef_processing,baseline,a,screen,Base_Employee_Salary_Cost,$MM/yr,0.0032500000000000003,base_employee_salary_cost
-7125,beef_processing,baseline,a,screen,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7126,beef_processing,baseline,a,screen,Basis_Year,,2018.0,base_year
-7127,beef_processing,baseline,a,screen,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7128,beef_processing,baseline,a,screen,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7129,beef_processing,baseline,a,screen,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7130,beef_processing,baseline,a,screen,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7131,beef_processing,baseline,a,screen,Grid_Electricity,kWh,0.0,electricity
-7132,beef_processing,baseline,a,screen,Inlet Water,m3/hr,911.054,flow_vol_in
-7133,beef_processing,baseline,a,screen,Outlet Water,m3/hr,910.9628946,flow_vol_out
-7134,beef_processing,baseline,a,dissolved_air_flotation,Fixed Capital Investment (FCI),$MM,0.400909669233772,fixed_cap_inv
-7135,beef_processing,baseline,a,dissolved_air_flotation,Land_Cost,$MM,0.0006013645038506581,land_cost
-7136,beef_processing,baseline,a,dissolved_air_flotation,Working Capital,$MM,0.020045483461688603,working_cap
-7137,beef_processing,baseline,a,dissolved_air_flotation,Total Capital Investment (TCI),$MM,0.4215565171993113,total_cap_investment
-7138,beef_processing,baseline,a,dissolved_air_flotation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7139,beef_processing,baseline,a,dissolved_air_flotation,Electricity,$MM/yr,0.026014914073047936,electricity_cost
-7140,beef_processing,baseline,a,dissolved_air_flotation,Fuel and Other Utilities,$MM/yr,0.0,none
-7141,beef_processing,baseline,a,dissolved_air_flotation,Replacement Parts,$MM/yr,0.0,none
-7142,beef_processing,baseline,a,dissolved_air_flotation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7143,beef_processing,baseline,a,dissolved_air_flotation,Total Variable Operating Costs,$MM/yr,0.026014914073047936,none
-7144,beef_processing,baseline,a,dissolved_air_flotation,Employee Salaries,$MM/yr,0.00042354496459343896,salaries
-7145,beef_processing,baseline,a,dissolved_air_flotation,Benefits,$MM/yr,0.00038119046813409513,benefits
-7146,beef_processing,baseline,a,dissolved_air_flotation,Maintenance,$MM/yr,0.0032072773538701763,maintenance
-7147,beef_processing,baseline,a,dissolved_air_flotation,Laboratory,$MM/yr,0.001069092451290059,lab
-7148,beef_processing,baseline,a,dissolved_air_flotation,Insurance and Taxes,$MM/yr,0.0007483647159030412,insurance_taxes
-7149,beef_processing,baseline,a,dissolved_air_flotation,Total Fixed Operating Costs,$MM/yr,0.0058294699537908105,total_fixed_op_cost
-7150,beef_processing,baseline,a,dissolved_air_flotation,Capacity_Basis_for_Fixed_Capital_Cost,,911.054,none
-7151,beef_processing,baseline,a,dissolved_air_flotation,Base_Fixed_Capital_Cost,$MM,0.336873359026842,none
-7152,beef_processing,baseline,a,dissolved_air_flotation,Capital_Scaling_Exponent,,0.3182,none
-7153,beef_processing,baseline,a,dissolved_air_flotation,Base_Employee_Salary_Cost,$MM/yr,0.000336873359026842,base_employee_salary_cost
-7154,beef_processing,baseline,a,dissolved_air_flotation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7155,beef_processing,baseline,a,dissolved_air_flotation,Basis_Year,,2007.0,base_year
-7156,beef_processing,baseline,a,dissolved_air_flotation,Capital_and_Replacement_Parts,,1.1901280313130695,cap_replacement_parts
-7157,beef_processing,baseline,a,dissolved_air_flotation,Catalysts_and_Chemicals,,1.4497931099098118,catalysts_chemicals
-7158,beef_processing,baseline,a,dissolved_air_flotation,Labor_and_Other_Fixed_Costs,,1.2573704744266512,labor_and_other_fixed
-7159,beef_processing,baseline,a,dissolved_air_flotation,Consumer_Price_Index,,1.258749456863813,consumer_price_index
-7160,beef_processing,baseline,a,dissolved_air_flotation,Grid_Electricity,kWh/m3,0.05,electricity
-7161,beef_processing,baseline,a,dissolved_air_flotation,Inlet Water,m3/hr,910.9628946,flow_vol_in
-7162,beef_processing,baseline,a,dissolved_air_flotation,Outlet Water,m3/hr,910.87179831054,flow_vol_out
-7163,beef_processing,baseline,a,anearobic digestion w/oxidation,Fixed Capital Investment (FCI),$MM,20.700040069013838,fixed_cap_inv
-7164,beef_processing,baseline,a,anearobic digestion w/oxidation,Land_Cost,$MM,0.031050060103520762,land_cost
-7165,beef_processing,baseline,a,anearobic digestion w/oxidation,Working Capital,$MM,1.0350020034506922,working_cap
-7166,beef_processing,baseline,a,anearobic digestion w/oxidation,Total Capital Investment (TCI),$MM,21.76609213256805,total_cap_investment
-7167,beef_processing,baseline,a,anearobic digestion w/oxidation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7168,beef_processing,baseline,a,anearobic digestion w/oxidation,Electricity,$MM/yr,0.0780369377449219,electricity_cost
-7169,beef_processing,baseline,a,anearobic digestion w/oxidation,Fuel and Other Utilities,$MM/yr,0.0,none
-7170,beef_processing,baseline,a,anearobic digestion w/oxidation,Replacement Parts,$MM/yr,0.0,none
-7171,beef_processing,baseline,a,anearobic digestion w/oxidation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7172,beef_processing,baseline,a,anearobic digestion w/oxidation,Total Variable Operating Costs,$MM/yr,0.0780369377449219,none
-7173,beef_processing,baseline,a,anearobic digestion w/oxidation,Employee Salaries,$MM/yr,0.022177892927639383,salaries
-7174,beef_processing,baseline,a,anearobic digestion w/oxidation,Benefits,$MM/yr,0.019960103634875444,benefits
-7175,beef_processing,baseline,a,anearobic digestion w/oxidation,Maintenance,$MM/yr,0.16560032055211074,maintenance
-7176,beef_processing,baseline,a,anearobic digestion w/oxidation,Laboratory,$MM/yr,0.05520010685070358,lab
-7177,beef_processing,baseline,a,anearobic digestion w/oxidation,Insurance and Taxes,$MM/yr,0.038640074795492516,insurance_taxes
-7178,beef_processing,baseline,a,anearobic digestion w/oxidation,Total Fixed Operating Costs,$MM/yr,0.3015784987608217,total_fixed_op_cost
-7179,beef_processing,baseline,a,anearobic digestion w/oxidation,Capacity_Basis_for_Fixed_Capital_Cost,,911.054,none
-7180,beef_processing,baseline,a,anearobic digestion w/oxidation,Base_Fixed_Capital_Cost,$MM,19.35523120317673,none
-7181,beef_processing,baseline,a,anearobic digestion w/oxidation,Capital_Scaling_Exponent,,0.6,none
-7182,beef_processing,baseline,a,anearobic digestion w/oxidation,Base_Employee_Salary_Cost,$MM/yr,0.019355231203176733,base_employee_salary_cost
-7183,beef_processing,baseline,a,anearobic digestion w/oxidation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7184,beef_processing,baseline,a,anearobic digestion w/oxidation,Basis_Year,,2012.0,base_year
-7185,beef_processing,baseline,a,anearobic digestion w/oxidation,Capital_and_Replacement_Parts,,1.0696087370028853,cap_replacement_parts
-7186,beef_processing,baseline,a,anearobic digestion w/oxidation,Catalysts_and_Chemicals,,1.1323201661339406,catalysts_chemicals
-7187,beef_processing,baseline,a,anearobic digestion w/oxidation,Labor_and_Other_Fixed_Costs,,1.145995001167414,labor_and_other_fixed
-7188,beef_processing,baseline,a,anearobic digestion w/oxidation,Consumer_Price_Index,,1.136752832761556,consumer_price_index
-7189,beef_processing,baseline,a,anearobic digestion w/oxidation,Grid_Electricity,kWh,0.15,electricity
-7190,beef_processing,baseline,a,anearobic digestion w/oxidation,Inlet Water,m3/hr,910.87179831054,flow_vol_in
-7191,beef_processing,baseline,a,anearobic digestion w/oxidation,Outlet Water,m3/hr,910.780711130709,flow_vol_out
-7192,produced_water_injection,baseline,a,injection_well,Fixed Capital Investment (FCI),$MM,9.990717875788752,fixed_cap_inv
-7193,produced_water_injection,baseline,a,injection_well,Land_Cost,$MM,0.014986076813683129,land_cost
-7194,produced_water_injection,baseline,a,injection_well,Working Capital,$MM,0.4995358937894376,working_cap
-7195,produced_water_injection,baseline,a,injection_well,Total Capital Investment (TCI),$MM,10.505239846391873,total_cap_investment
-7196,produced_water_injection,baseline,a,injection_well,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7197,produced_water_injection,baseline,a,injection_well,Electricity,$MM/yr,0.03012687827635054,electricity_cost
-7198,produced_water_injection,baseline,a,injection_well,Fuel and Other Utilities,$MM/yr,0.0,none
-7199,produced_water_injection,baseline,a,injection_well,Replacement Parts,$MM/yr,0.0,none
-7200,produced_water_injection,baseline,a,injection_well,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7201,produced_water_injection,baseline,a,injection_well,Total Variable Operating Costs,$MM/yr,0.03012687827635054,none
-7202,produced_water_injection,baseline,a,injection_well,Employee Salaries,$MM/yr,0.010010280180644673,salaries
-7203,produced_water_injection,baseline,a,injection_well,Benefits,$MM/yr,0.009009252162580205,benefits
-7204,produced_water_injection,baseline,a,injection_well,Maintenance,$MM/yr,0.07992574300631003,maintenance
-7205,produced_water_injection,baseline,a,injection_well,Laboratory,$MM/yr,0.026641914335436674,lab
-7206,produced_water_injection,baseline,a,injection_well,Insurance and Taxes,$MM/yr,0.018649340034805676,insurance_taxes
-7207,produced_water_injection,baseline,a,injection_well,Total Fixed Operating Costs,$MM/yr,0.14423652971977724,total_fixed_op_cost
-7208,produced_water_injection,baseline,a,injection_well,Capacity_Basis_for_Fixed_Capital_Cost,,473.17647300000004,none
-7209,produced_water_injection,baseline,a,injection_well,Base_Fixed_Capital_Cost,$MM,22.5,none
-7210,produced_water_injection,baseline,a,injection_well,Capital_Scaling_Exponent,,0.7,none
-7211,produced_water_injection,baseline,a,injection_well,Base_Employee_Salary_Cost,$MM/yr,0.0225,base_employee_salary_cost
-7212,produced_water_injection,baseline,a,injection_well,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7213,produced_water_injection,baseline,a,injection_well,Basis_Year,,2011.0,base_year
-7214,produced_water_injection,baseline,a,injection_well,Capital_and_Replacement_Parts,,0.9259104395982464,cap_replacement_parts
-7215,produced_water_injection,baseline,a,injection_well,Catalysts_and_Chemicals,,0.9022219984565799,catalysts_chemicals
-7216,produced_water_injection,baseline,a,injection_well,Labor_and_Other_Fixed_Costs,,0.927723298624886,labor_and_other_fixed
-7217,produced_water_injection,baseline,a,injection_well,Consumer_Price_Index,,0.9230631704595827,consumer_price_index
-7218,produced_water_injection,baseline,a,injection_well,Grid_Electricity,kWh,0.4095946536974685,electricity
-7219,produced_water_injection,baseline,a,injection_well,Inlet Water,m3/hr,165.61046933333338,flow_vol_in
-7220,produced_water_injection,baseline,a,injection_well,Outlet Water,m3/hr,165.61046933333338,flow_vol_out
-7221,monterey_one,baseline,a,raw_water_pump,Fixed Capital Investment (FCI),$MM,1.9938923026177244,fixed_cap_inv
-7222,monterey_one,baseline,a,raw_water_pump,Land_Cost,$MM,0.0029908384539265873,land_cost
-7223,monterey_one,baseline,a,raw_water_pump,Working Capital,$MM,0.09969461513088623,working_cap
-7224,monterey_one,baseline,a,raw_water_pump,Total Capital Investment (TCI),$MM,2.0965777562025374,total_cap_investment
-7225,monterey_one,baseline,a,raw_water_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7226,monterey_one,baseline,a,raw_water_pump,Electricity,$MM/yr,0.5687564505834807,electricity_cost
-7227,monterey_one,baseline,a,raw_water_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7228,monterey_one,baseline,a,raw_water_pump,Replacement Parts,$MM/yr,0.0,none
-7229,monterey_one,baseline,a,raw_water_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7230,monterey_one,baseline,a,raw_water_pump,Total Variable Operating Costs,$MM/yr,0.5687564505834807,none
-7231,monterey_one,baseline,a,raw_water_pump,Employee Salaries,$MM/yr,0.001963122185350876,salaries
-7232,monterey_one,baseline,a,raw_water_pump,Benefits,$MM/yr,0.0017668099668157878,benefits
-7233,monterey_one,baseline,a,raw_water_pump,Maintenance,$MM/yr,0.015951138420941795,maintenance
-7234,monterey_one,baseline,a,raw_water_pump,Laboratory,$MM/yr,0.005317046140313932,lab
-7235,monterey_one,baseline,a,raw_water_pump,Insurance and Taxes,$MM/yr,0.003721932298219753,insurance_taxes
-7236,monterey_one,baseline,a,raw_water_pump,Total Fixed Operating Costs,$MM/yr,0.028720049011642143,total_fixed_op_cost
-7237,monterey_one,baseline,a,raw_water_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7238,monterey_one,baseline,a,raw_water_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7239,monterey_one,baseline,a,raw_water_pump,Capital_Scaling_Exponent,,0.8671,none
-7240,monterey_one,baseline,a,raw_water_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7241,monterey_one,baseline,a,raw_water_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7242,monterey_one,baseline,a,raw_water_pump,Basis_Year,,2019.0,base_year
-7243,monterey_one,baseline,a,raw_water_pump,Capital_and_Replacement_Parts,,1.016263893767978,cap_replacement_parts
-7244,monterey_one,baseline,a,raw_water_pump,Catalysts_and_Chemicals,,1.0221551430412668,catalysts_chemicals
-7245,monterey_one,baseline,a,raw_water_pump,Labor_and_Other_Fixed_Costs,,1.0158281478539348,labor_and_other_fixed
-7246,monterey_one,baseline,a,raw_water_pump,Consumer_Price_Index,,1.0208663556446984,consumer_price_index
-7247,monterey_one,baseline,a,raw_water_pump,Grid_Electricity,kWh,0.10239866342436713,electricity
-7248,monterey_one,baseline,a,raw_water_pump,Inlet Water,m3/hr,4731.76473,flow_vol_in
-7249,monterey_one,baseline,a,raw_water_pump,Outlet Water,m3/hr,4731.76473,flow_vol_out
-7250,monterey_one,baseline,a,coag_and_flocc,Fixed Capital Investment (FCI),$MM,5.3658883244327376,fixed_cap_inv
-7251,monterey_one,baseline,a,coag_and_flocc,Land_Cost,$MM,0.008048832486649105,land_cost
-7252,monterey_one,baseline,a,coag_and_flocc,Working Capital,$MM,0.2682944162216369,working_cap
-7253,monterey_one,baseline,a,coag_and_flocc,Total Capital Investment (TCI),$MM,5.642231573141023,total_cap_investment
-7254,monterey_one,baseline,a,coag_and_flocc,Catalysts and Chemicals,$MM/yr,0.15665622196057974,cat_and_chem_cost
-7255,monterey_one,baseline,a,coag_and_flocc,Electricity,$MM/yr,0.028202143033929462,electricity_cost
-7256,monterey_one,baseline,a,coag_and_flocc,Fuel and Other Utilities,$MM/yr,0.0,none
-7257,monterey_one,baseline,a,coag_and_flocc,Replacement Parts,$MM/yr,0.0,none
-7258,monterey_one,baseline,a,coag_and_flocc,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7259,monterey_one,baseline,a,coag_and_flocc,Total Variable Operating Costs,$MM/yr,0.1848583649945092,none
-7260,monterey_one,baseline,a,coag_and_flocc,Employee Salaries,$MM/yr,0.00450613300771705,salaries
-7261,monterey_one,baseline,a,coag_and_flocc,Benefits,$MM/yr,0.004055519706945346,benefits
-7262,monterey_one,baseline,a,coag_and_flocc,Maintenance,$MM/yr,0.042927106595461895,maintenance
-7263,monterey_one,baseline,a,coag_and_flocc,Laboratory,$MM/yr,0.01430903553182063,lab
-7264,monterey_one,baseline,a,coag_and_flocc,Insurance and Taxes,$MM/yr,0.010016324872274442,insurance_taxes
-7265,monterey_one,baseline,a,coag_and_flocc,Total Fixed Operating Costs,$MM/yr,0.07581411971421936,total_fixed_op_cost
-7266,monterey_one,baseline,a,coag_and_flocc,Capacity_Basis_for_Fixed_Capital_Cost,,6072.4314035,none
-7267,monterey_one,baseline,a,coag_and_flocc,Base_Fixed_Capital_Cost,$MM,5.365888437868176,none
-7268,monterey_one,baseline,a,coag_and_flocc,Capital_Scaling_Exponent,,1.0,none
-7269,monterey_one,baseline,a,coag_and_flocc,Base_Employee_Salary_Cost,$MM/yr,0.005365888437868176,base_employee_salary_cost
-7270,monterey_one,baseline,a,coag_and_flocc,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7271,monterey_one,baseline,a,coag_and_flocc,Basis_Year,,2020.0,base_year
-7272,monterey_one,baseline,a,coag_and_flocc,Capital_and_Replacement_Parts,,1.0,cap_replacement_parts
-7273,monterey_one,baseline,a,coag_and_flocc,Catalysts_and_Chemicals,,1.0,catalysts_chemicals
-7274,monterey_one,baseline,a,coag_and_flocc,Labor_and_Other_Fixed_Costs,,1.0,labor_and_other_fixed
-7275,monterey_one,baseline,a,coag_and_flocc,Consumer_Price_Index,,1.0,consumer_price_index
-7276,monterey_one,baseline,a,coag_and_flocc,Grid_Electricity,kWh,0.00507750153763457,electricity
-7277,monterey_one,baseline,a,coag_and_flocc,Inlet Water,m3/hr,4731.76473,flow_vol_in
-7278,monterey_one,baseline,a,coag_and_flocc,Outlet Water,m3/hr,4731.2915535269985,flow_vol_out
-7279,monterey_one,baseline,a,dual_media_filtration,Fixed Capital Investment (FCI),$MM,15.298290552651226,fixed_cap_inv
-7280,monterey_one,baseline,a,dual_media_filtration,Land_Cost,$MM,0.02294743582897684,land_cost
-7281,monterey_one,baseline,a,dual_media_filtration,Working Capital,$MM,0.7649145276325614,working_cap
-7282,monterey_one,baseline,a,dual_media_filtration,Total Capital Investment (TCI),$MM,16.086152516112765,total_cap_investment
-7283,monterey_one,baseline,a,dual_media_filtration,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7284,monterey_one,baseline,a,dual_media_filtration,Electricity,$MM/yr,0.2816794223427963,electricity_cost
-7285,monterey_one,baseline,a,dual_media_filtration,Fuel and Other Utilities,$MM/yr,0.0,none
-7286,monterey_one,baseline,a,dual_media_filtration,Replacement Parts,$MM/yr,0.0,none
-7287,monterey_one,baseline,a,dual_media_filtration,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7288,monterey_one,baseline,a,dual_media_filtration,Total Variable Operating Costs,$MM/yr,0.2816794223427963,none
-7289,monterey_one,baseline,a,dual_media_filtration,Employee Salaries,$MM/yr,0.013928829975988202,salaries
-7290,monterey_one,baseline,a,dual_media_filtration,Benefits,$MM/yr,0.012535946978389384,benefits
-7291,monterey_one,baseline,a,dual_media_filtration,Maintenance,$MM/yr,0.12238632442120982,maintenance
-7292,monterey_one,baseline,a,dual_media_filtration,Laboratory,$MM/yr,0.04079544147373661,lab
-7293,monterey_one,baseline,a,dual_media_filtration,Insurance and Taxes,$MM/yr,0.028556809031615633,insurance_taxes
-7294,monterey_one,baseline,a,dual_media_filtration,Total Fixed Operating Costs,$MM/yr,0.21820335188093964,total_fixed_op_cost
-7295,monterey_one,baseline,a,dual_media_filtration,Capacity_Basis_for_Fixed_Capital_Cost,,4732.0,none
-7296,monterey_one,baseline,a,dual_media_filtration,Base_Fixed_Capital_Cost,$MM,12.17829669097661,none
-7297,monterey_one,baseline,a,dual_media_filtration,Capital_Scaling_Exponent,,0.5862,none
-7298,monterey_one,baseline,a,dual_media_filtration,Base_Employee_Salary_Cost,$MM/yr,0.012178296690976613,base_employee_salary_cost
-7299,monterey_one,baseline,a,dual_media_filtration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7300,monterey_one,baseline,a,dual_media_filtration,Basis_Year,,2014.0,base_year
-7301,monterey_one,baseline,a,dual_media_filtration,Capital_and_Replacement_Parts,,1.0853901538828097,cap_replacement_parts
-7302,monterey_one,baseline,a,dual_media_filtration,Catalysts_and_Chemicals,,1.0948846182937026,catalysts_chemicals
-7303,monterey_one,baseline,a,dual_media_filtration,Labor_and_Other_Fixed_Costs,,1.1438619253160092,labor_and_other_fixed
-7304,monterey_one,baseline,a,dual_media_filtration,Consumer_Price_Index,,1.1024585609499895,consumer_price_index
-7305,monterey_one,baseline,a,dual_media_filtration,Grid_Electricity,kWh,0.0507185122569738,electricity
-7306,monterey_one,baseline,a,dual_media_filtration,Inlet Water,m3/hr,4731.2915535269985,flow_vol_in
-7307,monterey_one,baseline,a,dual_media_filtration,Outlet Water,m3/hr,4683.97863799173,flow_vol_out
-7308,monterey_one,baseline,a,chlorination,Fixed Capital Investment (FCI),$MM,7.03914238743724,fixed_cap_inv
-7309,monterey_one,baseline,a,chlorination,Land_Cost,$MM,0.010558713581155859,land_cost
-7310,monterey_one,baseline,a,chlorination,Working Capital,$MM,0.351957119371862,working_cap
-7311,monterey_one,baseline,a,chlorination,Total Capital Investment (TCI),$MM,7.4016582203902574,total_cap_investment
-7312,monterey_one,baseline,a,chlorination,Catalysts and Chemicals,$MM/yr,0.1325322387662484,cat_and_chem_cost
-7313,monterey_one,baseline,a,chlorination,Electricity,$MM/yr,0.05498241484420213,electricity_cost
-7314,monterey_one,baseline,a,chlorination,Fuel and Other Utilities,$MM/yr,0.0,none
-7315,monterey_one,baseline,a,chlorination,Replacement Parts,$MM/yr,0.0,none
-7316,monterey_one,baseline,a,chlorination,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7317,monterey_one,baseline,a,chlorination,Total Variable Operating Costs,$MM/yr,0.18751465361045053,none
-7318,monterey_one,baseline,a,chlorination,Employee Salaries,$MM/yr,0.007917400859268581,salaries
-7319,monterey_one,baseline,a,chlorination,Benefits,$MM/yr,0.007125660773341724,benefits
-7320,monterey_one,baseline,a,chlorination,Maintenance,$MM/yr,0.05631313909949792,maintenance
-7321,monterey_one,baseline,a,chlorination,Laboratory,$MM/yr,0.01877104636649931,lab
-7322,monterey_one,baseline,a,chlorination,Insurance and Taxes,$MM/yr,0.013139732456549516,insurance_taxes
-7323,monterey_one,baseline,a,chlorination,Total Fixed Operating Costs,$MM/yr,0.10326697955515704,total_fixed_op_cost
-7324,monterey_one,baseline,a,chlorination,Capacity_Basis_for_Fixed_Capital_Cost,,2271.246832746292,none
-7325,monterey_one,baseline,a,chlorination,Base_Fixed_Capital_Cost,$MM,4.1702647767043,none
-7326,monterey_one,baseline,a,chlorination,Capital_Scaling_Exponent,,0.45369,none
-7327,monterey_one,baseline,a,chlorination,Base_Employee_Salary_Cost,$MM/yr,0.0041702647767043,base_employee_salary_cost
-7328,monterey_one,baseline,a,chlorination,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7329,monterey_one,baseline,a,chlorination,Basis_Year,,2014.0,base_year
-7330,monterey_one,baseline,a,chlorination,Capital_and_Replacement_Parts,,1.0853901538828097,cap_replacement_parts
-7331,monterey_one,baseline,a,chlorination,Catalysts_and_Chemicals,,1.0948846182937026,catalysts_chemicals
-7332,monterey_one,baseline,a,chlorination,Labor_and_Other_Fixed_Costs,,1.1438619253160092,labor_and_other_fixed
-7333,monterey_one,baseline,a,chlorination,Consumer_Price_Index,,1.1024585609499895,consumer_price_index
-7334,monterey_one,baseline,a,chlorination,Grid_Electricity,kWh,0.01,electricity
-7335,monterey_one,baseline,a,chlorination,Inlet Water,m3/hr,4683.97863799173,flow_vol_in
-7336,monterey_one,baseline,a,chlorination,Outlet Water,m3/hr,4683.97863799173,flow_vol_out
-7337,monterey_one,baseline,a,24_hour_storage_tank,Fixed Capital Investment (FCI),$MM,28.230845722097467,fixed_cap_inv
-7338,monterey_one,baseline,a,24_hour_storage_tank,Land_Cost,$MM,0.042346268583146204,land_cost
-7339,monterey_one,baseline,a,24_hour_storage_tank,Working Capital,$MM,1.4115422861048734,working_cap
-7340,monterey_one,baseline,a,24_hour_storage_tank,Total Capital Investment (TCI),$MM,29.684734276785484,total_cap_investment
-7341,monterey_one,baseline,a,24_hour_storage_tank,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7342,monterey_one,baseline,a,24_hour_storage_tank,Electricity,$MM/yr,0.0,electricity_cost
-7343,monterey_one,baseline,a,24_hour_storage_tank,Fuel and Other Utilities,$MM/yr,0.0,none
-7344,monterey_one,baseline,a,24_hour_storage_tank,Replacement Parts,$MM/yr,0.0,none
-7345,monterey_one,baseline,a,24_hour_storage_tank,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7346,monterey_one,baseline,a,24_hour_storage_tank,Total Variable Operating Costs,$MM/yr,0.0,none
-7347,monterey_one,baseline,a,24_hour_storage_tank,Employee Salaries,$MM/yr,0.02015815795105717,salaries
-7348,monterey_one,baseline,a,24_hour_storage_tank,Benefits,$MM/yr,0.01814234215595145,benefits
-7349,monterey_one,baseline,a,24_hour_storage_tank,Maintenance,$MM/yr,0.2258467657767797,maintenance
-7350,monterey_one,baseline,a,24_hour_storage_tank,Laboratory,$MM/yr,0.07528225525892658,lab
-7351,monterey_one,baseline,a,24_hour_storage_tank,Insurance and Taxes,$MM/yr,0.052697578681248615,insurance_taxes
-7352,monterey_one,baseline,a,24_hour_storage_tank,Total Fixed Operating Costs,$MM/yr,0.3921270998239635,total_fixed_op_cost
-7353,monterey_one,baseline,a,24_hour_storage_tank,Capacity_Basis_for_Fixed_Capital_Cost,,1577.2552068349412,none
-7354,monterey_one,baseline,a,24_hour_storage_tank,Base_Fixed_Capital_Cost,$MM,6.8784383002953104,none
-7355,monterey_one,baseline,a,24_hour_storage_tank,Capital_Scaling_Exponent,,0.7132,none
-7356,monterey_one,baseline,a,24_hour_storage_tank,Base_Employee_Salary_Cost,$MM/yr,0.006878438300295311,base_employee_salary_cost
-7357,monterey_one,baseline,a,24_hour_storage_tank,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7358,monterey_one,baseline,a,24_hour_storage_tank,Basis_Year,,2002.0,base_year
-7359,monterey_one,baseline,a,24_hour_storage_tank,Capital_and_Replacement_Parts,,1.5806199890088135,cap_replacement_parts
-7360,monterey_one,baseline,a,24_hour_storage_tank,Catalysts_and_Chemicals,,1.8737631229794325,catalysts_chemicals
-7361,monterey_one,baseline,a,24_hour_storage_tank,Labor_and_Other_Fixed_Costs,,1.3679239162515875,labor_and_other_fixed
-7362,monterey_one,baseline,a,24_hour_storage_tank,Consumer_Price_Index,,1.4507594768485639,consumer_price_index
-7363,monterey_one,baseline,a,24_hour_storage_tank,Grid_Electricity,kWh,0.0,electricity
-7364,monterey_one,baseline,a,24_hour_storage_tank,Inlet Water,m3/hr,4683.97863799173,flow_vol_in
-7365,monterey_one,baseline,a,24_hour_storage_tank,Outlet Water,m3/hr,4683.97863799173,flow_vol_out
-7366,monterey_one,baseline,a,intrusion_mitigation,Fixed Capital Investment (FCI),$MM,71.5961298642498,fixed_cap_inv
-7367,monterey_one,baseline,a,intrusion_mitigation,Land_Cost,$MM,0.10739419479637473,land_cost
-7368,monterey_one,baseline,a,intrusion_mitigation,Working Capital,$MM,3.5798064932124904,working_cap
-7369,monterey_one,baseline,a,intrusion_mitigation,Total Capital Investment (TCI),$MM,75.28333055225865,total_cap_investment
-7370,monterey_one,baseline,a,intrusion_mitigation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7371,monterey_one,baseline,a,intrusion_mitigation,Electricity,$MM/yr,0.19053341094546605,electricity_cost
-7372,monterey_one,baseline,a,intrusion_mitigation,Fuel and Other Utilities,$MM/yr,0.0,none
-7373,monterey_one,baseline,a,intrusion_mitigation,Replacement Parts,$MM/yr,0.0,none
-7374,monterey_one,baseline,a,intrusion_mitigation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7375,monterey_one,baseline,a,intrusion_mitigation,Total Variable Operating Costs,$MM/yr,0.19053341094546605,none
-7376,monterey_one,baseline,a,intrusion_mitigation,Employee Salaries,$MM/yr,0.06754780537990017,salaries
-7377,monterey_one,baseline,a,intrusion_mitigation,Benefits,$MM/yr,0.06079302484191016,benefits
-7378,monterey_one,baseline,a,intrusion_mitigation,Maintenance,$MM/yr,0.5727690389139984,maintenance
-7379,monterey_one,baseline,a,intrusion_mitigation,Laboratory,$MM/yr,0.1909230129713328,lab
-7380,monterey_one,baseline,a,intrusion_mitigation,Insurance and Taxes,$MM/yr,0.13364610907993302,insurance_taxes
-7381,monterey_one,baseline,a,intrusion_mitigation,Total Fixed Operating Costs,$MM/yr,1.0256789911870745,total_fixed_op_cost
-7382,monterey_one,baseline,a,intrusion_mitigation,Capacity_Basis_for_Fixed_Capital_Cost,,4732.0,none
-7383,monterey_one,baseline,a,intrusion_mitigation,Base_Fixed_Capital_Cost,$MM,44.6,none
-7384,monterey_one,baseline,a,intrusion_mitigation,Capital_Scaling_Exponent,,1.0,none
-7385,monterey_one,baseline,a,intrusion_mitigation,Base_Employee_Salary_Cost,$MM/yr,0.0446,base_employee_salary_cost
-7386,monterey_one,baseline,a,intrusion_mitigation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7387,monterey_one,baseline,a,intrusion_mitigation,Basis_Year,,1998.0,base_year
-7388,monterey_one,baseline,a,intrusion_mitigation,Capital_and_Replacement_Parts,,1.605374243008695,cap_replacement_parts
-7389,monterey_one,baseline,a,intrusion_mitigation,Catalysts_and_Chemicals,,1.9821314004348676,catalysts_chemicals
-7390,monterey_one,baseline,a,intrusion_mitigation,Labor_and_Other_Fixed_Costs,,1.514577496921813,labor_and_other_fixed
-7391,monterey_one,baseline,a,intrusion_mitigation,Consumer_Price_Index,,1.6011756434666051,consumer_price_index
-7392,monterey_one,baseline,a,intrusion_mitigation,Grid_Electricity,kWh,0.05119933171218356,electricity
-7393,monterey_one,baseline,a,intrusion_mitigation,Inlet Water,m3/hr,4731.76473,flow_vol_in
-7394,monterey_one,baseline,a,intrusion_mitigation,Outlet Water,m3/hr,4731.76473,flow_vol_out
-7395,san_luis,baseline,a,feed_water_tank,Fixed Capital Investment (FCI),$MM,0.16126876779736915,fixed_cap_inv
-7396,san_luis,baseline,a,feed_water_tank,Land_Cost,$MM,0.0002419031516960537,land_cost
-7397,san_luis,baseline,a,feed_water_tank,Working Capital,$MM,0.008063438389868458,working_cap
-7398,san_luis,baseline,a,feed_water_tank,Total Capital Investment (TCI),$MM,0.16957410933893366,total_cap_investment
-7399,san_luis,baseline,a,feed_water_tank,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7400,san_luis,baseline,a,feed_water_tank,Electricity,$MM/yr,0.0,electricity_cost
-7401,san_luis,baseline,a,feed_water_tank,Fuel and Other Utilities,$MM/yr,0.0,none
-7402,san_luis,baseline,a,feed_water_tank,Replacement Parts,$MM/yr,0.0,none
-7403,san_luis,baseline,a,feed_water_tank,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7404,san_luis,baseline,a,feed_water_tank,Total Variable Operating Costs,$MM/yr,0.0,none
-7405,san_luis,baseline,a,feed_water_tank,Employee Salaries,$MM/yr,0.0001611283477639847,salaries
-7406,san_luis,baseline,a,feed_water_tank,Benefits,$MM/yr,0.00014501551298758624,benefits
-7407,san_luis,baseline,a,feed_water_tank,Maintenance,$MM/yr,0.0012901501423789534,maintenance
-7408,san_luis,baseline,a,feed_water_tank,Laboratory,$MM/yr,0.00043005004745965124,lab
-7409,san_luis,baseline,a,feed_water_tank,Insurance and Taxes,$MM/yr,0.00030103503322175576,insurance_taxes
-7410,san_luis,baseline,a,feed_water_tank,Total Fixed Operating Costs,$MM/yr,0.002327379083811931,total_fixed_op_cost
-7411,san_luis,baseline,a,feed_water_tank,Capacity_Basis_for_Fixed_Capital_Cost,,1736.111111111111,none
-7412,san_luis,baseline,a,feed_water_tank,Base_Fixed_Capital_Cost,$MM,2.0,none
-7413,san_luis,baseline,a,feed_water_tank,Capital_Scaling_Exponent,,0.7,none
-7414,san_luis,baseline,a,feed_water_tank,Base_Employee_Salary_Cost,$MM/yr,0.002,base_employee_salary_cost
-7415,san_luis,baseline,a,feed_water_tank,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7416,san_luis,baseline,a,feed_water_tank,Basis_Year,,2018.0,base_year
-7417,san_luis,baseline,a,feed_water_tank,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7418,san_luis,baseline,a,feed_water_tank,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7419,san_luis,baseline,a,feed_water_tank,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7420,san_luis,baseline,a,feed_water_tank,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7421,san_luis,baseline,a,feed_water_tank,Grid_Electricity,kWh,0.0,electricity
-7422,san_luis,baseline,a,feed_water_tank,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7423,san_luis,baseline,a,feed_water_tank,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7424,san_luis,baseline,a,drainage_sump_pump1,Fixed Capital Investment (FCI),$MM,0.02906013714627693,fixed_cap_inv
-7425,san_luis,baseline,a,drainage_sump_pump1,Land_Cost,$MM,4.35902057194154e-05,land_cost
-7426,san_luis,baseline,a,drainage_sump_pump1,Working Capital,$MM,0.0014530068573138464,working_cap
-7427,san_luis,baseline,a,drainage_sump_pump1,Total Capital Investment (TCI),$MM,0.0305567342093102,total_cap_investment
-7428,san_luis,baseline,a,drainage_sump_pump1,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7429,san_luis,baseline,a,drainage_sump_pump1,Electricity,$MM/yr,0.005459897659802125,electricity_cost
-7430,san_luis,baseline,a,drainage_sump_pump1,Fuel and Other Utilities,$MM/yr,0.0,none
-7431,san_luis,baseline,a,drainage_sump_pump1,Replacement Parts,$MM/yr,0.0,none
-7432,san_luis,baseline,a,drainage_sump_pump1,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7433,san_luis,baseline,a,drainage_sump_pump1,Total Variable Operating Costs,$MM/yr,0.005459897659802125,none
-7434,san_luis,baseline,a,drainage_sump_pump1,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7435,san_luis,baseline,a,drainage_sump_pump1,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7436,san_luis,baseline,a,drainage_sump_pump1,Maintenance,$MM/yr,0.00023248109717021544,maintenance
-7437,san_luis,baseline,a,drainage_sump_pump1,Laboratory,$MM/yr,7.749369905673849e-05,lab
-7438,san_luis,baseline,a,drainage_sump_pump1,Insurance and Taxes,$MM/yr,5.424558933971695e-05,insurance_taxes
-7439,san_luis,baseline,a,drainage_sump_pump1,Total Fixed Operating Costs,$MM/yr,0.0005108462917513245,total_fixed_op_cost
-7440,san_luis,baseline,a,drainage_sump_pump1,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7441,san_luis,baseline,a,drainage_sump_pump1,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7442,san_luis,baseline,a,drainage_sump_pump1,Capital_Scaling_Exponent,,0.8671,none
-7443,san_luis,baseline,a,drainage_sump_pump1,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7444,san_luis,baseline,a,drainage_sump_pump1,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7445,san_luis,baseline,a,drainage_sump_pump1,Basis_Year,,2018.0,base_year
-7446,san_luis,baseline,a,drainage_sump_pump1,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7447,san_luis,baseline,a,drainage_sump_pump1,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7448,san_luis,baseline,a,drainage_sump_pump1,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7449,san_luis,baseline,a,drainage_sump_pump1,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7450,san_luis,baseline,a,drainage_sump_pump1,Grid_Electricity,kWh,0.10239866342436713,electricity
-7451,san_luis,baseline,a,drainage_sump_pump1,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7452,san_luis,baseline,a,drainage_sump_pump1,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7453,san_luis,baseline,a,drainage_sump_pump2,Fixed Capital Investment (FCI),$MM,0.02906013714627693,fixed_cap_inv
-7454,san_luis,baseline,a,drainage_sump_pump2,Land_Cost,$MM,4.35902057194154e-05,land_cost
-7455,san_luis,baseline,a,drainage_sump_pump2,Working Capital,$MM,0.0014530068573138464,working_cap
-7456,san_luis,baseline,a,drainage_sump_pump2,Total Capital Investment (TCI),$MM,0.0305567342093102,total_cap_investment
-7457,san_luis,baseline,a,drainage_sump_pump2,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7458,san_luis,baseline,a,drainage_sump_pump2,Electricity,$MM/yr,0.0013649744149505313,electricity_cost
-7459,san_luis,baseline,a,drainage_sump_pump2,Fuel and Other Utilities,$MM/yr,0.0,none
-7460,san_luis,baseline,a,drainage_sump_pump2,Replacement Parts,$MM/yr,0.0,none
-7461,san_luis,baseline,a,drainage_sump_pump2,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7462,san_luis,baseline,a,drainage_sump_pump2,Total Variable Operating Costs,$MM/yr,0.0013649744149505313,none
-7463,san_luis,baseline,a,drainage_sump_pump2,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7464,san_luis,baseline,a,drainage_sump_pump2,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7465,san_luis,baseline,a,drainage_sump_pump2,Maintenance,$MM/yr,0.00023248109717021544,maintenance
-7466,san_luis,baseline,a,drainage_sump_pump2,Laboratory,$MM/yr,7.749369905673849e-05,lab
-7467,san_luis,baseline,a,drainage_sump_pump2,Insurance and Taxes,$MM/yr,5.424558933971695e-05,insurance_taxes
-7468,san_luis,baseline,a,drainage_sump_pump2,Total Fixed Operating Costs,$MM/yr,0.0005108462917513245,total_fixed_op_cost
-7469,san_luis,baseline,a,drainage_sump_pump2,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7470,san_luis,baseline,a,drainage_sump_pump2,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7471,san_luis,baseline,a,drainage_sump_pump2,Capital_Scaling_Exponent,,0.8671,none
-7472,san_luis,baseline,a,drainage_sump_pump2,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7473,san_luis,baseline,a,drainage_sump_pump2,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7474,san_luis,baseline,a,drainage_sump_pump2,Basis_Year,,2018.0,base_year
-7475,san_luis,baseline,a,drainage_sump_pump2,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7476,san_luis,baseline,a,drainage_sump_pump2,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7477,san_luis,baseline,a,drainage_sump_pump2,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7478,san_luis,baseline,a,drainage_sump_pump2,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7479,san_luis,baseline,a,drainage_sump_pump2,Grid_Electricity,kWh,0.02559966585609178,electricity
-7480,san_luis,baseline,a,drainage_sump_pump2,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7481,san_luis,baseline,a,drainage_sump_pump2,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7482,san_luis,baseline,a,raw water pump1,Fixed Capital Investment (FCI),$MM,0.02906013714627693,fixed_cap_inv
-7483,san_luis,baseline,a,raw water pump1,Land_Cost,$MM,4.35902057194154e-05,land_cost
-7484,san_luis,baseline,a,raw water pump1,Working Capital,$MM,0.0014530068573138464,working_cap
-7485,san_luis,baseline,a,raw water pump1,Total Capital Investment (TCI),$MM,0.0305567342093102,total_cap_investment
-7486,san_luis,baseline,a,raw water pump1,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7487,san_luis,baseline,a,raw water pump1,Electricity,$MM/yr,0.0013649744149505313,electricity_cost
-7488,san_luis,baseline,a,raw water pump1,Fuel and Other Utilities,$MM/yr,0.0,none
-7489,san_luis,baseline,a,raw water pump1,Replacement Parts,$MM/yr,0.0,none
-7490,san_luis,baseline,a,raw water pump1,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7491,san_luis,baseline,a,raw water pump1,Total Variable Operating Costs,$MM/yr,0.0013649744149505313,none
-7492,san_luis,baseline,a,raw water pump1,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7493,san_luis,baseline,a,raw water pump1,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7494,san_luis,baseline,a,raw water pump1,Maintenance,$MM/yr,0.00023248109717021544,maintenance
-7495,san_luis,baseline,a,raw water pump1,Laboratory,$MM/yr,7.749369905673849e-05,lab
-7496,san_luis,baseline,a,raw water pump1,Insurance and Taxes,$MM/yr,5.424558933971695e-05,insurance_taxes
-7497,san_luis,baseline,a,raw water pump1,Total Fixed Operating Costs,$MM/yr,0.0005108462917513245,total_fixed_op_cost
-7498,san_luis,baseline,a,raw water pump1,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7499,san_luis,baseline,a,raw water pump1,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7500,san_luis,baseline,a,raw water pump1,Capital_Scaling_Exponent,,0.8671,none
-7501,san_luis,baseline,a,raw water pump1,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7502,san_luis,baseline,a,raw water pump1,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7503,san_luis,baseline,a,raw water pump1,Basis_Year,,2018.0,base_year
-7504,san_luis,baseline,a,raw water pump1,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7505,san_luis,baseline,a,raw water pump1,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7506,san_luis,baseline,a,raw water pump1,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7507,san_luis,baseline,a,raw water pump1,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7508,san_luis,baseline,a,raw water pump1,Grid_Electricity,kWh,0.02559966585609178,electricity
-7509,san_luis,baseline,a,raw water pump1,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7510,san_luis,baseline,a,raw water pump1,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7511,san_luis,baseline,a,raw water pump2,Fixed Capital Investment (FCI),$MM,0.02906013714627693,fixed_cap_inv
-7512,san_luis,baseline,a,raw water pump2,Land_Cost,$MM,4.35902057194154e-05,land_cost
-7513,san_luis,baseline,a,raw water pump2,Working Capital,$MM,0.0014530068573138464,working_cap
-7514,san_luis,baseline,a,raw water pump2,Total Capital Investment (TCI),$MM,0.0305567342093102,total_cap_investment
-7515,san_luis,baseline,a,raw water pump2,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7516,san_luis,baseline,a,raw water pump2,Electricity,$MM/yr,0.0013649744149505313,electricity_cost
-7517,san_luis,baseline,a,raw water pump2,Fuel and Other Utilities,$MM/yr,0.0,none
-7518,san_luis,baseline,a,raw water pump2,Replacement Parts,$MM/yr,0.0,none
-7519,san_luis,baseline,a,raw water pump2,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7520,san_luis,baseline,a,raw water pump2,Total Variable Operating Costs,$MM/yr,0.0013649744149505313,none
-7521,san_luis,baseline,a,raw water pump2,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7522,san_luis,baseline,a,raw water pump2,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7523,san_luis,baseline,a,raw water pump2,Maintenance,$MM/yr,0.00023248109717021544,maintenance
-7524,san_luis,baseline,a,raw water pump2,Laboratory,$MM/yr,7.749369905673849e-05,lab
-7525,san_luis,baseline,a,raw water pump2,Insurance and Taxes,$MM/yr,5.424558933971695e-05,insurance_taxes
-7526,san_luis,baseline,a,raw water pump2,Total Fixed Operating Costs,$MM/yr,0.0005108462917513245,total_fixed_op_cost
-7527,san_luis,baseline,a,raw water pump2,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7528,san_luis,baseline,a,raw water pump2,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7529,san_luis,baseline,a,raw water pump2,Capital_Scaling_Exponent,,0.8671,none
-7530,san_luis,baseline,a,raw water pump2,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7531,san_luis,baseline,a,raw water pump2,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7532,san_luis,baseline,a,raw water pump2,Basis_Year,,2018.0,base_year
-7533,san_luis,baseline,a,raw water pump2,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7534,san_luis,baseline,a,raw water pump2,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7535,san_luis,baseline,a,raw water pump2,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7536,san_luis,baseline,a,raw water pump2,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7537,san_luis,baseline,a,raw water pump2,Grid_Electricity,kWh,0.02559966585609178,electricity
-7538,san_luis,baseline,a,raw water pump2,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7539,san_luis,baseline,a,raw water pump2,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7540,san_luis,baseline,a,bioreactor,Fixed Capital Investment (FCI),$MM,1.3057382435295644,fixed_cap_inv
-7541,san_luis,baseline,a,bioreactor,Land_Cost,$MM,0.001958607365294347,land_cost
-7542,san_luis,baseline,a,bioreactor,Working Capital,$MM,0.06528691217647822,working_cap
-7543,san_luis,baseline,a,bioreactor,Total Capital Investment (TCI),$MM,1.372983763071337,total_cap_investment
-7544,san_luis,baseline,a,bioreactor,Catalysts and Chemicals,$MM/yr,0.002176609067235837,cat_and_chem_cost
-7545,san_luis,baseline,a,bioreactor,Electricity,$MM/yr,0.0,electricity_cost
-7546,san_luis,baseline,a,bioreactor,Fuel and Other Utilities,$MM/yr,0.0,none
-7547,san_luis,baseline,a,bioreactor,Replacement Parts,$MM/yr,0.0014474353111609724,none
-7548,san_luis,baseline,a,bioreactor,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7549,san_luis,baseline,a,bioreactor,Total Variable Operating Costs,$MM/yr,0.0036240443783968094,none
-7550,san_luis,baseline,a,bioreactor,Employee Salaries,$MM/yr,0.001300940057406778,salaries
-7551,san_luis,baseline,a,bioreactor,Benefits,$MM/yr,0.0011708460516661,benefits
-7552,san_luis,baseline,a,bioreactor,Maintenance,$MM/yr,0.010445905948236515,maintenance
-7553,san_luis,baseline,a,bioreactor,Laboratory,$MM/yr,0.0034819686494121727,lab
-7554,san_luis,baseline,a,bioreactor,Insurance and Taxes,$MM/yr,0.0024373780545885204,insurance_taxes
-7555,san_luis,baseline,a,bioreactor,Total Fixed Operating Costs,$MM/yr,0.018837038761310092,total_fixed_op_cost
-7556,san_luis,baseline,a,bioreactor,Capacity_Basis_for_Fixed_Capital_Cost,,45.0,none
-7557,san_luis,baseline,a,bioreactor,Base_Fixed_Capital_Cost,$MM,1.25216,none
-7558,san_luis,baseline,a,bioreactor,Capital_Scaling_Exponent,,1.0,none
-7559,san_luis,baseline,a,bioreactor,Base_Employee_Salary_Cost,$MM/yr,0.00125216,base_employee_salary_cost
-7560,san_luis,baseline,a,bioreactor,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7561,san_luis,baseline,a,bioreactor,Basis_Year,,2018.0,base_year
-7562,san_luis,baseline,a,bioreactor,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7563,san_luis,baseline,a,bioreactor,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7564,san_luis,baseline,a,bioreactor,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7565,san_luis,baseline,a,bioreactor,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7566,san_luis,baseline,a,bioreactor,Grid_Electricity,kWh,0.0,electricity
-7567,san_luis,baseline,a,bioreactor,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7568,san_luis,baseline,a,bioreactor,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7569,san_luis,baseline,a,bioreactor_feed_pump,Fixed Capital Investment (FCI),$MM,0.05812027429255386,fixed_cap_inv
-7570,san_luis,baseline,a,bioreactor_feed_pump,Land_Cost,$MM,8.71804114388308e-05,land_cost
-7571,san_luis,baseline,a,bioreactor_feed_pump,Working Capital,$MM,0.002906013714627693,working_cap
-7572,san_luis,baseline,a,bioreactor_feed_pump,Total Capital Investment (TCI),$MM,0.061113468418620386,total_cap_investment
-7573,san_luis,baseline,a,bioreactor_feed_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7574,san_luis,baseline,a,bioreactor_feed_pump,Electricity,$MM/yr,0.0027299488299010626,electricity_cost
-7575,san_luis,baseline,a,bioreactor_feed_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7576,san_luis,baseline,a,bioreactor_feed_pump,Replacement Parts,$MM/yr,0.0,none
-7577,san_luis,baseline,a,bioreactor_feed_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7578,san_luis,baseline,a,bioreactor_feed_pump,Total Variable Operating Costs,$MM/yr,0.0027299488299010626,none
-7579,san_luis,baseline,a,bioreactor_feed_pump,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7580,san_luis,baseline,a,bioreactor_feed_pump,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7581,san_luis,baseline,a,bioreactor_feed_pump,Maintenance,$MM/yr,0.00046496219434043087,maintenance
-7582,san_luis,baseline,a,bioreactor_feed_pump,Laboratory,$MM/yr,0.00015498739811347698,lab
-7583,san_luis,baseline,a,bioreactor_feed_pump,Insurance and Taxes,$MM/yr,0.00010849117867943391,insurance_taxes
-7584,san_luis,baseline,a,bioreactor_feed_pump,Total Fixed Operating Costs,$MM/yr,0.0008750666773179954,total_fixed_op_cost
-7585,san_luis,baseline,a,bioreactor_feed_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7586,san_luis,baseline,a,bioreactor_feed_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7587,san_luis,baseline,a,bioreactor_feed_pump,Capital_Scaling_Exponent,,0.8671,none
-7588,san_luis,baseline,a,bioreactor_feed_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7589,san_luis,baseline,a,bioreactor_feed_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7590,san_luis,baseline,a,bioreactor_feed_pump,Basis_Year,,2018.0,base_year
-7591,san_luis,baseline,a,bioreactor_feed_pump,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7592,san_luis,baseline,a,bioreactor_feed_pump,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7593,san_luis,baseline,a,bioreactor_feed_pump,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7594,san_luis,baseline,a,bioreactor_feed_pump,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7595,san_luis,baseline,a,bioreactor_feed_pump,Grid_Electricity,kWh,0.02559966585609178,electricity
-7596,san_luis,baseline,a,bioreactor_feed_pump,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7597,san_luis,baseline,a,bioreactor_feed_pump,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7598,san_luis,baseline,a,abmet_interstage_pump,Fixed Capital Investment (FCI),$MM,0.05812027429255386,fixed_cap_inv
-7599,san_luis,baseline,a,abmet_interstage_pump,Land_Cost,$MM,8.71804114388308e-05,land_cost
-7600,san_luis,baseline,a,abmet_interstage_pump,Working Capital,$MM,0.002906013714627693,working_cap
-7601,san_luis,baseline,a,abmet_interstage_pump,Total Capital Investment (TCI),$MM,0.061113468418620386,total_cap_investment
-7602,san_luis,baseline,a,abmet_interstage_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7603,san_luis,baseline,a,abmet_interstage_pump,Electricity,$MM/yr,0.0027299488299010626,electricity_cost
-7604,san_luis,baseline,a,abmet_interstage_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7605,san_luis,baseline,a,abmet_interstage_pump,Replacement Parts,$MM/yr,0.0,none
-7606,san_luis,baseline,a,abmet_interstage_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7607,san_luis,baseline,a,abmet_interstage_pump,Total Variable Operating Costs,$MM/yr,0.0027299488299010626,none
-7608,san_luis,baseline,a,abmet_interstage_pump,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7609,san_luis,baseline,a,abmet_interstage_pump,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7610,san_luis,baseline,a,abmet_interstage_pump,Maintenance,$MM/yr,0.00046496219434043087,maintenance
-7611,san_luis,baseline,a,abmet_interstage_pump,Laboratory,$MM/yr,0.00015498739811347698,lab
-7612,san_luis,baseline,a,abmet_interstage_pump,Insurance and Taxes,$MM/yr,0.00010849117867943391,insurance_taxes
-7613,san_luis,baseline,a,abmet_interstage_pump,Total Fixed Operating Costs,$MM/yr,0.0008750666773179954,total_fixed_op_cost
-7614,san_luis,baseline,a,abmet_interstage_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7615,san_luis,baseline,a,abmet_interstage_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7616,san_luis,baseline,a,abmet_interstage_pump,Capital_Scaling_Exponent,,0.8671,none
-7617,san_luis,baseline,a,abmet_interstage_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7618,san_luis,baseline,a,abmet_interstage_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7619,san_luis,baseline,a,abmet_interstage_pump,Basis_Year,,2018.0,base_year
-7620,san_luis,baseline,a,abmet_interstage_pump,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7621,san_luis,baseline,a,abmet_interstage_pump,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7622,san_luis,baseline,a,abmet_interstage_pump,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7623,san_luis,baseline,a,abmet_interstage_pump,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7624,san_luis,baseline,a,abmet_interstage_pump,Grid_Electricity,kWh,0.02559966585609178,electricity
-7625,san_luis,baseline,a,abmet_interstage_pump,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7626,san_luis,baseline,a,abmet_interstage_pump,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7627,san_luis,baseline,a,abmet_intermediate_pump,Fixed Capital Investment (FCI),$MM,0.05812027429255386,fixed_cap_inv
-7628,san_luis,baseline,a,abmet_intermediate_pump,Land_Cost,$MM,8.71804114388308e-05,land_cost
-7629,san_luis,baseline,a,abmet_intermediate_pump,Working Capital,$MM,0.002906013714627693,working_cap
-7630,san_luis,baseline,a,abmet_intermediate_pump,Total Capital Investment (TCI),$MM,0.061113468418620386,total_cap_investment
-7631,san_luis,baseline,a,abmet_intermediate_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7632,san_luis,baseline,a,abmet_intermediate_pump,Electricity,$MM/yr,0.0027299488299010626,electricity_cost
-7633,san_luis,baseline,a,abmet_intermediate_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7634,san_luis,baseline,a,abmet_intermediate_pump,Replacement Parts,$MM/yr,0.0,none
-7635,san_luis,baseline,a,abmet_intermediate_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7636,san_luis,baseline,a,abmet_intermediate_pump,Total Variable Operating Costs,$MM/yr,0.0027299488299010626,none
-7637,san_luis,baseline,a,abmet_intermediate_pump,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7638,san_luis,baseline,a,abmet_intermediate_pump,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7639,san_luis,baseline,a,abmet_intermediate_pump,Maintenance,$MM/yr,0.00046496219434043087,maintenance
-7640,san_luis,baseline,a,abmet_intermediate_pump,Laboratory,$MM/yr,0.00015498739811347698,lab
-7641,san_luis,baseline,a,abmet_intermediate_pump,Insurance and Taxes,$MM/yr,0.00010849117867943391,insurance_taxes
-7642,san_luis,baseline,a,abmet_intermediate_pump,Total Fixed Operating Costs,$MM/yr,0.0008750666773179954,total_fixed_op_cost
-7643,san_luis,baseline,a,abmet_intermediate_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7644,san_luis,baseline,a,abmet_intermediate_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7645,san_luis,baseline,a,abmet_intermediate_pump,Capital_Scaling_Exponent,,0.8671,none
-7646,san_luis,baseline,a,abmet_intermediate_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7647,san_luis,baseline,a,abmet_intermediate_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7648,san_luis,baseline,a,abmet_intermediate_pump,Basis_Year,,2018.0,base_year
-7649,san_luis,baseline,a,abmet_intermediate_pump,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7650,san_luis,baseline,a,abmet_intermediate_pump,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7651,san_luis,baseline,a,abmet_intermediate_pump,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7652,san_luis,baseline,a,abmet_intermediate_pump,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7653,san_luis,baseline,a,abmet_intermediate_pump,Grid_Electricity,kWh/m3,0.02559966585609178,electricity
-7654,san_luis,baseline,a,abmet_intermediate_pump,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7655,san_luis,baseline,a,abmet_intermediate_pump,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7656,san_luis,baseline,a,bioreacotor_effluent_pump,Fixed Capital Investment (FCI),$MM,0.05812027429255386,fixed_cap_inv
-7657,san_luis,baseline,a,bioreacotor_effluent_pump,Land_Cost,$MM,8.71804114388308e-05,land_cost
-7658,san_luis,baseline,a,bioreacotor_effluent_pump,Working Capital,$MM,0.002906013714627693,working_cap
-7659,san_luis,baseline,a,bioreacotor_effluent_pump,Total Capital Investment (TCI),$MM,0.061113468418620386,total_cap_investment
-7660,san_luis,baseline,a,bioreacotor_effluent_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7661,san_luis,baseline,a,bioreacotor_effluent_pump,Electricity,$MM/yr,0.0027299488299010626,electricity_cost
-7662,san_luis,baseline,a,bioreacotor_effluent_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7663,san_luis,baseline,a,bioreacotor_effluent_pump,Replacement Parts,$MM/yr,0.0,none
-7664,san_luis,baseline,a,bioreacotor_effluent_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7665,san_luis,baseline,a,bioreacotor_effluent_pump,Total Variable Operating Costs,$MM/yr,0.0027299488299010626,none
-7666,san_luis,baseline,a,bioreacotor_effluent_pump,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7667,san_luis,baseline,a,bioreacotor_effluent_pump,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7668,san_luis,baseline,a,bioreacotor_effluent_pump,Maintenance,$MM/yr,0.00046496219434043087,maintenance
-7669,san_luis,baseline,a,bioreacotor_effluent_pump,Laboratory,$MM/yr,0.00015498739811347698,lab
-7670,san_luis,baseline,a,bioreacotor_effluent_pump,Insurance and Taxes,$MM/yr,0.00010849117867943391,insurance_taxes
-7671,san_luis,baseline,a,bioreacotor_effluent_pump,Total Fixed Operating Costs,$MM/yr,0.0008750666773179954,total_fixed_op_cost
-7672,san_luis,baseline,a,bioreacotor_effluent_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7673,san_luis,baseline,a,bioreacotor_effluent_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7674,san_luis,baseline,a,bioreacotor_effluent_pump,Capital_Scaling_Exponent,,0.8671,none
-7675,san_luis,baseline,a,bioreacotor_effluent_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7676,san_luis,baseline,a,bioreacotor_effluent_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7677,san_luis,baseline,a,bioreacotor_effluent_pump,Basis_Year,,2018.0,base_year
-7678,san_luis,baseline,a,bioreacotor_effluent_pump,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7679,san_luis,baseline,a,bioreacotor_effluent_pump,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7680,san_luis,baseline,a,bioreacotor_effluent_pump,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7681,san_luis,baseline,a,bioreacotor_effluent_pump,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7682,san_luis,baseline,a,bioreacotor_effluent_pump,Grid_Electricity,kWh,0.02559966585609178,electricity
-7683,san_luis,baseline,a,bioreacotor_effluent_pump,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7684,san_luis,baseline,a,bioreacotor_effluent_pump,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7685,san_luis,baseline,a,bioreactor_bw_pump,Fixed Capital Investment (FCI),$MM,0.02906013714627693,fixed_cap_inv
-7686,san_luis,baseline,a,bioreactor_bw_pump,Land_Cost,$MM,4.35902057194154e-05,land_cost
-7687,san_luis,baseline,a,bioreactor_bw_pump,Working Capital,$MM,0.0014530068573138464,working_cap
-7688,san_luis,baseline,a,bioreactor_bw_pump,Total Capital Investment (TCI),$MM,0.0305567342093102,total_cap_investment
-7689,san_luis,baseline,a,bioreactor_bw_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7690,san_luis,baseline,a,bioreactor_bw_pump,Electricity,$MM/yr,0.0013649744149505313,electricity_cost
-7691,san_luis,baseline,a,bioreactor_bw_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7692,san_luis,baseline,a,bioreactor_bw_pump,Replacement Parts,$MM/yr,0.0,none
-7693,san_luis,baseline,a,bioreactor_bw_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7694,san_luis,baseline,a,bioreactor_bw_pump,Total Variable Operating Costs,$MM/yr,0.0013649744149505313,none
-7695,san_luis,baseline,a,bioreactor_bw_pump,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7696,san_luis,baseline,a,bioreactor_bw_pump,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7697,san_luis,baseline,a,bioreactor_bw_pump,Maintenance,$MM/yr,0.00023248109717021544,maintenance
-7698,san_luis,baseline,a,bioreactor_bw_pump,Laboratory,$MM/yr,7.749369905673849e-05,lab
-7699,san_luis,baseline,a,bioreactor_bw_pump,Insurance and Taxes,$MM/yr,5.424558933971695e-05,insurance_taxes
-7700,san_luis,baseline,a,bioreactor_bw_pump,Total Fixed Operating Costs,$MM/yr,0.0005108462917513245,total_fixed_op_cost
-7701,san_luis,baseline,a,bioreactor_bw_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7702,san_luis,baseline,a,bioreactor_bw_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7703,san_luis,baseline,a,bioreactor_bw_pump,Capital_Scaling_Exponent,,0.8671,none
-7704,san_luis,baseline,a,bioreactor_bw_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7705,san_luis,baseline,a,bioreactor_bw_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7706,san_luis,baseline,a,bioreactor_bw_pump,Basis_Year,,2018.0,base_year
-7707,san_luis,baseline,a,bioreactor_bw_pump,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7708,san_luis,baseline,a,bioreactor_bw_pump,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7709,san_luis,baseline,a,bioreactor_bw_pump,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7710,san_luis,baseline,a,bioreactor_bw_pump,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7711,san_luis,baseline,a,bioreactor_bw_pump,Grid_Electricity,kWh,0.02559966585609178,electricity
-7712,san_luis,baseline,a,bioreactor_bw_pump,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7713,san_luis,baseline,a,bioreactor_bw_pump,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7714,san_luis,baseline,a,uf_feed_pump,Fixed Capital Investment (FCI),$MM,0.07723878296798542,fixed_cap_inv
-7715,san_luis,baseline,a,uf_feed_pump,Land_Cost,$MM,0.00011585817445197815,land_cost
-7716,san_luis,baseline,a,uf_feed_pump,Working Capital,$MM,0.003861939148399272,working_cap
-7717,san_luis,baseline,a,uf_feed_pump,Total Capital Investment (TCI),$MM,0.08121658029083667,total_cap_investment
-7718,san_luis,baseline,a,uf_feed_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7719,san_luis,baseline,a,uf_feed_pump,Electricity,$MM/yr,0.0013649744149505313,electricity_cost
-7720,san_luis,baseline,a,uf_feed_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7721,san_luis,baseline,a,uf_feed_pump,Replacement Parts,$MM/yr,0.0,none
-7722,san_luis,baseline,a,uf_feed_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7723,san_luis,baseline,a,uf_feed_pump,Total Variable Operating Costs,$MM/yr,0.0013649744149505313,none
-7724,san_luis,baseline,a,uf_feed_pump,Employee Salaries,$MM/yr,7.717152957087031e-05,salaries
-7725,san_luis,baseline,a,uf_feed_pump,Benefits,$MM/yr,6.945437661378328e-05,benefits
-7726,san_luis,baseline,a,uf_feed_pump,Maintenance,$MM/yr,0.0006179102637438834,maintenance
-7727,san_luis,baseline,a,uf_feed_pump,Laboratory,$MM/yr,0.00020597008791462784,lab
-7728,san_luis,baseline,a,uf_feed_pump,Insurance and Taxes,$MM/yr,0.00014417906154023951,insurance_taxes
-7729,san_luis,baseline,a,uf_feed_pump,Total Fixed Operating Costs,$MM/yr,0.0011146853193834043,total_fixed_op_cost
-7730,san_luis,baseline,a,uf_feed_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7731,san_luis,baseline,a,uf_feed_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7732,san_luis,baseline,a,uf_feed_pump,Capital_Scaling_Exponent,,0.7,none
-7733,san_luis,baseline,a,uf_feed_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7734,san_luis,baseline,a,uf_feed_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7735,san_luis,baseline,a,uf_feed_pump,Basis_Year,,2018.0,base_year
-7736,san_luis,baseline,a,uf_feed_pump,Capital_and_Replacement_Parts,,1.033065562329054,cap_replacement_parts
-7737,san_luis,baseline,a,uf_feed_pump,Catalysts_and_Chemicals,,1.0453142293148077,catalysts_chemicals
-7738,san_luis,baseline,a,uf_feed_pump,Labor_and_Other_Fixed_Costs,,1.0321654146466803,labor_and_other_fixed
-7739,san_luis,baseline,a,uf_feed_pump,Consumer_Price_Index,,1.0393642147971052,consumer_price_index
-7740,san_luis,baseline,a,uf_feed_pump,Grid_Electricity,kWh,0.02559966585609178,electricity
-7741,san_luis,baseline,a,uf_feed_pump,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7742,san_luis,baseline,a,uf_feed_pump,Outlet Water,m3/hr,45.4235748,flow_vol_out
-7743,san_luis,baseline,a,ultra_filtration,Fixed Capital Investment (FCI),$MM,0.7814567935834172,fixed_cap_inv
-7744,san_luis,baseline,a,ultra_filtration,Land_Cost,$MM,0.0011721851903751259,land_cost
-7745,san_luis,baseline,a,ultra_filtration,Working Capital,$MM,0.039072839679170863,working_cap
-7746,san_luis,baseline,a,ultra_filtration,Total Capital Investment (TCI),$MM,0.8217018184529632,total_cap_investment
-7747,san_luis,baseline,a,ultra_filtration,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7748,san_luis,baseline,a,ultra_filtration,Electricity,$MM/yr,0.012335314953727751,electricity_cost
-7749,san_luis,baseline,a,ultra_filtration,Fuel and Other Utilities,$MM/yr,0.0,none
-7750,san_luis,baseline,a,ultra_filtration,Replacement Parts,$MM/yr,0.0,none
-7751,san_luis,baseline,a,ultra_filtration,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7752,san_luis,baseline,a,ultra_filtration,Total Variable Operating Costs,$MM/yr,0.012335314953727751,none
-7753,san_luis,baseline,a,ultra_filtration,Employee Salaries,$MM/yr,0.0033190639209426612,salaries
-7754,san_luis,baseline,a,ultra_filtration,Benefits,$MM/yr,0.0029871575288483955,benefits
-7755,san_luis,baseline,a,ultra_filtration,Maintenance,$MM/yr,0.006251654348667339,maintenance
-7756,san_luis,baseline,a,ultra_filtration,Laboratory,$MM/yr,0.0020838847828891127,lab
-7757,san_luis,baseline,a,ultra_filtration,Insurance and Taxes,$MM/yr,0.001458719348022379,insurance_taxes
-7758,san_luis,baseline,a,ultra_filtration,Total Fixed Operating Costs,$MM/yr,0.016100479929369887,total_fixed_op_cost
-7759,san_luis,baseline,a,ultra_filtration,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764234888108,none
-7760,san_luis,baseline,a,ultra_filtration,Base_Fixed_Capital_Cost,$MM,75.0,none
-7761,san_luis,baseline,a,ultra_filtration,Capital_Scaling_Exponent,,1.0,none
-7762,san_luis,baseline,a,ultra_filtration,Base_Employee_Salary_Cost,$MM/yr,0.075,base_employee_salary_cost
-7763,san_luis,baseline,a,ultra_filtration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7764,san_luis,baseline,a,ultra_filtration,Basis_Year,,2014.0,base_year
-7765,san_luis,baseline,a,ultra_filtration,Capital_and_Replacement_Parts,,1.0853901538828097,cap_replacement_parts
-7766,san_luis,baseline,a,ultra_filtration,Catalysts_and_Chemicals,,1.0948846182937026,catalysts_chemicals
-7767,san_luis,baseline,a,ultra_filtration,Labor_and_Other_Fixed_Costs,,1.1438619253160092,labor_and_other_fixed
-7768,san_luis,baseline,a,ultra_filtration,Consumer_Price_Index,,1.1024585609499895,consumer_price_index
-7769,san_luis,baseline,a,ultra_filtration,Grid_Electricity,kWh,0.2313449523935048,electricity
-7770,san_luis,baseline,a,ultra_filtration,Inlet Water,m3/hr,45.4235748,flow_vol_in
-7771,san_luis,baseline,a,ultra_filtration,Outlet Water,m3/hr,43.15239606,flow_vol_out
-7772,san_luis,baseline,a,ro_deep,Fixed Capital Investment (FCI),$MM,4.347578858646708,fixed_cap_inv
-7773,san_luis,baseline,a,ro_deep,Land_Cost,$MM,0.0065213682879700615,land_cost
-7774,san_luis,baseline,a,ro_deep,Working Capital,$MM,0.2173789429323354,working_cap
-7775,san_luis,baseline,a,ro_deep,Total Capital Investment (TCI),$MM,4.571479169867012,total_cap_investment
-7776,san_luis,baseline,a,ro_deep,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7777,san_luis,baseline,a,ro_deep,Electricity,$MM/yr,0.061034101207651535,electricity_cost
-7778,san_luis,baseline,a,ro_deep,Fuel and Other Utilities,$MM/yr,0.0,none
-7779,san_luis,baseline,a,ro_deep,Replacement Parts,$MM/yr,0.007560299789711998,none
-7780,san_luis,baseline,a,ro_deep,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7781,san_luis,baseline,a,ro_deep,Total Variable Operating Costs,$MM/yr,0.06859440099736354,none
-7782,san_luis,baseline,a,ro_deep,Employee Salaries,$MM/yr,0.005018296230373304,salaries
-7783,san_luis,baseline,a,ro_deep,Benefits,$MM/yr,0.0045164666073359725,benefits
-7784,san_luis,baseline,a,ro_deep,Maintenance,$MM/yr,0.034780630869173663,maintenance
-7785,san_luis,baseline,a,ro_deep,Laboratory,$MM/yr,0.011593543623057891,lab
-7786,san_luis,baseline,a,ro_deep,Insurance and Taxes,$MM/yr,0.008115480536140522,insurance_taxes
-7787,san_luis,baseline,a,ro_deep,Total Fixed Operating Costs,$MM/yr,0.06402441786608135,total_fixed_op_cost
-7788,san_luis,baseline,a,ro_deep,Capacity_Basis_for_Fixed_Capital_Cost,,6407.646961267657,none
-7789,san_luis,baseline,a,ro_deep,Base_Fixed_Capital_Cost,$MM,132.21435129065276,none
-7790,san_luis,baseline,a,ro_deep,Capital_Scaling_Exponent,,0.7177,none
-7791,san_luis,baseline,a,ro_deep,Base_Employee_Salary_Cost,$MM/yr,0.13221435129065276,base_employee_salary_cost
-7792,san_luis,baseline,a,ro_deep,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7793,san_luis,baseline,a,ro_deep,Basis_Year,,2007.0,base_year
-7794,san_luis,baseline,a,ro_deep,Capital_and_Replacement_Parts,,1.1901280313130695,cap_replacement_parts
-7795,san_luis,baseline,a,ro_deep,Catalysts_and_Chemicals,,1.4497931099098118,catalysts_chemicals
-7796,san_luis,baseline,a,ro_deep,Labor_and_Other_Fixed_Costs,,1.2573704744266512,labor_and_other_fixed
-7797,san_luis,baseline,a,ro_deep,Consumer_Price_Index,,1.258749456863813,consumer_price_index
-7798,san_luis,baseline,a,ro_deep,Grid_Electricity,kWh,1.2049214446260232,electricity
-7799,san_luis,baseline,a,ro_deep,Inlet Water,m3/hr,43.15239606,flow_vol_in
-7800,san_luis,baseline,a,ro_deep,Outlet Water,m3/hr,28.060480132074698,flow_vol_out
-7801,pulp_and_paper,baseline,a,raw_water_pump,Fixed Capital Investment (FCI),$MM,1.0014481533312218,fixed_cap_inv
-7802,pulp_and_paper,baseline,a,raw_water_pump,Land_Cost,$MM,0.0015021722299968327,land_cost
-7803,pulp_and_paper,baseline,a,raw_water_pump,Working Capital,$MM,0.0500724076665611,working_cap
-7804,pulp_and_paper,baseline,a,raw_water_pump,Total Capital Investment (TCI),$MM,1.0530227332277795,total_cap_investment
-7805,pulp_and_paper,baseline,a,raw_water_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7806,pulp_and_paper,baseline,a,raw_water_pump,Electricity,$MM/yr,0.02954134192397015,electricity_cost
-7807,pulp_and_paper,baseline,a,raw_water_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7808,pulp_and_paper,baseline,a,raw_water_pump,Replacement Parts,$MM/yr,0.0,none
-7809,pulp_and_paper,baseline,a,raw_water_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7810,pulp_and_paper,baseline,a,raw_water_pump,Total Variable Operating Costs,$MM/yr,0.02954134192397015,none
-7811,pulp_and_paper,baseline,a,raw_water_pump,Employee Salaries,$MM/yr,0.0013407460743843,salaries
-7812,pulp_and_paper,baseline,a,raw_water_pump,Benefits,$MM/yr,0.0012066714669458699,benefits
-7813,pulp_and_paper,baseline,a,raw_water_pump,Maintenance,$MM/yr,0.008011585226649775,maintenance
-7814,pulp_and_paper,baseline,a,raw_water_pump,Laboratory,$MM/yr,0.0026705284088832586,lab
-7815,pulp_and_paper,baseline,a,raw_water_pump,Insurance and Taxes,$MM/yr,0.001869369886218281,insurance_taxes
-7816,pulp_and_paper,baseline,a,raw_water_pump,Total Fixed Operating Costs,$MM/yr,0.015098901063081484,total_fixed_op_cost
-7817,pulp_and_paper,baseline,a,raw_water_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7818,pulp_and_paper,baseline,a,raw_water_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7819,pulp_and_paper,baseline,a,raw_water_pump,Capital_Scaling_Exponent,,0.8671,none
-7820,pulp_and_paper,baseline,a,raw_water_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7821,pulp_and_paper,baseline,a,raw_water_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7822,pulp_and_paper,baseline,a,raw_water_pump,Basis_Year,,2019.0,base_year
-7823,pulp_and_paper,baseline,a,raw_water_pump,Capital_and_Replacement_Parts,,1.016263893767978,cap_replacement_parts
-7824,pulp_and_paper,baseline,a,raw_water_pump,Catalysts_and_Chemicals,,1.0221551430412668,catalysts_chemicals
-7825,pulp_and_paper,baseline,a,raw_water_pump,Labor_and_Other_Fixed_Costs,,1.0158281478539348,labor_and_other_fixed
-7826,pulp_and_paper,baseline,a,raw_water_pump,Consumer_Price_Index,,1.0208663556446984,consumer_price_index
-7827,pulp_and_paper,baseline,a,raw_water_pump,Grid_Electricity,kWh,0.02559966585609178,electricity
-7828,pulp_and_paper,baseline,a,raw_water_pump,Inlet Water,m3/hr,2744.42,flow_vol_in
-7829,pulp_and_paper,baseline,a,raw_water_pump,Outlet Water,m3/hr,2744.42,flow_vol_out
-7830,pulp_and_paper,baseline,a,primary_clarifier,Fixed Capital Investment (FCI),$MM,0.5448711579482581,fixed_cap_inv
-7831,pulp_and_paper,baseline,a,primary_clarifier,Land_Cost,$MM,0.0008173067369223872,land_cost
-7832,pulp_and_paper,baseline,a,primary_clarifier,Working Capital,$MM,0.02724355789741291,working_cap
-7833,pulp_and_paper,baseline,a,primary_clarifier,Total Capital Investment (TCI),$MM,0.5729320225825935,total_cap_investment
-7834,pulp_and_paper,baseline,a,primary_clarifier,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7835,pulp_and_paper,baseline,a,primary_clarifier,Electricity,$MM/yr,0.0,electricity_cost
-7836,pulp_and_paper,baseline,a,primary_clarifier,Fuel and Other Utilities,$MM/yr,0.0,none
-7837,pulp_and_paper,baseline,a,primary_clarifier,Replacement Parts,$MM/yr,0.0,none
-7838,pulp_and_paper,baseline,a,primary_clarifier,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7839,pulp_and_paper,baseline,a,primary_clarifier,Total Variable Operating Costs,$MM/yr,0.0,none
-7840,pulp_and_paper,baseline,a,primary_clarifier,Employee Salaries,$MM/yr,0.0004217981480424658,salaries
-7841,pulp_and_paper,baseline,a,primary_clarifier,Benefits,$MM/yr,0.0003796183332382192,benefits
-7842,pulp_and_paper,baseline,a,primary_clarifier,Maintenance,$MM/yr,0.004358969263586065,maintenance
-7843,pulp_and_paper,baseline,a,primary_clarifier,Laboratory,$MM/yr,0.0014529897545286885,lab
-7844,pulp_and_paper,baseline,a,primary_clarifier,Insurance and Taxes,$MM/yr,0.001017092828170082,insurance_taxes
-7845,pulp_and_paper,baseline,a,primary_clarifier,Total Fixed Operating Costs,$MM/yr,0.00763046832756552,total_fixed_op_cost
-7846,pulp_and_paper,baseline,a,primary_clarifier,Capacity_Basis_for_Fixed_Capital_Cost,,5450.0,none
-7847,pulp_and_paper,baseline,a,primary_clarifier,Base_Fixed_Capital_Cost,$MM,0.6035533829709723,none
-7848,pulp_and_paper,baseline,a,primary_clarifier,Capital_Scaling_Exponent,,0.3182,none
-7849,pulp_and_paper,baseline,a,primary_clarifier,Base_Employee_Salary_Cost,$MM/yr,0.0006035533829709723,base_employee_salary_cost
-7850,pulp_and_paper,baseline,a,primary_clarifier,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7851,pulp_and_paper,baseline,a,primary_clarifier,Basis_Year,,2015.0,base_year
-7852,pulp_and_paper,baseline,a,primary_clarifier,Capital_and_Replacement_Parts,,1.1230123341449116,cap_replacement_parts
-7853,pulp_and_paper,baseline,a,primary_clarifier,Catalysts_and_Chemicals,,1.1130775651233562,catalysts_chemicals
-7854,pulp_and_paper,baseline,a,primary_clarifier,Labor_and_Other_Fixed_Costs,,1.1296687856176943,labor_and_other_fixed
-7855,pulp_and_paper,baseline,a,primary_clarifier,Consumer_Price_Index,,1.1011515202920326,consumer_price_index
-7856,pulp_and_paper,baseline,a,primary_clarifier,Grid_Electricity,kWh,0.0,electricity
-7857,pulp_and_paper,baseline,a,primary_clarifier,Inlet Water,m3/hr,2744.42,flow_vol_in
-7858,pulp_and_paper,baseline,a,primary_clarifier,Outlet Water,m3/hr,2716.9758,flow_vol_out
-7859,pulp_and_paper,baseline,a,aeration_basin1,Fixed Capital Investment (FCI),$MM,5.08593984130312,fixed_cap_inv
-7860,pulp_and_paper,baseline,a,aeration_basin1,Land_Cost,$MM,0.00762890976195468,land_cost
-7861,pulp_and_paper,baseline,a,aeration_basin1,Working Capital,$MM,0.25429699206515605,working_cap
-7862,pulp_and_paper,baseline,a,aeration_basin1,Total Capital Investment (TCI),$MM,5.347865743130232,total_cap_investment
-7863,pulp_and_paper,baseline,a,aeration_basin1,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7864,pulp_and_paper,baseline,a,aeration_basin1,Electricity,$MM/yr,0.624101494978287,electricity_cost
-7865,pulp_and_paper,baseline,a,aeration_basin1,Fuel and Other Utilities,$MM/yr,0.0,none
-7866,pulp_and_paper,baseline,a,aeration_basin1,Replacement Parts,$MM/yr,0.0,none
-7867,pulp_and_paper,baseline,a,aeration_basin1,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7868,pulp_and_paper,baseline,a,aeration_basin1,Total Variable Operating Costs,$MM/yr,0.624101494978287,none
-7869,pulp_and_paper,baseline,a,aeration_basin1,Employee Salaries,$MM/yr,0.0051957922702122895,salaries
-7870,pulp_and_paper,baseline,a,aeration_basin1,Benefits,$MM/yr,0.004676213043191061,benefits
-7871,pulp_and_paper,baseline,a,aeration_basin1,Maintenance,$MM/yr,0.04068751873042496,maintenance
-7872,pulp_and_paper,baseline,a,aeration_basin1,Laboratory,$MM/yr,0.013562506243474987,lab
-7873,pulp_and_paper,baseline,a,aeration_basin1,Insurance and Taxes,$MM/yr,0.009493754370432492,insurance_taxes
-7874,pulp_and_paper,baseline,a,aeration_basin1,Total Fixed Operating Costs,$MM/yr,0.0736157846577358,total_fixed_op_cost
-7875,pulp_and_paper,baseline,a,aeration_basin1,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764234888108,none
-7876,pulp_and_paper,baseline,a,aeration_basin1,Base_Fixed_Capital_Cost,$MM,5.5,none
-7877,pulp_and_paper,baseline,a,aeration_basin1,Capital_Scaling_Exponent,,0.5862,none
-7878,pulp_and_paper,baseline,a,aeration_basin1,Base_Employee_Salary_Cost,$MM/yr,0.0055,base_employee_salary_cost
-7879,pulp_and_paper,baseline,a,aeration_basin1,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7880,pulp_and_paper,baseline,a,aeration_basin1,Basis_Year,,2014.0,base_year
-7881,pulp_and_paper,baseline,a,aeration_basin1,Capital_and_Replacement_Parts,,1.0853901538828097,cap_replacement_parts
-7882,pulp_and_paper,baseline,a,aeration_basin1,Catalysts_and_Chemicals,,1.0948846182937026,catalysts_chemicals
-7883,pulp_and_paper,baseline,a,aeration_basin1,Labor_and_Other_Fixed_Costs,,1.1438619253160092,labor_and_other_fixed
-7884,pulp_and_paper,baseline,a,aeration_basin1,Consumer_Price_Index,,1.1024585609499895,consumer_price_index
-7885,pulp_and_paper,baseline,a,aeration_basin1,Grid_Electricity,kWh,0.41226735,electricity
-7886,pulp_and_paper,baseline,a,aeration_basin1,Inlet Water,m3/hr,3600.2357,flow_vol_in
-7887,pulp_and_paper,baseline,a,aeration_basin1,Outlet Water,m3/hr,3600.2357,flow_vol_out
-7888,pulp_and_paper,baseline,a,aeration_basin2,Fixed Capital Investment (FCI),$MM,5.08593984130312,fixed_cap_inv
-7889,pulp_and_paper,baseline,a,aeration_basin2,Land_Cost,$MM,0.00762890976195468,land_cost
-7890,pulp_and_paper,baseline,a,aeration_basin2,Working Capital,$MM,0.25429699206515605,working_cap
-7891,pulp_and_paper,baseline,a,aeration_basin2,Total Capital Investment (TCI),$MM,5.347865743130232,total_cap_investment
-7892,pulp_and_paper,baseline,a,aeration_basin2,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7893,pulp_and_paper,baseline,a,aeration_basin2,Electricity,$MM/yr,0.13956397601519785,electricity_cost
-7894,pulp_and_paper,baseline,a,aeration_basin2,Fuel and Other Utilities,$MM/yr,0.0,none
-7895,pulp_and_paper,baseline,a,aeration_basin2,Replacement Parts,$MM/yr,0.0,none
-7896,pulp_and_paper,baseline,a,aeration_basin2,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7897,pulp_and_paper,baseline,a,aeration_basin2,Total Variable Operating Costs,$MM/yr,0.13956397601519785,none
-7898,pulp_and_paper,baseline,a,aeration_basin2,Employee Salaries,$MM/yr,0.0051957922702122895,salaries
-7899,pulp_and_paper,baseline,a,aeration_basin2,Benefits,$MM/yr,0.004676213043191061,benefits
-7900,pulp_and_paper,baseline,a,aeration_basin2,Maintenance,$MM/yr,0.04068751873042496,maintenance
-7901,pulp_and_paper,baseline,a,aeration_basin2,Laboratory,$MM/yr,0.013562506243474987,lab
-7902,pulp_and_paper,baseline,a,aeration_basin2,Insurance and Taxes,$MM/yr,0.009493754370432492,insurance_taxes
-7903,pulp_and_paper,baseline,a,aeration_basin2,Total Fixed Operating Costs,$MM/yr,0.0736157846577358,total_fixed_op_cost
-7904,pulp_and_paper,baseline,a,aeration_basin2,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764234888108,none
-7905,pulp_and_paper,baseline,a,aeration_basin2,Base_Fixed_Capital_Cost,$MM,5.5,none
-7906,pulp_and_paper,baseline,a,aeration_basin2,Capital_Scaling_Exponent,,0.5862,none
-7907,pulp_and_paper,baseline,a,aeration_basin2,Base_Employee_Salary_Cost,$MM/yr,0.0055,base_employee_salary_cost
-7908,pulp_and_paper,baseline,a,aeration_basin2,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7909,pulp_and_paper,baseline,a,aeration_basin2,Basis_Year,,2014.0,base_year
-7910,pulp_and_paper,baseline,a,aeration_basin2,Capital_and_Replacement_Parts,,1.0853901538828097,cap_replacement_parts
-7911,pulp_and_paper,baseline,a,aeration_basin2,Catalysts_and_Chemicals,,1.0948846182937026,catalysts_chemicals
-7912,pulp_and_paper,baseline,a,aeration_basin2,Labor_and_Other_Fixed_Costs,,1.1438619253160092,labor_and_other_fixed
-7913,pulp_and_paper,baseline,a,aeration_basin2,Consumer_Price_Index,,1.1024585609499895,consumer_price_index
-7914,pulp_and_paper,baseline,a,aeration_basin2,Grid_Electricity,kWh/m3,0.09219281,electricity
-7915,pulp_and_paper,baseline,a,aeration_basin2,Inlet Water,m3/hr,3600.2357,flow_vol_in
-7916,pulp_and_paper,baseline,a,aeration_basin2,Outlet Water,m3/hr,3600.2357,flow_vol_out
-7917,pulp_and_paper,baseline,a,discharge,Fixed Capital Investment (FCI),$MM,0.31709007152866153,fixed_cap_inv
-7918,pulp_and_paper,baseline,a,discharge,Land_Cost,$MM,0.0004756351072929923,land_cost
-7919,pulp_and_paper,baseline,a,discharge,Working Capital,$MM,0.015854503576433074,working_cap
-7920,pulp_and_paper,baseline,a,discharge,Total Capital Investment (TCI),$MM,0.3334202102123876,total_cap_investment
-7921,pulp_and_paper,baseline,a,discharge,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7922,pulp_and_paper,baseline,a,discharge,Electricity,$MM/yr,0.015138271196549691,electricity_cost
-7923,pulp_and_paper,baseline,a,discharge,Fuel and Other Utilities,$MM/yr,0.0,none
-7924,pulp_and_paper,baseline,a,discharge,Replacement Parts,$MM/yr,0.0,none
-7925,pulp_and_paper,baseline,a,discharge,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7926,pulp_and_paper,baseline,a,discharge,Total Variable Operating Costs,$MM/yr,0.015138271196549691,none
-7927,pulp_and_paper,baseline,a,discharge,Employee Salaries,$MM/yr,0.00031709007336424015,salaries
-7928,pulp_and_paper,baseline,a,discharge,Benefits,$MM/yr,0.0002853810660278161,benefits
-7929,pulp_and_paper,baseline,a,discharge,Maintenance,$MM/yr,0.0025367205722292927,maintenance
-7930,pulp_and_paper,baseline,a,discharge,Laboratory,$MM/yr,0.0008455735240764309,lab
-7931,pulp_and_paper,baseline,a,discharge,Insurance and Taxes,$MM/yr,0.0005919014668535016,insurance_taxes
-7932,pulp_and_paper,baseline,a,discharge,Total Fixed Operating Costs,$MM/yr,0.004576666702551281,total_fixed_op_cost
-7933,pulp_and_paper,baseline,a,discharge,Capacity_Basis_for_Fixed_Capital_Cost,,50000.0,none
-7934,pulp_and_paper,baseline,a,discharge,Base_Fixed_Capital_Cost,$MM,2.0,none
-7935,pulp_and_paper,baseline,a,discharge,Capital_Scaling_Exponent,,0.7,none
-7936,pulp_and_paper,baseline,a,discharge,Base_Employee_Salary_Cost,$MM/yr,0.002,base_employee_salary_cost
-7937,pulp_and_paper,baseline,a,discharge,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7938,pulp_and_paper,baseline,a,discharge,Basis_Year,,2020.0,base_year
-7939,pulp_and_paper,baseline,a,discharge,Capital_and_Replacement_Parts,,1.0,cap_replacement_parts
-7940,pulp_and_paper,baseline,a,discharge,Catalysts_and_Chemicals,,1.0,catalysts_chemicals
-7941,pulp_and_paper,baseline,a,discharge,Labor_and_Other_Fixed_Costs,,1.0,labor_and_other_fixed
-7942,pulp_and_paper,baseline,a,discharge,Consumer_Price_Index,,1.0,consumer_price_index
-7943,pulp_and_paper,baseline,a,discharge,Grid_Electricity,kWh,0.01,electricity
-7944,pulp_and_paper,baseline,a,discharge,Inlet Water,m3/hr,3600.2357,flow_vol_in
-7945,pulp_and_paper,baseline,a,discharge,Outlet Water,m3/hr,3600.2357,flow_vol_out
-7946,iron_and_steel,baseline,a,well_field,Fixed Capital Investment (FCI),$MM,0.303831667792462,fixed_cap_inv
-7947,iron_and_steel,baseline,a,well_field,Land_Cost,$MM,0.00045574750168869287,land_cost
-7948,iron_and_steel,baseline,a,well_field,Working Capital,$MM,0.0151915833896231,working_cap
-7949,iron_and_steel,baseline,a,well_field,Total Capital Investment (TCI),$MM,0.3194789986837738,total_cap_investment
-7950,iron_and_steel,baseline,a,well_field,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7951,iron_and_steel,baseline,a,well_field,Electricity,$MM/yr,0.005558067605157935,electricity_cost
-7952,iron_and_steel,baseline,a,well_field,Fuel and Other Utilities,$MM/yr,0.0,none
-7953,iron_and_steel,baseline,a,well_field,Replacement Parts,$MM/yr,0.0,none
-7954,iron_and_steel,baseline,a,well_field,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7955,iron_and_steel,baseline,a,well_field,Total Variable Operating Costs,$MM/yr,0.005558067605157935,none
-7956,iron_and_steel,baseline,a,well_field,Employee Salaries,$MM/yr,0.0005353253231814023,salaries
-7957,iron_and_steel,baseline,a,well_field,Benefits,$MM/yr,0.0004817927908632621,benefits
-7958,iron_and_steel,baseline,a,well_field,Maintenance,$MM/yr,0.002430653342339696,maintenance
-7959,iron_and_steel,baseline,a,well_field,Laboratory,$MM/yr,0.0008102177807798986,lab
-7960,iron_and_steel,baseline,a,well_field,Insurance and Taxes,$MM/yr,0.000567152446545929,insurance_taxes
-7961,iron_and_steel,baseline,a,well_field,Total Fixed Operating Costs,$MM/yr,0.004825141683710188,total_fixed_op_cost
-7962,iron_and_steel,baseline,a,well_field,Capacity_Basis_for_Fixed_Capital_Cost,,1250.0,none
-7963,iron_and_steel,baseline,a,well_field,Base_Fixed_Capital_Cost,$MM,3.26,none
-7964,iron_and_steel,baseline,a,well_field,Capital_Scaling_Exponent,,0.9196,none
-7965,iron_and_steel,baseline,a,well_field,Base_Employee_Salary_Cost,$MM/yr,0.0032600000000000003,base_employee_salary_cost
-7966,iron_and_steel,baseline,a,well_field,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7967,iron_and_steel,baseline,a,well_field,Basis_Year,,2020.0,base_year
-7968,iron_and_steel,baseline,a,well_field,Capital_and_Replacement_Parts,,1.0,cap_replacement_parts
-7969,iron_and_steel,baseline,a,well_field,Catalysts_and_Chemicals,,1.0,catalysts_chemicals
-7970,iron_and_steel,baseline,a,well_field,Labor_and_Other_Fixed_Costs,,1.0,labor_and_other_fixed
-7971,iron_and_steel,baseline,a,well_field,Consumer_Price_Index,,1.0,consumer_price_index
-7972,iron_and_steel,baseline,a,well_field,Grid_Electricity,kWh,0.10239866342436713,electricity
-7973,iron_and_steel,baseline,a,well_field,Inlet Water,m3/hr,94.6352946,flow_vol_in
-7974,iron_and_steel,baseline,a,well_field,Outlet Water,m3/hr,94.6352946,flow_vol_out
-7975,iron_and_steel,baseline,a,raw_water_pump,Fixed Capital Investment (FCI),$MM,0.05404184927507631,fixed_cap_inv
-7976,iron_and_steel,baseline,a,raw_water_pump,Land_Cost,$MM,8.106277391261447e-05,land_cost
-7977,iron_and_steel,baseline,a,raw_water_pump,Working Capital,$MM,0.0027020924637538154,working_cap
-7978,iron_and_steel,baseline,a,raw_water_pump,Total Capital Investment (TCI),$MM,0.056825004512742736,total_cap_investment
-7979,iron_and_steel,baseline,a,raw_water_pump,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-7980,iron_and_steel,baseline,a,raw_water_pump,Electricity,$MM/yr,0.005558067605157935,electricity_cost
-7981,iron_and_steel,baseline,a,raw_water_pump,Fuel and Other Utilities,$MM/yr,0.0,none
-7982,iron_and_steel,baseline,a,raw_water_pump,Replacement Parts,$MM/yr,0.0,none
-7983,iron_and_steel,baseline,a,raw_water_pump,Other Operating Costs,$MM/yr,0.0,other_var_cost
-7984,iron_and_steel,baseline,a,raw_water_pump,Total Variable Operating Costs,$MM/yr,0.005558067605157935,none
-7985,iron_and_steel,baseline,a,raw_water_pump,Employee Salaries,$MM/yr,0.0001269604134477572,salaries
-7986,iron_and_steel,baseline,a,raw_water_pump,Benefits,$MM/yr,0.00011426437210298147,benefits
-7987,iron_and_steel,baseline,a,raw_water_pump,Maintenance,$MM/yr,0.00043233479420061037,maintenance
-7988,iron_and_steel,baseline,a,raw_water_pump,Laboratory,$MM/yr,0.00014411159806687016,lab
-7989,iron_and_steel,baseline,a,raw_water_pump,Insurance and Taxes,$MM/yr,0.00010087811864680911,insurance_taxes
-7990,iron_and_steel,baseline,a,raw_water_pump,Total Fixed Operating Costs,$MM/yr,0.0009185492964650284,total_fixed_op_cost
-7991,iron_and_steel,baseline,a,raw_water_pump,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-7992,iron_and_steel,baseline,a,raw_water_pump,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-7993,iron_and_steel,baseline,a,raw_water_pump,Capital_Scaling_Exponent,,0.8671,none
-7994,iron_and_steel,baseline,a,raw_water_pump,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-7995,iron_and_steel,baseline,a,raw_water_pump,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-7996,iron_and_steel,baseline,a,raw_water_pump,Basis_Year,,2019.0,base_year
-7997,iron_and_steel,baseline,a,raw_water_pump,Capital_and_Replacement_Parts,,1.016263893767978,cap_replacement_parts
-7998,iron_and_steel,baseline,a,raw_water_pump,Catalysts_and_Chemicals,,1.0221551430412668,catalysts_chemicals
-7999,iron_and_steel,baseline,a,raw_water_pump,Labor_and_Other_Fixed_Costs,,1.0158281478539348,labor_and_other_fixed
-8000,iron_and_steel,baseline,a,raw_water_pump,Consumer_Price_Index,,1.0208663556446984,consumer_price_index
-8001,iron_and_steel,baseline,a,raw_water_pump,Grid_Electricity,kWh,0.10239866342436713,electricity
-8002,iron_and_steel,baseline,a,raw_water_pump,Inlet Water,m3/hr,94.6352946,flow_vol_in
-8003,iron_and_steel,baseline,a,raw_water_pump,Outlet Water,m3/hr,94.6352946,flow_vol_out
-8004,iron_and_steel,baseline,a,primary_separator,Fixed Capital Investment (FCI),$MM,0.5130630939885356,fixed_cap_inv
-8005,iron_and_steel,baseline,a,primary_separator,Land_Cost,$MM,0.0007695946409828034,land_cost
-8006,iron_and_steel,baseline,a,primary_separator,Working Capital,$MM,0.025653154699426774,working_cap
-8007,iron_and_steel,baseline,a,primary_separator,Total Capital Investment (TCI),$MM,0.5394858433289451,total_cap_investment
-8008,iron_and_steel,baseline,a,primary_separator,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8009,iron_and_steel,baseline,a,primary_separator,Electricity,$MM/yr,0.0,electricity_cost
-8010,iron_and_steel,baseline,a,primary_separator,Fuel and Other Utilities,$MM/yr,0.0,none
-8011,iron_and_steel,baseline,a,primary_separator,Replacement Parts,$MM/yr,0.0,none
-8012,iron_and_steel,baseline,a,primary_separator,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8013,iron_and_steel,baseline,a,primary_separator,Total Variable Operating Costs,$MM/yr,0.0,none
-8014,iron_and_steel,baseline,a,primary_separator,Employee Salaries,$MM/yr,0.0005160402775553153,salaries
-8015,iron_and_steel,baseline,a,primary_separator,Benefits,$MM/yr,0.0004644362497997837,benefits
-8016,iron_and_steel,baseline,a,primary_separator,Maintenance,$MM/yr,0.004104504751908285,maintenance
-8017,iron_and_steel,baseline,a,primary_separator,Laboratory,$MM/yr,0.001368168250636095,lab
-8018,iron_and_steel,baseline,a,primary_separator,Insurance and Taxes,$MM/yr,0.0009577177754452664,insurance_taxes
-8019,iron_and_steel,baseline,a,primary_separator,Total Fixed Operating Costs,$MM/yr,0.007410867305344745,total_fixed_op_cost
-8020,iron_and_steel,baseline,a,primary_separator,Capacity_Basis_for_Fixed_Capital_Cost,,94.6352946,none
-8021,iron_and_steel,baseline,a,primary_separator,Base_Fixed_Capital_Cost,$MM,0.4568067066429106,none
-8022,iron_and_steel,baseline,a,primary_separator,Capital_Scaling_Exponent,,0.3182,none
-8023,iron_and_steel,baseline,a,primary_separator,Base_Employee_Salary_Cost,$MM/yr,0.00045680670664291056,base_employee_salary_cost
-8024,iron_and_steel,baseline,a,primary_separator,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8025,iron_and_steel,baseline,a,primary_separator,Basis_Year,,2015.0,base_year
-8026,iron_and_steel,baseline,a,primary_separator,Capital_and_Replacement_Parts,,1.1230123341449116,cap_replacement_parts
-8027,iron_and_steel,baseline,a,primary_separator,Catalysts_and_Chemicals,,1.1130775651233562,catalysts_chemicals
-8028,iron_and_steel,baseline,a,primary_separator,Labor_and_Other_Fixed_Costs,,1.1296687856176943,labor_and_other_fixed
-8029,iron_and_steel,baseline,a,primary_separator,Consumer_Price_Index,,1.1011515202920326,consumer_price_index
-8030,iron_and_steel,baseline,a,primary_separator,Grid_Electricity,kWh,0.0,electricity
-8031,iron_and_steel,baseline,a,primary_separator,Inlet Water,m3/hr,94.6352946,flow_vol_in
-8032,iron_and_steel,baseline,a,primary_separator,Outlet Water,m3/hr,94.2567534216,flow_vol_out
-8033,iron_and_steel,baseline,a,coagulant_addition,Fixed Capital Investment (FCI),$MM,0.24720327282248394,fixed_cap_inv
-8034,iron_and_steel,baseline,a,coagulant_addition,Land_Cost,$MM,0.00037080490923372593,land_cost
-8035,iron_and_steel,baseline,a,coagulant_addition,Working Capital,$MM,0.0123601636411242,working_cap
-8036,iron_and_steel,baseline,a,coagulant_addition,Total Capital Investment (TCI),$MM,0.2599342413728419,total_cap_investment
-8037,iron_and_steel,baseline,a,coagulant_addition,Catalysts and Chemicals,$MM/yr,0.06913777614106055,cat_and_chem_cost
-8038,iron_and_steel,baseline,a,coagulant_addition,Electricity,$MM/yr,7.749245311130334e-07,electricity_cost
-8039,iron_and_steel,baseline,a,coagulant_addition,Fuel and Other Utilities,$MM/yr,0.0,none
-8040,iron_and_steel,baseline,a,coagulant_addition,Replacement Parts,$MM/yr,0.0,none
-8041,iron_and_steel,baseline,a,coagulant_addition,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8042,iron_and_steel,baseline,a,coagulant_addition,Total Variable Operating Costs,$MM/yr,0.06913855106559166,none
-8043,iron_and_steel,baseline,a,coagulant_addition,Employee Salaries,$MM/yr,0.00015310761033626635,salaries
-8044,iron_and_steel,baseline,a,coagulant_addition,Benefits,$MM/yr,0.00013779684930263972,benefits
-8045,iron_and_steel,baseline,a,coagulant_addition,Maintenance,$MM/yr,0.0019776261825798715,maintenance
-8046,iron_and_steel,baseline,a,coagulant_addition,Laboratory,$MM/yr,0.0006592087275266238,lab
-8047,iron_and_steel,baseline,a,coagulant_addition,Insurance and Taxes,$MM/yr,0.0004614461092686368,insurance_taxes
-8048,iron_and_steel,baseline,a,coagulant_addition,Total Fixed Operating Costs,$MM/yr,0.003389185479014038,total_fixed_op_cost
-8049,iron_and_steel,baseline,a,coagulant_addition,Capacity_Basis_for_Fixed_Capital_Cost,,10000.0,none
-8050,iron_and_steel,baseline,a,coagulant_addition,Base_Fixed_Capital_Cost,$MM,1.420659676330251,none
-8051,iron_and_steel,baseline,a,coagulant_addition,Capital_Scaling_Exponent,,0.5479,none
-8052,iron_and_steel,baseline,a,coagulant_addition,Base_Employee_Salary_Cost,$MM/yr,0.001420659676330251,base_employee_salary_cost
-8053,iron_and_steel,baseline,a,coagulant_addition,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8054,iron_and_steel,baseline,a,coagulant_addition,Basis_Year,,2007.0,base_year
-8055,iron_and_steel,baseline,a,coagulant_addition,Capital_and_Replacement_Parts,,1.1901280313130695,cap_replacement_parts
-8056,iron_and_steel,baseline,a,coagulant_addition,Catalysts_and_Chemicals,,1.4497931099098118,catalysts_chemicals
-8057,iron_and_steel,baseline,a,coagulant_addition,Labor_and_Other_Fixed_Costs,,1.2573704744266512,labor_and_other_fixed
-8058,iron_and_steel,baseline,a,coagulant_addition,Consumer_Price_Index,,1.258749456863813,consumer_price_index
-8059,iron_and_steel,baseline,a,coagulant_addition,Grid_Electricity,kWh,4.51758809225149e-06,electricity
-8060,iron_and_steel,baseline,a,coagulant_addition,Inlet Water,m3/hr,299.07243082159994,flow_vol_in
-8061,iron_and_steel,baseline,a,coagulant_addition,Outlet Water,m3/hr,299.07243082159994,flow_vol_out
-8062,iron_and_steel,baseline,a,coag_and_flocc,Fixed Capital Investment (FCI),$MM,3.508123720688346,fixed_cap_inv
-8063,iron_and_steel,baseline,a,coag_and_flocc,Land_Cost,$MM,0.005262185581032521,land_cost
-8064,iron_and_steel,baseline,a,coag_and_flocc,Working Capital,$MM,0.17540618603441732,working_cap
-8065,iron_and_steel,baseline,a,coag_and_flocc,Total Capital Investment (TCI),$MM,3.6887920923037965,total_cap_investment
-8066,iron_and_steel,baseline,a,coag_and_flocc,Catalysts and Chemicals,$MM/yr,0.01827798163827684,cat_and_chem_cost
-8067,iron_and_steel,baseline,a,coag_and_flocc,Electricity,$MM/yr,0.010810139778697578,electricity_cost
-8068,iron_and_steel,baseline,a,coag_and_flocc,Fuel and Other Utilities,$MM/yr,0.0,none
-8069,iron_and_steel,baseline,a,coag_and_flocc,Replacement Parts,$MM/yr,0.0,none
-8070,iron_and_steel,baseline,a,coag_and_flocc,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8071,iron_and_steel,baseline,a,coag_and_flocc,Total Variable Operating Costs,$MM/yr,0.02908812141697442,none
-8072,iron_and_steel,baseline,a,coag_and_flocc,Employee Salaries,$MM/yr,0.0035633012856234525,salaries
-8073,iron_and_steel,baseline,a,coag_and_flocc,Benefits,$MM/yr,0.0032069711570611075,benefits
-8074,iron_and_steel,baseline,a,coag_and_flocc,Maintenance,$MM/yr,0.028064989765506768,maintenance
-8075,iron_and_steel,baseline,a,coag_and_flocc,Laboratory,$MM/yr,0.009354996588502258,lab
-8076,iron_and_steel,baseline,a,coag_and_flocc,Insurance and Taxes,$MM/yr,0.00654849761195158,insurance_taxes
-8077,iron_and_steel,baseline,a,coag_and_flocc,Total Fixed Operating Costs,$MM/yr,0.05073875640864517,total_fixed_op_cost
-8078,iron_and_steel,baseline,a,coag_and_flocc,Capacity_Basis_for_Fixed_Capital_Cost,,315.450982,none
-8079,iron_and_steel,baseline,a,coag_and_flocc,Base_Fixed_Capital_Cost,$MM,3.6988046649908517,none
-8080,iron_and_steel,baseline,a,coag_and_flocc,Capital_Scaling_Exponent,,1.0,none
-8081,iron_and_steel,baseline,a,coag_and_flocc,Base_Employee_Salary_Cost,$MM/yr,0.0036988046649908523,base_employee_salary_cost
-8082,iron_and_steel,baseline,a,coag_and_flocc,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8083,iron_and_steel,baseline,a,coag_and_flocc,Basis_Year,,2020.0,base_year
-8084,iron_and_steel,baseline,a,coag_and_flocc,Capital_and_Replacement_Parts,,1.0,cap_replacement_parts
-8085,iron_and_steel,baseline,a,coag_and_flocc,Catalysts_and_Chemicals,,1.0,catalysts_chemicals
-8086,iron_and_steel,baseline,a,coag_and_flocc,Labor_and_Other_Fixed_Costs,,1.0,labor_and_other_fixed
-8087,iron_and_steel,baseline,a,coag_and_flocc,Consumer_Price_Index,,1.0,consumer_price_index
-8088,iron_and_steel,baseline,a,coag_and_flocc,Grid_Electricity,kWh,0.06302001908453582,electricity
-8089,iron_and_steel,baseline,a,coag_and_flocc,Inlet Water,m3/hr,299.07243082159994,flow_vol_in
-8090,iron_and_steel,baseline,a,coag_and_flocc,Outlet Water,m3/hr,299.07243082159994,flow_vol_out
-8091,iron_and_steel,baseline,a,caustic_soda_addition,Fixed Capital Investment (FCI),$MM,0.2632644846847824,fixed_cap_inv
-8092,iron_and_steel,baseline,a,caustic_soda_addition,Land_Cost,$MM,0.0003948967270271736,land_cost
-8093,iron_and_steel,baseline,a,caustic_soda_addition,Working Capital,$MM,0.01316322423423912,working_cap
-8094,iron_and_steel,baseline,a,caustic_soda_addition,Total Capital Investment (TCI),$MM,0.27682260564604866,total_cap_investment
-8095,iron_and_steel,baseline,a,caustic_soda_addition,Catalysts and Chemicals,$MM/yr,0.008909188112322709,cat_and_chem_cost
-8096,iron_and_steel,baseline,a,caustic_soda_addition,Electricity,$MM/yr,6.843489365673541e-07,electricity_cost
-8097,iron_and_steel,baseline,a,caustic_soda_addition,Fuel and Other Utilities,$MM/yr,0.0,none
-8098,iron_and_steel,baseline,a,caustic_soda_addition,Replacement Parts,$MM/yr,0.0,none
-8099,iron_and_steel,baseline,a,caustic_soda_addition,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8100,iron_and_steel,baseline,a,caustic_soda_addition,Total Variable Operating Costs,$MM/yr,0.008909872461259277,none
-8101,iron_and_steel,baseline,a,caustic_soda_addition,Employee Salaries,$MM/yr,0.00020963179223728977,salaries
-8102,iron_and_steel,baseline,a,caustic_soda_addition,Benefits,$MM/yr,0.00018866861301356083,benefits
-8103,iron_and_steel,baseline,a,caustic_soda_addition,Maintenance,$MM/yr,0.002106115877478259,maintenance
-8104,iron_and_steel,baseline,a,caustic_soda_addition,Laboratory,$MM/yr,0.0007020386258260864,lab
-8105,iron_and_steel,baseline,a,caustic_soda_addition,Insurance and Taxes,$MM/yr,0.0004914270380782605,insurance_taxes
-8106,iron_and_steel,baseline,a,caustic_soda_addition,Total Fixed Operating Costs,$MM/yr,0.003697881946633456,total_fixed_op_cost
-8107,iron_and_steel,baseline,a,caustic_soda_addition,Capacity_Basis_for_Fixed_Capital_Cost,,10000.0,none
-8108,iron_and_steel,baseline,a,caustic_soda_addition,Base_Fixed_Capital_Cost,$MM,1.945138020600505,none
-8109,iron_and_steel,baseline,a,caustic_soda_addition,Capital_Scaling_Exponent,,0.6195,none
-8110,iron_and_steel,baseline,a,caustic_soda_addition,Base_Employee_Salary_Cost,$MM/yr,0.0019451380206005047,base_employee_salary_cost
-8111,iron_and_steel,baseline,a,caustic_soda_addition,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8112,iron_and_steel,baseline,a,caustic_soda_addition,Basis_Year,,2007.0,base_year
-8113,iron_and_steel,baseline,a,caustic_soda_addition,Capital_and_Replacement_Parts,,1.1901280313130695,cap_replacement_parts
-8114,iron_and_steel,baseline,a,caustic_soda_addition,Catalysts_and_Chemicals,,1.4497931099098118,catalysts_chemicals
-8115,iron_and_steel,baseline,a,caustic_soda_addition,Labor_and_Other_Fixed_Costs,,1.2573704744266512,labor_and_other_fixed
-8116,iron_and_steel,baseline,a,caustic_soda_addition,Consumer_Price_Index,,1.258749456863813,consumer_price_index
-8117,iron_and_steel,baseline,a,caustic_soda_addition,Grid_Electricity,kWh,3.9895583152350825e-06,electricity
-8118,iron_and_steel,baseline,a,caustic_soda_addition,Inlet Water,m3/hr,299.07243082159994,flow_vol_in
-8119,iron_and_steel,baseline,a,caustic_soda_addition,Outlet Water,m3/hr,299.07243082159994,flow_vol_out
-8120,iron_and_steel,baseline,a,air_flotation,Fixed Capital Investment (FCI),$MM,0.161963911002316,fixed_cap_inv
-8121,iron_and_steel,baseline,a,air_flotation,Land_Cost,$MM,0.00024294586650347403,land_cost
-8122,iron_and_steel,baseline,a,air_flotation,Working Capital,$MM,0.008098195550115801,working_cap
-8123,iron_and_steel,baseline,a,air_flotation,Total Capital Investment (TCI),$MM,0.17030505241893526,total_cap_investment
-8124,iron_and_steel,baseline,a,air_flotation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8125,iron_and_steel,baseline,a,air_flotation,Electricity,$MM/yr,0.05146050383226665,electricity_cost
-8126,iron_and_steel,baseline,a,air_flotation,Fuel and Other Utilities,$MM/yr,0.0,none
-8127,iron_and_steel,baseline,a,air_flotation,Replacement Parts,$MM/yr,0.0,none
-8128,iron_and_steel,baseline,a,air_flotation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8129,iron_and_steel,baseline,a,air_flotation,Total Variable Operating Costs,$MM/yr,0.05146050383226665,none
-8130,iron_and_steel,baseline,a,air_flotation,Employee Salaries,$MM/yr,0.0003159406328017735,salaries
-8131,iron_and_steel,baseline,a,air_flotation,Benefits,$MM/yr,0.00028434656952159616,benefits
-8132,iron_and_steel,baseline,a,air_flotation,Maintenance,$MM/yr,0.001295711288018528,maintenance
-8133,iron_and_steel,baseline,a,air_flotation,Laboratory,$MM/yr,0.00043190376267284266,lab
-8134,iron_and_steel,baseline,a,air_flotation,Insurance and Taxes,$MM/yr,0.00030233263387098987,insurance_taxes
-8135,iron_and_steel,baseline,a,air_flotation,Total Fixed Operating Costs,$MM/yr,0.00263023488688573,total_fixed_op_cost
-8136,iron_and_steel,baseline,a,air_flotation,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-8137,iron_and_steel,baseline,a,air_flotation,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-8138,iron_and_steel,baseline,a,air_flotation,Capital_Scaling_Exponent,,0.8671,none
-8139,iron_and_steel,baseline,a,air_flotation,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-8140,iron_and_steel,baseline,a,air_flotation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8141,iron_and_steel,baseline,a,air_flotation,Basis_Year,,2015.0,base_year
-8142,iron_and_steel,baseline,a,air_flotation,Capital_and_Replacement_Parts,,1.1230123341449116,cap_replacement_parts
-8143,iron_and_steel,baseline,a,air_flotation,Catalysts_and_Chemicals,,1.1130775651233562,catalysts_chemicals
-8144,iron_and_steel,baseline,a,air_flotation,Labor_and_Other_Fixed_Costs,,1.1296687856176943,labor_and_other_fixed
-8145,iron_and_steel,baseline,a,air_flotation,Consumer_Price_Index,,1.1011515202920326,consumer_price_index
-8146,iron_and_steel,baseline,a,air_flotation,Grid_Electricity,kWh,0.3,electricity
-8147,iron_and_steel,baseline,a,air_flotation,Inlet Water,m3/hr,299.07243082159994,flow_vol_in
-8148,iron_and_steel,baseline,a,air_flotation,Outlet Water,m3/hr,299.07243082159994,flow_vol_out
-8149,iron_and_steel,baseline,a,treated_storage,Fixed Capital Investment (FCI),$MM,0.33660304628752724,fixed_cap_inv
-8150,iron_and_steel,baseline,a,treated_storage,Land_Cost,$MM,0.0005049045694312909,land_cost
-8151,iron_and_steel,baseline,a,treated_storage,Working Capital,$MM,0.016830152314376363,working_cap
-8152,iron_and_steel,baseline,a,treated_storage,Total Capital Investment (TCI),$MM,0.3539381031713349,total_cap_investment
-8153,iron_and_steel,baseline,a,treated_storage,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8154,iron_and_steel,baseline,a,treated_storage,Electricity,$MM/yr,0.0,electricity_cost
-8155,iron_and_steel,baseline,a,treated_storage,Fuel and Other Utilities,$MM/yr,0.0,none
-8156,iron_and_steel,baseline,a,treated_storage,Replacement Parts,$MM/yr,0.0,none
-8157,iron_and_steel,baseline,a,treated_storage,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8158,iron_and_steel,baseline,a,treated_storage,Total Variable Operating Costs,$MM/yr,0.0,none
-8159,iron_and_steel,baseline,a,treated_storage,Employee Salaries,$MM/yr,0.0003255992598198928,salaries
-8160,iron_and_steel,baseline,a,treated_storage,Benefits,$MM/yr,0.0002930393338379036,benefits
-8161,iron_and_steel,baseline,a,treated_storage,Maintenance,$MM/yr,0.002692824370300218,maintenance
-8162,iron_and_steel,baseline,a,treated_storage,Laboratory,$MM/yr,0.000897608123433406,lab
-8163,iron_and_steel,baseline,a,treated_storage,Insurance and Taxes,$MM/yr,0.0006283256864033843,insurance_taxes
-8164,iron_and_steel,baseline,a,treated_storage,Total Fixed Operating Costs,$MM/yr,0.004837396773794805,total_fixed_op_cost
-8165,iron_and_steel,baseline,a,treated_storage,Capacity_Basis_for_Fixed_Capital_Cost,,1000.0,none
-8166,iron_and_steel,baseline,a,treated_storage,Base_Fixed_Capital_Cost,$MM,0.5004358830034984,none
-8167,iron_and_steel,baseline,a,treated_storage,Capital_Scaling_Exponent,,0.7209300000000001,none
-8168,iron_and_steel,baseline,a,treated_storage,Base_Employee_Salary_Cost,$MM/yr,0.0005004358830034984,base_employee_salary_cost
-8169,iron_and_steel,baseline,a,treated_storage,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8170,iron_and_steel,baseline,a,treated_storage,Basis_Year,,1998.0,base_year
-8171,iron_and_steel,baseline,a,treated_storage,Capital_and_Replacement_Parts,,1.605374243008695,cap_replacement_parts
-8172,iron_and_steel,baseline,a,treated_storage,Catalysts_and_Chemicals,,1.9821314004348676,catalysts_chemicals
-8173,iron_and_steel,baseline,a,treated_storage,Labor_and_Other_Fixed_Costs,,1.514577496921813,labor_and_other_fixed
-8174,iron_and_steel,baseline,a,treated_storage,Consumer_Price_Index,,1.6011756434666051,consumer_price_index
-8175,iron_and_steel,baseline,a,treated_storage,Grid_Electricity,kWh/m3,0.0,electricity
-8176,iron_and_steel,baseline,a,treated_storage,Inlet Water,m3/hr,299.07243082159994,flow_vol_in
-8177,iron_and_steel,baseline,a,treated_storage,Outlet Water,m3/hr,299.07243082159994,flow_vol_out
-8178,kern_county,baseline,a,primary_separator,Fixed Capital Investment (FCI),$MM,0.5870994676208621,fixed_cap_inv
-8179,kern_county,baseline,a,primary_separator,Land_Cost,$MM,0.0008806492014312929,land_cost
-8180,kern_county,baseline,a,primary_separator,Working Capital,$MM,0.0293549733810431,working_cap
-8181,kern_county,baseline,a,primary_separator,Total Capital Investment (TCI),$MM,0.6173350902033363,total_cap_investment
-8182,kern_county,baseline,a,primary_separator,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8183,kern_county,baseline,a,primary_separator,Electricity,$MM/yr,0.0,electricity_cost
-8184,kern_county,baseline,a,primary_separator,Fuel and Other Utilities,$MM/yr,0.0,none
-8185,kern_county,baseline,a,primary_separator,Replacement Parts,$MM/yr,0.0,none
-8186,kern_county,baseline,a,primary_separator,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8187,kern_county,baseline,a,primary_separator,Total Variable Operating Costs,$MM/yr,0.0,none
-8188,kern_county,baseline,a,primary_separator,Employee Salaries,$MM/yr,0.0004970726843782213,salaries
-8189,kern_county,baseline,a,primary_separator,Benefits,$MM/yr,0.0004473654159403992,benefits
-8190,kern_county,baseline,a,primary_separator,Maintenance,$MM/yr,0.0046967957409668965,maintenance
-8191,kern_county,baseline,a,primary_separator,Laboratory,$MM/yr,0.0015655985803222988,lab
-8192,kern_county,baseline,a,primary_separator,Insurance and Taxes,$MM/yr,0.0010959190062256089,insurance_taxes
-8193,kern_county,baseline,a,primary_separator,Total Fixed Operating Costs,$MM/yr,0.008302751427833424,total_fixed_op_cost
-8194,kern_county,baseline,a,primary_separator,Capacity_Basis_for_Fixed_Capital_Cost,,5450.0,none
-8195,kern_county,baseline,a,primary_separator,Base_Fixed_Capital_Cost,$MM,0.6035533829709723,none
-8196,kern_county,baseline,a,primary_separator,Capital_Scaling_Exponent,,0.3182,none
-8197,kern_county,baseline,a,primary_separator,Base_Employee_Salary_Cost,$MM/yr,0.0006035533829709723,base_employee_salary_cost
-8198,kern_county,baseline,a,primary_separator,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8199,kern_county,baseline,a,primary_separator,Basis_Year,,2015.0,base_year
-8200,kern_county,baseline,a,primary_separator,Capital_and_Replacement_Parts,,1.1230123341449116,cap_replacement_parts
-8201,kern_county,baseline,a,primary_separator,Catalysts_and_Chemicals,,1.1130775651233562,catalysts_chemicals
-8202,kern_county,baseline,a,primary_separator,Labor_and_Other_Fixed_Costs,,1.1296687856176943,labor_and_other_fixed
-8203,kern_county,baseline,a,primary_separator,Consumer_Price_Index,,1.1011515202920326,consumer_price_index
-8204,kern_county,baseline,a,primary_separator,Grid_Electricity,kWh,0.0,electricity
-8205,kern_county,baseline,a,primary_separator,Inlet Water,m3/hr,3470.0,flow_vol_in
-8206,kern_county,baseline,a,primary_separator,Outlet Water,m3/hr,3470.0,flow_vol_out
-8207,kern_county,baseline,a,sedimentation,Fixed Capital Investment (FCI),$MM,0.6221868739461285,fixed_cap_inv
-8208,kern_county,baseline,a,sedimentation,Land_Cost,$MM,0.0009332803109191928,land_cost
-8209,kern_county,baseline,a,sedimentation,Working Capital,$MM,0.031109343697306426,working_cap
-8210,kern_county,baseline,a,sedimentation,Total Capital Investment (TCI),$MM,0.6542294979543541,total_cap_investment
-8211,kern_county,baseline,a,sedimentation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8212,kern_county,baseline,a,sedimentation,Electricity,$MM/yr,0.0,electricity_cost
-8213,kern_county,baseline,a,sedimentation,Fuel and Other Utilities,$MM/yr,0.0,none
-8214,kern_county,baseline,a,sedimentation,Replacement Parts,$MM/yr,0.0,none
-8215,kern_county,baseline,a,sedimentation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8216,kern_county,baseline,a,sedimentation,Total Variable Operating Costs,$MM/yr,0.0,none
-8217,kern_county,baseline,a,sedimentation,Employee Salaries,$MM/yr,0.0005532635095688029,salaries
-8218,kern_county,baseline,a,sedimentation,Benefits,$MM/yr,0.0004979371586119227,benefits
-8219,kern_county,baseline,a,sedimentation,Maintenance,$MM/yr,0.004977494991569028,maintenance
-8220,kern_county,baseline,a,sedimentation,Laboratory,$MM/yr,0.0016591649971896762,lab
-8221,kern_county,baseline,a,sedimentation,Insurance and Taxes,$MM/yr,0.0011614154980327733,insurance_taxes
-8222,kern_county,baseline,a,sedimentation,Total Fixed Operating Costs,$MM/yr,0.008849276154972203,total_fixed_op_cost
-8223,kern_county,baseline,a,sedimentation,Capacity_Basis_for_Fixed_Capital_Cost,,5450.0,none
-8224,kern_county,baseline,a,sedimentation,Base_Fixed_Capital_Cost,$MM,0.6035533829709723,none
-8225,kern_county,baseline,a,sedimentation,Capital_Scaling_Exponent,,0.3182,none
-8226,kern_county,baseline,a,sedimentation,Base_Employee_Salary_Cost,$MM/yr,0.0006035533829709723,base_employee_salary_cost
-8227,kern_county,baseline,a,sedimentation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8228,kern_county,baseline,a,sedimentation,Basis_Year,,2007.0,base_year
-8229,kern_county,baseline,a,sedimentation,Capital_and_Replacement_Parts,,1.1901280313130695,cap_replacement_parts
-8230,kern_county,baseline,a,sedimentation,Catalysts_and_Chemicals,,1.4497931099098118,catalysts_chemicals
-8231,kern_county,baseline,a,sedimentation,Labor_and_Other_Fixed_Costs,,1.2573704744266512,labor_and_other_fixed
-8232,kern_county,baseline,a,sedimentation,Consumer_Price_Index,,1.258749456863813,consumer_price_index
-8233,kern_county,baseline,a,sedimentation,Grid_Electricity,kWh,0.0,electricity
-8234,kern_county,baseline,a,sedimentation,Inlet Water,m3/hr,3470.0,flow_vol_in
-8235,kern_county,baseline,a,sedimentation,Outlet Water,m3/hr,3470.0,flow_vol_out
-8236,kern_county,baseline,a,air_flotation,Fixed Capital Investment (FCI),$MM,1.3562685674774542,fixed_cap_inv
-8237,kern_county,baseline,a,air_flotation,Land_Cost,$MM,0.0020344028512161807,land_cost
-8238,kern_county,baseline,a,air_flotation,Working Capital,$MM,0.0678134283738727,working_cap
-8239,kern_county,baseline,a,air_flotation,Total Capital Investment (TCI),$MM,1.4261163987025431,total_cap_investment
-8240,kern_county,baseline,a,air_flotation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8241,kern_county,baseline,a,air_flotation,Electricity,$MM/yr,1.221967440003749,electricity_cost
-8242,kern_county,baseline,a,air_flotation,Fuel and Other Utilities,$MM/yr,0.0,none
-8243,kern_county,baseline,a,air_flotation,Replacement Parts,$MM/yr,0.0,none
-8244,kern_county,baseline,a,air_flotation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8245,kern_county,baseline,a,air_flotation,Total Variable Operating Costs,$MM/yr,1.221967440003749,none
-8246,kern_county,baseline,a,air_flotation,Employee Salaries,$MM/yr,0.0017570845077664824,salaries
-8247,kern_county,baseline,a,air_flotation,Benefits,$MM/yr,0.0015813760569898345,benefits
-8248,kern_county,baseline,a,air_flotation,Maintenance,$MM/yr,0.010850148539819634,maintenance
-8249,kern_county,baseline,a,air_flotation,Laboratory,$MM/yr,0.003616716179939878,lab
-8250,kern_county,baseline,a,air_flotation,Insurance and Taxes,$MM/yr,0.0025317013259579147,insurance_taxes
-8251,kern_county,baseline,a,air_flotation,Total Fixed Operating Costs,$MM/yr,0.020337026610473742,total_fixed_op_cost
-8252,kern_county,baseline,a,air_flotation,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-8253,kern_county,baseline,a,air_flotation,Base_Fixed_Capital_Cost,$MM,4.488923560801262,none
-8254,kern_county,baseline,a,air_flotation,Capital_Scaling_Exponent,,0.8671,none
-8255,kern_county,baseline,a,air_flotation,Base_Employee_Salary_Cost,$MM/yr,0.004488923560801262,base_employee_salary_cost
-8256,kern_county,baseline,a,air_flotation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8257,kern_county,baseline,a,air_flotation,Basis_Year,,2015.0,base_year
-8258,kern_county,baseline,a,air_flotation,Capital_and_Replacement_Parts,,1.1230123341449116,cap_replacement_parts
-8259,kern_county,baseline,a,air_flotation,Catalysts_and_Chemicals,,1.1130775651233562,catalysts_chemicals
-8260,kern_county,baseline,a,air_flotation,Labor_and_Other_Fixed_Costs,,1.1296687856176943,labor_and_other_fixed
-8261,kern_county,baseline,a,air_flotation,Consumer_Price_Index,,1.1011515202920326,consumer_price_index
-8262,kern_county,baseline,a,air_flotation,Grid_Electricity,kWh,0.3,electricity
-8263,kern_county,baseline,a,air_flotation,Inlet Water,m3/hr,3470.0,flow_vol_in
-8264,kern_county,baseline,a,air_flotation,Outlet Water,m3/hr,3470.0,flow_vol_out
-8265,kern_county,baseline,a,media_filtration,Fixed Capital Investment (FCI),$MM,4.977269600517996,fixed_cap_inv
-8266,kern_county,baseline,a,media_filtration,Land_Cost,$MM,0.007465904400776994,land_cost
-8267,kern_county,baseline,a,media_filtration,Working Capital,$MM,0.2488634800258998,working_cap
-8268,kern_county,baseline,a,media_filtration,Total Capital Investment (TCI),$MM,5.233598984944672,total_cap_investment
-8269,kern_county,baseline,a,media_filtration,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8270,kern_county,baseline,a,media_filtration,Electricity,$MM/yr,0.0,electricity_cost
-8271,kern_county,baseline,a,media_filtration,Fuel and Other Utilities,$MM/yr,0.0,none
-8272,kern_county,baseline,a,media_filtration,Replacement Parts,$MM/yr,0.0,none
-8273,kern_county,baseline,a,media_filtration,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8274,kern_county,baseline,a,media_filtration,Total Variable Operating Costs,$MM/yr,0.0,none
-8275,kern_county,baseline,a,media_filtration,Employee Salaries,$MM/yr,0.005063499343377264,salaries
-8276,kern_county,baseline,a,media_filtration,Benefits,$MM/yr,0.0045571494090395365,benefits
-8277,kern_county,baseline,a,media_filtration,Maintenance,$MM/yr,0.03981815680414397,maintenance
-8278,kern_county,baseline,a,media_filtration,Laboratory,$MM/yr,0.013272718934714656,lab
-8279,kern_county,baseline,a,media_filtration,Insurance and Taxes,$MM/yr,0.00929090325430026,insurance_taxes
-8280,kern_county,baseline,a,media_filtration,Total Fixed Operating Costs,$MM/yr,0.07200242774557569,total_fixed_op_cost
-8281,kern_county,baseline,a,media_filtration,Capacity_Basis_for_Fixed_Capital_Cost,,4731.764234888108,none
-8282,kern_county,baseline,a,media_filtration,Base_Fixed_Capital_Cost,$MM,5.5,none
-8283,kern_county,baseline,a,media_filtration,Capital_Scaling_Exponent,,0.5862,none
-8284,kern_county,baseline,a,media_filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055,base_employee_salary_cost
-8285,kern_county,baseline,a,media_filtration,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8286,kern_county,baseline,a,media_filtration,Basis_Year,,2014.0,base_year
-8287,kern_county,baseline,a,media_filtration,Capital_and_Replacement_Parts,,1.0853901538828097,cap_replacement_parts
-8288,kern_county,baseline,a,media_filtration,Catalysts_and_Chemicals,,1.0948846182937026,catalysts_chemicals
-8289,kern_county,baseline,a,media_filtration,Labor_and_Other_Fixed_Costs,,1.1438619253160092,labor_and_other_fixed
-8290,kern_county,baseline,a,media_filtration,Consumer_Price_Index,,1.1024585609499895,consumer_price_index
-8291,kern_county,baseline,a,media_filtration,Grid_Electricity,kWh,0.0,electricity
-8292,kern_county,baseline,a,media_filtration,Inlet Water,m3/hr,3470.0,flow_vol_in
-8293,kern_county,baseline,a,media_filtration,Outlet Water,m3/hr,3435.3,flow_vol_out
-8294,kern_county,baseline,a,blending_reservoir,Fixed Capital Investment (FCI),$MM,0.6366143763589354,fixed_cap_inv
-8295,kern_county,baseline,a,blending_reservoir,Land_Cost,$MM,0.0009549215645384033,land_cost
-8296,kern_county,baseline,a,blending_reservoir,Working Capital,$MM,0.03183071881794677,working_cap
-8297,kern_county,baseline,a,blending_reservoir,Total Capital Investment (TCI),$MM,0.6694000167414205,total_cap_investment
-8298,kern_county,baseline,a,blending_reservoir,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8299,kern_county,baseline,a,blending_reservoir,Electricity,$MM/yr,0.0,electricity_cost
-8300,kern_county,baseline,a,blending_reservoir,Fuel and Other Utilities,$MM/yr,0.0,none
-8301,kern_county,baseline,a,blending_reservoir,Replacement Parts,$MM/yr,0.0,none
-8302,kern_county,baseline,a,blending_reservoir,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8303,kern_county,baseline,a,blending_reservoir,Total Variable Operating Costs,$MM/yr,0.0,none
-8304,kern_county,baseline,a,blending_reservoir,Employee Salaries,$MM/yr,0.0006366143763603026,salaries
-8305,kern_county,baseline,a,blending_reservoir,Benefits,$MM/yr,0.0005729529387242723,benefits
-8306,kern_county,baseline,a,blending_reservoir,Maintenance,$MM/yr,0.0050929150108714825,maintenance
-8307,kern_county,baseline,a,blending_reservoir,Laboratory,$MM/yr,0.0016976383369571614,lab
-8308,kern_county,baseline,a,blending_reservoir,Insurance and Taxes,$MM/yr,0.0011883468358700126,insurance_taxes
-8309,kern_county,baseline,a,blending_reservoir,Total Fixed Operating Costs,$MM/yr,0.00918846749878323,total_fixed_op_cost
-8310,kern_county,baseline,a,blending_reservoir,Capacity_Basis_for_Fixed_Capital_Cost,,50000.0,none
-8311,kern_county,baseline,a,blending_reservoir,Base_Fixed_Capital_Cost,$MM,2.0,none
-8312,kern_county,baseline,a,blending_reservoir,Capital_Scaling_Exponent,,0.7,none
-8313,kern_county,baseline,a,blending_reservoir,Base_Employee_Salary_Cost,$MM/yr,0.002,base_employee_salary_cost
-8314,kern_county,baseline,a,blending_reservoir,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8315,kern_county,baseline,a,blending_reservoir,Basis_Year,,2020.0,base_year
-8316,kern_county,baseline,a,blending_reservoir,Capital_and_Replacement_Parts,,1.0,cap_replacement_parts
-8317,kern_county,baseline,a,blending_reservoir,Catalysts_and_Chemicals,,1.0,catalysts_chemicals
-8318,kern_county,baseline,a,blending_reservoir,Labor_and_Other_Fixed_Costs,,1.0,labor_and_other_fixed
-8319,kern_county,baseline,a,blending_reservoir,Consumer_Price_Index,,1.0,consumer_price_index
-8320,kern_county,baseline,a,blending_reservoir,Grid_Electricity,kWh,0.0,electricity
-8321,kern_county,baseline,a,blending_reservoir,Inlet Water,m3/hr,9744.299899999998,flow_vol_in
-8322,kern_county,baseline,a,blending_reservoir,Outlet Water,m3/hr,9744.299899999998,flow_vol_out
-8323,kern_county,baseline,a,irrigation,Fixed Capital Investment (FCI),$MM,4.034950245701872,fixed_cap_inv
-8324,kern_county,baseline,a,irrigation,Land_Cost,$MM,0.006052425368552807,land_cost
-8325,kern_county,baseline,a,irrigation,Working Capital,$MM,0.2017475122850936,working_cap
-8326,kern_county,baseline,a,irrigation,Total Capital Investment (TCI),$MM,4.242750183355518,total_cap_investment
-8327,kern_county,baseline,a,irrigation,Catalysts and Chemicals,$MM/yr,0.0,cat_and_chem_cost
-8328,kern_county,baseline,a,irrigation,Electricity,$MM/yr,0.4717836147671295,electricity_cost
-8329,kern_county,baseline,a,irrigation,Fuel and Other Utilities,$MM/yr,0.0,none
-8330,kern_county,baseline,a,irrigation,Replacement Parts,$MM/yr,0.0,none
-8331,kern_county,baseline,a,irrigation,Other Operating Costs,$MM/yr,0.0,other_var_cost
-8332,kern_county,baseline,a,irrigation,Total Variable Operating Costs,$MM/yr,0.4717836147671295,none
-8333,kern_county,baseline,a,irrigation,Employee Salaries,$MM/yr,0.0045295037610169715,salaries
-8334,kern_county,baseline,a,irrigation,Benefits,$MM/yr,0.0040765533849152725,benefits
-8335,kern_county,baseline,a,irrigation,Maintenance,$MM/yr,0.032279601965614975,maintenance
-8336,kern_county,baseline,a,irrigation,Laboratory,$MM/yr,0.010759867321871659,lab
-8337,kern_county,baseline,a,irrigation,Insurance and Taxes,$MM/yr,0.007531907125310161,insurance_taxes
-8338,kern_county,baseline,a,irrigation,Total Fixed Operating Costs,$MM/yr,0.05917743355872904,total_fixed_op_cost
-8339,kern_county,baseline,a,irrigation,Capacity_Basis_for_Fixed_Capital_Cost,,15772.5491,none
-8340,kern_county,baseline,a,irrigation,Base_Fixed_Capital_Cost,$MM,7.381985478077808,none
-8341,kern_county,baseline,a,irrigation,Capital_Scaling_Exponent,,0.8657,none
-8342,kern_county,baseline,a,irrigation,Base_Employee_Salary_Cost,$MM/yr,0.007381985478077808,base_employee_salary_cost
-8343,kern_county,baseline,a,irrigation,Fixed_Op_Cost_Scaling_Exponent,,0.7,fixed_op_cost_scaling_exp
-8344,kern_county,baseline,a,irrigation,Basis_Year,,2020.0,base_year
-8345,kern_county,baseline,a,irrigation,Capital_and_Replacement_Parts,,1.0,cap_replacement_parts
-8346,kern_county,baseline,a,irrigation,Catalysts_and_Chemicals,,1.0,catalysts_chemicals
-8347,kern_county,baseline,a,irrigation,Labor_and_Other_Fixed_Costs,,1.0,labor_and_other_fixed
-8348,kern_county,baseline,a,irrigation,Consumer_Price_Index,,1.0,consumer_price_index
-8349,kern_county,baseline,a,irrigation,Grid_Electricity,kWh,0.05119933171218356,electricity
-8350,kern_county,baseline,a,irrigation,Inlet Water,m3/hr,9744.299899999998,flow_vol_in
-8351,kern_county,baseline,a,irrigation,Outlet Water,m3/hr,9744.299899999998,flow_vol_out
+7105,beef-processing,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7106,beef-processing,,,,Land_Cost,$MM,,land_cost
+7107,beef-processing,,,,Working Capital,$MM,,working_cap
+7108,beef-processing,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7109,beef-processing,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7110,beef-processing,,,,Electricity,$MM/yr,,electricity_cost
+7111,beef-processing,,,,Fuel and Other Utilities,$MM/yr,,none
+7112,beef-processing,,,,Replacement Parts,$MM/yr,,none
+7113,beef-processing,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7114,beef-processing,,,,Total Variable Operating Costs,$MM/yr,,none
+7115,beef-processing,,,,Employee Salaries,$MM/yr,,salaries
+7116,beef-processing,,,,Benefits,$MM/yr,,benefits
+7117,beef-processing,,,,Maintenance,$MM/yr,,maintenance
+7118,beef-processing,,,,Laboratory,$MM/yr,,lab
+7119,beef-processing,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7120,beef-processing,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7121,beef-processing,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7122,beef-processing,,,,Base_Fixed_Capital_Cost,$MM,,none
+7123,beef-processing,,,,Capital_Scaling_Exponent,,,none
+7124,beef-processing,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7125,beef-processing,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7126,beef-processing,,,,Basis_Year,,,base_year
+7127,beef-processing,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7128,beef-processing,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7129,beef-processing,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7130,beef-processing,,,,Consumer_Price_Index,,,consumer_price_index
+7131,beef-processing,,,,Grid_Electricity,kWh,,electricity
+7132,beef-processing,,,,Inlet Water,m3/hr,,flow_vol_in
+7133,beef-processing,,,,Outlet Water,m3/hr,,flow_vol_out
+7134,uic,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7135,uic,,,,Land_Cost,$MM,,land_cost
+7136,uic,,,,Working Capital,$MM,,working_cap
+7137,uic,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7138,uic,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7139,uic,,,,Electricity,$MM/yr,,electricity_cost
+7140,uic,,,,Fuel and Other Utilities,$MM/yr,,none
+7141,uic,,,,Replacement Parts,$MM/yr,,none
+7142,uic,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7143,uic,,,,Total Variable Operating Costs,$MM/yr,,none
+7144,uic,,,,Employee Salaries,$MM/yr,,salaries
+7145,uic,,,,Benefits,$MM/yr,,benefits
+7146,uic,,,,Maintenance,$MM/yr,,maintenance
+7147,uic,,,,Laboratory,$MM/yr,,lab
+7148,uic,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7149,uic,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7150,uic,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7151,uic,,,,Base_Fixed_Capital_Cost,$MM,,none
+7152,uic,,,,Capital_Scaling_Exponent,,,none
+7153,uic,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7154,uic,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7155,uic,,,,Basis_Year,,,base_year
+7156,uic,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7157,uic,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7158,uic,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7159,uic,,,,Consumer_Price_Index,,,consumer_price_index
+7160,uic,,,,Grid_Electricity,kWh/m3,,electricity
+7161,uic,,,,Inlet Water,m3/hr,,flow_vol_in
+7162,uic,,,,Outlet Water,m3/hr,,flow_vol_out
+7163,monterey_one_water,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7164,monterey_one_water,,,,Land_Cost,$MM,,land_cost
+7165,monterey_one_water,,,,Working Capital,$MM,,working_cap
+7166,monterey_one_water,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7167,monterey_one_water,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7168,monterey_one_water,,,,Electricity,$MM/yr,,electricity_cost
+7169,monterey_one_water,,,,Fuel and Other Utilities,$MM/yr,,none
+7170,monterey_one_water,,,,Replacement Parts,$MM/yr,,none
+7171,monterey_one_water,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7172,monterey_one_water,,,,Total Variable Operating Costs,$MM/yr,,none
+7173,monterey_one_water,,,,Employee Salaries,$MM/yr,,salaries
+7174,monterey_one_water,,,,Benefits,$MM/yr,,benefits
+7175,monterey_one_water,,,,Maintenance,$MM/yr,,maintenance
+7176,monterey_one_water,,,,Laboratory,$MM/yr,,lab
+7177,monterey_one_water,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7178,monterey_one_water,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7179,monterey_one_water,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7180,monterey_one_water,,,,Base_Fixed_Capital_Cost,$MM,,none
+7181,monterey_one_water,,,,Capital_Scaling_Exponent,,,none
+7182,monterey_one_water,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7183,monterey_one_water,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7184,monterey_one_water,,,,Basis_Year,,,base_year
+7185,monterey_one_water,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7186,monterey_one_water,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7187,monterey_one_water,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7188,monterey_one_water,,,,Consumer_Price_Index,,,consumer_price_index
+7189,monterey_one_water,,,,Grid_Electricity,kWh,,electricity
+7190,monterey_one_water,,,,Inlet Water,m3/hr,,flow_vol_in
+7191,monterey_one_water,,,,Outlet Water,m3/hr,,flow_vol_out
+7192,san_luis,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7193,san_luis,,,,Land_Cost,$MM,,land_cost
+7194,san_luis,,,,Working Capital,$MM,,working_cap
+7195,san_luis,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7196,san_luis,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7197,san_luis,,,,Electricity,$MM/yr,,electricity_cost
+7198,san_luis,,,,Fuel and Other Utilities,$MM/yr,,none
+7199,san_luis,,,,Replacement Parts,$MM/yr,,none
+7200,san_luis,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7201,san_luis,,,,Total Variable Operating Costs,$MM/yr,,none
+7202,san_luis,,,,Employee Salaries,$MM/yr,,salaries
+7203,san_luis,,,,Benefits,$MM/yr,,benefits
+7204,san_luis,,,,Maintenance,$MM/yr,,maintenance
+7205,san_luis,,,,Laboratory,$MM/yr,,lab
+7206,san_luis,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7207,san_luis,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7208,san_luis,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7209,san_luis,,,,Base_Fixed_Capital_Cost,$MM,,none
+7210,san_luis,,,,Capital_Scaling_Exponent,,,none
+7211,san_luis,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7212,san_luis,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7213,san_luis,,,,Basis_Year,,,base_year
+7214,san_luis,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7215,san_luis,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7216,san_luis,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7217,san_luis,,,,Consumer_Price_Index,,,consumer_price_index
+7218,san_luis,,,,Grid_Electricity,kWh,,electricity
+7219,san_luis,,,,Inlet Water,m3/hr,,flow_vol_in
+7220,san_luis,,,,Outlet Water,m3/hr,,flow_vol_out
+7221,pulp_and_paper,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7222,pulp_and_paper,,,,Land_Cost,$MM,,land_cost
+7223,pulp_and_paper,,,,Working Capital,$MM,,working_cap
+7224,pulp_and_paper,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7225,pulp_and_paper,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7226,pulp_and_paper,,,,Electricity,$MM/yr,,electricity_cost
+7227,pulp_and_paper,,,,Fuel and Other Utilities,$MM/yr,,none
+7228,pulp_and_paper,,,,Replacement Parts,$MM/yr,,none
+7229,pulp_and_paper,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7230,pulp_and_paper,,,,Total Variable Operating Costs,$MM/yr,,none
+7231,pulp_and_paper,,,,Employee Salaries,$MM/yr,,salaries
+7232,pulp_and_paper,,,,Benefits,$MM/yr,,benefits
+7233,pulp_and_paper,,,,Maintenance,$MM/yr,,maintenance
+7234,pulp_and_paper,,,,Laboratory,$MM/yr,,lab
+7235,pulp_and_paper,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7236,pulp_and_paper,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7237,pulp_and_paper,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7238,pulp_and_paper,,,,Base_Fixed_Capital_Cost,$MM,,none
+7239,pulp_and_paper,,,,Capital_Scaling_Exponent,,,none
+7240,pulp_and_paper,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7241,pulp_and_paper,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7242,pulp_and_paper,,,,Basis_Year,,,base_year
+7243,pulp_and_paper,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7244,pulp_and_paper,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7245,pulp_and_paper,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7246,pulp_and_paper,,,,Consumer_Price_Index,,,consumer_price_index
+7247,pulp_and_paper,,,,Grid_Electricity,kWh,,electricity
+7248,pulp_and_paper,,,,Inlet Water,m3/hr,,flow_vol_in
+7249,pulp_and_paper,,,,Outlet Water,m3/hr,,flow_vol_out
+7251,iron_and_steel,,,,Land_Cost,$MM,,land_cost
+7252,iron_and_steel,,,,Working Capital,$MM,,working_cap
+7253,iron_and_steel,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7254,iron_and_steel,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7255,iron_and_steel,,,,Electricity,$MM/yr,,electricity_cost
+7256,iron_and_steel,,,,Fuel and Other Utilities,$MM/yr,,none
+7257,iron_and_steel,,,,Replacement Parts,$MM/yr,,none
+7258,iron_and_steel,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7259,iron_and_steel,,,,Total Variable Operating Costs,$MM/yr,,none
+7260,iron_and_steel,,,,Employee Salaries,$MM/yr,,salaries
+7261,iron_and_steel,,,,Benefits,$MM/yr,,benefits
+7262,iron_and_steel,,,,Maintenance,$MM/yr,,maintenance
+7263,iron_and_steel,,,,Laboratory,$MM/yr,,lab
+7264,iron_and_steel,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7265,iron_and_steel,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7266,iron_and_steel,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7267,iron_and_steel,,,,Base_Fixed_Capital_Cost,$MM,,none
+7268,iron_and_steel,,,,Capital_Scaling_Exponent,,,none
+7269,iron_and_steel,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7270,iron_and_steel,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7271,iron_and_steel,,,,Basis_Year,,,base_year
+7272,iron_and_steel,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7273,iron_and_steel,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7274,iron_and_steel,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7275,iron_and_steel,,,,Consumer_Price_Index,,,consumer_price_index
+7276,iron_and_steel,,,,Grid_Electricity,kWh,,electricity
+7277,iron_and_steel,,,,Inlet Water,m3/hr,,flow_vol_in
+7278,iron_and_steel,,,,Outlet Water,m3/hr,,flow_vol_out
+7279,kern_county,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7280,kern_county,,,,Land_Cost,$MM,,land_cost
+7281,kern_county,,,,Working Capital,$MM,,working_cap
+7282,kern_county,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7283,kern_county,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7284,kern_county,,,,Electricity,$MM/yr,,electricity_cost
+7285,kern_county,,,,Fuel and Other Utilities,$MM/yr,,none
+7286,kern_county,,,,Replacement Parts,$MM/yr,,none
+7287,kern_county,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7288,kern_county,,,,Total Variable Operating Costs,$MM/yr,,none
+7289,kern_county,,,,Employee Salaries,$MM/yr,,salaries
+7290,kern_county,,,,Benefits,$MM/yr,,benefits
+7291,kern_county,,,,Maintenance,$MM/yr,,maintenance
+7292,kern_county,,,,Laboratory,$MM/yr,,lab
+7293,kern_county,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7294,kern_county,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7295,kern_county,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7296,kern_county,,,,Base_Fixed_Capital_Cost,$MM,,none
+7297,kern_county,,,,Capital_Scaling_Exponent,,,none
+7298,kern_county,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7299,kern_county,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7300,kern_county,,,,Basis_Year,,,base_year
+7301,kern_county,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7302,kern_county,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7303,kern_county,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7304,kern_county,,,,Consumer_Price_Index,,,consumer_price_index
+7305,kern_county,,,,Grid_Electricity,kWh,,electricity
+7306,kern_county,,,,Inlet Water,m3/hr,,flow_vol_in
+7307,kern_county,,,,Outlet Water,m3/hr,,flow_vol_out
+7308,,,,,Fixed Capital Investment (FCI),$MM,,fixed_cap_inv
+7309,,,,,Land_Cost,$MM,,land_cost
+7310,,,,,Working Capital,$MM,,working_cap
+7311,,,,,Total Capital Investment (TCI),$MM,,total_cap_investment
+7312,,,,,Catalysts and Chemicals,$MM/yr,,cat_and_chem_cost
+7313,,,,,Electricity,$MM/yr,,electricity_cost
+7314,,,,,Fuel and Other Utilities,$MM/yr,,none
+7315,,,,,Replacement Parts,$MM/yr,,none
+7316,,,,,Other Operating Costs,$MM/yr,,other_var_cost
+7317,,,,,Total Variable Operating Costs,$MM/yr,,none
+7318,,,,,Employee Salaries,$MM/yr,,salaries
+7319,,,,,Benefits,$MM/yr,,benefits
+7320,,,,,Maintenance,$MM/yr,,maintenance
+7321,,,,,Laboratory,$MM/yr,,lab
+7322,,,,,Insurance and Taxes,$MM/yr,,insurance_taxes
+7323,,,,,Total Fixed Operating Costs,$MM/yr,,total_fixed_op_cost
+7324,,,,,Capacity_Basis_for_Fixed_Capital_Cost,,,none
+7325,,,,,Base_Fixed_Capital_Cost,$MM,,none
+7326,,,,,Capital_Scaling_Exponent,,,none
+7327,,,,,Base_Employee_Salary_Cost,$MM/yr,,base_employee_salary_cost
+7328,,,,,Fixed_Op_Cost_Scaling_Exponent,,,fixed_op_cost_scaling_exp
+7329,,,,,Basis_Year,,,base_year
+7330,,,,,Capital_and_Replacement_Parts,,,cap_replacement_parts
+7331,,,,,Catalysts_and_Chemicals,,,catalysts_chemicals
+7332,,,,,Labor_and_Other_Fixed_Costs,,,labor_and_other_fixed
+7333,,,,,Consumer_Price_Index,,,consumer_price_index
+7334,,,,,Grid_Electricity,kWh,,electricity
+7335,,,,,Inlet Water,m3/hr,,flow_vol_in
+7336,,,,,Outlet Water,m3/hr,,flow_vol_out
+7653,,,,,Grid_Electricity,kWh/m3,,electricity
