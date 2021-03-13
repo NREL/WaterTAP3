@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  3 12:22:42 2021
+
+@author: ksitterl
+"""
+
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -14,25 +22,19 @@
 Demonstration zeroth-order model for WaterTAP3
 """
 
+# Import IDAES cores
+from idaes.core import (declare_process_block_class,
+                        UnitModelBlockData,
+                        useDefault)
+from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
 
-
-# Import IDAES cores
-from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
-from idaes.core.util.config import is_physical_parameter_block
-from pyomo.environ import value
-
 # Import WaterTAP# financials module
 import financials
-from financials import *
-
-from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
-from pyomo.network import Arc
-from idaes.core import FlowsheetBlock
+from financials import *  # ARIEL ADDED
 
 # Import properties and units from "WaterTAP Library"
-from water_props import WaterParameterBlock
 
 ##########################################
 ####### UNIT PARAMETERS ######
@@ -43,18 +45,14 @@ from water_props import WaterParameterBlock
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "treated_storage"
+module_name = "passthrough"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
-# tpec_or_tic = "TPEC"
-unit_basis_yr = 2002
+tpec_or_tic = "TPEC"
+unit_basis_yr = 2020
 
-
-
-# tank_capacity = 37854.1 #  m3
-# FCI_per_tank = 6.88 # $MM source: DOE/NETL-2002/1169 - Process Equipment Cost Estimation Final Report
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
@@ -62,42 +60,53 @@ unit_basis_yr = 2002
 class UnitProcessData(UnitModelBlockData):
     """
     This class describes the rules for a zeroth-order model for a unit
+
+    The Config Block is used tpo process arguments from when the model is
+    instantiated. In IDAES, this serves two purposes:
+         1. Allows us to separate physical properties from unit models
+         2. Lets us give users options for configuring complex units
+    The dynamic and has_holdup options are expected arguments which must exist
+    The property package arguments let us define different sets of contaminants
+    without needing to write a new model.
     """
-    # The Config Block is used tpo process arguments from when the model is
-    # instantiated. In IDAES, this serves two purposes:
-    #     1. Allows us to separate physical properties from unit models
-    #     2. Lets us give users options for configuring complex units
-    # For WaterTAP3, this will mainly be boilerplate to keep things consistent
-    # with ProteusLib and IDAES.
-    # The dynamic and has_holdup options are expected arguments which must exist
-    # The property package arguments let us define different sets of contaminants
-    # without needing to write a new model.
+
     CONFIG = ConfigBlock()
-    CONFIG.declare("dynamic", ConfigValue(domain=In([False]), default=False, description="Dynamic model flag - must be False", doc="""Indicates whether this model will be dynamic or not,
+    CONFIG.declare("dynamic", ConfigValue(
+        domain=In([False]),
+        default=False,
+        description="Dynamic model flag - must be False",
+        doc="""Indicates whether this model will be dynamic or not,
 **default** = False. Equilibrium Reactors do not support dynamic behavior."""))
-    CONFIG.declare("has_holdup", ConfigValue(default=False, domain=In([False]), description="Holdup construction flag - must be False", doc="""Indicates whether holdup terms should be constructed or not.
+    CONFIG.declare("has_holdup", ConfigValue(
+        default=False,
+        domain=In([False]),
+        description="Holdup construction flag - must be False",
+        doc="""Indicates whether holdup terms should be constructed or not.
 **default** - False. Equilibrium reactors do not have defined volume, thus
 this must be False."""))
-    CONFIG.declare("property_package", ConfigValue(default=useDefault, domain=is_physical_parameter_block, description="Property package to use for control volume", doc="""Property parameter object used to define property calculations,
+    CONFIG.declare("property_package", ConfigValue(
+        default=useDefault,
+        domain=is_physical_parameter_block,
+        description="Property package to use for control volume",
+        doc="""Property parameter object used to define property calculations,
 **default** - useDefault.
 **Valid values:** {
 **useDefault** - use default package from parent model or flowsheet,
 **PhysicalParameterObject** - a PhysicalParameterBlock object.}"""))
-    CONFIG.declare("property_package_args", ConfigBlock(implicit=True, description="Arguments to use for constructing property packages", doc="""A ConfigBlock with arguments to be passed to a property block(s)
+    CONFIG.declare("property_package_args", ConfigBlock(
+        implicit=True,
+        description="Arguments to use for constructing property packages",
+        doc="""A ConfigBlock with arguments to be passed to a property block(s)
 and used when constructing these,
 **default** - None.
 **Valid values:** {
 see property package for documentation.}"""))
 
-    from unit_process_equations import initialization
-    # unit_process_equations.get_base_unit_process()
-
-    # build(up_name = "treated_storage")
-
     def build(self):
         import unit_process_equations
         return unit_process_equations.build_up(self, up_name_test=module_name)
 
+    # NOTE ---> THIS SHOULD EVENTUaLLY BE JUST FOR COSTING INFO/EQUATIONS/FUNCTIONS. EVERYTHING ELSE IN ABOVE.
     def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
         """
         We need a get_costing method here to provide a point to call the
@@ -108,40 +117,45 @@ see property package for documentation.}"""))
         Within IDAES, the year argument is used to set the initial value for
         the cost index when we build the model.
         """
-        # Water pumping station power demands
-        # Adapted from Jenny's excel "Treated Water Storage" version in WaterTAP3 VAR tab
-        # https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5
-        # Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-
         # First, check to see if global costing module is in place
         # Construct it if not present and pass year argument
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
 
+        # Next, add a sub-Block to the unit model to hold the cost calculations
+        # This is to let us separate costs from model equations when solving
         self.costing = Block()
 
         time = self.flowsheet().config.time.first()
+        # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
+        sys_cost_params = self.parent_block().costing_param
+        self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
+        tpec_tic = self.costing.tpec_tic
 
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
-
+        # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
-        a = 0.00344
-        b = 0.72093
-        self.storage_duration = unit_params["hours"] * pyunits.hours  # hours
-        capacity_needed = flow_in * self.storage_duration
 
-        # capital costs basis
-        def fixed_cap(flow_in):
-            storage_cap = a * capacity_needed ** b
-            return storage_cap  # $MM
 
-        # capital costs (unit: MM$) ---> TCI IN EXCEL
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # The cost curve source includes 0.5% of annual maintenance
+        chem_dict = {}
+        self.chem_dict = chem_dict
 
-        # electricity consumption
-        self.electricity = 0
+        ##########################################
+        ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
+        ##########################################
+        # m3/day to gal/day
 
-        self.chem_dict = {}
+
+        # Get the first time point in the time domain
+        # In many cases this will be the only point (steady-state), but lets be
+        # safe and use a general approach
+
+        ## fixed_cap_inv_unadjusted ##
+        self.costing.fixed_cap_inv_unadjusted = Expression(
+            expr=0,
+            doc="Unadjusted fixed capital investment")  # $M
+
+        ## electricity consumption ##
+        self.electricity = 0  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######
