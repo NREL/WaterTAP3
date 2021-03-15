@@ -29,7 +29,7 @@ Electricity consumption,electricity,kWh/m3
 Inlet Water,flow_vol_in,m3/hr
 Outlet Water,flow_vol_out,m3/hr
 Total Cost,(none),$MM
-Fixed Capital Investment (FCI),capital_investment_total,$MM
+Total Capital Investment (TCI),capital_investment_total,$MM
 Catalysts and Chemicals,cat_and_chem_cost_total,$MM
 Electricity,electricity_cost_total,$MM
 Other Variable Operating,other_var_cost_total,$MM

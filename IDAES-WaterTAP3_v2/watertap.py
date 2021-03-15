@@ -32,32 +32,37 @@ import pyomo.environ as env
 
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, max_attemps = 3, initialize_flow = 3):
+                  objective=False, max_attemps = 3, initialize_flow = 3, skip_small = False):
     
     small_flow = False
     
     # if flow is small it resets the flow to any inlet as 2 m3/s 
-    for key in m.fs.flow_in_dict.keys():
-        if m.fs.flow_in_dict[key] < 1:
-            getattr(m.fs, key).flow_vol_in.fix(initialize_flow)
-            small_flow = True
-    
-    # if flow is small it runs the model twice at most. then runs again with actual flows
-    if small_flow is True: 
-        print("initial inflow to train is relatively small (< 1 m3/s). running model with dummy flows to initialize.")
-        run_model(m = m, solver_results = False, print_model_results = False, 
-                          objective=False, max_attemps = 1)
-
-        print("model finished running to initialize conditions. now running with actual inflows.")
+    if skip_small == False:
         for key in m.fs.flow_in_dict.keys():
-            getattr(m.fs, key).flow_vol_in.fix(m.fs.flow_in_dict[key])
-            
-        run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
-                          objective=objective, max_attemps = max_attemps)
+            if m.fs.flow_in_dict[key] < 1:
+                getattr(m.fs, key).flow_vol_in.fix(initialize_flow)
+                small_flow = True
+    
+        # if flow is small it runs the model twice at most. then runs again with actual flows
+        if small_flow is True: 
+            print("initial inflow to train is relatively small (< 1 m3/s). running model with dummy flows to initialize.")
+            run_model(m = m, solver_results = False, print_model_results = False, 
+                              objective=False, max_attemps = 1)
+
+            print("model finished running to initialize conditions. now running with actual inflows.")
+            for key in m.fs.flow_in_dict.keys():
+                getattr(m.fs, key).flow_vol_in.fix(m.fs.flow_in_dict[key])
+
+            run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
+                              objective=objective, max_attemps = max_attemps)
         
+        else:
+            run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
+                              objective=objective, max_attemps = max_attemps)
+    
     else:
         run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
-                          objective=objective, max_attemps = max_attemps)
+                      objective=objective, max_attemps = max_attemps)    
     
     if print_model_results: 
         print_results(m, print_model_results)
