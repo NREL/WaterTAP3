@@ -32,7 +32,7 @@ def run():
     
     # getting the list of consituents with removal factors that are bigger than 0
     df = pd.read_csv("data/constituent_removal.csv")
-    df.case_study = np.where(df.case_study == "Default", train["case_study"], df.case_study)
+    df.case_study = np.where(df.case_study == "default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
     df = df[df.scenario == train["scenario"]]
