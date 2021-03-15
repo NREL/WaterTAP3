@@ -128,13 +128,7 @@ def get_complete_costing(self):
     self.total_fixed_op_cost = Expression(
         expr = self.salaries + self.benefits + self.maintenance + self.lab + self.insurance_taxes)
 
-    self.total_up_cost = (
-        self.total_cap_investment
-        + self.cat_and_chem_cost
-        + self.electricity_cost
-        + self.other_var_cost
-        + self.total_fixed_op_cost
-    )
+    self.annual_op_main_cost = self.cat_and_chem_cost + self.electricity_cost + self.other_var_cost + self.total_fixed_op_cost
     
     
     
@@ -226,10 +220,10 @@ def get_system_costing(self):
 #         initialize=1e5,
 #         domain=NonNegativeReals,
 #         doc='Levelized cost of water [$/m3]')
-    b.capital_recovery_factor = Var(
-         initialize=0.1,
-         domain=NonNegativeReals,
-         doc='Captial recovery factor')  
+#     b.capital_recovery_factor = Var(
+#          initialize=0.1,
+#          domain=NonNegativeReals,
+#          doc='Captial recovery factor')  
     
     total_capital_investment_var_lst = []
     cat_and_chem_cost_lst = []
@@ -237,9 +231,10 @@ def get_system_costing(self):
     other_var_cost_lst = []
     total_fixed_op_cost_lst = []
     
-    b.capital_recovery_factor.fix(0.08)  #TODO ANNA ARIEL KURBY
+    #b.capital_recovery_factor.fix(0.08)  #TODO ANNA ARIEL KURBY
+    wacc = 0.05 #TO DO AS INPUT
     
-    plant_lifetime_yrs = self.costing_param.plant_lifetime_yrs
+    b.capital_recovery_factor = (wacc * (1+wacc)**self.costing_param.plant_lifetime_yrs)/ (((1 + wacc)**self.costing_param.plant_lifetime_yrs) - 1)
     
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
@@ -254,20 +249,18 @@ def get_system_costing(self):
     b.capital_investment_total = Expression(
         expr = sum(total_capital_investment_var_lst))
     b.cat_and_chem_cost_total = Expression(
-        expr=sum(cat_and_chem_cost_lst) * plant_lifetime_yrs)
+        expr=sum(cat_and_chem_cost_lst) * self.costing_param.plant_lifetime_yrs)
     b.electricity_cost_total = Expression(
-        expr=sum(electricity_cost_lst) * plant_lifetime_yrs)
+        expr=sum(electricity_cost_lst) * self.costing_param.plant_lifetime_yrs)
     b.other_var_cost_total = Expression(
-        expr=sum(other_var_cost_lst) * plant_lifetime_yrs)
+        expr=sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs)
     b.fixed_op_cost_total = Expression(
-        expr=sum(total_fixed_op_cost_lst) * plant_lifetime_yrs)
+        expr=sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs)
 
     b.operating_cost_total = Expression(
         expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total
               + b.other_var_cost_total))
 
-    b.capital_investment_annual = Expression(
-        expr=sum(total_capital_investment_var_lst))
     b.cat_and_chem_cost_annual = Expression(
         expr=sum(cat_and_chem_cost_lst))
     b.electricity_cost_annual = Expression(
@@ -299,17 +292,7 @@ def get_system_costing(self):
                     if "reverse_osmosis" in str(b_unit):
                         recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]
                     if "cooling_tower" in str(b_unit):
-                        recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]    
-#     b.treated_water = Var(time,
-#                           #initialize=0.5,
-#                           #domain=NonNegativeReals,
-#                           #units=units_meta("volume")/units_meta("time"),
-#                           doc="mass flow rate")
-    
-#     # Treated water   
-#     self.treated_train_eq = Constraint(
-#         expr =  b.treated_water[time] == recovered_water_flow
-#     )    
+                        recovered_water_flow = recovered_water_flow + b_unit.flow_vol_out[time]      
     
     b.treated_water = recovered_water_flow
     
@@ -329,8 +312,8 @@ def get_system_costing(self):
          doc="Electricity Intensity in kwh/m3")
     
     b.LCOW = Expression(
-        expr=(1e6*(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 
-    / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization)),
+        expr= 1e6*(b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) 
+    / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
     doc="Levelized Cost of Water in $/m3")
     
     b.elec_frac_LCOW = Expression(

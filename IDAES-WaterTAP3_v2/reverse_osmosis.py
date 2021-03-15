@@ -58,7 +58,6 @@ unit_basis_yr = 2018
 
 pump_eff = 0.85 # efficiency of pump
 mem_cost = 30
-factor_membrane_replacement = 0.2
 pump_cost = 53 / 1e5 * 3600 #$ per w
 pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
 a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
@@ -232,7 +231,7 @@ see property package for documentation.}"""))
             self.pressure = Var(time,
                                   initialize=30,
                                   domain=NonNegativeReals,
-                                  bounds=(5, 90),
+                                  bounds=(5, 95),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         def set_water_flux(self):
@@ -263,7 +262,14 @@ see property package for documentation.}"""))
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
-            
+        self.factor_membrane_replacement = Var(time,
+                      initialize=0.2,
+                      domain=NonNegativeReals,
+                      bounds=(0.01, 3),
+                      doc="replacement rate membrane fraction") 
+        
+        self.factor_membrane_replacement.fix(0.2)
+        
         if unit_params == None:
             print("No parameters given. Assumes default single pass with default area and pressure -- check values")
             self.membrane_area.fix(membrane_area_in) # area per module m2
@@ -505,8 +511,7 @@ see property package for documentation.}"""))
         
         ################ operating
         # membrane operating cost
-        self.mem_operating_cost = factor_membrane_replacement * mem_cost * self.membrane_area[t] * sys_cost_params.plant_cap_utilization
-        b_cost.other_var_cost = self.mem_operating_cost * 1e-6 * sys_cost_params.plant_cap_utilization   
+        b_cost.other_var_cost = self.factor_membrane_replacement[t] * mem_cost * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1e-6  
         
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param

@@ -33,8 +33,10 @@ up_variables = [
     "insurance_taxes",
     "total_fixed_op_cost",
     "base_employee_salary_cost",
-    "electricity_cost"]
-
+    "fixed_op_cost_annual",
+    "other_var_cost_annual",
+    "electricity_cost",
+    "annual_op_main_cost"]
 
 def get_results_table(m = None, scenario = None, case_study = None, save = True):
     # could make a dictionary if betteR?
@@ -66,19 +68,19 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
         if hasattr(b_unit, 'costing'):
             for variable in up_variables:
                 up_name_list.append(str(b_unit)[3:])
-                variable_list.append(name_lup.loc[variable].Excel_variable)
-                value_list.append(value(getattr(b_unit.costing, variable)))
-                unit_list.append(name_lup.loc[variable].Unit)
+                
+                if variable == "annual_op_main_cost":
+                    variable_list.append("Annual O&M Costs")
+                    value_list.append(value(getattr(b_unit.costing, variable)))
+                    unit_list.append("$MM/yr")            
+                else:
+                    variable_list.append(name_lup.loc[variable].Excel_variable)
+                    value_list.append(value(getattr(b_unit.costing, variable)))
+                    unit_list.append(name_lup.loc[variable].Unit)
                 if variable == "electricity":
                     category.append("Electricity")
                 else:
                     category.append("Cost")
-
-            value_list.append(value(getattr(b_unit.costing, "total_up_cost")))
-            up_name_list.append(str(b_unit)[3:])
-            variable_list.append("Total Unit Cost")
-            category.append("Cost")
-            unit_list.append("$MM")
 
             value_list.append((value(getattr(m.fs, str(b_unit)[3:]).flow_vol_in[0])))
             up_name_list.append(str(b_unit)[3:])
@@ -150,6 +152,8 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
             continue
         elif "elec_frac_LCOW" in str(variable):
             continue
+        elif "system_recovery" in str(variable):
+            continue    
         else:
             variable_str = str(variable)[11:]
             up_name_list.append("System")
@@ -164,6 +168,12 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
     variable_list.append("Electricity Intensity")
     unit_list.append("kwh/m3")
     
+    value_list.append(value(m.fs.costing.system_recovery)*100)
+    up_name_list.append("System")
+    category.append("Water Recovery")
+    variable_list.append("Water Recovery")
+    unit_list.append("%")    
+        
     df = pd.DataFrame()
     df["Unit Process Name"] = up_name_list
     df["Variable"] = variable_list
