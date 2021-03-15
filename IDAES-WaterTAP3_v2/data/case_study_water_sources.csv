@@ -67,6 +67,7 @@
 65,kg/m3,0.0044,tuscarora_make_up,tuscarora,nawi,source,baseline,sulfur
 66,kg/m3,1.14,tuscarora_make_up,tuscarora,nawi,source,baseline,tds
 67,kg/m3,0.00023,tuscarora_make_up,tuscarora,nawi,source,baseline,toc
+,m3/s,0.038055556,tuscarora_make_up,tuscarora,nawi,source,baseline,flow
 68,kg/m3,0.26,tuscarora_brine,tuscarora,nawi,source,baseline,alkalinity_as_caco3
 69,kg/m3,0.003,tuscarora_brine,tuscarora,nawi,source,baseline,calcium
 70,kg/m3,0.0199,tuscarora_brine,tuscarora,nawi,source,baseline,chloride
@@ -82,6 +83,7 @@
 80,kg/m3,0.0296,tuscarora_brine,tuscarora,nawi,source,baseline,sulfur
 81,kg/m3,1.855,tuscarora_brine,tuscarora,nawi,source,baseline,tds
 82,kg/m3,0.00052,tuscarora_brine,tuscarora,nawi,source,baseline,toc
+,m3/s,0.006944444,tuscarora_brine,tuscarora,nawi,source,baseline,flow
 83,kg/m3,2.43E-05,denver_city_water,cherokee,nawi,source,baseline,aluminum
 84,kg/m3,6.00E-06,denver_city_water,cherokee,nawi,source,baseline,ammonia_nitrogen
 85,kg/m3,3.07E-05,denver_city_water,cherokee,nawi,source,baseline,barium
@@ -147,6 +149,7 @@
 145,kg/m3,0.00953,ocwd_feed,ocwd,nawi,source,baseline,toc
 146,kg/m3,0.0016,ocwd_feed,ocwd,nawi,source,baseline,turbidity
 147,kg/m3,1.53E-05,ocwd_feed,ocwd,nawi,source,baseline,zinc
+,m3/s,5.695642731,ocwd_feed,ocwd,nawi,source,baseline,flow
 148,kg/m3,6.16E-06,solaire_graywater,solaire,nawi,source,baseline,aluminum
 149,kg/m3,5.10E-07,solaire_graywater,solaire,nawi,source,baseline,arsenic
 150,kg/m3,4.52E-05,solaire_graywater,solaire,nawi,source,baseline,barium
@@ -185,6 +188,7 @@
 183,kg/m3,0.00953,solaire_graywater,solaire,nawi,source,baseline,toc
 184,kg/m3,0.0016,solaire_graywater,solaire,nawi,source,baseline,turbidity
 185,kg/m3,1.53E-05,solaire_graywater,solaire,nawi,source,baseline,zinc
+,m3/s,0.000888889,solaire_graywater,solaire,nawi,source,baseline,flow
 186,kg/m3,6.16E-06,solaire_blackwater,solaire,nawi,source,baseline,aluminum
 187,kg/m3,5.10E-07,solaire_blackwater,solaire,nawi,source,baseline,arsenic
 188,kg/m3,4.52E-05,solaire_blackwater,solaire,nawi,source,baseline,barium
@@ -223,6 +227,7 @@
 221,kg/m3,0.00953,solaire_blackwater,solaire,nawi,source,baseline,toc
 222,kg/m3,0.0016,solaire_blackwater,solaire,nawi,source,baseline,turbidity
 223,kg/m3,1.53E-05,solaire_blackwater,solaire,nawi,source,baseline,zinc
+,m3/s,0.000222222,solaire_blackwater,solaire,nawi,source,baseline,flow
 224,kg/m3,6.16E-06,solaire_stormwater,solaire,nawi,source,baseline,aluminum
 225,kg/m3,5.10E-07,solaire_stormwater,solaire,nawi,source,baseline,arsenic
 226,kg/m3,4.52E-05,solaire_stormwater,solaire,nawi,source,baseline,barium
@@ -261,6 +266,7 @@
 259,kg/m3,0.00953,solaire_stormwater,solaire,nawi,source,baseline,toc
 260,kg/m3,0.0016,solaire_stormwater,solaire,nawi,source,baseline,turbidity
 261,kg/m3,1.53E-05,solaire_stormwater,solaire,nawi,source,baseline,zinc
+,m3/s,0.000555556,solaire_stormwater,solaire,nawi,source,baseline,flow
 262,kg/m3,6.16E-06,big_spring_feed,big_spring,nawi,source,baseline,aluminum
 263,kg/m3,5.10E-07,big_spring_feed,big_spring,nawi,source,baseline,arsenic
 264,kg/m3,4.52E-05,big_spring_feed,big_spring,nawi,source,baseline,barium
@@ -299,6 +305,7 @@
 297,kg/m3,0.00953,big_spring_feed,big_spring,nawi,source,baseline,toc
 298,kg/m3,0.0016,big_spring_feed,big_spring,nawi,source,baseline,turbidity
 299,kg/m3,1.53E-05,big_spring_feed,big_spring,nawi,source,baseline,zinc
+,m3/s,0.075,big_spring_feed,big_spring,nawi,source,baseline,flow
 300,kg/m3,0.08,kbhdp_brackish_low,kbhdp,nawi,source,baseline,alkalinity_as_caco3
 301,kg/m3,0.13,kbhdp_brackish_low,kbhdp,nawi,source,baseline,calcium
 302,kg/m3,1.18,kbhdp_brackish_low,kbhdp,nawi,source,baseline,chloride
@@ -437,6 +444,7 @@
 435,kg/m3,0.006,hrsd,hrsd,nawi,source,baseline,toc
 436,kg/m3,0.0016,hrsd,hrsd,nawi,source,baseline,turbidity
 437,kg/m3,1.53E-05,hrsd,hrsd,nawi,source,baseline,zinc
+,m3/s,4.980804979,hrsd,hrsd,nawi,source,baseline,flow
 438,kg/m3,1,ore_heap_make_up,heap_leaching,nawi,source,baseline,tds
 439,kg/m3,5,ore_heap_recycle,heap_leaching,nawi,source,baseline,tds
 440,kg/m3,0.05,lithium_brine,lithium_mining,nawi,source,baseline,boron

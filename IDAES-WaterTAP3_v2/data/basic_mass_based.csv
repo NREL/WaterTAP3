@@ -1,5 +1,8 @@
 unit_process,mass_basis,cap_basis,cap_exp,elect,year
 decarbonator_waterreuse,1577254.91,0.15,1,0,2007
+decarbonator_waterreuse_a,1577254.91,0.15,1,0,2007
+decarbonator_waterreuse_b,1577254.91,0.15,1,0,2007
+decarbonator_waterreuse_c,1577254.91,0.15,1,0,2007
 crystallizer_waterreuse,16001.13677,10.14504124,1,0.061694427,2007
 evaporation_pond_waterreuse,22712.4,4.656144248,1,0,2007
 smp,100000,1,0.7,0,2020
