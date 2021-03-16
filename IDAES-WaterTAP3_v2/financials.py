@@ -298,7 +298,7 @@ def get_system_costing(self):
     
     sum_of_inflow = 0
     for key in b.parent_block().flow_in_dict.keys():
-        sum_of_inflow = sum_of_inflow + b.parent_block().flow_in_dict[key]    
+        sum_of_inflow = sum_of_inflow + getattr(self, key).flow_vol_in[time]  
     
     b.system_recovery = b.treated_water / sum_of_inflow
 

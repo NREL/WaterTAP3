@@ -32,10 +32,9 @@ import pyomo.environ as env
 
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, max_attemps = 3, initialize_flow = 3, skip_small = False):
+                  objective=False, max_attemps = 3, initialize_flow = 3, skip_small = True):
     
-    small_flow = False
-    
+   
     # if flow is small it resets the flow to any inlet as 2 m3/s 
     if skip_small == False:
         for key in m.fs.flow_in_dict.keys():
@@ -159,20 +158,20 @@ def print_results(m, print_model_results):
                 print("----------------------------------------------------------------------")
 
             
-        print("----------------------------------------------------------------------")
-        print("------------------- System Level Metrics and Costs -------------------")
-        print("Total Capital Investment ($MM)", m.fs.costing.capital_investment_total())
-        print("Annual Fixed Operating Cost ($MM/yr)", m.fs.costing.fixed_op_cost_annual())
-        print("Annual Catalysts and Chemicals Cost ($MM/yr)", m.fs.costing.cat_and_chem_cost_annual())
-        print("Annual Electricity Costs ($MM/yr)", m.fs.costing.electricity_cost_annual())
-        print("Annual Other Variable Costs ($MM/yr)", m.fs.costing.other_var_cost_annual())
-        print("Annual Operating Costs ($MM/yr)", m.fs.costing.operating_cost_annual())
-        print("Treated water (m3/s) --->", m.fs.costing.treated_water())
-        print("Total water recovery (%) --->", 100 * m.fs.costing.system_recovery())
-        print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
-        print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
-        print("Electricity portion of LCOW (%) --->", 100 * m.fs.costing.elec_frac_LCOW())
-        print("----------------------------------------------------------------------")
+    print("----------------------------------------------------------------------")
+    print("------------------- System Level Metrics and Costs -------------------")
+    print("Total Capital Investment ($MM)", m.fs.costing.capital_investment_total())
+    print("Annual Fixed Operating Cost ($MM/yr)", m.fs.costing.fixed_op_cost_annual())
+    print("Annual Catalysts and Chemicals Cost ($MM/yr)", m.fs.costing.cat_and_chem_cost_annual())
+    print("Annual Electricity Costs ($MM/yr)", m.fs.costing.electricity_cost_annual())
+    print("Annual Other Variable Costs ($MM/yr)", m.fs.costing.other_var_cost_annual())
+    print("Annual Operating Costs ($MM/yr)", m.fs.costing.operating_cost_annual())
+    print("Treated water (m3/s) --->", m.fs.costing.treated_water())
+    print("Total water recovery (%) --->", 100 * m.fs.costing.system_recovery())
+    print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
+    print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
+    print("Electricity portion of LCOW (%) --->", 100 * m.fs.costing.elec_frac_LCOW())
+    print("----------------------------------------------------------------------")
 
     
 def run_model_comparison(scenarioA, scenarioB, flow = 4.5833):

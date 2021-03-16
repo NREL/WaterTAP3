@@ -628,3 +628,5 @@
 626,m3/s,1.336277778,kbhdp_brackish_high,kbhdp,nawi,source,baseline,flow
 627,m3/s,0.381,emwd_ca_brackish,emwd,nawi,source,baseline,flow
 628,m3/s,1.336277778,kbhdp_brackish_ave,kbhdp,nawi,source,baseline,flow
+628,m3/s,0.075,big_spring_feed,big_spring,nawi,source,baseline,flow
+628,m3/s,1,hrsd_municipal,hrsd,nawi,source,baseline,flow
