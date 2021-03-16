@@ -33,8 +33,6 @@ up_variables = [
     "insurance_taxes",
     "total_fixed_op_cost",
     "base_employee_salary_cost",
-    "fixed_op_cost_annual",
-    "other_var_cost_annual",
     "electricity_cost",
     "annual_op_main_cost"]
 
