@@ -29,7 +29,10 @@ from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
 from scipy.interpolate import interp1d
+from scipy.optimize import curve_fit
 from pyomo.environ import value
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
 # Import WaterTAP# financials module
 import financials
@@ -130,7 +133,7 @@ see property package for documentation.}"""))
 
 		# TODO -->> ADD THESE TO UNIT self.X
 
-		dose_in = unit_params['uv_dose'] * (pyunits.millijoule / pyunits.cm ** 2)  # from Excel
+		uv_dose = unit_params['uv_dose']  # from Excel
 		# uvt_in = value(self.conc_mass_in[time, "ultraviolet_transmittance_uvt"])
 		try:
 			uvt_in = unit_params['uvt_in']
@@ -139,9 +142,9 @@ see property package for documentation.}"""))
 		#### CHEMS ###
 		aop = unit_params['aop']
 		if aop:
-			chemical_dosage = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))
+			ox_dose = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.L), to_units=(pyunits.kg / pyunits.m ** 3))
 			chem_name = unit_params["chemical_name"][0]
-			chem_dict = {chem_name: chemical_dosage}
+			chem_dict = {chem_name: ox_dose}
 			h2o2_base_cap = 1228
 			h2o2_cap_exp = 0.2277
 		else:
@@ -180,6 +183,7 @@ see property package for documentation.}"""))
 		                inc_interp_flow=0.1, min_interp_uvt=0.5, max_interp_uvt=0.99, inc_interp_uvt=0.01, min_interp_dose=5, max_interp_dose=1500, inc_interp_dose=1):
 			# Empty list to store points for each UV Dose level
 			flow_points = []
+			x_poly = []
 			for flow in flow_list:
 				# Raw data from TWB table
 				cost = uv_cost_csv.loc[flow]
@@ -189,31 +193,37 @@ see property package for documentation.}"""))
 				cost = uv_cost_interp_uvt(cost, min_interp_uvt, max_interp_uvt, inc_interp_uvt, kind=kind)
 
 				flow_points.append(cost[uvt_in][dose_in])
-
-			return flow_points
+				temp = [flow, uvt_in, dose_in]
+				x_poly.append(temp)
+			return flow_points, x_poly
 
 		def solution_vol_flow(flow_in):  # m3/hr
-			chemical_rate = flow_in * chemical_dosage  # kg/hr
+			chemical_rate = flow_in * ox_dose  # kg/hr
 			chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
 			soln_vol_flow = chemical_rate
 			return soln_vol_flow  # lb / day
 
-		def fixed_cap(flow_in, uvt_in):
-			if uvt_in == 1E-5:
-				return 1
+		def fixed_cap(flow_in, uvt_in, uv_dose):
 			uv_cost_csv = pd.read_csv('data/uv_cost.csv')  # Needed to interpolate and calculate cost
 			uv_cost_csv.set_index(['Flow', 'UVDose'], inplace=True)  # Needed to interpolate and calculate cost
 			flow_list = [1, 3, 5, 10, 25]  # flow in mgd
-			flow_points = uv_cost_out(dose_in, uvt_in, uv_cost_csv, flow_list=flow_list)  # Costing based off table on pg 57 of TWB
-			params, _, _, _, _ = ml_regression.get_cost_curve_coefs(xs=flow_list, ys=flow_points)
-			a, b = params[0], params[1]
+			flow_points, x_poly = uv_cost_out(uv_dose, uvt_in, uv_cost_csv, flow_list=flow_list)  # Costing based off table on pg 57 of TWB
+			poly1 = PolynomialFeatures(3, include_bias=False)
+			x_poly2 = poly1.fit_transform(x_poly)
+			poly2 = LinearRegression(normalize=True)
+			model_poly = poly2.fit(x_poly2, flow_points)
+			flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
+
+			input_vars = [value(flow_in_mgd), uvt_in, uv_dose]
+
+			input_poly = poly1.fit_transform([input_vars])
+			uv_cap = poly2.predict(input_poly)[0]
+
 			if aop:
 				h2o2_cap = h2o2_base_cap * solution_vol_flow(flow_in) ** h2o2_cap_exp
-				flow_in = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-				uv_aop_cap = (a * flow_in ** b + h2o2_cap) * 1E-3
 			else:
-				flow_in = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-				uv_aop_cap = (a * flow_in ** b) * 1E-3
+				h2o2_cap = 0
+			uv_aop_cap = (h2o2_cap + uv_cap) * 1E-3
 			return uv_aop_cap
 
 		def electricity(flow_in):  # m3/hr
@@ -221,7 +231,7 @@ see property package for documentation.}"""))
 			return electricity
 
 		## fixed_cap_inv_unadjusted ##
-		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in, uvt_in), doc="Unadjusted fixed capital investment")  # $M
+		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in, uvt_in, uv_dose), doc="Unadjusted fixed capital investment")  # $M
 
 		## electricity consumption ##
 		self.electricity = electricity(flow_in)  # kwh/m3
