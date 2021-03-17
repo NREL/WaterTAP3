@@ -37,7 +37,7 @@ def get_case_study(flow = None, m = None):
     
         
     # get source water information that will be used to get the flow in if not specified
-    flow = {}
+    if flow is None: flow = {}
     if isinstance(source_water['water_type'], list) and not flow:
         for water_type in source_water['water_type']:
             df = get_def_source(source_water['reference'], water_type, source_water['case_study'], source_water['scenario'])
