@@ -231,7 +231,7 @@ see property package for documentation.}"""))
             self.pressure = Var(time,
                                   initialize=30,
                                   domain=NonNegativeReals,
-                                  bounds=(5, 95),
+                                  bounds=(1, 95),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         def set_water_flux(self):
@@ -258,7 +258,7 @@ see property package for documentation.}"""))
         self.membrane_area = Var(time,
                       initialize=1e5,
                       domain=NonNegativeReals,
-                      bounds=(1e3, 1e9),
+                      bounds=(1e1, 1e9),
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
