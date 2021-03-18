@@ -168,7 +168,7 @@ see property package for documentation.}"""))
 
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.day))
 
-        self.area = 2 * (flow_in / self.evap_rate)
+        self.area = (flow_in / self.evap_rate_pure)
 
 
         # Get the first time point in the time domain
@@ -177,7 +177,7 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=0.0309 * flow_in ** 0.7613,
+            expr=self.area * 0.3,
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##

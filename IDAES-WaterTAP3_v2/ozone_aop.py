@@ -122,7 +122,7 @@ see property package for documentation.}"""))
         cap_scaling_exp = 0.46  # Carlsbad Treatment train VAR tab
         fixed_op_cost_scaling_exp = 0.7
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -139,31 +139,6 @@ see property package for documentation.}"""))
         mass_transfer = unit_params['mass_transfer']
         ozone_consumption = (toc_in + ct / contact_time) / mass_transfer
         o3_toc_ratio = 1 + (ct / contact_time / toc_in)
-
-        def power(x, a, b):
-            return a * x ** b
-
-        cost_list = []
-        flow_list = []
-        dose_list = []
-        df = pd.read_csv("data/ozone_dose_cost.csv")
-        doses = np.arange(0.1, 25.1, 0.1)
-        for flow in df.Flow_mgd.unique():
-            for dose in doses:
-                x = df[df.Flow_mgd == flow].Dose.to_list()
-                y = df[df.Flow_mgd == flow].Cost.to_list()
-                params, _ = curve_fit(power, x, y)
-                a, b = params[0], params[1]
-                cost_list.append(a * dose ** b)
-                dose_list.append(round(dose, 1))
-                flow_list.append(flow)
-        tups = zip(flow_list, cost_list, dose_list)
-        df = pd.DataFrame(tups, columns=['flow_mgd', 'cost', 'dose'])
-        idx = df['dose'].sub(ozone_consumption).abs().idxmin()
-        idx_dose = df.loc[idx].dose
-        df = df[df.dose == idx_dose]
-        params, _ = curve_fit(power, df.flow_mgd, df.cost)
-        a, b = params[0], params[1]
 
         aop = unit_params['aop']
         if aop:
@@ -190,15 +165,17 @@ see property package for documentation.}"""))
             soln_vol_flow = chemical_rate
             return soln_vol_flow  # lb / day
 
-        def fixed_cap(flow_in):
+        def fixed_cap(flow_in, ozone_consumption):
+            x0 = ozone_consumption
+            x1 = flow_in
+            ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
+                        x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
             if aop:
                 h2o2_cap = h2o2_base_cap * solution_vol_flow(flow_in) ** h2o2_cap_exp
-                flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-                ozone_aop_cap = (a * flow_in_mgd ** b + h2o2_cap) * 1E-3
             else:
-                flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-                ozone_aop_cap = (a * flow_in_mgd ** b) * 1E-3
+                h2o2_cap = 0
             # ozone_aop_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
+            ozone_aop_cap = (ozone_cap + h2o2_cap) * 1E-3
             return ozone_aop_cap
 
         def electricity(flow_in):  # m3/hr
@@ -210,7 +187,7 @@ see property package for documentation.}"""))
         # safe and use a general approach
 
         ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in, ozone_consumption), doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
         self.electricity = electricity(flow_in)  # kwh/m3
