@@ -27,7 +27,7 @@ import numpy as np
 from scipy.optimize import curve_fit
 # Import properties and units from "WaterTAP Library"
 from pyomo.environ import *
-
+from cost_curves import evap_ratio_curve
 ##########################################
 ####### UNIT PARAMETERS ######
 # At this point (outside the unit), we define the unit parameters that do not change across case studies or analyses ######.
@@ -113,7 +113,6 @@ see property package for documentation.}"""))
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)  # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -124,24 +123,53 @@ see property package for documentation.}"""))
 
         #### CHEMS ###
         tds_in = self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
-        tds_in = pyunits.convert(tds_in, to_units=(pyunits.mg / pyunits.liter))
-
 
         chem_dict = {}
         self.chem_dict = chem_dict
-
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
+        # evap_method = unit_params['evap_method']
+        try:
+            self.humidity = unit_params['humidity'] # ratio, e.g. 50% humidity = 0.5
+            self.wind_speed = unit_params['wind_speed'] # m / s
+        except:
+            self.humidity = 0.5 # ratio, e.g. 50% humidity = 0.5
+            self.wind_speed = 5 # m / s
 
-        def fixed_cap(flow_in, tds_in):
-            evap_pond_cap = (1.6227 * flow_in + 0.1821) * (0.9179 * log(tds_in) - 10.442)
-            return evap_pond_cap
+        if bool(unit_params['evap_method']):
+            evap_method = unit_params['evap_method']
+            try:
+                self.air_temp = unit_params['air_temp']  # degree C
+                self.solar_rad  = unit_params['solar_rad']  # mJ / m2
+            except:
+                self.air_temp = 25
+                self.solar_rad  = 25 # average for 40deg latitude
+            if evap_method == 'turc':
+                # Turc (1961) PE in mm for day
+                self.evap_rate_pure = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
+                self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
 
 
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
+            if evap_method == 'jensen':
+                # Jensen-Haise (1963) PE in mm per day
+                self.evap_rate_pure = (0.41 * (0.025 * self.air_temp + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
+                self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
+        else:
+            # defaults to turc
+            self.air_temp = 25
+            self.solar_rad = 25  # average for 40deg latitude
+            self.evap_rate_pure = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
+            self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
+
+        self.ratio = evap_ratio_curve(self.air_temp, tds_in, self.humidity, self.wind_speed)
+
+        self.evap_rate = self.evap_rate_pure * self.ratio
+
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.day))
+
+        self.area = 2 * (flow_in / self.evap_rate)
+
 
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
@@ -149,11 +177,11 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in, tds_in),
+            expr=0.0309 * flow_in ** 0.7613,
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = 0  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######
