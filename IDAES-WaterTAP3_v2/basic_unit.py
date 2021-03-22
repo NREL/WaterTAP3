@@ -91,57 +91,45 @@ see property package for documentation.}"""))
 
     # NOTE ---> THIS SHOULD EVENTUaLLY BE JUST FOR COSTING INFO/EQUATIONS/FUNCTIONS. EVERYTHING ELSE IN ABOVE.
     def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
-        """
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
 
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        """
-        # First, check to see if global costing module is in place
-        # Construct it if not present and pass year argument
         unit_process_name = unit_params['unit_process_name']
 
-        flow_basis, cap_basis, cap_exp, elect, unit_year = basic_unit(unit_process_name)
+        basis, cap_basis, cap_exp, elect, unit_year, kind = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
-        # Next, add a sub-Block to the unit model to hold the cost calculations
-        # This is to let us separate costs from model equations when solving
+
         self.costing = Block()
-        # Then call the appropriate costing function out of the costing module
-        # The first argument is the Block in which to build the equations
-        # Can pass additional arguments as needed
-
-        ##########################################
-        ####### UNIT SPECIFIC VARIABLES AND CONSTANTS -> SET AS SELF OTHERWISE LEAVE AT TOP OF FILE ######
-        ##########################################
-
-        ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
-        self.flow_in = flow_in  # m3 /hr
-        self.flow_basis = flow_basis * (pyunits.m ** 3 / pyunits.hour)
-        # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
+
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
 
-        # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_year
 
         chem_dict = {}
         self.chem_dict = chem_dict
-        self.flow_factor = self.flow_in / self.flow_basis
-
-        ##########################################
-        ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
-        ##########################################
 
         def fixed_cap():
-            basic_cap = cap_basis * self.flow_factor ** cap_exp
-            return basic_cap
+            if kind == 'flow':
+                flow_basis = basis * (pyunits.m ** 3 / pyunits.hour)
+                flow_factor = flow_in / flow_basis
+                basic_cap = cap_basis * flow_factor ** cap_exp
+                return basic_cap
+
+            if kind == 'mass':
+                mass_basis = basis * (pyunits.kg / pyunits.hour)
+                mass_in = 0
+                for constituent in self.config.property_package.component_list:
+                    mass_in += self.conc_mass_in[time, constituent]
+                density = 0.6312 * mass_in + 997.86  # kg / m3
+                total_mass_in = density * flow_in  # kg / hr
+                mass_factor = total_mass_in / mass_basis
+                basic_cap = cap_basis * mass_factor ** cap_exp
+                return basic_cap
+
+
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(), doc="Unadjusted fixed capital investment")  # $M

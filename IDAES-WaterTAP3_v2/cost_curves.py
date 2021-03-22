@@ -72,26 +72,15 @@ def basic_unit(unit_process):
     cap_exp = df.cap_exp
     elect = df.elect
     year = df.year
-    return flow_basis, cap_basis, cap_exp, elect, year
-
-
-def basic_mass_based(unit_process):
-    df = pd.read_csv('data/basic_mass_based.csv', index_col='unit_process')
-    df = df.loc[unit_process]
-    mass_basis = df.mass_basis
-    cap_basis = df.cap_basis
-    cap_exp = df.cap_exp
-    elect = df.elect
-    year = df.year
-    return mass_basis, cap_basis, cap_exp, elect, year
-
+    kind = df.kind
+    return flow_basis, cap_basis, cap_exp, elect, year, kind
 
 def evap_ratio_curve(air_temp, salinity, humidity, wind_speed):
     x0 = air_temp
     x1 = salinity
     x2 = humidity
     x3 = wind_speed
-    return - 0.0465233559 * (x0) - 0.0011189096 * (x1) - 0.7088094852 * (x2) - 0.0257883428 * (x3) + 0.0017209498 * (x0 ** 2) + 7.54344e-05 * (x0 * x1) + 0.0923261483 * (x0 * x2) - 0.0002522583 * (
+    return -0.0465233559 * (x0) - 0.0011189096 * (x1) - 0.7088094852 * (x2) - 0.0257883428 * (x3) + 0.0017209498 * (x0 ** 2) + 7.54344e-05 * (x0 * x1) + 0.0923261483 * (x0 * x2) - 0.0002522583 * (
                 x0 * x3) + 7.74e-07 * (x1 ** 2) + 0.0012751516 * (x1 * x2) + 1.16276e-05 * (x1 * x3) - 0.042838386 * (x2 ** 2) + 0.0842127857 * (x2 * x3) + 0.0006828725 * (x3 ** 2) - 2.55508e-05 * (
                        x0 ** 3) - 1.6415e-06 * (x0 ** 2 * x1) - 0.001500322 * (x0 ** 2 * x2) + 4.46853e-05 * (x0 ** 2 * x3) + 2.8e-08 * (x0 * x1 ** 2) - 8.93471e-05 * (x0 * x1 * x2) - 2.6285e-06 * (
                        x0 * x1 * x3) - 0.0472354101 * (x0 * x2 ** 2) + 0.000814877 * (x0 * x2 * x3) - 0.0001268287 * (x0 * x3 ** 2) - 2.4e-09 * (x1 ** 3) + 1.9905e-06 * (x1 ** 2 * x2) - 1.214e-07 * (

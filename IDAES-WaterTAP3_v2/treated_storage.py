@@ -129,7 +129,6 @@ see property package for documentation.}"""))
         b = 0.72093
         self.storage_duration = unit_params["hours"] * pyunits.hours  # hours
         capacity_needed = flow_in * self.storage_duration
-        print(value(capacity_needed))
 
         # capital costs basis
         def fixed_cap(flow_in):

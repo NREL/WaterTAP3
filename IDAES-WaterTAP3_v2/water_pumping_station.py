@@ -114,7 +114,6 @@ see property package for documentation.}"""))
 
 		time = self.flowsheet().config.time.first()
 		flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallon / pyunits.minute)  # m3 /hr
-		# get tic or tpec (could still be made more efficent code-wise, but could enough for now)
 		sys_cost_params = self.parent_block().costing_param
 		self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
 		tpec_tic = self.costing.tpec_tic
@@ -148,7 +147,6 @@ see property package for documentation.}"""))
 		tdh_elect = [(0.746 * 440.29 * x) / (3960 * motor_eff * pump_eff) for x in tdh_lst]
 		cc, _ = curve_fit(power_curve, tdh_lst, tdh_elect)
 		c, d = cc[0], cc[1]
-		#### CHEMS ###
 
 		chem_dict = {}
 		self.chem_dict = chem_dict
@@ -159,19 +157,12 @@ see property package for documentation.}"""))
 
 		def fixed_cap(flow_in):
 			flow_in_cap = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-			if pump_type == 'raw':
-				return tpec_tic * a * flow_in_cap ** b * 1E-6  # $MM
-			if pump_type == 'treated':
-				return tpec_tic * a * flow_in_cap ** b * 1E-6
+			return tpec_tic * a * flow_in_cap ** b * 1E-6
 
 		def electricity(flow_in):  # m3/hr
 			flow_in_elect = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
 			electricity = (c * (flow_in_elect / 440.29) ** d) / flow_in # kWh / m3
 			return electricity
-
-		# Get the first time point in the time domain
-		# In many cases this will be the only point (steady-state), but lets be
-		# safe and use a general approach
 
 		## fixed_cap_inv_unadjusted ##
 		self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
