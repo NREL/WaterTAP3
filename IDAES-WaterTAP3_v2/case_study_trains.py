@@ -19,8 +19,6 @@ from water_props import WaterParameterBlock
 from pyomo.environ import (
     Block)
 
-case_study_library = pd.read_csv("data/case_study_library.csv") #TODO EDIT THIS TO READ EXCEL FILE - ARIEL
-
 
 def get_def_source(reference, water_type, case_study, scenario):
 

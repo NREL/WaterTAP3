@@ -129,7 +129,13 @@ see property package for documentation.}"""))
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
-        # evap_method = unit_params['evap_method']
+        approach = unit_params['approach']
+
+
+        try:
+            evap_method = unit_params['evap_method']
+        except:
+            evap_method = False
         try:
             self.humidity = unit_params['humidity'] # ratio, e.g. 50% humidity = 0.5
             self.wind_speed = unit_params['wind_speed'] # m / s
@@ -137,7 +143,7 @@ see property package for documentation.}"""))
             self.humidity = 0.5 # ratio, e.g. 50% humidity = 0.5
             self.wind_speed = 5 # m / s
 
-        if bool(unit_params['evap_method']):
+        if bool(evap_method):
             evap_method = unit_params['evap_method']
             try:
                 self.air_temp = unit_params['air_temp']  # degree C
@@ -162,13 +168,31 @@ see property package for documentation.}"""))
             self.evap_rate_pure = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
             self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
 
-        self.ratio = evap_ratio_curve(self.air_temp, tds_in, self.humidity, self.wind_speed)
+        x0 = self.air_temp
+        x1 = tds_in
+        x2 = self.humidity
+        x3 = self.wind_speed
+        self.ratio = -0.0465233559 * (x0) - 0.0011189096 * (x1) - 0.7088094852 * (x2) - 0.0257883428 * (x3) + 0.0017209498 * (x0 ** 2) + 7.54344e-05 * (x0 * x1) + 0.0923261483 * (x0 * x2) - 0.0002522583 * (
+                x0 * x3) + 7.74e-07 * (x1 ** 2) + 0.0012751516 * (x1 * x2) + 1.16276e-05 * (x1 * x3) - 0.042838386 * (x2 ** 2) + 0.0842127857 * (x2 * x3) + 0.0006828725 * (x3 ** 2) - 2.55508e-05 * (
+                       x0 ** 3) - 1.6415e-06 * (x0 ** 2 * x1) - 0.001500322 * (x0 ** 2 * x2) + 4.46853e-05 * (x0 ** 2 * x3) + 2.8e-08 * (x0 * x1 ** 2) - 8.93471e-05 * (x0 * x1 * x2) - 2.6285e-06 * (
+                       x0 * x1 * x3) - 0.0472354101 * (x0 * x2 ** 2) + 0.000814877 * (x0 * x2 * x3) - 0.0001268287 * (x0 * x3 ** 2) - 2.4e-09 * (x1 ** 3) + 1.9905e-06 * (x1 ** 2 * x2) - 1.214e-07 * (
+                       x1 ** 2 * x3) - 0.0004983631 * (x1 * x2 ** 2) - 0.0002213007 * (x1 * x2 * x3) + 1.36134e-05 * (x1 * x3 ** 2) + 0.4822279076 * (x2 ** 3) - 0.0473877989 * (
+                       x2 ** 2 * x3) - 0.0027941016 * (x2 * x3 ** 2) + 9.36662e-05 * (x3 ** 3) + 1.3159327466
+
+
 
         self.evap_rate = self.evap_rate_pure * self.ratio
 
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.day))
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
 
         self.area = (flow_in / self.evap_rate_pure)
+
+        def fixed_cap(approach, flow_in):
+            if approach == 'zld':
+                return 0.3 * self.area
+            else:
+                return 0.03099 * pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day)) ** 0.7613
+
 
 
         # Get the first time point in the time domain
@@ -177,7 +201,7 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=self.area * 0.3,
+            expr=fixed_cap(approach, flow_in),
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##

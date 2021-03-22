@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Feb  5 13:26:35 2021
-
-@author: ksitterl
-"""
-
 ##############################################################################
 # Institute for the Design of Advanced Energy Systems Process Systems
 # Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
@@ -22,23 +14,20 @@ Created on Fri Feb  5 13:26:35 2021
 Demonstration zeroth-order model for WaterTAP3
 """
 
-import numpy as np
-import pandas as pd
 # Import IDAES cores
 from idaes.core import (declare_process_block_class, UnitModelBlockData, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-from scipy.interpolate import interp1d
-from scipy.optimize import curve_fit
-from pyomo.environ import value
-from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
 
 # Import WaterTAP# financials module
 import financials
 from financials import *  # ARIEL ADDED
-
+import numpy as np
+from scipy.optimize import curve_fit
+# Import properties and units from "WaterTAP Library"
+from pyomo.environ import *
+from cost_curves import evap_ratio_curve
 ##########################################
 ####### UNIT PARAMETERS ######
 # At this point (outside the unit), we define the unit parameters that do not change across case studies or analyses ######.
@@ -48,13 +37,13 @@ from financials import *  # ARIEL ADDED
 ## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 
 ### MODULE NAME ###
-module_name = "uv_aop"
+module_name = "crystallizer"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2014
+unit_basis_yr = 2007
 
 
 # You don't really want to know what this decorator does
@@ -96,83 +85,58 @@ see property package for documentation.}"""))
 
     # NOTE ---> THIS SHOULD EVENTUaLLY BE JUST FOR COSTING INFO/EQUATIONS/FUNCTIONS. EVERYTHING ELSE IN ABOVE.
     def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
+        """
+        We need a get_costing method here to provide a point to call the
+        costing methods, but we call out to an external consting module
+        for the actual calculations. This lets us easily swap in different
+        methods if needed.
 
+        Within IDAES, the year argument is used to set the initial value for
+        the cost index when we build the model.
+        """
+        # First, check to see if global costing module is in place
+        # Construct it if not present and pass year argument
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
 
+        # Next, add a sub-Block to the unit model to hold the cost calculations
+        # This is to let us separate costs from model equations when solving
         self.costing = Block()
+        # Then call the appropriate costing function out of the costing module
+        # The first argument is the Block in which to build the equations
+        # Can pass additional arguments as needed
+
+        ##########################################
+        ####### UNIT SPECIFIC VARIABLES AND CONSTANTS -> SET AS SELF OTHERWISE LEAVE AT TOP OF FILE ######
+        ##########################################
+
+        ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)  # m3 /hr
+        # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
+        tpec_tic = self.costing.tpec_tic
 
+        # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
 
-        try:
-            uvt_in = unit_params['uvt_in']
-            uv_dose = unit_params['uv_dose']
-        except:
-            uvt_in = 0.9
-            uv_dose = 100
-
-        aop = unit_params['aop']
-
-        if aop:
-            ox_dose = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
-            chem_name = unit_params["chemical_name"][0]
-            chem_dict = {chem_name: ox_dose}
-            h2o2_base_cap = 1228
-            h2o2_cap_exp = 0.2277
-        else:
-            chem_dict = {}
-
+        #### CHEMS ###
+        tds_in = pyunits.convert(self.conc_mass_in[time, "tds"], to_units=(pyunits.mg / pyunits.liter))  # convert from kg/m3 to mg/L
+        water_recovery = self.water_recovery[time]
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.hour))
+        chem_dict = {}
         self.chem_dict = chem_dict
 
-        def power_curve(x, a, b):
-            return a * x ** b
 
-        df = pd.read_csv('data/uv_cost_interp.csv', index_col='flow')
-        flow_points = [1E-8]
-        flow_list = [1E-8, 1, 3, 5, 10, 25]  # flow in mgd
-
-        for flow in flow_list[1:]:
-            temp = df.loc[flow]
-            cost = temp[((temp.dose == uv_dose) & (temp.uvt == uvt_in))]
-            cost = cost.iloc[0]['cost']
-            flow_points.append(cost)
-
-        coeffs, cov = curve_fit(power_curve, flow_list, flow_points)
-        a, b = coeffs[0], coeffs[1]
-
-        def solution_vol_flow(flow_in):  # m3/hr
-            chemical_rate = flow_in * ox_dose  # kg/hr
-            chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
-            soln_vol_flow = chemical_rate
-            return soln_vol_flow  # lb / day
-
-        def fixed_cap(flow_in):
-            flow_in_mgd = pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day))
-
-            uv_cap = (a * flow_in_mgd ** b) * 1E-3
-
-            if aop:
-                h2o2_cap = (h2o2_base_cap * solution_vol_flow(flow_in) ** h2o2_cap_exp) * 1E-3
-            else:
-                h2o2_cap = 0
-
-            uv_aop_cap = h2o2_cap + uv_cap
-            return uv_aop_cap
-
-        def electricity():  # m3/hr
-            electricity = 0.1  # kWh / m3
-            return electricity
 
         ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(
+            expr=1.41 - tds_in * 7.11E-7 + water_recovery * 1.45 + flow_in * 5.55E-1,
+            doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity()  # kwh/m3
+        self.electricity = 56.7 + tds_in * 1.83E-5 - water_recovery * 9.47 - flow_in * 8.63E-4  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######
