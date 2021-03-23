@@ -32,15 +32,14 @@ import pyomo.environ as env
 
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, max_attemps = 3, initialize_flow = 3, skip_small = True):
+                  objective=False, max_attemps = 3, initialize_flow = 5, skip_small = True):
     
    
     # if flow is small it resets the flow to any inlet as 2 m3/s 
     if skip_small == False:
         for key in m.fs.flow_in_dict.keys():
-            if m.fs.flow_in_dict[key] < 1:
-                getattr(m.fs, key).flow_vol_in.fix(initialize_flow)
-                small_flow = True
+            getattr(m.fs, key).flow_vol_in.fix(initialize_flow)
+            small_flow = True
     
         # if flow is small it runs the model twice at most. then runs again with actual flows
         if small_flow is True: 

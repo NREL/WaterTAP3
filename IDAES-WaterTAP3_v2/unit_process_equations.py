@@ -129,7 +129,7 @@ def build_up(self, up_name_test=None):
     self.conc_mass_in = Var(time,
                             self.config.property_package.component_list,
                             initialize=1e-5,
-                            domain=NonNegativeReals,
+                            # domain=NonNegativeReals,
                             units=units_meta("mass")/units_meta("volume"),
                             doc="Mass concentration of species at inlet")
     self.temperature_in = Var(time,
@@ -151,7 +151,7 @@ def build_up(self, up_name_test=None):
     self.conc_mass_out = Var(time,
                              self.config.property_package.component_list,
                              initialize=0,
-                             domain=NonNegativeReals,
+                             # domain=NonNegativeReals,
                              units=units_meta("mass")/units_meta("volume"),
                              doc="Mass concentration of species at outlet")
     self.temperature_out = Var(time,
@@ -173,7 +173,7 @@ def build_up(self, up_name_test=None):
     self.conc_mass_waste = Var(
         time,
         self.config.property_package.component_list,
-        domain=NonNegativeReals,
+        # domain=NonNegativeReals,
         initialize=0,
         units=units_meta("mass")/units_meta("volume"),
 

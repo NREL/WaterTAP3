@@ -237,7 +237,7 @@ see property package for documentation.}"""))
         def set_water_flux(self):
             self.water_flux = Var(time,
                                   initialize=5e-3,
-                                  bounds=(1e-5, 1e3),
+                                  bounds=(1e-7, 1e3),
                                   units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
                                   domain=NonNegativeReals,
                                   doc="water flux")  
