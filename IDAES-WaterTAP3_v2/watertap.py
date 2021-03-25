@@ -43,11 +43,11 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     
         # if flow is small it runs the model twice at most. then runs again with actual flows
         if small_flow is True: 
-            print("initial inflow to train is relatively small (< 1 m3/s). running model with dummy flows to initialize.")
+            print("Flow is relatively small (< 1 m3/s). Running model with larger dummy flows to initialize...\n")
             run_model(m = m, solver_results = False, print_model_results = False, 
                               objective=False, max_attemps = 1)
 
-            print("model finished running to initialize conditions. now running with actual inflows.")
+            print("Model finished running to initialize conditions. Now running with actual flow...\n")
             for key in m.fs.flow_in_dict.keys():
                 getattr(m.fs, key).flow_vol_in.fix(m.fs.flow_in_dict[key])
 
@@ -103,23 +103,25 @@ def run_model(m = None, solver_results = False, print_model_results = False,
     import logging
 
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
-    
-    print("degrees_of_freedom:", degrees_of_freedom(m))
+    print("----------------------------------------------------------------------")
+    print("\nDegrees of Freedom:", degrees_of_freedom(m))
 
     results = solver.solve(m, tee=solver_results)
     
     attempt_number = 1
     while ((results.solver.termination_condition == "infeasible") & (attempt_number <= max_attemps)):
-        print("WaterTAP3 solver returned an infeasible solution")
+        print("\nWaterTAP3 solver returned an infeasible solution...")
         print("Running again with updated initial conditions --- attempt %s" % (attempt_number))
         results = solver.solve(m, tee=solver_results)
         
         attempt_number = attempt_number + 1
     
-    print("WaterTAP3 solution", results.solver.termination_condition)
+    print("\nWaterTAP3 solution", results.solver.termination_condition, '\n')
+    print("----------------------------------------------------------------------")
 
     if results.solver.termination_condition == "infeasible":
-        print("WaterTAP3 solver returned an infeasible FINAL solution. Check option to run model with updated initial conditions")
+        print("\nWaterTAP3 solver returned an infeasible FINAL solution. Check option to run model with updated initial conditions.")
+        print("----------------------------------------------------------------------")
     
 
 
@@ -129,47 +131,55 @@ def run_model(m = None, solver_results = False, print_model_results = False,
 def print_results(m, print_model_results):
     
     if print_model_results == "full":
-        print("----------------------------------------------------------------------")
+        print("\n***UNIT PROCESS RESULTS (in $MM)***\n")
     # Display the inlets and outlets and cap cost of each unit
         for b_unit in m.fs.component_objects(Block, descend_into=True):
-            
+            unit = str(b_unit)[3:].replace('_', ' ').swapcase()
+            if hasattr(b_unit, 'costing'):
+                print(f'\n{unit}:\n')
+                print("\n\n\ttotal cap investment:", round(value(b_unit.costing.total_cap_investment()), 5))
+                print("\tcat and chem cost:", round(value(b_unit.costing.cat_and_chem_cost), 5))
+                print("\telectricity cost:", round(value(b_unit.costing.electricity_cost), 5))
+                print("\ttotal fixed op cost:", round(value(b_unit.costing.total_fixed_op_cost()), 5))
+                print('\n')
+
             if hasattr(b_unit, 'inlet'):
-                print("----------------------------------------------------------------------")
-                print(b_unit)
                 b_unit.inlet.display()
             if hasattr(b_unit, 'inlet1'):
-                print("----------------------------------------------------------------------")
-                print(b_unit)
                 b_unit.inlet1.display()
-            if hasattr(b_unit, 'outlet'): b_unit.outlet.display()
-            if hasattr(b_unit, 'waste'): b_unit.waste.display()
-            if hasattr(b_unit, 'costing'):
+            if hasattr(b_unit, 'outlet'):
+                b_unit.outlet.display()
+            if hasattr(b_unit, 'waste'):
+                b_unit.waste.display()
+        print("\n----------------------------------------------------------------------")
 
-                print("total_cap_investment:", b_unit.costing.total_cap_investment())
-                print("----------------------------------------------------------------------")    
     
     if print_model_results == "summary":
-        
+        print("\n***UNIT PROCESS RESULTS (in $MM)***\n")
         for b_unit in m.fs.component_objects(Block, descend_into=True):
             if hasattr(b_unit, 'costing'):
-                print(b_unit)
-                print("total_cap_investment:", b_unit.costing.total_cap_investment())
-                print("----------------------------------------------------------------------")
+                unit = str(b_unit)[3:].replace('_', ' ').swapcase()
+                print(f'\n{unit}:\n')
+                print("\ttotal cap investment:", round(value(b_unit.costing.total_cap_investment()), 5))
+                print("\tcat and chem cost:", round(value(b_unit.costing.cat_and_chem_cost), 5))
+                print("\telectricity cost:", round(value(b_unit.costing.electricity_cost), 5))
+                print("\ttotal fixed op cost:", round(value(b_unit.costing.total_fixed_op_cost()), 5))
+        print("\n----------------------------------------------------------------------")
 
             
-    print("----------------------------------------------------------------------")
+    print("\n\n----------------------------------------------------------------------")
     print("------------------- System Level Metrics and Costs -------------------")
-    print("Total Capital Investment ($MM)", m.fs.costing.capital_investment_total())
-    print("Annual Fixed Operating Cost ($MM/yr)", m.fs.costing.fixed_op_cost_annual())
-    print("Annual Catalysts and Chemicals Cost ($MM/yr)", m.fs.costing.cat_and_chem_cost_annual())
-    print("Annual Electricity Costs ($MM/yr)", m.fs.costing.electricity_cost_annual())
-    print("Annual Other Variable Costs ($MM/yr)", m.fs.costing.other_var_cost_annual())
-    print("Annual Operating Costs ($MM/yr)", m.fs.costing.operating_cost_annual())
-    print("Treated water (m3/s) --->", m.fs.costing.treated_water())
-    print("Total water recovery (%) --->", 100 * m.fs.costing.system_recovery())
-    print("Electricity intensity (kwh/m3) ---> ", m.fs.costing.electricity_intensity())
-    print("LCOW ($/m3) ---> ", m.fs.costing.LCOW())
-    print("Electricity portion of LCOW (%) --->", 100 * m.fs.costing.elec_frac_LCOW())
+    print("Total Capital Investment ($MM)", round(value(m.fs.costing.capital_investment_total()), 3))
+    print("Annual Fixed Operating Cost ($MM/yr)", round(value(m.fs.costing.fixed_op_cost_annual()), 3))
+    print("Annual Catalysts and Chemicals Cost ($MM/yr)", round(value(m.fs.costing.cat_and_chem_cost_annual()), 3))
+    print("Annual Electricity Costs ($MM/yr)", round(value(m.fs.costing.electricity_cost_annual()), 3))
+    print("Annual Other Variable Costs ($MM/yr)", round(value(m.fs.costing.other_var_cost_annual()), 3))
+    print("Annual Operating Costs ($MM/yr)", round(value(m.fs.costing.operating_cost_annual()), 3))
+    print("Treated water (m3/s) --->", round(value(m.fs.costing.treated_water()), 3))
+    print("Total water recovery (%) --->", round(value(100 * m.fs.costing.system_recovery()), 3))
+    print("Electricity intensity (kwh/m3) ---> ", round(value(m.fs.costing.electricity_intensity()), 3))
+    print("LCOW ($/m3) ---> ", round(value(m.fs.costing.LCOW()), 3))
+    print("Electricity portion of LCOW (%) --->", round(value(100 * m.fs.costing.elec_frac_LCOW()), 3))
     print("----------------------------------------------------------------------")
 
     

@@ -184,7 +184,7 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
     df["Metric"] = np.where(df.Unit == "$MM/yr", "Annual Cost", df.Metric)
     df["Metric"] = np.where(df.Unit == "$/m3", "LCOW", df.Metric)
                             
-    df.Value = df.Value.round(3)
+    # df.Value = df.Value.round(10)
     
     if save is True:
         df.to_csv("results/case_studies/%s_%s.csv" % (case_study, scenario), index=False)

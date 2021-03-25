@@ -9,7 +9,7 @@ def create(m, unit_process_type, unit_process_name):
     
     if unit_process_type == "reverse_osmosis": unit_process_type = "ro_deep" # until reverse osmosis is in table input
         
-    if case_study_name in df[df.unit_process == unit_process_type].case_study:
+    if case_study_name in df[df.unit_process == unit_process_type].case_study.to_list():
         if "calculated" not in df[((df.unit_process == unit_process_type) & (df.case_study == case_study_name))].recovery.max():
             flow_recovery_factor = float(df[((df.unit_process == unit_process_type) & (df.case_study == case_study_name))].recovery)
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)
