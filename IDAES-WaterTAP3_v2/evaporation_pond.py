@@ -162,10 +162,10 @@ see property package for documentation.}"""))
                 self.evap_rate_pure = (0.41 * (0.025 * self.air_temp + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
                 self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
         else:
-            # defaults to turc
+            # defaults to jensen
             self.air_temp = 25
             self.solar_rad = 25  # average for 40deg latitude
-            self.evap_rate_pure_mm_d = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
+            self.evap_rate_pure_mm_d = (0.41 * (0.025 * self.air_temp + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
             self.evap_rate_pure = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
             self.evap_rate_m_yr = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.meter / pyunits.year))
         ## This costing model adapted from

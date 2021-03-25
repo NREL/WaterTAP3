@@ -275,7 +275,7 @@ see property package for documentation.}"""))
             self.membrane_area.fix(membrane_area_in) # area per module m2
             feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.    
         else:
-            self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
+            # self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
             if unit_params["pump"] == "yes":
                 feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
             if unit_params["pump"] == "no":                   
