@@ -204,6 +204,9 @@ def get_module(module_name):
     if module_name == "crystallizer":
         import crystallizer as up
 
+    if module_name == "chemical_addition":
+        import chemical_addition as up
+
     return up
 
 

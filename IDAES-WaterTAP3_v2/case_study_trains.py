@@ -48,7 +48,7 @@ def get_case_study(flow = None, m = None):
     #set the flow based on the case study if not specified.
 #     if flow is None: fow = df_source.loc["flow"].value
         
-    case_study_library = "data/case_study_train_input_test.xlsx"
+    case_study_library = "data/treatment_train_setup.xlsx"
 
     # set up tables of design (how units are connected) and units (list of all units needed for the train)
     #df_design = pd.read_excel(case_study_library, sheet_name='design')
@@ -80,13 +80,13 @@ def get_case_study(flow = None, m = None):
     m.fs.water = WaterParameterBlock()
 
     # add units to model
-    print("------- Adding Unit Processes -------")
+    print("\n------- Adding Unit Processes -------")
     for key in pfd_dict.keys():
         print(key)
         m = wt.design.add_unit_process(m = m, 
                                        unit_process_name = key, 
                                        unit_process_type = pfd_dict[key]['Unit'])
-    print("-------------------------------------")
+    print("-------------------------------------\n")
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
@@ -140,20 +140,21 @@ def filter_df(df):
     
 # ADDING ARCS TO MODEL
 def create_arcs(m, arc_dict):
-    print("----- Connecting Unit Processes -----")
+    # print("----- Connecting Unit Processes -----")
 
+    print('\nConnecting unit processes...')
     for key in arc_dict.keys():
         source = arc_dict[key][0]
         source_port = arc_dict[key][1]
         outlet = arc_dict[key][2]
         outlet_port = arc_dict[key][3]
         
-        print(source, "ToUnitName -->", outlet)
+        # print(source, "ToUnitName -->", outlet)
 
         setattr(m.fs, ("arc%s" % key), Arc(source = getattr(getattr(m.fs, source), source_port),  
                                            destination = getattr(getattr(m.fs, outlet), outlet_port))) 
         
-    print("-------------------------------------")
+    # print("-------------------------------------")
     return m    
     
     

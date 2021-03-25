@@ -33,9 +33,9 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, wit
     unit_params = m.fs.pfd_dict[unit_process_name]["Parameter"]
 
     if 'basic' in unit_process_type:
-        unit_process_name = unit_params['unit_process_name']
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))
-        m = constituent_removal_water_recovery.create(m, unit_process_name, unit_process_name)
+        basic_unit_name = unit_params['unit_process_name']
+        m = constituent_removal_water_recovery.create(m, basic_unit_name, unit_process_name)
 
     else:
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={"property_package": m.fs.water}))

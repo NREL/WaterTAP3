@@ -165,8 +165,25 @@ see property package for documentation.}"""))
             # defaults to turc
             self.air_temp = 25
             self.solar_rad = 25  # average for 40deg latitude
-            self.evap_rate_pure = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
-            self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
+            self.evap_rate_pure_mm_d = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
+            self.evap_rate_pure = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
+            self.evap_rate_m_yr = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.meter / pyunits.year))
+        ## This costing model adapted from
+        # Membrane Concentrate Disposal: Practices and Regulation (April 2006) - Bureau Land Management
+        try:
+            liner_thickness = unit_params['liner_thickness']
+            land_cost = unit_params['land_cost']
+            land_clearing_cost = unit_params['land_clearing_cost']
+            dike_height = unit_params['dike_height']
+        except:
+            liner_thickness = 50 # mil (equal to 1/1000th of an inch)
+            land_cost = 5000 # $ / acre
+            land_clearing_cost = 1000 # $ / acre
+            dike_height = 8 # ft
+
+        self.cost_per_acre = 5406 + 465 * liner_thickness + 1.07 * land_cost + 0.931 * land_clearing_cost + 217.5 * dike_height # $ / acre
+
+
 
         x0 = self.air_temp
         x1 = tds_in
@@ -181,17 +198,26 @@ see property package for documentation.}"""))
 
 
 
-        self.evap_rate = self.evap_rate_pure * self.ratio
+        self.evap_rate = self.evap_rate_pure * 0.8 # ratio factor from the BLM document
 
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
+        flow_out = pyunits.convert(self.flow_vol_out[time], to_units=(pyunits.gallons / pyunits.minute))
 
-        self.area = (flow_in / self.evap_rate_pure)
+        flow_evap = flow_in - flow_out
 
-        def fixed_cap(approach, flow_in):
+        self.area = flow_evap / self.evap_rate
+
+        self.total_area = 1.2 * self.area * (1 + 0.155 * dike_height / (self.area ** 0.5))
+
+        def fixed_cap():
             if approach == 'zld':
                 return 0.3 * self.area
-            else:
-                return 0.03099 * pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day)) ** 0.7613
+            if approach == 'wt3':
+                return (self.cost_per_acre * self.total_area) * 1E-6
+            else: # this is Lenntech cost curve based on flow for 1 m/y evap rate
+                flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.day))
+                return 0.03099 * flow_in ** 0.7613 # this is Lenntech cost curve based on flow for 1 m/y evap rate
+
 
 
 
@@ -201,7 +227,7 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(approach, flow_in),
+            expr=fixed_cap(),
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##

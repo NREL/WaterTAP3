@@ -126,18 +126,19 @@ see property package for documentation.}"""))
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
-        tpec_tic = self.costing.tpec_tic
-        # toc_in = value(self.conc_mass_in[time, "toc"])
-        # print(f'\n\ntoc = {toc_in}\n\n')
-        # toc_in = 10
+
         try:
             toc_in = unit_params['toc_in']
         except:
             toc_in = 10
-        contact_time = unit_params['contact_time']
-        ct = unit_params['ct']
-        mass_transfer = unit_params['mass_transfer']
-        ozone_consumption = (toc_in + ct / contact_time) / mass_transfer
+        toc_in = self.conc_mass_in[time, "toc"]
+        toc_in = pyunits.convert(toc_in, to_units=(pyunits.mg / pyunits.liter))
+
+        contact_time = unit_params['contact_time'] * (1 / pyunits.minutes)
+        ct = unit_params['ct'] * (pyunits.mg / (pyunits.liter * pyunits.minute))
+        mass_transfer = unit_params['mass_transfer'] * pyunits.dimensionless
+        ozone_consumption = ((toc_in + ct / contact_time) / mass_transfer)
+        ozone_consumption = pyunits.convert(ozone_consumption, to_units=(pyunits.kg / pyunits.m ** 3))
         o3_toc_ratio = 1 + (ct / contact_time / toc_in)
 
         aop = unit_params['aop']
@@ -159,35 +160,38 @@ see property package for documentation.}"""))
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
 
-        def solution_vol_flow(flow_in):  # m3/hr
+        def solution_vol_flow(flow_in):
+            flow_in = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hour)) #convert from MGD to m3/hr
             chemical_rate = flow_in * chemical_dosage  # kg/hr
             chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
-            soln_vol_flow = chemical_rate
-            return soln_vol_flow  # lb / day
+            return chemical_rate
 
-        def fixed_cap(flow_in, ozone_consumption):
-            x0 = ozone_consumption
-            x1 = flow_in
+        def o3_flow(flow_in):
+            flow_in = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hour)) #convert from MGD to m3/hr
+            ozone_flow = flow_in * ozone_consumption # kg/hr
+            ozone_flow = pyunits.convert(ozone_flow, to_units=(pyunits.lb / pyunits.hour))
+            return ozone_flow  # lb / day
+
+        def fixed_cap(flow_in):
+            x0 = pyunits.convert(ozone_consumption, to_units=(pyunits.mg / pyunits.liter)) # mg/L
+            x1 = flow_in # MGD
             ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
                         x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
             if aop:
-                h2o2_cap = h2o2_base_cap * solution_vol_flow(flow_in) ** h2o2_cap_exp
+                h2o2_flow = solution_vol_flow(flow_in)
+                h2o2_cap = h2o2_base_cap * h2o2_flow ** h2o2_cap_exp
             else:
                 h2o2_cap = 0
-            # ozone_aop_cap = (source_cost * tpec_tic * number_of_units) * 1E-6
             ozone_aop_cap = (ozone_cap + h2o2_cap) * 1E-3
             return ozone_aop_cap
 
-        def electricity(flow_in):  # m3/hr
-            electricity = 0.1  # kWh/m3
+        def electricity(flow_in):
+            ozone_flow = o3_flow(flow_in) # lb/day
+            flow_in = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
+            electricity = (5 * ozone_flow) / flow_in
             return electricity
 
-        # Get the first time point in the time domain
-        # In many cases this will be the only point (steady-state), but lets be
-        # safe and use a general approach
-
-        ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in, ozone_consumption), doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
         self.electricity = electricity(flow_in)  # kwh/m3
