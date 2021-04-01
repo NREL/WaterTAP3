@@ -116,10 +116,9 @@ see property package for documentation.}"""))
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
         tpec_tic = self.costing.tpec_tic
-        avg_storage_time = unit_params['avg_storage_time'] * pyunits.hours
+        storage_duration = unit_params['avg_storage_time'] * pyunits.hours
         surge_cap = unit_params['surge_cap'] * pyunits.dimensionless
-        capacity_needed = 37854 / avg_storage_time / (1 + surge_cap)
-
+        capacity_needed = flow_in * storage_duration * (1 + surge_cap)
 
         def power(x, a, b):
             return a * x ** b
