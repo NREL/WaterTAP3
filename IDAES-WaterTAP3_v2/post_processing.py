@@ -64,6 +64,13 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
             category.append("Electricity")
             
         if hasattr(b_unit, 'costing'):
+            if hasattr(b_unit, 'LCOW'):
+                up_name_list.append(str(b_unit)[3:])
+                category.append("LCOW")
+                variable_list.append("Unit Levelized Cost")
+                value_list.append(value(b_unit.LCOW))
+                unit_list.append("$/m3")  
+            
             for variable in up_variables:
                 up_name_list.append(str(b_unit)[3:])
                 
@@ -149,7 +156,35 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
         elif "electricity_intensity" in str(variable):
             continue
         elif "elec_frac_LCOW" in str(variable):
-            continue
+            value_list.append(value(getattr(m.fs.costing, variable_str)))
+            up_name_list.append("System")
+            category.append("Electricity")
+            variable_list.append("Electricity Fraction of LCOW")
+            unit_list.append("$/m3")
+        elif "LCOW_TCI" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, variable_str)))
+            up_name_list.append("System")
+            category.append("LCOW")
+            variable_list.append("TCI LCOW")
+            unit_list.append("$/m3")            
+        elif "LCOW_elec" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, variable_str)))
+            up_name_list.append("System")
+            category.append("LCOW")
+            variable_list.append("Electricity LCOW")
+            unit_list.append("$/m3")            
+        elif "LCOW_fixed_op" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, variable_str)))
+            up_name_list.append("System")
+            category.append("LCOW")
+            variable_list.append("Fixed Operating LCOW")
+            unit_list.append("$/m3")            
+        elif "LCOW_other_onm" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, variable_str)))
+            up_name_list.append("System")
+            category.append("LCOW")
+            variable_list.append("Other O&M LCOW")
+            unit_list.append("$/m3")            
         elif "system_recovery" in str(variable):
             continue    
         else:
