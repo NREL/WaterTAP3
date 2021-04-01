@@ -197,9 +197,10 @@ see property package for documentation.}"""))
             self.evaporation = self.make_up - self.blowdown # evaporation assumed to go to waste outlet (out of system) should not go to surface discharge  
             
             
-        self.water_recovery_eq = Constraint(
-            expr = self.water_recovery[time] == self.blowdown / self.make_up
-        )   
+#         self.water_recovery_eq = Constraint(
+#             expr = self.water_recovery[time] == self.blowdown / self.make_up
+#         )   
+        self.water_recovery.fix(self.blowdown / self.make_up)
         
         self.costing.basis_year = 2020 # NOT USED
         
