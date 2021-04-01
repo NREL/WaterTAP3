@@ -93,8 +93,15 @@ see property package for documentation.}"""))
     def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
 
         unit_process_name = unit_params['unit_process_name']
+        try:
+            case_specific = unit_params['case_specific']
+        except:
+            case_specific = None
 
-        basis, cap_basis, cap_exp, elect, unit_year, kind = basic_unit(unit_process_name)
+        if case_specific:
+            basis, cap_basis, cap_exp, elect, unit_year, kind = basic_unit(unit_process_name, case_specific=case_specific)
+        else:
+            basis, cap_basis, cap_exp, elect, unit_year, kind = basic_unit(unit_process_name)
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
 
@@ -102,6 +109,7 @@ see property package for documentation.}"""))
 
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
+
 
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic

@@ -203,8 +203,6 @@ see property package for documentation.}"""))
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
         flow_waste = pyunits.convert(self.flow_vol_waste[time], to_units=(pyunits.gallons / pyunits.minute))
 
-        #flow_evap = flow_in - flow_out
-
         self.area = flow_waste / self.evap_rate
 
         self.total_area = 1.2 * self.area * (1 + 0.155 * dike_height / (self.area ** 0.5))
