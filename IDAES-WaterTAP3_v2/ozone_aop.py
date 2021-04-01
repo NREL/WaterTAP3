@@ -143,7 +143,7 @@ see property package for documentation.}"""))
 
         aop = unit_params['aop']
         if aop:
-            chemical_dosage = pyunits.convert((0.5 * o3_toc_ratio * toc_in) * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
+            chemical_dosage = pyunits.convert((0.5 * o3_toc_ratio * toc_in), to_units=(pyunits.kg / pyunits.m ** 3))
             chem_name = unit_params["chemical_name"][0]
             chem_dict = {chem_name: chemical_dosage}
             h2o2_base_cap = 1228

@@ -201,11 +201,11 @@ see property package for documentation.}"""))
         self.evap_rate = self.evap_rate_pure * 0.8 # ratio factor from the BLM document
 
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
-        flow_out = pyunits.convert(self.flow_vol_out[time], to_units=(pyunits.gallons / pyunits.minute))
+        flow_waste = pyunits.convert(self.flow_vol_waste[time], to_units=(pyunits.gallons / pyunits.minute))
 
-        flow_evap = flow_in - flow_out
+        # flow_evap = flow_in - flow_out
 
-        self.area = flow_evap / self.evap_rate
+        self.area = flow_waste / self.evap_rate
 
         self.total_area = 1.2 * self.area * (1 + 0.155 * dike_height / (self.area ** 0.5))
 

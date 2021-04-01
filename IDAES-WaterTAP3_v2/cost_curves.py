@@ -64,8 +64,11 @@ def cost_curve(unit_process, **kwargs):
     return cost, elect, mats_name, mats_cost, df
 
 
-def basic_unit(unit_process):
-    df = pd.read_csv('data/basic_unit.csv', index_col='unit_process')
+def basic_unit(unit_process, case_specific=None):
+    if case_specific == 'solaire':
+        df = pd.read_csv('data/basic_units_solaire.csv', index_col='unit_process')
+    else:
+        df = pd.read_csv('data/basic_unit.csv', index_col='unit_process')
     df = df.loc[unit_process]
     flow_basis = df.flow_basis
     cap_basis = df.cap_basis

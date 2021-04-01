@@ -207,6 +207,9 @@ def get_module(module_name):
     if module_name == "chemical_addition":
         import chemical_addition as up
 
+    if module_name == 'gac':
+        import gac as up
+
     return up
 
 
