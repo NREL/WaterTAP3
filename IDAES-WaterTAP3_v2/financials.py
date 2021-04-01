@@ -72,7 +72,7 @@ class SystemSpecs():
                                                           'employee_benefits_percent'].loc[case_study].value) 
         self.plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
         self.analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
-
+        self.debt_interest_rate = float(basis_data[basis_data['variable'] == 'debt_interest_rate'].loc[case_study].value)
     
 
 ################## WATERTAP METHOD ###########################################################
@@ -195,6 +195,7 @@ def get_system_specs(self, train=None):
     b.benefit_percent_of_salary = system_specs.benefit_percent_of_salary
     b.working_cap_percent_FCI  = system_specs.working_cap_percent_FCI
     b.plant_cap_utilization = 1.0
+    b.wacc = system_specs.debt_interest_rate
     
     b.tpec = 3.4
     b.tic = 1.65
@@ -231,10 +232,9 @@ def get_system_costing(self):
     other_var_cost_lst = []
     total_fixed_op_cost_lst = []
     
-    #b.capital_recovery_factor.fix(0.08)  #TODO ANNA ARIEL KURBY
-    wacc = 0.05 #TO DO AS INPUT
+    wacc = sys_specs.wacc
     
-    b.capital_recovery_factor = (wacc * (1+wacc)**self.costing_param.plant_lifetime_yrs)/ (((1 + wacc)**self.costing_param.plant_lifetime_yrs) - 1)
+    b.capital_recovery_factor = (wacc * (1+wacc)**sys_specs.plant_lifetime_yrs)/ (((1 + wacc)**sys_specs.plant_lifetime_yrs) - 1)
     
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
@@ -244,8 +244,7 @@ def get_system_costing(self):
             other_var_cost_lst.append(b_unit.costing.other_var_cost)
             total_fixed_op_cost_lst.append(b_unit.costing.total_fixed_op_cost)
             
-    #operating_cost_var_lst.append(b.operating_cost_MLC)
-
+                        
     b.capital_investment_total = Expression(
         expr = sum(total_capital_investment_var_lst))
     b.cat_and_chem_cost_total = Expression(
@@ -302,10 +301,28 @@ def get_system_costing(self):
     
     b.system_recovery = b.treated_water / sum_of_inflow
 
-    # TODO TOTAL WASTE = 
+    # LCOW for each unit
+    for b_unit in self.component_objects(Block, descend_into=True):
+        if hasattr(b_unit, 'costing'):
+            setattr(b_unit, "LCOW", Expression(
+        expr= 1e6*(b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost) 
+    / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+    doc="Unit Levelized Cost of Water in $/m3"))
     
-    ## HERE GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water
-    #kwh per year
+    # LCOW by cost category
+    b.LCOW_TCI = Expression(
+        expr=1e6*(b.capital_investment_total * b.capital_recovery_factor) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+                    
+    b.LCOW_elec = Expression(
+        expr=1e6*(b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))    
+    
+    b.LCOW_fixed_op = Expression(
+        expr=1e6*(b.fixed_op_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+                    
+    b.LCOW_other_onm = Expression(
+        expr=1e6*(b.cat_and_chem_cost_annual + b.other_var_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization) )                   
+                            
+    ## GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water
     b.electricity_intensity = Expression(
         expr = (b.electricity_cost_annual*1e6 / b.parent_block().costing_param.electricity_price)  
         / (b.treated_water * 3600 * 24 * 365),

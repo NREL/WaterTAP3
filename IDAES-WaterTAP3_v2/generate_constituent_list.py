@@ -35,7 +35,7 @@ def run():
     df.case_study = np.where(df.case_study == "default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
-    df = df[df.scenario == train["scenario"]]
+    df = df[df.scenario == "baseline"] # FIX THIS ARIEL/KURBY TODO
     
 #     list1a = df[df.value == "calculated"].constituent.unique()
 #     df = df[df.value != "calculated"]
@@ -79,12 +79,12 @@ def get_removal_factors(unit_process):
     import case_study_trains
     train = case_study_trains.train 
     source_water = case_study_trains.source_water
-       
+        
     df = pd.read_csv("data/constituent_removal.csv")
     df.case_study = np.where(df.case_study == "default", train["case_study"], df.case_study)
     df = df[df.reference == train["reference"]]
     df = df[df.case_study == train["case_study"]]
-    df = df[df.scenario == train["scenario"]]
+    df = df[df.scenario == "baseline"] # FIX THIS ARIEL/KURBY TODO
     df = df[df.unit_process == unit_process]
     
     removal_dict = {}

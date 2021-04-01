@@ -122,7 +122,7 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
 
         #### CHEMS ###
-        tds_in = self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
+        tds_in = 10 #self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
 
         chem_dict = {}
         self.chem_dict = chem_dict
@@ -202,8 +202,6 @@ see property package for documentation.}"""))
 
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
         flow_waste = pyunits.convert(self.flow_vol_waste[time], to_units=(pyunits.gallons / pyunits.minute))
-
-        # flow_evap = flow_in - flow_out
 
         self.area = flow_waste / self.evap_rate
 
