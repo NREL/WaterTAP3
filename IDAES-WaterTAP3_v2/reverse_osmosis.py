@@ -234,14 +234,21 @@ see property package for documentation.}"""))
                                   bounds=(1, 95),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
-        def set_water_flux(self):
-            self.water_flux = Var(time,
-                                  initialize=5e-3,
-                                  bounds=(1e-7, 1e3),
-                                  units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
-                                  domain=NonNegativeReals,
-                                  doc="water flux")  
-                                       
+        #def set_water_flux(self):
+        self.feed.water_flux = Var(time,
+                              initialize=5e-3,
+                              bounds=(1e-7, 1e-2),
+                              units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
+                              domain=NonNegativeReals,
+                              doc="water flux")  
+        
+        self.retenate.water_flux = Var(time,
+                              initialize=5e-3,
+                              bounds=(1e-7, 1e-2),
+                              units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
+                              domain=NonNegativeReals,
+                              doc="water flux")  
+        
             
         for b in [permeate, feed, retenate]:
             set_flow_mass(b)
@@ -253,7 +260,7 @@ see property package for documentation.}"""))
                 continue 
             else:
                 set_pressure(b)                         
-                set_water_flux(b)    
+                #set_water_flux(b)    
         
         self.membrane_area = Var(time,
                       initialize=1e5,
@@ -284,6 +291,8 @@ see property package for documentation.}"""))
                 ) #bar pressure at inlet. should be unfixed.
                 
         #self.membrane_area = 50 * 1000 * self.flow_vol_in[t]
+        
+        
         
         
         ########################################################################

@@ -218,7 +218,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.plant_cap_utilization = i
         run_water_tap(m = m, objective=False, skip_small = True)
-        print(scenario, "LCOW -->", m.fs.costing.LCOW())
+        print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -244,7 +244,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.wacc = i
         run_water_tap(m = m, objective=False, skip_small = True)
-        print(scenario, "LCOW -->", m.fs.costing.LCOW())
+        print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -263,10 +263,10 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     stash_value = []
     for key in m.fs.flow_in_dict:   
         stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, "tds"]))
-    scenario = "Inlet TDS +-30%"
+    scenario = "Inlet TDS +-20%"
     print("-------", scenario, "-------")
-    ub = 0.75
-    lb = 1.25
+    ub = 1.2
+    lb = 0.8
     step = (ub - lb) / runs_per_scenario
 
     for i in np.arange(lb, ub + step, step):
@@ -276,7 +276,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
             q = q + 1
 
         run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
-        print(scenario, "LCOW -->", m.fs.costing.LCOW())
+        print(scenario, stash_value[q-1] * i, "LCOW -->", m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -299,10 +299,10 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     stash_value = []
     for key in m.fs.flow_in_dict:   
         stash_value.append(value(getattr(m.fs, key).flow_vol_in[0]))
-    scenario = "Inlet Flow +-30%"
+    scenario = "Inlet Flow +-20%"
     print("-------", scenario, "-------")
-    ub = 0.75
-    lb = 1.25
+    ub = 1.2
+    lb = 0.8
     step = (ub - lb) / runs_per_scenario
 
     for i in np.arange(lb, ub + step, step):
@@ -312,7 +312,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
             q = q + 1
 
         run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
-        print(scenario, "LCOW -->", m.fs.costing.LCOW())
+        print(scenario, stash_value[q-1] * i, "LCOW -->", m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -341,7 +341,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.plant_lifetime_yrs = i 
         run_water_tap(m = m, objective=False, skip_small = True)
-        print(scenario, "LCOW -->", m.fs.costing.LCOW())
+        print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -366,7 +366,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.electricity_price = i 
         run_water_tap(m = m, objective=False, skip_small = True)
-        print(scenario, "LCOW -->", m.fs.costing.LCOW())
+        print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -415,7 +415,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
                         getattr(getattr(m.fs, key), scenario).fix(i)
 
                     run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
-                    print(scenario, "LCOW -->", m.fs.costing.LCOW())
+                    print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
 
                     lcow_list.append(value(m.fs.costing.LCOW))
                     water_recovery_list.append(value(m.fs.costing.system_recovery))
