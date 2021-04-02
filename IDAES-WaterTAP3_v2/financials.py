@@ -73,7 +73,7 @@ class SystemSpecs():
         self.plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
         self.analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
         self.debt_interest_rate = float(basis_data[basis_data['variable'] == 'debt_interest_rate'].loc[case_study].value)
-    
+        self.plant_cap_utilization = float(basis_data[basis_data['variable'] == 'plant_cap_utilization'].loc[case_study].value)
 
 ################## WATERTAP METHOD ###########################################################
 
@@ -194,7 +194,7 @@ def get_system_specs(self, train=None):
     b.analysis_yr_cost_indicies = system_specs.analysis_yr_cost_indicies
     b.benefit_percent_of_salary = system_specs.benefit_percent_of_salary
     b.working_cap_percent_FCI  = system_specs.working_cap_percent_FCI
-    b.plant_cap_utilization = 1.0
+    b.plant_cap_utilization = system_specs.plant_cap_utilization #1.0
     b.wacc = system_specs.debt_interest_rate
     
     b.tpec = 3.4
@@ -308,7 +308,12 @@ def get_system_costing(self):
         expr= 1e6*(b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost) 
     / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
     doc="Unit Levelized Cost of Water in $/m3"))
-    
+            
+            setattr(b_unit, "elec_int_treated", Expression(
+        expr= (b_unit.electricity * b_unit.flow_vol_in[time]) / (b.treated_water*sys_specs.plant_cap_utilization),
+    doc="Unit Elec Intensity Treated kw/m3"))
+            
+            
     # LCOW by cost category
     b.LCOW_TCI = Expression(
         expr=1e6*(b.capital_investment_total * b.capital_recovery_factor) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
