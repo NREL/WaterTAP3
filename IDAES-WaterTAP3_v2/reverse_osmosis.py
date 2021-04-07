@@ -558,6 +558,10 @@ see property package for documentation.}"""))
             self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
             b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         
+        self.pump_constraint_power = Constraint(
+                expr = self.pump_power >= 0
+            )
+        
         # assumes no pump needed for stage, but could change in future.
         if unit_params["pump"] == "no":
             self.pump_power = 0

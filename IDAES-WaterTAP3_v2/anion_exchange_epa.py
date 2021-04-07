@@ -123,7 +123,7 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
         # system_type = unit_params
         # ebct_init = Block()
-        self.ebct = Var(time, initialize=unit_params['ebct'], domain=NonNegativeReals, bounds=(0.1, 20), units=pyunits.minutes, doc="ebct")
+        self.ebct = Var(time, initialize=5, domain=NonNegativeReals, bounds=(0.1, 20), units=pyunits.minutes, doc="ebct")
         self.ebct.fix(unit_params['ebct'])
 
         flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.Mgallons / pyunits.day)
@@ -148,14 +148,28 @@ see property package for documentation.}"""))
             geom = unit_params['geom']
             pv_material = unit_params['pv_material']
             bw_tank_type = unit_params['bw_tank_type']
-            resin_type = unit_params['resin_type']
+            self.resin_name = unit_params['resin_type']
         except:
             geom = 'vertical'
             pv_material = 'stainless'
             bw_tank_type = 'stainless'
-            resin_type = 'styrenic_gel_1'
-
+            self.resin_name = 'styrenic_gel_1'
+        
+                
         resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate', 'custom']
+        
+        self.resin_dict = {'styrenic_gel_1' : 148, 
+                      'styrenic_gel_2' : 173, 
+                      'styrenic_macro_1' : 207, 
+                      'styrenic_macro_2' : 221, 
+                      'polyacrylic' : 245, 
+                      'nitrate': 173} 
+        
+        self.resin_cost = Var(time, initialize=100, domain=NonNegativeReals, bounds=(0, 500), doc="lookupvalue") 
+        
+        self.resin_cost.fix(self.resin_dict[self.resin_name])
+                
+        
         ############## SYSTEM INPUTS ##############
 
         ########################################################
@@ -549,24 +563,14 @@ see property package for documentation.}"""))
                 pv_cost = pv_csp_cost * self.final_num_tanks
             if pv_material == 'fiberglass':
                 pv_cost = pv_fg_cost * self.final_num_tanks
-            resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate']
-
+#             resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate']
+            
+    
             ### RESIN COST ##
             # Cost taken from 'Cost Data' tab of 'wbs-anion-123017.xlsx'
-            # look up table = sba_res_cost_cl
-            if resin_type == 'styrenic_gel_1':
-                resin_cap = self.resin_vol_tot * 148
-            if resin_type == 'styrenic_gel_2':
-                resin_cap = self.resin_vol_tot * 173
-            if resin_type == 'styrenic_macro_1':
-                resin_cap = self.resin_vol_tot * 207
-            if resin_type == 'styrenic_macro_2':
-                resin_cap = self.resin_vol_tot * 221
-            if resin_type == 'polyacrylic':
-                resin_cap = self.resin_vol_tot * 245
-            if resin_type == 'nitrate':
-                resin_cap = self.resin_vol_tot * 173
-
+            # look up table = sba_res_cost_cl                
+            self.resin_cap = self.resin_vol_tot * self.resin_cost[t]
+            
             ### BACKWASH TANKS ###
             bw_ss_cost = anion_ex_cost_curves('st_bwt_eq', back_tank_vol)
             bw_fg_cost = anion_ex_cost_curves('fg_bwt_eq', back_tank_vol)
@@ -578,7 +582,7 @@ see property package for documentation.}"""))
             if bw_tank_type == 'hdpe':
                 bw_tank_cost = bw_hdpe_cost * self.back_tanks
 
-            total_system_cost = pv_cost + resin_cap + bw_tank_cost
+            total_system_cost = pv_cost + self.resin_cap + bw_tank_cost
 
             return total_system_cost * 1E-6
 
