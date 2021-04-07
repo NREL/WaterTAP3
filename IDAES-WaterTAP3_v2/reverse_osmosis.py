@@ -54,19 +54,20 @@ module_name = "reverse_osmosis"
 
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
-unit_basis_yr = 2018
+unit_basis_yr = 2007
 
-pump_eff = 0.85 # efficiency of pump
-mem_cost = 30
+pump_eff = 0.8 # efficiency of pump
+erd_eff = 0.9
+mem_cost = 35 # ~30 dollars for 2007 converted to 2020 and from Optimum design of reverse osmosis system under different feed concentration and product specification
 pump_cost = 53 / 1e5 * 3600 #$ per w
 pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
-a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
-pressure_in = 65 #bar pressure at inlet. should be unfixed.
+#a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
+b_constant = 3.5e-8 # Salt permeability coefficient m s-1
+#pressure_in = 65 #bar pressure at inlet. should be unfixed.
 p_atm = 1 #bar atmospheric pressure
 #p_ret = p_in - pressure_drop # momentum balance
 pw = 1000 # density of water kg/m3
-b_constant = 3.5e-8 # Salt permeability coefficient m s-1
-membrane_area_in = 50    
+#membrane_area_in = 50    
 ##########################################
 ##########################################
 
@@ -229,27 +230,78 @@ see property package for documentation.}"""))
   
         def set_pressure(self):
             self.pressure = Var(time,
-                                  initialize=30,
+                                  initialize=45,
                                   domain=NonNegativeReals,
-                                  bounds=(1, 95),
+                                  bounds=(5, 90),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
-        #def set_water_flux(self):
+        
         self.feed.water_flux = Var(time,
                               initialize=5e-3,
-                              bounds=(1e-7, 1e-2),
+                              bounds=(1e-5, 1.5e-2),
                               units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
                               domain=NonNegativeReals,
                               doc="water flux")  
         
         self.retenate.water_flux = Var(time,
                               initialize=5e-3,
-                              bounds=(1e-7, 1e-2),
+                              bounds=(1e-5, 1.5e-2),
                               units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
                               domain=NonNegativeReals,
-                              doc="water flux")  
+                              doc="water flux")
         
-            
+        self.pure_water_flux = Var(time,
+                              initialize=5e-3,
+                              bounds=(1e-3, 1.5e-2),
+                              units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
+                              domain=NonNegativeReals,
+                              doc="water flux")
+        
+        self.a = Var(time,
+                    initialize=4.2,
+                    bounds=(1.5, 9),
+                    #units=units_meta('mass')/units_meta('area')**-2*units_meta('time')**-1,
+                    domain=NonNegativeReals,
+                    doc="water permeability")
+                
+        self.b = Var(time, 
+                    initialize=0.35,
+                    bounds=(0.15, 0.9),
+                    #units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
+                    domain=NonNegativeReals,
+                    doc="Salt permeability")
+        
+        self.mem_cost = Var(time, 
+                    initialize=40,
+                    bounds=(10, 80),
+                    #units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
+                    domain=NonNegativeReals,
+                    doc="Membrane cost")                
+        
+        
+    # from excel regression based on paper for membrane cost y = 0.1285x - 0.0452 #R² = 0.9932. y = b. x = a.
+        self.water_salt_perm_eq1 = Constraint(
+                expr = self.b[t] <= (0.083*self.a[t] - 0.002) * 1.25
+                )
+        
+        self.water_salt_perm_eq2 = Constraint(
+                expr = self.b[t] >= (0.083*self.a[t] - 0.002) * 0.75
+                ) 
+        
+
+        
+#         self.a.fix(4.2)   
+#         self.b.fix(0.35) 
+        
+        self.a_constant = self.a[t] * 1e-7
+        self.b_constant = self.b[t] * 1e-7
+        
+        self.mem_cost.fix(30)
+#         self.mem_cost_eq = Constraint(
+#             expr = self.mem_cost[t] == 1.2*(15.05*self.a[t] - 131.1*self.b[t] + 30)
+#         )
+        # same 4 membranes used for regression ŷ = 15.04895X1 - 131.08641X2 + 29.43797
+        
         for b in [permeate, feed, retenate]:
             set_flow_mass(b)
             set_mass_frac(b)
@@ -265,7 +317,7 @@ see property package for documentation.}"""))
         self.membrane_area = Var(time,
                       initialize=1e5,
                       domain=NonNegativeReals,
-                      bounds=(1e1, 1e9),
+                      bounds=(1e1, 1e12),
                       #units=units_meta("mass")/units_meta("time"),
                       doc="area") 
         
@@ -287,9 +339,14 @@ see property package for documentation.}"""))
                 feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
             if unit_params["pump"] == "no":                   
                 self.pressure_into_stage_eq = Constraint(
-                    expr = feed.pressure[t] == self.pressure_in[t]
-                ) #bar pressure at inlet. should be unfixed.
+                    expr = feed.pressure[t] == self.pressure_in[t]) 
                 
+                #bar pressure at inlet. should be unfixed.
+#             if "stage" in unit_params.keys():
+#                 if ["stage"] == "yes":                   
+#                     self.pressure_into_stage_eq = Constraint(
+#                         expr = feed.pressure[t] == self.pressure_in[t]
+#                    ) #bar pressure at inlet. should be unfixed.                
         #self.membrane_area = 50 * 1000 * self.flow_vol_in[t]
         
         
@@ -329,11 +386,11 @@ see property package for documentation.}"""))
         )
 
                
-        # get water flux in
-        feed.water_flux_eq = Constraint(
-            expr= feed.water_flux[t] == pw* a*((feed.pressure[t] - p_atm) 
-                                                  - (feed.pressure_osm[t]))
-                                             ) #                                      
+#         # get water flux in
+#         feed.water_flux_eq = Constraint(
+#             expr= feed.water_flux[t] == pw* self.a[t] * 1e-7 *((feed.pressure[t] - p_atm) 
+#                                                   - (feed.pressure_osm[t]))
+#                                              )  #                                      
         
         ########################################################################
         ########################################################################                                     
@@ -366,11 +423,11 @@ see property package for documentation.}"""))
             expr = retenate.pressure[t] == feed.pressure[t] - pressure_drop  
         )
         
-        # get water flux retenate
-        retenate.water_flux_retenate_eq = Constraint(
-            expr= retenate.water_flux[t] == pw* a*((retenate.pressure[t] - p_atm) 
-                                                  - (retenate.pressure_osm[t]))
-        ) # 
+#         # get water flux retenate
+#         retenate.water_flux_retenate_eq = Constraint(
+#             expr= retenate.water_flux[t] == pw* self.a[t] * 1e-7 *((retenate.pressure[t] - p_atm) 
+#                                                   - (retenate.pressure_osm[t]))
+#         ) # 
         
         self.flow_vol_eq2 = Constraint(
             expr = self.flow_vol_waste[t] * retenate.conc_mass_total[t] == (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t])
@@ -386,20 +443,20 @@ see property package for documentation.}"""))
         permeate.eq2 = Constraint(
             expr = self.conc_mass_out[t, "tds"] == permeate.conc_mass_total[t] * permeate.mass_frac_tds[t]*1e-6
         )            
-        permeate.eq3 = Constraint(
-            expr = permeate.mass_flow_h20[t] == 0.5 * self.membrane_area[t]
-            * (feed.water_flux[t] + retenate.water_flux[t])
-        )
+#         permeate.eq3 = Constraint(
+#             expr = permeate.mass_flow_h20[t] == 0.5 * self.membrane_area[t]
+#             * (feed.water_flux[t] + retenate.water_flux[t])
+#         )
         permeate.eq4 = Constraint(
             expr = permeate.mass_flow_tds[t] == 0.5 * self.membrane_area[t]
-            * b_constant * (self.conc_mass_in[t, "tds"] + self.conc_mass_waste[t, "tds"]) 
+            * self.b[t] * 1e-7 * (self.conc_mass_in[t, "tds"] + self.conc_mass_waste[t, "tds"]) 
         )            
         permeate.eq5 = Constraint(
             expr = permeate.mass_frac_tds[t] * (permeate.mass_flow_tds[t] + permeate.mass_flow_h20[t]) 
             == 1e6 * permeate.mass_flow_tds[t]
         )        
 
-        
+
 #         permeate.eq7 = Constraint(
 #             expr = permeate.osm_coeff[t] == 4.92 * (permeate.mass_frac_tds[t]*1e-6)**2 
 #             + permeate.mass_frac_tds[t]*1e-6*0.0889 + 0.918 #unitless
@@ -408,12 +465,19 @@ see property package for documentation.}"""))
 #             expr = permeate.pressure_osm[t] == 1e-5 * (8.45e7 * permeate.osm_coeff[t]
 #                                        * permeate.mass_frac_tds[t]*1e-6 / (1 - permeate.mass_frac_tds[t]*1e-6)) #bar 
 #         )
-
+        permeate.eq33 = Constraint(
+        expr = self.pure_water_flux[t] == pw * self.a[t] * 1e-7 * ((feed.pressure[t] - p_atm - pressure_drop*0.5) 
+                                                           - (feed.pressure_osm[t] + retenate.pressure_osm[t]) * 0.5)
+                                                          )
+        permeate.eq3 = Constraint(
+            expr = permeate.mass_flow_h20[t] == self.membrane_area[t] * self.pure_water_flux[t]
+        )
 
         self.flow_vol_eq1 = Constraint(
             expr = self.flow_vol_out[t] * permeate.conc_mass_total[t] == 
             (permeate.mass_flow_tds[t] + permeate.mass_flow_h20[t])
         )
+        
     
         ########################################################################
         ########################################################################                 
@@ -436,7 +500,7 @@ see property package for documentation.}"""))
         for j in self.const_list2:
             setattr(self, ("%s_eq" % j), Constraint(
                 expr = self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j] 
-                == self.flow_vol_waste[t] * self.conc_mass_waste[t, j]
+                == self.flow_vol_waste[t] * self.conc_mass_waste[t, j] 
                 ))
                  
         
@@ -505,7 +569,7 @@ see property package for documentation.}"""))
         if unit_params["erd"] == "yes": 
             x_value = (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t]) / retenate.conc_mass_total[t] * 3600
             b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
-            self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / 0.95
+            self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / erd_eff
         
         if unit_params["erd"] == "no": 
             self.erd_power = 0
@@ -513,7 +577,7 @@ see property package for documentation.}"""))
             
         ################ captial
         # membrane capital cost       
-        b_cost.mem_capital_cost = mem_cost * self.membrane_area[t] 
+        b_cost.mem_capital_cost = self.mem_cost[t] * self.membrane_area[t] 
         
         # total capital investment
         #b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)
@@ -522,11 +586,11 @@ see property package for documentation.}"""))
         
         ################ operating
         # membrane operating cost
-        b_cost.other_var_cost = self.factor_membrane_replacement[t] * mem_cost * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1e-6  
+        b_cost.other_var_cost = self.factor_membrane_replacement[t] * self.mem_cost[t] * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1e-6  
         
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
-        self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t]*3600) #kwh/m3
+        self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_out[t]*3600) #kwh/m3
         b_cost.pump_electricity_cost = 1e-6*(self.pump_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
         b_cost.erd_electricity_sold = 1e-6*(self.erd_power/1000)*365*24*sys_specs.electricity_price #$MM/yr
         b_cost.electricity_cost = (b_cost.pump_electricity_cost - b_cost.erd_electricity_sold) * sys_cost_params.plant_cap_utilization

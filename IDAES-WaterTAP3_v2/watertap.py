@@ -187,6 +187,10 @@ def print_results(m, print_model_results):
 
 def sensitivity_runs(m = None, save_results = False, return_results = False, 
                      scenario = None, case_study = None, skip_small_sens = True):
+    
+    # feasible ro names for sensitivity analysis
+    ro_list = ["reverse_osmosis", "ro_first_pass", "ro_second_pass", "ro_first_stage"]
+    
     # sensitivity analyses
     sens_df = pd.DataFrame()
     
@@ -265,8 +269,8 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
         stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, "tds"]))
     scenario = "Inlet TDS +-20%"
     print("-------", scenario, "-------")
-    ub = 1.2
-    lb = 0.8
+    ub = 1.3
+    lb = 0.7
     step = (ub - lb) / runs_per_scenario
 
     for i in np.arange(lb, ub + step, step):
@@ -301,8 +305,8 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
         stash_value.append(value(getattr(m.fs, key).flow_vol_in[0]))
     scenario = "Inlet Flow +-20%"
     print("-------", scenario, "-------")
-    ub = 1.2
-    lb = 0.8
+    ub = 1.3
+    lb = 0.7
     step = (ub - lb) / runs_per_scenario
 
     for i in np.arange(lb, ub + step, step):
@@ -384,55 +388,58 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
 
     for key in m.fs.pfd_dict.keys():
         if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-            area = value(getattr(m.fs, key).membrane_area[0])
-
-            scenario_dict = {"membrane_area" : [-area*0.1, area*0.1], 
-                             "pressure": [0.9, 1.1], 
-                             "factor_membrane_replacement": [-0.1, 0.3]}
-
-            for scenario in scenario_dict.keys():
+           
+           if key in ro_list:
                 
-                print("-------", "RESET", "-------")
-                run_water_tap(m = m, objective=False, skip_small = True)
-                print("LCOW -->", m.fs.costing.LCOW())
-                
-                print("-------", scenario, "-------")
-                if scenario == "pressure":
-                    stash_value = value(getattr(getattr(getattr(m.fs, key), "feed"), scenario)[0])
-                    ub = stash_value * scenario_dict[scenario][1]
-                    lb = stash_value * scenario_dict[scenario][0]
-                else:
-                    stash_value = value(getattr(getattr(m.fs, key), scenario)[0])
-                    ub = stash_value + scenario_dict[scenario][1]
-                    lb = stash_value + scenario_dict[scenario][0]
+                area = value(getattr(m.fs, key).membrane_area[0])
 
-                step = (ub - lb) / runs_per_scenario
+                scenario_dict = {"membrane_area" : [-area*0.2, area*0.2], 
+                                 "pressure": [0.85, 1.05], 
+                                 "factor_membrane_replacement": [-0.1, 0.3]}
 
-                for i in np.arange(lb, ub + step, step):
+                for scenario in scenario_dict.keys():
+
+                    print("-------", "RESET", "-------")
+                    run_water_tap(m = m, objective=False, skip_small = True)
+                    print("LCOW -->", m.fs.costing.LCOW())
+
+                    print("-------", scenario, "-------")
                     if scenario == "pressure":
-                        getattr(getattr(getattr(m.fs, key), "feed"), scenario).fix(i)
+                        stash_value = value(getattr(getattr(getattr(m.fs, key), "feed"), scenario)[0])
+                        ub = stash_value * scenario_dict[scenario][1]
+                        lb = stash_value * scenario_dict[scenario][0]
                     else:
-                        getattr(getattr(m.fs, key), scenario).fix(i)
+                        stash_value = value(getattr(getattr(m.fs, key), scenario)[0])
+                        ub = stash_value + scenario_dict[scenario][1]
+                        lb = stash_value + scenario_dict[scenario][0]
 
-                    run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
-                    print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
+                    step = (ub - lb) / runs_per_scenario
 
-                    lcow_list.append(value(m.fs.costing.LCOW))
-                    water_recovery_list.append(value(m.fs.costing.system_recovery))
-                    scenario_value.append(i)
-                    scenario_name.append(key + "_" + scenario)
-                    elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
-                    elec_int.append(value(m.fs.costing.electricity_intensity))
+                    for i in np.arange(lb, ub + step, step):
+                        if scenario == "pressure":
+                            getattr(getattr(getattr(m.fs, key), "feed"), scenario).fix(i)
+                        else:
+                            getattr(getattr(m.fs, key), scenario).fix(i)
 
-                if scenario == "pressure":
-                    getattr(getattr(getattr(m.fs, key), "feed"), scenario).fix(stash_value)
-                else:
-                    getattr(getattr(m.fs, key), scenario).fix(stash_value)
+                        run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
+                        print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
+
+                        lcow_list.append(value(m.fs.costing.LCOW))
+                        water_recovery_list.append(value(m.fs.costing.system_recovery))
+                        scenario_value.append(i)
+                        scenario_name.append(key + "_" + scenario)
+                        elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+                        elec_int.append(value(m.fs.costing.electricity_intensity))
+
+                    if scenario == "pressure":
+                        getattr(getattr(getattr(m.fs, key), "feed"), scenario).fix(stash_value)
+                    else:
+                        getattr(getattr(m.fs, key), scenario).fix(stash_value)
 
     ############################################################
 
     # final run to get baseline numbers again
-    run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
+    run_water_tap(m = m, objective=True, skip_small = skip_small_sens)
 
     sens_df["lcow"] = lcow_list
     sens_df["water_recovery"] =  water_recovery_list
@@ -452,9 +459,99 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
     if return_results is True:
         return sens_df
     
-    
+def print_ro_results(m):    
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+            print(f'\tFeed pressure for {key}: {round(getattr(m.fs, key).feed.pressure[0](), 2)} bar')
+            print(f'\tMembrane area for {key}: {round(getattr(m.fs, key).membrane_area[0](), 2)} m2')
+            print(f'\tPure Water Flux for {key}: {getattr(m.fs, key).pure_water_flux[0]()*3600} lmh')
+            print(f'\tA constant for {key}: {getattr(m.fs, key).a[0]()}')
+            print(f'\tB constant for {key}: {getattr(m.fs, key).b[0]()}') 
+            #print(f'\tPressure drop for {key}: {getattr(m.fs, key).pressure_drop[0]()}') 
 
-        
+            
+def run_ro_no_freedom(m):
+
+    # store RO variables
+    ro_stash = {}
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+            ro_stash[key] = {"feed.pressure" : getattr(m.fs, key).feed.pressure[0](),
+            "membrane_area" : getattr(m.fs, key).membrane_area[0](),
+            "a" : getattr(m.fs, key).a[0](),
+            "b" : getattr(m.fs, key).b[0]()}
+
+
+    # set everything and deactivate constraints
+    m = watertap_setup(dynamic=False)
+    m = case_study_trains.get_case_study(m=m)
+    
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+            getattr(m.fs, key).feed.pressure.unfix()
+            getattr(m.fs, key).membrane_area.unfix()
+            getattr(m.fs, key).a.fix(ro_stash[key]["a"])
+            getattr(m.fs, key).b.fix(ro_stash[key]["b"])
+            print("Unfixing feed presure and area for", key, '...\n')
+    
+#     #set_bounds(m)
+    run_water_tap(m=m, objective=True, skip_small=True)
+
+    # set variables so that degrees of freedom is zero
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+            getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
+            getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
+            
+    # run model to make sure it  works
+    run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=True)
+
+    print_ro_results(m)
+    
+    return m
+
+
+# set reasonable bounds
+def set_bounds(m):
+    # add more reasonable flux constraints --> THIS CAN AFFECT WATER RECOVERY! MAY NEED TO ADJUST TO NOT OVER CONSTRAIN.
+    # A AND B ARE TYPICALLY AT THEIR MAX
+    feed_flux_max = 35 #lmh
+    a = [2, 7]
+    max_pressure = 85
+
+    q=1
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+
+            setattr(m, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).pure_water_flux[0] * 3600 <= feed_flux_max)
+                   )
+            q = q + 1
+
+            setattr(m, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).feed.pressure[0] <= max_pressure)
+                   )
+            q = q + 1        
+
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).a[0] <= a[1])
+                   )
+            q = q + 1
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).a[0] >= a[0])
+                   )
+            q = q + 1
+    
+    run_water_tap(m=m, objective=True, print_model_results="summary", skip_small=True)
+    
+    return m
+            
+            
+            
+            
+            
+            
+            
 def main():
     print("importing something")
     # need to define anything here?
