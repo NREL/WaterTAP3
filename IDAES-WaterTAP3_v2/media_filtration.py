@@ -181,7 +181,7 @@ see property package for documentation.}"""))
 
         def fixed_cap(flow_in):
             media_filt_cap = (dual_media_filter(flow_in) + filter_backwash(flow_in)) * 1E-6
-            return media_filt_cap
+            return media_filt_cap * tpec_tic
 
         def electricity(flow_in):  # m3/hr
             electricity = 0

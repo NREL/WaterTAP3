@@ -87,6 +87,7 @@ def build_up(self, up_name_test=None):
     if up_name_test == 'brine_concentrator': import brine_concentrator as unit_process_model
     if up_name_test == 'crystallizer': import crystallizer as unit_process_model
     if up_name_test == 'gac': import gac as unit_process_model
+    if up_name_test == 'anion_exchange_epa': import anion_exchange_epa as unit_process_model
 
     """
     The build method is the core of the unit model, and contains the rules

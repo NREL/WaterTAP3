@@ -57,8 +57,7 @@ unit_cost_method = "cost_curve"
 unit_basis_yr = 2020
 
 base_fixed_cap_cost = 35
-cap_scaling_exp = .873
-fixed_op_cost_scaling_exp = 0.7
+cap_scaling_exp = 0.7
 
 
 # You don't really want to know what this decorator does
@@ -155,7 +154,7 @@ see property package for documentation.}"""))
             conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent]
 
         density = 0.6312 * conc_mass_tot + 997.86  # kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) #/ 1000  # kg/hr for Mike's Excel needs
+        self.total_mass = (density * pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.hr))) #/ 1000  # kg/hr for Mike's Excel needs
 
         lift_height = 100 * pyunits.ft  # ft
         pump_eff = 0.9 * pyunits.dimensionless
@@ -163,11 +162,11 @@ see property package for documentation.}"""))
 
         def fixed_cap(flow_in):  # TODO not based on flow, just have placeholder numbers for Carlsbad
 
-            capacity_basis = 10417  # kg/hr - from PML tab based on 250000 gallons per day
+            capacity_basis = 9463.5  # kg/hr - from PML tab based on 250000 gallons per day
 
-            total_flow_rate = self.total_mass  # kg/hr - TOTAL MASS TODO
+            mass_factor = self.total_mass / capacity_basis
 
-            fixed_cap_unadj = base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
+            fixed_cap_unadj = base_fixed_cap_cost * mass_factor ** cap_scaling_exp
 
             return fixed_cap_unadj  # M$
 

@@ -210,6 +210,9 @@ def get_module(module_name):
     if module_name == 'gac':
         import gac as up
 
+    if module_name == 'anion_exchange_epa':
+        import anion_exchange_epa as up
+
     return up
 
 

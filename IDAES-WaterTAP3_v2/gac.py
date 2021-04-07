@@ -98,6 +98,7 @@ see property package for documentation.}"""))
         """
         # First, check to see if global costing module is in place
         # Construct it if not present and pass year argument
+        global res_stagger_time, num_treat_lines, water_flush, basin_op_depth, tss_residuals, res_flow_annual, transport_min, disposal_miles, transport_unit, disposal
         if not hasattr(self.flowsheet(), "costing"):
             self.flowsheet().get_costing(module=module, year=year)
 
@@ -124,11 +125,8 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
         # system_type = unit_params
         # ebct_init = Block()
-        self.ebct = Var(time,initialize=unit_params['ebct'],
-                                  domain=NonNegativeReals,
-                                  bounds=(1, 30),
-                                  #units=pyunits.dimensionless,
-                                  doc="ebct")
+        self.ebct = Var(time, initialize=unit_params['ebct'], domain=NonNegativeReals, bounds=(1, 30),  # units=pyunits.dimensionless,
+                        doc="ebct")
         # self.ebct.fix(unit_params['ebct'])
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
@@ -149,12 +147,12 @@ see property package for documentation.}"""))
             self.conc_breakthru = 0.01
 
         # if system_type == 'pressure':
-            # geom should be determined by autosize function
-            # or should be able to be determined by autosize function
+        # geom should be determined by autosize function
+        # or should be able to be determined by autosize function
         try:
-            geom = unit_params['geoms']
+            geom = unit_params['geom']
             pv_material = unit_params['pv_material']
-            bw_tank_type = unit_params['unit_params']
+            bw_tank_type = unit_params['bw_tank_type']
         except:
             geom = 'vertical'
             pv_material = 'stainless'
@@ -174,7 +172,7 @@ see property package for documentation.}"""))
         backwash_load_rate = 3  # * (pyunits.gallon / pyunits.minute) / pyunits.ft**2 # backwash loading rate
         backwash_time = 12  # * pyunits.minutes # backwashing time
         backwash_interval = 168  # * pyunits.hours # interval between backwash occurrences, depends on many things # 48 hours for surface water if loading rate 4-6 gpm/sf; 7+ days for ground water (Richard E. Hubel, Peter Keenan, American Water Works Service Company, Inc).  2 weeks or loss of head based on operational experience (Verna Arnette, Greater Cincinnati Water Works).
-        regen_list = ['onsite', 'offsite', 'throw_nonhazard', 'offsite_hazard', 'throw_hazard', 'throw_radio', 'throw_haz_radio']
+        regen_list = ['onsite', 'offsite', 'throw_nonhaz', 'offsite_haz', 'throw_haz', 'throw_rad', 'throw_hazrad']
         pv_material_list = ['stainless', 'carbon with stainless', 'carbon with plastic', 'fiberglass']
         #     regen = 'onsite'
 
@@ -294,7 +292,7 @@ see property package for documentation.}"""))
 
             #### ::: VOID SPACE REQUIRED FOR HORIZONTAL VESSELS ::: ####
             freeboard_horiz_void = comm_height_length * (
-                        comm_diam * comm_diam / 2 * np.arcsin((freeboard / comm_diam) ** 0.5) - (comm_diam / 2 - freeboard) * ((comm_diam - freeboard) * freeboard) ** 0.5)
+                    comm_diam * comm_diam / 2 * np.arcsin((freeboard / comm_diam) ** 0.5) - (comm_diam / 2 - freeboard) * ((comm_diam - freeboard) * freeboard) ** 0.5)
             underdrain_horiz_void = comm_height_length * (comm_diam * comm_diam / 2 * np.arcsin((horiz_underdrain / comm_diam) ** 0.5) - (comm_diam / 2 - horiz_underdrain) * (
                     (comm_diam - horiz_underdrain) * horiz_underdrain) ** 0.5)  # * pyunits.ft**3
             horiz_void = freeboard_horiz_void + underdrain_horiz_void  # * pyunits.ft**3
@@ -343,13 +341,15 @@ see property package for documentation.}"""))
             self.op_num_basins = self.min_basin_vol / (self.basin_width * self.basin_length * basin_op_depth)
 
             self.tot_num_basins = num_redund_basins + self.op_num_basins
-            basin_conc_vol = (2 * (self.basin_width * self.tot_num_basins + conc_thick * (self.tot_num_basins + 1)) * basin_depth * conc_thick + (self.tot_num_basins + 1) * self.basin_length * basin_depth * conc_thick + (
-                    self.basin_length + 2 * conc_thick) * (self.basin_width * self.tot_num_basins + conc_thick * (self.tot_num_basins + 1)) * conc_thick) / 27  # * pyunits.yard ** 3 # concrete vol for contact basins
+            basin_conc_vol = (2 * (self.basin_width * self.tot_num_basins + conc_thick * (self.tot_num_basins + 1)) * basin_depth * conc_thick + (
+                        self.tot_num_basins + 1) * self.basin_length * basin_depth * conc_thick + (self.basin_length + 2 * conc_thick) * (
+                                          self.basin_width * self.tot_num_basins + conc_thick * (self.tot_num_basins + 1)) * conc_thick) / 27  # * pyunits.yard ** 3 # concrete vol for contact basins
             excavation_vol = ((self.tot_num_basins * self.basin_width + (self.tot_num_basins + 1) * conc_thick + overexcavate) * (self.basin_length + 2 * conc_thick + overexcavate) * (
                     basin_depth + conc_thick + overexcavate) + 0.5 * (3 * (basin_depth + conc_thick + overexcavate) * (basin_depth + conc_thick + overexcavate) * (
                     self.basin_length + 2 * conc_thick + overexcavate))) / 27  # * pyunits.yard ** 3 # concrete excavation vol for contact basins
             backfill_vol = excavation_vol - (self.tot_num_basins * self.basin_width + (self.tot_num_basins + 1) * conc_thick) * (self.basin_length + 2 * conc_thick) * (basin_depth + conc_thick) / 27
-            railing = 2 * (self.tot_num_basins * self.basin_width + 2 * conc_thick / 2 + (self.tot_num_basins - 1) * conc_thick) + 2 * (self.basin_length + 2 * conc_thick / 2)  # * pyunits.ft # railing length for contact basins
+            railing = 2 * (self.tot_num_basins * self.basin_width + 2 * conc_thick / 2 + (self.tot_num_basins - 1) * conc_thick) + 2 * (
+                        self.basin_length + 2 * conc_thick / 2)  # * pyunits.ft # railing length for contact basins
             self.basin_area = self.basin_width * self.basin_length  # * pyunits.ft ** 2 # surface area for each contactor
             loading_rate = design_flow_rate / (self.op_num_basins * (self.basin_width * self.basin_length))  # * pyunits.gallon / pyunits.minute / pyunits.ft ** 2 # basin loading rate
             self.media_vol = self.basin_width * basin_op_depth * self.basin_length
@@ -374,14 +374,14 @@ see property package for documentation.}"""))
 
         ############## BACKWASH ##############
         if system_type == 'pressure':
-            backwash_flow = backwash_rate * self.max_sa  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
+            water_flush = backwash_rate * self.max_sa  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
         if system_type == 'gravity':
-            backwash_flow = backwash_rate * self.basin_width * self.basin_length  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
-        backwash_vol = backwash_flow * backwash_time  # * pyunits.gallons # total backwash volume
-        backwash_storage = backwash_vol * back_multiplier / 7.48  # * pyunits.ft ** 3 # backwash storage volume
+            water_flush = backwash_rate * self.basin_width * self.basin_length  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
+        total_backwash = water_flush * backwash_time  # * pyunits.gallons # total backwash volume
+        backwash_storage = total_backwash * back_multiplier / 7.48  # * pyunits.ft ** 3 # backwash storage volume
         num_back_basins = 1  # default value, number of backwash basins
         back_basin_op_depth = (backwash_storage / num_back_basins) ** (1 / 3) * back_ratio  # * pyunits.ft # operational depth
-        back_basin_width = ((backwash_vol / num_back_basins) / back_basin_op_depth) ** 0.5
+        back_basin_width = ((total_backwash / num_back_basins) / back_basin_op_depth) ** 0.5
         back_basin_length = back_basin_width
         back_basin_depth = back_basin_op_depth + back_freeboard  # * pyunits.ft # total depth including freeboard
         back_basin_vol = back_basin_width * back_basin_length * back_basin_depth * 7.48  # pyunits.gallons # backwash basin volume
@@ -395,12 +395,12 @@ see property package for documentation.}"""))
                 back_basin_depth + conc_thick) / 27  # * pyunits.yards ** 3 # Backfill volume
         back_railing = 2 * (num_back_basins * back_basin_width + 2 * conc_thick / 2 + (num_back_basins - 1) * conc_thick) + 2 * (back_basin_length + 2 * conc_thick / 2)  # pyunits.ft
         max_back_tank_size = 282294  # * pyunits.gallons # maximum backwash tank size - NEED TO DETERMINE DYNAMICALLY
-        num_back_tanks = backwash_vol * back_multiplier / max_back_tank_size  # Number of backwash tanks
+        num_back_tanks = total_backwash * back_multiplier / max_back_tank_size  # Number of backwash tanks
 
-        back_tank_vol = backwash_vol * back_multiplier / num_back_tanks  # * pyunits.gallons # Backwash tank volume
+        back_tank_vol = total_backwash * back_multiplier / num_back_tanks  # * pyunits.gallons # Backwash tank volume
 
         ############## REGENERATION ##############
-
+        regen_list = ['onsite', 'offsite', 'throw_nonhaz', 'offsite_haz', 'throw_haz', 'throw_rad', 'throw_hazrad']
         flow_regen = average_flow_rate * 3.785  # * pyunits.L / pyunits.min # flow rate for Freundlich calculation
         n0e = self.freund1 * gac_density * 453.59 / 0.02832  # * pyunits.mg / pyunits.m ** 3 # for BDST calculation
 
@@ -444,8 +444,10 @@ see property package for documentation.}"""))
         storage_basin_width = ((gac_storage_vol / storage_basins) / storage_basin_depth) ** 0.5  # * pyunits.ft
         storage_basin_length = storage_basin_width  # * pyunits.ft
         storage_basin_vol = storage_basin_width * storage_basin_length * storage_basin_depth * 7.48  # * pyunits.gallons
-        storage_conc_vol = ((2 * storage_basin_depth * storage_basin_length + 2 * storage_basin_depth * storage_basin_width + storage_basin_width * storage_basin_length) * 1.2 * conc_thick * storage_basins) / 27  # * pyunits.yard ** 3
-        storage_excavation_vol = ((storage_basin_width + overexcavate) * (storage_basin_length + overexcavate) * (storage_basin_depth + overexcavate) + 0.5 * (3 * (storage_basin_depth + overexcavate) * (storage_basin_width + overexcavate) * (storage_basin_depth + overexcavate))) * storage_basins / 27  # * pyunits.yard ** 3
+        storage_conc_vol = ((
+                                        2 * storage_basin_depth * storage_basin_length + 2 * storage_basin_depth * storage_basin_width + storage_basin_width * storage_basin_length) * 1.2 * conc_thick * storage_basins) / 27  # * pyunits.yard ** 3
+        storage_excavation_vol = ((storage_basin_width + overexcavate) * (storage_basin_length + overexcavate) * (storage_basin_depth + overexcavate) + 0.5 * (
+                    3 * (storage_basin_depth + overexcavate) * (storage_basin_width + overexcavate) * (storage_basin_depth + overexcavate))) * storage_basins / 27  # * pyunits.yard ** 3
         storage_backfill_vol = storage_excavation_vol - (storage_basin_width * storage_basin_length * storage_basin_depth * storage_basins) / 27  # * pyunits.yard ** 3
         storage_railing = (storage_basin_width * 2 + storage_basin_length * 2) * storage_basins * 2  # * pyunits.ft
         num_storage_tanks = gac_storage_vol * 7.48 / max_back_tank_size
@@ -459,33 +461,301 @@ see property package for documentation.}"""))
 
         ############## PUMP AND TRANSFER EQUIPMENT  ##############
         transfer_method = 'eductors'
-        #     pump_rating = min(max(design_flow_rate + bp_flow_rate * average_flow_rate / design_flow_rate, (design_flow_rate + bp_flow_rate) / 2) * (1 + pump_safety_factor),
-        #                       10000)  # * pyunits.gallons / pyunits.minute # booster pump rating
+        incl_backwash_pumps = True
+        num_redund_eductors = 1
 
         max_pump_size = 10000  # * pyunits.gallons / pyunits.minute # largest pump size for which costs are available
 
         pump_rating = (design_flow_rate + bp_flow_rate) * (1 + pump_safety_factor) / num_pumps  # * pyunits.gallons / pyunits.minute # booster pump rating
         num_pumps = None
 
-        # if not num_pumps:
-        #     if system_type == 'pressure':
-        #         pump_rating = 0  # pyunits.gallons / pyunits.minute
-        #     elif system_type == 'gravity':
-        #         pump_rating_a = average_flow_rate + bp_flow_rate * average_flow_rate / design_flow_rate
-        #         pump_rating_b = (design_flow_rate + bp_flow_rate) / 2
-        #         pump_rating_c = max(pump_rating_a, pump_rating_b) * (1 + pump_safety_factor)
-        #         pump_rating = min(pump_rating_c, max_pump_size)  # pyunits.gallons / pyunits.minute
-        # elif num_pumps == 0:
-        #     pump_rating = 0  # pyunits.gallons / pyunits.minute
-        # elif num_pumps > 0:
-        #     pump_rating = (design_flow_rate + bp_flow_rate) * (1 + pump_safety_factor) / num_pumps  # pyunits.gallons / pyunits.minute
+        if not num_pumps:
+            if system_type == 'pressure':
+                pump_rating = 0  # pyunits.gallons / pyunits.minute
+            elif system_type == 'gravity':
+                pump_rating_a = average_flow_rate + bp_flow_rate * average_flow_rate / design_flow_rate
+                pump_rating_b = (design_flow_rate + bp_flow_rate) / 2
+                pump_rating_c = max(pump_rating_a, pump_rating_b) * (1 + pump_safety_factor)
+                pump_rating = min(pump_rating_c, max_pump_size)  # pyunits.gallons / pyunits.minute
+        elif num_pumps == 0:
+            pump_rating = 0  # pyunits.gallons / pyunits.minute
+        elif num_pumps > 0:
+            pump_rating = (design_flow_rate + bp_flow_rate) * (1 + pump_safety_factor) / num_pumps  # pyunits.gallons / pyunits.minute
+        max_cm_pump_size = 360  # * (pyunits.gallons / pyunits.hour) # The largest size for which costs are available.
+        if pump_rating == 0:
+            booster_pumps = 0
+            total_booster_pumps = 0
+        else:
+            booster_pumps = (design_flow_rate + bp_flow_rate) * (1 + pump_safety_factor) / pump_rating
+            total_booster_pumps = booster_pumps + num_redund_pumps
 
-        # MIN(MAX(average_flow_rate + bp_flow_rate * average_flow_rate / design_flow_rate, (design_flow_rate + bp_flow_rate) / 2) * (1 + pump_safety_factor), max_pump_size)), IF(lines_pump_I=0, 0, (
-        #             design_flow_rate + bp_flow_rate) * (1 + pump_safety_factor) / lines_pump_I))
-        back_pump_flow_total = backwash_flow * (1 + pump_safety_factor)  # * pyunits.gallon / pyunits.minute # backwash pumping flow needed
-        num_back_pumps = 2
-        back_pump_rating = back_pump_flow_total / (num_back_pumps - num_redund_back_pumps)  # * pyunits.gallons / pyunits.minute # backwash pump rating
-        ## ENERGY
+        back_pump_flow_total = water_flush * (1 + pump_safety_factor)  # * pyunits.gallon / pyunits.minute # backwash pumping flow needed
+        if not incl_backwash_pumps:
+            num_back_pumps = 0
+            back_pump_rating = 0
+        else:
+            num_back_pumps = back_pump_flow_total / max_pump_size + num_redund_back_pumps
+            back_pump_rating = back_pump_flow_total / (num_back_pumps - num_redund_back_pumps)  # * pyunits.gallons / pyunits.minute # backwash pump rating
+
+        if transfer_method == 'eductors':
+            transfer_rate = self.gac_each / transfer_time
+            max_eductor_size = 54 * gac_density / 7.48 * 60  # * (pyunits.lbs / pyunits.hour) # The largest size for which costs are available. Assumption used only if tanks are used.
+            eductors = (transfer_rate / max_eductor_size) + num_redund_eductors
+
+            # The regression for eductors is a linear regression made by fitting the following data to a linear trendline in Excel.
+            # Taken from 'Lookup Tables' sheet in the EPA GAC model 'wbs-gac-020818.xls'
+            #
+            # x = [0, 1673.459893, 3153.406417, 5343.245989, 7942.176471, 9434.15508, 12875.33155] # Transfer Rate (lbs/hr)
+            # y = [1.5, 2, 2.5, 3, 4, 6, 8] # Diameter (inch)
+            #
+            # y = m * x + b
+            # diameter = 0.0005 * transfer_rate + 0.9764
+            # R_squared = 0.9381
+
+            eductor_size = 0.0005 * transfer_rate + 0.9764  # * pyunits.inches # eductor size NEED TO LOOK UP IN eductor_size_table but don't know where that is
+
+        ########################################################
+        ########################################################
+        ############## RESIDUALS MANAGEMENT ##############
+        ########################################################
+        ########################################################
+
+        # discharge = ['surface_water', 'potw', 'recycle', 'septic', 'evaporation_pond']
+        discharge = 'surface_water'
+        holding_tank = True
+        res_cap_factor = 2  # Holding tank/basin capacity safety factor
+        dredging_freq = 1  # * pyunits.year * -1 # Evaporation pond solids removal frequency -- Range from 1 to 3 yrs, depending on the final solid concentration required and local climate (Dewatering Municipal Wastewater Sludge,EPA design Manual, Dewatering Municipal Wastewater Sludges.EPA/625/1-87/014, September 1987)
+        potw_tss_limit = 250  # * (pyunits.mg / pyunits.liter) # POTW TSS discharge limit (over which fee would be imposed) -- Most common limit for cities with a limit
+
+        ############## SPENT BACKWASH ##############
+        res_vol = total_backwash  # * pyunits.gallons # Single event volume -- backwashing one vessel
+
+        if system_type == 'pressure':
+            res_stagger_time = backwash_interval * 60 / self.tot_num_tanks  # * pyunits.minute # Time between events
+            res_flow_annual = res_vol * self.tot_num_tanks * (365 * 24 / backwash_interval)  # * pyunits.gallons # annual residuals discharge
+        elif system_type == 'gravity':
+            res_stagger_time = backwash_interval * 60 / self.tot_num_basins  # * pyunits.minute # Time between events
+            res_flow_annual = res_vol * self.tot_num_basins * (365 * 24 / backwash_interval)  # * pyunits.gallons # annual residuals discharge
+
+        if holding_tank or discharge == 'recycle':
+            res_flow_actual = res_vol / res_stagger_time  # * (pyunits.gallons / pyunits.minute) # Actual residuals discharge flow rate -- Accounts for flow equalization if holding tanks used
+            res_flow = res_cap_factor * res_vol / res_stagger_time
+        else:
+            res_flow_actual = res_vol / backwash_time  # * (pyunits.gallons / pyunits.minute) # Actual residuals discharge flow rate -- Accounts for flow equalization if holding tanks used
+            res_flow = res_flow_actual
+
+        ############## EVAPORATION POND OR HOLDING/SEPTIC TANK SOLIDS ##############
+        if discharge in ['septic', 'evaporation_pond']:
+            tss_in = pyunits.convert(self.conc_mass_in[time, 'tss'], to_units=(pyunits.mg / pyunits.liter))
+            tss_out = pyunits.convert(self.conc_mass_out[time, 'tss'], to_units=(pyunits.mg / pyunits.liter))
+            if system_type == 'pressure':
+                tss_residuals = (tss_in - tss_out) * average_flow * 1E6 * (backwash_interval / 24) / (res_vol * self.tot_num_tanks)  # * (pyunits.mg / pyunits.liter) # TSS in residuals
+            elif system_type == 'gravity':
+                tss_residuals = (tss_in - tss_out) * average_flow * 1E6 * (backwash_interval / 24) / (res_vol * self.tot_num_basins)  # * (pyunits.mg / pyunits.liter) # TSS in residuals
+            if discharge == 'evaporation_pond':
+                ep_solids = tss_residuals * res_flow_annual * 3.785 / 1000 / 453.59 / dredging_freq  # * pyunits.lbs # Evaporation pond TSS accumulation
+
+        ############## SPENT MEDIA ##############
+        disp_freq = 12 / self.bed_life  # times per year, replacement/disposal frequency
+        spent_media = self.gac_total / 2000  # * pyunits.tons # Spent media quantity (total per event)
+        spent_media_yr = spent_media * disp_freq  # * pyunits.tons # Spent media quantity (average per year)
+
+        ############## ::: CAPITAL ITEMS ::: ##############
+
+        ############## HOLDING TANKS (FOR FLOW EQUALIZATION) ##############
+        max_htank_size = 282094  # * pyunits.gallons # Maximum holding tank size -- The largest size for which costs are available.
+        # htanks = # number of holding tanks
+        # htank_vol = # * pyunits.gallons # Holding tank volume
+
+        ############## HOLDING BASINS (FOR FLOW EQUALIZATION) ##############
+
+        # holding_ratio = 0.6  # Holding basin depth to volume ratio --
+        # holding_freeboard = 3 # * pyunits.ft # holding basin freeboard
+        # hmix_hp_per = 0.25 # * (pyunits.hp / (1000 * pyunits.gallons)) # Holding tank/basin mixer horsepower (if coagulant is used)
+
+        # hbasin_redund = # number redundant holding basins
+        # hbasins = # number holding basins
+        # total_hvol_ft = res_cap_factor * res_vol * hbasin_redund / 7.48 # * pyunits.ft ** 3 # Total residuals storage volume in cubic feet
+        # hvol_ft = total_hvol_ft / hbasins # * pyunits.ft ** 3 # Total residuals storage volume in cubic feet
+        # hbasin_op_depth = hvol_ft ** (1 / 3) * holding_ratio # * pyunits.ft ** 3 # holding basin operating depth
+        # hbasin_width = (hvol_ft / hbasin_op_depth) ** 0.5 # * pyunits.ft # Holding basin width  ## NEEDS TO BE ROUNDED
+        # hbasin_length = hbasin_width # * pyunits.ft # Holding basin length
+        # hbasin_depth = hbasin_op_depth + holding_freeboard # * pyunits.ft # Holding basin depth including freeboard
+        # hbasin_vol = hbasin_width * hbasin_length * hbasin_depth * 7.48 # * pyunits.ft # Holding basin volume  ## NEEDS TO BE ROUNDED
+        # hconc_vol = (2 * (hbasin_width * hbasins + conc_thick * (hbasins + 1)) * hbasin_depth * conc_thick + (hbasins + 1) * hbasin_length * hbasin_depth * conc_thick + (
+        #             hbasin_length + 2 * conc_thick) * (hbasin_width * hbasins + conc_thick * (hbasins + 1)) * conc_thick) / 27 # * pyunits.yard ** 3 # Concrete volume
+        # hexcavation_vol = ((hbasins * hbasin_width + (hbasins + 1) * conc_thick + overexcavate) * (hbasin_length + 2 * conc_thick + overexcavate) * (hbasin_depth + conc_thick + overexcavate) + 0.5 * (
+        #             3 * (hbasin_depth + conc_thick + overexcavate) * (hbasin_depth + conc_thick + overexcavate) * (hbasin_length + 2 * conc_thick + overexcavate))) / 27 # * pyunits.yard ** 3 # Excavation volume
+        # hbackfill_vol = hexcavation_vol - (hbasins * hbasin_width + (hbasins + 1) * conc_thick) * (hbasin_length + 2 * conc_thick) * (hbasin_depth + conc_thick) / 27 # * pyunits.yard ** 3 # Backfill volume
+        # hrailing = 2 * (hbasins * hbasin_width + 2 * conc_thick / 2 + (hbasins - 1) * conc_thick) + 2 * (hbasin_length + 2 * conc_thick / 2) # * pyunits.ft # Railing length
+
+
+
+        ############## FERRIC CHLORIDE ADDITION ##############
+
+        ############## POLYMER ADDITION ##############
+
+        ############## SOLIDS TRANSFER FOR HOLDING TANKS ##############
+        # res_transfer_rate = res_solids * 2000 / htransfer_time # * (pyunits.lbs / pyunits.hr) # transfer rate required
+        # res_transfer_rate_gal = res_transfer_rate / (ht_solids_density / 7.48 * 60) # * (pyunits.gallons / pyunits.minute) # transfer rate in gpm
+        # res_slurry_pumps = 1 # number of slurry pump systems
+        # res_eductors = res_transfer_rate_gal / max_eductor_size # number of eductors
+        # res_eff_transfer_rate = res_transfer_rate_gal / res_eductors # * (pyunits.gallons / pyunits.minute) # Effective transfer rate
+        # res_eductor_size =
+
+
+
+        ############## SOLIDS DRYING PAD ##############
+        # solids_pad_area =
+        # solids_pad_concrete =
+
+        ############## SEPTIC SYSTEM ##############
+        # max_sept_tank_vol =
+        # num_sept_tanks =
+        # sept_tank_vol =
+        # sept_design_flow =
+        # sept_infil_area =
+        # sept_trench_bot_area =
+        # sept_trenches =
+        # sept_trench_I =
+        # sept_gravel_vol =
+        # sept_trench_excav_vol =
+        # sept_tank_side =
+        # sept_tank_excav_vol =
+        # sept_dist_boxes =
+        # sept_pipe_length =
+        # sept_fp =
+
+        ############## EVAPORATION POND ##############
+        # ep_total_sa =
+        # ep_solids_depth =
+        # ep_water_depth =
+        # ep_depth =
+        # ep_cells =
+        # ep_cell_side =
+        # ep_excavation_vol =
+        # ep_backfill_vol =
+        # dike_volume =
+        # liner_area =
+
+
+        ############## ::: O & M ITEMS ::: ##############
+
+        ############## PUMPS ##############
+
+        ############## COAGULANT USE ##############
+
+        ############## COAGULANT PURCHASING ##############
+
+        ############## POLYMER PURCHASING ##############
+
+        ############## POTW DISCHARGE FEES ##############
+        tss_residuals_dis = tss_residuals  # THERE IS MORE TO DETERMINING THIS VARIABLE BUT NOT SURE IF IT APPLIES
+        tss_test = ((tss_residuals_dis - potw_tss_limit) * res_flow_annual * 3.785 / 1000 / 453.59)
+        if tss_test > 0:
+            ex_tss_total = tss_test  # * (pyunits.lbs / pyunits.year) # Total TSS in excess of POTW limit (if applicable)
+        else:
+            ex_tss_total = 0  # * (pyunits.lbs / pyunits.year) # Total TSS in excess of POTW limit (if applicable)
+        # POTW_base_cost_avg_cl = 15.33 $/month
+        # POTW_base_cost_typ_cl = 17.25 $/month
+        # POTW_TSS_cost_avg_cl = 0.24 $/lb over limit
+        # POTW_TSS_cost_typ_cl = 0.41 $/lb over limit
+        # POTW_vol_cost_avg_cl = 4.33 $/ 1000 gallons
+        # POTW_vol_cost_typ_cl = 4.46 $/ 1000 gallons
+
+        potw_base = 17.25 * 12  # Annual POTW base fee $ / year
+        potw_vol = 0.41 * res_flow_annual / 1000  # Annnual POTW volume fee $ / year
+        potw_tss = 4.46 * ex_tss_total  # Annual POTW TSS fee $ / year
+        potw_fee = potw_base + potw_vol + potw_tss  # Total Annual POTW discharge fee $ / year
+
+        ############## SPENT MEDIA DISPOSAL FEES ##############
+        # Constants from cost lookup tables and inputs from input sheet or design assumptions
+        max_waste_ship = 18  # * pyunits.tons # Maximum waste shipment size
+        non_haz_miles = 10  # * pyunits.miles # Miles to non-hazardous solid waste disposal site
+        haz_miles = 200  # * pyunits.miles # Miles to hazardous solid waste disposal site
+        rad_miles = 700  # * pyunits.miles # Miles to radioactive non-hazardous solid waste disposal site
+        hazrad_miles = 700  # * pyunits.miles # Miles to radioactive hazardous solid waste disposal site
+
+        nonhaz_disposal_cost = 68.20  # $/ton Non-hazardous waste disposal
+        nonhaz_transportation_cost = 0.51  # $/ton*mile Non-hazardous waste transportation
+        haz_disposal_cost = 357.60  # $/ton Hazardous waste disposal
+        haz_trans_min_cost = 3067.09  # $/shipment Hazardous waste minimum charge per shipment
+        haz_transportation_cost = 0.11  # $/ton*mile Hazardous waste transportation
+        hazrad_annual_fee = 1585.06  # $/year Radioactive hazardous waste annual fee
+        hazrad_disposal_cost = 11043.39  # $/ton Radiactive hazardous waste disposal
+        hazrad_trans_min_cost = haz_trans_min_cost
+        hazrad_transportation_cost = 0.26  # $/ton*mile radiactive hazardous waste transportation
+        rad_annual_fee = hazrad_annual_fee  # $/year radiactive waste annual fee
+        rad_disposal_cost = 5145.16  # $/ton radiactive waste disposal
+        rad_transportation_cost = hazrad_transportation_cost  # $/ton*mile radioactive waste transportation
+        rad_trans_min_cost = hazrad_trans_min_cost
+
+        regen_list = ['onsite', 'offsite', 'throw_nonhaz', 'offsite_haz', 'throw_haz', 'throw_rad', 'throw_hazrad']
+
+        # 1 for regeneration onsite, 2 for regeneration off-site (non-hazardous), 3 for throwaway (non-hazardous), 4 for regeneration off-site (hazardous), 5 for throwaway (hazardous),
+        # 6 for throwaway (radioactive), 7 for throwaway (hazardous & radioactive)
+        if spent_media > max_waste_ship:
+            disposal_shipments = spent_media / max_waste_ship * disp_freq  # Shipments per year ##  NEEDS TO BE ROUNDED UP SOMEHOW
+        else:
+            disposal_shipments = disp_freq
+
+        if regen in ['onsite', 'offsite', 'offsite_haz']:
+            disposal = 0  # $/year -- cost for disposal
+            transport_unit = 0  # $/ton*mile -- transportation unit cost
+            transport_min = 0  # $/shipment -- transportation minimum charge per shipment
+            disposal_miles = 0  # miles -- transportation mileage
+        if regen == 'throw_nonhaz':
+            disposal = spent_media * disp_freq * nonhaz_disposal_cost  # $/year -- cost for disposal
+            transport_unit = nonhaz_transportation_cost  # $/ton*mile -- transportation unit cost
+            transport_min = 0  # $/shipment -- transportation minimum charge per shipment
+            disposal_miles = non_haz_miles  # miles -- transportation mileage
+        if regen == 'throw_haz':
+            disposal = spent_media * disp_freq * haz_disposal_cost  # $/year -- cost for disposal
+            transport_unit = haz_transportation_cost  # $/ton*mile -- transportation unit cost
+            transport_min = haz_trans_min_cost  # $/shipment -- transportation minimum charge per shipment
+            disposal_miles = haz_miles  # miles -- transportation mileage
+        if regen == 'throw_rad':
+            disposal = spent_media * disp_freq * rad_disposal_cost  # $/year -- cost for disposal
+            transport_unit = rad_transportation_cost  # $/ton*mile -- transportation unit cost
+            transport_min = rad_trans_min_cost  # $/shipment -- transportation minimum charge per shipment
+            disposal_miles = rad_miles  # miles -- transportation mileage
+        if regen == 'throw_hazrad':
+            disposal = spent_media * disp_freq * hazrad_disposal_cost  # $/year -- cost for disposal
+            transport_unit = hazrad_transportation_cost  # $/ton*mile -- transportation unit cost
+            transport_min = hazrad_trans_min_cost  # $/shipment -- transportation minimum charge per shipment
+            disposal_miles = hazrad_miles  # miles -- transportation mileage
+
+        transportation = max(disposal_shipments * transport_min, spent_media * disp_freq * disposal_miles * transport_unit)  # $ maximum transportation fee
+
+        if regen in ['onsite', 'offsite', 'throw_nonhaz', 'offsite_haz', 'throw_haz']:
+            disposal_fee = disposal + transportation  # $/year -- total annual spent media disposal fee
+        else:
+            disposal_fee = disposal + transportation + hazrad_annual_fee  # $/year -- total annual spent media disposal fee
+
+
+
+        ########################################################
+        ########################################################
+        ############## O & M ##############
+        ########################################################
+        ########################################################
+
+
+
+        ############## ENERGY ##############
+        # pump_hp =
+        # pump_energy =
+        #
+        # back_pump_psi =
+        # back_pump_hp =
+        # back_hrs_yr =
+        # back_pump_energy =
+
+        ############## REGEN ENERGY ##############
+        # regen_energy =
+        # regen_ng =
+        #
+
         pump_head = 44  # * pyunits.ft # pump head for booster pumps, can be adjusted by user input
         back_pump_head = 33  # * pyunits.ft # backwash pump head
         res_pump_psi = 25  # * pyunits.psi # residual pump head
@@ -618,7 +888,8 @@ see property package for documentation.}"""))
                         comp_max_vert_bed_depth = min(max_depth_a, max_depth_b)  # strictest max of the above, rounded
 
                         # vertical vessel diameter
-                        min_diam_a = 2 * ((comp_vol_required / num_tanks / 3.14159 / comp_max_vert_bed_depth / num_lines) ** 0.5 + vessel_thickness)  # min diam to avoid bed depth becoming too deep, given required volume
+                        min_diam_a = 2 * ((
+                                                      comp_vol_required / num_tanks / 3.14159 / comp_max_vert_bed_depth / num_lines) ** 0.5 + vessel_thickness)  # min diam to avoid bed depth becoming too deep, given required volume
                         min_diam_b = 2 * ((comp_min_sa_vessel / 3.14159) ** 0.5 + vessel_thickness)  # from min surface area
                         min_diam_c = 1.5  # from reasonable dimensions table
                         comp_min_vert_diam = 2 * max(min_diam_a, min_diam_b, min_diam_c), 0 / 2

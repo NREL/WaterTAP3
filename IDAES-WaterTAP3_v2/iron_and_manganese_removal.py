@@ -50,7 +50,7 @@ module_name = "iron_and_manganese_removal"
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2014
 
 
 # You don't really want to know what this decorator does
@@ -152,6 +152,7 @@ see property package for documentation.}"""))
         number_of_units = 6
         filter_surf_area = 580 * pyunits.m ** 2
         filter_surf_area = pyunits.convert(filter_surf_area, to_units=pyunits.ft ** 2)
+
         air_water_ratio = 0.001 * pyunits.dimensionless  # v / v
         air_flow_rate = air_water_ratio * cap_scaling_val
         # Assumes 3 stage compressor, 85% efficiency
@@ -159,11 +160,13 @@ see property package for documentation.}"""))
         blower_power = pyunits.convert(blower_power, to_units=pyunits.kilowatt)
         air_blower_cap = 100000  # fixed cost for air blower that should be changed
 
-        #### CHEMS ###
-
+        ### CHEMS ###
+        # self.dual_media_filter_cap = 21377 + 38.319 * self.filter_surf_area
+        # self.filter_backwash_cap = 92947 + 292.44 * self.filter_surf_area
+        # self.total_cap_cost = (((air_blower_cap + self.filter_backwash_cap + (self.dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
         chem_dict = {}
         self.chem_dict = chem_dict
-
+        # self.cap_scaling_factor = flow_in / cap_scaling_val
         ##########################################
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
@@ -173,7 +176,7 @@ see property package for documentation.}"""))
             filter_backwash_cap = 92947 + 292.44 * filter_surf_area
             total_cap_cost = (((air_blower_cap + filter_backwash_cap + (dual_media_filter_cap * number_of_units))) * tpec_tic) * 1E-6
             cap_scaling_factor = flow_in / cap_scaling_val
-            fe_mn_cap = (cap_scaling_factor * total_cap_cost) ** cap_scaling_exp
+            fe_mn_cap = total_cap_cost * cap_scaling_factor ** cap_scaling_exp
             return fe_mn_cap
 
         def electricity(flow_in):
