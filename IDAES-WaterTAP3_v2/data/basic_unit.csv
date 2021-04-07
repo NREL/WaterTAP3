@@ -13,7 +13,7 @@ bioreactor,45,1.25216,1,0,2018,flow
 bioreactor_bw_pump,15772.5491,4.488923561,0.8671,0.025599666,2018,flow
 bioreactor_effluent_pump,15772.5491,4.488923561,0.8671,0.025599666,2018,flow
 bioreactor_feed_pump,15772.5491,4.488923561,0.8671,0.025599666,2018,flow
-blending_reservoir,50000,2,0.7,0,2002,flow
+blending_reservoir,50000,2,0.7,0,2020,flow
 brine_concentrator_crystallizer,110407.8437,26.25096826,0.8419,0,2014,flow
 brine_ro,3125,84.5,0.718,0.83068,2007,flow
 buffer_tank,29526.20883,1,0.7,0,2019,flow
@@ -53,7 +53,7 @@ injection_well_disposal,473.176473,22.5,0.7,0.409594654,2011,flow
 injection_well_treat,2271.246833,3,0.7,0,2019,flow
 injection_well_use,473.176473,22.5,0.7,0,2011,flow
 intrusion_mitigation,4750,44.6,1,0.051199332,1998,flow
-irrigation,15772.5491,7.381985478,0.8657,0,2020,flow
+irrigation,15772.5491,7.381985478,0.8657,0.051199332,2020,flow
 irwin_brackish,100000,2,0.7,0,2020,flow
 irwin_brine,100000,2,0.7,0,2020,flow
 irwin_brine_management,9463.52946,35,0.7,0,2016,mass
@@ -66,7 +66,8 @@ mining,15772.5491,7.381985478,0.8657,0.051,2020,flow
 municipal_wwtp,100000,1,0.7,0,2020,mass
 nano_filtration,4731.764235,75,1,0.231344952,2014,flow
 oil_and_gas,15772.5491,7.381985478,0.8657,0.307,2020,flow
-onsite_storage,1314,6.8784383,0.72,0,1998,flow
+onsite_storage,50000,2,0.7,0,2018,flow
+onsite_storage_old,1314,6.8784383,0.72,0,1998,flow
 primary_separator,5450,0.603553383,0.3182,0,2015,flow
 pumping_station,15772.5491,4.488923561,0.8671,0,2020,flow
 raw_water_pump1,15772.5491,4.488923561,0.8671,0.025599666,2018,flow
