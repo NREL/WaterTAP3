@@ -123,7 +123,7 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
         # system_type = unit_params
         # ebct_init = Block()
-        self.ebct = Var(time, initialize=5, domain=NonNegativeReals, bounds=(0.1, 20), units=pyunits.minutes, doc="ebct")
+        self.ebct = Var(time, initialize=5, domain=NonNegativeReals, bounds=(0.1, 100), units=pyunits.minutes, doc="ebct")
         self.ebct.fix(unit_params['ebct'])
 
         flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.Mgallons / pyunits.day)
@@ -277,11 +277,11 @@ see property package for documentation.}"""))
         ########################################################
 
         ############## FROM INPUTS ##############
-        self.design_flow = flow_in  # * (pyunits.gallon / pyunits.day) # MGD
+        #self.design_flow = flow_in  # * (pyunits.gallon / pyunits.day) # MGD
         average_flow = (1 - bp_pct) * flow_in  # MGD
-        self.design_flow_rate = pyunits.convert(self.design_flow, to_units=(pyunits.gallon / pyunits.min))
+        design_flow_rate = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallon / pyunits.min))
         average_flow_rate = average_flow * 1E6 / (24 * 60)  ## convert to gpm .convert(design_flow, to_units=* (pyunits.gallon / pyunits.min)
-        bp_flow_rate = bp_pct / (1 - bp_pct) * self.design_flow_rate
+        bp_flow_rate = bp_pct / (1 - bp_pct) * design_flow_rate
         contam = 'SO4'  # targeted contaminant; SO4, NO3, or other
 
         num_tanks = 1  # minimum number of vessels in series
@@ -331,7 +331,7 @@ see property package for documentation.}"""))
         media_vol_gal = self.media_volume * 7.48  # converting from ft3 to gallons
         media_per_vessel = self.media_volume * media_density  # * pyunits.lbs  # resin mass per vessel
         media_volume_expanded = self.media_volume * (1 + bed_expansion)  # ft3 - resin volume when expanded
-        self.num_treat_lines = self.design_flow_rate / self.flow_per_vessel  # * pyunits.dimensionless # number of treatment trains
+        self.num_treat_lines = design_flow_rate / self.flow_per_vessel  # * pyunits.dimensionless # number of treatment trains
         self.num_redund_vessels = self.num_treat_lines / redund_freq  # number redundant vessles # NEED TO FIGURE OUT HOW TO CALCULATE DYNAMICALLY
 
         # self.num_treat_lines = 1  # need to determine dynamically; see above line
@@ -339,9 +339,9 @@ see property package for documentation.}"""))
         self.final_num_tanks = self.op_num_tanks + self.num_redund_vessels  # * pyunits.dimensionless # total number of vessels needed
         total_media = media_per_vessel * self.final_num_tanks  # lbs - total mass of resin needed
 
-        contact_material = self.design_flow_rate * self.ebct[t] / 7.481  # * pyunits.ft**3 # vol resin needed
+        contact_material = design_flow_rate * self.ebct[t] / 7.481  # * pyunits.ft**3 # vol resin needed
 
-        resin_load_rate = (self.design_flow_rate / self.num_treat_lines) / comm_sa  # gpm / ft2 - final surface loading rate
+        resin_load_rate = (design_flow_rate / self.num_treat_lines) / comm_sa  # gpm / ft2 - final surface loading rate
         contact_mat_per_vessel = contact_material / self.op_num_tanks  # * pyunits.ft**3 # minimum resin per vessel
         vol_vessel = contact_mat_per_vessel * (1 + bed_expansion)  # * pyunits.ft**3 # minimum vessel vol
         resin_surf_area = contact_mat_per_vessel / bed_depth  # * pyunits.ft**2 # resin surface area
@@ -523,14 +523,14 @@ see property package for documentation.}"""))
         lb_naoh_store = lb_naoh_day * cstore_days  # * pyunits.lbs #
         gal_naoh_day = lb_naoh_day / caustic_conc_lb  # * pyunits.gal # Gallons of NaOH needed per day
         gal_naoh_store = lb_naoh_store / caustic_conc_lb  # # * pyunits.gal # Gallons of NaOH needed in storage
-        des_naoh_flow = gal_naoh_day / 24 * self.design_flow / average_flow  # Max NaOH flow (based on design flow)
+        des_naoh_flow = gal_naoh_day / 24 * flow_in / average_flow  # Max NaOH flow (based on design flow)
         naoh_spgr = 1.525  # NaOH solution specific gravity
         naoh_lbs = gal_naoh_store * naoh_spgr * 8.345  # Total weight of bulk NaOH solution in storage
 
         ############## FROM INPUTS ##############
         naoh_tanks = gal_naoh_store / max_chem_tank_size
         naoh_tank_vol = gal_naoh_store / naoh_tanks # * pyunits.gallons
-        day_tank_vol_needed = 3.7854 * naoh_tot * 2.2 * self.design_flow / caustic_conc_lb # * pyunits.gallons
+        day_tank_vol_needed = 3.7854 * naoh_tot * 2.2 * flow_in / caustic_conc_lb # * pyunits.gallons
         if value(day_tank_vol_needed < day_tank_needed):
             day_tanks = 0
             day_tank_vol = 0

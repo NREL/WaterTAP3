@@ -32,7 +32,8 @@ import pyomo.environ as env
 
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
-                  objective=False, max_attemps = 3, initialize_flow = 5, skip_small = True, return_solution = False):
+                  objective=False, max_attemps = 3, initialize_flow = 5, skip_small = True, return_solution = False,
+                 sensitivity_flow = None):
     
    
     # if flow is small it resets the flow to any inlet as 2 m3/s 
@@ -48,9 +49,13 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
                               objective=False, max_attemps = 1)
 
             print("Model finished running to initialize conditions. Now running with actual flow...\n")
+            
             for key in m.fs.flow_in_dict.keys():
-                getattr(m.fs, key).flow_vol_in.fix(m.fs.flow_in_dict[key])
-
+                if sensitivity_flow is None:
+                    getattr(m.fs, key).flow_vol_in.fix(m.fs.flow_in_dict[key])
+                else:
+                    getattr(m.fs, key).flow_vol_in.fix(sensitivity_flow[key])
+                    
             run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
                               objective=objective, max_attemps = max_attemps)
         
@@ -470,7 +475,7 @@ def print_ro_results(m):
             #print(f'\tPressure drop for {key}: {getattr(m.fs, key).pressure_drop[0]()}') 
 
             
-def run_ro_no_freedom(m):
+def run_ro_no_freedom(m, skip_small=True):
 
     # store RO variables
     ro_stash = {}
@@ -490,21 +495,21 @@ def run_ro_no_freedom(m):
         if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
             getattr(m.fs, key).feed.pressure.unfix()
             getattr(m.fs, key).membrane_area.unfix()
-            getattr(m.fs, key).a.fix(ro_stash[key]["a"])
-            getattr(m.fs, key).b.fix(ro_stash[key]["b"])
             print("Unfixing feed presure and area for", key, '...\n')
     
 #     #set_bounds(m)
-    run_water_tap(m=m, objective=True, skip_small=True)
 
+    run_water_tap(m=m, objective=True, skip_small=skip_small)
+    
     # set variables so that degrees of freedom is zero
     for key in m.fs.pfd_dict.keys():
         if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
             getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
             getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
-            
+            getattr(m.fs, key).a.fix(ro_stash[key]["a"])
+            getattr(m.fs, key).b.fix(ro_stash[key]["b"])            
     # run model to make sure it  works
-    run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=True)
+    run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=skip_small)
 
     print_ro_results(m)
     
@@ -516,8 +521,10 @@ def set_bounds(m):
     # add more reasonable flux constraints --> THIS CAN AFFECT WATER RECOVERY! MAY NEED TO ADJUST TO NOT OVER CONSTRAIN.
     # A AND B ARE TYPICALLY AT THEIR MAX
     feed_flux_max = 35 #lmh
-    a = [2, 7]
+    a = [2.1, 7]
     max_pressure = 85
+    min_area = 100
+    min_pressure = 5
 
     q=1
     for key in m.fs.pfd_dict.keys():
@@ -527,11 +534,18 @@ def set_bounds(m):
                 expr=getattr(m.fs, key).pure_water_flux[0] * 3600 <= feed_flux_max)
                    )
             q = q + 1
-
+            
             setattr(m, ("flux_constraint%s" % q), Constraint(
-                expr=getattr(m.fs, key).feed.pressure[0] <= max_pressure)
+                expr=getattr(m.fs, key).membrane_area[0] >= min_area)
                    )
-            q = q + 1        
+            q = q + 1
+            
+            if m.fs.pfd_dict[key]["Parameter"]["pump"] == "yes":
+            
+                setattr(m, ("flux_constraint%s" % q), Constraint(
+                    expr=getattr(m.fs, key).feed.pressure[0] <= max_pressure)
+                       )
+                q = q + 1        
 
             setattr(m.fs, ("flux_constraint%s" % q), Constraint(
                 expr=getattr(m.fs, key).a[0] <= a[1])
