@@ -218,7 +218,7 @@ def build_up(self, up_name_test=None):
                                 units=pyunits.dimensionless,
                                 doc="Component removal fraction")
 
-    special_list = ["reverse_osmosis", "anion_exchange_epa"]
+    special_list = ["reverse_osmosis"] #, "anion_exchange_epa"]
     if up_name_test not in special_list:
         
         if up_name_test is not "ro_deep":
@@ -234,10 +234,12 @@ def build_up(self, up_name_test=None):
             def waste_pressure_constraint(b, t):
                 return (b.pressure_in[t] + b.deltaP_waste[t] ==
                         b.pressure_waste[t])
-
-        @self.Constraint(time, doc="Water recovery equation")
-        def recovery_equation(b, t):
-            return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
+        
+        if up_name_test is not "anion_exchange_epa":
+        
+            @self.Constraint(time, doc="Water recovery equation")
+            def recovery_equation(b, t):
+                return b.water_recovery[t] * b.flow_vol_in[t] == b.flow_vol_out[t]
         
         # Next, add constraints linking these
         @self.Constraint(time, doc="Overall flow balance")
