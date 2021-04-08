@@ -217,9 +217,9 @@ def build_up(self, up_name_test=None):
                                 initialize=0.01, #TODO: NEEDS TO BE DIFFERENT?
                                 units=pyunits.dimensionless,
                                 doc="Component removal fraction")
-    
-   
-    if up_name_test is not "reverse_osmosis":
+
+    special_list = ["reverse_osmosis", "anion_exchange_epa"]
+    if up_name_test not in special_list:
         
         if up_name_test is not "ro_deep":
             

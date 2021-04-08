@@ -163,9 +163,84 @@ see property package for documentation.}"""))
                       'styrenic_macro_1' : 207, 
                       'styrenic_macro_2' : 221, 
                       'polyacrylic' : 245, 
-                      'nitrate': 173} 
-        
-        self.resin_cost = Var(time, initialize=100, domain=NonNegativeReals, bounds=(0, 500), doc="lookupvalue") 
+                      'nitrate': 173}
+
+        self.anion_res_capacity = Var(time, initialize=10, domain=NonNegativeReals, bounds=(1, 40), doc="anion exchange resin capacity")  # anion exchange capacity -- kgr/ft3
+
+        self.cation_res_capacity = Var(time, initialize=10, domain=NonNegativeReals, bounds=(1, 40), doc="cation exchange resin capacity")  # cation exchange capacity -- kgr/ft3
+
+        self.mass_tds_in = self.conc_mass_in[t, 'tds'] * 0.0584  # mass TDS in converted to gr/gal
+
+        self.target_tds_removal = Var(time, initialize=0.99, domain=NonNegativeReals, bounds=(0.001, 0.9999), doc="mass removal fraction")
+        self.target_tds_removal.fix(0.99999)
+
+        # self.mass_removed = self.mass_tds_in * self.removal_fraction * 1000  # mass to be removed in kgr/ft3
+        self.mass_removed = Var(time, initialize=70, bounds=(1, 150), domain=NonNegativeReals, doc="mass removed")
+
+        self.rinse_volume = Var(time, initialize=70, bounds=(1, 150), domain=NonNegativeReals, doc="rinse volume for anion exchange resin") # gal/ft3 resin
+        self.rinse_volume.fix(70)
+        self.anion_resin_volume = Var(time, initialize=10, domain=NonNegativeReals, doc="anion exchange resin volume") # ft3
+        self.cation_resin_volume = Var(time, initialize=10, domain=NonNegativeReals, doc="cation exchange resin volume") # ft3
+
+        self.anion_rinse_flow = Var(time, initialize=10, domain=NonNegativeReals, doc="anion exchange rinse flow") #gal/day
+
+        self.anion_rinse_solids = Var(time, initialize=10, domain=NonNegativeReals, doc="additional cations from anion rinse volume")
+        self.an_vol_per_unit = Var(time, initialize=10, domain=NonNegativeReals, doc="additional cations from anion rinse volume") # anion exchange resin per unit
+        self.cat_vol_per_unit = Var(time, initialize=10, domain=NonNegativeReals, doc="additional cations from anion rinse volume") # cation exchange resin per unit
+        flow_in_gal_day = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.gallons / pyunits.day)
+        flow_out_gal_day = pyunits.convert(self.flow_vol_out[t], to_units=pyunits.gallons / pyunits.day)
+        self.num_ix_units_op = Var(time, initialize=3, domain=NonNegativeReals, doc="number of IX operating units") ## NEEDS TO BE IN INTEGERS operational units
+        self.num_ix_units_tot = Var(time, initialize=3, domain=NonNegativeReals, doc="number of IX total units") ## NEEDS TO BE IN INTEGERS total units (op - 1)
+        self.loading_rate = Var(time, initialize=5, bounds=(4, 15), doc='loading rate') # gpm/ft2
+        self.an_load_per_unit = Var(time, initialize=5, bounds=(4, 15), doc='an loading rate')
+        self.cat_load_per_unit = Var(time, initialize=5, bounds=(4, 15), doc='cat loading rate')
+
+        self.an_tank_diam = Var(time, initialize=5, bounds=(4, 15), doc='an tank diam')
+        self.an_tank_depth = Var(time, initialize=5, bounds=(1, 10), doc='tank depth')
+
+        self.cat_tank_diam = Var(time, initialize=5, bounds=(4, 15), doc='cat tank diam')
+        self.cat_tank_depth = Var(time, initialize=5, bounds=(1, 10), doc='tank depth')
+
+        self.flow_constr = Constraint(expr=flow_out_gal_day == flow_in_gal_day -  self.anion_rinse_flow[t])
+
+        self.mass_removed.fix(value(1000 * self.mass_tds_in * self.target_tds_removal[t] * flow_in_gal_day))
+        # self.mass_removed_constr = Constraint(expr=self.mass_removed[t] == 1000 * self.mass_tds_in * self.target_tds_removal[t] * flow_in_gal_day) # mass removed kgr/day
+
+
+
+
+        self.an_res_vol_constr = Constraint(expr=self.anion_resin_volume[t] * self.anion_res_capacity[t] == self.mass_removed[t]) # ft3/day
+        self.cat_res_vol_constr = Constraint(expr=self.cation_resin_volume[t] * self.cation_res_capacity[t] == self.mass_removed[t] + self.anion_rinse_solids[t]) # ft3/day
+        self.an_rins_vol_constr = Constraint(expr=self.anion_rinse_flow[t] == self.anion_resin_volume[t] * self.rinse_volume[t]) # gal/day
+        self.an_rinse_solids_constr = Constraint(expr=self.anion_rinse_solids[t] == self.anion_rinse_flow[t] * self.mass_removed[t]) # Kgr/day
+        self.num_units_constr = Constraint(expr=self.num_ix_units_op[t] == self.num_ix_units_tot[t] - 1) # number operating units is one less than total units -- assume one is offline at all times for
+        # regeneration
+        self.an_vol_per_unit_constr = Constraint(expr=self.an_vol_per_unit[t] == self.anion_resin_volume[t] / self.num_ix_units_op[t])
+        self.cat_vol_per_unit_constr = Constraint(expr=self.cat_vol_per_unit[t] == self.cation_resin_volume[t] / self.num_ix_units_op[t])
+
+        self.an_loading_constr = Constraint(expr=self.an_load_per_unit[t]  == (self.an_vol_per_unit[t] / 1440) / self.loading_rate[t])
+        self.cat_loading_constr = Constraint(expr=self.cat_load_per_unit[t] == (self.cat_vol_per_unit[t] / 1440) / self.loading_rate[t])
+
+        self.an_tank_diam_constr = Constraint(expr=2 * ((self.an_load_per_unit[t] * 1.5) / 3.14159) ** 0.5 == self.an_tank_diam[t])
+        self.an_tank_depth_constr = Constraint(expr=self.an_vol_per_unit[t] / (self.an_load_per_unit[t] * 1.5) == self.an_tank_depth[t])
+
+        self.cat_tank_diam_constr = Constraint(expr=2 * ((self.cat_load_per_unit[t] * 1.5) / 3.14159) ** 0.5 == self.cat_tank_diam[t])
+        self.cat_tank_depth_constr = Constraint(expr=self.cat_vol_per_unit[t] / (self.cat_load_per_unit[t] * 1.5) == self.cat_tank_depth[t])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        self.resin_cost = Var(time, initialize=100, domain=NonNegativeReals, bounds=(0, 500), doc="lookupvalue")
         
         self.resin_cost.fix(self.resin_dict[self.resin_name])
                 
@@ -449,94 +524,94 @@ see property package for documentation.}"""))
         ############## FROM INPUTS ##############
         # ph_in = self.conc_mass_in[t, 'ph_min']
         # ph_out = self.conc_mass_out[t, 'ph_min']
-        self.alk_in = pyunits.convert(self.conc_mass_in[t, 'alkalinity_as_caco3'], to_units=(pyunits.mg / pyunits.liter))  # mg / L as CaCO3
-        # self.alk_in = 25
-        tds_in = self.conc_mass_in[t, 'tds']  # * (pyunits.mg / pyunits.liter)
-        temp_in = self.temperature_in[t] # * pyunits.celcius
-        # tds_in = 200
-        # temp_in = 283
-        naoh_soln = 0.5  # * pyunits.dimensionless # Sodium hydroxide weight percent as delivered
-        day_tank_needed = 5  # * pyunits.gallons
-
-        ionic_strength = tds_in / 40000  # mol / L # 40,000 converts TDS to ionic strength, Equation 4, Trussell 1998
-        temp_var = temp_in - 298  # * pyunits.celcius # For use in Equation S14, Trussell 1998
-        self.dielectric = 78.54 * (1 - 0.004579 * temp_var + 0.0000119 * temp_var ** 2 + 0.000000028 * temp_var ** 3)
-        # temp_in = temp_in + 273.13  # convert from C to K
-        self.a_slope = 1290000 * ((2 ** 0.5 / (self.dielectric * temp_in) ** 1.5))  # Equation S13, Trussell 1998
-        log_gamma_1 = self.a_slope * 1 ** 2 * ((ionic_strength ** 0.5) / (1 + (ionic_strength ** 0.5)) - 0.3 * ionic_strength)  # Modified Davies equation, Equation S12, Trussell 1998
-        log_gamma_2 = self.a_slope * 2 ** 2 * ((ionic_strength ** 0.5) / (1 + (ionic_strength ** 0.5)) - 0.3 * ionic_strength)  # Modified Davies equation, Equation S12, Trussell 1998
-        self.gamma_1 = 10 ** (- log_gamma_1)
-        gamma_2 = 10 ** (- log_gamma_2)
-
-        # From Table 2, Trussell 1998
-        # From "Lookup Tables" tab in EPA excel model
-
-        # H2O <-> OH- + H+, Kw
-        kw_a1 = -6.088
-        kw_a2 = 4471
-        kw_a4 = 0.01706
-
-        # H2CO3 <-> HCO3- + H+, K1
-        k1_a1 = 356.309
-        k1_a2 = -21834.4
-        k1_a3 = -126.834
-        k1_a4 = 0.06092
-        k1_a5 = 1685915
-
-        # HCO3- <-> CO32- + H+, K2
-        k2_a1 = 107.887
-        k2_a2 = -5151.8
-        k2_a3 = -38.926
-        k2_a4 = 0.032528
-        k2_a5 = 563713.9
-
-        pk1 = k1_a1 + k1_a2 / temp_in + k1_a3 * log10(temp_in) + k1_a4 * temp_in + k1_a5 / temp_in ** 2  # Equilibrium constant for carbonic acid (H2CO3) (-log form)
-        pk2 = k2_a1 + k2_a2 / temp_in + k2_a3 * log10(temp_in) + k2_a4 * temp_in + k2_a5 / temp_in ** 2  # Equilibrium constant for bicarbonate (HCO3-) (-log form)
-        pkw = kw_a1 + kw_a2 / temp_in + kw_a4 * temp_in  # Equilibrium constant for water (H2O) (-log form)
-
-        k1 = 10 ** (-pk1)
-        k2 = 10 ** (-pk2)
-        kw = 10 ** (-pkw)
-
-        self.t1_in = self.gamma_1 * 10 ** -self.ph_in / k1
-        self.t2_in = (self.gamma_1 * k2) / (gamma_2 * 10 ** -self.ph_in )
-        self.t3_in = self.alk_in / 50000
-        self.t4_in = kw / (self.gamma_1 * 10 ** -self.ph_in )
-        self.t5_in = 10 ** -self.ph_in  / self.gamma_1
-        self.t6_in = (2 * k2 * self.gamma_1) / (gamma_2 * 10 ** -self.ph_in )
-
-        ct_in = (1 + self.t1_in + self.t2_in) * ((self.t3_in - self.t4_in + self.t5_in) / (1 + self.t6_in))
-
-        t1_f = (2 * k2 * self.gamma_1) / (gamma_2 * 10 ** -self.ph_out)
-        t2_f = (self.gamma_1 * 10 ** -self.ph_out) / k1
-        t3_f = (self.gamma_1 * k2) / (gamma_2 * 10 ** -self.ph_out)
-        t4_f = kw / (self.gamma_1 * 10 ** -self.ph_out)
-        t5_f = 10 ** -self.ph_out / self.gamma_1
-
-        self.alk_f = 50000 * ((ct_in * (1 + t1_f)) / (1 + t2_f + t3_f) + t4_f - t5_f)  # mg/L as CaCO3 -- Equation 17, Najm 2001, where 50,000 converts eq/L to mg/L
-        # self.conc_mass_out[t, 'alkalinity_as_caco3'] = self.alk_f
-        oh_tot = (self.alk_f - self.alk_in) / 50000  # mol/L -- Equation 20, Najm 2001, where 50,000 converts from mg/L to mol/L
-
-        naoh_tot = 39.997 * oh_tot * 1000
-        caustic_conc_lb = 6.364  # * (pyunits.lbs / pyunits.gal)
-        lb_naoh_day = 1000000 * 3.7854 * naoh_tot * 2.2 * average_flow / 1000000  # * pyunits.lbs # Pounds of pure NaOH needed per day
-        lb_naoh_store = lb_naoh_day * cstore_days  # * pyunits.lbs #
-        gal_naoh_day = lb_naoh_day / caustic_conc_lb  # * pyunits.gal # Gallons of NaOH needed per day
-        gal_naoh_store = lb_naoh_store / caustic_conc_lb  # # * pyunits.gal # Gallons of NaOH needed in storage
-        des_naoh_flow = gal_naoh_day / 24 * flow_in / average_flow  # Max NaOH flow (based on design flow)
-        naoh_spgr = 1.525  # NaOH solution specific gravity
-        naoh_lbs = gal_naoh_store * naoh_spgr * 8.345  # Total weight of bulk NaOH solution in storage
+        # self.alk_in = pyunits.convert(self.conc_mass_in[t, 'alkalinity_as_caco3'], to_units=(pyunits.mg / pyunits.liter))  # mg / L as CaCO3
+        # # self.alk_in = 25
+        # tds_in = self.conc_mass_in[t, 'tds']  # * (pyunits.mg / pyunits.liter)
+        # temp_in = self.temperature_in[t] # * pyunits.celcius
+        # # tds_in = 200
+        # # temp_in = 283
+        # naoh_soln = 0.5  # * pyunits.dimensionless # Sodium hydroxide weight percent as delivered
+        # day_tank_needed = 5  # * pyunits.gallons
+        #
+        # ionic_strength = tds_in / 40000  # mol / L # 40,000 converts TDS to ionic strength, Equation 4, Trussell 1998
+        # temp_var = temp_in - 298  # * pyunits.celcius # For use in Equation S14, Trussell 1998
+        # self.dielectric = 78.54 * (1 - 0.004579 * temp_var + 0.0000119 * temp_var ** 2 + 0.000000028 * temp_var ** 3)
+        # # temp_in = temp_in + 273.13  # convert from C to K
+        # self.a_slope = 1290000 * ((2 ** 0.5 / (self.dielectric * temp_in) ** 1.5))  # Equation S13, Trussell 1998
+        # log_gamma_1 = self.a_slope * 1 ** 2 * ((ionic_strength ** 0.5) / (1 + (ionic_strength ** 0.5)) - 0.3 * ionic_strength)  # Modified Davies equation, Equation S12, Trussell 1998
+        # log_gamma_2 = self.a_slope * 2 ** 2 * ((ionic_strength ** 0.5) / (1 + (ionic_strength ** 0.5)) - 0.3 * ionic_strength)  # Modified Davies equation, Equation S12, Trussell 1998
+        # self.gamma_1 = 10 ** (- log_gamma_1)
+        # gamma_2 = 10 ** (- log_gamma_2)
+        #
+        # # From Table 2, Trussell 1998
+        # # From "Lookup Tables" tab in EPA excel model
+        #
+        # # H2O <-> OH- + H+, Kw
+        # kw_a1 = -6.088
+        # kw_a2 = 4471
+        # kw_a4 = 0.01706
+        #
+        # # H2CO3 <-> HCO3- + H+, K1
+        # k1_a1 = 356.309
+        # k1_a2 = -21834.4
+        # k1_a3 = -126.834
+        # k1_a4 = 0.06092
+        # k1_a5 = 1685915
+        #
+        # # HCO3- <-> CO32- + H+, K2
+        # k2_a1 = 107.887
+        # k2_a2 = -5151.8
+        # k2_a3 = -38.926
+        # k2_a4 = 0.032528
+        # k2_a5 = 563713.9
+        #
+        # pk1 = k1_a1 + k1_a2 / temp_in + k1_a3 * log10(temp_in) + k1_a4 * temp_in + k1_a5 / temp_in ** 2  # Equilibrium constant for carbonic acid (H2CO3) (-log form)
+        # pk2 = k2_a1 + k2_a2 / temp_in + k2_a3 * log10(temp_in) + k2_a4 * temp_in + k2_a5 / temp_in ** 2  # Equilibrium constant for bicarbonate (HCO3-) (-log form)
+        # pkw = kw_a1 + kw_a2 / temp_in + kw_a4 * temp_in  # Equilibrium constant for water (H2O) (-log form)
+        #
+        # k1 = 10 ** (-pk1)
+        # k2 = 10 ** (-pk2)
+        # kw = 10 ** (-pkw)
+        #
+        # self.t1_in = self.gamma_1 * 10 ** -self.ph_in / k1
+        # self.t2_in = (self.gamma_1 * k2) / (gamma_2 * 10 ** -self.ph_in )
+        # self.t3_in = self.alk_in / 50000
+        # self.t4_in = kw / (self.gamma_1 * 10 ** -self.ph_in )
+        # self.t5_in = 10 ** -self.ph_in  / self.gamma_1
+        # self.t6_in = (2 * k2 * self.gamma_1) / (gamma_2 * 10 ** -self.ph_in )
+        #
+        # ct_in = (1 + self.t1_in + self.t2_in) * ((self.t3_in - self.t4_in + self.t5_in) / (1 + self.t6_in))
+        #
+        # t1_f = (2 * k2 * self.gamma_1) / (gamma_2 * 10 ** -self.ph_out)
+        # t2_f = (self.gamma_1 * 10 ** -self.ph_out) / k1
+        # t3_f = (self.gamma_1 * k2) / (gamma_2 * 10 ** -self.ph_out)
+        # t4_f = kw / (self.gamma_1 * 10 ** -self.ph_out)
+        # t5_f = 10 ** -self.ph_out / self.gamma_1
+        #
+        # self.alk_f = 50000 * ((ct_in * (1 + t1_f)) / (1 + t2_f + t3_f) + t4_f - t5_f)  # mg/L as CaCO3 -- Equation 17, Najm 2001, where 50,000 converts eq/L to mg/L
+        # # self.conc_mass_out[t, 'alkalinity_as_caco3'] = self.alk_f
+        # oh_tot = (self.alk_f - self.alk_in) / 50000  # mol/L -- Equation 20, Najm 2001, where 50,000 converts from mg/L to mol/L
+        #
+        # naoh_tot = 39.997 * oh_tot * 1000
+        # caustic_conc_lb = 6.364  # * (pyunits.lbs / pyunits.gal)
+        # lb_naoh_day = 1000000 * 3.7854 * naoh_tot * 2.2 * average_flow / 1000000  # * pyunits.lbs # Pounds of pure NaOH needed per day
+        # lb_naoh_store = lb_naoh_day * cstore_days  # * pyunits.lbs #
+        # gal_naoh_day = lb_naoh_day / caustic_conc_lb  # * pyunits.gal # Gallons of NaOH needed per day
+        # gal_naoh_store = lb_naoh_store / caustic_conc_lb  # # * pyunits.gal # Gallons of NaOH needed in storage
+        # des_naoh_flow = gal_naoh_day / 24 * flow_in / average_flow  # Max NaOH flow (based on design flow)
+        # naoh_spgr = 1.525  # NaOH solution specific gravity
+        # naoh_lbs = gal_naoh_store * naoh_spgr * 8.345  # Total weight of bulk NaOH solution in storage
 
         ############## FROM INPUTS ##############
-        naoh_tanks = gal_naoh_store / max_chem_tank_size
-        naoh_tank_vol = gal_naoh_store / naoh_tanks # * pyunits.gallons
-        day_tank_vol_needed = 3.7854 * naoh_tot * 2.2 * flow_in / caustic_conc_lb # * pyunits.gallons
-        if value(day_tank_vol_needed < day_tank_needed):
-            day_tanks = 0
-            day_tank_vol = 0
-        else:
-            day_tanks = day_tank_vol_needed / max_chem_tank_size
-            day_tank_vol = day_tank_vol_needed / day_tanks # * pyunits.gallons
+        # naoh_tanks = gal_naoh_store / max_chem_tank_size
+        # naoh_tank_vol = gal_naoh_store / naoh_tanks # * pyunits.gallons
+        # day_tank_vol_needed = 3.7854 * naoh_tot * 2.2 * flow_in / caustic_conc_lb # * pyunits.gallons
+        # if value(day_tank_vol_needed < day_tank_needed):
+        #     day_tanks = 0
+        #     day_tank_vol = 0
+        # else:
+        #     day_tanks = day_tank_vol_needed / max_chem_tank_size
+        #     day_tank_vol = day_tank_vol_needed / day_tanks # * pyunits.gallons
 
         # _______________________________________________________  # _______________________________________________________  ############## ACTUALLY CALCULATING COST ##############  # _______________________________________________________  # _______________________________________________________
 
@@ -556,20 +631,20 @@ see property package for documentation.}"""))
             pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', self.comm_vol_gal)  # cost of carbon steel pressure vessels with plastic internals
             pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', self.comm_vol_gal)  # cost of fiberglass pressure vessels
             if pv_material == 'stainless':
-                pv_cost = pv_ss_cost * self.final_num_tanks
+                pv_cost = pv_ss_cost * self.num_ix_units_tot[t]
             if pv_material == 'carbon with stainless':
-                pv_cost = pv_cs_cost * self.final_num_tanks
+                pv_cost = pv_cs_cost * self.num_ix_units_tot[t]
             if pv_material == 'carbon with plastic':
-                pv_cost = pv_csp_cost * self.final_num_tanks
+                pv_cost = pv_csp_cost * self.num_ix_units_tot[t]
             if pv_material == 'fiberglass':
-                pv_cost = pv_fg_cost * self.final_num_tanks
+                pv_cost = pv_fg_cost * self.num_ix_units_tot[t]
 #             resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate']
             
     
             ### RESIN COST ##
             # Cost taken from 'Cost Data' tab of 'wbs-anion-123017.xlsx'
             # look up table = sba_res_cost_cl                
-            self.resin_cap = self.resin_vol_tot * self.resin_cost[t]
+            self.resin_cap = self.anion_resin_volume[t] * self.resin_cost[t] + self.cation_resin_volume[t] * self.resin_cost[t]
             
             ### BACKWASH TANKS ###
             bw_ss_cost = anion_ex_cost_curves('st_bwt_eq', back_tank_vol)
@@ -585,6 +660,23 @@ see property package for documentation.}"""))
             total_system_cost = pv_cost + self.resin_cap + bw_tank_cost
 
             return total_system_cost * 1E-6
+
+        @self.Constraint(time, doc="Outlet pressure equation")
+        def outlet_pressure_constraint(self, t):
+            return (self.pressure_in[t] + self.deltaP_outlet[t] == self.pressure_out[t])
+
+        @self.Constraint(time, doc="Waste pressure equation")
+        def waste_pressure_constraint(self, t):
+            return (self.pressure_in[t] + self.deltaP_waste[t] == self.pressure_waste[t])
+
+        self.const_list2 = list(self.config.property_package.component_list) #.remove("tds")
+        self.const_list2.remove("tds")
+
+        for j in self.const_list2:
+            setattr(self, ("%s_eq" % j), Constraint(
+                expr = self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j]
+                == self.flow_vol_waste[t] * self.conc_mass_waste[t, j]
+                ))
 
         def autosize(system_type, flow, num_tanks, num_lines, ebct, ebct_tank, geom='vertical'):
 
