@@ -521,9 +521,9 @@ def set_bounds(m):
     # add more reasonable flux constraints --> THIS CAN AFFECT WATER RECOVERY! MAY NEED TO ADJUST TO NOT OVER CONSTRAIN.
     # A AND B ARE TYPICALLY AT THEIR MAX
     feed_flux_max = 35 #lmh
-    a = [2.1, 7]
-    max_pressure = 85
-    min_area = 100
+    a = [2, 3]
+    max_pressure = 15
+    max_area = 50000
     min_pressure = 5
 
     q=1
@@ -536,7 +536,7 @@ def set_bounds(m):
             q = q + 1
             
             setattr(m, ("flux_constraint%s" % q), Constraint(
-                expr=getattr(m.fs, key).membrane_area[0] >= min_area)
+                expr=getattr(m.fs, key).membrane_area[0] <= max_area)
                    )
             q = q + 1
             

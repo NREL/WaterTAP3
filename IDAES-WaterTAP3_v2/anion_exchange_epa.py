@@ -153,7 +153,7 @@ see property package for documentation.}"""))
             geom = 'vertical'
             pv_material = 'stainless'
             bw_tank_type = 'stainless'
-            self.resin_name = 'styrenic_gel_1'
+            self.resin_name = 'styrenic_gel_2'
         
                 
         resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate', 'custom']
@@ -212,10 +212,11 @@ see property package for documentation.}"""))
         self.water_recovery_constraint = Constraint(
             expr = self.water_recovery[t] * flow_in_gal_day == flow_out_gal_day
         )
-       
-       
+
+        
         self.mass_removed_constr = Constraint(
-            expr=self.mass_removed[t] * 1000 == (500 / 17.12) * flow_out_gal_day
+            expr=self.mass_removed[t] * 1000 == (((self.conc_mass_in[t, "tds"] * self.removal_fraction[t, "tds"] * 1e3 * .0548) 
+                                                 + (self.conc_mass_in[t, "silicon_dioxide"] * self.removal_fraction[t, "silicon_dioxide"] * 1e3 * .0548)) / 17.12) * flow_out_gal_day
         ) # mass removed kgr/day
         
         self.an_res_vol_constr = Constraint(
@@ -256,9 +257,12 @@ see property package for documentation.}"""))
         
 #         self.cat_vol_per_unit_constr = Constraint(
 #             expr=self.cat_vol_per_unit[t] == self.cation_resin_volume[t] / self.num_ix_units_op[t]
-#         )       
-        self.num_cat_tanks = (self.anion_resin_volume[t] * 7.48) / 282094
-        self.num_an_tanks = (self.anion_resin_volume[t] * 7.48) / 282094
+#         )
+
+        tank_size = 80 # ft3
+    
+        self.num_cat_tanks = self.cation_resin_volume[t] / 80
+        self.num_an_tanks = self.anion_resin_volume[t] / 80
         self.tot_tanks = self.num_an_tanks + self.num_cat_tanks
 
         
@@ -266,7 +270,7 @@ see property package for documentation.}"""))
 #         self.cat_res_vol_constr = Constraint(expr=self.cation_resin_volume[t] * self.cation_res_capacity[t] == self.mass_removed[t] + self.anion_rinse_solids[t]) # ft3/day
 #         self.an_rins_vol_constr = Constraint(expr=self.anion_rinse_flow[t] == self.anion_resin_volume[t] * self.rinse_volume[t]) # gal/day
 #         self.an_rinse_solids_constr = Constraint(expr=self.anion_rinse_solids[t] == self.anion_rinse_flow[t] * self.mass_removed[t]) # Kgr/day
-        self.num_units_constr = Constraint(expr=self.num_ix_units_op[t] == self.num_ix_units_tot[t] - 1) # number operating units is one less than total units -- assume one is offline at all times for
+#        self.num_units_constr = Constraint(expr=self.num_ix_units_op[t] == self.num_ix_units_tot[t] - 1) # number operating units is one less than total units -- assume one is offline at all times for
         # regeneration
 #         self.an_vol_per_unit_constr = Constraint(expr=self.an_vol_per_unit[t] == self.anion_resin_volume[t] / self.num_ix_units_op[t])
 # #         self.cat_vol_per_unit_constr = Constraint(expr=self.cat_vol_per_unit[t] == self.cation_resin_volume[t] / self.num_ix_units_op[t])
@@ -669,10 +673,10 @@ see property package for documentation.}"""))
                 return cost
 
             ### VESSEL COST ###
-            pv_ss_cost = anion_ex_cost_curves('ss_pv_eq', 282094)  # cost of stainless steel pressure vessel
-            pv_cs_cost = anion_ex_cost_curves('cs_pv_eq', 282094)  # cost of carbon steel pressure vessels with stainless internals
-            pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', 282094)  # cost of carbon steel pressure vessels with plastic internals
-            pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', 282094)  # cost of fiberglass pressure vessels
+            pv_ss_cost = anion_ex_cost_curves('ss_pv_eq', (80 * 7.48))  # cost of stainless steel pressure vessel
+            pv_cs_cost = anion_ex_cost_curves('cs_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with stainless internals
+            pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with plastic internals
+            pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', (80 * 7.48))  # cost of fiberglass pressure vessels
             if pv_material == 'stainless':
                 pv_cost = pv_ss_cost * self.tot_tanks
             if pv_material == 'carbon with stainless':
@@ -687,7 +691,7 @@ see property package for documentation.}"""))
             ### RESIN COST ##
             # Cost taken from 'Cost Data' tab of 'wbs-anion-123017.xlsx'
             # look up table = sba_res_cost_cl                
-            self.resin_cap = self.anion_resin_volume[t] * self.resin_cost[t] + self.cation_resin_volume[t] * self.resin_cost[t]
+            self.resin_cap = (self.anion_resin_volume[t] * self.resin_cost[t]) + (self.cation_resin_volume[t] * self.resin_cost[t])
             
             ### BACKWASH TANKS ###
             # bw_ss_cost = anion_ex_cost_curves('st_bwt_eq', back_tank_vol)
@@ -941,22 +945,52 @@ see property package for documentation.}"""))
 #                     comp_length_width_a = 2 * comp_length_width_a / 2  ## NEED ROUND UP FUNCTION HERE=
 
 #                 return comp_length_width_a, comp_bed_depth_a, comp_vert_min_number_a
-
-        chem_dict = {}
+        
+    
+    
+    
+        sys_specs = self.parent_block().costing_param
+        # kg/yr replacement is every 4 days
+        naoh_dose = 5.3 / 1000 #5.3 #mg/l to kg/m3 (kg needed per m3 of inlet flow)
+        nacl_dose1 = (8 * (self.cation_resin_volume[t] + self.anion_resin_volume[t]) * 0.453592) #kg needed per day of replacement
+        nacl_dose2 = nacl_dose1 * (365/4) # kg required per year
+        unknown_factor = 0.8
+        nacl_dose3 = (nacl_dose2 / (self.flow_vol_in[t] * 3600 * 24 * 365)) *0.8 # kg required per m3 of inlet water
+        
+        # 8 lb per ft3 of resin,to lb to kg total, then divided by flow to get kg/m3
+        
+        
+        chem_dict = {"Sodium_Hydroxide_(NaOH)": naoh_dose, "Sodium_Chloride": nacl_dose3}
         self.chem_dict = chem_dict
+        
+        # resin replacement assumption -> 4.5% of volume.
+        resin_replacement = 0.045
+        resin_life = 7
+        
+        # media/resin density 43 lb/ft3
+        self.resin_loss_replacement = (self.cation_resin_volume[t] + self.anion_resin_volume[t]) * resin_replacement
+        
+        self.complete_bed_replacement = (self.cation_resin_volume[t] + self.anion_resin_volume[t] - 
+                                         self.resin_loss_replacement) / 7
+                
+        self.other_var_cost = self.resin_cost[t] * (self.complete_bed_replacement + self.resin_loss_replacement) * sys_specs.plant_cap_utilization * 1e-6
+        
+        self.costing.other_var_cost = self.other_var_cost
+        
+        #self.chem_dict = {}
+        
+        def electricity():  # m3/hr
+            
+            self.pump_power = (self.flow_vol_in[t] * 2*1e5) / 0.8 #w 2 bar pressure and 80% pump efficiency
+                        
+            return (self.pump_power / 1000) / (self.flow_vol_in[t]*3600) #kwh/m3
 
-        def electricity(flow_in):  # m3/hr
-            flow_in = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.year))
-
-            electricity = (750 * 1E3) / flow_in  # kWh/m3
-
-            return electricity
-
-        ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(), doc="Unadjusted fixed capital investment")  # $M
+        ## fixed_cap_inv_unadjusted ## 1.65 for TIC assumption
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap()*1.65, 
+                                                           doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity =  electricity()  # kwh/m3 asumes pump
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######
