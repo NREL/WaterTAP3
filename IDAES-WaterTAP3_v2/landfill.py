@@ -141,10 +141,10 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
     
         time = self.flowsheet().config.time.first()
-        conc_mass_tot = 0     
+        self.conc_mass_tot = 0
         
         for constituent in self.config.property_package.component_list:
-            conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
+            self.conc_mass_tot = self.conc_mass_tot + self.conc_mass_in[time, constituent]
             
         density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
         self.total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr for Mike's Excel needs

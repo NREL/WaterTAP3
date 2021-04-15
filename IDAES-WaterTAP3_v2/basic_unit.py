@@ -137,7 +137,10 @@ see property package for documentation.}"""))
                 basic_cap = cap_basis * mass_factor ** cap_exp
                 return basic_cap
 
-
+        self.deltaP_outlet.unfix()
+        self.deltaP_waste.unfix()
+        self.pressure_out.fix(1)
+        self.pressure_waste.fix(1)
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(), doc="Unadjusted fixed capital investment")  # $M
