@@ -198,7 +198,7 @@ see property package for documentation.}"""))
 
 
 
-        self.evap_rate = self.evap_rate_pure * 0.8 # ratio factor from the BLM document
+        self.evap_rate = self.evap_rate_pure * 0.7 # ratio factor from the BLM document
 
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
         flow_waste = pyunits.convert(self.flow_vol_waste[time], to_units=(pyunits.gallons / pyunits.minute))
