@@ -213,6 +213,9 @@ def get_module(module_name):
     if module_name == 'anion_exchange_epa':
         import anion_exchange_epa as up
 
+    if module_name == 'landfill_zld':
+        import landfill_zld as up
+
     return up
 
 
