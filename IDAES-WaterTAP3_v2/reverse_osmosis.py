@@ -61,8 +61,8 @@ erd_eff = 0.9
 mem_cost = 35 # ~30 dollars for 2007 converted to 2020 and from Optimum design of reverse osmosis system under different feed concentration and product specification
 pump_cost = 53 / 1e5 * 3600 #$ per w
 pressure_drop = 3 # bar Typical pressure drops range from 0.1-3 bar.
-#a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
-b_constant = 3.5e-8 # Salt permeability coefficient m s-1
+a = 4.2e-7 # 𝑤𝑎𝑡𝑒𝑟 𝑝𝑒𝑟𝑚𝑒𝑎𝑏𝑖𝑙𝑖𝑡𝑦 coefficient m bar-1 s-1
+b_constant = 0.35e-7 # Salt permeability coefficient m s-1
 #pressure_in = 65 #bar pressure at inlet. should be unfixed.
 p_atm = 1 #bar atmospheric pressure
 #p_ret = p_in - pressure_drop # momentum balance
@@ -232,7 +232,7 @@ see property package for documentation.}"""))
             self.pressure = Var(time,
                                   initialize=45,
                                   domain=NonNegativeReals,
-                                  bounds=(5, 90),
+                                  bounds=(2, 90),
                                   #units=pyunits.dimensionless,
                                   doc="pressure")  
         
@@ -259,14 +259,14 @@ see property package for documentation.}"""))
         
         self.a = Var(time,
                     initialize=4.2,
-                    bounds=(1.5, 9),
+                    bounds=(1, 9),
                     #units=units_meta('mass')/units_meta('area')**-2*units_meta('time')**-1,
                     domain=NonNegativeReals,
                     doc="water permeability")
                 
         self.b = Var(time, 
                     initialize=0.35,
-                    bounds=(0.15, 0.9),
+                    bounds=(0.1, 0.9),
                     #units=units_meta('mass')*units_meta('length')**-2*units_meta('time')**-1,
                     domain=NonNegativeReals,
                     doc="Salt permeability")
@@ -293,8 +293,8 @@ see property package for documentation.}"""))
 #         self.a.fix(4.2)   
 #         self.b.fix(0.35) 
         
-        self.a_constant = self.a[t] * 1e-7
-        self.b_constant = self.b[t] * 1e-7
+#         self.a_constant = self.a[t] * 1e-7
+#         self.b_constant = self.b[t] * 1e-7
         
         self.mem_cost.fix(30)
 #         self.mem_cost_eq = Constraint(
@@ -331,12 +331,12 @@ see property package for documentation.}"""))
         
         if unit_params == None:
             print("No parameters given. Assumes default single pass with default area and pressure -- check values")
-            self.membrane_area.fix(membrane_area_in) # area per module m2
+            #self.membrane_area.fix(membrane_area_in) # area per module m2
             feed.pressure.fix(pressure_in) #bar pressure at inlet. should be unfixed.    
         else:
             # self.membrane_area.fix(unit_params["membrane_area"]) # area per module m2
             if unit_params["pump"] == "yes":
-                feed.pressure.fix(unit_params["feed_pressure"]) #bar pressure at inlet. should be unfixed.
+                feed.pressure.unfix() #bar pressure at inlet. should be unfixed.
             if unit_params["pump"] == "no":                   
                 self.pressure_into_stage_eq = Constraint(
                     expr = feed.pressure[t] == self.pressure_in[t]) 
@@ -558,9 +558,9 @@ see property package for documentation.}"""))
             self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff #w
             b_cost.pump_capital_cost = self.pump_power * (53 / 1e5 * 3600) #* 1e-6
         
-        self.pump_constraint_power = Constraint(
-                expr = self.pump_power >= 0
-            )
+            self.pump_constraint_power = Constraint(
+                    expr = self.pump_power >= 0
+                )
         
         # assumes no pump needed for stage, but could change in future.
         if unit_params["pump"] == "no":

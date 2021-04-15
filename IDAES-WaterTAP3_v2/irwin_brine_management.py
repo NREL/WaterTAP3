@@ -30,7 +30,7 @@ from pyomo.environ import (
 
 # Import WaterTAP# financials module
 import financials
-from financials import *  # ARIEL ADDED
+from financials import * #ARIEL ADDED
 
 from pyomo.environ import ConcreteModel, SolverFactory, TransformationFactory
 from pyomo.network import Arc
@@ -45,7 +45,7 @@ from water_props import WaterParameterBlock
 # Below (in the unit), we define the parameters that we may want to change across case studies or analyses. Those parameters should be set as variables (eventually) and atttributed to the unit model (i.e. m.fs.UNIT_NAME.PARAMETERNAME). Anything specific to the costing only should be in  m.fs.UNIT_NAME.costing.PARAMETERNAME ######
 ##########################################
 
-## REFERENCE: from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO
+## REFERENCE: from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO 
 
 ### MODULE NAME ###
 module_name = "irwin_brine_management"
@@ -53,17 +53,19 @@ module_name = "irwin_brine_management"
 # Cost assumptions for the unit, based on the method #
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
-# tpec_or_tic = "TPEC"
+#tpec_or_tic = "TPEC"
 unit_basis_yr = 2020
 
-base_fixed_cap_cost = 35
-cap_scaling_exp = 0.7
+base_fixed_cap_cost = 31
+cap_scaling_exp = .873
+fixed_op_cost_scaling_exp = 0.7
 
 
 # You don't really want to know what this decorator does
 # Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
 class UnitProcessData(UnitModelBlockData):
+       
     """
     This class describes the rules for a zeroth-order model for a unit
     """
@@ -107,16 +109,17 @@ and used when constructing these,
 **default** - None.
 **Valid values:** {
 see property package for documentation.}"""))
-
+    
     from unit_process_equations import initialization
-    # unit_process_equations.get_base_unit_process()
+    #unit_process_equations.get_base_unit_process()
 
-    # build(up_name = "sulfuric_acid_addition")
-
+    #build(up_name = "sulfuric_acid_addition")
+    
     def build(self):
         import unit_process_equations
-        return unit_process_equations.build_up(self, up_name_test=module_name)
-
+        return unit_process_equations.build_up(self, up_name_test = module_name)
+    
+    
     def get_costing(self, module=financials, cost_method="wt", year=None, unit_params=None):
         """
         We need a get_costing method here to provide a point to call the
@@ -138,66 +141,73 @@ see property package for documentation.}"""))
         # Then call the appropriate costing function out of the costing module
         # The first argument is the Block in which to build the equations
         # Can pass additional arguments as needed
-
-        # up_costing(self.costing, cost_method=cost_method)
-
+        
+        #up_costing(self.costing, cost_method=cost_method)
+        
         # There are a couple of variables that IDAES expects to be present
         # These are fairly obvious, but have pre-defined names
-
+       
         # basis year for the unit model - based on reference for the method.
         self.costing.basis_year = unit_basis_yr
-
+    
         time = self.flowsheet().config.time.first()
-        conc_mass_tot = 0
-
+        conc_mass_tot = 0     
+        
         for constituent in self.config.property_package.component_list:
-            conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent]
+            conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
+            
+        density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
+        self.total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr to tons for Mike's Excel needs
+                    
+        lift_height = 100 # ft            
 
-        density = 0.6312 * conc_mass_tot + 997.86  # kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.hr))) #/ 1000  # kg/hr for Mike's Excel needs
+        def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
 
-        lift_height = 100 * pyunits.ft  # ft
-        pump_eff = 0.9 * pyunits.dimensionless
-        motor_eff = 0.9 * pyunits.dimensionless
+            capacity_basis = 9463.5 # m3/hr - from PML tab based on 250000 gallons per day
 
-        def fixed_cap(flow_in):  # TODO not based on flow, just have placeholder numbers for Carlsbad
+            #total_flow_rate = self.total_mass # m3/hr - TOTAL MASS TODO
 
-            capacity_basis = 9463.5  # kg/hr - from PML tab based on 250000 gallons per day
+            fixed_cap_unadj =  base_fixed_cap_cost * (self.total_mass / capacity_basis) ** cap_scaling_exp
 
-            mass_factor = self.total_mass / capacity_basis
+            return fixed_cap_unadj # M$
 
-            fixed_cap_unadj = base_fixed_cap_cost * mass_factor ** cap_scaling_exp
 
-            return fixed_cap_unadj  # M$
 
         def electricity(flow_in):
-            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons / pyunits.minute)
-            flow_in_m3hr = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
-            electricity = (0.746 * flow_in_gpm * lift_height / (3960 * pump_eff * motor_eff)) / flow_in_m3hr  # kWh/m3
+            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons/pyunits.minute)
+            flow_in_m3hr = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m**3/pyunits.hour)
+            electricity = (.746 * flow_in_gpm * lift_height / (3960 * .9 * .9)) / flow_in_m3hr # kWh/m3
 
             return electricity
-
+            
+            
+            
         # Get the first time point in the time domain
         # In many cases this will be the only point (steady-state), but lets be
         # safe and use a general approach
 
         # Get the inlet flow to the unit and convert to the correct units
         flow_in = pyunits.convert(self.flow_vol_in[time],
-                                  to_units=pyunits.Mgallons / pyunits.day)
-
+                                  to_units=pyunits.Mgallons/pyunits.day)
+            
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
             expr=fixed_cap(flow_in),
-            doc="Unadjusted fixed capital investment")  # $M
+            doc="Unadjusted fixed capital investment") # $M
 
-        self.electricity = electricity(flow_in)  # kwh/m3
-
+        self.electricity = electricity(flow_in) # kwh/m3 
+        
         # electricity consumption
-
+        
         self.chem_dict = {}
-
+        
         ##########################################
         ####### GET REST OF UNIT COSTS ######
-        ##########################################
-
+        ##########################################        
+        
         module.get_complete_costing(self.costing)
+        
+           
+        
+        
+        

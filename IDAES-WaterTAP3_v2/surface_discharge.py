@@ -157,15 +157,15 @@ see property package for documentation.}"""))
             conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
             
         density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
+        self.total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr to tons for Mike's Excel needs
                     
         lift_height = 100 # ft            
 
         def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
 
-            capacity_basis = 10417 # kg/hr - from PML tab based on 250000 gallons per day
+            capacity_basis = 10417 # m3/hr - from PML tab based on 250000 gallons per day
 
-            total_flow_rate = self.total_mass # kg/hr - TOTAL MASS TODO
+            total_flow_rate = self.flow_vol_in[time] * 3600 # m3/hr - TOTAL MASS TODO
 
             fixed_cap_unadj =  base_fixed_cap_cost * (total_flow_rate / capacity_basis) ** cap_scaling_exp
 

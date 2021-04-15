@@ -49,7 +49,7 @@ module_name = "microfiltration"
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 tpec_or_tic = "TPEC"
-unit_basis_yr = 2007
+unit_basis_yr = 2014
 
 
 # You don't really want to know what this decorator does
@@ -120,7 +120,7 @@ see property package for documentation.}"""))
         base_fixed_cap_cost = 2.5
         cap_scaling_exp = 1
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)  # m3 /hr
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.Mgallons / pyunits.day)) # m3 /hr
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -141,11 +141,11 @@ see property package for documentation.}"""))
         ##########################################
 
         def fixed_cap(flow_in):
-            mf_cap = tpec_tic * base_fixed_cap_cost * pyunits.convert(flow_in, to_units=(pyunits.Mgallons / pyunits.day)) ** cap_scaling_exp
+            mf_cap = base_fixed_cap_cost * flow_in
             return mf_cap
 
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
+        def electricity(): 
+            electricity = 0.307
             return electricity
 
         # Get the first time point in the time domain
@@ -156,7 +156,7 @@ see property package for documentation.}"""))
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = electricity()  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

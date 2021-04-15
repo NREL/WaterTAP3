@@ -123,7 +123,17 @@ see property package for documentation.}"""))
 
         #### CHEMS ###
         tds_in = pyunits.convert(self.conc_mass_in[time, "tds"], to_units=(pyunits.mg / pyunits.liter))  # convert from kg/m3 to mg/L
-        water_recovery = self.water_recovery[time]
+        
+        #self.water_recovery.unfix()
+        self.water_recovery_bound1 = Constraint(
+            expr = self.water_recovery[time] >= 0.5
+        )
+        
+        self.water_recovery_bound2 = Constraint(
+            expr = self.water_recovery[time] <= 0.98
+        )
+        
+        
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.hour))
         chem_dict = {}
         self.chem_dict = chem_dict
@@ -132,11 +142,11 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=15.1 + tds_in * 3.02E-4 - water_recovery * 18.8 + flow_in * 8.08E-2,
+            expr=15.1 + (tds_in * 3.02E-4) - (self.water_recovery[time] * 18.8) + (flow_in * 8.08E-2),
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = 9.73 + tds_in * 1.1E-4 + water_recovery * 10.4 + flow_in * 3.83E-5  # kwh/m3
+        self.electricity = 9.73 + tds_in * 1.1E-4 + self.water_recovery[time] * 10.4 + flow_in * 3.83E-5  # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

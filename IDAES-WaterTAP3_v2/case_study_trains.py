@@ -9,9 +9,9 @@ import watertap as wt
 from mixer_example import Mixer1
 from split_test2 import Separator1
 
-global train
-global source_water
-global pfd_dict  # this is set in function so not global.
+# global train
+# global source_water
+# global pfd_dict  # this is set in function so not global.
 
 
 from water_props import WaterParameterBlock
@@ -36,14 +36,19 @@ def get_case_study(flow = None, m = None):
         
     # get source water information that will be used to get the flow in if not specified
     if flow is None: flow = {}
-    if isinstance(source_water['water_type'], list) and not flow:
-        for water_type in source_water['water_type']:
-            df = get_def_source(source_water['reference'], water_type, source_water['case_study'], source_water['scenario'])
+    if isinstance(m.fs.source_water['water_type'], list) and not flow:
+        for water_type in m.fs.source_water['water_type']:
+            df = get_def_source(m.fs.source_water['reference'], 
+                                water_type, 
+                                m.fs.source_water['case_study'], 
+                                m.fs.source_water['scenario'])
             flow[water_type] = df.loc['flow'].value
     elif not flow:
-        df = get_def_source(source_water['reference'], source_water['water_type'], 
-                            source_water['case_study'], source_water['scenario'])
-        flow[source_water['water_type']] = df.loc['flow'].value
+        df = get_def_source(m.fs.source_water['reference'], 
+                            m.fs.source_water['water_type'], 
+                            m.fs.source_water['case_study'],
+                            m.fs.source_water['scenario'])
+        flow[m.fs.source_water['water_type']] = df.loc['flow'].value
     m.fs.flow_in_dict = flow
     #set the flow based on the case study if not specified.
 #     if flow is None: fow = df_source.loc["flow"].value
@@ -56,7 +61,7 @@ def get_case_study(flow = None, m = None):
     df_units.CaseStudy = df_units.CaseStudy.str.lower()
     df_units.Reference = df_units.Reference.str.lower()
     df_units.Scenario = df_units.Scenario.str.lower()
-    df_units = filter_df(df_units)
+    df_units = filter_df(df_units, m)
 
     ### create pfd_dictionary for treatment train
     m.fs.pfd_dict = get_pfd_dict(df_units)
@@ -65,14 +70,14 @@ def get_case_study(flow = None, m = None):
     # create the constituent list for the train that is automatically used to edit the water property package.
     import generate_constituent_list
     import financials
-    generate_constituent_list.train = train
-    generate_constituent_list.source_water = source_water
-    generate_constituent_list.pfd_dict = pfd_dict
+    generate_constituent_list.train = m.fs.train
+    generate_constituent_list.source_water = m.fs.source_water
+    generate_constituent_list.pfd_dict = m.fs.pfd_dict
     
-    financials.train = train
-    financials.source_water = source_water
-    financials.pfd_dict = pfd_dict
-    financials.get_system_specs(m.fs, train)
+    financials.train = m.fs.train
+    financials.source_water = m.fs.source_water
+    financials.pfd_dict = m.fs.pfd_dict
+    financials.get_system_specs(m.fs, m.fs.train)
     
     #train_constituent_list = generate_constituent_list.run()
     
@@ -129,11 +134,10 @@ def get_pfd_dict(df_units):
 
 
 # adjust data for particular case study
-def filter_df(df):
-    df = df[df.Reference == train["reference"]]
-    #df = df[df.WaterType == train["water_type"]]
-    df = df[df.Scenario == train["scenario"]]
-    df = df[df.CaseStudy ==  train["case_study"]]
+def filter_df(df, m):
+    df = df[df.Reference == m.fs.train["reference"]]
+    df = df[df.Scenario == m.fs.train["scenario"]]
+    df = df[df.CaseStudy ==  m.fs.train["case_study"]]
     del df["CaseStudy"]; del df["Scenario"]; del df["Reference"];
     return df
     
@@ -179,8 +183,8 @@ def create_arc_dict(m, pfd_dict, flow):
             for water_type in pfd_dict[key]["Parameter"]["water_type"]:
                     source_name = water_type
                     water_type = water_type
-                    reference = source_water["reference"]
-                    case_study = source_water["case_study"]
+                    reference = m.fs.source_water["reference"]
+                    case_study = m.fs.source_water["case_study"]
                     source_flow = flow[source_name]
 
                     m = wt.design.add_water_source(m = m, source_name = source_name, 
@@ -315,7 +319,13 @@ def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
     i = 0
     waste_inlet_list = []
     
-    if "surface_discharge" in pfd_dict.keys():
+    unit_list = []
+    for key in m.fs.pfd_dict.keys():
+        unit_list.append(m.fs.pfd_dict[key]["Unit"])
+        if "surface_discharge" == m.fs.pfd_dict[key]["Unit"]:
+            sd_name = key
+        
+    if "surface_discharge" in unit_list:
     
         for b_unit in m.fs.component_objects(Block, descend_into=False):
             if hasattr(b_unit, 'waste'):
@@ -347,142 +357,13 @@ def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
                                 arc_i = arc_i + 1
 
             # add connection for waste mixer to surface dicharge -->
-            if "surface_discharge" in list(pfd_dict.keys()):
+            if "surface_discharge" in unit_list:
                 setattr(m.fs, ("arc%s" % arc_i), Arc(source = getattr(m.fs, waste_mixer).outlet,  
-                                                                   destination = getattr(m.fs, "surface_discharge").inlet))
+                                                                   destination = getattr(m.fs, sd_name).inlet))
                 arc_i = arc_i + 1
         return m, arc_i, mixer_i
 
     else:  
         return m, arc_i, mixer_i
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def get_unit_processes(case_study, scenario):
-#     unit_processes = []
-    
-#     if case_study == "Carlsbad":
-#         if scenario == "Baseline":
-#             unit_processes = ["sw_onshore_intake",
-#                           "coag_and_floc",
-#                           "tri_media_filtration",
-#                           "sulfuric_acid_addition",
-#                           "sodium_bisulfite_addition",
-#                           "cartridge_filtration",
-#                           "ro_deep",                 
-#                           "lime_softening",                  
-#                           "co2_addition",                  
-#                           "chlorination_twb",                  
-#                           "ammonia_addition",                  
-#                           "treated_storage_24_hr",
-#                           "municipal_drinking",
-#                           "backwash_solids_handling",
-#                           "surface_discharge",
-#                           "landfill"]
-    
-#         if scenario == "TwoPassRO":
-#             unit_processes = ["sw_onshore_intake",
-#                           "coag_and_floc",
-#                           "tri_media_filtration",
-#                           "sulfuric_acid_addition",
-#                           "sodium_bisulfite_addition",
-#                           "cartridge_filtration",
-#                           "ro_deep",
-#                           "ro_deep_scnd_pass",
-#                           "lime_softening",                  
-#                           "co2_addition",                  
-#                           "chlorination_twb",                  
-#                           "ammonia_addition",                  
-#                           "treated_storage_24_hr",
-#                           "municipal_drinking",
-#                           "backwash_solids_handling",
-#                           "surface_discharge",
-#                           "landfill"]
-            
-#     if len(unit_processes) == 0: 
-#         print("potential error: no unit processes listed to build treatment train")
-#         df_units = pd.read_excel(case_study_library, sheet_name='units')
-#         df_units = filter_df(df_units)
-#         unit_processes = list(df_units.Unit)
-        
-#     return unit_processes
-
-
-# def check_waste_source_recovered(b_unit):
-#     check = "no"
-    
-#     if "backwash_solids_handling" in str(b_unit): check = "yes"
-    
-#     if "landfill" in str(b_unit): check = "yes"
-    
-#     if "surface_discharge" in str(b_unit): check = "yes"
-    
-#     if "source1" in str(b_unit): check = "yes"
-    
-#     if "municipal_drinking" in str(b_unit): check = "yes"
-    
-#     return check
-                          
-def check_waste(b_unit):
-    check = "no"
-    
-    if "backwash_solids_handling" in str(b_unit): check = "yes"
-    
-    if "landfill" in str(b_unit): check = "yes"
-    
-    if "surface_discharge" in str(b_unit): check = "yes"
-    
-    return check                          
-
-
-# def check_intake(b_unit):
-#     check = "no"
-    
-#     if "sw_onshore_intake" in str(b_unit): check = "yes"
-       
-#     return check   
-
-# def check_product(b_unit):
-#     check = "no"
-    
-#     if "municipal_drinking" in str(b_unit): check = "yes"
-       
-#     return check 
-
-# def get_number_of_chemical_additions(case_study, scenario):
-#     i = 0
-#     for unit_process in get_unit_processes(case_study, scenario):
-#         i = i + 1 if hasattr(module_import.get_module(unit_process), 'chem_dic') is True else i
-    
-#     return i
-
-
-
-
-        
-
 
