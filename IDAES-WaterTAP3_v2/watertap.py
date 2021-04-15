@@ -30,6 +30,9 @@ import pyomo.util.infeasible as infeas
 import idaes.core.util.scaling as iscale
 import pyomo.environ as env
 
+from case_study_trains import filter_df
+import ast
+
 
 def run_water_tap(m = None, solver_results = False, print_model_results = False, 
                   objective=False, max_attemps = 3, initialize_flow = 5, skip_small = True, return_solution = False,
@@ -74,7 +77,8 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     
 
 
-def watertap_setup(dynamic = False):
+def watertap_setup(dynamic = False, case_study = None, reference = None, scenario = None,
+                   source_reference = None, source_case_study = None, source_scenario = None):
         
     # Create a Pyomo model
     m = ConcreteModel()
@@ -82,7 +86,28 @@ def watertap_setup(dynamic = False):
     # Add an IDAES FlowsheetBlock and set it to steady-state
     m.fs = FlowsheetBlock(default={"dynamic": dynamic})
     
+    m.fs.train = {"case_study": case_study, "reference": reference, "scenario": scenario}
+    
+    if source_reference is None: source_reference = reference
+    if source_case_study is None: source_case_study = case_study
+    if source_scenario is None: source_scenario = scenario
+    
+    df = pd.read_excel("data/treatment_train_setup.xlsx", sheet_name='units')
+
+    df = filter_df(df, m)
+    water_type_list = []
+
+    for i in list(df[df.Type == "intake"].index):
+        for water_type in ast.literal_eval(df[df.Type == "intake"].loc[i]["Parameter"])["water_type"]:
+            water_type_list.append(water_type)
+    
+    if len(water_type_list) == 1: water_type_list = water_type_list[0]
+    
+    m.fs.source_water = {"case_study": source_case_study, "reference": source_reference, 
+                         "scenario": source_scenario, "water_type": water_type_list}
+    
     return m
+
 
 
 def run_model(m = None, solver_results = False, print_model_results = False, 
@@ -146,7 +171,7 @@ def print_results(m, print_model_results):
                 print("\n\n\ttotal cap investment:", round(value(b_unit.costing.total_cap_investment()), 5))
                 print("\tcat and chem cost:", round(value(b_unit.costing.cat_and_chem_cost), 5))
                 print("\telectricity cost:", round(value(b_unit.costing.electricity_cost), 5))
-                print("\ttotal fixed op cost:", round(value(b_unit.costing.total_fixed_op_cost()), 5))
+                print("\ttotal fixed op cost:", round(value(b_unit.costing.total_fixed_op_cost), 5))
                 print('\n')
 
             if hasattr(b_unit, 'inlet'):
@@ -169,7 +194,7 @@ def print_results(m, print_model_results):
                 print("\ttotal cap investment:", round(value(b_unit.costing.total_cap_investment()), 5))
                 print("\tcat and chem cost:", round(value(b_unit.costing.cat_and_chem_cost), 5))
                 print("\telectricity cost:", round(value(b_unit.costing.electricity_cost), 5))
-                print("\ttotal fixed op cost:", round(value(b_unit.costing.total_fixed_op_cost()), 5))
+                print("\ttotal fixed op cost:", round(value(b_unit.costing.total_fixed_op_cost), 5))
         print("\n----------------------------------------------------------------------")
 
             
@@ -194,7 +219,8 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
                      scenario = None, case_study = None, skip_small_sens = True):
     
     # feasible ro names for sensitivity analysis
-    ro_list = ["reverse_osmosis", "ro_first_pass", "ro_second_pass", "ro_first_stage"]
+    ro_list = ["reverse_osmosis", "ro_first_pass", "ro_a1", "ro_b1",
+              "ro_active", "ro_restore"] #, "ro_second_pass", "ro_first_stage"]
     
     # sensitivity analyses
     sens_df = pd.DataFrame()
@@ -264,40 +290,52 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
 
     m.fs.costing_param.wacc = stash_value    
     ############################################################    
-    print("-------", "RESET", "-------")
-    run_water_tap(m = m, objective=False, skip_small = True)
-    print("LCOW -->", m.fs.costing.LCOW())
+    
+    tds_in = False
+    
+    for key in m.fs.flow_in_dict:
+        if "tds" in list(getattr(m.fs, key).config.property_package.component_list):
+            tds_in = True
+    
+    if tds_in is True:
+        print("-------", "RESET", "-------")
+        run_water_tap(m = m, objective=False, skip_small = True)
+        print("LCOW -->", m.fs.costing.LCOW())
 
-    ############ salinity  +-30% ############
-    stash_value = []
-    for key in m.fs.flow_in_dict:   
-        stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, "tds"]))
-    scenario = "Inlet TDS +-20%"
-    print("-------", scenario, "-------")
-    ub = 1.3
-    lb = 0.7
-    step = (ub - lb) / runs_per_scenario
+        ############ salinity  +-30% ############
+        stash_value = []
+        for key in m.fs.flow_in_dict: 
+            if "tds" in list(getattr(m.fs, key).config.property_package.component_list):
+                stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, "tds"]))
+        scenario = "Inlet TDS +-20%"
+        print("-------", scenario, "-------")
+        ub = 1.25
+        lb = 0.75
+        step = (ub - lb) / runs_per_scenario
 
-    for i in np.arange(lb, ub + step, step):
+        for i in np.arange(lb, ub + step, step):
+            q=0
+            for key in m.fs.flow_in_dict:
+                if "tds" in list(getattr(m.fs, key).config.property_package.component_list):
+                    getattr(m.fs, key).conc_mass_in[0, "tds"].fix(stash_value[q] * i)
+                    q = q + 1
+
+            run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
+            print(scenario, stash_value[q-1] * i, "LCOW -->", m.fs.costing.LCOW())
+            #print_ro_results(m)
+
+            lcow_list.append(value(m.fs.costing.LCOW))
+            water_recovery_list.append(value(m.fs.costing.system_recovery))
+            scenario_value.append(i)
+            scenario_name.append(scenario)
+            elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+            elec_int.append(value(m.fs.costing.electricity_intensity))
+
         q=0
         for key in m.fs.flow_in_dict:
-            getattr(m.fs, key).conc_mass_in[0, "tds"].fix(stash_value[q] * i)
-            q = q + 1
-
-        run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
-        print(scenario, stash_value[q-1] * i, "LCOW -->", m.fs.costing.LCOW())
-
-        lcow_list.append(value(m.fs.costing.LCOW))
-        water_recovery_list.append(value(m.fs.costing.system_recovery))
-        scenario_value.append(i)
-        scenario_name.append(scenario)
-        elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
-        elec_int.append(value(m.fs.costing.electricity_intensity))
-
-    q=0
-    for key in m.fs.flow_in_dict:    
-        getattr(m.fs, key).conc_mass_in[0, "tds"].fix(stash_value[q])
-        q = q + 1
+            if "tds" in list(getattr(m.fs, key).config.property_package.component_list):
+                getattr(m.fs, key).conc_mass_in[0, "tds"].fix(stash_value[q])
+                q = q + 1
 
 
     ############################################################
@@ -310,8 +348,8 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
         stash_value.append(value(getattr(m.fs, key).flow_vol_in[0]))
     scenario = "Inlet Flow +-20%"
     print("-------", scenario, "-------")
-    ub = 1.3
-    lb = 0.7
+    ub = 1.25
+    lb = 0.75
     step = (ub - lb) / runs_per_scenario
 
     for i in np.arange(lb, ub + step, step):
@@ -322,7 +360,8 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
 
         run_water_tap(m = m, objective=False, skip_small = skip_small_sens)
         print(scenario, stash_value[q-1] * i, "LCOW -->", m.fs.costing.LCOW())
-
+        #print_ro_results(m)
+        
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
         scenario_value.append(i)
@@ -475,56 +514,70 @@ def print_ro_results(m):
             #print(f'\tPressure drop for {key}: {getattr(m.fs, key).pressure_drop[0]()}') 
 
             
-def run_ro_no_freedom(m, skip_small=True):
+# def run_ro_no_freedom(m, skip_small=True):
 
-    # store RO variables
-    ro_stash = {}
-    for key in m.fs.pfd_dict.keys():
-        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-            ro_stash[key] = {"feed.pressure" : getattr(m.fs, key).feed.pressure[0](),
-            "membrane_area" : getattr(m.fs, key).membrane_area[0](),
-            "a" : getattr(m.fs, key).a[0](),
-            "b" : getattr(m.fs, key).b[0]()}
+#     # store RO variables
+#     ro_stash = {}
+#     for key in m.fs.pfd_dict.keys():
+#         if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+#             ro_stash[key] = {"feed.pressure" : getattr(m.fs, key).feed.pressure[0](),
+#             "membrane_area" : getattr(m.fs, key).membrane_area[0](),
+#             "a" : getattr(m.fs, key).a[0](),
+#             "b" : getattr(m.fs, key).b[0]()}
 
 
-    # set everything and deactivate constraints
-    m = watertap_setup(dynamic=False)
-    m = case_study_trains.get_case_study(m=m)
+#     # set everything and deactivate constraints
+#     m = watertap_setup(dynamic=False)
+#     m = case_study_trains.get_case_study(m=m)
     
-    for key in m.fs.pfd_dict.keys():
-        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-            getattr(m.fs, key).feed.pressure.unfix()
-            getattr(m.fs, key).membrane_area.unfix()
-            print("Unfixing feed presure and area for", key, '...\n')
+#     for key in m.fs.pfd_dict.keys():
+#         if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+#             getattr(m.fs, key).feed.pressure.unfix()
+#             getattr(m.fs, key).membrane_area.unfix()
+#             print("Unfixing feed presure and area for", key, '...\n')
     
-#     #set_bounds(m)
+# #     #set_bounds(m)
 
-    run_water_tap(m=m, objective=True, skip_small=skip_small)
+#     run_water_tap(m=m, objective=True, skip_small=skip_small)
     
-    # set variables so that degrees of freedom is zero
-    for key in m.fs.pfd_dict.keys():
-        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-            getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
-            getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
-            getattr(m.fs, key).a.fix(ro_stash[key]["a"])
-            getattr(m.fs, key).b.fix(ro_stash[key]["b"])            
-    # run model to make sure it  works
-    run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=skip_small)
+#     # set variables so that degrees of freedom is zero
+#     for key in m.fs.pfd_dict.keys():
+#         if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+#             getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
+#             getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
+#             getattr(m.fs, key).a.fix(ro_stash[key]["a"])
+#             getattr(m.fs, key).b.fix(ro_stash[key]["b"])            
+#     # run model to make sure it  works
+#     run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=skip_small)
 
-    print_ro_results(m)
+#     print_ro_results(m)
     
-    return m
+#     return m
 
 
 # set reasonable bounds
-def set_bounds(m):
+def set_bounds(m = None, source_water_category = None):
     # add more reasonable flux constraints --> THIS CAN AFFECT WATER RECOVERY! MAY NEED TO ADJUST TO NOT OVER CONSTRAIN.
     # A AND B ARE TYPICALLY AT THEIR MAX
-    feed_flux_max = 35 #lmh
-    a = [2, 3]
-    max_pressure = 15
-    max_area = 50000
-    min_pressure = 5
+       
+    if source_water_category == "seawater":
+        print("seawater bounds for RO")
+        feed_flux_max = 45 #lmh
+        feed_flux_min = 10 #lmh
+        a = [2, 7]
+        b = [0.2, 0.7]
+        max_pressure = 85
+        min_area = 500
+        min_pressure = 5
+    else:
+        print("NON seawater bounds for RO")
+        feed_flux_max = 30 #lmh
+        feed_flux_min = 8 #lmh
+        a = [2, 7]
+        b = [0.2, 0.7]
+        max_pressure = 25
+        min_area = 250
+        min_pressure = 5
 
     q=1
     for key in m.fs.pfd_dict.keys():
@@ -536,7 +589,12 @@ def set_bounds(m):
             q = q + 1
             
             setattr(m, ("flux_constraint%s" % q), Constraint(
-                expr=getattr(m.fs, key).membrane_area[0] <= max_area)
+                expr=getattr(m.fs, key).pure_water_flux[0] * 3600 >= feed_flux_min)
+                   )
+            q = q + 1
+            
+            setattr(m, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).membrane_area[0] >= min_area)
                    )
             q = q + 1
             
@@ -554,18 +612,85 @@ def set_bounds(m):
             setattr(m.fs, ("flux_constraint%s" % q), Constraint(
                 expr=getattr(m.fs, key).a[0] >= a[0])
                    )
+            
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).b[0] <= b[1])
+                   )
+            q = q + 1
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).b[0] >= b[0])
+                   )
+            
             q = q + 1
     
-    run_water_tap(m=m, objective=True, print_model_results="summary", skip_small=True)
+    run_water_tap(m=m, objective=True, skip_small=True)
     
     return m
             
+# set reasonable bounds
+def unset_bounds(m = None):
+    # add more reasonable flux constraints --> THIS CAN AFFECT WATER RECOVERY! MAY NEED TO ADJUST TO NOT OVER CONSTRAIN.
+    # A AND B ARE TYPICALLY AT THEIR MAX
+       
+    print("unsetting bounds for RO")
+    feed_flux_max = 85 #lmh
+    feed_flux_min = 0.01 #lmh
+    a = [0.01, 99]
+    b = [0.01, 99]
+    max_pressure = 93
+    min_area = 100
+    min_pressure = 5
+
+
+    q=1
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+
+            setattr(m, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).pure_water_flux[0] * 3600 <= feed_flux_max)
+                   )
+            q = q + 1
             
+            setattr(m, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).pure_water_flux[0] * 3600 >= feed_flux_min)
+                   )
+            q = q + 1
             
+            setattr(m, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).membrane_area[0] >= min_area)
+                   )
+            q = q + 1
             
+            if m.fs.pfd_dict[key]["Parameter"]["pump"] == "yes":
             
+                setattr(m, ("flux_constraint%s" % q), Constraint(
+                    expr=getattr(m.fs, key).feed.pressure[0] <= max_pressure)
+                       )
+                q = q + 1        
+
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).a[0] <= a[1])
+                   )
+            q = q + 1
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).a[0] >= a[0])
+                   )
             
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).b[0] <= b[1])
+                   )
+            q = q + 1
+            setattr(m.fs, ("flux_constraint%s" % q), Constraint(
+                expr=getattr(m.fs, key).b[0] >= b[0])
+                   )
             
+            q = q + 1
+    
+    #run_water_tap(m=m, objective=True, skip_small=True)
+    
+    return m
+
+
 def main():
     print("importing something")
     # need to define anything here?

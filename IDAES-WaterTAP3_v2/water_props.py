@@ -57,7 +57,7 @@ class PhysicalParameterData(PhysicalParameterBlock):
         
         ### MAKE THIS BASED ON THE DATA INPUT?!?! ###
         import generate_constituent_list
-        train_constituent_list = generate_constituent_list.run()
+        train_constituent_list = generate_constituent_list.run(self.parent_block())
         
         for constituent_name in train_constituent_list:
         #for constituent_name in ["TOC", "nitrates", "TDS"]:

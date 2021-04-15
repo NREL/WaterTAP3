@@ -161,7 +161,7 @@ see property package for documentation.}"""))
         # self.electricity = Var(time,
         #                           doc="EDR electricity")
         def fixed_cap(flow_in):
-            ed_cap = 31  # $MM
+            ed_cap = 31 * flow_in / 946  # $MM
             return ed_cap
 
         # self.electricity_eq = Constraint(expr=self.electricity[time] == self.conc_mass_in[time, "tds"] * 20)
@@ -173,11 +173,11 @@ see property package for documentation.}"""))
 
         ## fixed_cap_inv_unadjusted ##
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
+            expr= fixed_cap(flow_in),
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = 0.302174902  # kwh/m3
+        self.electricity = (self.conc_mass_waste[time, "tds"]*1000 / 630) * 0.337   # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######

@@ -111,7 +111,7 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
             category.append("Water Flow")
             unit_list.append("m3/s")
 
-            for conc in generate_constituent_list.run():
+            for conc in generate_constituent_list.run(m.fs):
                 ### MASS IN KG PER M3
                 value_list.append(value(getattr(m.fs, str(b_unit)[3:]).conc_mass_in[0, conc]))
                 up_name_list.append(str(b_unit)[3:])
@@ -160,7 +160,11 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
         elif "capital_recovery_factor" in str(variable):
             continue
         elif "electricity_intensity" in str(variable):
-            continue
+            value_list.append(value(getattr(m.fs.costing, variable_str)))
+            up_name_list.append("System")
+            category.append("Electricity")
+            variable_list.append("Electricity Intensity System Treated")
+            unit_list.append("kwh/m3")
         elif "elec_frac_LCOW" in str(variable):
             value_list.append(value(getattr(m.fs.costing, variable_str)))
             up_name_list.append("System")
@@ -190,7 +194,39 @@ def get_results_table(m = None, scenario = None, case_study = None, save = True)
             up_name_list.append("System")
             category.append("LCOW")
             variable_list.append("Other O&M LCOW")
-            unit_list.append("$/m3")            
+            unit_list.append("$/m3") 
+        
+        elif "operating_cost_annual" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, "operating_cost_annual")))
+            up_name_list.append("System")
+            category.append("Annual Cost")
+            variable_list.append("System Total Operating Cost")
+            unit_list.append("$MM/yr")   
+        elif "fixed_op_cost_annual" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, "fixed_op_cost_annual")))
+            up_name_list.append("System")
+            category.append("Annual Cost")
+            variable_list.append("System Fixed O&M")
+            unit_list.append("$MM/yr")   
+        elif "cat_and_chem_cost_annual" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, "cat_and_chem_cost_annual")))
+            up_name_list.append("System")
+            category.append("Annual Cost")
+            variable_list.append("System Catalysts and Chemicals")
+            unit_list.append("$MM/yr")   
+        elif "electricity_cost_annual" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, "electricity_cost_annual")))
+            up_name_list.append("System")
+            category.append("Annual Cost")
+            variable_list.append("System Electricity")
+            unit_list.append("$MM/yr")  
+        elif "other_var_cost_annual" in str(variable):
+            value_list.append(value(getattr(m.fs.costing, "other_var_cost_annual")))
+            up_name_list.append("System")
+            category.append("Annual Cost")
+            variable_list.append("Other Variable O&M")
+            unit_list.append("$MM/yr")             
+        
         elif "system_recovery" in str(variable):
             continue    
         else:

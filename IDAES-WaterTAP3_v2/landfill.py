@@ -147,7 +147,7 @@ see property package for documentation.}"""))
             conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
             
         density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) / 1000 #kg/hr for Mike's Excel needs
+        self.total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr for Mike's Excel needs
 
 
         # Get the inlet flow to the unit and convert to the correct units

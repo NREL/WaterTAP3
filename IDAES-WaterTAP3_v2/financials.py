@@ -55,13 +55,12 @@ class SystemSpecs():
         print(case_study)
         location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
         self.elec_price = float(elec_cost.loc[location])
-        self.salaries_percent_FCI = float(
-            basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
         self.land_cost_percent_FCI = float(
             basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
         self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] ==
                                                         'working_capital_percent'].loc[case_study].value)
-
+        self.salaries_percent_FCI = float(
+            basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
         self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] == 
                                                               'maintenance_cost_percent'].loc[case_study].value)
         self.lab_fees_percent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
@@ -179,20 +178,40 @@ def get_system_specs(self, train=None):
     b.electricity_price = Var(
         initialize=0.07,
         doc='Electricity cost [$/kWh]')
+
+    b.maintinance_costs_percent_FCI = Var(
+        initialize=0.07,
+        doc='maintinance_costs_percent_FCI cost [%]')
+    
+    b.salaries_percent_FCI = Var(
+    initialize=0.07,
+    doc='salaries_percent_FCI cost [%]')
+
+    b.benefit_percent_of_salary = Var(
+    initialize=0.07,
+    doc='benefit_percent_of_salary cost [%]')
+
+    b.insurance_taxes_percent_FCI = Var(
+    initialize=0.07,
+    doc='insurance_taxes_percent_FCI cost [%]')
+                
+    b.lab_fees_percent_FCI = Var(
+    initialize=0.07,
+    doc='lab_fees_percent_FCI cost [%]')
     
     # ADD THE REST AS VARIABLES.
     
     system_specs = SystemSpecs(train)
     
     b.electricity_price.fix(system_specs.elec_price)
-    b.salaries_percent_FCI = system_specs.salaries_percent_FCI
+    b.salaries_percent_FCI.fix(system_specs.salaries_percent_FCI)
     b.land_cost_percent_FCI = system_specs.land_cost_percent_FCI
-    b.maintinance_costs_percent_FCI = system_specs.maintinance_costs_percent_FCI
-    b.lab_fees_percent_FCI = system_specs.lab_fees_percent_FCI
-    b.insurance_taxes_percent_FCI = system_specs.insurance_taxes_percent_FCI
+    b.maintinance_costs_percent_FCI.fix(system_specs.maintinance_costs_percent_FCI)
+    b.lab_fees_percent_FCI.fix(system_specs.lab_fees_percent_FCI)
+    b.insurance_taxes_percent_FCI.fix(system_specs.insurance_taxes_percent_FCI)
     b.plant_lifetime_yrs = system_specs.plant_lifetime_yrs
     b.analysis_yr_cost_indicies = system_specs.analysis_yr_cost_indicies
-    b.benefit_percent_of_salary = system_specs.benefit_percent_of_salary
+    b.benefit_percent_of_salary.fix(system_specs.benefit_percent_of_salary)
     b.working_cap_percent_FCI  = system_specs.working_cap_percent_FCI
     b.plant_cap_utilization = system_specs.plant_cap_utilization #1.0
     b.wacc = system_specs.debt_interest_rate
@@ -275,7 +294,7 @@ def get_system_costing(self):
     
     
     #RECOVERED WATER = IF OUTLET IS NOT GOING ANYWHERE
-    from case_study_trains import check_waste
+    #from case_study_trains import check_waste
     recovered_water_flow = 0
     wastewater_list = []
     
@@ -309,9 +328,14 @@ def get_system_costing(self):
     / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
     doc="Unit Levelized Cost of Water in $/m3"))
             
+#             setattr(b_unit, "elec_int_treated", Expression(
+#         expr= (b_unit.electricity * b_unit.flow_vol_in[time]) / (b.treated_water*sys_specs.plant_cap_utilization),
+#             doc="Unit Elec Intensity Treated kw/m3"))
+            
             setattr(b_unit, "elec_int_treated", Expression(
-        expr= (b_unit.electricity * b_unit.flow_vol_in[time]) / (b.treated_water*sys_specs.plant_cap_utilization),
-    doc="Unit Elec Intensity Treated kw/m3"))
+            expr = (b_unit.costing.electricity_cost*1e6 / b.parent_block().costing_param.electricity_price)  
+            / (b.treated_water * 3600 * 24 * 365),
+             doc="Electricity Intensity in kwh/m3"))
             
             
     # LCOW by cost category

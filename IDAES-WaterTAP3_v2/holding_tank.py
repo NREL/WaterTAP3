@@ -143,7 +143,8 @@ see property package for documentation.}"""))
             return electricity
 
         ## fixed_cap_inv_unadjusted ##
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in)
+                                                           , doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
         self.electricity = electricity(flow_in)  # kwh/m3
