@@ -40,7 +40,7 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     
    
     # if flow is small it resets the flow to any inlet as 2 m3/s 
-    if skip_small == False:
+    if skip_small == 'FALSE':
         for key in m.fs.flow_in_dict.keys():
             getattr(m.fs, key).flow_vol_in.fix(initialize_flow)
             small_flow = True
@@ -66,7 +66,7 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
             run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
                               objective=objective, max_attemps = max_attemps)
     
-    else:
+    elif skip_small == 'TRUE':
         run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
                       objective=objective, max_attemps = max_attemps)    
     
