@@ -40,7 +40,7 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
     
    
     # if flow is small it resets the flow to any inlet as 2 m3/s 
-    if skip_small == 'FALSE':
+    if skip_small == False:
         for key in m.fs.flow_in_dict.keys():
             getattr(m.fs, key).flow_vol_in.fix(initialize_flow)
             small_flow = True
@@ -66,12 +66,13 @@ def run_water_tap(m = None, solver_results = False, print_model_results = False,
             run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
                               objective=objective, max_attemps = max_attemps)
     
-    elif skip_small == 'TRUE':
+    else:
         run_model(m = m, solver_results = solver_results, print_model_results = print_model_results, 
                       objective=objective, max_attemps = max_attemps)    
     
     if print_model_results: 
         print_results(m, print_model_results)
+
     
     #if return_results == True: return results
     
@@ -424,6 +425,40 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
         elec_int.append(value(m.fs.costing.electricity_intensity))
 
     m.fs.costing_param.electricity_price = stash_value
+    
+    ############################################################
+    print("-------", "RESET", "-------")
+    run_water_tap(m = m, objective=False, skip_small = True)
+    print("LCOW -->", m.fs.costing.LCOW())
+    ############ lifetime years ############
+    
+    dwi_list = ["emwd", "big_spring"]   
+    if m.fs.train["case_study"] in dwi_list:
+        for key in m.fs.pfd_dict.keys():
+            if m.fs.pfd_dict[key]["Unit"] == "deep_well_injection":
+    
+                stash_value = value(getattr(m.fs, key).lift_height[0])
+                scenario = "Injection Pressure LH 100-2000 ft"
+                print("-------", scenario, "-------")
+                ub = 2000
+                lb = 100
+                step = (ub - lb) / runs_per_scenario
+                for i in np.arange(lb, ub + step, step):
+                    getattr(m.fs, key).lift_height.fix(i)
+                    run_water_tap(m = m, objective=False, skip_small = True)
+                    print(scenario, i, "LCOW -->", m.fs.costing.LCOW())
+
+                    lcow_list.append(value(m.fs.costing.LCOW))
+                    water_recovery_list.append(value(m.fs.costing.system_recovery))
+                    scenario_value.append(i)
+                    scenario_name.append(scenario)
+                    elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+                    elec_int.append(value(m.fs.costing.electricity_intensity))
+
+                getattr(m.fs, key).lift_height.fix(stash_value)
+                
+    ############################################################
+    
     ############################################################
     print("-------", "RESET", "-------")
     run_water_tap(m = m, objective=False, skip_small = True)
@@ -748,48 +783,47 @@ def run_water_tap_ro(m, source_water_category = None, return_df = False,
 
 #     wt.print_ro_results(m)
     
-    if scenario_name == "baseline":
-        scenario_name = m.fs.train["scenario"]
-    
-        if has_ro is True:
+    scenario_name = m.fs.train["scenario"]
 
-            #store RO variables
-            ro_stash = {}
-            for key in m.fs.pfd_dict.keys():
-                if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-                    ro_stash[key] = {"feed.pressure" : getattr(m.fs, key).feed.pressure[0](),
-                    "membrane_area" : getattr(m.fs, key).membrane_area[0](),
-                    "a" : getattr(m.fs, key).a[0](),
-                    "b" : getattr(m.fs, key).b[0]()}
+    if has_ro is True:
 
-            ###### RESET BOUNDS AND DOUBLE CHECK RUN IS OK SO CAN GO INTO SENSITIVITY #####
+        #store RO variables
+        ro_stash = {}
+        for key in m.fs.pfd_dict.keys():
+            if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+                ro_stash[key] = {"feed.pressure" : getattr(m.fs, key).feed.pressure[0](),
+                "membrane_area" : getattr(m.fs, key).membrane_area[0](),
+                "a" : getattr(m.fs, key).a[0](),
+                "b" : getattr(m.fs, key).b[0]()}
 
-            print("Running with unfixed, then fixed RO based on model results")
-            m = wt.watertap_setup(dynamic=False, case_study = case_study, reference = reference, 
-                                  scenario = scenario, source_scenario = source_scenario)
+        ###### RESET BOUNDS AND DOUBLE CHECK RUN IS OK SO CAN GO INTO SENSITIVITY #####
 
-            m = wt.case_study_trains.get_case_study(m=m)
+        print("Running with unfixed, then fixed RO based on model results")
+        m = wt.watertap_setup(dynamic=False, case_study = case_study, reference = reference, 
+                              scenario = scenario, source_scenario = source_scenario)
 
-            for key in m.fs.pfd_dict.keys():
-                if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-                    getattr(m.fs, key).feed.pressure.unfix()
-                    getattr(m.fs, key).membrane_area.unfix()
-                    print("Unfixing feed presure and area for", key, '...\n')
+        m = wt.case_study_trains.get_case_study(m=m)
 
-            wt.run_water_tap(m=m, objective=True, skip_small=skip_small)
+        for key in m.fs.pfd_dict.keys():
+            if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+                getattr(m.fs, key).feed.pressure.unfix()
+                getattr(m.fs, key).membrane_area.unfix()
+                print("Unfixing feed presure and area for", key, '...\n')
 
-            m.fs.objective_function.deactivate()
+        wt.run_water_tap(m=m, objective=True, skip_small=skip_small)
 
-            for key in m.fs.pfd_dict.keys():
-                if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
-                    getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
-                    getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
-                    getattr(m.fs, key).a.fix(ro_stash[key]["a"])
-                    getattr(m.fs, key).b.fix(ro_stash[key]["b"]) 
+        m.fs.objective_function.deactivate()
 
-        wt.run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=True)
-    
-        wt.print_ro_results(m)
+        for key in m.fs.pfd_dict.keys():
+            if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+                getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
+                getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
+                getattr(m.fs, key).a.fix(ro_stash[key]["a"])
+                getattr(m.fs, key).b.fix(ro_stash[key]["b"]) 
+
+    wt.run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=True)
+
+    wt.print_ro_results(m)
     ############################################################
     
     # creates csv in results folder with the name: *case_study*_*scenario*.csv
