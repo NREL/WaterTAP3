@@ -68,6 +68,12 @@ p_atm = 1 #bar atmospheric pressure
 #p_ret = p_in - pressure_drop # momentum balance
 pw = 1000 # density of water kg/m3
 #membrane_area_in = 50    
+
+# area per vessel 40m2 of membrane area -> from EPA cost model
+mem_area_per_vessel = 40
+# cost per vessel is assumed as 1000 so same source as pump cost. EPA is 783 but then adds other associated costs.
+cost_per_vessel = 1000
+
 ##########################################
 ##########################################
 
@@ -327,7 +333,8 @@ see property package for documentation.}"""))
                       bounds=(0.01, 3),
                       doc="replacement rate membrane fraction") 
         
-        self.factor_membrane_replacement.fix(0.2)
+        self.factor_membrane_replacement.fix(0.25) #
+        # replacement rate assumed to occur every ~4 years (conservative) based on: "On RO membrane and energy costs and associated incentives for future enhancements of membrane permeability"
         
         if unit_params == None:
             print("No parameters given. Assumes default single pass with default area and pressure -- check values")
@@ -568,11 +575,43 @@ see property package for documentation.}"""))
             b_cost.pump_capital_cost = 0
         ########################################################################  
         
+        ########################################################################  
+        ########################################################################  
+        #vessel cost
+        #self.number_of_vessels = self.membrane_area[t] * 0.025
+        
+       
+        self.pressue_vessel_cost1 = Var(time, domain=NonNegativeReals)
+        self.rack_support_cost1 = Var(time, domain=NonNegativeReals)
+        
+        self.pressue_vessel_cost1_eq = Constraint(
+            expr = self.pressue_vessel_cost1[t] * 0.99 <= self.membrane_area[t] * 0.025 * 1000)
+        # assumes 2 trains.150 ft start, 5ft per additional vessel. EPA.
+        self.rack_support_cost1_eq = Constraint(
+            expr = self.rack_support_cost1[t] * 0.99 <= (150 + (self.membrane_area[t] * 0.025 * 5)) * 33 * 2)
+        
+        self.pressue_vessel_cost1_eq2 = Constraint(
+            expr = self.pressue_vessel_cost1[t] * 1.01 >= self.membrane_area[t] * 0.025 * 1000)
+        # assumes 2 trains.150 ft start, 5ft per additional vessel. EPA.
+        self.rack_support_cost1_eq2 = Constraint(
+            expr = self.rack_support_cost1[t] * 1.01 >= (150 + (self.membrane_area[t] * 0.025 * 5)) * 33 * 2)
+        
+        b_cost.pressue_vessel_cap_cost1 = self.pressue_vessel_cost1[t] + self.rack_support_cost1[t]
+        
+
+            
+        # Markup for Rack Assembly is 100% of vessel PLUS rack cost, then added to vessel cap cost in EPA. 
+        
+        #40 replacement is same as 0.025
+
+        ########################################################################  
+        ########################################################################  
+        
         ################ Energy Recovery
         # assumes atmospheric pressure out
         if unit_params["erd"] == "yes": 
             x_value = (retenate.mass_flow_tds[t] + retenate.mass_flow_h20[t]) / retenate.conc_mass_total[t] * 3600
-            b_cost.erd_capital_cost = 3134.7 * x_value ** 0.58
+            b_cost.erd_capital_cost = 3134.7 * (x_value * retenate.conc_mass_total[t]) ** 0.58
             self.erd_power = (self.flow_vol_waste[t] * (retenate.pressure[t] - 1) *1e5) / erd_eff
         
         if unit_params["erd"] == "no": 
@@ -585,8 +624,10 @@ see property package for documentation.}"""))
         
         # total capital investment
         #b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)
-        b_cost.fixed_cap_inv_unadjusted = 1.65 * (self.costing.pump_capital_cost 
-        + self.costing.mem_capital_cost + b_cost.erd_capital_cost) * 1e-6 #$MM ### 1.65 -> TIC -> ARIEL TO DO 
+        b_cost.fixed_cap_inv_unadjusted = Expression( 
+            expr = (1.65 * (b_cost.pump_capital_cost + b_cost.mem_capital_cost + b_cost.erd_capital_cost) 
+            + 3.3*(self.pressue_vessel_cost1[t] + self.rack_support_cost1[t])) * 1e-6 
+        )#$MM ### 1.65 is TIC
         
         ################ operating
         # membrane operating cost
