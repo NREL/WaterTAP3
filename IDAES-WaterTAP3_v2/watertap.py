@@ -3,12 +3,10 @@
 
 import warnings
 
-import case_study_trains
 ### WATER TAP MODULES ###
 import financials
 import display
 import watertap as wt
-import case_study_trains
 import importfile
 import module_import
 import design
@@ -17,6 +15,8 @@ import watertap as wt
 from post_processing import *
 import app3
 import optimize_setup
+import sensitivity_runs
+from sensitivity_runs import get_fixed_onm_reduction
 
 warnings.filterwarnings('ignore')
 
@@ -307,7 +307,7 @@ def sensitivity_runs(m = None, save_results = False, return_results = False,
         for key in m.fs.flow_in_dict: 
             if "tds" in list(getattr(m.fs, key).config.property_package.component_list):
                 stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, "tds"]))
-        scenario = "Inlet TDS +-20%"
+        scenario = "Inlet TDS +-25%"
         print("-------", scenario, "-------")
         ub = 1.25
         lb = 0.75
@@ -690,6 +690,119 @@ def unset_bounds(m = None):
     
     return m
 
+
+def run_water_tap_ro(m, source_water_category = None, return_df = False, 
+                     skip_small = None, desired_recovery = 0, ro_bounds = None, 
+                     source_scenario = None, scenario_name = None):
+    scenario = scenario_name
+    case_study = m.fs.train["case_study"]
+    reference = m.fs.train["reference"]
+    
+    has_ro = False
+    
+    ### # RUN MODEL with optimal ro --> estimating area and pressure for optimal LCOW
+    # so that the model solves and gets you results. Then runs again with set pressure.
+    for key in m.fs.pfd_dict.keys():
+        if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+            getattr(m.fs, key).feed.pressure.unfix()
+            getattr(m.fs, key).membrane_area.unfix()
+            print("Unfixing feed presure and area for", key, '...\n')
+            has_ro = True
+    
+    wt.run_water_tap(m=m, objective=True, skip_small=skip_small)
+    wt.print_ro_results(m)
+    
+    if has_ro is True:
+        m = wt.set_bounds(m, source_water_category = ro_bounds)
+        wt.print_ro_results(m)
+
+    # If you need the system recovery to match better.... set a maximum recovery rate.
+    # The previous system recovery results must be greater than the limit you set below. If this is not the case, then
+    # you need to ease the bounds on the flux assumpations.
+    
+    if desired_recovery < 1:
+        if m.fs.costing.system_recovery() > desired_recovery:
+            print("Running for desired recovery -->", desired_recovery)
+            m.fs.recovery_bound = Constraint(expr=m.fs.costing.system_recovery <= desired_recovery)
+            m.fs.recovery_bound1 = Constraint(expr=m.fs.costing.system_recovery >= desired_recovery-1.5)
+            
+            if scenario_name =="baseline":
+                wt.run_water_tap(m=m, objective=True, skip_small=skip_small)
+            else:
+                wt.run_water_tap(m=m, objective=True, skip_small=skip_small, print_model_results="summary")
+            
+            wt.print_ro_results(m)
+
+        else:
+            print("system recovery already lower than desired recovery. desired:", desired_recovery, 
+                  "current:", m.fs.costing.system_recovery())
+
+    
+    #run model to make sure it  works
+    #Readjust recovery constraint and deactivate objective constraint
+#     m.recovery_bound = Constraint(expr=m.fs.costing.system_recovery >= 0)
+#     m.fs.objective_function.deactivate()
+    
+#     print("Final check before saving RO results and/or desired recovery")
+#     wt.run_water_tap(m=m, objective=False, skip_small=True)
+
+#     wt.print_ro_results(m)
+    
+    if scenario_name == "baseline":
+        scenario_name = m.fs.train["scenario"]
+    
+        if has_ro is True:
+
+            #store RO variables
+            ro_stash = {}
+            for key in m.fs.pfd_dict.keys():
+                if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+                    ro_stash[key] = {"feed.pressure" : getattr(m.fs, key).feed.pressure[0](),
+                    "membrane_area" : getattr(m.fs, key).membrane_area[0](),
+                    "a" : getattr(m.fs, key).a[0](),
+                    "b" : getattr(m.fs, key).b[0]()}
+
+            ###### RESET BOUNDS AND DOUBLE CHECK RUN IS OK SO CAN GO INTO SENSITIVITY #####
+
+            print("Running with unfixed, then fixed RO based on model results")
+            m = wt.watertap_setup(dynamic=False, case_study = case_study, reference = reference, 
+                                  scenario = scenario, source_scenario = source_scenario)
+
+            m = wt.case_study_trains.get_case_study(m=m)
+
+            for key in m.fs.pfd_dict.keys():
+                if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+                    getattr(m.fs, key).feed.pressure.unfix()
+                    getattr(m.fs, key).membrane_area.unfix()
+                    print("Unfixing feed presure and area for", key, '...\n')
+
+            wt.run_water_tap(m=m, objective=True, skip_small=skip_small)
+
+            m.fs.objective_function.deactivate()
+
+            for key in m.fs.pfd_dict.keys():
+                if m.fs.pfd_dict[key]["Unit"] == "reverse_osmosis":
+                    getattr(m.fs, key).feed.pressure.fix(ro_stash[key]["feed.pressure"])
+                    getattr(m.fs, key).membrane_area.fix(ro_stash[key]["membrane_area"])
+                    getattr(m.fs, key).a.fix(ro_stash[key]["a"])
+                    getattr(m.fs, key).b.fix(ro_stash[key]["b"]) 
+
+        wt.run_water_tap(m=m, objective=False, print_model_results="summary", skip_small=True)
+    
+        wt.print_ro_results(m)
+    ############################################################
+    
+    # creates csv in results folder with the name: *case_study*_*scenario*.csv
+    # In this case, save the final baseline result.
+    
+    df = wt.get_results_table(m=m, case_study=m.fs.train["case_study"], scenario=scenario_name)
+    
+    if return_df is True:
+        return m, df
+    else:
+        return m
+    
+    
 
 def main():
     print("importing something")

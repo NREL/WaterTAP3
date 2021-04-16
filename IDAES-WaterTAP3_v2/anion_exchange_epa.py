@@ -212,11 +212,12 @@ see property package for documentation.}"""))
         self.water_recovery_constraint = Constraint(
             expr = self.water_recovery[t] * flow_in_gal_day == flow_out_gal_day
         )
-
+        
+        # add silica or constituent of choice for additional removal.
         
         self.mass_removed_constr = Constraint(
             expr=self.mass_removed[t] * 1000 == (((self.conc_mass_in[t, "tds"] * self.removal_fraction[t, "tds"] * 1e3 * .0548) 
-                                                 + (self.conc_mass_in[t, "silicon_dioxide"] * self.removal_fraction[t, "silicon_dioxide"] * 1e3 * .0548)) / 17.12) * flow_out_gal_day
+                                                 + ) / 17.12) * flow_out_gal_day
         ) # mass removed kgr/day
         
         self.an_res_vol_constr = Constraint(
