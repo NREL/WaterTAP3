@@ -124,7 +124,7 @@ see property package for documentation.}"""))
             self.cycles = unit_params["cycles"];
         else:
             self.cycles = 5.0;
-            print("assuming cycles of concentration is:", self.cycles)
+            print("if cycles are used, assuming cycles of concentration is:", self.cycles)
         
         #####
        

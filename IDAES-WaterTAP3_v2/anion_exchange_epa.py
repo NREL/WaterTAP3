@@ -123,8 +123,8 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
         # system_type = unit_params
         # ebct_init = Block()
-        self.ebct = Var(time, initialize=5, domain=NonNegativeReals, bounds=(0.1, 100), units=pyunits.minutes, doc="ebct")
-        self.ebct.fix(unit_params['ebct'])
+#         self.ebct = Var(time, initialize=5, domain=NonNegativeReals, bounds=(0.1, 100), units=pyunits.minutes, doc="ebct")
+#         self.ebct.fix(unit_params['ebct'])
 
         flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.Mgallons / pyunits.day)
         # self.ebct = unit_params['ebct']
@@ -214,10 +214,20 @@ see property package for documentation.}"""))
         )
         
         # add silica or constituent of choice for additional removal.
+#         self.removal_fraction[t, "tds"].unfix()
+#         self.tds_removal_eq = Constraint(
+#             expr = self.removal_fraction[t, "tds"] >= 0.5
+#         )#fix(0.85)
+        
+#         self.tds_removal_eq = Constraint(
+#             expr = self.removal_fraction[t, "tds"] <= 0.98
+#         )#fix(0.85)
+        
+        self.removal_fraction[t, "tds"].fix(0.9)
         
         self.mass_removed_constr = Constraint(
-            expr=self.mass_removed[t] * 1000 == (((self.conc_mass_in[t, "tds"] * self.removal_fraction[t, "tds"] * 1e3 * .0548) 
-                                                 + ) / 17.12) * flow_out_gal_day
+            expr=self.mass_removed[t] * 1000 == (((self.conc_mass_in[t, "tds"] * self.removal_fraction[t, "tds"] 
+                                                   * 1e3 * .0548)) / 17.12) * flow_out_gal_day
         ) # mass removed kgr/day
         
         self.an_res_vol_constr = Constraint(

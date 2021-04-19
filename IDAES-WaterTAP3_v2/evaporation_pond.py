@@ -112,7 +112,9 @@ see property package for documentation.}"""))
 
         ### COSTING COMPONENTS SHOULD BE SET AS SELF.costing AND READ FROM A .CSV THROUGH A FUNCTION THAT SITS IN FINANCIALS ###
 
-        time = self.flowsheet().config.time.first()
+        t = self.flowsheet().config.time.first()               
+        time = self.flowsheet().config.time
+        
         # get tic or tpec (could still be made more efficent code-wise, but could enough for now)
         sys_cost_params = self.parent_block().costing_param
         self.costing.tpec_tic = sys_cost_params.tpec if tpec_or_tic == "TPEC" else sys_cost_params.tic
@@ -122,7 +124,7 @@ see property package for documentation.}"""))
         self.costing.basis_year = unit_basis_yr
 
         #### CHEMS ###
-        tds_in = 10 #self.conc_mass_in[time, "tds"]  # convert from kg/m3 to mg/L
+        tds_in = 1000 * self.conc_mass_in[t, "tds"]  # convert from kg/m3 to mg/L
 
         chem_dict = {}
         self.chem_dict = chem_dict
@@ -130,6 +132,8 @@ see property package for documentation.}"""))
         ####### UNIT SPECIFIC EQUATIONS AND FUNCTIONS ######
         ##########################################
         approach = unit_params['approach']
+        
+        self.air_temp = Var(time, initialize=20, domain=NonNegativeReals, bounds=(0, 45), doc="air temp degrees C")
 
 
         try:
@@ -146,26 +150,26 @@ see property package for documentation.}"""))
         if bool(evap_method):
             evap_method = unit_params['evap_method']
             try:
-                self.air_temp = unit_params['air_temp']  # degree C
+                self.air_temp.fix(unit_params['air_temp'])  # degree C
                 self.solar_rad  = unit_params['solar_rad']  # mJ / m2
             except:
-                self.air_temp = 25
+                self.air_temp.fix(20)
                 self.solar_rad  = 25 # average for 40deg latitude
             if evap_method == 'turc':
                 # Turc (1961) PE in mm for day
-                self.evap_rate_pure = (0.313 * self.air_temp * (self.solar_rad  + 2.1) / (self.air_temp + 15)) * (pyunits.millimeter / pyunits.day)
+                self.evap_rate_pure = (0.313 * self.air_temp[t] * (self.solar_rad  + 2.1) / (self.air_temp[t] + 15)) * (pyunits.millimeter / pyunits.day)
                 self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
 
 
             if evap_method == 'jensen':
                 # Jensen-Haise (1963) PE in mm per day
-                self.evap_rate_pure = (0.41 * (0.025 * self.air_temp + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
+                self.evap_rate_pure = (0.41 * (0.025 * self.air_temp[t] + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
                 self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
         else:
             # defaults to jensen
-            self.air_temp = 25
+            self.air_temp.fix(25)
             self.solar_rad = 25  # average for 40deg latitude
-            self.evap_rate_pure_mm_d = (0.41 * (0.025 * self.air_temp + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
+            self.evap_rate_pure_mm_d = (0.41 * (0.025 * self.air_temp[t] + 0.078) * self.solar_rad ) * (pyunits.millimeter / pyunits.day)
             self.evap_rate_pure = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
             self.evap_rate_m_yr = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.meter / pyunits.year))
         ## This costing model adapted from
@@ -185,7 +189,7 @@ see property package for documentation.}"""))
 
 
 
-        x0 = self.air_temp
+        x0 = self.air_temp[t]
         x1 = tds_in
         x2 = self.humidity
         x3 = self.wind_speed
@@ -200,10 +204,11 @@ see property package for documentation.}"""))
 
         self.evap_rate = self.evap_rate_pure * 0.7 # ratio factor from the BLM document
 
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.gallons / pyunits.minute))
-        flow_waste = pyunits.convert(self.flow_vol_waste[time], to_units=(pyunits.gallons / pyunits.minute))
+        flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute)) # volume coming in
+        flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute)) # left over volume
+        flow_out = pyunits.convert(self.flow_vol_out[t], to_units=(pyunits.gallons / pyunits.minute)) #what gets evaporated
 
-        self.area = flow_waste / self.evap_rate
+        self.area = flow_out / self.evap_rate
 
         self.total_area = 1.2 * self.area * (1 + 0.155 * dike_height / (self.area ** 0.5))
 
@@ -213,7 +218,7 @@ see property package for documentation.}"""))
             if approach == 'wt3':
                 return (self.cost_per_acre * self.total_area) * 1E-6
             else: # this is Lenntech cost curve based on flow for 1 m/y evap rate
-                flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.day))
+                flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.m ** 3 / pyunits.day))
                 return 0.03099 * flow_in ** 0.7613 # this is Lenntech cost curve based on flow for 1 m/y evap rate
 
 

@@ -54,7 +54,7 @@ module_name = "irwin_brine_management"
 # this is either cost curve or equation. if cost curve then reads in data from file.
 unit_cost_method = "cost_curve"
 #tpec_or_tic = "TPEC"
-unit_basis_yr = 2020
+unit_basis_yr = 2019
 
 base_fixed_cap_cost = 31
 cap_scaling_exp = .873
@@ -157,17 +157,18 @@ see property package for documentation.}"""))
             conc_mass_tot = conc_mass_tot + self.conc_mass_in[time, constituent] 
             
         density = 0.6312 * conc_mass_tot + 997.86 #kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr to tons for Mike's Excel needs
+        total_mass = (density * self.flow_vol_in[time] * 3600) #kg/hr to tons for Mike's Excel needs
                     
         lift_height = 100 # ft            
-
-        def fixed_cap(flow_in): # TODO not based on flow, just have placeholder numbers for Carlsbad
+        capacity_basis = 9463.5
+        
+        def fixed_cap(): # TODO not based on flow, just have placeholder numbers for Carlsbad
 
             capacity_basis = 9463.5 # m3/hr - from PML tab based on 250000 gallons per day
 
             #total_flow_rate = self.total_mass # m3/hr - TOTAL MASS TODO
 
-            fixed_cap_unadj =  base_fixed_cap_cost * (self.total_mass / capacity_basis) ** cap_scaling_exp
+            fixed_cap_unadj =  base_fixed_cap_cost * (total_mass / capacity_basis) ** cap_scaling_exp
 
             return fixed_cap_unadj # M$
 
@@ -192,7 +193,7 @@ see property package for documentation.}"""))
             
         # capital costs (unit: MM$) ---> TCI IN EXCEL
         self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=fixed_cap(flow_in),
+            expr=fixed_cap(),
             doc="Unadjusted fixed capital investment") # $M
 
         self.electricity = electricity(flow_in) # kwh/m3 
