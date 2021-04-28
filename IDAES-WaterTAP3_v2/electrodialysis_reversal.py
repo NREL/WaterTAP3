@@ -177,7 +177,7 @@ see property package for documentation.}"""))
             doc="Unadjusted fixed capital investment")  # $M
 
         ## electricity consumption ##
-        self.electricity = (self.conc_mass_waste[time, "tds"]*1000 / 630) * 0.337   # kwh/m3
+        self.electricity = ((self.conc_mass_in[time, "tds"] - self.conc_mass_out[time, "tds"])*1000 / 630) * 0.337   # kwh/m3
 
         ##########################################
         ####### GET REST OF UNIT COSTS ######
