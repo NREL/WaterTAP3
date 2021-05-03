@@ -1,4 +1,4 @@
-name: watertap3
+Conda name: watertap3
 channels:
   - conda-forge
   - defaults

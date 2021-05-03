@@ -1,0 +1,1517 @@
+Unit Process Name,Variable,Value,Metric,Unit,Case Study,Scenario
+sw_onshore_intake,Electricity Intensity Unit Inlet,0.10239865270980317,Electricity,kwh/m3,santa_barbara,baseline
+sw_onshore_intake,Electricity Intensity System Treated,0.14500534399099219,Electricity,kwh/m3,santa_barbara,baseline
+sw_onshore_intake,Unit Levelized Cost,0.046688141318101284,LCOW,$/m3,santa_barbara,baseline
+sw_onshore_intake,Fixed Capital Investment (FCI),1.9101958331702547,Cost,$MM,santa_barbara,baseline
+sw_onshore_intake,Land,0.002865293749755382,Cost,$MM,santa_barbara,baseline
+sw_onshore_intake,Working Capital,0.09550979165851274,Cost,$MM,santa_barbara,baseline
+sw_onshore_intake,Total Capital Investment (TCI),2.0085709185785228,Cost,$MM,santa_barbara,baseline
+sw_onshore_intake,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Electricity,0.1338882586697586,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Employee Salaries,0.0009542586002339522,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Benefits,0.000858832740210557,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Maintenance,0.015281566665362038,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Laboratory,0.005730587499510764,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Insurance and Taxes,0.0038203916663405095,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Total Fixed Operating ,0.026645637171657823,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Base Employee Salary,0.0009245278822690128,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Electricity,0.1338882586697586,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Annual O&M Costs,0.16053389584141642,Annual Cost,$MM/yr,santa_barbara,baseline
+sw_onshore_intake,Inlet Water,0.3092,Water Flow,m3/s,santa_barbara,baseline
+sw_onshore_intake,Outlet Water,0.30916908,Water Flow,m3/s,santa_barbara,baseline
+sw_onshore_intake,Waste Water,3.0919999999989844e-05,Water Flow,m3/s,santa_barbara,baseline
+sw_onshore_intake,tss,0.03,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,tss,0.030002700270027,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,tss,0.0030000000000009854,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,tss,0.009276,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,tss,0.009275907239999999,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,tss,9.276e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,tds,35.0,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,tds,35.003150315031505,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,tds,3.5000000000011497,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,tds,10.822,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,tds,10.82189178,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,tds,0.00010822,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,boron,0.0044,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,boron,0.004400396039603961,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,boron,0.0004400000000001446,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,boron,0.00136048,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,boron,0.0013604663952,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,boron,1.3604800000000002e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,bromide,0.0663,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,bromide,0.06630596759675968,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,bromide,0.0066300000000021776,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,bromide,0.020499959999999998,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,bromide,0.0204997550004,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,bromide,2.049996e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,calcium,0.4096,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,calcium,0.4096368676867687,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,calcium,0.04096000000001346,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,calcium,0.12664832,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,calcium,0.1266470535168,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,calcium,1.2664832000000001e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,chloride,19.162,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,chloride,19.163724752475247,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,chloride,1.9162000000006294,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,chloride,5.924890399999999,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,chloride,5.924831151096,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,chloride,5.9248904e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,magnesium,1.278,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,magnesium,1.2781150315031502,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,magnesium,0.127800000000042,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,magnesium,0.3951576,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,magnesium,0.39515364842399997,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,magnesium,3.951576000000001e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,potassium,0.3953,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,potassium,0.3953355805580558,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,potassium,0.039530000000012985,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,potassium,0.12222675999999999,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,potassium,0.12222553773239998,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,potassium,1.2222676000000001e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,sodium,10.679,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,sodium,10.67996120612061,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,sodium,1.067900000000351,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,sodium,3.3019467999999996,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,sodium,3.3019137805319994,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,sodium,3.3019468000000004e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,strontium,0.0013,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,strontium,0.00130011701170117,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,strontium,0.0001300000000000427,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,strontium,0.0004019599999999999,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,strontium,0.0004019559803999999,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,strontium,4.0196000000000005e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,sulfate,2.68,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,sulfate,2.6802412241224123,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,sulfate,0.26800000000008806,Waste Constituent Density,kg/m3,santa_barbara,baseline
+sw_onshore_intake,sulfate,0.828656,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,sulfate,0.82864771344,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+sw_onshore_intake,sulfate,8.286560000000002e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,Electricity Intensity Unit Inlet,3.339812547612626e-06,Electricity,kwh/m3,santa_barbara,baseline
+ferric_chloride_addition,Electricity Intensity System Treated,4.728990328003685e-06,Electricity,kwh/m3,santa_barbara,baseline
+ferric_chloride_addition,Unit Levelized Cost,0.058499943704309436,LCOW,$/m3,santa_barbara,baseline
+ferric_chloride_addition,Fixed Capital Investment (FCI),1.5668133948470433,Cost,$MM,santa_barbara,baseline
+ferric_chloride_addition,Land,0.002350220092270565,Cost,$MM,santa_barbara,baseline
+ferric_chloride_addition,Working Capital,0.07834066974235217,Cost,$MM,santa_barbara,baseline
+ferric_chloride_addition,Total Capital Investment (TCI),1.6475042846816659,Cost,$MM,santa_barbara,baseline
+ferric_chloride_addition,Catalysts and Chemicals,0.24895377724167292,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Electricity,4.366434111020598e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Employee Salaries,0.0008262505559919237,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Benefits,0.0007436255003927313,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Maintenance,0.012534507158776347,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Laboratory,0.00470044018454113,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Insurance and Taxes,0.0031336267896940866,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Total Fixed Operating ,0.02193845018939622,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Base Employee Salary,0.0006582541346910283,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Electricity,4.366434111020598e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Annual O&M Costs,0.27089659386518017,Annual Cost,$MM/yr,santa_barbara,baseline
+ferric_chloride_addition,Inlet Water,0.30916908,Water Flow,m3/s,santa_barbara,baseline
+ferric_chloride_addition,Outlet Water,0.309138163092,Water Flow,m3/s,santa_barbara,baseline
+ferric_chloride_addition,Waste Water,3.0916908000000465e-05,Water Flow,m3/s,santa_barbara,baseline
+ferric_chloride_addition,tss,0.030002700270027,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,tss,0.030005400783102612,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,tss,0.003000270027002655,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,tss,0.009275907239999999,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,tss,0.0092758144809276,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,tss,9.27590724e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,tds,35.003150315031505,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,tds,35.00630091361971,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,tds,3.500315031503098,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,tds,10.82189178,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,tds,10.821783561082198,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,tds,0.00010821891780000001,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,boron,0.004400396039603961,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,boron,0.0044007921148550505,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,boron,0.00044003960396038955,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,boron,0.0013604663952,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,boron,0.0013604527905360481,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,boron,1.3604663952000003e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,bromide,0.06630596759675968,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,bromide,0.06631193573065676,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,bromide,0.006630596759675867,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,bromide,0.0204997550004,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,bromide,0.02049955000284999,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,bromide,2.0499755000399998e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,calcium,0.4096368676867687,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,calcium,0.40967373869196105,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,calcium,0.040963686768676254,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,calcium,0.1266470535168,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,calcium,0.12664578704626483,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,calcium,1.2664705351680001e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,chloride,19.163724752475247,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,chloride,19.16544966019374,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,chloride,1.916372475247496,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,chloride,5.924831151096,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,chloride,5.924771902784488,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,chloride,5.9248311510960005e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,magnesium,1.2781150315031502,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,magnesium,1.2782300733601715,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,magnesium,0.12781150315031312,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,magnesium,0.39515364842399997,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,magnesium,0.3951496968875158,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,magnesium,3.95153648424e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,potassium,0.3953355805580558,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,potassium,0.3953711643186821,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,potassium,0.03953355805580499,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,potassium,0.12222553773239998,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,potassium,0.12222431547702267,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,potassium,1.222255377324e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,sodium,10.67996120612061,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,sodium,10.680922498758425,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,sodium,1.067996120612045,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,sodium,3.3019137805319994,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,sodium,3.301880761394194,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,sodium,3.3019137805319995e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,strontium,0.00130011701170117,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,strontium,0.0013002340339344463,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,strontium,0.00013001170117011505,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,strontium,0.0004019559803999999,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,strontium,0.00040195196084019593,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,strontium,4.019559804e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,sulfate,2.6802412241224123,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,sulfate,2.6804824699571665,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,sulfate,0.2680241224122372,Waste Constituent Density,kg/m3,santa_barbara,baseline
+ferric_chloride_addition,sulfate,0.82864771344,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,sulfate,0.8286394269628655,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+ferric_chloride_addition,sulfate,8.286477134400002e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,Electricity Intensity Unit Inlet,5.689e-06,Electricity,kwh/m3,santa_barbara,baseline
+chlorination,Electricity Intensity System Treated,8.054504637586466e-06,Electricity,kwh/m3,santa_barbara,baseline
+chlorination,Unit Levelized Cost,0.07569995062311718,LCOW,$/m3,santa_barbara,baseline
+chlorination,Fixed Capital Investment (FCI),4.951439571447222,Cost,$MM,santa_barbara,baseline
+chlorination,Land,0.007427159357170833,Cost,$MM,santa_barbara,baseline
+chlorination,Working Capital,0.2475719785723611,Cost,$MM,santa_barbara,baseline
+chlorination,Total Capital Investment (TCI),5.206438709376753,Cost,$MM,santa_barbara,baseline
+chlorination,Catalysts and Chemicals,0.03450066498292474,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Electricity,7.436992118310745e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Employee Salaries,0.002610065405371882,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Benefits,0.0023490588648346937,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Maintenance,0.03961151657157778,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Laboratory,0.014854318714341666,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Insurance and Taxes,0.009902879142894444,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Total Fixed Operating ,0.06932783869902047,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Base Employee Salary,0.0022809491839106146,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Electricity,7.436992118310745e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Annual O&M Costs,0.10383594067406351,Annual Cost,$MM/yr,santa_barbara,baseline
+chlorination,Inlet Water,0.309138163092,Water Flow,m3/s,santa_barbara,baseline
+chlorination,Outlet Water,0.3091072492756908,Water Flow,m3/s,santa_barbara,baseline
+chlorination,Waste Water,3.09138163092082e-05,Water Flow,m3/s,santa_barbara,baseline
+chlorination,tss,0.030005400783102612,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,tss,0.030008101539248707,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,tss,0.0030005400783094656,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,tss,0.0092758144809276,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,tss,0.009275721722782791,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,tss,9.2758144809276e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,tds,35.00630091361971,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,tds,35.009451795790156,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,tds,3.5006300913610433,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,tds,10.821783561082198,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,tds,10.821675343246588,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,tds,0.000108217835610822,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,boron,0.0044007921148550505,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,boron,0.004401188225756477,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,boron,0.0004400792114853884,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,boron,0.0013604527905360481,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,boron,0.0013604391860081427,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,boron,1.3604527905360483e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,bromide,0.06631193573065676,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,bromide,0.06631790440173964,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,bromide,0.006631193573063918,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,bromide,0.02049955000284999,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,bromide,0.020499345007349967,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,bromide,2.0499550002849994e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,calcium,0.40967373869196105,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,calcium,0.40971061301587575,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,calcium,0.04096737386918524,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,calcium,0.12664578704626483,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,calcium,0.12664452058839437,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,calcium,1.2664578704626485e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,chloride,19.16544966019374,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,chloride,19.167174723169456,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,chloride,1.9165449660188658,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,chloride,5.924771902784488,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,chloride,5.92471265506546,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,chloride,5.9247719027844884e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,magnesium,1.2782300733601715,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,magnesium,1.2783451255719949,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,magnesium,0.12782300733598326,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,magnesium,0.3951496968875158,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,magnesium,0.39514574539054687,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,magnesium,3.951496968875158e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,potassium,0.3953711643186821,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,potassium,0.3954067512821671,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,potassium,0.03953711643185773,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,potassium,0.12222431547702267,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,potassium,0.1222230932338679,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,potassium,1.2222431547702267e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,sodium,10.680922498758425,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,sodium,10.68188387792123,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,sodium,1.0680922498755594,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,sodium,3.301880761394194,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,sodium,3.30184774258658,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,sodium,3.3018807613941944e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,strontium,0.0013002340339344463,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,strontium,0.0013003510667007772,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,strontium,0.00013002340339341015,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,strontium,0.00040195196084019593,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,strontium,0.00040194794132058755,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,strontium,4.019519608401959e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,sulfate,2.6804824699571665,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,sulfate,2.680723737506218,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,sulfate,0.26804824699564556,Waste Constituent Density,kg/m3,santa_barbara,baseline
+chlorination,sulfate,0.8286394269628655,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,sulfate,0.8286311405685959,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+chlorination,sulfate,8.286394269628655e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+static_mixer,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+static_mixer,Unit Levelized Cost,0.0015775360106183398,LCOW,$/m3,santa_barbara,baseline
+static_mixer,Fixed Capital Investment (FCI),0.11052361116809963,Cost,$MM,santa_barbara,baseline
+static_mixer,Land,0.00016578541675214945,Cost,$MM,santa_barbara,baseline
+static_mixer,Working Capital,0.0055261805584049814,Cost,$MM,santa_barbara,baseline
+static_mixer,Total Capital Investment (TCI),0.11621557714325675,Cost,$MM,santa_barbara,baseline
+static_mixer,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Employee Salaries,5.6757993573623094e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Benefits,5.108219421626079e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Maintenance,0.000884188889344797,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Laboratory,0.0003315708335042989,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Insurance and Taxes,0.00022104722233619924,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Total Fixed Operating ,0.0015446471329751787,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Base Employee Salary,4.86782828e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Annual O&M Costs,0.0015446471329751787,Annual Cost,$MM/yr,santa_barbara,baseline
+static_mixer,Inlet Water,0.3091072492756908,Water Flow,m3/s,santa_barbara,baseline
+static_mixer,Outlet Water,0.3090763385507632,Water Flow,m3/s,santa_barbara,baseline
+static_mixer,Waste Water,3.091072492755753e-05,Water Flow,m3/s,santa_barbara,baseline
+static_mixer,tss,0.030008101539248707,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,tss,0.030010802538487164,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,tss,0.0030008101539259918,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,tss,0.009275721722782791,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,tss,0.009275628965565563,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,tss,9.27572172278279e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,tds,35.009451795790156,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,tds,35.012602961568355,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,tds,3.5009451795803237,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,tds,10.821675343246588,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,tds,10.821567126493155,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,tds,0.0001082167534324659,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,boron,0.004401188225756477,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,boron,0.004401584372311451,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,boron,0.00044011882257581213,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,boron,0.0013604391860081427,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,boron,0.0013604255816162827,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,boron,1.3604391860081426e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,bromide,0.06631790440173964,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,bromide,0.06632387361005662,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,bromide,0.00663179044017644,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,bromide,0.020499345007349967,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,bromide,0.02049914001389989,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,bromide,2.0499345007349962e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,calcium,0.40971061301587575,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,calcium,0.40974749065881144,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,calcium,0.040971061301602885,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,calcium,0.12664452058839437,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,calcium,0.1266432541431885,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,calcium,1.266445205883944e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,chloride,19.167174723169456,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,chloride,19.168899941416363,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,chloride,1.9167174723176617,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,chloride,5.92471265506546,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,chloride,5.9246534079389095,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,chloride,5.924712655065461e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,magnesium,1.2783451255719949,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,magnesium,1.2784601881395532,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,magnesium,0.12783451255724726,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,magnesium,0.39514574539054687,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,magnesium,0.395141793933093,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,magnesium,3.951457453905469e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,potassium,0.3954067512821671,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,potassium,0.39544234144879914,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,potassium,0.039540675128231485,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,potassium,0.1222230932338679,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,potassium,0.12222187100293555,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,potassium,1.222230932338679e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,sodium,10.68188387792123,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,sodium,10.682845343616814,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,sodium,1.068188387792522,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,sodium,3.30184774258658,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,sodium,3.3018147241091547,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,sodium,3.3018477425865804e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,strontium,0.0013003510667007772,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,strontium,0.0013004681100011102,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,strontium,0.0001300351066701263,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,strontium,0.00040194794132058755,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,strontium,0.0004019439218411743,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,strontium,4.019479413205876e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,sulfate,2.680723737506218,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,sulfate,2.6809650267715197,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,sulfate,0.26807237375072196,Waste Constituent Density,kg/m3,santa_barbara,baseline
+static_mixer,sulfate,0.8286311405685959,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,sulfate,0.8286228542571902,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+static_mixer,sulfate,8.28631140568596e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+holding_tank,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+holding_tank,Unit Levelized Cost,0.020066347679677354,LCOW,$/m3,santa_barbara,baseline
+holding_tank,Fixed Capital Investment (FCI),1.40807483392714,Cost,$MM,santa_barbara,baseline
+holding_tank,Land,0.0021121122508907103,Cost,$MM,santa_barbara,baseline
+holding_tank,Working Capital,0.070403741696357,Cost,$MM,santa_barbara,baseline
+holding_tank,Total Capital Investment (TCI),1.4805906878743877,Cost,$MM,santa_barbara,baseline
+holding_tank,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Employee Salaries,0.0006087934991692906,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Benefits,0.0005479141492523616,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Maintenance,0.01126459867141712,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Laboratory,0.004224224501781421,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Insurance and Taxes,0.00281614966785428,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Total Fixed Operating ,0.019461680489474473,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Base Employee Salary,0.0004454185204914831,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Annual O&M Costs,0.019461680489474473,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank,Inlet Water,0.3090763385507632,Water Flow,m3/s,santa_barbara,baseline
+holding_tank,Outlet Water,0.30904543091690817,Water Flow,m3/s,santa_barbara,baseline
+holding_tank,Waste Water,3.0907633855048466e-05,Water Flow,m3/s,santa_barbara,baseline
+holding_tank,tss,0.030010802538487164,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,tss,0.03001350378083986,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,tss,0.0030010802538514214,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,tss,0.009275628965565563,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,tss,0.009275536209275907,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,tss,9.275628965565564e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,tds,35.012602961568355,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,tds,35.01575441097983,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,tds,3.5012602961599915,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,tds,10.821567126493155,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,tds,10.82145891082189,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,tds,0.00010821567126493157,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,boron,0.004401584372311451,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,boron,0.00440198055452318,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,boron,0.00044015843723154183,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,boron,0.0013604255816162827,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,boron,0.0013604119773604664,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,boron,1.3604255816162827e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,bromide,0.06632387361005662,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,bromide,0.06632984335565609,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,bromide,0.006632387361011641,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,bromide,0.02049914001389989,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,bromide,0.020498935022499755,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,bromide,2.0499140013899893e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,calcium,0.40974749065881144,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,calcium,0.4097843716210669,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,calcium,0.040974749065918074,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,calcium,0.1266432541431885,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,calcium,0.12664198771064705,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,calcium,1.266432541431885e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,chloride,19.168899941416363,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,chloride,19.170625314948442,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,chloride,1.9168899941433641,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,chloride,5.9246534079389095,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,chloride,5.92459416140483,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,chloride,5.92465340793891e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,magnesium,1.2784601881395532,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,magnesium,1.2785752610637782,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,magnesium,0.12784601881407057,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,magnesium,0.395141793933093,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,magnesium,0.39513784251515366,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,magnesium,3.951417939330931e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,potassium,0.39544234144879914,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,potassium,0.3954779348188665,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,potassium,0.039544234144915556,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,potassium,0.12222187100293555,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,potassium,0.12222064878422552,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,potassium,1.2222187100293556e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,sodium,10.682845343616814,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,sodium,10.683806895852962,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,sodium,1.0682845343626444,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,sodium,3.3018147241091547,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,sodium,3.301781705961914,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,sodium,3.3018147241091554e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,strontium,0.0013004681100011102,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,strontium,0.0013005851638363938,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,strontium,0.00013004681100022822,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,strontium,0.0004019439218411743,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,strontium,0.0004019399024019559,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,strontium,4.019439218411743e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,sulfate,2.6809650267715197,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,sulfate,2.681206337755027,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,sulfate,0.2680965026773936,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank,sulfate,0.8286228542571902,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,sulfate,0.8286145680286475,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank,sulfate,8.286228542571903e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+media_filtration,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+media_filtration,Unit Levelized Cost,0.03647908249338948,LCOW,$/m3,santa_barbara,baseline
+media_filtration,Fixed Capital Investment (FCI),2.555086701096274,Cost,$MM,santa_barbara,baseline
+media_filtration,Land,0.0038326300516444115,Cost,$MM,santa_barbara,baseline
+media_filtration,Working Capital,0.1277543350548137,Cost,$MM,santa_barbara,baseline
+media_filtration,Total Capital Investment (TCI),2.686673666202732,Cost,$MM,santa_barbara,baseline
+media_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Employee Salaries,0.0013468695941911558,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Benefits,0.0012121826347720403,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Maintenance,0.020440693608770193,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Laboratory,0.007665260103288823,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Insurance and Taxes,0.005110173402192548,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Total Fixed Operating ,0.03577517934321476,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Base Employee Salary,0.0011770360602387352,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Annual O&M Costs,0.03577517934321476,Annual Cost,$MM/yr,santa_barbara,baseline
+media_filtration,Inlet Water,0.30904543091690817,Water Flow,m3/s,santa_barbara,baseline
+media_filtration,Outlet Water,0.3090145263738165,Water Flow,m3/s,santa_barbara,baseline
+media_filtration,Waste Water,3.0904543091681e-05,Water Flow,m3/s,santa_barbara,baseline
+media_filtration,tss,0.03001350378083986,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,tss,0.015008252715691499,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,tss,150.06751890424695,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,tss,0.009275536209275907,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,tss,0.004637768104637953,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,tss,0.004637768104637953,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,tds,35.01575441097983,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,tds,35.01890614405013,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,tds,3.5015754410990954,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,tds,10.82145891082189,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,tds,10.821350696232782,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,tds,0.0001082145891082189,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,boron,0.00440198055452318,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,boron,0.004402376772394874,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,boron,0.00044019805545245783,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,boron,0.0013604119773604664,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,boron,0.001360398373240693,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,boron,1.3604119773604666e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,bromide,0.06632984335565609,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,bromide,0.06633581363858639,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,bromide,0.006632984335567716,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,bromide,0.020498935022499755,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,bromide,0.020498730033149528,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,bromide,2.0498935022499756e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,calcium,0.4097843716210669,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,calcium,0.409821255902941,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,calcium,0.040978437162119706,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,calcium,0.12664198771064705,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,calcium,0.12664072129076995,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,calcium,1.2664198771064706e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,chloride,19.170625314948442,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,chloride,19.17235084377967,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,chloride,1.917062531495453,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,chloride,5.92459416140483,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,chloride,5.924534915463216,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,chloride,5.9245941614048295e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,magnesium,1.2785752610637782,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,magnesium,1.278690344345602,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,magnesium,0.12785752610641843,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,magnesium,0.39513784251515366,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,magnesium,0.3951338911367285,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,magnesium,3.951378425151537e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,potassium,0.3954779348188665,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,potassium,0.3955135313926576,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,potassium,0.03954779348189921,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,potassium,0.12222064878422552,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,potassium,0.12221942657773768,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,potassium,1.2222064878422553e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,sodium,10.683806895852962,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,sodium,10.684768534637467,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,sodium,1.0683806895856356,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,sodium,3.301781705961914,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,sodium,3.301748688144854,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,sodium,3.301781705961914e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,strontium,0.0013005851638363938,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,strontium,0.001300702228207576,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,strontium,0.0001300585163836807,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,strontium,0.0004019399024019559,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,strontium,0.00040193588300293186,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,strontium,4.01939902401956e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,sulfate,2.681206337755027,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,sulfate,2.6814476704586956,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,sulfate,0.26812063377558787,Waste Constituent Density,kg/m3,santa_barbara,baseline
+media_filtration,sulfate,0.8286145680286475,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,sulfate,0.8286062818829674,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+media_filtration,sulfate,8.286145680286477e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,Electricity Intensity Unit Inlet,5.014625499990357e-07,Electricity,kwh/m3,santa_barbara,baseline
+anti_scalant_addition,Electricity Intensity System Treated,7.096883571620922e-07,Electricity,kwh/m3,santa_barbara,baseline
+anti_scalant_addition,Unit Levelized Cost,0.03673295058391257,LCOW,$/m3,santa_barbara,baseline
+anti_scalant_addition,Fixed Capital Investment (FCI),0.06506436343312319,Cost,$MM,santa_barbara,baseline
+anti_scalant_addition,Land,9.759654514968479e-05,Cost,$MM,santa_barbara,baseline
+anti_scalant_addition,Working Capital,0.0032532181716561598,Cost,$MM,santa_barbara,baseline
+anti_scalant_addition,Total Capital Investment (TCI),0.06841517814992903,Cost,$MM,santa_barbara,baseline
+anti_scalant_addition,Catalysts and Chemicals,0.24670862076941252,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Electricity,6.552788726499408e-07,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Employee Salaries,3.431133958816249e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Benefits,3.088020562934624e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Maintenance,0.0005205149074649856,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Laboratory,0.00019519309029936957,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Insurance and Taxes,0.0001301287268662464,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Total Fixed Operating ,0.0009110282698481104,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Base Employee Salary,2.733502687157852e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Electricity,6.552788726499408e-07,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Annual O&M Costs,0.2476203043181333,Annual Cost,$MM/yr,santa_barbara,baseline
+anti_scalant_addition,Inlet Water,0.3090145263738165,Water Flow,m3/s,santa_barbara,baseline
+anti_scalant_addition,Outlet Water,0.3089836249211791,Water Flow,m3/s,santa_barbara,baseline
+anti_scalant_addition,Waste Water,3.090145263739963e-05,Water Flow,m3/s,santa_barbara,baseline
+anti_scalant_addition,tss,0.015008252715691499,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,tss,0.015009603593523695,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,tss,0.0015008252715682769,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,tss,0.004637768104637953,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,tss,0.004637721726956907,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,tss,4.637768104637954e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,tds,35.01890614405013,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,tds,35.02205816080477,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,tds,3.501890614402976,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,tds,10.821350696232782,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,tds,10.82124248272582,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,tds,0.00010821350696232785,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,boron,0.004402376772394874,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,boron,0.004402773025929743,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,boron,0.0004402376772392313,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,boron,0.001360398373240693,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,boron,0.0013603847692569605,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,boron,1.360398373240693e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,bromide,0.06633581363858639,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,bromide,0.0663417844588959,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,bromide,0.006633581363854779,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,bromide,0.020498730033149528,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,bromide,0.020498525045849196,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,bromide,2.049873003314953e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,calcium,0.409821255902941,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,calcium,0.4098581435047325,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,calcium,0.04098212559027026,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,calcium,0.12664072129076995,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,calcium,0.12663945488355705,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,calcium,1.2664072129076997e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,chloride,19.17235084377967,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,chloride,19.174076527924026,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,chloride,1.9172350843768518,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,chloride,5.924534915463216,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,chloride,5.924475670114061,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,chloride,5.924534915463217e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,magnesium,1.278690344345602,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,magnesium,1.278805437985957,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,magnesium,0.1278690344344858,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,magnesium,0.3951338911367285,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,magnesium,0.3951299397978171,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,magnesium,3.951338911367285e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,potassium,0.3955135313926576,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,potassium,0.3955491311704607,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,potassium,0.03955135313924275,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,potassium,0.12221942657773768,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,potassium,0.1222182043834719,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,potassium,1.222194265777377e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,sodium,10.684768534637467,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,sodium,10.685730259978119,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,sodium,1.0684768534631253,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,sodium,3.301748688144854,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,sodium,3.3017156706579724,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,sodium,3.301748688144855e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,strontium,0.001300702228207576,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,strontium,0.0013008193031156057,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,strontium,0.00013007022282068194,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,strontium,0.00040193588300293186,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,strontium,0.0004019318636441019,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,strontium,4.0193588300293194e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,sulfate,2.6814476704586956,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,sulfate,2.68168902488448,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,sulfate,0.2681447670457136,Waste Constituent Density,kg/m3,santa_barbara,baseline
+anti_scalant_addition,sulfate,0.8286062818829674,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,sulfate,0.8285979958201486,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+anti_scalant_addition,sulfate,8.286062818829675e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+cartridge_filtration,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+cartridge_filtration,Unit Levelized Cost,0.03533442826222406,LCOW,$/m3,santa_barbara,baseline
+cartridge_filtration,Fixed Capital Investment (FCI),2.4749122393637366,Cost,$MM,santa_barbara,baseline
+cartridge_filtration,Land,0.003712368359045605,Cost,$MM,santa_barbara,baseline
+cartridge_filtration,Working Capital,0.12374561196818684,Cost,$MM,santa_barbara,baseline
+cartridge_filtration,Total Capital Investment (TCI),2.602370219690969,Cost,$MM,santa_barbara,baseline
+cartridge_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Employee Salaries,0.0013046070186425978,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Benefits,0.001174146316778338,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Maintenance,0.019799297914909895,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Laboratory,0.00742473671809121,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Insurance and Taxes,0.004949824478727474,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Total Fixed Operating ,0.03465261244714952,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Base Employee Salary,0.0011401025845453516,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Annual O&M Costs,0.03465261244714952,Annual Cost,$MM/yr,santa_barbara,baseline
+cartridge_filtration,Inlet Water,0.3089836249211791,Water Flow,m3/s,santa_barbara,baseline
+cartridge_filtration,Outlet Water,0.308952726558687,Water Flow,m3/s,santa_barbara,baseline
+cartridge_filtration,Waste Water,3.089836249209332e-05,Water Flow,m3/s,santa_barbara,baseline
+cartridge_filtration,tss,0.015009603593523695,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,tss,0.0075055523519970465,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,tss,75.04801796767819,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,tss,0.004637721726956907,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,tss,0.0023188608634784535,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,tss,0.0023188608634784535,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,tds,35.02205816080477,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,tds,35.02521046126928,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,tds,3.5022058160832636,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,tds,10.82124248272582,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,tds,10.821134270300991,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,tds,0.0001082124248272582,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,boron,0.004402773025929743,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,boron,0.004403169315130996,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,boron,0.0004402773025933247,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,boron,0.0013603847692569605,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,boron,0.0013603711654092676,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,boron,1.3603847692569605e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,bromide,0.0663417844588959,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,bromide,0.06634775581663296,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,bromide,0.006634178445894869,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,bromide,0.020498525045849196,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,bromide,0.020498320060598738,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,bromide,2.0498525045849199e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,calcium,0.4098581435047325,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,calcium,0.40989503442674,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,calcium,0.04098581435050586,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,calcium,0.12663945488355705,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,calcium,0.1266381884890082,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,calcium,1.2663945488355707e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,chloride,19.174076527924026,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,chloride,19.175802367395484,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,chloride,1.9174076527939283,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,chloride,5.924475670114061,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,chloride,5.92441642535736,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,chloride,5.9244756701140614e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,magnesium,1.278805437985957,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,magnesium,1.2789205419857759,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,magnesium,0.12788054379869745,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,magnesium,0.3951299397978171,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,magnesium,0.3951259884984192,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,magnesium,3.951299397978171e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,potassium,0.3955491311704607,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,potassium,0.39558473415256423,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,potassium,0.039554913117077546,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,potassium,0.1222182043834719,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,potassium,0.12221698220142807,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,potassium,1.222182043834719e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,sodium,10.685730259978119,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,sodium,10.686692071882707,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,sodium,1.068573025998662,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,sodium,3.3017156706579724,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,sodium,3.301682653501266,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,sodium,3.3017156706579725e-05,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,strontium,0.0013008193031156057,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,strontium,0.0013009363885614306,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,strontium,0.00013008193031166407,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,strontium,0.0004019318636441019,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,strontium,0.00040192784432546545,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,strontium,4.0193186364410185e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,sulfate,2.68168902488448,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,sulfate,2.6819304010343337,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,sulfate,0.2681689024886614,Waste Constituent Density,kg/m3,santa_barbara,baseline
+cartridge_filtration,sulfate,0.8285979958201486,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,sulfate,0.8285897098401902,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+cartridge_filtration,sulfate,8.285979958201486e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,Electricity Intensity Unit Inlet,2.0711791060993945,Electricity,kwh/m3,santa_barbara,baseline
+reverse_osmosis,Electricity Intensity System Treated,2.928617199291424,Electricity,kwh/m3,santa_barbara,baseline
+reverse_osmosis,Unit Levelized Cost,0.8311287431182665,LCOW,$/m3,santa_barbara,baseline
+reverse_osmosis,Fixed Capital Investment (FCI),26.22858794321824,Cost,$MM,santa_barbara,baseline
+reverse_osmosis,Land,0.03934288191482736,Cost,$MM,santa_barbara,baseline
+reverse_osmosis,Working Capital,1.3114293971609121,Cost,$MM,santa_barbara,baseline
+reverse_osmosis,Total Capital Investment (TCI),27.579360222293978,Cost,$MM,santa_barbara,baseline
+reverse_osmosis,Catalysts and Chemicals,0.2622858794321824,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Electricity,2.704089699947831,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Other Operating,0.18026520679641506,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Employee Salaries,0.013831503765694291,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Benefits,0.012448353389124863,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Maintenance,0.20982870354574593,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Laboratory,0.07868576382965473,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Insurance and Taxes,0.05245717588643648,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Total Fixed Operating ,0.36725150041665633,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Base Employee Salary,0.011019229550572055,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Electricity,2.704089699947831,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Annual O&M Costs,3.5138922865930846,Annual Cost,$MM/yr,santa_barbara,baseline
+reverse_osmosis,Inlet Water,0.308952726558687,Water Flow,m3/s,santa_barbara,baseline
+reverse_osmosis,Outlet Water,0.21862895036231184,Water Flow,m3/s,santa_barbara,baseline
+reverse_osmosis,Waste Water,0.09093389428822225,Water Flow,m3/s,santa_barbara,baseline
+reverse_osmosis,tss,0.0075055523519970465,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,tss,1.0606376052374119e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,tss,0.025475011498710367,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,tss,0.0023188608634784535,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,tss,2.3188608634785143e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,tss,0.0023165420026149746,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,tds,35.02521046126928,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,tds,0.5872234993358076,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,tds,117.58816991958571,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,tds,10.821134270300991,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,tds,0.12838405728787133,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,tds,10.692750213013122,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,boron,0.004403169315130996,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,boron,0.006222220613707515,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,boron,1.4960001175111478e-07,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,boron,0.0013603711654092676,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,boron,0.0013603575616976137,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,boron,1.3603711654092678e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,bromide,0.06634775581663296,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,bromide,0.0006919376495954582,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,bromide,0.22375641797611726,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,bromide,0.020498320060598738,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,bromide,0.00015127760204722014,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,bromide,0.02034704245855152,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,calcium,0.40989503442674,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,calcium,0.004274776188149284,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,calcium,1.3823624253848814,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,calcium,0.1266381884890082,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,calcium,0.0009345898310488824,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,calcium,0.12570359865795933,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,chloride,19.175802367395484,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,chloride,0.1999835481379794,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,chloride,64.66999217584251,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,chloride,5.92441642535736,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,chloride,0.0437221932191373,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,chloride,5.8806942321382225,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,magnesium,1.2789205419857759,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,magnesium,0.013337802657360337,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,magnesium,4.313132762797554,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,magnesium,0.3951259884984192,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,magnesium,0.002916029795118344,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,magnesium,0.3922099587033008,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,potassium,0.39558473415256423,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,potassium,0.004125534734314973,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,potassium,1.334101237193954,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,potassium,0.12221698220142807,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,potassium,0.0009019613286465415,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,potassium,0.12131502087278154,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,sodium,10.686692071882707,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,sodium,0.11145101297179373,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,sodium,36.04064536300085,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,sodium,3.301682653501266,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,sodium,0.024366417982839665,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,sodium,3.277316235518427,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,strontium,0.0013009363885614306,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,strontium,1.3567404894028376e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,strontium,0.00438738074462975,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,strontium,0.00040192784432546545,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,strontium,2.9662274911219164e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,strontium,0.0003989616168343435,Waste Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,sulfate,2.6819304010343337,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,sulfate,0.027969727012304796,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,sulfate,9.044754150467485,Waste Constituent Density,kg/m3,santa_barbara,baseline
+reverse_osmosis,sulfate,0.8285897098401902,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,sulfate,0.006114992058620598,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+reverse_osmosis,sulfate,0.8224747177815698,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+holding_tank_b,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+holding_tank_b,Unit Levelized Cost,0.009485257402492115,LCOW,$/m3,santa_barbara,baseline
+holding_tank_b,Fixed Capital Investment (FCI),0.6655895958234992,Cost,$MM,santa_barbara,baseline
+holding_tank_b,Land,0.0009983843937352488,Cost,$MM,santa_barbara,baseline
+holding_tank_b,Working Capital,0.03327947979117496,Cost,$MM,santa_barbara,baseline
+holding_tank_b,Total Capital Investment (TCI),0.6998674600084094,Cost,$MM,santa_barbara,baseline
+holding_tank_b,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Employee Salaries,0.0002877734970391702,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Benefits,0.0002589961473352532,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Maintenance,0.005324716766587994,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Laboratory,0.0019967687874704976,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Insurance and Taxes,0.0013311791916469984,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Total Fixed Operating ,0.009199434390079914,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Base Employee Salary,0.0002105470006870158,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Annual O&M Costs,0.009199434390079914,Annual Cost,$MM/yr,santa_barbara,baseline
+holding_tank_b,Inlet Water,0.21862895036231184,Water Flow,m3/s,santa_barbara,baseline
+holding_tank_b,Outlet Water,0.2186070874672756,Water Flow,m3/s,santa_barbara,baseline
+holding_tank_b,Waste Water,2.186289503622318e-05,Water Flow,m3/s,santa_barbara,baseline
+holding_tank_b,tss,1.0606376052374119e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,tss,1.0607330721685764e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,tss,1.0606376052378e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,tss,2.3188608634785143e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,tss,2.3188376748698793e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,tss,2.318860863478514e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,tds,0.5872234993358076,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,tds,0.587276354736288,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,tds,0.058722349933602265,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,tds,0.12838405728787133,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,tds,0.1283827734472985,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,tds,1.2838405728787136e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,boron,0.006222220613707515,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,boron,0.006222780669568334,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,boron,0.0006222220613709792,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,boron,0.0013603575616976137,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,boron,0.0013603439581219966,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,boron,1.3603575616976138e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,bromide,0.0006919376495954582,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,bromide,0.0006919999302119834,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,bromide,6.919376495957115e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,bromide,0.00015127760204722014,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,bromide,0.00015127608927119966,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,bromide,1.5127760204722015e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,calcium,0.004274776188149284,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,calcium,0.00427516095648305,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,calcium,0.00042747761881508484,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,calcium,0.0009345898310488824,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,calcium,0.0009345804851505718,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,calcium,9.345898310488823e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,chloride,0.1999835481379794,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,chloride,0.20000154845734378,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,chloride,0.01999835481380526,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,chloride,0.0437221932191373,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,chloride,0.04372175599720511,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,chloride,4.3722193219137297e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,magnesium,0.013337802657360337,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,magnesium,0.01333900317965173,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,magnesium,0.0013337802657365219,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,magnesium,0.002916029795118344,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,magnesium,0.002916000634820393,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,magnesium,2.916029795118344e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,potassium,0.004125534734314973,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,potassium,0.004125906069574587,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,potassium,0.00041255347343164823,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,potassium,0.0009019613286465415,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,potassium,0.0009019523090332551,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,potassium,9.019613286465414e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,sodium,0.11145101297179373,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,sodium,0.11146104456612063,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,sodium,0.011145101297183454,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,sodium,0.024366417982839665,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,sodium,0.02436617431865984,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,sodium,2.4366417982839665e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,strontium,1.3567404894028376e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,strontium,1.3568626082587695e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,strontium,1.356740489403334e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,strontium,2.9662274911219164e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,strontium,2.9661978288470052e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,strontium,2.966227491121916e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,sulfate,0.027969727012304796,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,sulfate,0.02797224453948862,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,sulfate,0.0027969727012315034,Waste Constituent Density,kg/m3,santa_barbara,baseline
+holding_tank_b,sulfate,0.006114992058620598,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,sulfate,0.006114930908700011,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+holding_tank_b,sulfate,6.114992058620598e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,Electricity Intensity Unit Inlet,0.1,Electricity,kwh/m3,santa_barbara,baseline
+uv_aop,Electricity Intensity System Treated,0.10011854241103736,Electricity,kwh/m3,santa_barbara,baseline
+uv_aop,Unit Levelized Cost,0.11043564594370789,LCOW,$/m3,santa_barbara,baseline
+uv_aop,Fixed Capital Investment (FCI),6.262329338222026,Cost,$MM,santa_barbara,baseline
+uv_aop,Land,0.00939349400733304,Cost,$MM,santa_barbara,baseline
+uv_aop,Working Capital,0.3131164669111013,Cost,$MM,santa_barbara,baseline
+uv_aop,Total Capital Investment (TCI),6.5848392991404605,Cost,$MM,santa_barbara,baseline
+uv_aop,Catalysts and Chemicals,0.05277516992997607,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Electricity,0.09244278131432779,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Employee Salaries,0.0031311646691110128,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Benefits,0.0028180482021999114,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Maintenance,0.050098634705776204,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Laboratory,0.01878698801466608,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Insurance and Taxes,0.012524658676444051,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Total Fixed Operating ,0.08735949426819725,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Base Employee Salary,0.003131164669079701,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Electricity,0.09244278131432779,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Annual O&M Costs,0.23257744551250112,Annual Cost,$MM/yr,santa_barbara,baseline
+uv_aop,Inlet Water,0.2186070874672756,Water Flow,m3/s,santa_barbara,baseline
+uv_aop,Outlet Water,0.2185852267585289,Water Flow,m3/s,santa_barbara,baseline
+uv_aop,Waste Water,2.1860708746712632e-05,Water Flow,m3/s,santa_barbara,baseline
+uv_aop,tss,1.0607330721685764e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,tss,1.0608285476926238e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,tss,1.0607330721693009e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,tss,2.3188376748698793e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,tss,2.3188144864931307e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,tss,2.3188376748698798e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,tds,0.587276354736288,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,tds,0.58732921489423,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,tds,0.05872763547366891,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,tds,0.1283827734472985,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,tds,0.128381489619564,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,tds,1.283827734472985e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,boron,0.006222780669568334,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,boron,0.006223340775839222,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,boron,0.0006222780669572584,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,boron,0.0013603439581219966,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,boron,0.0013603303546824155,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,boron,1.3603439581219968e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,bromide,0.0006919999302119834,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,bromide,0.0006920622164343247,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,bromide,6.919999302124561e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,bromide,0.00015127608927119966,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,bromide,0.00015127457651030696,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,bromide,1.512760892711997e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,calcium,0.00427516095648305,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,calcium,0.00427554575944943,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,calcium,0.000427516095648597,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,calcium,0.0009345804851505718,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,calcium,0.0009345711393457203,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,calcium,9.34580485150572e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,chloride,0.20000154845734378,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,chloride,0.20001955039689884,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,chloride,0.020000154845748037,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,chloride,0.04372175599720511,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,chloride,0.04372131877964513,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,chloride,4.372175599720511e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,magnesium,0.01333900317965173,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,magnesium,0.013340203810000931,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,magnesium,0.0013339003179660839,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,magnesium,0.002916000634820393,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,magnesium,0.0029159714748140447,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,magnesium,2.9160006348203932e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,potassium,0.004125906069574587,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,potassium,0.004126277438257717,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,potassium,0.0004125906069577405,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,potassium,0.0009019523090332551,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,potassium,0.0009019432895101648,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,potassium,9.01952309033255e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,sodium,0.11146104456612063,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,sodium,0.1114710770633813,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,sodium,0.011146104456619675,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,sodium,0.02436617431865984,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,sodium,0.02436593065691665,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,sodium,2.4366174318659836e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,strontium,1.3568626082587695e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,strontium,1.3569847381064973e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,strontium,1.356862608259696e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,strontium,2.9661978288470052e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,strontium,2.9661681668687166e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,strontium,2.966197828847005e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,sulfate,0.02797224453948862,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,sulfate,0.027974762293272552,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,sulfate,0.002797224453950772,Waste Constituent Density,kg/m3,santa_barbara,baseline
+uv_aop,sulfate,0.006114930908700011,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,sulfate,0.0061148697593909245,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+uv_aop,sulfate,6.114930908700011e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,Electricity Intensity Unit Inlet,0.01,Electricity,kwh/m3,santa_barbara,baseline
+co2_addition,Electricity Intensity System Treated,0.010010853055679626,Electricity,kwh/m3,santa_barbara,baseline
+co2_addition,Unit Levelized Cost,0.02206901898476041,LCOW,$/m3,santa_barbara,baseline
+co2_addition,Fixed Capital Investment (FCI),1.4525780260937569,Cost,$MM,santa_barbara,baseline
+co2_addition,Land,0.0021788670391406353,Cost,$MM,santa_barbara,baseline
+co2_addition,Working Capital,0.07262890130468784,Cost,$MM,santa_barbara,baseline
+co2_addition,Total Capital Investment (TCI),1.5273857944375855,Cost,$MM,santa_barbara,baseline
+co2_addition,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Electricity,0.009243353703619636,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Employee Salaries,0.0007259749405934687,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Benefits,0.0006533774465341219,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Maintenance,0.011620624208750055,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Laboratory,0.004357734078281271,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Insurance and Taxes,0.0029051560521875137,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Total Fixed Operating ,0.02026286672634643,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Base Employee Salary,0.0007146657649658629,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Electricity,0.009243353703619636,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Annual O&M Costs,0.029506220429966062,Annual Cost,$MM/yr,santa_barbara,baseline
+co2_addition,Inlet Water,0.2185852267585289,Water Flow,m3/s,santa_barbara,baseline
+co2_addition,Outlet Water,0.21856336823585304,Water Flow,m3/s,santa_barbara,baseline
+co2_addition,Waste Water,2.1858522675860522e-05,Water Flow,m3/s,santa_barbara,baseline
+co2_addition,tss,1.0608285476926238e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,tss,1.060924031810328e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,tss,1.0608285476922535e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,tss,2.3188144864931307e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,tss,2.3187912983482658e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,tss,2.3188144864931308e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,tds,0.58732921489423,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,tds,0.5873820798100621,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,tds,0.058732921489402484,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,tds,0.128381489619564,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,tds,0.12838020580466783,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,tds,1.28381489619564e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,boron,0.006223340775839222,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,boron,0.006223900932524716,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,boron,0.000622334077583705,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,boron,0.0013603303546824155,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,boron,0.0013603167513788687,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,boron,1.3603303546824157e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,bromide,0.0006920622164343247,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,bromide,0.0006921245082629866,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,bromide,6.920622164340831e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,bromide,0.00015127457651030696,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,bromide,0.00015127306376454185,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,bromide,1.5127457651030698e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,calcium,0.00427554575944943,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,calcium,0.004275930597051541,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,calcium,0.0004275545759447938,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,calcium,0.0009345711393457203,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,calcium,0.0009345617936343269,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,calcium,9.345711393457205e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,chloride,0.20001955039689884,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,chloride,0.2000375539567906,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,chloride,0.0200019550396829,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,chloride,0.04372131877964513,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,chloride,0.04372088156645734,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,chloride,4.3721318779645137e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,magnesium,0.013340203810000931,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,magnesium,0.013341404548417674,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,magnesium,0.0013340203809996275,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,magnesium,0.0029159714748140447,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,magnesium,0.0029159423150992964,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,magnesium,2.915971474814045e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,potassium,0.004126277438257717,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,potassium,0.00412664884036737,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,potassium,0.00041262774382562766,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,potassium,0.0009019432895101648,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,potassium,0.0009019342700772695,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,potassium,9.019432895101648e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,sodium,0.1114710770633813,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,sodium,0.11148111046365704,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,sodium,0.01114710770633424,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,sodium,0.02436593065691665,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,sodium,0.024365686997610082,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,sodium,2.4365930656916656e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,strontium,1.3569847381064973e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,strontium,1.357106878947011e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,strontium,1.3569847381060237e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,strontium,2.9661681668687166e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,strontium,2.966138505187048e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,strontium,2.966168166868717e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,sulfate,0.027974762293272552,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,sulfate,0.027977280273676988,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,sulfate,0.0027974762293262786,Waste Constituent Density,kg/m3,santa_barbara,baseline
+co2_addition,sulfate,0.0061148697593909245,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,sulfate,0.00611480861069333,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+co2_addition,sulfate,6.114869759390925e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,Electricity Intensity Unit Inlet,1.8841352098603774e-07,Electricity,kwh/m3,santa_barbara,baseline
+lime_addition,Electricity Intensity System Treated,1.885991454287204e-07,Electricity,kwh/m3,santa_barbara,baseline
+lime_addition,Unit Levelized Cost,0.023901589847574758,LCOW,$/m3,santa_barbara,baseline
+lime_addition,Fixed Capital Investment (FCI),1.6390507139276194,Cost,$MM,santa_barbara,baseline
+lime_addition,Land,0.002458576070891429,Cost,$MM,santa_barbara,baseline
+lime_addition,Working Capital,0.08195253569638097,Cost,$MM,santa_barbara,baseline
+lime_addition,Total Capital Investment (TCI),1.723461825694892,Cost,$MM,santa_barbara,baseline
+lime_addition,Catalysts and Chemicals,0.003449899696892523,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Electricity,1.7413986597366062e-07,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Employee Salaries,0.0008643445148832559,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Benefits,0.0007779100633949303,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Maintenance,0.013112405711420956,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Laboratory,0.004917152141782858,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Insurance and Taxes,0.003278101427855239,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Total Fixed Operating ,0.02294991385933724,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Base Employee Salary,0.0006886026842503882,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Electricity,1.7413986597366062e-07,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Annual O&M Costs,0.026399987696095736,Annual Cost,$MM/yr,santa_barbara,baseline
+lime_addition,Inlet Water,0.21856336823585304,Water Flow,m3/s,santa_barbara,baseline
+lime_addition,Outlet Water,0.21854151189902946,Water Flow,m3/s,santa_barbara,baseline
+lime_addition,Waste Water,2.1856336823583563e-05,Water Flow,m3/s,santa_barbara,baseline
+lime_addition,tss,1.060924031810328e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,tss,1.061019524522462e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,tss,1.0609240318104124e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,tss,2.3187912983482658e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,tss,2.318768110435282e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,tss,2.3187912983482657e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,tds,0.5873820798100621,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,tds,0.5874349494842124,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,tds,0.058738207981010884,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,tds,0.12838020580466783,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,tds,0.12837892200260978,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,tds,1.283802058046678e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,boron,0.006223900932524716,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,boron,0.006224461139629354,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,boron,0.0006223900932525213,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,boron,0.0013603167513788687,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,boron,0.0013603031482113549,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,boron,1.3603167513788689e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,bromide,0.0006921245082629866,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,bromide,0.0006921868056984739,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,bromide,6.921245082630417e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,bromide,0.00015127306376454185,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,bromide,0.0001512715510339042,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,bromide,1.5127306376454186e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,calcium,0.004275930597051541,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,calcium,0.004276315469292499,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,calcium,0.0004275930597051881,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,calcium,0.0009345617936343269,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,calcium,0.0009345524480163904,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,calcium,9.345617936343268e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,chloride,0.2000375539567906,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,chloride,0.20005555913716472,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,chloride,0.020003755395680653,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,chloride,0.04372088156645734,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,chloride,0.04372044435764168,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,chloride,4.3720881566457345e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,magnesium,0.013341404548417674,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,magnesium,0.01334260539491168,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,magnesium,0.0013341404548418737,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,magnesium,0.0029159423150992964,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,magnesium,0.0029159131556761456,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,magnesium,2.915942315099297e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,potassium,0.00412664884036737,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,potassium,0.0041270202759065575,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,potassium,0.00041266488403676987,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,potassium,0.0009019342700772695,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,potassium,0.0009019252507345688,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,potassium,9.019342700772694e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,sodium,0.11148111046365704,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,sodium,0.11149114476702911,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,sodium,0.011148111046366593,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,sodium,0.024365686997610082,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,sodium,0.024365443340740107,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,sodium,2.4365686997610083e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,strontium,1.357106878947011e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,strontium,1.3572290307812996e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,strontium,1.357106878947119e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,strontium,2.966138505187048e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,strontium,2.966108843801996e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,strontium,2.966138505187048e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,sulfate,0.027977280273676988,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,sulfate,0.027979798480722323,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,sulfate,0.0027977280273679215,Waste Constituent Density,kg/m3,santa_barbara,baseline
+lime_addition,sulfate,0.00611480861069333,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,sulfate,0.006114747462607224,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+lime_addition,sulfate,6.114808610693331e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+treated_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+treated_storage,Unit Levelized Cost,0.009482522377462187,LCOW,$/m3,santa_barbara,baseline
+treated_storage,Fixed Capital Investment (FCI),0.6653976764978562,Cost,$MM,santa_barbara,baseline
+treated_storage,Land,0.0009980965147467842,Cost,$MM,santa_barbara,baseline
+treated_storage,Working Capital,0.033269883824892814,Cost,$MM,santa_barbara,baseline
+treated_storage,Total Capital Investment (TCI),0.6996656568374958,Cost,$MM,santa_barbara,baseline
+treated_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Employee Salaries,0.0002876905190361542,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Benefits,0.00025892146713253877,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Maintenance,0.0053231814119828495,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Laboratory,0.0019961930294935685,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Insurance and Taxes,0.0013307953529957124,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Total Fixed Operating ,0.009196781780640824,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Base Employee Salary,0.00021048629054574923,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Annual O&M Costs,0.009196781780640824,Annual Cost,$MM/yr,santa_barbara,baseline
+treated_storage,Inlet Water,0.21854151189902946,Water Flow,m3/s,santa_barbara,baseline
+treated_storage,Outlet Water,0.21851965774783955,Water Flow,m3/s,santa_barbara,baseline
+treated_storage,Waste Water,2.1854151189909517e-05,Water Flow,m3/s,santa_barbara,baseline
+treated_storage,tss,1.061019524522462e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,tss,1.0611150258297999e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,tss,1.061019524522143e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,tss,2.318768110435282e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,tss,2.318744922754178e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,tss,2.3187681104352823e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,tds,0.5874349494842124,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,tds,0.5874878239171092,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,tds,0.05874349494840358,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,tds,0.12837892200260978,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,tds,0.1283776382133897,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,tds,1.2837892200260979e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,boron,0.006224461139629354,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,boron,0.006225021397157674,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,boron,0.0006224461139627482,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,boron,0.0013603031482113549,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,boron,0.0013602895451798728,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,boron,1.3603031482113549e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,bromide,0.0006921868056984739,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,bromide,0.0006922491087412911,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,bromide,6.921868056982657e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,bromide,0.0001512715510339042,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,bromide,0.00015127003831839387,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,bromide,1.512715510339042e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,calcium,0.004276315469292499,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,calcium,0.004276700376175424,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,calcium,0.00042763154692912134,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,calcium,0.0009345524480163904,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,calcium,0.0009345431024919103,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,calcium,9.345524480163905e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,chloride,0.20005555913716472,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,chloride,0.20007356593816716,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,chloride,0.020005555913710452,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,chloride,0.04372044435764168,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,chloride,0.0437200071531981,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,chloride,4.3720444357641666e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,magnesium,0.01334260539491168,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,magnesium,0.013343806349492681,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,magnesium,0.0013342605394907668,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,magnesium,0.0029159131556761456,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,magnesium,0.002915883996544589,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,magnesium,2.9159131556761455e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,potassium,0.0041270202759065575,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,potassium,0.004127391744878286,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,potassium,0.0004127020275905317,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,potassium,0.0009019252507345688,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,potassium,0.0009019162314820614,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,potassium,9.019252507345689e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,sodium,0.11149114476702911,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,sodium,0.11150117997357879,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,sodium,0.011149114476699556,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,sodium,0.024365443340740107,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,sodium,0.0243651996863067,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,sodium,2.4365443340740106e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,strontium,1.3572290307812996e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,strontium,1.357351193610353e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,strontium,1.3572290307808913e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,strontium,2.966108843801996e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,strontium,2.9660791827135583e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,strontium,2.9661088438019954e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,sulfate,0.027979798480722323,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,sulfate,0.027982316914428956,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,sulfate,0.0027979798480713912,Waste Constituent Density,kg/m3,santa_barbara,baseline
+treated_storage,sulfate,0.006114747462607224,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,sulfate,0.006114686315132597,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+treated_storage,sulfate,6.114747462607225e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,Electricity Intensity Unit Inlet,0.10239865270980314,Electricity,kwh/m3,santa_barbara,baseline
+backwash_solids_handling,Electricity Intensity System Treated,1.4493285581803506e-05,Electricity,kwh/m3,santa_barbara,baseline
+backwash_solids_handling,Unit Levelized Cost,2.983149695650636e-05,LCOW,$/m3,santa_barbara,baseline
+backwash_solids_handling,Fixed Capital Investment (FCI),0.001953435503760754,Cost,$MM,santa_barbara,baseline
+backwash_solids_handling,Land,2.930153255641131e-06,Cost,$MM,santa_barbara,baseline
+backwash_solids_handling,Working Capital,9.76717751880377e-05,Cost,$MM,santa_barbara,baseline
+backwash_solids_handling,Total Capital Investment (TCI),0.0020540374322044327,Cost,$MM,santa_barbara,baseline
+backwash_solids_handling,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Electricity,1.3382132792786824e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Employee Salaries,1.030133630708622e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Benefits,9.271202676377598e-07,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Maintenance,1.5627484030086033e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Laboratory,5.860306511282262e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Insurance and Taxes,3.906871007521508e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Total Fixed Operating ,2.7351915447236187e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Base Employee Salary,8.206829233345284e-07,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Electricity,1.3382132792786824e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Annual O&M Costs,4.073404824002301e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+backwash_solids_handling,Inlet Water,3.0904543091681e-05,Water Flow,m3/s,santa_barbara,baseline
+backwash_solids_handling,Outlet Water,2.935931593709695e-05,Water Flow,m3/s,santa_barbara,baseline
+backwash_solids_handling,Waste Water,1.5452271545840522e-06,Water Flow,m3/s,santa_barbara,baseline
+backwash_solids_handling,tss,150.06751890424695,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,tss,7.898290468644588,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,tss,2851.2828591806883,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,tss,0.004637768104637953,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,tss,0.000231888405231898,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,tss,0.004405879699406055,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,tds,3.5015754410990954,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,tds,3.6858320266786153,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,tds,0.0007003150882198181,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,tds,0.0001082145891082189,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,tds,0.00010821350696232782,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,tds,1.0821458910821891e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,boron,0.00044019805545245783,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,boron,0.00046336174049674034,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,boron,8.803961109049146e-08,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,boron,1.3604119773604666e-08,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,boron,1.360398373240693e-08,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,boron,1.3604119773604668e-13,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,bromide,0.006632984335567716,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,bromide,0.006982018953394064,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,bromide,1.3265968671135417e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,bromide,2.0498935022499756e-07,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,bromide,2.049873003314953e-07,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,bromide,2.049893502249976e-12,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,calcium,0.040978437162119706,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,calcium,0.04313476566078746,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,calcium,8.195687432423931e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,calcium,1.2664198771064706e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,calcium,1.2664072129076995e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,calcium,1.2664198771064707e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,chloride,1.917062531495453,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,chloride,2.0179403798633033,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,chloride,0.00038341250629909013,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,chloride,5.9245941614048295e-05,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,chloride,5.9245349154632154e-05,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,chloride,5.92459416140483e-10,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,magnesium,0.12785752610641843,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,magnesium,0.13458552371700774,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,magnesium,2.5571505221283655e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,magnesium,3.951378425151537e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,magnesium,3.951338911367285e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,magnesium,3.9513784251515375e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,potassium,0.03954779348189921,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,potassium,0.04162884000417305,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,potassium,7.909558696379833e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,potassium,1.2222064878422553e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,potassium,1.222194265777377e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,potassium,1.2222064878422555e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,sodium,1.0683806895856356,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,sodium,1.124600006082884,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,sodium,0.00021367613791712685,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,sodium,3.301781705961914e-05,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,sodium,3.301748688144854e-05,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,sodium,3.301781705961914e-10,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,strontium,0.0001300585163836807,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,strontium,0.00013690233241949143,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,strontium,2.601170327673611e-08,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,strontium,4.01939902401956e-09,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,strontium,4.0193588300293194e-09,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,strontium,4.0193990240195604e-14,Waste Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,sulfate,0.26812063377558787,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,sulfate,0.28222942375710536,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,sulfate,5.362412675511751e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+backwash_solids_handling,sulfate,8.286145680286477e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,sulfate,8.286062818829672e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+backwash_solids_handling,sulfate,8.286145680286477e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,santa_barbara,baseline
+landfill,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,santa_barbara,baseline
+landfill,Unit Levelized Cost,0.00013031001767556004,LCOW,$/m3,santa_barbara,baseline
+landfill,Fixed Capital Investment (FCI),0.009132026862076809,Cost,$MM,santa_barbara,baseline
+landfill,Land,1.3698040293115214e-05,Cost,$MM,santa_barbara,baseline
+landfill,Working Capital,0.0004566013431038405,Cost,$MM,santa_barbara,baseline
+landfill,Total Capital Investment (TCI),0.009602326245473764,Cost,$MM,santa_barbara,baseline
+landfill,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Employee Salaries,4.566013431038405e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Benefits,4.109412087934564e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Maintenance,7.305621489661447e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Laboratory,2.7396080586230428e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Insurance and Taxes,1.826405372415362e-05,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Total Fixed Operating ,0.0001273917747259715,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Base Employee Salary,4.5660134309927444e-06,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Electricity,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Annual O&M Costs,0.0001273917747259715,Annual Cost,$MM/yr,santa_barbara,baseline
+landfill,Inlet Water,3.0904543091681e-05,Water Flow,m3/s,santa_barbara,baseline
+landfill,Outlet Water,3.090145263737183e-05,Water Flow,m3/s,santa_barbara,baseline
+landfill,Waste Water,3.0904543091699e-09,Water Flow,m3/s,santa_barbara,baseline
+landfill,tss,150.06751890424695,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,tss,150.08102633169108,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,tss,15.00675189041596,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,tss,0.004637768104637953,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,tss,0.004637721726956907,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,tss,4.637768104637954e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,tds,3.5015754410990954,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,tds,3.5018906144061255,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,tds,0.3501575441097056,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,tds,0.0001082145891082189,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,tds,0.00010821350696232783,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,tds,1.0821458910821891e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,boron,0.00044019805545245783,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,boron,0.0004402376772396273,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,boron,4.4019805545220155e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,boron,1.3604119773604666e-08,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,boron,1.360398373240693e-08,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,boron,1.3604119773604668e-13,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,bromide,0.006632984335567716,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,bromide,0.006633581363860747,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,bromide,0.0006632984335563854,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,bromide,2.0498935022499756e-07,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,bromide,2.049873003314953e-07,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,bromide,2.049893502249976e-12,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,calcium,0.040978437162119706,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,calcium,0.04098212559030712,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,calcium,0.004097843716209585,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,calcium,1.2664198771064706e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,calcium,1.2664072129076995e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,calcium,1.2664198771064709e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,chloride,1.917062531495453,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,chloride,1.9172350843785761,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,chloride,0.19170625314943368,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,chloride,5.9245941614048295e-05,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,chloride,5.924534915463216e-05,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,chloride,5.92459416140483e-10,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,magnesium,0.12785752610641843,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,magnesium,0.1278690344346008,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,magnesium,0.012785752610634398,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,magnesium,3.951378425151537e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,magnesium,3.9513389113672845e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,magnesium,3.9513784251515375e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,potassium,0.03954779348189921,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,potassium,0.03955135313927833,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,potassium,0.003954779348187619,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,potassium,1.2222064878422553e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,potassium,1.222194265777377e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,potassium,1.2222064878422555e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,sodium,1.0683806895856356,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,sodium,1.068476853464086,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,sodium,0.10683806895850136,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,sodium,3.301781705961914e-05,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,sodium,3.301748688144854e-05,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,sodium,3.3017817059619147e-10,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,strontium,0.0001300585163836807,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,strontium,0.00013007022282079895,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,strontium,1.3005851638360498e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,strontium,4.01939902401956e-09,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,strontium,4.0193588300293194e-09,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,strontium,4.0193990240195604e-14,Waste Constituent Total Mass,kg,santa_barbara,baseline
+landfill,sulfate,0.26812063377558787,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,sulfate,0.26814476704595475,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+landfill,sulfate,0.026812063377543178,Waste Constituent Density,kg/m3,santa_barbara,baseline
+landfill,sulfate,8.286145680286477e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,sulfate,8.286062818829674e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+landfill,sulfate,8.286145680286478e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,Electricity Intensity Unit Inlet,0.30719595812940953,Electricity,kwh/m3,santa_barbara,baseline
+municipal_drinking,Electricity Intensity System Treated,0.3074371100309123,Electricity,kwh/m3,santa_barbara,baseline
+municipal_drinking,Unit Levelized Cost,0.04905542153823825,LCOW,$/m3,santa_barbara,baseline
+municipal_drinking,Fixed Capital Investment (FCI),0.5507421422608313,Cost,$MM,santa_barbara,baseline
+municipal_drinking,Land,0.0008261132133912469,Cost,$MM,santa_barbara,baseline
+municipal_drinking,Working Capital,0.027537107113041567,Cost,$MM,santa_barbara,baseline
+municipal_drinking,Total Capital Investment (TCI),0.5791053625872641,Cost,$MM,santa_barbara,baseline
+municipal_drinking,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Electricity,0.2838669126226054,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Other Operating,0.0,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Employee Salaries,0.0002753710711304157,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Benefits,0.0002478339640173741,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Maintenance,0.00440593713808665,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Laboratory,0.0016522264267824938,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Insurance and Taxes,0.0011014842845216625,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Total Fixed Operating ,0.007682852884538596,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Base Employee Salary,0.000275371071127662,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Electricity,0.2838669126226054,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Annual O&M Costs,0.29154976550714395,Annual Cost,$MM/yr,santa_barbara,baseline
+municipal_drinking,Inlet Water,0.21851965774783955,Water Flow,m3/s,santa_barbara,baseline
+municipal_drinking,Outlet Water,0.21849780578206476,Water Flow,m3/s,santa_barbara,baseline
+municipal_drinking,Waste Water,2.1851965774782874e-05,Water Flow,m3/s,santa_barbara,baseline
+municipal_drinking,tss,1.0611150258297999e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,tss,1.0612105357331149e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,tss,1.0611150258298522e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,tss,2.318744922754178e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,tss,2.31872173530495e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,tss,2.3187449227541777e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,tds,0.5874878239171092,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,tds,0.587540703109181,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,tds,0.05874878239171383,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,tds,0.1283776382133897,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,tds,0.12837635443700762,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,tds,1.2837763821338973e-06,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,boron,0.006225021397157674,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,boron,0.0062255817051142135,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,boron,0.0006225021397157982,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,boron,0.0013602895451798728,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,boron,0.001360275942284421,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,boron,1.3602895451798729e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,bromide,0.0006922491087412911,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,bromide,0.0006923114173919428,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,bromide,6.922491087413254e-05,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,bromide,0.00015127003831839387,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,bromide,0.00015126852561801068,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,bromide,1.512700383183939e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,calcium,0.004276700376175424,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,calcium,0.004277085317703432,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,calcium,0.0004276700376175636,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,calcium,0.0009345431024919103,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,calcium,0.0009345337570608853,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,calcium,9.345431024919104e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,chloride,0.20007356593816716,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,chloride,0.20009157435994376,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,chloride,0.020007356593817704,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,chloride,0.0437200071531981,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,chloride,0.043719569953126564,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,chloride,4.372000715319809e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,magnesium,0.013343806349492681,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,magnesium,0.013345007412170403,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,magnesium,0.001334380634949334,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,magnesium,0.002915883996544589,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,magnesium,0.0029158548377046234,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,magnesium,2.9158839965445888e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,potassium,0.004127391744878286,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,potassium,0.004127763247285567,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,potassium,0.0004127391744878491,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,potassium,0.0009019162314820614,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,potassium,0.0009019072123197467,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,potassium,9.019162314820615e-09,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,sodium,0.11150117997357879,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,sodium,0.1115112160833874,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,sodium,0.011150117997358431,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,sodium,0.0243651996863067,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,sodium,0.024364956034309836,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,sodium,2.43651996863067e-07,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,strontium,1.357351193610353e-05,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,strontium,1.3574733674351604e-05,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,strontium,1.3573511936104198e-06,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,strontium,2.9660791827135583e-06,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,strontium,2.966049521921731e-06,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,strontium,2.966079182713558e-11,Waste Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,sulfate,0.027982316914428956,Inlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,sulfate,0.027984835574817297,Outlet Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,sulfate,0.0027982316914430335,Waste Constituent Density,kg/m3,santa_barbara,baseline
+municipal_drinking,sulfate,0.006114686315132597,Inlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,sulfate,0.006114625168269446,Outlet Constituent Total Mass,kg,santa_barbara,baseline
+municipal_drinking,sulfate,6.114686315132596e-08,Waste Constituent Total Mass,kg,santa_barbara,baseline
+System,System Total Capital Investment (TCI),55.222121226375975,Cost,$MM,santa_barbara,baseline
+System,System Catalysts and Chemicals,16.973480241061225,Cost,$MM,santa_barbara,baseline
+System,System Electricity,64.47114042471807,Cost,$MM,santa_barbara,baseline
+System,System Other Variable Operating,3.605304135928301,Cost,$MM,santa_barbara,baseline
+System,System Fixed Operating,14.686293235174126,Cost,$MM,santa_barbara,baseline
+System,System Total Operating,99.73621803688174,Cost,$MM,santa_barbara,baseline
+System,System Catalysts and Chemicals,0.8486740120530613,Annual Cost,$MM/yr,santa_barbara,baseline
+System,System Electricity,3.2235570212359033,Annual Cost,$MM/yr,santa_barbara,baseline
+System,Other Variable O&M,0.18026520679641506,Annual Cost,$MM/yr,santa_barbara,baseline
+System,System Fixed O&M,0.7343146617587063,Annual Cost,$MM/yr,santa_barbara,baseline
+System,System Total Operating Cost,4.986810901844086,Annual Cost,$MM/yr,santa_barbara,baseline
+System,TCI LCOW,0.6430789898039841,LCOW,$/m3,santa_barbara,baseline
+System,Electricity LCOW,0.46782310799564475,LCOW,$/m3,santa_barbara,baseline
+System,Fixed Operating LCOW,0.1065684165186631,LCOW,$/m3,santa_barbara,baseline
+System,Other O&M LCOW,0.14932620708419178,LCOW,$/m3,santa_barbara,baseline
+System,Electricity Intensity System Treated,99.73621803688174,Electricity,kwh/m3,santa_barbara,baseline
+System,System Levelized Cost,1.3667967214024839,LCOW,$/m3,santa_barbara,baseline
+System,Electricity Fraction of LCOW,1.3667967214024839,LCOW,$/m3,santa_barbara,baseline
+System,Electricity Intensity,3.491217223848095,Electricity,kwh/m3,santa_barbara,baseline
+System,Water Recovery,70.66552580273763,Water Recovery,%,santa_barbara,baseline

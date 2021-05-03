@@ -1,0 +1,1009 @@
+Unit Process Name,Variable,Value,Metric,Unit,Case Study,Scenario
+well_field,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,kbhdp,zld_a
+well_field,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,kbhdp,zld_a
+well_field,Unit Levelized Cost,0.022905052126992856,LCOW,$/m3,kbhdp,zld_a
+well_field,Fixed Capital Investment (FCI),11.512205065456916,Cost,$MM,kbhdp,zld_a
+well_field,Land,0.017268307598185373,Cost,$MM,kbhdp,zld_a
+well_field,Working Capital,0.5756102532728459,Cost,$MM,kbhdp,zld_a
+well_field,Total Capital Investment (TCI),12.105083626327946,Cost,$MM,kbhdp,zld_a
+well_field,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Employee Salaries,0.005756102532728458,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Benefits,0.005180492279455612,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Maintenance,0.09209764052365534,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Laboratory,0.034536615196370746,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Insurance and Taxes,0.023024410130913834,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Total Fixed Operating ,0.160595260663124,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Base Employee Salary,0.005756102532670897,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Annual O&M Costs,0.160595260663124,Annual Cost,$MM/yr,kbhdp,zld_a
+well_field,Inlet Water,1.336278,Water Flow,m3/s,kbhdp,zld_a
+well_field,Outlet Water,1.3361443722000002,Water Flow,m3/s,kbhdp,zld_a
+well_field,Waste Water,0.0001336277999999247,Water Flow,m3/s,kbhdp,zld_a
+well_field,tds,2.5,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,tds,2.50022502250225,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,tds,0.25000000000014094,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,tds,3.340695,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,tds,3.3406615930500005,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,tds,3.3406950000000004e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,alkalinity_as_caco3,0.08,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,alkalinity_as_caco3,0.080007200720072,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,alkalinity_as_caco3,0.00800000000000451,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,alkalinity_as_caco3,0.10690224000000001,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,alkalinity_as_caco3,0.1069011709776,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,alkalinity_as_caco3,1.0690224000000002e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,calcium,0.13,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,calcium,0.130011701170117,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,calcium,0.01300000000000733,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,calcium,0.17371614000000002,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,calcium,0.1737144028386,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,calcium,1.7371614000000004e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,chloride,1.18,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,chloride,1.180106210621062,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,chloride,0.11800000000006651,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,chloride,1.57680804,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,chloride,1.5767922719196001,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,chloride,1.57680804e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,electrical_conductivity,4200.0,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,electrical_conductivity,4200.37803780378,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,electrical_conductivity,420.0000000002368,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,electrical_conductivity,5612.3676000000005,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,electrical_conductivity,5612.311476324,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,electrical_conductivity,0.05612367600000001,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,magnesium,0.03,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,magnesium,0.030002700270026997,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,magnesium,0.003000000000001691,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,magnesium,0.04008834,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,magnesium,0.0400879391166,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,magnesium,4.008834e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,potassium,0.016,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,potassium,0.016001440144014403,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,potassium,0.0016000000000009021,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,potassium,0.021380448000000003,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,potassium,0.021380234195520004,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,potassium,2.1380448000000005e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,sodium,0.77,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,sodium,0.7700693069306931,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,sodium,0.07700000000004341,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,sodium,1.02893406,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,sodium,1.0289237706594,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,sodium,1.0289340600000002e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+well_field,sulfate,0.23,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,sulfate,0.23002070207020703,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+well_field,sulfate,0.02300000000001297,Waste Constituent Density,kg/m3,kbhdp,zld_a
+well_field,sulfate,0.30734394000000004,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,sulfate,0.30734086656060006,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+well_field,sulfate,3.0734394000000007e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,kbhdp,zld_a
+media_filtration,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,kbhdp,zld_a
+media_filtration,Unit Levelized Cost,0.010340975685275755,LCOW,$/m3,kbhdp,zld_a
+media_filtration,Fixed Capital Investment (FCI),5.194154269794045,Cost,$MM,kbhdp,zld_a
+media_filtration,Land,0.007791231404691068,Cost,$MM,kbhdp,zld_a
+media_filtration,Working Capital,0.2597077134897023,Cost,$MM,kbhdp,zld_a
+media_filtration,Total Capital Investment (TCI),5.461653214688439,Cost,$MM,kbhdp,zld_a
+media_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Employee Salaries,0.002739109116273619,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Benefits,0.0024651982046462574,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Maintenance,0.04155323415835236,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Laboratory,0.015582462809382136,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Insurance and Taxes,0.01038830853958809,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Total Fixed Operating ,0.07272831282824246,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Base Employee Salary,0.00218218298079381,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Annual O&M Costs,0.07272831282824246,Annual Cost,$MM/yr,kbhdp,zld_a
+media_filtration,Inlet Water,0.5251047382746001,Water Flow,m3/s,kbhdp,zld_a
+media_filtration,Outlet Water,0.5250522278007727,Water Flow,m3/s,kbhdp,zld_a
+media_filtration,Waste Water,5.251047382748287e-05,Water Flow,m3/s,kbhdp,zld_a
+media_filtration,tds,2.50022502250225,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,tds,2.5004500652585513,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,tds,0.2500225022501162,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,tds,1.3128800060686503,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,tds,1.3128668772685896,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,tds,1.3128800060686503e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,alkalinity_as_caco3,0.080007200720072,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,alkalinity_as_caco3,0.08001440208827364,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,alkalinity_as_caco3,0.008000720072003718,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,alkalinity_as_caco3,0.04201216019419681,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,alkalinity_as_caco3,0.042011740072594866,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,alkalinity_as_caco3,4.201216019419681e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,calcium,0.130011701170117,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,calcium,0.13002340339344465,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,calcium,0.013001170117006043,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,calcium,0.06826976031556982,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,calcium,0.06826907761796666,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,calcium,6.826976031556982e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,chloride,1.180106210621062,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,chloride,1.1802124308020359,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,chloride,0.11801062106205484,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,chloride,0.619679362864403,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,chloride,0.6196731660707742,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,chloride,6.1967936286440295e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,electrical_conductivity,4200.37803780378,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,electrical_conductivity,4200.756109634366,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,electrical_conductivity,420.0378037801952,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,electrical_conductivity,2205.638410195332,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,electrical_conductivity,2205.6163538112305,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,electrical_conductivity,0.022056384101953326,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,magnesium,0.030002700270026997,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,magnesium,0.03000540078310261,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,magnesium,0.003000270027001394,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,magnesium,0.0157545600728238,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,magnesium,0.01575440252722307,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,magnesium,1.57545600728238e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,potassium,0.016001440144014403,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,potassium,0.01600288041765473,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,potassium,0.001600144014400744,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,potassium,0.008402432038839364,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,potassium,0.008402348014518975,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,potassium,8.402432038839364e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,sodium,0.7700693069306931,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,sodium,0.7701386200996339,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,sodium,0.0770069306930358,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,sodium,0.4043670418691443,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,sodium,0.4043629981987257,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,sodium,4.043670418691443e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,sulfate,0.23002070207020703,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,sulfate,0.2300414060037867,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,sulfate,0.023002070207010693,Waste Constituent Density,kg/m3,kbhdp,zld_a
+media_filtration,sulfate,0.12078496055831583,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,sulfate,0.12078375270871024,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+media_filtration,sulfate,1.2078496055831584e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,Electricity Intensity Unit Inlet,5.014625499990357e-07,Electricity,kwh/m3,kbhdp,zld_a
+anti_scalant_addition,Electricity Intensity System Treated,2.0074548572836106e-07,Electricity,kwh/m3,kbhdp,zld_a
+anti_scalant_addition,Unit Levelized Cost,0.010307402496774877,LCOW,$/m3,kbhdp,zld_a
+anti_scalant_addition,Fixed Capital Investment (FCI),0.09028141427906636,Cost,$MM,kbhdp,zld_a
+anti_scalant_addition,Land,0.00013542212141859955,Cost,$MM,kbhdp,zld_a
+anti_scalant_addition,Working Capital,0.004514070713953318,Cost,$MM,kbhdp,zld_a
+anti_scalant_addition,Total Capital Investment (TCI),0.09493090711443827,Cost,$MM,kbhdp,zld_a
+anti_scalant_addition,Catalysts and Chemicals,0.4191871251901504,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Electricity,4.52836556962901e-07,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Employee Salaries,4.760941474533281e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Benefits,4.284847327079953e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Maintenance,0.0007222513142325309,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Laboratory,0.0002708442428371991,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Insurance and Taxes,0.00018056282855813272,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Total Fixed Operating ,0.001264116273643995,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Base Employee Salary,3.792928655728694e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Electricity,4.52836556962901e-07,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Annual O&M Costs,0.42045169430035134,Annual Cost,$MM/yr,kbhdp,zld_a
+anti_scalant_addition,Inlet Water,0.5250522278007727,Water Flow,m3/s,kbhdp,zld_a
+anti_scalant_addition,Outlet Water,0.5249997225779925,Water Flow,m3/s,kbhdp,zld_a
+anti_scalant_addition,Waste Water,5.250522278010817e-05,Water Flow,m3/s,kbhdp,zld_a
+anti_scalant_addition,tds,2.5004500652585513,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,tds,2.500675128270726,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,tds,0.25004500652570794,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,tds,1.3128668772685896,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,tds,1.312853748599817,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,tds,1.3128668772685897e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,alkalinity_as_caco3,0.08001440208827364,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,alkalinity_as_caco3,0.08002160410466322,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,alkalinity_as_caco3,0.008001440208822652,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,alkalinity_as_caco3,0.042011740072594866,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,alkalinity_as_caco3,0.04201131995519414,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,alkalinity_as_caco3,4.201174007259486e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,calcium,0.13002340339344465,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,calcium,0.13003510667007775,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,calcium,0.013002340339336812,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,calcium,0.06826907761796666,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,calcium,0.06826839492719049,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,calcium,6.826907761796665e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,chloride,1.1802124308020359,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,chloride,1.1803186605437823,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,chloride,0.11802124308013412,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,chloride,0.6196731660707742,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,chloride,0.6196669693391135,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,chloride,6.196731660707741e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,electrical_conductivity,4200.756109634366,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,electrical_conductivity,4201.134215494819,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,electrical_conductivity,420.0756109631893,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,electrical_conductivity,2205.6163538112305,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,electrical_conductivity,2205.594297647692,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,electrical_conductivity,0.022056163538112305,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,magnesium,0.03000540078310261,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,magnesium,0.030008101539248707,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,magnesium,0.003000540078308494,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,magnesium,0.01575440252722307,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,magnesium,0.0157542449831978,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,magnesium,1.575440252722307e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,potassium,0.01600288041765473,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,potassium,0.016004320820932647,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,potassium,0.0016002880417645311,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,potassium,0.008402348014518975,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,potassium,0.00840226399103883,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,potassium,8.402348014518975e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,sodium,0.7701386200996339,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,sodium,0.7702079395073835,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,sodium,0.07701386200991803,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,sodium,0.4043629981987257,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,sodium,0.4043589545687436,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,sodium,4.043629981987255e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,sulfate,0.2300414060037867,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,sulfate,0.23006211180090677,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,sulfate,0.02300414060036513,Waste Constituent Density,kg/m3,kbhdp,zld_a
+anti_scalant_addition,sulfate,0.12078375270871024,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,sulfate,0.12078254487118316,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+anti_scalant_addition,sulfate,1.2078375270871023e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,Electricity Intensity Unit Inlet,0.8060084038178885,Electricity,kwh/m3,kbhdp,zld_a
+ro_first_stage,Electricity Intensity System Treated,0.16120409344336084,Electricity,kwh/m3,kbhdp,zld_a
+ro_first_stage,Unit Levelized Cost,0.03213914119992031,LCOW,$/m3,kbhdp,zld_a
+ro_first_stage,Fixed Capital Investment (FCI),8.183343797715473,Cost,$MM,kbhdp,zld_a
+ro_first_stage,Land,0.012275015696573209,Cost,$MM,kbhdp,zld_a
+ro_first_stage,Working Capital,0.40916718988577366,Cost,$MM,kbhdp,zld_a
+ro_first_stage,Total Capital Investment (TCI),8.60478600329782,Cost,$MM,kbhdp,zld_a
+ro_first_stage,Catalysts and Chemicals,0.08183343797715473,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Electricity,0.36364009072660336,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Other Operating,0.2104405648258043,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Employee Salaries,0.004315442020710798,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Benefits,0.003883897818639718,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Maintenance,0.06546675038172378,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Laboratory,0.024550031393146418,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Insurance and Taxes,0.016366687595430945,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Total Fixed Operating ,0.11458280920965166,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Base Employee Salary,0.0034380098537326194,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Electricity,0.36364009072660336,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Annual O&M Costs,0.7704969027392141,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_first_stage,Inlet Water,0.2624998612889963,Water Flow,m3/s,kbhdp,zld_a
+ro_first_stage,Outlet Water,0.23500368508357714,Water Flow,m3/s,kbhdp,zld_a
+ro_first_stage,Waste Water,0.02816657363255073,Water Flow,m3/s,kbhdp,zld_a
+ro_first_stage,tds,2.500675128270726,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,tds,0.10420629004305358,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,tds,22.43574317468998,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,tds,0.6564268742999085,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,tds,0.024488862169005664,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,tds,0.6319380121309027,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,alkalinity_as_caco3,0.08002160410466322,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,alkalinity_as_caco3,0.08938349163983056,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,alkalinity_as_caco3,7.457655393811143e-06,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,alkalinity_as_caco3,0.02100565997759707,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,alkalinity_as_caco3,0.02100544992099729,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,alkalinity_as_caco3,2.1005659977597068e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,calcium,0.13003510667007775,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,calcium,0.0017794531731610312,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,calcium,1.197022394357004,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,calcium,0.034134197463595244,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,calcium,0.000418178053126507,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,calcium,0.03371601941046873,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,chloride,1.1803186605437823,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,chloride,0.016151959571769476,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,chloride,10.865280194932803,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,chloride,0.30983348466955674,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,chloride,0.0037957700206867834,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,chloride,0.3060377146488699,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,electrical_conductivity,4201.134215494819,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,electrical_conductivity,4692.6333110911055,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,electrical_conductivity,0.391526908175085,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,electrical_conductivity,1102.797148823846,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,electrical_conductivity,1102.786120852358,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,electrical_conductivity,0.011027971488238461,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,magnesium,0.030008101539248707,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,magnesium,0.00041064303996023817,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,magnesium,0.2762359371593086,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,magnesium,0.0078771224915989,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,magnesium,9.65026276445786e-05,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,magnesium,0.007780619863954323,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,potassium,0.016004320820932647,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,potassium,0.0002190096213121291,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,potassium,0.14732583315163128,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,potassium,0.004201131995519415,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,potassium,5.146806807710907e-05,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,potassium,0.004149663927442306,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,sodium,0.7702079395073835,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,sodium,0.010539838025646238,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,sodium,7.090055720422254,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,sodium,0.2021794772843718,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,sodium,0.00247690077621088,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,sodium,0.19970257650816092,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,sulfate,0.23006211180090677,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,sulfate,0.003148263306361833,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,sulfate,2.1178088515546993,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_first_stage,sulfate,0.06039127243559158,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,sulfate,0.0007398534786084376,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_first_stage,sulfate,0.059651418956983136,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,kbhdp,zld_a
+passthrough,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,kbhdp,zld_a
+passthrough,Unit Levelized Cost,0.0,LCOW,$/m3,kbhdp,zld_a
+passthrough,Fixed Capital Investment (FCI),0.0,Cost,$MM,kbhdp,zld_a
+passthrough,Land,0.0,Cost,$MM,kbhdp,zld_a
+passthrough,Working Capital,0.0,Cost,$MM,kbhdp,zld_a
+passthrough,Total Capital Investment (TCI),0.0,Cost,$MM,kbhdp,zld_a
+passthrough,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Employee Salaries,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Benefits,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Maintenance,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Laboratory,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Insurance and Taxes,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Total Fixed Operating ,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Base Employee Salary,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Annual O&M Costs,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+passthrough,Inlet Water,0.02816657363255073,Water Flow,m3/s,kbhdp,zld_a
+passthrough,Outlet Water,0.028163756975187478,Water Flow,m3/s,kbhdp,zld_a
+passthrough,Waste Water,2.8166573632533447e-06,Water Flow,m3/s,kbhdp,zld_a
+passthrough,tds,22.43574317468998,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,tds,22.437762593517583,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,tds,2.2435743174703746,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,tds,0.6319380121309027,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,tds,0.6319316927507815,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,tds,6.3193801213090275e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,alkalinity_as_caco3,7.457655393811143e-06,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,alkalinity_as_caco3,7.458326649922197e-06,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,alkalinity_as_caco3,7.457655393815718e-07,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,alkalinity_as_caco3,2.1005659977597068e-07,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,alkalinity_as_caco3,2.1005449920997292e-07,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,alkalinity_as_caco3,2.1005659977597064e-12,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,calcium,1.197022394357004,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,calcium,1.197130137146775,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,calcium,0.11970223943577385,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,calcium,0.03371601941046873,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,calcium,0.03371568225027463,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,calcium,3.371601941046873e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,chloride,10.865280194932803,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,chloride,10.866258167947649,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,chloride,1.086528019493947,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,chloride,0.3060377146488699,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,chloride,0.3060346542717235,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,chloride,3.0603771464886997e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,electrical_conductivity,0.391526908175085,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,electrical_conductivity,0.3915621491209153,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,electrical_conductivity,0.039152690817532525,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,electrical_conductivity,0.011027971488238461,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,electrical_conductivity,0.011027861208523577,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,electrical_conductivity,1.102797148823846e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,magnesium,0.2762359371593086,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,magnesium,0.27626080088002497,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,magnesium,0.027623593715947806,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,magnesium,0.007780619863954323,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,magnesium,0.007780542057755682,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,magnesium,7.78061986395432e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,potassium,0.14732583315163128,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,potassium,0.14733909380268,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,potassium,0.014732583315172167,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,potassium,0.004149663927442306,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,potassium,0.004149622430803031,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,potassium,4.1496639274423056e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,sodium,7.090055720422254,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,sodium,7.090693889253975,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,sodium,0.7090055720426605,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,sodium,0.19970257650816092,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,sodium,0.19970057948239586,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,sodium,1.9970257650816094e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,sulfate,2.1178088515546993,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,sulfate,2.117999473413525,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,sulfate,0.21178088515559987,Waste Constituent Density,kg/m3,kbhdp,zld_a
+passthrough,sulfate,0.059651418956983136,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,sulfate,0.05965082244279357,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+passthrough,sulfate,5.965141895698313e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,Electricity Intensity Unit Inlet,5.652405629581132e-06,Electricity,kwh/m3,kbhdp,zld_a
+lime_softening,Electricity Intensity System Treated,1.2137484433619103e-07,Electricity,kwh/m3,kbhdp,zld_a
+lime_softening,Unit Levelized Cost,0.004314143771547719,LCOW,$/m3,kbhdp,zld_a
+lime_softening,Fixed Capital Investment (FCI),2.0566065275748593,Cost,$MM,kbhdp,zld_a
+lime_softening,Land,0.003084909791362289,Cost,$MM,kbhdp,zld_a
+lime_softening,Working Capital,0.10283032637874297,Cost,$MM,kbhdp,zld_a
+lime_softening,Total Capital Investment (TCI),2.1625217637449645,Cost,$MM,kbhdp,zld_a
+lime_softening,Catalysts and Chemicals,0.009198878973285814,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Electricity,2.7379428439791664e-07,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Employee Salaries,0.0010283032637874296,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Benefits,0.0009254729374086866,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Maintenance,0.016452852220598873,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Laboratory,0.006169819582724578,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Insurance and Taxes,0.004113213055149718,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Total Fixed Operating ,0.028689661059669285,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Base Employee Salary,0.0010283032637771466,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Electricity,2.7379428439791664e-07,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Annual O&M Costs,0.03788881382723949,Annual Cost,$MM/yr,kbhdp,zld_a
+lime_softening,Inlet Water,0.028163756975187478,Water Flow,m3/s,kbhdp,zld_a
+lime_softening,Outlet Water,0.02813559321821229,Water Flow,m3/s,kbhdp,zld_a
+lime_softening,Waste Water,2.8163756975188588e-05,Water Flow,m3/s,kbhdp,zld_a
+lime_softening,tds,22.437762593517583,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,tds,22.459998214105752,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,tds,0.224377625935167,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,tds,0.6319316927507815,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,tds,0.6319253734338539,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,tds,6.319316927507816e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,alkalinity_as_caco3,7.458326649922197e-06,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,alkalinity_as_caco3,7.465717784440138e-06,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,alkalinity_as_caco3,7.458326649921904e-08,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,alkalinity_as_caco3,2.1005449920997292e-07,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,alkalinity_as_caco3,2.1005239866498084e-07,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,alkalinity_as_caco3,2.1005449920997296e-12,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,calcium,1.197130137146775,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,calcium,1.1983164823277312,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,calcium,0.01197130137146728,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,calcium,0.03371568225027463,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,calcium,0.03371534509345212,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,calcium,3.3715682250274634e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,chloride,10.866258167947649,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,chloride,10.877026531897869,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,chloride,0.10866258167947222,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,chloride,0.3060346542717235,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,chloride,0.3060315939251808,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,chloride,3.0603465427172355e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,electrical_conductivity,0.3915621491209153,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,electrical_conductivity,0.3919501836831073,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,electrical_conductivity,0.003915621491208999,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,electrical_conductivity,0.011027861208523577,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,electrical_conductivity,0.011027750929911494,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,electrical_conductivity,1.1027861208523579e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,magnesium,0.27626080088002497,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,magnesium,0.27653457284486105,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,magnesium,0.002762608008800141,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,magnesium,0.007780542057755682,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,magnesium,0.007780464252335105,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,magnesium,7.780542057755683e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,potassium,0.14733909380268,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,potassium,0.14748510551725927,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,potassium,0.001473390938026742,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,potassium,0.004149622430803031,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,potassium,0.004149580934578723,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,potassium,4.149622430803031e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,sodium,7.090693889253975,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,sodium,7.0977207030181,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,sodium,0.07090693889253695,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,sodium,0.19970057948239586,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,sodium,0.19969858247660102,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,sodium,1.9970057948239587e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,sulfate,2.117999473413525,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,sulfate,2.120098391810602,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,sulfate,0.021179994734134417,Waste Constituent Density,kg/m3,kbhdp,zld_a
+lime_softening,sulfate,0.05965082244279357,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,sulfate,0.059650225934569145,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+lime_softening,sulfate,5.965082244279358e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,Electricity Intensity Unit Inlet,0.8333296933034469,Electricity,kwh/m3,kbhdp,zld_a
+ro_second_stage,Electricity Intensity System Treated,0.01786406748423775,Electricity,kwh/m3,kbhdp,zld_a
+ro_second_stage,Unit Levelized Cost,0.0029725242423654535,LCOW,$/m3,kbhdp,zld_a
+ro_second_stage,Fixed Capital Investment (FCI),0.7332700599353269,Cost,$MM,kbhdp,zld_a
+ro_second_stage,Land,0.0010999050899029904,Cost,$MM,kbhdp,zld_a
+ro_second_stage,Working Capital,0.036663502996766344,Cost,$MM,kbhdp,zld_a
+ro_second_stage,Total Capital Investment (TCI),0.7710334680219962,Cost,$MM,kbhdp,zld_a
+ro_second_stage,Catalysts and Chemicals,0.007332700599353269,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Electricity,0.040297308721858154,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Other Operating,0.01497978739458579,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Employee Salaries,0.00038668599381800744,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Benefits,0.0003480173944362067,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Maintenance,0.0058661604794826155,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Laboratory,0.002199810179805981,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Insurance and Taxes,0.0014665401198706539,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Total Fixed Operating ,0.010267214167413465,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Base Employee Salary,0.00030806351948802906,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Electricity,0.040297308721858154,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Annual O&M Costs,0.07287701088321068,Annual Cost,$MM/yr,kbhdp,zld_a
+ro_second_stage,Inlet Water,0.02813559321821229,Water Flow,m3/s,kbhdp,zld_a
+ro_second_stage,Outlet Water,0.00446160561306301,Water Flow,m3/s,kbhdp,zld_a
+ro_second_stage,Waste Water,0.02368633532914922,Water Flow,m3/s,kbhdp,zld_a
+ro_second_stage,tds,22.459998214105752,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,tds,0.7675982250659321,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,tds,26.53431373619321,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,tds,0.6319253734338539,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,tds,0.003424720549531366,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,tds,0.6285006528843227,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,alkalinity_as_caco3,7.465717784440138e-06,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,alkalinity_as_caco3,4.7079530634889335e-05,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,alkalinity_as_caco3,8.868083464413471e-11,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,alkalinity_as_caco3,2.1005239866498084e-07,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,alkalinity_as_caco3,2.1005029814099417e-07,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,alkalinity_as_caco3,2.100523986649808e-12,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,calcium,1.1983164823277312,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,calcium,0.09257803772044207,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,calcium,1.4059709084557832,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,calcium,0.03371534509345212,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,calcium,0.0004130466927398834,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,calcium,0.03330229840071224,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,chloride,10.877026531897869,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,chloride,0.840323727000927,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,chloride,12.7618897844448,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,chloride,0.3060315939251808,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,chloride,0.003749193057177364,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,chloride,0.3022824008680034,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,electrical_conductivity,0.3919501836831073,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,electrical_conductivity,2.4716753583316904,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,electrical_conductivity,4.655743818817073e-06,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,electrical_conductivity,0.011027750929911494,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,electrical_conductivity,0.011027640652402195,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,electrical_conductivity,1.1027750929911495e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,magnesium,0.27653457284486105,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,magnesium,0.021364162550871025,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,magnesium,0.3244548250282576,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,magnesium,0.007780464252335105,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,magnesium,9.53184675553567e-05,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,magnesium,0.007685145784779747,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,potassium,0.14748510551725927,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,potassium,0.011394220027131126,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,potassium,0.17304257334840414,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,potassium,0.004149580934578723,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,potassium,5.083651602952319e-05,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,potassium,0.0040987444185492,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,sodium,7.0977207030181,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,sodium,0.5483468388056899,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,sodium,8.327673842391947,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,sodium,0.19969858247660102,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,sodium,0.0024465073339208234,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,sodium,0.19725207514268023,Waste Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,sulfate,2.120098391810602,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,sulfate,0.16379191289001294,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,sulfate,2.487486991883309,Waste Constituent Density,kg/m3,kbhdp,zld_a
+ro_second_stage,sulfate,0.059650225934569145,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,sulfate,0.0007307749179244092,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+ro_second_stage,sulfate,0.05891945101664474,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,Electricity Intensity Unit Inlet,3.989557897784536e-06,Electricity,kwh/m3,kbhdp,zld_a
+caustic_soda_addition,Electricity Intensity System Treated,3.993887787184711e-06,Electricity,kwh/m3,kbhdp,zld_a
+caustic_soda_addition,Unit Levelized Cost,0.0076869789725290405,LCOW,$/m3,kbhdp,zld_a
+caustic_soda_addition,Fixed Capital Investment (FCI),1.4552564680623323,Cost,$MM,kbhdp,zld_a
+caustic_soda_addition,Land,0.0021828847020934987,Cost,$MM,kbhdp,zld_a
+caustic_soda_addition,Working Capital,0.07276282340311661,Cost,$MM,kbhdp,zld_a
+caustic_soda_addition,Total Capital Investment (TCI),1.5302021761675424,Cost,$MM,kbhdp,zld_a
+caustic_soda_addition,Catalysts and Chemicals,0.19823952458450078,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Electricity,9.009310410557292e-06,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Employee Salaries,0.000767421614980977,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Benefits,0.0006906794534828793,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Maintenance,0.01164205174449866,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Laboratory,0.0043657694041869975,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Insurance and Taxes,0.002910512936124665,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Total Fixed Operating ,0.020376435153274176,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Base Employee Salary,0.0006113865188339217,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Electricity,9.009310410557292e-06,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Annual O&M Costs,0.2186249690481855,Annual Cost,$MM/yr,kbhdp,zld_a
+caustic_soda_addition,Inlet Water,1.3130047859110363,Water Flow,m3/s,kbhdp,zld_a
+caustic_soda_addition,Outlet Water,1.3128734854324453,Water Flow,m3/s,kbhdp,zld_a
+caustic_soda_addition,Waste Water,0.000131300478591001,Water Flow,m3/s,kbhdp,zld_a
+caustic_soda_addition,tds,2.065584278977303,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,tds,2.065770200154528,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,tds,0.20655842789789175,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,tds,2.7121220439997957,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,tds,2.7120949227793556,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,tds,2.7121220439997958e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,alkalinity_as_caco3,0.08141655832436456,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,alkalinity_as_caco3,0.08142388654743606,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,alkalinity_as_caco3,0.00814165583244282,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,alkalinity_as_caco3,0.1069003307322957,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,alkalinity_as_caco3,0.10689926172898837,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,alkalinity_as_caco3,1.069003307322957e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,calcium,0.10693796872573276,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,calcium,0.10694759410545603,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,calcium,0.010693796872581636,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,calcium,0.14041006473249185,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,calcium,0.14040866063184448,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,calcium,1.4041006473249184e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,chloride,0.9706677161258818,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,chloride,0.9707550849572162,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,chloride,0.09706677161266404,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,chloride,1.274491356802618,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,chloride,1.2744786118890499,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,chloride,1.2744913568026177e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,electrical_conductivity,4274.36931202914,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,electrical_conductivity,4274.754043740393,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,electrical_conductivity,427.43693120324815,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,electrical_conductivity,5612.267363445524,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,electrical_conductivity,5612.21124077189,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,electrical_conductivity,0.05612267363445525,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,magnesium,0.024677992782861407,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,magnesium,0.024680214024336008,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,magnesium,0.00246779927828807,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,magnesium,0.03240232263057504,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,magnesium,0.032401998607348735,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,magnesium,3.2402322630575043e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,potassium,0.013161596150859418,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,potassium,0.013162780812979205,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,potassium,0.0013161596150869708,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,potassium,0.01728123873630669,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,potassium,0.017281065923919325,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,potassium,1.7281238736306694e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,sodium,0.6334018147601094,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,sodium,0.6334588266246242,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,sodium,0.06334018147606045,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,sodium,0.8316596141847593,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,sodium,0.8316512975886174,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,sodium,8.316596141847593e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,sulfate,0.18919794466860412,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,sulfate,0.18921497418657607,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,sulfate,0.018919794466875202,Waste Constituent Density,kg/m3,kbhdp,zld_a
+caustic_soda_addition,sulfate,0.24841780683440864,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,sulfate,0.24841532265634028,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+caustic_soda_addition,sulfate,2.4841780683440867e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,Electricity Intensity Unit Inlet,5.689e-06,Electricity,kwh/m3,kbhdp,zld_a
+chlorination,Electricity Intensity System Treated,5.694604785945802e-06,Electricity,kwh/m3,kbhdp,zld_a
+chlorination,Unit Levelized Cost,0.019086087686682116,LCOW,$/m3,kbhdp,zld_a
+chlorination,Fixed Capital Investment (FCI),7.808524362239204,Cost,$MM,kbhdp,zld_a
+chlorination,Land,0.011712786543358807,Cost,$MM,kbhdp,zld_a
+chlorination,Working Capital,0.3904262181119602,Cost,$MM,kbhdp,zld_a
+chlorination,Total Capital Investment (TCI),8.210663366894522,Cost,$MM,kbhdp,zld_a
+chlorination,Catalysts and Chemicals,0.14652027375989052,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Electricity,1.2845744526587058e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Employee Salaries,0.004116128049388096,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Benefits,0.0037045152444492866,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Maintenance,0.06246819489791364,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Laboratory,0.023425573086717614,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Insurance and Taxes,0.01561704872447841,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Total Fixed Operating ,0.10933146000294705,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Base Employee Salary,0.0035971048448824867,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Electricity,1.2845744526587058e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Annual O&M Costs,0.2558645795073642,Annual Cost,$MM/yr,kbhdp,zld_a
+chlorination,Inlet Water,1.3128734854324453,Water Flow,m3/s,kbhdp,zld_a
+chlorination,Outlet Water,1.312742198083902,Water Flow,m3/s,kbhdp,zld_a
+chlorination,Waste Water,0.00013128734854328525,Water Flow,m3/s,kbhdp,zld_a
+chlorination,tds,2.065770200154528,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,tds,2.0659561380663334,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,tds,0.20657702001538875,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,tds,2.7120949227793556,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,tds,2.712067801830128,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,tds,2.7120949227793557e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,alkalinity_as_caco3,0.08142388654743606,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,alkalinity_as_caco3,0.0814312154301136,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,alkalinity_as_caco3,0.008142388654741081,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,alkalinity_as_caco3,0.10689926172898837,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,alkalinity_as_caco3,0.10689819273637108,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,alkalinity_as_caco3,1.0689926172898837e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,calcium,0.10694759410545603,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,calcium,0.10695722035155014,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,calcium,0.010694759410542286,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,calcium,0.14040866063184448,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,calcium,0.1404072565452382,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,calcium,1.404086606318445e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,chloride,0.9707550849572162,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,chloride,0.9708424616525317,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,chloride,0.0970755084956915,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,chloride,1.2744786118890499,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,chloride,1.274465867102931,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,chloride,1.2744786118890499e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,electrical_conductivity,4274.754043740393,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,electrical_conductivity,4275.1388100809645,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,electrical_conductivity,427.47540437390677,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,electrical_conductivity,5612.21124077189,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,electrical_conductivity,5612.1551186594825,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,electrical_conductivity,0.0561221124077189,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,magnesium,0.024680214024336008,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,magnesium,0.02468243546574234,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,magnesium,0.0024680214024328357,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,magnesium,0.032401998607348735,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,magnesium,0.03240167458736266,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,magnesium,3.240199860734874e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,potassium,0.013162780812979205,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,potassium,0.01316396558172925,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,potassium,0.0013162780812975123,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,potassium,0.017281065923919325,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,potassium,0.017280893113260087,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,potassium,1.7281065923919324e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,sodium,0.6334588266246242,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,sodium,0.6335158436207201,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,sodium,0.06334588266244277,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,sodium,0.8316512975886174,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,sodium,0.8316429810756416,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,sodium,8.316512975886174e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,sulfate,0.18921497418657607,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,sulfate,0.18923200523735792,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,sulfate,0.018921497418651737,Waste Constituent Density,kg/m3,kbhdp,zld_a
+chlorination,sulfate,0.24841532265634028,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,sulfate,0.2484128385031137,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+chlorination,sulfate,2.484153226563403e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,kbhdp,zld_a
+treated_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,kbhdp,zld_a
+treated_storage,Unit Levelized Cost,0.028876117049649274,LCOW,$/m3,kbhdp,zld_a
+treated_storage,Fixed Capital Investment (FCI),14.535980039154314,Cost,$MM,kbhdp,zld_a
+treated_storage,Land,0.02180397005873147,Cost,$MM,kbhdp,zld_a
+treated_storage,Working Capital,0.7267990019577157,Cost,$MM,kbhdp,zld_a
+treated_storage,Total Capital Investment (TCI),15.284583011170762,Cost,$MM,kbhdp,zld_a
+treated_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Employee Salaries,0.006284758408195245,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Benefits,0.0056562825673757205,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Maintenance,0.11628784031323451,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Laboratory,0.04360794011746294,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Insurance and Taxes,0.029071960078308628,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Total Fixed Operating ,0.20090878148457703,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Base Employee Salary,0.0045981893624759355,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Annual O&M Costs,0.20090878148457703,Annual Cost,$MM/yr,kbhdp,zld_a
+treated_storage,Inlet Water,1.312742198083902,Water Flow,m3/s,kbhdp,zld_a
+treated_storage,Outlet Water,1.3126109238640937,Water Flow,m3/s,kbhdp,zld_a
+treated_storage,Waste Water,0.0001312742198082972,Water Flow,m3/s,kbhdp,zld_a
+treated_storage,tds,2.0659561380663334,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,tds,2.066142092714224,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,tds,0.20659561380677968,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,tds,2.712067801830128,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,tds,2.7120406811521094,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,tds,2.7120678018301278e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,alkalinity_as_caco3,0.0814312154301136,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,alkalinity_as_caco3,0.08143854497245653,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,alkalinity_as_caco3,0.00814312154301713,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,alkalinity_as_caco3,0.10689819273637108,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,alkalinity_as_caco3,0.10689712375444371,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,alkalinity_as_caco3,1.068981927363711e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,calcium,0.10695722035155014,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,calcium,0.10696684746409302,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,calcium,0.010695722035162591,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,calcium,0.1404072565452382,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,calcium,0.14040585247267273,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,calcium,1.404072565452382e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,chloride,0.9708424616525317,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,chloride,0.9709298462125364,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,chloride,0.09708424616532195,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,chloride,1.274465867102931,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,chloride,1.27445312244426,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,chloride,1.2744658671029308e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,electrical_conductivity,4275.1388100809645,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,electrical_conductivity,4275.523611053968,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,electrical_conductivity,427.5138810083993,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,electrical_conductivity,5612.1551186594825,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,electrical_conductivity,5612.098997108295,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,electrical_conductivity,0.05612155118659483,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,magnesium,0.02468243546574234,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,magnesium,0.02468465710709839,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,magnesium,0.0024682435465759826,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,magnesium,0.03240167458736266,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,magnesium,0.032401350570616785,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,magnesium,3.240167458736266e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,potassium,0.01316396558172925,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,potassium,0.013165150457119143,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,potassium,0.0013163965581738575,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,potassium,0.017280893113260087,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,potassium,0.017280720304328954,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,potassium,1.7280893113260087e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,sodium,0.6335158436207201,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,sodium,0.6335728657488587,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,sodium,0.0633515843621169,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,sodium,0.8316429810756416,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,sodium,0.8316346646458309,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,sodium,8.316429810756417e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,sulfate,0.18923200523735792,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,sulfate,0.18924903782108765,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,sulfate,0.018923200523749198,Waste Constituent Density,kg/m3,kbhdp,zld_a
+treated_storage,sulfate,0.2484128385031137,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,sulfate,0.24841035437472866,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+treated_storage,sulfate,2.484128385031137e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,kbhdp,zld_a
+evaporation_pond,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,kbhdp,zld_a
+evaporation_pond,Unit Levelized Cost,0.010637966851040492,LCOW,$/m3,kbhdp,zld_a
+evaporation_pond,Fixed Capital Investment (FCI),5.343329548674597,Cost,$MM,kbhdp,zld_a
+evaporation_pond,Land,0.008014994323011896,Cost,$MM,kbhdp,zld_a
+evaporation_pond,Working Capital,0.26716647743372984,Cost,$MM,kbhdp,zld_a
+evaporation_pond,Total Capital Investment (TCI),5.618511020431338,Cost,$MM,kbhdp,zld_a
+evaporation_pond,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Employee Salaries,0.0028177758914752307,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Benefits,0.002535998302327708,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Maintenance,0.042746636389396776,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Laboratory,0.016029988646023792,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Insurance and Taxes,0.010686659097349194,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Total Fixed Operating ,0.0748170583265727,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Base Employee Salary,0.002244854926565882,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Annual O&M Costs,0.0748170583265727,Annual Cost,$MM/yr,kbhdp,zld_a
+evaporation_pond,Inlet Water,0.02368633532914922,Water Flow,m3/s,kbhdp,zld_a
+evaporation_pond,Outlet Water,0.0213177017962343,Water Flow,m3/s,kbhdp,zld_a
+evaporation_pond,Waste Water,0.0023686335329149225,Water Flow,m3/s,kbhdp,zld_a
+evaporation_pond,tds,26.53431373619321,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,tds,0.5896514163598434,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,tds,260.0362746146934,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,tds,0.6285006528843227,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,tds,0.012570013057686333,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,tds,0.6159306398266362,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,alkalinity_as_caco3,8.868083464413471e-11,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,alkalinity_as_caco3,1.9706852143140976e-12,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,alkalinity_as_caco3,8.690721795125199e-10,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,alkalinity_as_caco3,2.100523986649808e-12,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,alkalinity_as_caco3,4.2010479732996014e-14,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,alkalinity_as_caco3,2.058513506916812e-12,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,calcium,1.4059709084557832,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,calcium,0.031243797965683984,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,calcium,13.77851490286667,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,calcium,0.03330229840071224,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,calcium,0.000666045968014243,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,calcium,0.03263625243269799,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,chloride,12.7618897844448,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,chloride,0.28359755076543725,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,chloride,125.06651988755902,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,chloride,0.3022824008680034,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,chloride,0.006045648017360009,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,chloride,0.2962367528506433,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,electrical_conductivity,4.655743818817073e-06,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,electrical_conductivity,1.0346097375149009e-07,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,electrical_conductivity,4.562628942440731e-05,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,electrical_conductivity,1.1027750929911495e-07,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,electrical_conductivity,2.20555018598229e-09,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,electrical_conductivity,1.0807195911313266e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,magnesium,0.3244548250282576,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,magnesium,0.0072101072228501935,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,magnesium,3.1796572852769236,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,magnesium,0.007685145784779747,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,magnesium,0.00015370291569559547,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,magnesium,0.007531442869084151,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,potassium,0.17304257334840414,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,potassium,0.003845390518853429,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,potassium,1.6958172188143599,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,potassium,0.0040987444185492,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,potassium,8.197488837098409e-05,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,potassium,0.0040167695301782155,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,sodium,8.327673842391947,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,sodium,0.1850594187198205,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,sodium,81.61120365544105,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,sodium,0.19725207514268023,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,sodium,0.003945041502853593,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,sodium,0.19330703363982657,Waste Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,sulfate,2.487486991883309,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,sulfate,0.0552774887085182,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,sulfate,24.37737252045642,Waste Constituent Density,kg/m3,kbhdp,zld_a
+evaporation_pond,sulfate,0.05891945101664474,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,sulfate,0.0011783890203328996,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+evaporation_pond,sulfate,0.057741061996311835,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,kbhdp,zld_a
+landfill_zld,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,kbhdp,zld_a
+landfill_zld,Unit Levelized Cost,0.00023681617080348964,LCOW,$/m3,kbhdp,zld_a
+landfill_zld,Fixed Capital Investment (FCI),0.11895006449794399,Cost,$MM,kbhdp,zld_a
+landfill_zld,Land,0.000178425096746916,Cost,$MM,kbhdp,zld_a
+landfill_zld,Working Capital,0.0059475032248972,Cost,$MM,kbhdp,zld_a
+landfill_zld,Total Capital Investment (TCI),0.1250759928195881,Cost,$MM,kbhdp,zld_a
+landfill_zld,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Employee Salaries,6.272767213372975e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Benefits,5.645490492035677e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Maintenance,0.0009516005159835519,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Laboratory,0.000356850193493832,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Insurance and Taxes,0.00023790012899588798,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Total Fixed Operating ,0.0016655334155273585,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Base Employee Salary,4.9973642065512164e-05,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Electricity,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Annual O&M Costs,0.0016655334155273585,Annual Cost,$MM/yr,kbhdp,zld_a
+landfill_zld,Inlet Water,0.0023686335329149225,Water Flow,m3/s,kbhdp,zld_a
+landfill_zld,Outlet Water,0.002368396669561631,Water Flow,m3/s,kbhdp,zld_a
+landfill_zld,Waste Water,2.3686335329144858e-07,Water Flow,m3/s,kbhdp,zld_a
+landfill_zld,tds,260.0362746146934,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,tds,260.0596802199692,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,tds,26.003627461474135,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,tds,0.6159306398266362,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,tds,0.6159244805202378,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,tds,6.159306398266362e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,alkalinity_as_caco3,8.690721795125199e-10,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,alkalinity_as_caco3,8.69150403831108e-10,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,alkalinity_as_caco3,8.690721795126803e-11,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,alkalinity_as_caco3,2.058513506916812e-12,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,alkalinity_as_caco3,2.058492921781743e-12,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,alkalinity_as_caco3,2.0585135069168122e-17,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,calcium,13.77851490286667,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,calcium,13.779755093226964,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,calcium,1.3778514902869212,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,calcium,0.03263625243269799,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,calcium,0.03263592607017366,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,calcium,3.2636252432697993e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,chloride,125.06651988755902,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,chloride,125.07777700006017,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,chloride,12.506651988758211,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,chloride,0.2962367528506433,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,chloride,0.2962337904831149,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,chloride,2.9623675285064344e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,electrical_conductivity,4.562628942440731e-05,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,electrical_conductivity,4.5630396201133176e-05,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,electrical_conductivity,4.562628942441574e-06,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,electrical_conductivity,1.0807195911313266e-07,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,electrical_conductivity,1.0807087839354151e-07,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,electrical_conductivity,1.080719591131327e-12,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,magnesium,3.1796572852769236,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,magnesium,3.179943483052376,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,magnesium,0.317965728527751,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,magnesium,0.007531442869084151,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,magnesium,0.00753136755465546,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,magnesium,7.531442869084151e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,potassium,1.6958172188143599,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,potassium,1.6959698576279345,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,potassium,0.16958172188146728,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,potassium,0.0040167695301782155,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,potassium,0.004016729362482914,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,potassium,4.016769530178216e-08,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,sodium,81.61120365544105,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,sodium,81.61854939834433,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,sodium,8.161120365545612,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,sodium,0.19330703363982657,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,sodium,0.19330510056949016,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,sodium,1.933070336398266e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,sulfate,24.37737252045642,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,sulfate,24.379566703401554,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,sulfate,2.4377372520460914,Waste Constituent Density,kg/m3,kbhdp,zld_a
+landfill_zld,sulfate,0.057741061996311835,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,sulfate,0.05774048458569187,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+landfill_zld,sulfate,5.774106199631183e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,Electricity Intensity Unit Inlet,0.3071959581294095,Electricity,kwh/m3,kbhdp,zld_a
+municipal_drinking,Electricity Intensity System Treated,0.30743711003091223,Electricity,kwh/m3,kbhdp,zld_a
+municipal_drinking,Unit Levelized Cost,0.021928942041305632,LCOW,$/m3,kbhdp,zld_a
+municipal_drinking,Fixed Capital Investment (FCI),2.60028961288163,Cost,$MM,kbhdp,zld_a
+municipal_drinking,Land,0.003900434419322445,Cost,$MM,kbhdp,zld_a
+municipal_drinking,Working Capital,0.1300144806440815,Cost,$MM,kbhdp,zld_a
+municipal_drinking,Total Capital Investment (TCI),2.734204527945034,Cost,$MM,kbhdp,zld_a
+municipal_drinking,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Electricity,0.6935088073532415,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Other Operating,0.0,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Employee Salaries,0.0013001448064408152,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Benefits,0.0011701303257967337,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Maintenance,0.02080231690305304,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Laboratory,0.00780086883864489,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Insurance and Taxes,0.00520057922576326,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Total Fixed Operating ,0.036274040099698736,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Base Employee Salary,0.0013001448064278137,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Electricity,0.6935088073532415,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Annual O&M Costs,0.7297828474529402,Annual Cost,$MM/yr,kbhdp,zld_a
+municipal_drinking,Inlet Water,1.3126109238640937,Water Flow,m3/s,kbhdp,zld_a
+municipal_drinking,Outlet Water,1.3124796627717072,Water Flow,m3/s,kbhdp,zld_a
+municipal_drinking,Waste Water,0.00013126109238648095,Water Flow,m3/s,kbhdp,zld_a
+municipal_drinking,tds,2.066142092714224,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,tds,2.0663280640997073,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,tds,0.20661420927130975,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,tds,2.7120406811521094,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,tds,2.7120135607452984,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,tds,2.71204068115211e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,alkalinity_as_caco3,0.08143854497245653,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,alkalinity_as_caco3,0.08144587517452427,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,alkalinity_as_caco3,0.008143854497241212,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,alkalinity_as_caco3,0.10689712375444371,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,alkalinity_as_caco3,0.10689605478320618,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,alkalinity_as_caco3,1.0689712375444372e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,calcium,0.10696684746409302,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,calcium,0.10697647544316272,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,calcium,0.01069668474640347,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,calcium,0.14040585247267273,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,calcium,0.14040444841414804,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,calcium,1.4040585247267275e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,chloride,0.9709298462125364,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,chloride,0.9710172386379382,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,chloride,0.09709298462120071,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,chloride,1.27445312244426,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,chloride,1.2744403779130355,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,chloride,1.27445312244426e-05,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,electrical_conductivity,4275.523611053968,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,electrical_conductivity,4275.9084466625245,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,electrical_conductivity,427.55236110516364,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,electrical_conductivity,5612.098997108295,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,electrical_conductivity,5612.042876118325,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,electrical_conductivity,0.05612098997108295,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,magnesium,0.02468465710709839,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,magnesium,0.024686878948422166,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,magnesium,0.002468465710708493,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,magnesium,0.032401350570616785,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,magnesium,0.032401026557111086,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,magnesium,3.240135057061679e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,potassium,0.013165150457119143,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,potassium,0.01316633543915849,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,potassium,0.0013165150457111964,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,potassium,0.017280720304328954,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,potassium,0.017280547497125914,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,potassium,1.7280720304328954e-07,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,sodium,0.6335728657488587,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,sodium,0.6336298930095022,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,sodium,0.06335728657485133,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,sodium,0.8316346646458309,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,sodium,0.8316263482991845,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,sodium,8.31634664645831e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,sulfate,0.18924903782108765,Inlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,sulfate,0.18926607193790324,Outlet Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,sulfate,0.018924903782098445,Waste Constituent Density,kg/m3,kbhdp,zld_a
+municipal_drinking,sulfate,0.24841035437472866,Inlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,sulfate,0.2484078702711849,Outlet Constituent Total Mass,kg,kbhdp,zld_a
+municipal_drinking,sulfate,2.4841035437472867e-06,Waste Constituent Total Mass,kg,kbhdp,zld_a
+System,System Total Capital Investment (TCI),62.703249078624395,Cost,$MM,kbhdp,zld_a
+System,System Catalysts and Chemicals,25.869358232530068,Cost,$MM,kbhdp,zld_a
+System,System Electricity,32.92406365462445,Cost,$MM,kbhdp,zld_a
+System,System Other Variable Operating,6.762610566611704,Cost,$MM,kbhdp,zld_a
+System,System Fixed Operating,24.945020480530257,Cost,$MM,kbhdp,zld_a
+System,System Total Operating,90.50105293429647,Cost,$MM,kbhdp,zld_a
+System,System Catalysts and Chemicals,0.8623119410843356,Annual Cost,$MM/yr,kbhdp,zld_a
+System,System Electricity,1.0974687884874816,Annual Cost,$MM/yr,kbhdp,zld_a
+System,Other Variable O&M,0.2254203522203901,Annual Cost,$MM/yr,kbhdp,zld_a
+System,System Fixed O&M,0.8315006826843419,Annual Cost,$MM/yr,kbhdp,zld_a
+System,System Total Operating Cost,3.016701764476549,Annual Cost,$MM/yr,kbhdp,zld_a
+System,TCI LCOW,0.0985479824354379,LCOW,$/m3,kbhdp,zld_a
+System,Electricity LCOW,0.026515082845642066,LCOW,$/m3,kbhdp,zld_a
+System,Fixed Operating LCOW,0.0200892359936437,LCOW,$/m3,kbhdp,zld_a
+System,Other O&M LCOW,0.026279847020163363,LCOW,$/m3,kbhdp,zld_a
+System,Electricity Intensity System Treated,90.50105293429647,Electricity,kwh/m3,kbhdp,zld_a
+System,System Levelized Cost,0.171432148294887,LCOW,$/m3,kbhdp,zld_a
+System,Electricity Fraction of LCOW,0.171432148294887,LCOW,$/m3,kbhdp,zld_a
+System,Electricity Intensity,0.48651528157141405,Electricity,kwh/m3,kbhdp,zld_a
+System,Water Recovery,98.2190579184651,Water Recovery,%,kbhdp,zld_a

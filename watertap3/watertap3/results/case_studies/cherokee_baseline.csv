@@ -1,0 +1,1087 @@
+Unit Process Name,Variable,Value,Metric,Unit,Case Study,Scenario
+cooling_tower,Electricity Intensity Unit Inlet,1e-09,Electricity,kwh/m3,cherokee,baseline
+cooling_tower,Electricity Intensity System Treated,4.820430373217849e-09,Electricity,kwh/m3,cherokee,baseline
+cooling_tower,Unit Levelized Cost,3.7310989639772117e-10,LCOW,$/m3,cherokee,baseline
+cooling_tower,Fixed Capital Investment (FCI),2.1450000000214502e-10,Cost,$MM,cherokee,baseline
+cooling_tower,Land,3.2175000000321756e-13,Cost,$MM,cherokee,baseline
+cooling_tower,Working Capital,1.0725000000107251e-11,Cost,$MM,cherokee,baseline
+cooling_tower,Total Capital Investment (TCI),2.255467500022555e-10,Cost,$MM,cherokee,baseline
+cooling_tower,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Electricity,5.009137848e-10,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Employee Salaries,1.0725000000107251e-13,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Benefits,9.652500000096526e-14,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Maintenance,1.7160000000171601e-12,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Laboratory,6.43500000006435e-13,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Insurance and Taxes,4.2900000000429003e-13,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Total Fixed Operating ,2.9922750000299233e-12,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Base Employee Salary,1.0725000000000001e-13,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Electricity,5.009137848e-10,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Annual O&M Costs,5.039060598000299e-10,Annual Cost,$MM/yr,cherokee,baseline
+cooling_tower,Inlet Water,0.2145,Water Flow,m3/s,cherokee,baseline
+cooling_tower,Outlet Water,0.03575,Water Flow,m3/s,cherokee,baseline
+cooling_tower,Waste Water,0.17875,Water Flow,m3/s,cherokee,baseline
+cooling_tower,fluoride,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,fluoride,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,fluoride,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,fluoride,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,fluoride,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,fluoride,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,magnesium,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,magnesium,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,magnesium,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,magnesium,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,magnesium,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,magnesium,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,sodium,7.65219271736481e-42,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,sodium,4.591269717262583e-41,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,sodium,9.182631260837774e-47,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,sodium,1.6413953378747515e-42,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,sodium,1.641378923921373e-42,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,sodium,1.641395337874752e-47,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,tds,0.7326,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,tds,4.395556044,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,tds,8.791200000000001e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,tds,0.1571427,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,tds,0.157141128573,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,tds,1.5714270000000002e-06,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,nitrate,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,nitrate,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,nitrate,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,nitrate,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,nitrate,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,nitrate,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,aluminum,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,aluminum,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,aluminum,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,aluminum,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,aluminum,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,aluminum,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,barium,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,barium,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,barium,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,barium,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,barium,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,barium,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,lead,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,lead,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,lead,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,lead,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,lead,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,lead,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,trihalomethanes,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,trihalomethanes,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,trihalomethanes,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,trihalomethanes,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,trihalomethanes,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,trihalomethanes,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,turbidity,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,turbidity,0.0,Outlet Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,turbidity,0.0,Waste Constituent Density,kg/m3,cherokee,baseline
+cooling_tower,turbidity,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,turbidity,0.0,Outlet Constituent Total Mass,kg,cherokee,baseline
+cooling_tower,turbidity,0.0,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+holding_tank_a,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+holding_tank_a,Unit Levelized Cost,0.056258227520442294,LCOW,$/m3,cherokee,baseline
+holding_tank_a,Fixed Capital Investment (FCI),0.7355480269518762,Cost,$MM,cherokee,baseline
+holding_tank_a,Land,0.0011033220404278142,Cost,$MM,cherokee,baseline
+holding_tank_a,Working Capital,0.03677740134759381,Cost,$MM,cherokee,baseline
+holding_tank_a,Total Capital Investment (TCI),0.7734287503398978,Cost,$MM,cherokee,baseline
+holding_tank_a,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Employee Salaries,0.00038788726738392485,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Benefits,0.00034909854064553236,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Maintenance,0.00588438421561501,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Laboratory,0.0022066440808556284,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Insurance and Taxes,0.0014710960539037524,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Total Fixed Operating ,0.010299110158403848,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Base Employee Salary,0.0003090205455207812,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Annual O&M Costs,0.010299110158403848,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_a,Inlet Water,0.03575,Water Flow,m3/s,cherokee,baseline
+holding_tank_a,Outlet Water,0.035746425,Water Flow,m3/s,cherokee,baseline
+holding_tank_a,Waste Water,3.574999999998718e-06,Water Flow,m3/s,cherokee,baseline
+holding_tank_a,fluoride,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,fluoride,4.449546987261386e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,fluoride,-8.693451915673644e-70,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,fluoride,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,fluoride,1.5905539766411506e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,fluoride,-3.1079090598522133e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,magnesium,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,magnesium,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,magnesium,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,magnesium,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,magnesium,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,magnesium,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,sodium,4.591269717262583e-41,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,sodium,4.591682972862696e-41,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,sodium,4.591269717264232e-42,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,sodium,1.641378923921373e-42,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,sodium,1.641362510132134e-42,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,sodium,1.6413789239213742e-47,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,tds,4.395556044,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,tds,4.395951683607921,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,tds,0.4395556044001576,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,tds,0.157141128573,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,tds,0.15713955716171427,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,tds,1.57141128573e-06,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,nitrate,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,nitrate,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,nitrate,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,nitrate,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,nitrate,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,nitrate,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,aluminum,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,aluminum,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,aluminum,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,aluminum,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,aluminum,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,aluminum,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,barium,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,barium,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,barium,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,barium,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,barium,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,barium,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,lead,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,lead,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,lead,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,lead,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,lead,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,lead,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,trihalomethanes,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,trihalomethanes,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,trihalomethanes,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,trihalomethanes,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,trihalomethanes,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,trihalomethanes,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,turbidity,0.0,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,turbidity,4.449546987261374e-75,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,turbidity,-1.7386903831347288e-69,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_a,turbidity,0.0,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,turbidity,1.5905539766411466e-76,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_a,turbidity,-6.215818119704427e-75,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+clarifier,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+clarifier,Unit Levelized Cost,0.01782318139139458,LCOW,$/m3,cherokee,baseline
+clarifier,Fixed Capital Investment (FCI),0.2330291316355821,Cost,$MM,cherokee,baseline
+clarifier,Land,0.0003495436974533731,Cost,$MM,cherokee,baseline
+clarifier,Working Capital,0.011651456581779105,Cost,$MM,cherokee,baseline
+clarifier,Total Capital Investment (TCI),0.24503013191481457,Cost,$MM,cherokee,baseline
+clarifier,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Employee Salaries,0.00012288665019679078,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Benefits,0.00011059798517711171,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Maintenance,0.0018642330530846568,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Laboratory,0.0006990873949067462,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Insurance and Taxes,0.0004660582632711642,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Total Fixed Operating ,0.0032628633466364695,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Base Employee Salary,9.790086675736928e-05,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Annual O&M Costs,0.0032628633466364695,Annual Cost,$MM/yr,cherokee,baseline
+clarifier,Inlet Water,0.04401914410368642,Water Flow,m3/s,cherokee,baseline
+clarifier,Outlet Water,0.04397512495958273,Water Flow,m3/s,cherokee,baseline
+clarifier,Waste Water,4.4019144103686625e-05,Water Flow,m3/s,cherokee,baseline
+clarifier,fluoride,0.0001032617713673806,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,fluoride,0.00010336410285251945,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,fluoride,1.0326177136738012e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,fluoride,4.545494794222646e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,fluoride,4.545449339274705e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,fluoride,4.545494794222647e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,magnesium,9.33180452357069e-07,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,magnesium,9.341052257783238e-07,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,magnesium,9.331804523570648e-09,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,magnesium,4.10778048070491e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,magnesium,4.107739402900103e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,magnesium,4.107780480704911e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,sodium,0.0028301374374763563,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,sodium,0.002832942078180162,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,sodium,2.8301374374763434e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,sodium,0.00012458022769350953,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,sodium,0.00012457898189123263,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,sodium,1.2458022769350957e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,tds,3.589825932198986,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,tds,3.5933834173570207,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,tds,0.035898259321989694,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,tds,0.15802106501661758,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,tds,0.15801948480596742,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,tds,1.580210650166176e-06,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,nitrate,4.013093332525777e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,nitrate,4.017070271864316e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,nitrate,4.0130933325257584e-13,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,nitrate,1.7665293370599534e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,nitrate,1.7665116717665828e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,nitrate,1.7665293370599535e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,aluminum,4.87590839901882e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,aluminum,4.8807403803151446e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,aluminum,4.875908399018798e-13,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,aluminum,2.1463331445278436e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,aluminum,2.1463116811963984e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,aluminum,2.146333144527844e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,barium,6.160098265427068e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,barium,6.166202867311725e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,barium,6.16009826542704e-13,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,barium,2.711622532387028e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,barium,2.711595416161704e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,barium,2.711622532387029e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,lead,2.1871358662265484e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,lead,2.1893032981660525e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,lead,2.1871358662265385e-13,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,lead,9.627584886976745e-13,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,lead,9.627488611127877e-13,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,lead,9.627584886976746e-18,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,trihalomethanes,4.9361047990067056e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,trihalomethanes,4.9409964343931087e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,trihalomethanes,4.936104799006683e-13,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,trihalomethanes,2.1728310845837424e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,trihalomethanes,2.1728093562728966e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,trihalomethanes,2.172831084583743e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+clarifier,turbidity,2.7088379994548996e-10,Inlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,turbidity,2.7115224335084134e-10,Outlet Constituent Density,kg/m3,cherokee,baseline
+clarifier,turbidity,2.7088379994548876e-12,Waste Constituent Density,kg/m3,cherokee,baseline
+clarifier,turbidity,1.1924073025154685e-11,Inlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,turbidity,1.1923953784424433e-11,Outlet Constituent Total Mass,kg,cherokee,baseline
+clarifier,turbidity,1.192407302515469e-16,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+settling_pond,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+settling_pond,Unit Levelized Cost,0.01781750812063271,LCOW,$/m3,cherokee,baseline
+settling_pond,Fixed Capital Investment (FCI),0.2329549564740249,Cost,$MM,cherokee,baseline
+settling_pond,Land,0.00034943243471103735,Cost,$MM,cherokee,baseline
+settling_pond,Working Capital,0.011647747823701246,Cost,$MM,cherokee,baseline
+settling_pond,Total Capital Investment (TCI),0.24495213673243715,Cost,$MM,cherokee,baseline
+settling_pond,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Employee Salaries,0.00012284753432716713,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Benefits,0.00011056278089445042,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Maintenance,0.0018636396517921993,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Laboratory,0.0006988648694220747,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Insurance and Taxes,0.0004659099129480498,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Total Fixed Operating ,0.003261824749383941,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Base Employee Salary,9.786970407587385e-05,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Annual O&M Costs,0.003261824749383941,Annual Cost,$MM/yr,cherokee,baseline
+settling_pond,Inlet Water,0.04397512495958273,Water Flow,m3/s,cherokee,baseline
+settling_pond,Outlet Water,0.04397072744708677,Water Flow,m3/s,cherokee,baseline
+settling_pond,Waste Water,4.3975124959586e-06,Water Flow,m3/s,cherokee,baseline
+settling_pond,fluoride,0.00010336410285251945,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,fluoride,0.00010337340655214613,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,fluoride,1.0336410285251178e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,fluoride,4.545449339274705e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,fluoride,4.5454038847813115e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,fluoride,4.545449339274705e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,magnesium,9.341052257783238e-07,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,magnesium,9.341893036564316e-07,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,magnesium,9.341052257782546e-08,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,magnesium,4.107739402900103e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,magnesium,4.1076983255060734e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,magnesium,4.1077394029001036e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,sodium,0.002832942078180162,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,sodium,0.002833197068466227,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,sodium,0.0002832942078179952,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,sodium,0.00012457898189123263,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,sodium,0.00012457773610141372,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,sodium,1.2457898189123263e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,tds,3.5933834173570207,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,tds,3.593706854208268,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,tds,0.3593383417356754,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,tds,0.15801948480596742,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,tds,0.15801790461111936,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,tds,1.5801948480596744e-06,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,nitrate,4.017070271864316e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,nitrate,4.017431844346032e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,nitrate,4.017070271864018e-12,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,nitrate,1.7665116717665828e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,nitrate,1.766494006649865e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,nitrate,1.766511671766583e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,aluminum,4.8807403803151446e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,aluminum,4.88117969088043e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,aluminum,4.880740380314782e-12,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,aluminum,2.1463116811963984e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,aluminum,2.1462902180795863e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,aluminum,2.146311681196398e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,barium,6.166202867311725e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,barium,6.166757881071159e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,barium,6.1662028673112675e-12,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,barium,2.711595416161704e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,barium,2.711568300207543e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,barium,2.7115954161617046e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,lead,2.1893032981660525e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,lead,2.1895003551685874e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,lead,2.1893032981658896e-12,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,lead,9.627488611127877e-13,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,lead,9.627392336241763e-13,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,lead,9.627488611127877e-18,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,trihalomethanes,4.9409964343931087e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,trihalomethanes,4.94144116854562e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,trihalomethanes,4.940996434392742e-12,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,trihalomethanes,2.1728093562728966e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,trihalomethanes,2.172787628179334e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,trihalomethanes,2.1728093562728968e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+settling_pond,turbidity,2.7115224335084134e-10,Inlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,turbidity,2.7117664949335715e-10,Outlet Constituent Density,kg/m3,cherokee,baseline
+settling_pond,turbidity,2.7115224335082124e-11,Waste Constituent Density,kg/m3,cherokee,baseline
+settling_pond,turbidity,1.1923953784424433e-11,Inlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,turbidity,1.1923834544886589e-11,Outlet Constituent Total Mass,kg,cherokee,baseline
+settling_pond,turbidity,1.1923953784424435e-16,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+holding_tank_b,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+holding_tank_b,Unit Levelized Cost,0.01362422956121025,LCOW,$/m3,cherokee,baseline
+holding_tank_b,Fixed Capital Investment (FCI),0.17812994852790623,Cost,$MM,cherokee,baseline
+holding_tank_b,Land,0.00026719492279185937,Cost,$MM,cherokee,baseline
+holding_tank_b,Working Capital,0.008906497426395312,Cost,$MM,cherokee,baseline
+holding_tank_b,Total Capital Investment (TCI),0.18730364087709342,Cost,$MM,cherokee,baseline
+holding_tank_b,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Employee Salaries,9.393586338618415e-05,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Benefits,8.454227704756573e-05,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Maintenance,0.00142503958822325,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Laboratory,0.0005343898455837187,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Insurance and Taxes,0.0003562598970558125,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Total Fixed Operating ,0.0024941674712965307,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Base Employee Salary,7.483646458245978e-05,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Annual O&M Costs,0.0024941674712965307,Annual Cost,$MM/yr,cherokee,baseline
+holding_tank_b,Inlet Water,0.008833,Water Flow,m3/s,cherokee,baseline
+holding_tank_b,Outlet Water,0.0088321167,Water Flow,m3/s,cherokee,baseline
+holding_tank_b,Waste Water,8.833000000006697e-07,Water Flow,m3/s,cherokee,baseline
+holding_tank_b,fluoride,0.00054,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,fluoride,0.0005400486048604861,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,fluoride,5.399999999995907e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,fluoride,4.76982e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,fluoride,4.7697723018000004e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,fluoride,4.769820000000001e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,magnesium,4.88e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,magnesium,4.8804392439243925e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,magnesium,4.879999999996301e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,magnesium,4.310504e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,magnesium,4.3104608949600003e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,magnesium,4.3105040000000005e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,sodium,0.0148,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,sodium,0.014801332133213323,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,sodium,0.0014799999999988783,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,sodium,0.00013072840000000001,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,sodium,0.00013072709271600002,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,sodium,1.3072840000000003e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,tds,0.1,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,tds,0.10000900090009002,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,tds,0.009999999999992421,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,tds,0.0008833000000000001,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,tds,0.0008832911670000001,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,tds,8.833000000000002e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,nitrate,2e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,nitrate,2.0001800180018004e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,nitrate,1.999999999998484e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,nitrate,1.7666000000000002e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,nitrate,1.7665823340000002e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,nitrate,1.7666000000000004e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,aluminum,2.43e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,aluminum,2.4302187218721878e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,aluminum,2.4299999999981577e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,aluminum,2.1464190000000003e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,aluminum,2.1463975358100004e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,aluminum,2.146419e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,barium,3.07e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,barium,3.070276327632764e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,barium,3.069999999997673e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,barium,2.7117310000000003e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,barium,2.71170388269e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,barium,2.7117310000000004e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,lead,1.09e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,lead,1.0900981098109811e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,lead,1.0899999999991737e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,lead,9.627970000000001e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,lead,9.6278737203e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,lead,9.62797e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,trihalomethanes,2.46e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,trihalomethanes,2.4602214221422145e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,trihalomethanes,2.4599999999981354e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,trihalomethanes,2.1729180000000003e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,trihalomethanes,2.1728962708200002e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,trihalomethanes,2.1729180000000005e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,turbidity,0.000135,Inlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,turbidity,0.00013501215121512153,Outlet Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,turbidity,1.3499999999989767e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+holding_tank_b,turbidity,1.192455e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,turbidity,1.1924430754500001e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+holding_tank_b,turbidity,1.1924550000000002e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+media_filtration,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+media_filtration,Unit Levelized Cost,0.07385572167568874,LCOW,$/m3,cherokee,baseline
+media_filtration,Fixed Capital Investment (FCI),0.9656264114954588,Cost,$MM,cherokee,baseline
+media_filtration,Land,0.0014484396172431881,Cost,$MM,cherokee,baseline
+media_filtration,Working Capital,0.04828132057477294,Cost,$MM,cherokee,baseline
+media_filtration,Total Capital Investment (TCI),1.0153561716874748,Cost,$MM,cherokee,baseline
+media_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Employee Salaries,0.0005092178570866106,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Benefits,0.0004582960713779496,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Maintenance,0.007725011291963671,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Laboratory,0.0028968792344863763,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Insurance and Taxes,0.0019312528229909177,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Total Fixed Operating ,0.013520657277905525,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Base Employee Salary,0.0004056817359515859,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Annual O&M Costs,0.013520657277905525,Annual Cost,$MM/yr,cherokee,baseline
+media_filtration,Inlet Water,0.0088321167,Water Flow,m3/s,cherokee,baseline
+media_filtration,Outlet Water,0.00883123348833,Water Flow,m3/s,cherokee,baseline
+media_filtration,Waste Water,8.832116699993703e-07,Water Flow,m3/s,cherokee,baseline
+media_filtration,fluoride,0.0005400486048604861,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,fluoride,0.000540097214095847,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,fluoride,5.400486048608712e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,fluoride,4.7697723018000004e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,fluoride,4.769724604076982e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,fluoride,4.769772301800001e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,magnesium,4.8804392439243925e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,magnesium,4.880878527384691e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,magnesium,4.880439243927873e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,magnesium,4.3104608949600003e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,magnesium,4.31041779035105e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,magnesium,4.310460894960001e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,sodium,0.014801332133213323,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,sodium,0.014802664386330622,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,sodium,0.0014801332133223875,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,sodium,0.00013072709271600002,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,sodium,0.00013072578544507285,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,sodium,1.30727092716e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,tds,0.10000900090009002,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,tds,0.10001800261034204,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,tds,0.010000900090016134,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,tds,0.0008832911670000001,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,tds,0.00088328233408833,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,tds,8.832911670000003e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,nitrate,2.0001800180018004e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,nitrate,2.0003600522068407e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,nitrate,2.000180018003227e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,nitrate,1.7665823340000002e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,nitrate,1.76656466817666e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,nitrate,1.7665823340000006e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,aluminum,2.4302187218721878e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,aluminum,2.4304374634313117e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,aluminum,2.430218721873921e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,aluminum,2.1463975358100004e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,aluminum,2.146376071834642e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,aluminum,2.146397535810001e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,barium,3.070276327632764e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,barium,3.070552680137501e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,barium,3.070276327634953e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,barium,2.71170388269e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,barium,2.7116767656511735e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,barium,2.7117038826900005e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,lead,1.0900981098109811e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,lead,1.0901962284527282e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,lead,1.0900981098117587e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,lead,9.6278737203e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,lead,9.627777441562797e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,lead,9.627873720300002e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,trihalomethanes,2.4602214221422145e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,trihalomethanes,2.4604428642144145e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,trihalomethanes,2.4602214221439695e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,trihalomethanes,2.1728962708200002e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,trihalomethanes,2.1728745418572922e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,trihalomethanes,2.172896270820001e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+media_filtration,turbidity,0.00013501215121512153,Inlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,turbidity,0.00013502430352396174,Outlet Constituent Density,kg/m3,cherokee,baseline
+media_filtration,turbidity,1.350121512152178e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+media_filtration,turbidity,1.1924430754500001e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,turbidity,1.1924311510192455e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+media_filtration,turbidity,1.1924430754500003e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,Electricity Intensity Unit Inlet,6.918827885797507e-10,Electricity,kwh/m3,cherokee,baseline
+sodium_bisulfite_addition,Electricity Intensity System Treated,1.3731323915260886e-10,Electricity,kwh/m3,cherokee,baseline
+sodium_bisulfite_addition,Unit Levelized Cost,1.0489186246349234e-05,LCOW,$/m3,cherokee,baseline
+sodium_bisulfite_addition,Fixed Capital Investment (FCI),0.00012359774714897575,Cost,$MM,cherokee,baseline
+sodium_bisulfite_addition,Land,1.8539662072346363e-07,Cost,$MM,cherokee,baseline
+sodium_bisulfite_addition,Working Capital,6.179887357448787e-06,Cost,$MM,cherokee,baseline
+sodium_bisulfite_addition,Total Capital Investment (TCI),0.000129963031127148,Cost,$MM,cherokee,baseline
+sodium_bisulfite_addition,Catalysts and Chemicals,1.4545674557169774e-06,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Electricity,1.4268869997424273e-11,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Employee Salaries,6.51786024022088e-08,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Benefits,5.866074216198791e-08,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Maintenance,9.88781977191806e-07,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Laboratory,3.7079324144692725e-07,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Insurance and Taxes,2.471954942979515e-07,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Total Fixed Operating ,1.7306100575008817e-06,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Base Employee Salary,5.19262398233786e-08,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Electricity,1.4268869997424273e-11,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Annual O&M Costs,3.1851917820878564e-06,Annual Cost,$MM/yr,cherokee,baseline
+sodium_bisulfite_addition,Inlet Water,0.00883123348833,Water Flow,m3/s,cherokee,baseline
+sodium_bisulfite_addition,Outlet Water,0.008830350364981168,Water Flow,m3/s,cherokee,baseline
+sodium_bisulfite_addition,Waste Water,8.831233488330176e-07,Water Flow,m3/s,cherokee,baseline
+sodium_bisulfite_addition,fluoride,0.000540097214095847,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,fluoride,0.0005401458277064767,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,fluoride,5.400972140958363e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,fluoride,4.769724604076982e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,fluoride,4.769676906830941e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,fluoride,4.769724604076982e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,magnesium,4.880878527384691e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,magnesium,4.881317850384456e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,magnesium,4.880878527384594e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,magnesium,4.31041779035105e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,magnesium,4.310374686173147e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,magnesium,4.3104177903510503e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,sodium,0.014802664386330622,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,sodium,0.014803996759362696,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,sodium,0.001480266438633033,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,sodium,0.00013072578544507285,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,sodium,0.0001307244781872184,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,sodium,1.3072578544507284e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,tds,0.10001800261034204,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,tds,0.10002700513082903,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,tds,0.010001800261034007,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,tds,0.00088328233408833,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,tds,0.0008832735012649892,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,tds,8.832823340883301e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,nitrate,2.0003600522068407e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,nitrate,2.0005401026165806e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,nitrate,2.0003600522068013e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,nitrate,1.76656466817666e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,nitrate,1.7665470025299785e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,nitrate,1.7665646681766602e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,aluminum,2.4304374634313117e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,aluminum,2.4306562246791453e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,aluminum,2.4304374634312635e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,aluminum,2.146376071834642e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,aluminum,2.1463546080739238e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,aluminum,2.146376071834642e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,barium,3.070552680137501e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,barium,3.0708290575164514e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,barium,3.0705526801374406e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,barium,2.7116767656511735e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,barium,2.711649648883517e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,barium,2.7116767656511738e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,lead,1.0901962284527282e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,lead,1.0902943559260364e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,lead,1.0901962284527067e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,lead,9.627777441562797e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,lead,9.627681163788382e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,lead,9.6277774415628e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,trihalomethanes,2.4604428642144145e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,trihalomethanes,2.460664326218394e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,trihalomethanes,2.4604428642143652e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,trihalomethanes,2.1728745418572922e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,trihalomethanes,2.1728528131118735e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,trihalomethanes,2.172874541857292e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,turbidity,0.00013502430352396174,Inlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,turbidity,0.00013503645692661918,Outlet Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,turbidity,1.3502430352395908e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+sodium_bisulfite_addition,turbidity,1.1924311510192455e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,turbidity,1.1924192267077353e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+sodium_bisulfite_addition,turbidity,1.1924311510192455e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,Electricity Intensity Unit Inlet,5.014625499990355e-07,Electricity,kwh/m3,cherokee,baseline
+anti_scalant_addition,Electricity Intensity System Treated,9.951188618338219e-08,Electricity,kwh/m3,cherokee,baseline
+anti_scalant_addition,Unit Levelized Cost,0.005573599920757028,LCOW,$/m3,cherokee,baseline
+anti_scalant_addition,Fixed Capital Investment (FCI),0.0072327756145515645,Cost,$MM,cherokee,baseline
+anti_scalant_addition,Land,1.0849163421827347e-05,Cost,$MM,cherokee,baseline
+anti_scalant_addition,Working Capital,0.00036163878072757825,Cost,$MM,cherokee,baseline
+anti_scalant_addition,Total Capital Investment (TCI),0.00760526355870097,Cost,$MM,cherokee,baseline
+anti_scalant_addition,Catalysts and Chemicals,0.0070499066339030645,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Electricity,1.0340752107457538e-08,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Employee Salaries,3.814165038761019e-06,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Benefits,3.432748534884917e-06,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Maintenance,5.7862204916412515e-05,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Laboratory,2.1698326843654695e-05,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Insurance and Taxes,1.4465551229103129e-05,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Total Fixed Operating ,0.00010127299656281628,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Base Employee Salary,3.0386544238318776e-06,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Electricity,1.0340752107457538e-08,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Annual O&M Costs,0.007151189971217988,Annual Cost,$MM/yr,cherokee,baseline
+anti_scalant_addition,Inlet Water,0.008830350364981168,Water Flow,m3/s,cherokee,baseline
+anti_scalant_addition,Outlet Water,0.00882946732994467,Water Flow,m3/s,cherokee,baseline
+anti_scalant_addition,Waste Water,8.830350364981421e-07,Water Flow,m3/s,cherokee,baseline
+anti_scalant_addition,fluoride,0.0005401458277064767,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,fluoride,0.000540194445692769,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,fluoride,5.401458277064613e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,fluoride,4.769676906830941e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,fluoride,4.769629210061873e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,fluoride,4.769676906830942e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,magnesium,4.881317850384456e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,magnesium,4.881757212927245e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,magnesium,4.881317850384316e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,magnesium,4.310374686173147e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,magnesium,4.310331582426285e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,magnesium,4.310374686173147e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,sodium,0.014803996759362696,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,sodium,0.014805329252320334,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,sodium,0.0014803996759362272,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,sodium,0.0001307244781872184,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,sodium,0.00013072317094243652,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,sodium,1.307244781872184e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,tds,0.10002700513082903,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,tds,0.10003600846162387,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,tds,0.010002700513082616,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,tds,0.0008832735012649892,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,tds,0.0008832646685299765,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,tds,8.832735012649893e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,nitrate,2.0005401026165806e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,nitrate,2.0007201692324778e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,nitrate,2.0005401026165232e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,nitrate,1.7665470025299785e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,nitrate,1.7665293370599533e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,nitrate,1.7665470025299784e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,aluminum,2.4306562246791453e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,aluminum,2.4308750056174605e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,aluminum,2.430656224679076e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,aluminum,2.1463546080739238e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,aluminum,2.146333144527843e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,aluminum,2.146354608073924e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,barium,3.0708290575164514e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,barium,3.071105459771853e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,barium,3.0708290575163633e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,barium,2.711649648883517e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,barium,2.711622532387028e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,barium,2.7116496488835173e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,lead,1.0902943559260364e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,lead,1.0903924922317003e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,lead,1.0902943559260053e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,lead,9.627681163788382e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,lead,9.627584886976744e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,lead,9.627681163788384e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,trihalomethanes,2.460664326218394e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,trihalomethanes,2.4608858081559474e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,trihalomethanes,2.4606643262183236e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,trihalomethanes,2.1728528131118735e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,trihalomethanes,2.1728310845837423e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,trihalomethanes,2.1728528131118737e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,turbidity,0.00013503645692661918,Inlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,turbidity,0.00013504861142319224,Outlet Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,turbidity,1.3503645692661532e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+anti_scalant_addition,turbidity,1.1924192267077353e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,turbidity,1.1924073025154683e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+anti_scalant_addition,turbidity,1.1924192267077355e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,Electricity Intensity Unit Inlet,0.1650872093110287,Electricity,kwh/m3,cherokee,baseline
+reverse_osmosis,Electricity Intensity System Treated,0.03273475445990351,Electricity,kwh/m3,cherokee,baseline
+reverse_osmosis,Unit Levelized Cost,0.012583322738732134,LCOW,$/m3,cherokee,baseline
+reverse_osmosis,Fixed Capital Investment (FCI),0.1055632507944286,Cost,$MM,cherokee,baseline
+reverse_osmosis,Land,0.0001583448761916429,Cost,$MM,cherokee,baseline
+reverse_osmosis,Working Capital,0.00527816253972143,Cost,$MM,cherokee,baseline
+reverse_osmosis,Total Capital Investment (TCI),0.11099975821034166,Cost,$MM,cherokee,baseline
+reverse_osmosis,Catalysts and Chemicals,0.001055632507944286,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Electricity,0.0034016236064961635,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Other Operating,0.0018750007275364737,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Employee Salaries,5.566820844656255e-05,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Benefits,5.01013876019063e-05,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Maintenance,0.0008445060063554288,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Laboratory,0.0003166897523832858,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Insurance and Taxes,0.0002111265015888572,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Total Fixed Operating ,0.0014780918563760408,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Base Employee Salary,4.434953551928382e-05,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Electricity,0.0034016236064961635,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Annual O&M Costs,0.007810348698352964,Annual Cost,$MM/yr,cherokee,baseline
+reverse_osmosis,Inlet Water,0.00882946732994467,Water Flow,m3/s,cherokee,baseline
+reverse_osmosis,Outlet Water,0.0005583483006359758,Water Flow,m3/s,cherokee,baseline
+reverse_osmosis,Waste Water,0.00827271910368642,Water Flow,m3/s,cherokee,baseline
+reverse_osmosis,fluoride,0.000540194445692769,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,fluoride,0.0004014240136200487,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,fluoride,0.0005494559572555922,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,fluoride,4.769629210061873e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,fluoride,2.2413441583922702e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,fluoride,4.545494794222646e-06,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,magnesium,4.881757212927245e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,magnesium,3.6276836786404364e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,magnesium,4.965453835939425e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,magnesium,4.310331582426285e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,magnesium,2.025511017213753e-09,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,magnesium,4.10778048070491e-08,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,sodium,0.014805329252320334,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,sodium,0.011001991484401402,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,sodium,0.01505916327293104,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,sodium,0.00013072317094243652,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,sodium,6.142943248927e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,sodium,0.00012458022769350953,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,tds,0.10003600846162387,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,tds,0.003146447521485494,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,tds,0.10655599976923,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,tds,0.0008832646685299765,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,tds,1.7568136266617036e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,tds,0.0008815078549033148,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,nitrate,2.0007201692324778e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,nitrate,0.00031638166888919904,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,nitrate,2.1353672413133999e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,nitrate,1.7665293370599533e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,nitrate,1.7665116717665826e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,nitrate,1.7665293370599532e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,aluminum,2.4308750056174605e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,aluminum,0.00038440372770037686,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,aluminum,2.594471198195781e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,aluminum,2.146333144527843e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,aluminum,2.1463116811963982e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,aluminum,2.1463331445278436e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,barium,3.071105459771853e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,barium,0.0004856458617449206,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,barium,3.2777887154160685e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,barium,2.711622532387028e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,barium,2.7115954161617044e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,barium,2.711622532387028e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,lead,1.0903924922317003e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,lead,0.00017242800954461347,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,lead,1.1637751465158028e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,lead,9.627584886976744e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,lead,9.627488611127875e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,lead,9.627584886976745e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,trihalomethanes,2.4608858081559474e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,trihalomethanes,0.0003891494527337148,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,trihalomethanes,2.626501706815482e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,trihalomethanes,2.1728310845837423e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,trihalomethanes,2.1728093562728965e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,trihalomethanes,2.1728310845837424e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,turbidity,0.00013504861142319224,Inlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,turbidity,0.0021355762650020933,Outlet Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,turbidity,1.4413728878865449e-09,Waste Constituent Density,kg/m3,cherokee,baseline
+reverse_osmosis,turbidity,1.1924073025154683e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,turbidity,1.1923953784424432e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+reverse_osmosis,turbidity,1.1924073025154685e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+treated_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+treated_storage,Unit Levelized Cost,0.0015163278382802341,LCOW,$/m3,cherokee,baseline
+treated_storage,Fixed Capital Investment (FCI),0.019858592555554423,Cost,$MM,cherokee,baseline
+treated_storage,Land,2.9787888833331634e-05,Cost,$MM,cherokee,baseline
+treated_storage,Working Capital,0.0009929296277777211,Cost,$MM,cherokee,baseline
+treated_storage,Total Capital Investment (TCI),0.02088131007216548,Cost,$MM,cherokee,baseline
+treated_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Employee Salaries,8.58603659349172e-06,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Benefits,7.727432934142548e-06,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Maintenance,0.0001588687404444354,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Laboratory,5.957577766666327e-05,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Insurance and Taxes,3.971718511110885e-05,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Total Fixed Operating ,0.00027447517274984177,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Base Employee Salary,6.281899727210045e-06,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Annual O&M Costs,0.00027447517274984177,Annual Cost,$MM/yr,cherokee,baseline
+treated_storage,Inlet Water,0.0005583483006359758,Water Flow,m3/s,cherokee,baseline
+treated_storage,Outlet Water,0.0005582924658059122,Water Flow,m3/s,cherokee,baseline
+treated_storage,Waste Water,5.58348300635841e-08,Water Flow,m3/s,cherokee,baseline
+treated_storage,fluoride,0.0004014240136200487,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,fluoride,0.000401460145394452,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,fluoride,4.014240136201456e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,fluoride,2.2413441583922702e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,fluoride,2.2413217449506864e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,fluoride,2.24134415839227e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,magnesium,3.6276836786404364e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,magnesium,3.6280102028239324e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,magnesium,3.627683678641313e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,magnesium,2.025511017213753e-09,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,magnesium,2.025490762103581e-09,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,magnesium,2.0255110172137534e-14,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,sodium,0.011001991484401402,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,sodium,0.011002981762662822,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,sodium,0.0011001991484404059,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,sodium,6.142943248927e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,sodium,6.142881819494509e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,sodium,6.142943248927e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,tds,0.003146447521485494,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,tds,0.003146730730083287,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,tds,0.0003146447521486254,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,tds,1.7568136266617036e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,tds,1.756796058525437e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,tds,1.7568136266617036e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,nitrate,0.00031638166888919904,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,nitrate,0.00031641014608711884,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,nitrate,3.163816688892755e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,nitrate,1.7665116717665826e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,nitrate,1.7664940066498649e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,nitrate,1.7665116717665828e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,aluminum,0.00038440372770037686,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,aluminum,0.0003844383274958494,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,aluminum,3.844037277004697e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,aluminum,2.1463116811963982e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,aluminum,2.146290218079586e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,aluminum,2.1463116811963984e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,barium,0.0004856458617449206,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,barium,0.0004856895742437274,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,barium,4.856458617450379e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,barium,2.7115954161617044e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,barium,2.7115683002075426e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,barium,2.711595416161705e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,lead,0.00017242800954461347,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,lead,0.00017244352961747977,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,lead,1.724280095446551e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,lead,9.627488611127875e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,lead,9.627392336241764e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,lead,9.627488611127875e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,trihalomethanes,0.0003891494527337148,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,trihalomethanes,0.0003891844796871562,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,trihalomethanes,3.891494527338088e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,trihalomethanes,2.1728093562728965e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,trihalomethanes,2.172787628179334e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,trihalomethanes,2.1728093562728966e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+treated_storage,turbidity,0.0021355762650020933,Inlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,turbidity,0.002135768486088052,Outlet Constituent Density,kg/m3,cherokee,baseline
+treated_storage,turbidity,0.00021355762650026095,Waste Constituent Density,kg/m3,cherokee,baseline
+treated_storage,turbidity,1.1923953784424432e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,turbidity,1.1923834544886587e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+treated_storage,turbidity,1.1923953784424433e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,Electricity Intensity Unit Inlet,0.051,Electricity,kwh/m3,cherokee,baseline
+industrial,Electricity Intensity System Treated,0.000639868102213449,Electricity,kwh/m3,cherokee,baseline
+industrial,Unit Levelized Cost,0.0002871582611375006,LCOW,$/m3,cherokee,baseline
+industrial,Fixed Capital Investment (FCI),0.0031368866698375324,Cost,$MM,cherokee,baseline
+industrial,Land,4.7053300047562984e-06,Cost,$MM,cherokee,baseline
+industrial,Working Capital,0.00015684433349187664,Cost,$MM,cherokee,baseline
+industrial,Total Capital Investment (TCI),0.0032984363333341655,Cost,$MM,cherokee,baseline
+industrial,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Electricity,6.649172958359146e-05,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Employee Salaries,1.5684433349187662e-06,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Benefits,1.4115990014268896e-06,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Maintenance,2.509509335870026e-05,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Laboratory,9.410660009512597e-06,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Insurance and Taxes,6.273773339675065e-06,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Total Fixed Operating ,4.375956904423358e-05,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Base Employee Salary,1.5684433349030817e-06,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Electricity,6.649172958359146e-05,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Annual O&M Costs,0.00011025129862782504,Annual Cost,$MM/yr,cherokee,baseline
+industrial,Inlet Water,0.0005582924658059122,Water Flow,m3/s,cherokee,baseline
+industrial,Outlet Water,0.0005582919075134464,Water Flow,m3/s,cherokee,baseline
+industrial,Waste Water,5.582924658578354e-10,Water Flow,m3/s,cherokee,baseline
+industrial,fluoride,0.000401460145394452,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,fluoride,0.0004014565322495303,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,fluoride,0.004014601453571147,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,fluoride,2.2413217449506864e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,fluoride,2.241299331733237e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,fluoride,2.241321744950686e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,magnesium,3.6280102028239324e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,magnesium,3.627977550699455e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,magnesium,3.6280102024865144e-05,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,magnesium,2.025490762103581e-09,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,magnesium,2.02547050719596e-09,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,magnesium,2.0254907621035808e-14,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,sodium,0.011002981762662822,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,sodium,0.011002882735727934,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,sodium,0.11002981761639508,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,sodium,6.142881819494509e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,sodium,6.1428203906763155e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,sodium,6.14288181949451e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,tds,0.003146730730083287,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,tds,0.003146702409478396,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,tds,0.031467307297906304,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,tds,1.756796058525437e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,tds,1.7567784905648515e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,tds,1.7567960585254368e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,nitrate,0.00031641014608711884,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,nitrate,0.0003164072983929564,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,nitrate,0.0031641014605769163,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,nitrate,1.7664940066498649e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,nitrate,1.7664763417097985e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,nitrate,1.766494006649865e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,aluminum,0.0003844383274958494,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,aluminum,0.00038443486754744205,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,aluminum,0.0038443832746009525,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,aluminum,2.146290218079586e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,aluminum,2.1462687551774053e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,aluminum,2.1462902180795855e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,barium,0.0004856895742437274,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,barium,0.00048568520303318805,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,barium,0.004856895741985565,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,barium,2.7115683002075426e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,barium,2.7115411845245403e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,barium,2.711568300207542e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,lead,0.00017244352961747977,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,lead,0.00017244197762416122,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,lead,0.0017244352960144192,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,lead,9.627392336241764e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,lead,9.627296062318401e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,lead,9.627392336241763e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,trihalomethanes,0.0003891844796871562,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,trihalomethanes,0.0003891809770233364,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,trihalomethanes,0.0038918447965096067,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,trihalomethanes,2.172787628179334e-07,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,trihalomethanes,2.1727659003030524e-07,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,trihalomethanes,2.172787628179334e-12,Waste Constituent Total Mass,kg,cherokee,baseline
+industrial,turbidity,0.002135768486088052,Inlet Constituent Density,kg/m3,cherokee,baseline
+industrial,turbidity,0.0021357492641524557,Outlet Constituent Density,kg/m3,cherokee,baseline
+industrial,turbidity,0.02135768485889418,Waste Constituent Density,kg/m3,cherokee,baseline
+industrial,turbidity,1.1923834544886587e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+industrial,turbidity,1.1923715306541139e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+industrial,turbidity,1.1923834544886587e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,Electricity Intensity Unit Inlet,0.051,Electricity,kwh/m3,cherokee,baseline
+discharge,Electricity Intensity System Treated,0.050395568000183966,Electricity,kwh/m3,cherokee,baseline
+discharge,Unit Levelized Cost,0.014236598996322406,LCOW,$/m3,cherokee,baseline
+discharge,Fixed Capital Investment (FCI),0.13744450112080306,Cost,$MM,cherokee,baseline
+discharge,Land,0.0002061667516812046,Cost,$MM,cherokee,baseline
+discharge,Working Capital,0.0068722250560401535,Cost,$MM,cherokee,baseline
+discharge,Total Capital Investment (TCI),0.1445228929285244,Cost,$MM,cherokee,baseline
+discharge,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Electricity,0.005236842511899317,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Employee Salaries,6.872225056040153e-05,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Benefits,6.185002550436137e-05,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Maintenance,0.0010995560089664244,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Laboratory,0.0004123335033624092,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Insurance and Taxes,0.0002748890022416061,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Total Fixed Operating ,0.0019173507906352027,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Base Employee Salary,6.87222505597143e-05,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Electricity,0.005236842511899317,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Annual O&M Costs,0.00715419330253452,Annual Cost,$MM/yr,cherokee,baseline
+discharge,Inlet Water,0.04397072744708677,Water Flow,m3/s,cherokee,baseline
+discharge,Outlet Water,0.043970287739812305,Water Flow,m3/s,cherokee,baseline
+discharge,Waste Water,4.397072744660724e-07,Water Flow,m3/s,cherokee,baseline
+discharge,fluoride,0.00010337340655214613,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,fluoride,0.00010337340655214613,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,fluoride,0.0001033734065532735,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,fluoride,4.5454038847813115e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,fluoride,4.545358430742464e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,fluoride,4.5454038847813114e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,magnesium,9.341893036564316e-07,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,magnesium,9.341893036564316e-07,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,magnesium,9.341893036666197e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,magnesium,4.1076983255060734e-08,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,magnesium,4.107657248522819e-08,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,magnesium,4.107698325506074e-13,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,sodium,0.002833197068466227,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,sodium,0.0028331970684662266,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,sodium,0.0028331970684971255,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,sodium,0.00012457773610141372,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,sodium,0.00012457649032405268,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,sodium,1.2457773610141373e-09,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,tds,3.593706854208268,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,tds,3.5937068542082677,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,tds,3.5937068542474604,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,tds,0.15801790461111936,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,tds,0.15801632443207325,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,tds,1.5801790461111935e-06,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,nitrate,4.017431844346032e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,nitrate,4.0174318443460315e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,nitrate,4.0174318443898456e-11,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,nitrate,1.766494006649865e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,nitrate,1.7664763417097985e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,nitrate,1.7664940066498652e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,aluminum,4.88117969088043e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,aluminum,4.8811796908804295e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,aluminum,4.881179690933664e-11,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,aluminum,2.1462902180795863e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,aluminum,2.146268755177406e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,aluminum,2.1462902180795868e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,barium,6.166757881071159e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,barium,6.166757881071158e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,barium,6.166757881138413e-11,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,barium,2.711568300207543e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,barium,2.7115411845245403e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,barium,2.711568300207543e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,lead,2.1895003551685874e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,lead,2.1895003551685874e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,lead,2.1895003551924658e-11,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,lead,9.627392336241763e-13,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,lead,9.627296062318402e-13,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,lead,9.627392336241765e-18,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,trihalomethanes,4.94144116854562e-11,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,trihalomethanes,4.941441168545619e-11,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,trihalomethanes,4.9414411685995106e-11,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,trihalomethanes,2.172787628179334e-12,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,trihalomethanes,2.172765900303052e-12,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,trihalomethanes,2.1727876281793345e-17,Waste Constituent Total Mass,kg,cherokee,baseline
+discharge,turbidity,2.7117664949335715e-10,Inlet Constituent Density,kg/m3,cherokee,baseline
+discharge,turbidity,2.7117664949335715e-10,Outlet Constituent Density,kg/m3,cherokee,baseline
+discharge,turbidity,2.7117664949631453e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+discharge,turbidity,1.1923834544886589e-11,Inlet Constituent Total Mass,kg,cherokee,baseline
+discharge,turbidity,1.1923715306541141e-11,Outlet Constituent Total Mass,kg,cherokee,baseline
+discharge,turbidity,1.192383454488659e-16,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,cherokee,baseline
+landfill,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,cherokee,baseline
+landfill,Unit Levelized Cost,0.0008369150589417941,LCOW,$/m3,cherokee,baseline
+landfill,Fixed Capital Investment (FCI),0.010947539097952626,Cost,$MM,cherokee,baseline
+landfill,Land,1.642130864692894e-05,Cost,$MM,cherokee,baseline
+landfill,Working Capital,0.0005473769548976314,Cost,$MM,cherokee,baseline
+landfill,Total Capital Investment (TCI),0.011511337361497186,Cost,$MM,cherokee,baseline
+landfill,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Other Operating,0.0,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Employee Salaries,5.473769548976313e-06,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Benefits,4.926392594078682e-06,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Maintenance,8.758031278362101e-05,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Laboratory,3.284261729385788e-05,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Insurance and Taxes,2.1895078195905252e-05,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Total Fixed Operating ,0.00015271817041643914,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Base Employee Salary,5.473769548921575e-06,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Electricity,0.0,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Annual O&M Costs,0.00015271817041643914,Annual Cost,$MM/yr,cherokee,baseline
+landfill,Inlet Water,4.4019144103686625e-05,Water Flow,m3/s,cherokee,baseline
+landfill,Outlet Water,4.401474218927626e-05,Water Flow,m3/s,cherokee,baseline
+landfill,Waste Water,4.401914410364879e-09,Water Flow,m3/s,cherokee,baseline
+landfill,fluoride,1.0326177136738012e-06,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,fluoride,1.0327106585625207e-06,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,fluoride,1.032617713674689e-07,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,fluoride,4.545494794222647e-11,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,fluoride,4.545449339274705e-11,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,fluoride,4.545494794222648e-16,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,magnesium,9.331804523570648e-09,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,magnesium,9.332644469972408e-09,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,magnesium,9.331804523578672e-10,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,magnesium,4.107780480704911e-13,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,magnesium,4.107739402900103e-13,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,magnesium,4.1077804807049115e-18,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,sodium,2.8301374374763434e-05,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,sodium,2.8303921753195e-05,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,sodium,2.830137437478777e-06,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,sodium,1.2458022769350957e-09,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,sodium,1.245789818912326e-09,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,sodium,1.2458022769350959e-14,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,tds,0.035898259321989694,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,tds,0.03590149048844531,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,tds,0.003589825932202055,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,tds,1.580210650166176e-06,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,tds,1.5801948480596742e-06,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,tds,1.580210650166176e-11,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,nitrate,4.0130933325257584e-13,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,nitrate,4.0134545470471373e-13,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,nitrate,4.013093332529209e-14,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,nitrate,1.7665293370599535e-17,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,nitrate,1.7665116717665828e-17,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,nitrate,1.7665293370599538e-22,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,aluminum,4.875908399018798e-13,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,aluminum,4.876347274662273e-13,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,aluminum,4.8759083990229894e-14,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,aluminum,2.146333144527844e-17,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,aluminum,2.1463116811963984e-17,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,aluminum,2.146333144527844e-22,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,barium,6.16009826542704e-13,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,barium,6.160652729717357e-13,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,barium,6.160098265432336e-14,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,barium,2.711622532387029e-17,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,barium,2.711595416161705e-17,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,barium,2.7116225323870295e-22,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,lead,2.1871358662265385e-13,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,lead,2.18733272814069e-13,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,lead,2.1871358662284192e-14,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,lead,9.627584886976746e-18,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,lead,9.627488611127877e-18,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,lead,9.62758488697675e-23,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,trihalomethanes,4.936104799006683e-13,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,trihalomethanes,4.936549092867979e-13,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,trihalomethanes,4.936104799010926e-14,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,trihalomethanes,2.172831084583743e-17,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,trihalomethanes,2.1728093562728968e-17,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,trihalomethanes,2.172831084583743e-22,Waste Constituent Total Mass,kg,cherokee,baseline
+landfill,turbidity,2.7088379994548876e-12,Inlet Constituent Density,kg/m3,cherokee,baseline
+landfill,turbidity,2.7090818192568182e-12,Outlet Constituent Density,kg/m3,cherokee,baseline
+landfill,turbidity,2.7088379994572165e-13,Waste Constituent Density,kg/m3,cherokee,baseline
+landfill,turbidity,1.192407302515469e-16,Inlet Constituent Total Mass,kg,cherokee,baseline
+landfill,turbidity,1.1923953784424435e-16,Outlet Constituent Total Mass,kg,cherokee,baseline
+landfill,turbidity,1.192407302515469e-21,Waste Constituent Total Mass,kg,cherokee,baseline
+System,System Total Capital Investment (TCI),2.7650197932729554,Cost,$MM,cherokee,baseline
+System,System Catalysts and Chemicals,0.24320981127909203,Cost,$MM,cherokee,baseline
+System,System Electricity,0.26114906111741504,Cost,$MM,cherokee,baseline
+System,System Other Variable Operating,0.05625002182609421,Cost,$MM,cherokee,baseline
+System,System Fixed Operating,1.10424066517382,Cost,$MM,cherokee,baseline
+System,System Total Operating,1.6648495593964212,Cost,$MM,cherokee,baseline
+System,System Catalysts and Chemicals,0.008106993709303068,Annual Cost,$MM/yr,cherokee,baseline
+System,System Electricity,0.008704968703913834,Annual Cost,$MM/yr,cherokee,baseline
+System,Other Variable O&M,0.0018750007275364737,Annual Cost,$MM/yr,cherokee,baseline
+System,System Fixed O&M,0.03680802217246067,Annual Cost,$MM/yr,cherokee,baseline
+System,System Total Operating Cost,0.05549498531321405,Annual Cost,$MM/yr,cherokee,baseline
+System,TCI LCOW,0.17490406726664415,LCOW,$/m3,cherokee,baseline
+System,Electricity LCOW,0.006199001832362873,LCOW,$/m3,cherokee,baseline
+System,Fixed Operating LCOW,0.026211811283152378,LCOW,$/m3,cherokee,baseline
+System,Other O&M LCOW,0.007108400260736517,LCOW,$/m3,cherokee,baseline
+System,Electricity Intensity System Treated,1.6648495593964212,Electricity,kwh/m3,cherokee,baseline
+System,System Levelized Cost,0.21442328064289595,LCOW,$/m3,cherokee,baseline
+System,Electricity Fraction of LCOW,0.21442328064289595,LCOW,$/m3,cherokee,baseline
+System,Electricity Intensity,0.08377029503193073,Electricity,kwh/m3,cherokee,baseline
+System,Water Recovery,19.93819974984698,Water Recovery,%,cherokee,baseline

@@ -1,0 +1,1701 @@
+Unit Process Name,Variable,Value,Metric,Unit,Case Study,Scenario
+well_field,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,irwin,baseline
+well_field,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,irwin,baseline
+well_field,Unit Levelized Cost,0.02591460584357019,LCOW,$/m3,irwin,baseline
+well_field,Fixed Capital Investment (FCI),2.780836332595828,Cost,$MM,irwin,baseline
+well_field,Land,0.004171254498893742,Cost,$MM,irwin,baseline
+well_field,Working Capital,0.1390418166297914,Cost,$MM,irwin,baseline
+well_field,Total Capital Investment (TCI),2.9240494037245135,Cost,$MM,irwin,baseline
+well_field,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+well_field,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+well_field,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+well_field,Employee Salaries,0.001390418166297914,Annual Cost,$MM/yr,irwin,baseline
+well_field,Benefits,0.0012513763496681226,Annual Cost,$MM/yr,irwin,baseline
+well_field,Maintenance,0.022246690660766625,Annual Cost,$MM/yr,irwin,baseline
+well_field,Laboratory,0.008342508997787485,Annual Cost,$MM/yr,irwin,baseline
+well_field,Insurance and Taxes,0.005561672665191656,Annual Cost,$MM/yr,irwin,baseline
+well_field,Total Fixed Operating ,0.038792666839711804,Annual Cost,$MM/yr,irwin,baseline
+well_field,Base Employee Salary,0.0013904181662840098,Annual Cost,$MM/yr,irwin,baseline
+well_field,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+well_field,Annual O&M Costs,0.038792666839711804,Annual Cost,$MM/yr,irwin,baseline
+well_field,Inlet Water,0.285083,Water Flow,m3/s,irwin,baseline
+well_field,Outlet Water,0.28505449169999997,Water Flow,m3/s,irwin,baseline
+well_field,Waste Water,2.850830000000748e-05,Water Flow,m3/s,irwin,baseline
+well_field,tds,0.69,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,tds,0.690062106210621,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,tds,0.0689999999999819,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,tds,0.19670726999999996,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,tds,0.19670530292729996,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,tds,1.9670727e-06,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,nitrate,0.0203,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,nitrate,0.020301827182718273,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,nitrate,0.002029999999999467,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,nitrate,0.005787184899999999,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,nitrate,0.005787127028150999,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,nitrate,5.787184899999999e-08,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,arsenic,2.5e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,arsenic,2.5002250225022504e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,arsenic,2.4999999999993438e-06,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,arsenic,7.127075e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,arsenic,7.12700372925e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,arsenic,7.127075e-11,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,barium,2e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,barium,2.0001800180018004e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,barium,1.9999999999994756e-06,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,barium,5.70166e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,barium,5.7016029833999995e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,barium,5.701660000000001e-11,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,bicarbonate_alkalinity_as_caco3,0.1786,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,bicarbonate_alkalinity_as_caco3,0.17861607560756076,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,bicarbonate_alkalinity_as_caco3,0.01785999999999531,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,bicarbonate_alkalinity_as_caco3,0.050915823799999996,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,bicarbonate_alkalinity_as_caco3,0.050915314641761994,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,bicarbonate_alkalinity_as_caco3,5.09158238e-07,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,calcium,0.00475,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,calcium,0.004750427542754275,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,calcium,0.0004749999999998753,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,calcium,0.00135414425,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,calcium,0.0013541307085574998,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,calcium,1.3541442499999999e-08,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,chloride,0.1046,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,chloride,0.10460941494149416,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,chloride,0.010459999999997254,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,chloride,0.029819681799999997,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,chloride,0.029819383603182,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,chloride,2.9819681799999996e-07,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,fluoride,0.0051,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,fluoride,0.005100459045904591,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,fluoride,0.0005099999999998661,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,fluoride,0.0014539233,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,fluoride,0.001453908760767,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,fluoride,1.4539232999999999e-08,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,hardness,0.0795,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,hardness,0.07950715571557156,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,hardness,0.007949999999997914,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,hardness,0.022664098499999997,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,hardness,0.022663871859014997,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,hardness,2.26640985e-07,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,magnesium,0.0042,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,magnesium,0.00420037803780378,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,magnesium,0.00041999999999988975,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,magnesium,0.0011973485999999998,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,magnesium,0.0011973366265139998,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,magnesium,1.1973485999999998e-08,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,nitrate_as_nitrogen,0.0203,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,nitrate_as_nitrogen,0.020301827182718273,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,nitrate_as_nitrogen,0.002029999999999467,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,nitrate_as_nitrogen,0.005787184899999999,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,nitrate_as_nitrogen,0.005787127028150999,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,nitrate_as_nitrogen,5.787184899999999e-08,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,potassium,0.0089,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,potassium,0.00890080108010801,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,potassium,0.0008899999999997664,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,potassium,0.0025372386999999996,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,potassium,0.0025372133276129996,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,potassium,2.5372386999999998e-08,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,sodium,0.1678,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,sodium,0.16781510351035106,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,sodium,0.016779999999995597,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,sodium,0.0478369274,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,sodium,0.047836449030726,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,sodium,4.78369274e-07,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,strontium,0.0004,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,strontium,0.00040003600360036007,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,strontium,3.99999999999895e-05,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,strontium,0.0001140332,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,strontium,0.000114032059668,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,strontium,1.140332e-09,Waste Constituent Total Mass,kg,irwin,baseline
+well_field,sulfate,0.1239,Inlet Constituent Density,kg/m3,irwin,baseline
+well_field,sulfate,0.12391115211521152,Outlet Constituent Density,kg/m3,irwin,baseline
+well_field,sulfate,0.012389999999996747,Waste Constituent Density,kg/m3,irwin,baseline
+well_field,sulfate,0.0353217837,Inlet Constituent Total Mass,kg,irwin,baseline
+well_field,sulfate,0.035321430482163,Outlet Constituent Total Mass,kg,irwin,baseline
+well_field,sulfate,3.5321783699999997e-07,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,irwin,baseline
+holding_tank,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,irwin,baseline
+holding_tank,Unit Levelized Cost,0.05634234152178403,LCOW,$/m3,irwin,baseline
+holding_tank,Fixed Capital Investment (FCI),6.042154246384132,Cost,$MM,irwin,baseline
+holding_tank,Land,0.009063231369576197,Cost,$MM,irwin,baseline
+holding_tank,Working Capital,0.30210771231920663,Cost,$MM,irwin,baseline
+holding_tank,Total Capital Investment (TCI),6.353325190072915,Cost,$MM,irwin,baseline
+holding_tank,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Employee Salaries,0.0031862973101217432,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Benefits,0.002867667579109569,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Maintenance,0.048337233971073056,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Laboratory,0.018126462739152395,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Insurance and Taxes,0.012084308492768264,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Total Fixed Operating ,0.08460197009222503,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Base Employee Salary,0.0025384471617384795,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Annual O&M Costs,0.08460197009222503,Annual Cost,$MM/yr,irwin,baseline
+holding_tank,Inlet Water,0.28505449169999997,Water Flow,m3/s,irwin,baseline
+holding_tank,Outlet Water,0.28502598625083,Water Flow,m3/s,irwin,baseline
+holding_tank,Waste Water,2.8505449169990982e-05,Water Flow,m3/s,irwin,baseline
+holding_tank,tds,0.690062106210621,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,tds,0.69012421801136,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,tds,0.06900621062108393,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,tds,0.19670530292729996,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,tds,0.1967033358742707,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,tds,1.967053029273e-06,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,nitrate,0.020301827182718273,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,nitrate,0.02030365452989943,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,nitrate,0.0020301827182724694,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,nitrate,0.005787127028150999,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,nitrate,0.005787069156880717,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,nitrate,5.787127028151e-08,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,arsenic,2.5002250225022504e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,arsenic,2.5004500652585514e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,arsenic,2.500225022503041e-06,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,arsenic,7.12700372925e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,arsenic,7.126932459212707e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,arsenic,7.12700372925e-11,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,barium,2.0001800180018004e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,barium,2.000360052206841e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,barium,2.000180018002433e-06,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,barium,5.7016029833999995e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,barium,5.701545967370166e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,barium,5.701602983400001e-11,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,bicarbonate_alkalinity_as_caco3,0.17861607560756076,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,bicarbonate_alkalinity_as_caco3,0.1786321526620709,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,bicarbonate_alkalinity_as_caco3,0.017861607560761727,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,bicarbonate_alkalinity_as_caco3,0.050915314641761994,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,bicarbonate_alkalinity_as_caco3,0.05091480548861558,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,bicarbonate_alkalinity_as_caco3,5.0915314641762e-07,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,calcium,0.004750427542754275,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,calcium,0.004750855123991247,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,calcium,0.0004750427542755779,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,calcium,0.0013541307085574998,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,calcium,0.0013541171672504142,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,calcium,1.3541307085575001e-08,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,chloride,0.10460941494149416,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,chloride,0.10461883073041778,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,chloride,0.010460941494152724,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,chloride,0.029819383603182,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,chloride,0.029819085409345965,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,chloride,2.9819383603182e-07,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,fluoride,0.005100459045904591,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,fluoride,0.005100918133127444,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,fluoride,0.0005100459045906205,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,fluoride,0.001453908760767,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,fluoride,0.0014538942216793921,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,fluoride,1.4539087607670003e-08,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,hardness,0.07950715571557156,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,hardness,0.07951431207522192,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,hardness,0.007950715571559672,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,hardness,0.022663871859014997,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,hardness,0.022663645220296406,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,hardness,2.2663871859015001e-07,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,magnesium,0.00420037803780378,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,magnesium,0.004200756109634365,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,magnesium,0.00042003780378051085,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,magnesium,0.0011973366265139998,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,magnesium,0.0011973246531477345,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,magnesium,1.1973366265139998e-08,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,nitrate_as_nitrogen,0.020301827182718273,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,nitrate_as_nitrogen,0.02030365452989943,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,nitrate_as_nitrogen,0.0020301827182724694,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,nitrate_as_nitrogen,0.005787127028150999,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,nitrate_as_nitrogen,0.005787069156880717,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,nitrate_as_nitrogen,5.787127028151e-08,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,potassium,0.00890080108010801,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,potassium,0.00890160223232044,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,potassium,0.0008900801080110826,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,potassium,0.0025372133276129996,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,potassium,0.0025371879554797233,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,potassium,2.5372133276129998e-08,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,sodium,0.16781510351035106,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,sodium,0.16783020838015394,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,sodium,0.016781510351040415,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,sodium,0.047836449030726,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,sodium,0.04783597066623569,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,sodium,4.7836449030726e-07,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,strontium,0.00040003600360036007,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,strontium,0.0004000720104413682,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,strontium,4.000360036004866e-05,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,strontium,0.000114032059668,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,strontium,0.00011403091934740332,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,strontium,1.14032059668e-09,Waste Constituent Total Mass,kg,irwin,baseline
+holding_tank,sulfate,0.12391115211521152,Inlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,sulfate,0.12392230523421378,Outlet Constituent Density,kg/m3,irwin,baseline
+holding_tank,sulfate,0.012391115211525071,Waste Constituent Density,kg/m3,irwin,baseline
+holding_tank,sulfate,0.035321430482163,Inlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,sulfate,0.03532107726785817,Outlet Constituent Total Mass,kg,irwin,baseline
+holding_tank,sulfate,3.5321430482162997e-07,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,irwin,baseline
+media_filtration,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,irwin,baseline
+media_filtration,Unit Levelized Cost,0.030098749025818425,LCOW,$/m3,irwin,baseline
+media_filtration,Fixed Capital Investment (FCI),3.227790669063421,Cost,$MM,irwin,baseline
+media_filtration,Land,0.0048416860035951316,Cost,$MM,irwin,baseline
+media_filtration,Working Capital,0.16138953345317106,Cost,$MM,irwin,baseline
+media_filtration,Total Capital Investment (TCI),3.394021888520187,Cost,$MM,irwin,baseline
+media_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Employee Salaries,0.001702157923662346,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Benefits,0.0015319421312961115,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Maintenance,0.025822325352507367,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Laboratory,0.009683372007190263,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Insurance and Taxes,0.006455581338126842,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Total Fixed Operating ,0.04519537875278293,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Base Employee Salary,0.0013560686683020968,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Annual O&M Costs,0.04519537875278293,Annual Cost,$MM/yr,irwin,baseline
+media_filtration,Inlet Water,0.28502598625083,Water Flow,m3/s,irwin,baseline
+media_filtration,Outlet Water,0.2849974836522049,Water Flow,m3/s,irwin,baseline
+media_filtration,Waste Water,2.8502598625079756e-05,Water Flow,m3/s,irwin,baseline
+media_filtration,tds,0.69012421801136,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,tds,0.6901863354027201,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,tds,0.06901242180114386,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,tds,0.1967033358742707,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,tds,0.19670136884091194,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,tds,1.9670333587427074e-06,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,nitrate,0.02030365452989943,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,nitrate,0.020305482041558288,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,nitrate,0.002030365452990174,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,nitrate,0.005787069156880717,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,nitrate,0.005787011286189149,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,nitrate,5.7870691568807175e-08,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,arsenic,2.5004500652585514e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,arsenic,2.5006751282707257e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,arsenic,2.500450065258836e-06,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,arsenic,7.126932459212707e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,arsenic,7.126861189888115e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,arsenic,7.126932459212708e-11,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,barium,2.000360052206841e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,barium,2.0005401026165806e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,barium,2.000360052207069e-06,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,barium,5.701545967370166e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,barium,5.7014889519104925e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,barium,5.701545967370167e-11,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,bicarbonate_alkalinity_as_caco3,0.1786321526620709,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,bicarbonate_alkalinity_as_caco3,0.17864823116366063,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,bicarbonate_alkalinity_as_caco3,0.017863215266209122,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,bicarbonate_alkalinity_as_caco3,0.05091480548861558,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,bicarbonate_alkalinity_as_caco3,0.050914296340560695,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,bicarbonate_alkalinity_as_caco3,5.091480548861559e-07,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,calcium,0.004750855123991247,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,calcium,0.004751282743714378,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,calcium,0.0004750855123991788,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,calcium,0.0013541171672504142,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,calcium,0.0013541036260787417,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,calcium,1.3541171672504145e-08,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,chloride,0.10461883073041778,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,chloride,0.10462824736684716,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,chloride,0.01046188307304297,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,chloride,0.029819085409345965,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,chloride,0.029818787218491873,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,chloride,2.981908540934597e-07,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,fluoride,0.005100918133127444,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,fluoride,0.005101377261672281,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,fluoride,0.0005100918133128025,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,fluoride,0.0014538942216793921,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,fluoride,0.0014538796827371758,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,fluoride,1.4538942216793924e-08,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,hardness,0.07951431207522192,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,hardness,0.07952146907900906,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,hardness,0.007951431207523098,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,hardness,0.022663645220296406,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,hardness,0.022663418583844203,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,hardness,2.2663645220296412e-07,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,magnesium,0.004200756109634365,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,magnesium,0.004201134215494819,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,magnesium,0.0004200756109634844,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,magnesium,0.0011973246531477345,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,magnesium,0.0011973126799012031,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,magnesium,1.1973246531477349e-08,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,nitrate_as_nitrogen,0.02030365452989943,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,nitrate_as_nitrogen,0.020305482041558288,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,nitrate_as_nitrogen,0.002030365452990174,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,nitrate_as_nitrogen,0.005787069156880717,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,nitrate_as_nitrogen,0.005787011286189149,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,nitrate_as_nitrogen,5.7870691568807175e-08,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,potassium,0.00890160223232044,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,potassium,0.008902403456643782,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,potassium,0.0008901602232321454,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,potassium,0.0025371879554797233,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,potassium,0.0025371625836001685,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,potassium,2.5371879554797235e-08,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,sodium,0.16783020838015394,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,sodium,0.16784531460953112,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,sodium,0.016783020838017308,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,sodium,0.04783597066623569,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,sodium,0.04783549230652903,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,sodium,4.78359706662357e-07,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,strontium,0.0004000720104413682,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,strontium,0.0004001080205233161,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,strontium,4.0007201044141375e-05,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,strontium,0.00011403091934740332,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,strontium,0.00011402977903820984,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,strontium,1.1403091934740333e-09,Waste Constituent Total Mass,kg,irwin,baseline
+media_filtration,sulfate,0.12392230523421378,Inlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,sulfate,0.12393345935709715,Outlet Constituent Density,kg/m3,irwin,baseline
+media_filtration,sulfate,0.01239223052342279,Waste Constituent Density,kg/m3,irwin,baseline
+media_filtration,sulfate,0.03532107726785817,Inlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,sulfate,0.035320724057085494,Outlet Constituent Total Mass,kg,irwin,baseline
+media_filtration,sulfate,3.532107726785818e-07,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,Electricity Intensity Unit Inlet,6.872392799315645e-07,Electricity,kwh/m3,irwin,baseline
+hydrochloric_acid_addition,Electricity Intensity System Treated,6.994395538499252e-07,Electricity,kwh/m3,irwin,baseline
+hydrochloric_acid_addition,Unit Levelized Cost,0.00320970286047885,LCOW,$/m3,irwin,baseline
+hydrochloric_acid_addition,Fixed Capital Investment (FCI),0.07519745463329845,Cost,$MM,irwin,baseline
+hydrochloric_acid_addition,Land,0.00011279618194994768,Cost,$MM,irwin,baseline
+hydrochloric_acid_addition,Working Capital,0.0037598727316649227,Cost,$MM,irwin,baseline
+hydrochloric_acid_addition,Total Capital Investment (TCI),0.07907012354691333,Cost,$MM,irwin,baseline
+hydrochloric_acid_addition,Catalysts and Chemicals,0.022166643943975904,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Electricity,8.282429827885926e-07,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Employee Salaries,3.9654970339340125e-05,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Benefits,3.5689473305406115e-05,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Maintenance,0.0006015796370663876,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Laboratory,0.00022559236389989537,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Insurance and Taxes,0.0001503949092665969,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Total Fixed Operating ,0.0010529113538776261,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Base Employee Salary,3.159217019295522e-05,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Electricity,8.282429827885926e-07,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Annual O&M Costs,0.023220383540836317,Annual Cost,$MM/yr,irwin,baseline
+hydrochloric_acid_addition,Inlet Water,0.2849974836522049,Water Flow,m3/s,irwin,baseline
+hydrochloric_acid_addition,Outlet Water,0.2849689839038397,Water Flow,m3/s,irwin,baseline
+hydrochloric_acid_addition,Waste Water,2.849974836521829e-05,Water Flow,m3/s,irwin,baseline
+hydrochloric_acid_addition,tds,0.6901863354027201,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,tds,0.6902484583852047,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,tds,0.06901863354027735,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,tds,0.19670136884091194,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,tds,0.19669940182722354,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,tds,1.9670136884091195e-06,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,nitrate,0.020305482041558288,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,nitrate,0.020307309717709644,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,nitrate,0.0020305482041559856,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,nitrate,0.005787011286189149,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,nitrate,0.005786953416076286,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,nitrate,5.787011286189149e-08,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,arsenic,2.5006751282707257e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,arsenic,2.500900211540597e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,arsenic,2.5006751282709184e-06,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,arsenic,7.126861189888115e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,arsenic,7.126789921276216e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,arsenic,7.126861189888115e-11,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,barium,2.0005401026165806e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,barium,2.0007201692324775e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,barium,2.000540102616735e-06,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,barium,5.7014889519104925e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,barium,5.701431937020973e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,barium,5.7014889519104926e-11,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,bicarbonate_alkalinity_as_caco3,0.17864823116366063,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,bicarbonate_alkalinity_as_caco3,0.17866431111246026,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,bicarbonate_alkalinity_as_caco3,0.017864823116367442,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,bicarbonate_alkalinity_as_caco3,0.050914296340560695,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,bicarbonate_alkalinity_as_caco3,0.050913787197597295,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,bicarbonate_alkalinity_as_caco3,5.091429634056069e-07,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,calcium,0.004751282743714378,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,calcium,0.004751710401927134,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,calcium,0.0004751282743714746,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,calcium,0.0013541036260787417,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,calcium,0.001354090085042481,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,calcium,1.354103626078742e-08,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,chloride,0.10462824736684716,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,chloride,0.10463766485085857,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,chloride,0.010462824736685522,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,chloride,0.029818787218491873,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,chloride,0.029818489030619687,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,chloride,2.9818787218491874e-07,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,fluoride,0.005101377261672281,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,fluoride,0.005101836431542818,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,fluoride,0.0005101377261672675,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,fluoride,0.0014538796827371758,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,fluoride,0.0014538651439403483,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,fluoride,1.4538796827371759e-08,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,hardness,0.07952146907900906,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,hardness,0.07952862672699097,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,hardness,0.007952146907901522,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,hardness,0.022663418583844203,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,hardness,0.022663191949658365,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,hardness,2.2663418583844207e-07,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,magnesium,0.004201134215494819,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,magnesium,0.004201512355388202,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,magnesium,0.0004201134215495143,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,magnesium,0.0011973126799012031,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,magnesium,0.0011973007067744039,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,magnesium,1.1973126799012033e-08,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,nitrate_as_nitrogen,0.020305482041558288,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,nitrate_as_nitrogen,0.020307309717709644,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,nitrate_as_nitrogen,0.0020305482041559856,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,nitrate_as_nitrogen,0.005787011286189149,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,nitrate_as_nitrogen,0.005786953416076286,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,nitrate_as_nitrogen,5.787011286189149e-08,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,potassium,0.008902403456643782,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,potassium,0.008903204753084525,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,potassium,0.0008902403456644469,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,potassium,0.0025371625836001685,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,potassium,0.0025371372119743327,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,potassium,2.5371625836001687e-08,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,sodium,0.16784531460953112,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,sodium,0.16786042219860486,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,sodium,0.01678453146095441,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,sodium,0.04783549230652903,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,sodium,0.04783501395160596,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,sodium,4.783549230652904e-07,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,strontium,0.0004001080205233161,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,strontium,0.0004001440338464955,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,strontium,4.0010802052334695e-05,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,strontium,0.00011402977903820984,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,strontium,0.00011402863874041946,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,strontium,1.1402977903820985e-09,Waste Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,sulfate,0.12393345935709715,Inlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,sulfate,0.12394461448395198,Outlet Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,sulfate,0.012393345935710672,Waste Constituent Density,kg/m3,irwin,baseline
+hydrochloric_acid_addition,sulfate,0.035320724057085494,Inlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,sulfate,0.03532037084984493,Outlet Constituent Total Mass,kg,irwin,baseline
+hydrochloric_acid_addition,sulfate,3.5320724057085496e-07,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,Electricity Intensity Unit Inlet,5.014625499990357e-07,Electricity,kwh/m3,irwin,baseline
+anti_scalant_addition,Electricity Intensity System Treated,5.103137701972893e-07,Electricity,kwh/m3,irwin,baseline
+anti_scalant_addition,Unit Levelized Cost,0.026322599619741784,LCOW,$/m3,irwin,baseline
+anti_scalant_addition,Fixed Capital Investment (FCI),0.061887745033954784,Cost,$MM,irwin,baseline
+anti_scalant_addition,Land,9.283161755093218e-05,Cost,$MM,irwin,baseline
+anti_scalant_addition,Working Capital,0.0030943872516977396,Cost,$MM,irwin,baseline
+anti_scalant_addition,Total Capital Investment (TCI),0.06507496390320346,Cost,$MM,irwin,baseline
+anti_scalant_addition,Catalysts and Chemicals,0.2275113270757043,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Electricity,6.042892439522856e-07,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Employee Salaries,3.263616708381758e-05,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Benefits,2.937255037543582e-05,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Maintenance,0.0004951019602716383,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Laboratory,0.00018566323510186436,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Insurance and Taxes,0.00012377549006790958,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Total Fixed Operating ,0.0008665494029006656,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Base Employee Salary,2.6000456843989283e-05,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Electricity,6.042892439522856e-07,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Annual O&M Costs,0.22837848076784892,Annual Cost,$MM/yr,irwin,baseline
+anti_scalant_addition,Inlet Water,0.2849689839038397,Water Flow,m3/s,irwin,baseline
+anti_scalant_addition,Outlet Water,0.28494048700544927,Water Flow,m3/s,irwin,baseline
+anti_scalant_addition,Waste Water,2.849689839040659e-05,Water Flow,m3/s,irwin,baseline
+anti_scalant_addition,tds,0.6902484583852047,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,tds,0.6903105869593168,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,tds,0.06902484583846569,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,tds,0.19669940182722354,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,tds,0.19669743483320526,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,tds,1.9669940182722356e-06,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,nitrate,0.020307309717709644,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,nitrate,0.020309137558368304,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,nitrate,0.0020307309717693526,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,nitrate,0.005786953416076286,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,nitrate,0.005786895546542126,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,nitrate,5.7869534160762875e-08,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,arsenic,2.500900211540597e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,arsenic,2.5011253150699887e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,arsenic,2.500900211538612e-06,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,arsenic,7.126789921276216e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,arsenic,7.126718653377003e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,arsenic,7.126789921276216e-11,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,barium,2.0007201692324775e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,barium,2.000900252055991e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,barium,2.0007201692308893e-06,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,barium,5.701431937020973e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,barium,5.701374922701603e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,barium,5.701431937020973e-11,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,bicarbonate_alkalinity_as_caco3,0.17866431111246026,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,bicarbonate_alkalinity_as_caco3,0.1786803925086,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,bicarbonate_alkalinity_as_caco3,0.017866431111231845,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,bicarbonate_alkalinity_as_caco3,0.050913787197597295,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,bicarbonate_alkalinity_as_caco3,0.05091327805972531,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,bicarbonate_alkalinity_as_caco3,5.091378719759729e-07,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,calcium,0.004751710401927134,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,calcium,0.004752138098632979,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,calcium,0.0004751710401923363,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,calcium,0.001354090085042481,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,calcium,0.0013540765441416307,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,calcium,1.3540900850424813e-08,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,chloride,0.10463766485085857,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,chloride,0.10464708318252831,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,chloride,0.010463766485077552,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,chloride,0.029818489030619687,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,chloride,0.029818190845729377,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,chloride,2.981848903061969e-07,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,fluoride,0.005101836431542818,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,fluoride,0.005102295642742778,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,fluoride,0.0005101836431538768,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,fluoride,0.0014538651439403483,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,fluoride,0.001453850605288909,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,fluoride,1.4538651439403481e-08,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,hardness,0.07952862672699097,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,hardness,0.07953578501922563,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,hardness,0.007952862672692785,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,hardness,0.022663191949658365,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,hardness,0.022662965317738867,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,hardness,2.2663191949658366e-07,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,magnesium,0.004201512355388202,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,magnesium,0.00420189052931758,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,magnesium,0.0004201512355384867,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,magnesium,0.0011973007067744039,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,magnesium,0.0011972887337673363,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,magnesium,1.197300706774404e-08,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,nitrate_as_nitrogen,0.020307309717709644,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,nitrate_as_nitrogen,0.020309137558368304,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,nitrate_as_nitrogen,0.0020307309717693526,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,nitrate_as_nitrogen,0.005786953416076286,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,nitrate_as_nitrogen,0.005786895546542126,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,nitrate_as_nitrogen,5.7869534160762875e-08,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,potassium,0.008903204753084525,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,potassium,0.00890400612164916,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,potassium,0.0008903204753077457,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,potassium,0.0025371372119743327,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,potassium,0.002537111840602213,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,potassium,2.537137211974333e-08,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,sodium,0.16786042219860486,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,sodium,0.16787553114749765,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,sodium,0.016786042219847162,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,sodium,0.04783501395160596,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,sodium,0.04783453560146645,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,sodium,4.783501395160596e-07,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,strontium,0.0004001440338464955,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,strontium,0.00040018005041119825,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,strontium,4.001440338461779e-05,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,strontium,0.00011402863874041946,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,strontium,0.00011402749845403208,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,strontium,1.1402863874041946e-09,Waste Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,sulfate,0.12394461448395198,Inlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,sulfate,0.12395577061486864,Outlet Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,sulfate,0.01239446144838536,Waste Constituent Density,kg/m3,irwin,baseline
+anti_scalant_addition,sulfate,0.03532037084984493,Inlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,sulfate,0.035320017646136424,Outlet Constituent Total Mass,kg,irwin,baseline
+anti_scalant_addition,sulfate,3.532037084984493e-07,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,Electricity Intensity Unit Inlet,6.918827885797506e-07,Electricity,kwh/m3,irwin,baseline
+sodium_bisulfite_addition,Electricity Intensity System Treated,7.04024670723642e-07,Electricity,kwh/m3,irwin,baseline
+sodium_bisulfite_addition,Unit Levelized Cost,0.006014986205042517,LCOW,$/m3,irwin,baseline
+sodium_bisulfite_addition,Fixed Capital Investment (FCI),0.07550166845306681,Cost,$MM,irwin,baseline
+sodium_bisulfite_addition,Land,0.00011325250267960022,Cost,$MM,irwin,baseline
+sodium_bisulfite_addition,Working Capital,0.003775083422653341,Cost,$MM,irwin,baseline
+sodium_bisulfite_addition,Total Capital Investment (TCI),0.07939000437839976,Cost,$MM,irwin,baseline
+sodium_bisulfite_addition,Catalysts and Chemicals,0.046931740595689865,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Electricity,8.336724596533458e-07,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Employee Salaries,3.9815395849200265e-05,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Benefits,3.583385626428024e-05,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Maintenance,0.0006040133476245346,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Laboratory,0.00022650500535920044,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Insurance and Taxes,0.00015100333690613364,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Total Fixed Operating ,0.001057170942003349,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Base Employee Salary,3.1719977374940806e-05,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Electricity,8.336724596533458e-07,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Annual O&M Costs,0.04798974521015287,Annual Cost,$MM/yr,irwin,baseline
+sodium_bisulfite_addition,Inlet Water,0.28494048700544927,Water Flow,m3/s,irwin,baseline
+sodium_bisulfite_addition,Outlet Water,0.28491199295674874,Water Flow,m3/s,irwin,baseline
+sodium_bisulfite_addition,Waste Water,2.8494048700533625e-05,Water Flow,m3/s,irwin,baseline
+sodium_bisulfite_addition,tds,0.6903105869593168,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,tds,0.6903727211255598,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,tds,0.06903105869595906,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,tds,0.19669743483320526,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,tds,0.19669546785885697,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,tds,1.9669743483320527e-06,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,nitrate,0.020309137558368304,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,nitrate,0.020310965563549076,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,nitrate,0.002030913755837636,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,nitrate,0.005786895546542126,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,nitrate,0.005786837677586661,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,nitrate,5.786895546542126e-08,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,arsenic,2.5011253150699887e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,arsenic,2.5013504388607242e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,arsenic,2.501125315070981e-06,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,arsenic,7.126718653377003e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,arsenic,7.12664738619047e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,arsenic,7.126718653377004e-11,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,barium,2.000900252055991e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,barium,2.0010803510885794e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,barium,2.000900252056785e-06,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,barium,5.701374922701603e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,barium,5.701317908952376e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,barium,5.7013749227016034e-11,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,bicarbonate_alkalinity_as_caco3,0.1786803925086,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,bicarbonate_alkalinity_as_caco3,0.17869647535221012,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,bicarbonate_alkalinity_as_caco3,0.017868039250867086,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,bicarbonate_alkalinity_as_caco3,0.05091327805972531,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,bicarbonate_alkalinity_as_caco3,0.05091276892694471,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,bicarbonate_alkalinity_as_caco3,5.091327805972531e-07,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,calcium,0.004752138098632979,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,calcium,0.004752565833835376,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,calcium,0.0004752138098634864,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,calcium,0.0013540765441416307,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,calcium,0.0013540630033761893,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,calcium,1.3540765441416308e-08,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,chloride,0.10464708318252831,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,chloride,0.10465650236193269,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,chloride,0.010464708318256983,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,chloride,0.029818190845729377,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,chloride,0.029817892663820924,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,chloride,2.981819084572938e-07,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,fluoride,0.005102295642742778,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,fluoride,0.005102754895275878,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,fluoride,0.0005102295642744802,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,fluoride,0.001453850605288909,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,fluoride,0.0014538360667828562,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,fluoride,1.453850605288909e-08,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,hardness,0.07953578501922563,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,hardness,0.07954294395577101,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,hardness,0.007953578501925719,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,hardness,0.022662965317738867,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,hardness,0.02266273868808569,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,hardness,2.266296531773887e-07,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,magnesium,0.00420189052931758,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,magnesium,0.0042022687372860155,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,magnesium,0.0004201890529319247,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,magnesium,0.0011972887337673363,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,magnesium,0.0011972767608799987,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,magnesium,1.1972887337673363e-08,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,nitrate_as_nitrogen,0.020309137558368304,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,nitrate_as_nitrogen,0.020310965563549076,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,nitrate_as_nitrogen,0.002030913755837636,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,nitrate_as_nitrogen,0.005786895546542126,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,nitrate_as_nitrogen,0.005786837677586661,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,nitrate_as_nitrogen,5.786895546542126e-08,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,potassium,0.00890400612164916,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,potassium,0.008904807562344177,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,potassium,0.0008904006121652691,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,potassium,0.002537111840602213,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,potassium,0.002537086469483807,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,potassium,2.537111840602213e-08,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,sodium,0.16787553114749765,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,sodium,0.1678906414563318,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,sodium,0.016787553114756423,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,sodium,0.04783453560146645,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,sodium,0.04783405725611044,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,sodium,4.783453560146645e-07,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,strontium,0.00040018005041119825,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,strontium,0.00040021607021771587,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,strontium,4.00180050411357e-05,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,strontium,0.00011402749845403208,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,strontium,0.00011402635817904752,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,strontium,1.1402749845403206e-09,Waste Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,sulfate,0.12395577061486864,Inlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,sulfate,0.12396692774993749,Outlet Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,sulfate,0.01239557706149178,Waste Constituent Density,kg/m3,irwin,baseline
+sodium_bisulfite_addition,sulfate,0.035320017646136424,Inlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,sulfate,0.03531966444595997,Outlet Constituent Total Mass,kg,irwin,baseline
+sodium_bisulfite_addition,sulfate,3.5320017646136425e-07,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,Electricity Intensity Unit Inlet,0.2926204913543795,Electricity,kwh/m3,irwin,baseline
+electrodialysis_reversal,Electricity Intensity System Treated,0.297725925934789,Electricity,kwh/m3,irwin,baseline
+electrodialysis_reversal,Unit Levelized Cost,0.4011983939421991,LCOW,$/m3,irwin,baseline
+electrodialysis_reversal,Fixed Capital Investment (FCI),38.79794347861044,Cost,$MM,irwin,baseline
+electrodialysis_reversal,Land,0.058196915217915667,Cost,$MM,irwin,baseline
+electrodialysis_reversal,Working Capital,1.9398971739305222,Cost,$MM,irwin,baseline
+electrodialysis_reversal,Total Capital Investment (TCI),40.79603756775888,Cost,$MM,irwin,baseline
+electrodialysis_reversal,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Electricity,0.35255285119696644,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Employee Salaries,0.018213867644035178,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Benefits,0.01639248087963166,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Maintenance,0.31038354782888355,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Laboratory,0.11639383043583133,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Insurance and Taxes,0.07759588695722089,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Total Fixed Operating ,0.5389796137456027,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Base Employee Salary,0.01680559112789279,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Electricity,0.35255285119696644,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Annual O&M Costs,0.8915324649425691,Annual Cost,$MM/yr,irwin,baseline
+electrodialysis_reversal,Inlet Water,0.28491199295674874,Water Flow,m3/s,irwin,baseline
+electrodialysis_reversal,Outlet Water,0.26251791031034827,Water Flow,m3/s,irwin,baseline
+electrodialysis_reversal,Waste Water,0.02239408264640047,Water Flow,m3/s,irwin,baseline
+electrodialysis_reversal,tds,0.6903727211255598,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,tds,0.14333738120490994,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,tds,7.103074530322585,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,tds,0.19669546785885697,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,tds,0.037628629783270744,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,tds,0.1590668380755862,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,nitrate,0.020310965563549076,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,nitrate,0.002606147737879011,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,nitrate,0.2278582829245209,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,nitrate,0.005786837677586661,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,nitrate,0.0006841604581080392,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,nitrate,0.005102677219478622,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,arsenic,2.5013504388607242e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,arsenic,2.9319063099300847e-06,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,arsenic,0.0002838682686340667,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,arsenic,7.12664738619047e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,arsenic,7.696779177085701e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,arsenic,6.3569694684819e-06,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,barium,2.0010803510885794e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,barium,1.0858912259000027e-07,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,barium,0.0002533174235792792,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,barium,5.701317908952376e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,barium,2.8506589544761104e-08,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,barium,5.672811319407614e-06,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,bicarbonate_alkalinity_as_caco3,0.17869647535221012,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,bicarbonate_alkalinity_as_caco3,0.03290253216076461,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,bicarbonate_alkalinity_as_caco3,1.8877873055888228,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,bicarbonate_alkalinity_as_caco3,0.05091276892694471,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,bicarbonate_alkalinity_as_caco3,0.008637503986762952,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,bicarbonate_alkalinity_as_caco3,0.04227526494018176,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,calcium,0.004752565833835376,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,calcium,0.00037512465313365047,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,calcium,0.056067760539924,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,calcium,0.0013540630033761893,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,calcium,9.847694004654016e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,calcium,0.0012555860633296492,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,chloride,0.10465650236193269,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,chloride,0.012379203628087636,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,chloride,1.1863906379009244,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,chloride,0.029817892663820924,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,chloride,0.003249762667751848,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,chloride,0.026568129996069074,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,fluoride,0.005102754895275878,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,fluoride,0.0009773043836816028,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,fluoride,0.05346395211388861,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,fluoride,0.0014538360667828562,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,fluoride,0.00025655990454123717,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,fluoride,0.0011972761622416187,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,hardness,0.07954294395577101,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,hardness,0.006515373416789621,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,hardness,0.9356193242944147,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,hardness,0.02266273868808569,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,hardness,0.001710402214267205,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,hardness,0.020952336473818486,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,magnesium,0.0042022687372860155,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,magnesium,0.0004343560560035223,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,magnesium,0.048372176428554285,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,magnesium,0.0011972767608799987,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,magnesium,0.00011402624415268927,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,magnesium,0.0010832505167273094,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,nitrate_as_nitrogen,0.020310965563549076,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,nitrate_as_nitrogen,0.0026061477378790093,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,nitrate_as_nitrogen,0.22785828292452087,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,nitrate_as_nitrogen,0.005786837677586661,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,nitrate_as_nitrogen,0.0006841604581080388,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,nitrate_as_nitrogen,0.005102677219478622,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,potassium,0.008904807562344177,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,potassium,0.0009773060125184425,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,potassium,0.10183610435635722,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,potassium,0.002537086469483807,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,potassium,0.0002565603321400806,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,potassium,0.0022805261373437264,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,sodium,0.1678906414563318,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,sodium,0.023781106238756476,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,sodium,1.8572357527727918,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,sodium,0.04783405725611044,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,sodium,0.006242966314666736,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,sodium,0.04159109094144369,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,strontium,0.00040021607021771587,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,strontium,2.171782451800066e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,strontium,0.0048372171336746785,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,strontium,0.00011402635817904752,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,strontium,5.70131790895238e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,strontium,0.00010832504027009514,Waste Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,sulfate,0.12396692774993749,Inlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,sulfate,0.010316001937515168,Outlet Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,sulfate,1.4562565339021745,Waste Constituent Density,kg/m3,irwin,baseline
+electrodialysis_reversal,sulfate,0.03531966444595997,Inlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,sulfate,0.002708135271393986,Outlet Constituent Total Mass,kg,irwin,baseline
+electrodialysis_reversal,sulfate,0.03261152917456599,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,irwin,baseline
+treated_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,irwin,baseline
+treated_storage,Unit Levelized Cost,0.025713950034064154,LCOW,$/m3,irwin,baseline
+treated_storage,Fixed Capital Investment (FCI),2.7636173390890955,Cost,$MM,irwin,baseline
+treated_storage,Land,0.004145426008633643,Cost,$MM,irwin,baseline
+treated_storage,Working Capital,0.13818086695445478,Cost,$MM,irwin,baseline
+treated_storage,Total Capital Investment (TCI),2.9059436320521836,Cost,$MM,irwin,baseline
+treated_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Employee Salaries,0.001194874185441221,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Benefits,0.001075386766897099,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Maintenance,0.022108938712712765,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Laboratory,0.008290852017267286,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Insurance and Taxes,0.005527234678178191,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Total Fixed Operating ,0.03819728636049657,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Base Employee Salary,0.0008742194070385393,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Annual O&M Costs,0.03819728636049657,Annual Cost,$MM/yr,irwin,baseline
+treated_storage,Inlet Water,0.26251791031034827,Water Flow,m3/s,irwin,baseline
+treated_storage,Outlet Water,0.2624916585193172,Water Flow,m3/s,irwin,baseline
+treated_storage,Waste Water,2.625179103105113e-05,Water Flow,m3/s,irwin,baseline
+treated_storage,tds,0.14333738120490994,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,tds,0.14335028285938384,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,tds,0.014333738120482092,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,tds,0.037628629783270744,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,tds,0.037628253496972915,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,tds,3.7628629783270745e-07,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,nitrate,0.002606147737879011,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,nitrate,0.002606382314633095,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,nitrate,0.0002606147737877393,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,nitrate,0.0006841604581080392,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,nitrate,0.000684153616503458,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,nitrate,6.841604581080393e-09,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,arsenic,2.9319063099300847e-06,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,arsenic,2.932170207887774e-06,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,arsenic,2.9319063099282643e-07,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,arsenic,7.696779177085701e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,arsenic,7.696702209293929e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,arsenic,7.696779177085703e-12,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,barium,1.0858912259000027e-07,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,barium,1.0859889658843322e-07,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,barium,1.0858912258993284e-08,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,barium,2.8506589544761104e-08,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,barium,2.8506304478865655e-08,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,barium,2.8506589544761107e-13,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,bicarbonate_alkalinity_as_caco3,0.03290253216076461,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,bicarbonate_alkalinity_as_caco3,0.032905493684811486,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,bicarbonate_alkalinity_as_caco3,0.0032902532160744174,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,bicarbonate_alkalinity_as_caco3,0.008637503986762952,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,bicarbonate_alkalinity_as_caco3,0.008637417611723085,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,bicarbonate_alkalinity_as_caco3,8.637503986762953e-08,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,calcium,0.00037512465313365047,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,calcium,0.00037515841772889206,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,calcium,3.7512465313341754e-05,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,calcium,9.847694004654016e-05,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,calcium,9.84759552771397e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,calcium,9.847694004654017e-10,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,chloride,0.012379203628087636,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,chloride,0.01238031786783814,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,chloride,0.0012379203628079946,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,chloride,0.003249762667751848,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,chloride,0.0032497301701251706,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,chloride,3.249762667751847e-08,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,fluoride,0.0009773043836816028,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,fluoride,0.0009773923498727533,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,fluoride,9.773043836809959e-05,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,fluoride,0.00025655990454123717,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,fluoride,0.0002565573389421918,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,fluoride,2.565599045412372e-09,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,hardness,0.006515373416789621,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,hardness,0.006515959859041358,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,hardness,0.0006515373416785575,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,hardness,0.001710402214267205,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,hardness,0.0017103851102450625,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,hardness,1.7104022142672052e-08,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,magnesium,0.0004343560560035223,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,magnesium,0.0004343951519581581,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,magnesium,4.343560560032526e-05,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,magnesium,0.00011402624415268927,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,magnesium,0.00011402510389024774,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,magnesium,1.140262441526893e-09,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,nitrate_as_nitrogen,0.0026061477378790093,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,nitrate_as_nitrogen,0.0026063823146330934,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,nitrate_as_nitrogen,0.00026061477378773907,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,nitrate_as_nitrogen,0.0006841604581080388,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,nitrate_as_nitrogen,0.0006841536165034576,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,nitrate_as_nitrogen,6.841604581080387e-09,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,potassium,0.0009773060125184425,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,potassium,0.0009773939788562031,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,potassium,9.773060125178358e-05,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,potassium,0.0002565603321400806,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,potassium,0.00025655776653675923,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,potassium,2.5656033214008066e-09,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,sodium,0.023781106238756476,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,sodium,0.023783246752369328,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,sodium,0.0023781106238741708,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,sodium,0.006242966314666736,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,sodium,0.00624290388500359,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,sodium,6.242966314666736e-08,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,strontium,2.171782451800066e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,strontium,2.171977931768725e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,strontium,2.1717824517987174e-06,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,strontium,5.70131790895238e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,strontium,5.70126089577329e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,strontium,5.7013179089523805e-11,Waste Constituent Total Mass,kg,irwin,baseline
+treated_storage,sulfate,0.010316001937515168,Inlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,sulfate,0.010316930470542846,Outlet Constituent Density,kg/m3,irwin,baseline
+treated_storage,sulfate,0.001031600193750876,Waste Constituent Density,kg/m3,irwin,baseline
+treated_storage,sulfate,0.002708135271393986,Inlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,sulfate,0.0027081081900412717,Outlet Constituent Total Mass,kg,irwin,baseline
+treated_storage,sulfate,2.7081352713939854e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,Electricity Intensity Unit Inlet,3.349046015712688e-07,Electricity,kwh/m3,irwin,baseline
+water_pumping_station,Electricity Intensity System Treated,2.6782775451891608e-08,Electricity,kwh/m3,irwin,baseline
+water_pumping_station,Unit Levelized Cost,0.0008452010515805223,LCOW,$/m3,irwin,baseline
+water_pumping_station,Fixed Capital Investment (FCI),0.09063899902425258,Cost,$MM,irwin,baseline
+water_pumping_station,Land,0.0001359584985363789,Cost,$MM,irwin,baseline
+water_pumping_station,Working Capital,0.004531949951212629,Cost,$MM,irwin,baseline
+water_pumping_station,Total Capital Investment (TCI),0.0953069074740016,Cost,$MM,irwin,baseline
+water_pumping_station,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Electricity,3.171488616211631e-08,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Employee Salaries,4.779798512358974e-05,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Benefits,4.301818661123077e-05,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Maintenance,0.0007251119921940207,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Laboratory,0.0002719169970727578,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Insurance and Taxes,0.00018127799804850518,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Total Fixed Operating ,0.0012691231590501043,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Base Employee Salary,3.8079516085446065e-05,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Electricity,3.171488616211631e-08,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Annual O&M Costs,0.0012691548739362664,Annual Cost,$MM/yr,irwin,baseline
+water_pumping_station,Inlet Water,0.02239408264640047,Water Flow,m3/s,irwin,baseline
+water_pumping_station,Outlet Water,0.022391843238135832,Water Flow,m3/s,irwin,baseline
+water_pumping_station,Waste Water,2.239408264638476e-06,Water Flow,m3/s,irwin,baseline
+water_pumping_station,tds,7.103074530322585,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,tds,7.103713870964378,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,tds,0.7103074530327569,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,tds,0.1590668380755862,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,tds,0.15906524740720543,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,tds,1.5906683807558619e-06,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,nitrate,0.2278582829245209,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,nitrate,0.22787879222091373,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,nitrate,0.022785828292468075,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,nitrate,0.005102677219478622,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,nitrate,0.005102626192706427,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,nitrate,5.102677219478622e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,arsenic,0.0002838682686340667,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,arsenic,0.00028389381933331367,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,arsenic,2.8386826863426584e-05,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,arsenic,6.3569694684819e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,arsenic,6.3569058987872156e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,arsenic,6.3569694684819e-11,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,barium,0.0002533174235792792,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,barium,0.00025334022442748615,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,barium,2.5331742357945696e-05,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,barium,5.672811319407614e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,barium,5.67275459129442e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,barium,5.672811319407615e-11,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,bicarbonate_alkalinity_as_caco3,1.8877873055888228,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,bicarbonate_alkalinity_as_caco3,1.8879572234381106,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,bicarbonate_alkalinity_as_caco3,0.1887787305590147,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,bicarbonate_alkalinity_as_caco3,0.04227526494018176,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,bicarbonate_alkalinity_as_caco3,0.04227484218753236,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,bicarbonate_alkalinity_as_caco3,4.227526494018176e-07,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,calcium,0.056067760539924,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,calcium,0.0560728071430329,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,calcium,0.005606776053996333,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,calcium,0.0012555860633296492,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,calcium,0.0012555735074690159,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,calcium,1.2555860633296492e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,chloride,1.1863906379009244,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,chloride,1.1864974237369192,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,chloride,0.11863906379017569,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,chloride,0.026568129996069074,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,chloride,0.02656786431476912,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,chloride,2.6568129996069083e-07,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,fluoride,0.05346395211388861,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,fluoride,0.05346876435080255,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,fluoride,0.005346395211392612,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,fluoride,0.0011972761622416187,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,fluoride,0.0011972641894799963,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,fluoride,1.1972761622416188e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,hardness,0.9356193242944147,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,hardness,0.9357035384550172,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,hardness,0.09356193242950711,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,hardness,0.020952336473818486,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,hardness,0.02095212695045375,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,hardness,2.0952336473818489e-07,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,magnesium,0.048372176428554285,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,magnesium,0.04837653035982598,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,magnesium,0.004837217642858822,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,magnesium,0.0010832505167273094,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,magnesium,0.0010832396842221422,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,magnesium,1.0832505167273095e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,nitrate_as_nitrogen,0.22785828292452087,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,nitrate_as_nitrogen,0.2278787922209137,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,nitrate_as_nitrogen,0.022785828292468075,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,nitrate_as_nitrogen,0.005102677219478622,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,nitrate_as_nitrogen,0.005102626192706427,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,nitrate_as_nitrogen,5.102677219478622e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,potassium,0.10183610435635722,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,potassium,0.10184527052236587,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,potassium,0.010183610435642866,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,potassium,0.0022805261373437264,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,potassium,0.002280503332082353,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,potassium,2.2805261373437267e-08,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,sodium,1.8572357527727918,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,sodium,1.857402920707335,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,sodium,0.1857235752774095,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,sodium,0.04159109094144369,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,sodium,0.041590675030534284,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,sodium,4.1591090941443695e-07,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,strontium,0.0048372171336746785,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,strontium,0.004837652526756017,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,strontium,0.00048372171336780715,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,strontium,0.00010832504027009514,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,strontium,0.00010832395701969244,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,strontium,1.0832504027009514e-09,Waste Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,sulfate,1.4562565339021745,Inlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,sulfate,1.456387610097845,Outlet Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,sulfate,0.1456256533903196,Waste Constituent Density,kg/m3,irwin,baseline
+water_pumping_station,sulfate,0.03261152917456599,Inlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,sulfate,0.03261120305927424,Outlet Constituent Total Mass,kg,irwin,baseline
+water_pumping_station,sulfate,3.2611529174565986e-07,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,Electricity Intensity Unit Inlet,5.652405629581133e-06,Electricity,kwh/m3,irwin,baseline
+lime_softening,Electricity Intensity System Treated,4.5198534543513286e-07,Electricity,kwh/m3,irwin,baseline
+lime_softening,Unit Levelized Cost,0.017036526952870095,LCOW,$/m3,irwin,baseline
+lime_softening,Fixed Capital Investment (FCI),1.7393336815586422,Cost,$MM,irwin,baseline
+lime_softening,Land,0.0026090005223379635,Cost,$MM,irwin,baseline
+lime_softening,Working Capital,0.08696668407793212,Cost,$MM,irwin,baseline
+lime_softening,Total Capital Investment (TCI),1.8289093661589124,Cost,$MM,irwin,baseline
+lime_softening,Catalysts and Chemicals,0.0073136498130512186,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Electricity,5.35219503414372e-07,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Employee Salaries,0.0008696668407793211,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Benefits,0.0007827001567013891,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Maintenance,0.013914669452469138,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Laboratory,0.005218001044675927,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Insurance and Taxes,0.0034786673631172845,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Total Fixed Operating ,0.024263704857743058,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Base Employee Salary,0.0008696668407706244,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Electricity,5.35219503414372e-07,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Annual O&M Costs,0.03157788989029769,Annual Cost,$MM/yr,irwin,baseline
+lime_softening,Inlet Water,0.022391843238135832,Water Flow,m3/s,irwin,baseline
+lime_softening,Outlet Water,0.022369451394897696,Water Flow,m3/s,irwin,baseline
+lime_softening,Waste Water,2.2391843238135645e-05,Water Flow,m3/s,irwin,baseline
+lime_softening,tds,7.103713870964378,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,tds,7.110753587413082,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,tds,0.07103713870964438,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,tds,0.15906524740720543,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,tds,0.15906365675473136,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,tds,1.5906524740720544e-06,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,nitrate,0.22787879222091373,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,nitrate,0.22810461805104254,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,nitrate,0.0022787879222091563,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,nitrate,0.005102626192706427,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,nitrate,0.0051025751664444995,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,nitrate,5.102626192706427e-08,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,arsenic,0.00028389381933331367,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,arsenic,0.000284175155550671,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,arsenic,2.8389381933331596e-06,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,arsenic,6.3569058987872156e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,arsenic,6.356842329728227e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,arsenic,6.356905898787214e-11,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,barium,0.00025334022442748615,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,barium,0.0002535912823075494,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,barium,2.533402244274883e-06,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,barium,5.67275459129442e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,barium,5.672697863748506e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,barium,5.672754591294421e-11,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,bicarbonate_alkalinity_as_caco3,1.8879572234381106,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,bicarbonate_alkalinity_as_caco3,1.8898281720379142,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,bicarbonate_alkalinity_as_caco3,0.01887957223438126,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,bicarbonate_alkalinity_as_caco3,0.04227484218753236,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,bicarbonate_alkalinity_as_caco3,0.042274419439110485,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,bicarbonate_alkalinity_as_caco3,4.227484218753235e-07,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,calcium,0.0560728071430329,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,calcium,0.056128374789751224,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,calcium,0.0005607280714303337,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,calcium,0.0012555735074690159,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,calcium,0.0012555609517339412,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,calcium,1.2555735074690158e-08,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,chloride,1.1864974237369192,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,chloride,1.1876732319946763,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,chloride,0.011864974237369293,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,chloride,0.02656786431476912,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,chloride,0.02656759863612597,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,chloride,2.6567864314769124e-07,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,fluoride,0.05346876435080255,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,fluoride,0.05352175141457361,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,fluoride,0.00053468764350803,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,fluoride,0.0011972641894799963,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,fluoride,0.0011972522168381015,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,fluoride,1.1972641894799965e-08,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,hardness,0.9357035384550172,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,hardness,0.9366308122318645,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,hardness,0.00935703538455025,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,hardness,0.02095212695045375,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,hardness,0.020951917429184244,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,hardness,2.095212695045375e-07,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,magnesium,0.04837653035982598,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,magnesium,0.04842447106558796,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,magnesium,0.00048376530359826387,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,magnesium,0.0010832396842221422,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,magnesium,0.0010832288518252998,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,magnesium,1.0832396842221422e-08,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,nitrate_as_nitrogen,0.2278787922209137,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,nitrate_as_nitrogen,0.22810461805104254,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,nitrate_as_nitrogen,0.0022787879222091563,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,nitrate_as_nitrogen,0.005102626192706427,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,nitrate_as_nitrogen,0.0051025751664444995,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,nitrate_as_nitrogen,5.102626192706427e-08,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,potassium,0.10184527052236587,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,potassium,0.10194619826792858,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,potassium,0.0010184527052236674,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,potassium,0.002280503332082353,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,potassium,0.002280480527049032,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,potassium,2.280503332082353e-08,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,sodium,1.857402920707335,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,sodium,1.8592435902683961,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,sodium,0.018574029207073506,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,sodium,0.041590675030534284,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,sodium,0.041590259123783974,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,sodium,4.1590675030534287e-07,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,strontium,0.004837652526756017,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,strontium,0.004842446596827576,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,strontium,4.837652526756057e-05,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,strontium,0.00010832395701969244,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,strontium,0.00010832287378012223,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,strontium,1.0832395701969244e-09,Waste Constituent Total Mass,kg,irwin,baseline
+lime_softening,sulfate,1.456387610097845,Inlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,sulfate,1.4578308770988428,Outlet Constituent Density,kg/m3,irwin,baseline
+lime_softening,sulfate,0.014563876100978573,Waste Constituent Density,kg/m3,irwin,baseline
+lime_softening,sulfate,0.03261120305927424,Inlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,sulfate,0.03261087694724364,Outlet Constituent Total Mass,kg,irwin,baseline
+lime_softening,sulfate,3.261120305927424e-07,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,Electricity Intensity Unit Inlet,0.307,Electricity,kwh/m3,irwin,baseline
+microfiltration,Electricity Intensity System Treated,0.024524202725664898,Electricity,kwh/m3,irwin,baseline
+microfiltration,Unit Levelized Cost,0.016205061576348045,LCOW,$/m3,irwin,baseline
+microfiltration,Fixed Capital Investment (FCI),1.385421210234422,Cost,$MM,irwin,baseline
+microfiltration,Land,0.002078131815351633,Cost,$MM,irwin,baseline
+microfiltration,Working Capital,0.0692710605117211,Cost,$MM,irwin,baseline
+microfiltration,Total Capital Investment (TCI),1.4567704025614947,Cost,$MM,irwin,baseline
+microfiltration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Electricity,0.029040391988433438,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Employee Salaries,0.0007303007379012408,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Benefits,0.0006572706641111167,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Maintenance,0.011083369681875377,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Laboratory,0.004156263630703266,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Insurance and Taxes,0.002770842420468844,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Total Fixed Operating ,0.019398047135059843,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Base Employee Salary,0.000638213459592525,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Electricity,0.029040391988433438,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Annual O&M Costs,0.048438439123493285,Annual Cost,$MM/yr,irwin,baseline
+microfiltration,Inlet Water,0.022369451394897696,Water Flow,m3/s,irwin,baseline
+microfiltration,Outlet Water,0.02125097882515281,Water Flow,m3/s,irwin,baseline
+microfiltration,Waste Water,0.0011184725697448855,Water Flow,m3/s,irwin,baseline
+microfiltration,tds,7.110753587413082,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,tds,7.484928926186535,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,tds,0.0014221507174826157,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,tds,0.15906365675473136,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,tds,0.15906206611816381,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,tds,1.5906365675473138e-06,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,nitrate,0.22810461805104254,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,nitrate,0.24010772316301265,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,nitrate,4.562092361020848e-05,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,nitrate,0.0051025751664444995,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,nitrate,0.005102524140692835,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,nitrate,5.1025751664445e-08,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,arsenic,0.000284175155550671,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,arsenic,0.00029912875136749,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,arsenic,5.683503111013417e-08,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,arsenic,6.356842329728227e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,arsenic,6.3567787613049295e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,arsenic,6.356842329728227e-11,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,barium,0.0002535912823075494,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,barium,0.0002669355225207646,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,barium,5.0718256461509865e-08,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,barium,5.672697863748506e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,barium,5.67264113676987e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,barium,5.672697863748508e-11,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,bicarbonate_alkalinity_as_caco3,1.8898281720379142,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,bicarbonate_alkalinity_as_caco3,1.989272919743362,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,bicarbonate_alkalinity_as_caco3,0.00037796563440758264,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,bicarbonate_alkalinity_as_caco3,0.042274419439110485,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,bicarbonate_alkalinity_as_caco3,0.04227399669491609,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,bicarbonate_alkalinity_as_caco3,4.2274419439110487e-07,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,calcium,0.056128374789751224,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,calcium,0.05908190895368771,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,calcium,1.122567495795024e-05,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,calcium,0.0012555609517339412,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,calcium,0.0012555483961244238,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,calcium,1.2555609517339414e-08,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,chloride,1.1876732319946763,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,chloride,1.2501698476445857,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,chloride,0.00023753464639893513,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,chloride,0.02656759863612597,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,chloride,0.026567332960139606,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,chloride,2.656759863612597e-07,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,fluoride,0.05352175141457361,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,fluoride,0.05633812231269418,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,fluoride,1.0704350282914717e-05,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,fluoride,0.0011972522168381015,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,fluoride,0.0011972402443159332,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,fluoride,1.1972522168381015e-08,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,hardness,0.9366308122318645,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,hardness,0.9859173114986761,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,hardness,0.00018732616244637282,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,hardness,0.020951917429184244,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,hardness,0.020951707910009953,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,hardness,2.0951917429184248e-07,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,magnesium,0.04842447106558796,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,magnesium,0.05097261770618664,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,magnesium,9.684894213117587e-06,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,magnesium,0.0010832288518252998,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,magnesium,0.0010832180195367816,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,magnesium,1.0832288518252999e-08,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,nitrate_as_nitrogen,0.22810461805104254,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,nitrate_as_nitrogen,0.24010772316301268,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,nitrate_as_nitrogen,4.562092361020848e-05,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,nitrate_as_nitrogen,0.0051025751664444995,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,nitrate_as_nitrogen,0.005102524140692836,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,nitrate_as_nitrogen,5.1025751664445e-08,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,potassium,0.10194619826792858,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,potassium,0.10731071453257464,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,potassium,2.0389239653585707e-05,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,potassium,0.002280480527049032,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,potassium,0.002280457722243762,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,potassium,2.2804805270490326e-08,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,sodium,1.8592435902683961,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,sodium,1.9570789450868353,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,sodium,0.00037184871805367905,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,sodium,0.041590259123783974,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,sodium,0.04158984322119274,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,sodium,4.159025912378398e-07,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,strontium,0.004842446596827576,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,strontium,0.005097261234064851,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,strontium,9.684893193655147e-07,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,strontium,0.00010832287378012223,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,strontium,0.00010832179055138444,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,strontium,1.0832287378012224e-09,Waste Constituent Total Mass,kg,irwin,baseline
+microfiltration,sulfate,1.4578308770988428,Inlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,sulfate,1.5345434724106022,Outlet Constituent Density,kg/m3,irwin,baseline
+microfiltration,sulfate,0.00029156617541976844,Waste Constituent Density,kg/m3,irwin,baseline
+microfiltration,sulfate,0.03261087694724364,Inlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,sulfate,0.032610550838474174,Outlet Constituent Total Mass,kg,irwin,baseline
+microfiltration,sulfate,3.2610876947243647e-07,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,Electricity Intensity Unit Inlet,0.8332986156222237,Electricity,kwh/m3,irwin,baseline
+reverse_osmosis,Electricity Intensity System Treated,0.06319510321207528,Electricity,kwh/m3,irwin,baseline
+reverse_osmosis,Unit Levelized Cost,0.03393929480727542,LCOW,$/m3,irwin,baseline
+reverse_osmosis,Fixed Capital Investment (FCI),1.790805478747096,Cost,$MM,irwin,baseline
+reverse_osmosis,Land,0.0026862082181206438,Cost,$MM,irwin,baseline
+reverse_osmosis,Working Capital,0.08954027393735481,Cost,$MM,irwin,baseline
+reverse_osmosis,Total Capital Investment (TCI),1.8830319609025714,Cost,$MM,irwin,baseline
+reverse_osmosis,Catalysts and Chemicals,0.01790805478747096,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Electricity,0.07483262920134008,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Other Operating,0.0596107215298476,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Employee Salaries,0.0009443715680211037,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Benefits,0.0008499344112189934,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Maintenance,0.014326443829976767,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Laboratory,0.0053724164362412875,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Insurance and Taxes,0.003581610957494192,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Total Fixed Operating ,0.025074777202952342,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Base Employee Salary,0.0007523583310491806,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Electricity,0.07483262920134008,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Annual O&M Costs,0.17742618272161098,Annual Cost,$MM/yr,irwin,baseline
+reverse_osmosis,Inlet Water,0.02125097882515281,Water Flow,m3/s,irwin,baseline
+reverse_osmosis,Outlet Water,0.017754457930704806,Water Flow,m3/s,irwin,baseline
+reverse_osmosis,Waste Water,0.003545673389185442,Water Flow,m3/s,irwin,baseline
+reverse_osmosis,tds,7.484928926186535,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,tds,0.7605063297900895,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,tds,41.05276276259354,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,tds,0.15906206611816381,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,tds,0.013502377638292859,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,tds,0.14555968847987094,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,nitrate,0.24010772316301265,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,nitrate,0.28739109554153947,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,nitrate,1.4390846478572728e-05,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,nitrate,0.005102524140692835,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,nitrate,0.005102473115451428,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,nitrate,5.102524140692835e-08,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,arsenic,0.00029912875136749,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,arsenic,0.00035803487880775706,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,arsenic,1.7928269368220886e-08,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,arsenic,6.3567787613049295e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,arsenic,6.356715193517316e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,arsenic,6.356778761304929e-11,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,barium,0.0002669355225207646,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,barium,0.0003195019770526621,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,barium,1.599876952590115e-08,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,barium,5.67264113676987e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,barium,5.672584410358502e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,barium,5.67264113676987e-11,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,bicarbonate_alkalinity_as_caco3,1.989272919743362,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,bicarbonate_alkalinity_as_caco3,0.058987776377483064,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,bicarbonate_alkalinity_as_caco3,11.627326088900528,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,bicarbonate_alkalinity_as_caco3,0.04227399669491609,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,bicarbonate_alkalinity_as_caco3,0.0010472959941198459,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,bicarbonate_alkalinity_as_caco3,0.041226700700796245,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,calcium,0.05908190895368771,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,calcium,0.001751951880873418,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,calcium,0.34533452626896705,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,calcium,0.0012555483961244238,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,calcium,3.110495596558626e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,calcium,0.0012244434401588375,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,chloride,1.2501698476445857,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,chloride,0.0370712025860407,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,chloride,7.307259019516542,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,chloride,0.026567332960139606,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,chloride,0.0006581791067544948,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,chloride,0.02590915385338511,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,fluoride,0.05633812231269418,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,fluoride,0.0016705905597595026,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,fluoride,0.32929705766595774,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,fluoride,0.0011972402443159332,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,fluoride,2.9660429812682682e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,fluoride,0.0011675798145032504,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,hardness,0.9859173114986761,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,hardness,1.1800697309207644,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,hardness,5.90909133760435e-05,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,hardness,0.020951707910009953,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,hardness,0.020951498392930853,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,hardness,2.0951707910009953e-07,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,magnesium,0.05097261770618664,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,magnesium,0.001511487611772939,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,magnesium,0.29793561345577385,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,magnesium,0.0010832180195367816,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,magnesium,2.6835643216004124e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,magnesium,0.0010563823763207775,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,nitrate_as_nitrogen,0.24010772316301268,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,nitrate_as_nitrogen,0.28739109554153947,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,nitrate_as_nitrogen,1.439084647857273e-05,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,nitrate_as_nitrogen,0.005102524140692836,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,nitrate_as_nitrogen,0.005102473115451428,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,nitrate_as_nitrogen,5.1025241406928355e-08,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,potassium,0.10731071453257464,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,potassium,0.0031820774157887075,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,potassium,0.6272325221539404,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,potassium,0.002280457722243762,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,potassium,5.649605961086647e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,potassium,0.0022239616626328947,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,sodium,1.9570789450868353,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,sodium,0.0580331306077179,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,sodium,11.439151888309928,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,sodium,0.04158984322119274,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,sodium,0.0010303467759618249,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,sodium,0.040559496445230915,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,strontium,0.005097261234064851,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,strontium,0.00015114874526690018,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,strontium,0.029793558209413366,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,strontium,0.00010832179055138444,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,strontium,2.6835640391199963e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,strontium,0.00010563822651226445,Waste Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,sulfate,1.5345434724106022,Inlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,sulfate,0.04550371459526092,Outlet Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,sulfate,8.969426554911177,Waste Constituent Density,kg/m3,irwin,baseline
+reverse_osmosis,sulfate,0.032610550838474174,Inlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,sulfate,0.0008078937864723582,Outlet Constituent Total Mass,kg,irwin,baseline
+reverse_osmosis,sulfate,0.03180265705200182,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,Electricity Intensity Unit Inlet,0.3071959581294095,Electricity,kwh/m3,irwin,baseline
+municipal_drinking,Electricity Intensity System Treated,0.3074371100309122,Electricity,kwh/m3,irwin,baseline
+municipal_drinking,Unit Levelized Cost,0.047562410806755134,LCOW,$/m3,irwin,baseline
+municipal_drinking,Fixed Capital Investment (FCI),0.6831033386651956,Cost,$MM,irwin,baseline
+municipal_drinking,Land,0.0010246550079977934,Cost,$MM,irwin,baseline
+municipal_drinking,Working Capital,0.03415516693325978,Cost,$MM,irwin,baseline
+municipal_drinking,Total Capital Investment (TCI),0.7182831606064531,Cost,$MM,irwin,baseline
+municipal_drinking,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Electricity,0.3640523725464667,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Employee Salaries,0.0003415516693325978,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Benefits,0.00030739650239933804,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Maintenance,0.005464826709321565,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Laboratory,0.0020493100159955867,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Insurance and Taxes,0.0013662066773303912,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Total Fixed Operating ,0.009529291574379479,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Base Employee Salary,0.0003415516693291823,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Electricity,0.3640523725464667,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Annual O&M Costs,0.3735816641208462,Annual Cost,$MM/yr,irwin,baseline
+municipal_drinking,Inlet Water,0.280246116450022,Water Flow,m3/s,irwin,baseline
+municipal_drinking,Outlet Water,0.28021809183837704,Water Flow,m3/s,irwin,baseline
+municipal_drinking,Waste Water,2.8024611644972275e-05,Water Flow,m3/s,irwin,baseline
+municipal_drinking,tds,0.1824490265305218,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,tds,0.18246544858511501,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,tds,0.01824490265307167,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,tds,0.05113063113526577,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,tds,0.05113011982895442,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,tds,5.113063113526578e-07,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,nitrate,0.02064837438340328,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,nitrate,0.020650232922951737,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,nitrate,0.0020648374383425328,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,nitrate,0.005786626731954887,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,nitrate,0.0057865688656875665,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,nitrate,5.786626731954886e-08,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,arsenic,2.5429024689866135e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,arsenic,2.543131353097233e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,arsenic,2.5429024689893293e-06,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,arsenic,7.12638541444671e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,arsenic,7.126314150592565e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,arsenic,7.12638541444671e-11,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,barium,2.034315689029032e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,barium,2.0344987957517164e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,barium,2.034315689031204e-06,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,barium,5.701090714837368e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,barium,5.701033703930219e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,barium,5.701090714837368e-11,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,bicarbonate_alkalinity_as_caco3,0.034557886933537806,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,bicarbonate_alkalinity_as_caco3,0.034560997454413905,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,bicarbonate_alkalinity_as_caco3,0.0034557886933574713,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,bicarbonate_alkalinity_as_caco3,0.00968471360584293,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,bicarbonate_alkalinity_as_caco3,0.00968461675870687,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,bicarbonate_alkalinity_as_caco3,9.684713605842931e-08,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,calcium,0.00046238254033338194,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,calcium,0.00046242415892387093,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,calcium,4.6238254033387574e-05,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,calcium,0.00012958091124272596,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,calcium,0.00012957961543361352,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,calcium,1.2958091124272596e-09,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,chloride,0.01394456175301393,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,chloride,0.013945816889085309,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,chloride,0.0013944561753028823,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,chloride,0.003907909276879665,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,chloride,0.003907870197786896,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,chloride,3.9079092768796655e-08,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,fluoride,0.0010213085996712372,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,fluoride,0.0010214005266379043,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,fluoride,0.0001021308599672328,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,fluoride,0.00028621776875487444,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,fluoride,0.00028621490657718693,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,fluoride,2.862177687548745e-09,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,hardness,0.08086421960183468,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,hardness,0.08087149810944959,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,hardness,0.008086421960192103,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,hardness,0.022661883503175915,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,hardness,0.02266165688434088,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,hardness,2.2661883503175914e-07,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,magnesium,0.0005026322893982812,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,magnesium,0.0005026775308284699,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,magnesium,5.02632289398818e-05,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,magnesium,0.00014086074710625187,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,magnesium,0.00014085933849878078,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,magnesium,1.408607471062519e-09,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,nitrate_as_nitrogen,0.020648374383403275,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,nitrate_as_nitrogen,0.020650232922951733,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,nitrate_as_nitrogen,0.0020648374383425328,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,nitrate_as_nitrogen,0.005786626731954886,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,nitrate_as_nitrogen,0.005786568865687566,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,nitrate_as_nitrogen,5.786626731954886e-08,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,potassium,0.0011170674909368617,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,potassium,0.001117168037065659,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,potassium,0.00011170674909380548,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,potassium,0.00031305382614762566,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,potassium,0.0003130506956093642,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,potassium,3.130538261476257e-09,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,sodium,0.025953082787009814,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,sodium,0.02595541879806175,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,sodium,0.002595308278703753,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,sodium,0.007273250660965414,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,sodium,0.007273177928458805,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,sodium,7.273250660965415e-08,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,strontium,2.9919504473806342e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,strontium,2.992219749851145e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,strontium,2.9919504473838294e-06,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,strontium,8.384824934893287e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,strontium,8.384741086643937e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,strontium,8.384824934893287e-11,Waste Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,sulfate,0.01254612203391821,Inlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,sulfate,0.012547251297827654,Outlet Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,sulfate,0.0012546122033931608,Waste Constituent Density,kg/m3,irwin,baseline
+municipal_drinking,sulfate,0.00351600197651363,Inlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,sulfate,0.003515966816493865,Outlet Constituent Total Mass,kg,irwin,baseline
+municipal_drinking,sulfate,3.51600197651363e-08,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,Electricity Intensity Unit Inlet,0.10239865270980315,Electricity,kwh/m3,irwin,baseline
+irwin_brine_management,Electricity Intensity System Treated,0.001705562206701289,Electricity,kwh/m3,irwin,baseline
+irwin_brine_management,Unit Levelized Cost,0.5002483389050801,LCOW,$/m3,irwin,baseline
+irwin_brine_management,Fixed Capital Investment (FCI),53.6562336240457,Cost,$MM,irwin,baseline
+irwin_brine_management,Land,0.08048435043606855,Cost,$MM,irwin,baseline
+irwin_brine_management,Working Capital,2.682811681202285,Cost,$MM,irwin,baseline
+irwin_brine_management,Total Capital Investment (TCI),56.419529655684045,Cost,$MM,irwin,baseline
+irwin_brine_management,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Electricity,0.0020196454742004303,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Employee Salaries,0.026816515407738672,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Benefits,0.024134863866964805,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Maintenance,0.4292498689923656,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Laboratory,0.1609687008721371,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Insurance and Taxes,0.1073124672480914,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Total Fixed Operating ,0.7484824163872976,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Base Employee Salary,0.026398770020799288,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Electricity,0.0020196454742004303,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Annual O&M Costs,0.750502061861498,Annual Cost,$MM/yr,irwin,baseline
+irwin_brine_management,Inlet Water,0.004664145958930328,Water Flow,m3/s,irwin,baseline
+irwin_brine_management,Outlet Water,0.004663679544334435,Water Flow,m3/s,irwin,baseline
+irwin_brine_management,Waste Water,4.6641459589338857e-07,Water Flow,m3/s,irwin,baseline
+irwin_brine_management,tds,31.208560023241947,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,tds,31.21136907454917,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,tds,3.120856002321815,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,tds,0.1455612791164385,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,tds,0.14555982350364735,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,tds,1.4556127911643856e-06,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,nitrate,2.1879888401858174e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,nitrate,2.1881857788753032e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,nitrate,2.187988840184149e-06,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,nitrate,1.0205099307137336e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,nitrate,1.0204997256144264e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,nitrate,1.0205099307137337e-12,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,arsenic,2.7258197326974072e-08,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,arsenic,2.726065081008181e-08,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,arsenic,2.7258197326953286e-09,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,arsenic,1.2713621091033158e-10,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,arsenic,1.2713493954822247e-10,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,arsenic,1.271362109103316e-15,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,barium,2.4324579677434256e-08,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,barium,2.432676910854834e-08,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,barium,2.4324579677415706e-09,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,barium,1.1345339000518377e-10,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,barium,1.1345225547128372e-10,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,barium,1.1345339000518378e-15,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,bicarbonate_alkalinity_as_caco3,8.839158081246161,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,bicarbonate_alkalinity_as_caco3,8.839953685033853,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,bicarbonate_alkalinity_as_caco3,0.883915808123942,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,bicarbonate_alkalinity_as_caco3,0.04122712344499064,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,bicarbonate_alkalinity_as_caco3,0.04122671117375619,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,bicarbonate_alkalinity_as_caco3,4.1227123444990637e-07,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,calcium,0.26252523110343884,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,calcium,0.2625488607372016,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,calcium,0.02625252311032386,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,calcium,0.0012244559957683547,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,calcium,0.0012244437512083971,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,calcium,1.2244559957683548e-08,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,chloride,5.555019023314082,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,chloride,5.555519025026352,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,chloride,0.5555019023309845,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,chloride,0.025909419529371473,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,chloride,0.02590916043517618,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,chloride,2.5909419529371476e-07,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,fluoride,0.25033345810927266,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,fluoride,0.25035599037372896,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,fluoride,0.025033345810908172,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,fluoride,0.0011675917870254187,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,fluoride,0.0011675801111075484,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,fluoride,1.1675917870254187e-08,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,hardness,8.984201118098018e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,hardness,8.985009777064544e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,hardness,8.984201118091166e-06,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,hardness,4.190362533919421e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,hardness,4.190320630294081e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,hardness,4.1903625339194205e-12,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,magnesium,0.2264923134720184,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,magnesium,0.22651269981886557,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,magnesium,0.022649231347184565,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,magnesium,0.0010563932086092957,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,magnesium,0.0010563826446772096,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,magnesium,1.0563932086092957e-08,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,nitrate_as_nitrogen,2.1879888401858174e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,nitrate_as_nitrogen,2.1881857788753035e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,nitrate_as_nitrogen,2.187988840184149e-06,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,nitrate_as_nitrogen,1.0205099307137336e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,nitrate_as_nitrogen,1.0204997256144266e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,nitrate_as_nitrogen,1.0205099307137337e-12,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,potassium,0.4768256583351462,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,potassium,0.47686857693625645,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,potassium,0.047682565833478255,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,potassium,0.0022239844674381655,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,potassium,0.002223962227593491,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,potassium,2.2239844674381658e-08,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,sodium,8.696107005434309,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,sodium,8.69688973333759,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,sodium,0.8696107005427677,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,sodium,0.04055991234782215,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,sodium,0.040559506748698675,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,sodium,4.0559912347822154e-07,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,strontium,0.02264922896307248,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,strontium,0.022651267597542605,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,strontium,0.0022649228963055206,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,strontium,0.00010563930974100225,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,strontium,0.00010563825334790484,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,strontium,1.0563930974100227e-09,Waste Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,sulfate,6.818608045461975,Inlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,sulfate,6.819221781559676,Outlet Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,sulfate,0.6818608045456774,Waste Constituent Density,kg/m3,irwin,baseline
+irwin_brine_management,sulfate,0.03180298316077129,Inlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,sulfate,0.031802665130939684,Outlet Constituent Total Mass,kg,irwin,baseline
+irwin_brine_management,sulfate,3.1802983160771297e-07,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,Electricity Intensity Unit Inlet,0.10239865270980313,Electricity,kwh/m3,irwin,baseline
+surface_discharge,Electricity Intensity System Treated,7.071491076900927e-05,Electricity,kwh/m3,irwin,baseline
+surface_discharge,Unit Levelized Cost,8.337517040046553e-05,LCOW,$/m3,irwin,baseline
+surface_discharge,Fixed Capital Investment (FCI),0.00792997049031038,Cost,$MM,irwin,baseline
+surface_discharge,Land,1.1894955735465571e-05,Cost,$MM,irwin,baseline
+surface_discharge,Working Capital,0.00039649852451551903,Cost,$MM,irwin,baseline
+surface_discharge,Total Capital Investment (TCI),0.008338363970561365,Cost,$MM,irwin,baseline
+surface_discharge,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Electricity,8.373722689912422e-05,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Other Operating,0.0,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Employee Salaries,3.96498524515519e-06,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Benefits,3.568486720639671e-06,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Maintenance,6.343976392248305e-05,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Laboratory,2.3789911470931143e-05,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Insurance and Taxes,1.5859940980620763e-05,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Total Fixed Operating ,0.00011062308833982982,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Base Employee Salary,3.96498524511554e-06,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Electricity,8.373722689912422e-05,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Annual O&M Costs,0.00019436031523895406,Annual Cost,$MM/yr,irwin,baseline
+surface_discharge,Inlet Water,0.0001933817857850545,Water Flow,m3/s,irwin,baseline
+surface_discharge,Outlet Water,0.00019336244760647598,Water Flow,m3/s,irwin,baseline
+surface_discharge,Waste Water,1.933817857851182e-08,Water Flow,m3/s,irwin,baseline
+surface_discharge,tds,0.06925510353170392,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,tds,0.06926133711438004,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,tds,0.006925510353168112,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,tds,1.3392675595689738e-05,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,tds,1.339254166893378e-05,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,tds,1.339267559568974e-10,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,nitrate,0.0020593728691903623,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,nitrate,0.002059558231284799,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,nitrate,0.00020593728691896835,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,nitrate,3.982452030413237e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,nitrate,3.982412205892933e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,nitrate,3.982452030413236e-12,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,arsenic,2.5399423755749496e-06,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,arsenic,2.5401709932505193e-06,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,arsenic,2.5399423755741134e-07,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,arsenic,4.911785923798173e-10,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,arsenic,4.911736805938936e-10,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,arsenic,4.911785923798174e-15,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,barium,2.06232024907344e-06,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,barium,2.0625058764585954e-06,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,barium,2.0623202490727607e-07,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,barium,3.9881517262650024e-10,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,barium,3.9881118447477396e-10,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,barium,3.988151726265003e-15,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,bicarbonate_alkalinity_as_caco3,0.017983032446979012,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,bicarbonate_alkalinity_as_caco3,0.017984651081762715,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,bicarbonate_alkalinity_as_caco3,0.001798303244697309,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,bicarbonate_alkalinity_as_caco3,3.47759092842738e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,bicarbonate_alkalinity_as_caco3,3.4775561525180946e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,bicarbonate_alkalinity_as_caco3,3.4775909284273806e-11,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,calcium,0.000485058848941549,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,calcium,0.00048510250860392005,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,calcium,4.8505884894138925e-05,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,calcium,9.380154641915974e-08,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,calcium,9.380060840369556e-08,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,calcium,9.380154641915976e-13,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,chloride,0.010625597041199702,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,chloride,0.010626553440573347,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,chloride,0.00106255970411962,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,chloride,2.0547969308595897e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,chloride,2.054776382890281e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,chloride,2.0547969308595896e-11,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,fluoride,0.0005130006753429404,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,fluoride,0.0005130468500211891,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,fluoride,5.130006753427715e-05,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,fluoride,9.92049867067568e-08,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,fluoride,9.920399465688973e-08,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,fluoride,9.92049867067568e-13,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,hardness,0.008115136486717705,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,hardness,0.008115866922045042,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,hardness,0.0008115136486715032,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,hardness,1.5693195856909228e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,hardness,1.5693038924950659e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,hardness,1.569319585690923e-11,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,magnesium,0.00042750043969475737,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,magnesium,0.0004275389185822187,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,magnesium,4.275004396946166e-05,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,magnesium,8.267079845206818e-08,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,magnesium,8.266997174408366e-08,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,magnesium,8.267079845206819e-13,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,nitrate_as_nitrogen,0.002059372869190362,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,nitrate_as_nitrogen,0.002059558231284799,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,nitrate_as_nitrogen,0.00020593728691896835,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,nitrate_as_nitrogen,3.9824520304132364e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,nitrate_as_nitrogen,3.982412205892933e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,nitrate_as_nitrogen,3.982452030413236e-12,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,potassium,0.0009051215785281235,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,potassium,0.0009052030476171001,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,potassium,9.051215785278254e-05,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,potassium,1.7503402720835594e-07,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,potassium,1.750322768680839e-07,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,potassium,1.7503402720835598e-12,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,sodium,0.016992406627605147,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,sodium,0.016993936097148585,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,sodium,0.0016992406627599549,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,sodium,3.286021938432079e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,sodium,3.285989078212694e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,sodium,3.2860219384320786e-11,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,strontium,4.098106795474907e-05,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,strontium,4.0984756619731494e-05,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,strontium,4.0981067954735575e-06,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,strontium,7.924992104468046e-09,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,strontium,7.924912854547001e-09,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,strontium,7.924992104468047e-14,Waste Constituent Total Mass,kg,irwin,baseline
+surface_discharge,sulfate,0.012645166493607852,Inlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,sulfate,0.012646304672410158,Outlet Constituent Density,kg/m3,irwin,baseline
+surface_discharge,sulfate,0.0012645166493603687,Waste Constituent Density,kg/m3,irwin,baseline
+surface_discharge,sulfate,2.4453448780832223e-06,Inlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,sulfate,2.4453204246344413e-06,Outlet Constituent Total Mass,kg,irwin,baseline
+surface_discharge,sulfate,2.4453448780832226e-11,Waste Constituent Total Mass,kg,irwin,baseline
+System,System Total Capital Investment (TCI),119.00708259131524,Cost,$MM,irwin,baseline
+System,System Catalysts and Chemicals,9.654942486476768,Cost,$MM,irwin,baseline
+System,System Electricity,24.677533823201465,Cost,$MM,irwin,baseline
+System,System Other Variable Operating,1.788321645895428,Cost,$MM,irwin,baseline
+System,System Fixed Operating,47.3061459268327,Cost,$MM,irwin,baseline
+System,System Total Operating,83.42694388240636,Cost,$MM,irwin,baseline
+System,System Catalysts and Chemicals,0.3218314162158923,Annual Cost,$MM/yr,irwin,baseline
+System,System Electricity,0.8225844607733822,Annual Cost,$MM/yr,irwin,baseline
+System,Other Variable O&M,0.0596107215298476,Annual Cost,$MM/yr,irwin,baseline
+System,System Fixed O&M,1.5768715308944232,Annual Cost,$MM/yr,irwin,baseline
+System,System Total Operating Cost,2.7808981294135453,Annual Cost,$MM/yr,irwin,baseline
+System,TCI LCOW,0.8760460026359106,LCOW,$/m3,irwin,baseline
+System,Electricity LCOW,0.09308457554998167,LCOW,$/m3,irwin,baseline
+System,Fixed Operating LCOW,0.178440542156795,LCOW,$/m3,irwin,baseline
+System,Other O&M LCOW,0.04316441798032174,LCOW,$/m3,irwin,baseline
+System,Electricity Intensity System Treated,83.42694388240636,Electricity,kwh/m3,irwin,baseline
+System,System Levelized Cost,1.190735538323009,LCOW,$/m3,irwin,baseline
+System,Electricity Fraction of LCOW,1.190735538323009,LCOW,$/m3,irwin,baseline
+System,Electricity Intensity,0.6946610115670273,Electricity,kwh/m3,irwin,baseline
+System,Water Recovery,98.29351165743908,Water Recovery,%,irwin,baseline
