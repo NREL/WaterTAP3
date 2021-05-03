@@ -1,0 +1,1687 @@
+Unit Process Name,Variable,Value,Metric,Unit,Case Study,Scenario
+onsite_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,big_spring,dwi_a
+onsite_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,big_spring,dwi_a
+onsite_storage,Unit Levelized Cost,0.061901220690987996,LCOW,$/m3,big_spring,dwi_a
+onsite_storage,Fixed Capital Investment (FCI),1.5595897850066665,Cost,$MM,big_spring,dwi_a
+onsite_storage,Land,0.00233938467751,Cost,$MM,big_spring,dwi_a
+onsite_storage,Working Capital,0.07797948925033332,Cost,$MM,big_spring,dwi_a
+onsite_storage,Total Capital Investment (TCI),1.6399086589345098,Cost,$MM,big_spring,dwi_a
+onsite_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Electricity,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Other Operating,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Employee Salaries,0.0008224412244745206,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Benefits,0.0007401971020270686,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Maintenance,0.012476718280053332,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Laboratory,0.00467876935502,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Insurance and Taxes,0.003119179570013333,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Total Fixed Operating ,0.021837305531588254,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Base Employee Salary,0.0006552193310185163,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Electricity,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Annual O&M Costs,0.021837305531588254,Annual Cost,$MM/yr,big_spring,dwi_a
+onsite_storage,Inlet Water,0.075,Water Flow,m3/s,big_spring,dwi_a
+onsite_storage,Outlet Water,0.0749925,Water Flow,m3/s,big_spring,dwi_a
+onsite_storage,Waste Water,7.499999999993623e-06,Water Flow,m3/s,big_spring,dwi_a
+onsite_storage,bromide,1e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,bromide,1.0000900090009e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,bromide,1.0000000000008503e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,bromide,7.5e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,bromide,7.499925e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,bromide,7.5e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,calcium,0.08045,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,calcium,0.0804572412241224,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,calcium,0.00804500000000684,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,calcium,0.006033749999999999,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,calcium,0.006033689662499999,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,calcium,6.03375e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,chloride,0.29792,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,chloride,0.29794681548154817,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,chloride,0.029792000000025333,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,chloride,0.022344,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,chloride,0.02234377656,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,chloride,2.2344000000000002e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,fluoride,0.00097,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,fluoride,0.0009700873087308732,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,fluoride,9.700000000008248e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,fluoride,7.275e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,fluoride,7.274927250000001e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,fluoride,7.275e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,magnesium,0.02701,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,magnesium,0.02701243114311431,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,magnesium,0.0027010000000022966,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,magnesium,0.0020257499999999998,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,magnesium,0.0020257297425,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,magnesium,2.02575e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,potassium,0.01897,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,potassium,0.018971707470747074,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,potassium,0.001897000000001613,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,potassium,0.00142275,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,potassium,0.0014227357725,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,potassium,1.4227500000000001e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,silicon,0.02104,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,silicon,0.021041893789378936,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,silicon,0.002104000000001789,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,silicon,0.001578,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,silicon,0.00157798422,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,silicon,1.578e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,sodium,0.23158,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,sodium,0.23160084428442843,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,sodium,0.02315800000001969,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,sodium,0.0173685,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,sodium,0.017368326314999998,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,sodium,1.73685e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,sulfate,0.188,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,sulfate,0.18801692169216921,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,sulfate,0.018800000000015984,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,sulfate,0.0141,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,sulfate,0.014099859000000001,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,sulfate,1.41e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,tds,2.257,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,tds,2.2572031503150316,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,tds,0.22570000000019194,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,tds,0.169275,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,tds,0.16927330725,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,tds,1.6927500000000002e-06,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,toc,0.00953,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,toc,0.009530857785778578,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,toc,0.0009530000000008103,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,toc,0.00071475,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,toc,0.0007147428525,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,toc,7.1475e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,tss,0.00653,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,tss,0.006530587758775876,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,tss,0.0006530000000005553,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,tss,0.00048975,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,tss,0.0004897451024999999,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,tss,4.8975000000000005e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,bod,0.0,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,bod,2.698802673467014e-79,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,bod,0.0,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,bod,0.0,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,bod,2.0238995948997505e-80,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,bod,0.0,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,total_coliforms_fecal_ecoli,294.19623,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,total_coliforms_fecal_ecoli,294.2227103087309,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,total_coliforms_fecal_ecoli,29.419623000025016,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,total_coliforms_fecal_ecoli,22.06471725,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,total_coliforms_fecal_ecoli,22.0644966028275,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,total_coliforms_fecal_ecoli,0.00022064717250000002,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrate,0.0,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrate,2.698802673467014e-79,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrate,0.0,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrate,0.0,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrate,2.0238995948997505e-80,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrate,0.0,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,boron,0.0004,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,boron,0.00040003600360036,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,boron,4.000000000003401e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,boron,3e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,boron,2.99997e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,boron,3e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,selenium,1.06e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,selenium,1.0600954095409542e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,selenium,1.0600000000009014e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,selenium,7.95e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,selenium,7.9499205e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,selenium,7.95e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,aluminum,6.16e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,aluminum,6.160554455445544e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,aluminum,6.160000000005238e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,aluminum,4.62e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,aluminum,4.6199538e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,aluminum,4.62e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,arsenic,5.1e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,arsenic,5.10045904590459e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,arsenic,5.1000000000043364e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,arsenic,3.8249999999999995e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,arsenic,3.82496175e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,arsenic,3.825e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,barium,4.52e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,barium,4.520406840684068e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,barium,4.520000000003844e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,barium,3.39e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,barium,3.3899661e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,barium,3.39e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,chromium,1.9e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,chromium,1.90017101710171e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,chromium,1.9000000000016155e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,chromium,1.425e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,chromium,1.42498575e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,chromium,1.425e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,cyanide_as_free,2.67e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,cyanide_as_free,2.670240324032403e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,cyanide_as_free,2.67000000000227e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,cyanide_as_free,2.0024999999999998e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,cyanide_as_free,2.0024799749999997e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,cyanide_as_free,2.0025e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,electrical_conductivity,0.17,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,electrical_conductivity,0.170015301530153,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,electrical_conductivity,0.01700000000001446,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,electrical_conductivity,0.012750000000000001,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,electrical_conductivity,0.0127498725,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,electrical_conductivity,1.2750000000000002e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,hardness,0.312,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,hardness,0.3120280828082808,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,hardness,0.03120000000002653,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,hardness,0.0234,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,hardness,0.023399766,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,hardness,2.34e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,iron,0.000302,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,iron,0.00030202718271827184,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,iron,3.020000000002568e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,iron,2.265e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,iron,2.2649773500000002e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,iron,2.2650000000000002e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,lead,1e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,lead,1.0000900090009e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,lead,1.0000000000008503e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,lead,7.5e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,lead,7.499925e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,lead,7.5e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,manganese,5.26e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,manganese,5.260473447344733e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,manganese,5.260000000004472e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,manganese,3.9449999999999995e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,manganese,3.944960549999999e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,manganese,3.945e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,mercury,1e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,mercury,1.0000900090009e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,mercury,1.0000000000008503e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,mercury,7.5e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,mercury,7.499925e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,mercury,7.5e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nickel,4.66e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nickel,4.660419441944194e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nickel,4.6600000000039627e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nickel,3.495e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nickel,3.4949650500000003e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nickel,3.4950000000000004e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrate_as_nitrogen,0.00864,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrate_as_nitrogen,0.008640777677767776,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrate_as_nitrogen,0.0008640000000007346,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrate_as_nitrogen,0.000648,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrate_as_nitrogen,0.00064799352,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrate_as_nitrogen,6.48e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrite_as_nitrogen,0.00069,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrite_as_nitrogen,0.000690062106210621,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrite_as_nitrogen,6.900000000005868e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,nitrite_as_nitrogen,5.175e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrite_as_nitrogen,5.17494825e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,nitrite_as_nitrogen,5.175e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,phosphates,0.00052,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,phosphates,0.0005200468046804679,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,phosphates,5.200000000004421e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,phosphates,3.899999999999999e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,phosphates,3.899960999999999e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,phosphates,3.9e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,silver,1e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,silver,1.0000900090009e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,silver,1.0000000000008503e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,silver,7.5e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,silver,7.499925e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,silver,7.5e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,trihalomethanes,3.2e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,trihalomethanes,3.20028802880288e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,trihalomethanes,3.2000000000027206e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,trihalomethanes,2.4e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,trihalomethanes,2.399976e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,trihalomethanes,2.4e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,turbidity,0.0016,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,turbidity,0.00160014401440144,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,turbidity,0.00016000000000013605,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,turbidity,0.00012,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,turbidity,0.0001199988,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,turbidity,1.2e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,zinc,1.53e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,zinc,1.5301377137713767e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,zinc,1.5300000000013008e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+onsite_storage,zinc,1.1474999999999998e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,zinc,1.1474885249999998e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+onsite_storage,zinc,1.1475e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,Electricity Intensity Unit Inlet,0.307,Electricity,kwh/m3,big_spring,dwi_a
+microfiltration,Electricity Intensity System Treated,0.349947700019907,Electricity,kwh/m3,big_spring,dwi_a
+microfiltration,Unit Levelized Cost,0.2034170125815815,LCOW,$/m3,big_spring,dwi_a
+microfiltration,Fixed Capital Investment (FCI),4.644557359694697,Cost,$MM,big_spring,dwi_a
+microfiltration,Land,0.0069668360395420455,Cost,$MM,big_spring,dwi_a
+microfiltration,Working Capital,0.23222786798473485,Cost,$MM,big_spring,dwi_a
+microfiltration,Total Capital Investment (TCI),4.8837520637189735,Cost,$MM,big_spring,dwi_a
+microfiltration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Electricity,0.039596488785117005,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Other Operating,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Employee Salaries,0.002448297775400552,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Benefits,0.0022034679978604967,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Maintenance,0.03715645887755758,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Laboratory,0.013933672079084091,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Insurance and Taxes,0.009289114719389395,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Total Fixed Operating ,0.06503101144929212,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Base Employee Salary,0.0021395796447385928,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Electricity,0.039596488785117005,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Annual O&M Costs,0.10462750023440912,Annual Cost,$MM/yr,big_spring,dwi_a
+microfiltration,Inlet Water,0.0749925,Water Flow,m3/s,big_spring,dwi_a
+microfiltration,Outlet Water,0.071242875,Water Flow,m3/s,big_spring,dwi_a
+microfiltration,Waste Water,0.0037496250000000064,Water Flow,m3/s,big_spring,dwi_a
+microfiltration,bromide,1.0000900090009e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,bromide,1.0527157980008528e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,bromide,2.0001800180017965e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,bromide,7.499925e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,bromide,7.49985000075e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,bromide,7.499924999999999e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,calcium,0.0804572412241224,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,calcium,0.0846909859491686,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,calcium,1.6091448244824456e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,calcium,0.006033689662499999,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,calcium,0.0060336293256033745,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,calcium,6.0336896625e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,chloride,0.29794681548154817,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,chloride,0.31362509054041404,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,chloride,5.958936309630954e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,chloride,0.02234377656,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,chloride,0.0223435531222344,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,chloride,2.2343776560000004e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,fluoride,0.0009700873087308732,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,fluoride,0.0010211343240608271,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,fluoride,1.9401746174617434e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,fluoride,7.274927250000001e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,fluoride,7.2748545007275e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,fluoride,7.274927250000002e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,magnesium,0.02701243114311431,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,magnesium,0.02843385370400303,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,magnesium,5.402486228622853e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,magnesium,0.0020257297425,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,magnesium,0.002025709485202575,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,magnesium,2.0257297424999998e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,potassium,0.018971707470747074,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,potassium,0.019970018688076175,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,potassium,3.7943414941494088e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,potassium,0.0014227357725,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,potassium,0.001422721545142275,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,potassium,1.4227357725000001e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,silicon,0.021041893789378936,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,silicon,0.02214914038993794,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,silicon,4.2083787578757805e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,silicon,0.00157798422,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,silicon,0.0015779684401577999,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,silicon,1.57798422e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,sodium,0.23160084428442843,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,sodium,0.24378792450103745,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,sodium,4.632016885688561e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,sodium,0.017368326314999998,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,sodium,0.017368152631736848,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,sodium,1.7368326315000001e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,sulfate,0.18801692169216921,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,sulfate,0.19791057002416032,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,sulfate,3.7603384338433785e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,sulfate,0.014099859000000001,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,sulfate,0.01409971800141,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,sulfate,1.4099859000000003e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,tds,2.2572031503150316,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,tds,2.3759795560879247,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,tds,0.00045144063006300557,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,tds,0.16927330725,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,tds,0.1692716145169275,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,tds,1.6927330725000002e-06,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,toc,0.009530857785778578,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,toc,0.009029233691790232,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,toc,0.019061715571557128,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,toc,0.0007147428525,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,toc,0.00064326856725,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,toc,7.147428525000001e-05,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,tss,0.006530587758775876,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,tss,0.00020622908711923787,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,tss,0.1266934025202518,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,tss,0.0004897451024999999,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,tss,1.4692353074999973e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,tss,0.000475052749425,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,bod,2.698802673467014e-79,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,bod,5.397605346934028e-79,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,bod,0.0,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,bod,2.0238995948997505e-80,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,bod,3.845409230309526e-80,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,bod,0.0,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,total_coliforms_fecal_ecoli,294.2227103087309,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,total_coliforms_fecal_ecoli,309.70501903329244,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,total_coliforms_fecal_ecoli,0.05884454206174608,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,total_coliforms_fecal_ecoli,22.0644966028275,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,total_coliforms_fecal_ecoli,22.064275957861472,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,total_coliforms_fecal_ecoli,0.00022064496602827502,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrate,2.698802673467014e-79,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrate,5.397605346934028e-79,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrate,0.0,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrate,2.0238995948997505e-80,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrate,3.845409230309526e-80,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrate,0.0,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,boron,0.00040003600360036,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,boron,0.0004210863192003411,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,boron,8.000720072007187e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,boron,2.99997e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,boron,2.9999400003e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,boron,2.99997e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,selenium,1.0600954095409542e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,selenium,1.115878745880904e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,selenium,2.1201908190819048e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,selenium,7.9499205e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,selenium,7.949841000795e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,selenium,7.949920500000001e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,aluminum,6.160554455445544e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,aluminum,6.484729315685253e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,aluminum,1.2321108910891068e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,aluminum,4.6199538e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,aluminum,4.6199076004619996e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,aluminum,4.6199538e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,arsenic,5.10045904590459e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,arsenic,5.368850569804348e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,arsenic,1.0200918091809164e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,arsenic,3.82496175e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,arsenic,3.8249235003824995e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,arsenic,3.82496175e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,barium,4.520406840684068e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,barium,4.758275406963855e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,barium,9.04081368136812e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,barium,3.3899661e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,barium,3.3899322003390006e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,barium,3.3899661e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,chromium,1.90017101710171e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,chromium,2.0001600162016204e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,chromium,3.800342034203414e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,chromium,1.42498575e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,chromium,1.4249715001425001e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,chromium,1.42498575e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,cyanide_as_free,2.670240324032403e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,cyanide_as_free,2.8107511806622766e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,cyanide_as_free,5.340480648064796e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,cyanide_as_free,2.0024799749999997e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,cyanide_as_free,2.0024599502002498e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,cyanide_as_free,2.0024799749999997e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,electrical_conductivity,0.170015301530153,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,electrical_conductivity,0.17896168566014498,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,electrical_conductivity,3.400306030603055e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,electrical_conductivity,0.0127498725,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,electrical_conductivity,0.012749745001275,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,electrical_conductivity,1.27498725e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,hardness,0.3120280828082808,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,hardness,0.32844732897626605,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,hardness,6.240561656165607e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,hardness,0.023399766,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,hardness,0.02339953200234,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,hardness,2.3399766000000004e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,iron,0.00030202718271827184,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,iron,0.0003179201709962576,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,iron,6.040543654365426e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,iron,2.2649773500000002e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,iron,2.2649547002265002e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,iron,2.26497735e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,lead,1.0000900090009e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,lead,1.0527157980008528e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,lead,2.0001800180017965e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,lead,7.499925e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,lead,7.49985000075e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,lead,7.499924999999999e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,manganese,5.260473447344733e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,manganese,5.5372850974844855e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,manganese,1.0520946894689451e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,manganese,3.944960549999999e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,manganese,3.9449211003945e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,manganese,3.94496055e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,mercury,1.0000900090009e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,mercury,1.0527157980008528e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,mercury,2.0001800180017965e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,mercury,7.499925e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,mercury,7.49985000075e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,mercury,7.499924999999999e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nickel,4.660419441944194e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nickel,4.905655618683974e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nickel,9.320838883888374e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nickel,3.4949650500000003e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nickel,3.4949301003495e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nickel,3.4949650500000004e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrate_as_nitrogen,0.008640777677767776,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrate_as_nitrogen,0.009095464494727368,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrate_as_nitrogen,1.7281555355535523e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrate_as_nitrogen,0.00064799352,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrate_as_nitrogen,0.0006479870400648,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrate_as_nitrogen,6.4799352e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrite_as_nitrogen,0.000690062106210621,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrite_as_nitrogen,0.0007263739006205884,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrite_as_nitrogen,1.38012421242124e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,nitrite_as_nitrogen,5.17494825e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrite_as_nitrogen,5.1748965005175e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,nitrite_as_nitrogen,5.17494825e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,phosphates,0.0005200468046804679,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,phosphates,0.0005474122149604433,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,phosphates,1.0400936093609342e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,phosphates,3.899960999999999e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,phosphates,3.899922000389999e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,phosphates,3.8999609999999994e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,silver,1.0000900090009e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,silver,1.0527157980008528e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,silver,2.0001800180017965e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,silver,7.499925e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,silver,7.49985000075e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,silver,7.499924999999999e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,trihalomethanes,3.20028802880288e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,trihalomethanes,3.368690553602729e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,trihalomethanes,6.40057605760575e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,trihalomethanes,2.399976e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,trihalomethanes,2.39995200024e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,trihalomethanes,2.399976e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,turbidity,0.00160014401440144,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,turbidity,0.0016843452768013645,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,turbidity,3.200288028802875e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,turbidity,0.0001199988,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,turbidity,0.000119997600012,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,turbidity,1.199988e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,zinc,1.5301377137713767e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,zinc,1.6106551709413046e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,zinc,3.0602754275427485e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+microfiltration,zinc,1.1474885249999998e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,zinc,1.1474770501147499e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+microfiltration,zinc,1.1474885249999998e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,Electricity Intensity Unit Inlet,0.8333263840833047,Electricity,kwh/m3,big_spring,dwi_a
+reverse_osmosis,Electricity Intensity System Treated,0.9017915166690416,Electricity,kwh/m3,big_spring,dwi_a
+reverse_osmosis,Unit Levelized Cost,0.19582858840524334,LCOW,$/m3,big_spring,dwi_a
+reverse_osmosis,Fixed Capital Investment (FCI),2.5558077697669432,Cost,$MM,big_spring,dwi_a
+reverse_osmosis,Land,0.003833711654650415,Cost,$MM,big_spring,dwi_a
+reverse_osmosis,Working Capital,0.12779038848834717,Cost,$MM,big_spring,dwi_a
+reverse_osmosis,Total Capital Investment (TCI),2.687431869909941,Cost,$MM,big_spring,dwi_a
+reverse_osmosis,Catalysts and Chemicals,0.025558077697669435,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Electricity,0.10203746923974097,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Other Operating,0.06836478387077055,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Employee Salaries,0.001347791382000898,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Benefits,0.0012130122438008082,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Maintenance,0.020446462158135545,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Laboratory,0.00766742330930083,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Insurance and Taxes,0.005111615539533886,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Total Fixed Operating ,0.035786304632771965,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Base Employee Salary,0.0010737532864204188,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Electricity,0.10203746923974097,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Annual O&M Costs,0.23174663544095292,Annual Cost,$MM/yr,big_spring,dwi_a
+reverse_osmosis,Inlet Water,0.071242875,Water Flow,m3/s,big_spring,dwi_a
+reverse_osmosis,Outlet Water,0.06585378155667014,Water Flow,m3/s,big_spring,dwi_a
+reverse_osmosis,Waste Water,0.005576567140318198,Water Flow,m3/s,big_spring,dwi_a
+reverse_osmosis,bromide,1.0527157980008528e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,bromide,3.063885775436387e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,bromide,1.3087050424651381e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,bromide,7.49985000075e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,bromide,2.017684645701767e-09,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,bromide,7.298081536179821e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,calcium,0.0846909859491686,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,calcium,0.002464896106338586,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,calcium,1.0528532066632035,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,calcium,0.0060336293256033745,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,calcium,0.00016232272974670803,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,calcium,0.005871306595856666,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,chloride,0.31362509054041404,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,chloride,0.009127928502180067,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,chloride,3.89889406251214,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,chloride,0.0223435531222344,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,chloride,0.0006011086096474694,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,chloride,0.021742444512586927,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,fluoride,0.0010211343240608271,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,fluoride,2.9719692021733267e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,fluoride,0.01269443891191184,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,fluoride,7.2748545007275e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,fluoride,1.957154106330735e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,fluoride,7.079139090094427e-05,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,magnesium,0.02843385370400303,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,magnesium,0.0008275555479453658,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,magnesium,0.3534812319698339,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,magnesium,0.002025709485202575,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,magnesium,5.4497662280404587e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,magnesium,0.00197121182292217,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,potassium,0.019970018688076175,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,potassium,0.0005812191316002835,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,potassium,0.24826134655563672,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,potassium,0.001422721545142275,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,potassium,3.8275477728962585e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,potassium,0.0013844460674133122,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,silicon,0.02214914038993794,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,silicon,0.0006446415671518153,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,silicon,0.2753515409346651,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,silicon,0.0015779684401577999,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,silicon,4.245208494556515e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,silicon,0.0015355163552122344,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,sodium,0.24378792450103745,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,sodium,0.007095346678755612,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,sodium,3.030699137340767,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,sodium,0.017368152631736848,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,sodium,0.0004672554102516171,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,sodium,0.01690089722148523,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,sulfate,0.19791057002416032,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,sulfate,0.005760105257820403,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,sulfate,2.46036547983446,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,sulfate,0.01409971800141,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,sulfate,0.00037932471339193196,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,sulfate,0.013720393288018067,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,tds,2.3759795560879247,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,tds,0.1499836757509079,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,tds,28.582928939301848,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,tds,0.1692716145169275,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,tds,0.009876992219966733,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,tds,0.15939462229696078,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,toc,0.009029233691790232,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,toc,0.0009768134069817057,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,toc,0.1038168636649761,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,toc,0.00064326856725,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,toc,6.432685672499998e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,toc,0.000578941710525,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,tss,0.00020622908711923787,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,tss,2.231056854701159e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,tss,0.0026320243893069076,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,tss,1.4692353074999973e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,tss,1.4692353075000167e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,tss,1.4677660721924974e-05,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,bod,5.397605346934028e-79,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,bod,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,bod,-9.723461371658034e-63,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,bod,3.845409230309526e-80,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,bod,-4.098090887320886e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,bod,-5.422353517534151e-65,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,total_coliforms_fecal_ecoli,309.70501903329244,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,total_coliforms_fecal_ecoli,335.0461400020708,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,total_coliforms_fecal_ecoli,0.03956605453261429,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,total_coliforms_fecal_ecoli,22.064275957861472,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,total_coliforms_fecal_ecoli,22.06405531510189,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,total_coliforms_fecal_ecoli,0.00022064275957861475,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrate,5.397605346934028e-79,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrate,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrate,-9.723461371658034e-63,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrate,3.845409230309526e-80,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrate,-4.098090887320886e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrate,-5.422353517534151e-65,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,boron,0.0004210863192003411,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,boron,0.00045554103803719146,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,boron,5.3795460985498397e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,boron,2.9999400003e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,boron,2.999910000899997e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,boron,2.9999400003e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,selenium,1.115878745880904e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,selenium,1.2071837507985572e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,selenium,1.4255797161157076e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,selenium,7.949841000795e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,selenium,7.949761502384991e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,selenium,7.949841000795001e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,aluminum,6.484729315685253e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,aluminum,7.015331985772747e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,aluminum,8.284500991766755e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,aluminum,4.6199076004619996e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,aluminum,4.6198614013859947e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,aluminum,4.619907600462001e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,arsenic,5.368850569804348e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,arsenic,5.80814823497419e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,arsenic,6.858921275651045e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,arsenic,3.8249235003824995e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,arsenic,3.8248852511474955e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,arsenic,3.8249235003825e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,barium,4.758275406963855e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,barium,5.147613729820263e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,barium,6.078887091361319e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,barium,3.3899322003390006e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,barium,3.3898983010169966e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,barium,3.389932200339e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,chromium,2.0001600162016204e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,chromium,2.1638199306766593e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,chromium,2.555284396811174e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,chromium,1.4249715001425001e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,chromium,1.4249572504274985e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,chromium,1.4249715001425e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,cyanide_as_free,2.8107511806622766e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,cyanide_as_free,3.0407364288982526e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,cyanide_as_free,3.5908470207820176e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,cyanide_as_free,2.0024599502002498e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,cyanide_as_free,2.0024399256007478e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,cyanide_as_free,2.00245995020025e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,electrical_conductivity,0.17896168566014498,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,electrical_conductivity,0.19360494116580637,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,electrical_conductivity,2.286307091883682e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,electrical_conductivity,0.012749745001275,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,electrical_conductivity,0.012749617503824986,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,electrical_conductivity,1.2749745001275e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,hardness,0.32844732897626605,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,hardness,0.35532200966900934,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,hardness,4.196045956868875e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,hardness,0.02339953200234,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,hardness,0.023399298007019977,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,hardness,2.3399532002340002e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,iron,0.0003179201709962576,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,iron,0.0003439334837180796,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,iron,4.06155730440513e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,iron,2.2649547002265002e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,iron,2.264932050679498e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,iron,2.2649547002265007e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,lead,1.0527157980008528e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,lead,1.1388525950929785e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,lead,1.34488652463746e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,lead,7.49985000075e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,lead,7.499775002249991e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,lead,7.499850000750001e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,manganese,5.5372850974844855e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,manganese,5.990364650189066e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,manganese,7.074103119593039e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,manganese,3.9449211003945e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,manganese,3.944881651183495e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,manganese,3.9449211003945e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,mercury,1.0527157980008528e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,mercury,1.1388525950929785e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,mercury,1.34488652463746e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,mercury,7.49985000075e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,mercury,7.499775002249991e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,mercury,7.499850000750001e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nickel,4.905655618683974e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nickel,5.30705309313328e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nickel,6.267171204810564e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nickel,3.4949301003495e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nickel,3.4948951510484963e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nickel,3.4949301003495004e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrate_as_nitrogen,0.009095464494727368,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrate_as_nitrogen,0.009839686421603336,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrate_as_nitrogen,1.1619819572867655e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrate_as_nitrogen,0.0006479870400648,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrate_as_nitrogen,0.0006479805601943994,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrate_as_nitrogen,6.479870400648e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrite_as_nitrogen,0.0007263739006205884,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrite_as_nitrogen,0.0007858082906141551,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrite_as_nitrogen,9.279717019998476e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,nitrite_as_nitrogen,5.1748965005175e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrite_as_nitrogen,5.1748447515524936e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,nitrite_as_nitrogen,5.174896500517501e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,phosphates,0.0005474122149604433,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,phosphates,0.0005922033494483488,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,phosphates,6.99340992811479e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,phosphates,3.899922000389999e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,phosphates,3.899883001169995e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,phosphates,3.899922000389999e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,silver,1.0527157980008528e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,silver,1.1388525950929785e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,silver,1.34488652463746e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,silver,7.49985000075e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,silver,7.499775002249991e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,silver,7.499850000750001e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,trihalomethanes,3.368690553602729e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,trihalomethanes,3.644328304297531e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,trihalomethanes,4.3036368788398726e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,trihalomethanes,2.39995200024e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,trihalomethanes,2.399928000719997e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,trihalomethanes,2.3999520002400004e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,turbidity,0.0016843452768013645,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,turbidity,0.0018221641521487658,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,turbidity,2.1518184394199359e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,turbidity,0.000119997600012,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,turbidity,0.00011999640003599988,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,turbidity,1.19997600012e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,zinc,1.6106551709413046e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,zinc,1.742444470492257e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,zinc,2.0576763826953137e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+reverse_osmosis,zinc,1.1474770501147499e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,zinc,1.1474655753442486e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+reverse_osmosis,zinc,1.14747705011475e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,Electricity Intensity Unit Inlet,0.1,Electricity,kwh/m3,big_spring,dwi_a
+uv_aop,Electricity Intensity System Treated,0.10009851970374055,Electricity,kwh/m3,big_spring,dwi_a
+uv_aop,Unit Levelized Cost,0.18059385489413202,LCOW,$/m3,big_spring,dwi_a
+uv_aop,Fixed Capital Investment (FCI),4.20136589232542,Cost,$MM,big_spring,dwi_a
+uv_aop,Land,0.00630204883848813,Cost,$MM,big_spring,dwi_a
+uv_aop,Working Capital,0.210068294616271,Cost,$MM,big_spring,dwi_a
+uv_aop,Total Capital Investment (TCI),4.417736235780178,Cost,$MM,big_spring,dwi_a
+uv_aop,Catalysts and Chemicals,0.01740662108521965,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Electricity,0.011326120767847617,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Other Operating,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Employee Salaries,0.0022146770878722077,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Benefits,0.001993209379084987,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Maintenance,0.03361092713860336,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Laboratory,0.01260409767697626,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Insurance and Taxes,0.00840273178465084,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Total Fixed Operating ,0.058825643067187655,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Base Employee Salary,0.0019354173599676141,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Electricity,0.011326120767847617,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Annual O&M Costs,0.08755838492025492,Annual Cost,$MM/yr,big_spring,dwi_a
+uv_aop,Inlet Water,0.06585378155667014,Water Flow,m3/s,big_spring,dwi_a
+uv_aop,Outlet Water,0.06584719617851448,Water Flow,m3/s,big_spring,dwi_a
+uv_aop,Waste Water,6.585378155662957e-06,Water Flow,m3/s,big_spring,dwi_a
+uv_aop,bromide,3.063885775436387e-08,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,bromide,3.064161552733905e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,bromide,3.0638857754382744e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,bromide,2.017684645701767e-09,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,bromide,2.01766446885531e-09,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,bromide,2.0176846457017672e-14,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,calcium,0.002464896106338586,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,calcium,0.00246511796917444,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,calcium,0.0002464896106340105,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,calcium,0.00016232272974670803,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,calcium,0.00016232110651941055,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,calcium,1.6232272974670803e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,chloride,0.009127928502180067,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,chloride,0.009128750097904833,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,chloride,0.0009127928502185691,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,chloride,0.0006011086096474694,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,chloride,0.0006011025985613728,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,chloride,6.011086096474694e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,fluoride,2.9719692021733267e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,fluoride,2.9722367061519205e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,fluoride,2.9719692021751583e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,fluoride,1.957154106330735e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,fluoride,1.957134534789672e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,fluoride,1.9571541063307355e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,magnesium,0.0008275555479453658,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,magnesium,0.0008276300353934256,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,magnesium,8.275555479458757e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,magnesium,5.4497662280404587e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,magnesium,5.449711730378178e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,magnesium,5.449766228040459e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,potassium,0.0005812191316002835,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,potassium,0.0005812714465536228,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,potassium,5.812191316006417e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,potassium,3.8275477728962585e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,potassium,3.82750949741853e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,potassium,3.827547772896259e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,silicon,0.0006446415671518153,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,silicon,0.0006446995906952132,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,silicon,6.446415671522124e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,silicon,4.245208494556515e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,silicon,4.245166042471569e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,silicon,4.245208494556515e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,sodium,0.007095346678755612,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,sodium,0.007095985323821206,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,sodium,0.0007095346678759985,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,sodium,0.0004672554102516171,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,sodium,0.0004672507376975145,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,sodium,4.672554102516172e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,sulfate,0.005760105257820403,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,sulfate,0.005760623719139738,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,sulfate,0.0005760105257823952,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,sulfate,0.00037932471339193196,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,sulfate,0.00037932092014479797,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,sulfate,3.79324713391932e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,tds,0.1499836757509079,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,tds,0.14999717563171355,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,tds,0.014998367575100034,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,tds,0.009876992219966733,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,tds,0.009876893450044534,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,tds,9.876992219966736e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,toc,0.0009768134069817057,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,toc,0.0008063355819870495,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,toc,1.705584585529598,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,toc,6.432685672499998e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,toc,5.3094937252817895e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,toc,1.1231919472182073e-05,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,tss,2.231056854701159e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,tss,2.2312576698996018e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,tss,2.2310568547025334e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,tss,1.4692353075000167e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,tss,1.4692206151469417e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,tss,1.4692353075000167e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,bod,-6.223015277861142e-61,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,bod,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,bod,1.095250688903561e-58,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,bod,-4.098090887320886e-62,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,bod,-4.097681078232154e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,bod,7.212639961680315e-64,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,total_coliforms_fecal_ecoli,335.0461400020708,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,total_coliforms_fecal_ecoli,0.002010477887743105,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,total_coliforms_fecal_ecoli,3350441.297254373,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,total_coliforms_fecal_ecoli,22.06405531510189,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,total_coliforms_fecal_ecoli,0.00013238433188678564,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,total_coliforms_fecal_ecoli,22.063922930770005,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrate,-6.223015277861142e-61,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrate,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrate,1.095250688903561e-58,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrate,-4.098090887320886e-62,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrate,-4.097681078232154e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrate,7.212639961680315e-64,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,boron,0.00045554103803719146,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,boron,0.0004555820408308941,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,boron,4.555410380374721e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,boron,2.999910000899997e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,boron,2.999880001799988e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,boron,2.999910000899997e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,selenium,1.2071837507985572e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,selenium,1.2072924082018694e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,selenium,1.2071837507993012e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,selenium,7.949761502384991e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,selenium,7.949682004769968e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,selenium,7.949761502384992e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,aluminum,7.015331985772747e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,aluminum,7.015963428795769e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,aluminum,7.01533198577707e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,aluminum,4.6198614013859947e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,aluminum,4.619815202771981e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,aluminum,4.6198614013859945e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,arsenic,5.80814823497419e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,arsenic,5.808671020593899e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,arsenic,5.8081482349777693e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,arsenic,3.8248852511474955e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,arsenic,3.824847002294984e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,arsenic,3.8248852511474963e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,barium,5.147613729820263e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,barium,5.148077061389103e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,barium,5.147613729823435e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,barium,3.3898983010169966e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,barium,3.389864402033986e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,barium,3.389898301016997e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,chromium,2.1638199306766593e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,chromium,2.164014693946747e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,chromium,2.1638199306779924e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,chromium,1.4249572504274985e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,chromium,1.4249430008549941e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,chromium,1.4249572504274985e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,cyanide_as_free,3.0407364288982526e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,cyanide_as_free,3.041010122546218e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,cyanide_as_free,3.0407364289001264e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,cyanide_as_free,2.0024399256007478e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,cyanide_as_free,2.0024199012014915e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,cyanide_as_free,2.002439925600748e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,electrical_conductivity,0.19360494116580637,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,electrical_conductivity,0.19362236735313,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,electrical_conductivity,0.019360494116592568,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,electrical_conductivity,0.012749617503824986,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,electrical_conductivity,0.012749490007649947,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,electrical_conductivity,1.2749617503824988e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,hardness,0.35532200966900934,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,hardness,0.3553539918480974,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,hardness,0.035532200966922826,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,hardness,0.023399298007019977,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,hardness,0.023399064014039905,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,hardness,2.3399298007019976e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,iron,0.0003439334837180796,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,iron,0.00034396444082732504,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,iron,3.439334837182915e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,iron,2.264932050679498e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,iron,2.264909401358991e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,iron,2.2649320506794978e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,lead,1.1388525950929785e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,lead,1.1389551020772352e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,lead,1.1388525950936803e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,lead,7.499775002249991e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,lead,7.499700004499969e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,lead,7.499775002249993e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,manganese,5.990364650189066e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,manganese,5.9909038369262566e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,manganese,5.990364650192758e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,manganese,3.944881651183495e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,manganese,3.944842202366983e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,manganese,3.944881651183496e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,mercury,1.1388525950929785e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,mercury,1.1389551020772352e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,mercury,1.1388525950936803e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,mercury,7.499775002249991e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,mercury,7.499700004499969e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,mercury,7.499775002249993e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nickel,5.30705309313328e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nickel,5.307530775679916e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nickel,5.307053093136551e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nickel,3.4948951510484963e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nickel,3.494860202096985e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nickel,3.4948951510484967e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrate_as_nitrogen,0.009839686421603336,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrate_as_nitrogen,0.009840572081947312,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrate_as_nitrogen,0.0009839686421609399,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrate_as_nitrogen,0.0006479805601943994,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrate_as_nitrogen,0.0006479740803887973,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrate_as_nitrogen,6.479805601943994e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrite_as_nitrogen,0.0007858082906141551,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrite_as_nitrogen,0.0007858790204332923,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrite_as_nitrogen,7.858082906146393e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,nitrite_as_nitrogen,5.1748447515524936e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrite_as_nitrogen,5.174793003104978e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,nitrite_as_nitrogen,5.174844751552494e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,phosphates,0.0005922033494483488,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,phosphates,0.0005922566530801622,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,phosphates,5.9220334944871364e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,phosphates,3.899883001169995e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,phosphates,3.899844002339983e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,phosphates,3.899883001169995e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,silver,1.1388525950929785e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,silver,1.1389551020772352e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,silver,1.1388525950936803e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,silver,7.499775002249991e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,silver,7.499700004499969e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,silver,7.499775002249993e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,trihalomethanes,3.644328304297531e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,trihalomethanes,3.6446563266471526e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,trihalomethanes,3.6443283042997766e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,trihalomethanes,2.399928000719997e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,trihalomethanes,2.39990400143999e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,trihalomethanes,2.399928000719997e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,turbidity,0.0018221641521487658,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,turbidity,0.0018223281633235765,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,turbidity,0.00018221641521498885,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,turbidity,0.00011999640003599988,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,turbidity,0.00011999520007199951,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,turbidity,1.1999640003599988e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,zinc,1.742444470492257e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,zinc,1.7426013061781697e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,zinc,1.7424444704933308e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+uv_aop,zinc,1.1474655753442486e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,zinc,1.147454100688495e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+uv_aop,zinc,1.1474655753442488e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,big_spring,dwi_a
+treated_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,big_spring,dwi_a
+treated_storage,Unit Levelized Cost,0.04038391099240272,LCOW,$/m3,big_spring,dwi_a
+treated_storage,Fixed Capital Investment (FCI),1.0196984089091978,Cost,$MM,big_spring,dwi_a
+treated_storage,Land,0.0015295476133637968,Cost,$MM,big_spring,dwi_a
+treated_storage,Working Capital,0.050984920445459894,Cost,$MM,big_spring,dwi_a
+treated_storage,Total Capital Investment (TCI),1.0722128769680217,Cost,$MM,big_spring,dwi_a
+treated_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Other Operating,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Employee Salaries,0.0004408755468811332,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Benefits,0.00039678799219301986,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Maintenance,0.008157587271273583,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Laboratory,0.0030590952267275937,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Insurance and Taxes,0.0020393968178183956,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Total Fixed Operating ,0.014093742854893725,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Base Employee Salary,0.0003225627968771411,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Annual O&M Costs,0.014093742854893725,Annual Cost,$MM/yr,big_spring,dwi_a
+treated_storage,Inlet Water,0.06584719617851448,Water Flow,m3/s,big_spring,dwi_a
+treated_storage,Outlet Water,0.06584061145889662,Water Flow,m3/s,big_spring,dwi_a
+treated_storage,Waste Water,6.584719617855338e-06,Water Flow,m3/s,big_spring,dwi_a
+treated_storage,bromide,3.064161552733905e-08,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,bromide,3.064437354853864e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,bromide,3.0641615527320952e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,bromide,2.01766446885531e-09,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,bromide,2.0176442922106215e-09,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,bromide,2.0176644688553102e-14,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,calcium,0.00246511796917444,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,calcium,0.0024653398519799466,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,calcium,0.0002465117969172984,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,calcium,0.00016232110651941055,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,calcium,0.00016231948330834537,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,calcium,1.623211065194106e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,chloride,0.009128750097904833,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,chloride,0.009129571767580613,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,chloride,0.0009128750097899442,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,chloride,0.0006011025985613728,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,chloride,0.0006010965875353872,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,chloride,6.0110259856137294e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,fluoride,2.9722367061519205e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,fluoride,2.97250423420828e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,fluoride,2.9722367061501646e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,fluoride,1.957134534789672e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,fluoride,1.957114963444324e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,fluoride,1.957134534789672e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,magnesium,0.0008276300353934256,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,magnesium,0.0008277045295460263,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,magnesium,8.276300353929369e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,magnesium,5.449711730378178e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,magnesium,5.449657233260874e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,magnesium,5.44971173037818e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,potassium,0.0005812714465536228,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,potassium,0.0005813237662157789,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,potassium,5.8127144655327946e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,potassium,3.82750949741853e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,potassium,3.8274712223235554e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,potassium,3.82750949741853e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,silicon,0.0006446995906952132,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,silicon,0.0006447576194612524,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,silicon,6.446995906948325e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,silicon,4.245166042471569e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,silicon,4.245123590811144e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,silicon,4.2451660424715705e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,sodium,0.007095985323821206,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,sodium,0.0070966240263706055,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,sodium,0.0007095985323817015,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,sodium,0.0004672507376975145,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,sodium,0.00046724606519013757,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,sodium,4.6725073769751464e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,sulfate,0.005760623719139738,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,sulfate,0.005761142227125259,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,sulfate,0.0005760623719136336,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,sulfate,0.00037932092014479797,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,sulfate,0.00037931712693559653,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,sulfate,3.7932092014479814e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,tds,0.14999717563171355,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,tds,0.15001067672763,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,tds,0.014999717563162493,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,tds,0.009876893450044534,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,tds,0.009876794681110032,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,tds,9.876893450044534e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,toc,0.0008063355819870495,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,toc,0.0008064081594471744,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,toc,8.063355819865731e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,toc,5.3094937252817895e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,toc,5.3094406303445366e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,toc,5.30949372528179e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,tss,2.2312576698996018e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,tss,2.2314585031732204e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,tss,2.2312576698982838e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,tss,1.4692206151469417e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,tss,1.4692059229407904e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,tss,1.469220615146942e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,bod,-6.223015277861142e-61,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,bod,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,bod,-8.961142000120044e-59,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,bod,-4.097681078232154e-62,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,bod,-4.09727131012433e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,bod,-5.900660752657788e-64,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,total_coliforms_fecal_ecoli,0.002010477887743105,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,total_coliforms_fecal_ecoli,0.0020106588488491123,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,total_coliforms_fecal_ecoli,0.00020104778877419173,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,total_coliforms_fecal_ecoli,0.00013238433188678564,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,total_coliforms_fecal_ecoli,0.00013238300804346677,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,total_coliforms_fecal_ecoli,1.3238433188678565e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrate,-6.223015277861142e-61,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrate,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrate,-8.961142000120044e-59,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrate,-4.097681078232154e-62,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrate,-4.09727131012433e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrate,-5.900660752657788e-64,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,boron,0.0004555820408308941,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,boron,0.0004556230473152174,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,boron,4.5558204083062495e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,boron,2.999880001799988e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,boron,2.99985000299997e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,boron,2.999880001799988e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,selenium,1.2072924082018694e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,selenium,1.207401075385326e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,selenium,1.2072924082011564e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,selenium,7.949682004769968e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,selenium,7.94960250794992e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,selenium,7.949682004769969e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,aluminum,7.015963428795769e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,aluminum,7.016594928654347e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,aluminum,7.015963428791624e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,aluminum,4.619815202771981e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,aluminum,4.619769004619953e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,aluminum,4.619815202771982e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,arsenic,5.808671020593899e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,arsenic,5.80919385326902e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,arsenic,5.808671020590468e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,arsenic,3.824847002294984e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,arsenic,3.8248087538249605e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,arsenic,3.8248470022949843e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,barium,5.148077061389103e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,barium,5.148540434661956e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,barium,5.148077061386064e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,barium,3.389864402033986e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,barium,3.389830503389966e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,barium,3.3898644020339873e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,chromium,2.164014693946747e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,chromium,2.1642094747472824e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,chromium,2.1640146939454688e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,chromium,1.4249430008549941e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,chromium,1.4249287514249857e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,chromium,1.4249430008549944e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,cyanide_as_free,3.041010122546218e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,cyanide_as_free,3.0412838408290753e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,cyanide_as_free,3.0410101225444223e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,cyanide_as_free,2.0024199012014915e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,cyanide_as_free,2.0023998770024794e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,cyanide_as_free,2.0024199012014926e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,electrical_conductivity,0.19362236735313,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,electrical_conductivity,0.19363979510896737,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,electrical_conductivity,0.019362236735301564,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,electrical_conductivity,0.012749490007649947,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,electrical_conductivity,0.01274936251274987,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,electrical_conductivity,1.2749490007649951e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,hardness,0.3553539918480974,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,hardness,0.35538597690586954,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,hardness,0.03553539918478875,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,hardness,0.023399064014039905,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,hardness,0.023398830023399764,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,hardness,2.3399064014039906e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,iron,0.00034396444082732504,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,iron,0.0003439954007229891,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,iron,3.439644408271219e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,iron,2.264909401358991e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,iron,2.2648867522649773e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,iron,2.2649094013589914e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,lead,1.1389551020772352e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,lead,1.1390576182880433e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,lead,1.1389551020765624e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,lead,7.499700004499969e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,lead,7.499625007499923e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,lead,7.499700004499969e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,manganese,5.9909038369262566e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,manganese,5.991443072195107e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,manganese,5.9909038369227175e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,manganese,3.944842202366983e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,manganese,3.944802753944959e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,manganese,3.9448422023669835e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,mercury,1.1389551020772352e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,mercury,1.1390576182880433e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,mercury,1.1389551020765624e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,mercury,7.499700004499969e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,mercury,7.499625007499923e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,mercury,7.499700004499969e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nickel,5.307530775679916e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nickel,5.308008501222282e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nickel,5.307530775676781e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nickel,3.494860202096985e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nickel,3.4948252534949647e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nickel,3.494860202096986e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrate_as_nitrogen,0.009840572081947312,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrate_as_nitrogen,0.009841457822008695,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrate_as_nitrogen,0.0009840572081941503,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrate_as_nitrogen,0.0006479740803887973,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrate_as_nitrogen,0.0006479676006479935,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrate_as_nitrogen,6.479740803887976e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrite_as_nitrogen,0.0007858790204332923,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrite_as_nitrogen,0.0007859497566187499,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrite_as_nitrogen,7.858790204328281e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,nitrite_as_nitrogen,5.174793003104978e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrite_as_nitrogen,5.174741255174948e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,nitrite_as_nitrogen,5.17479300310498e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,phosphates,0.0005922566530801622,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,phosphates,0.0005923099615097824,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,phosphates,5.922566530798124e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,phosphates,3.899844002339983e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,phosphates,3.89980500389996e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,phosphates,3.899844002339984e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,silver,1.1389551020772352e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,silver,1.1390576182880433e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,silver,1.1389551020765624e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,silver,7.499700004499969e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,silver,7.499625007499923e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,silver,7.499700004499969e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,trihalomethanes,3.6446563266471526e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,trihalomethanes,3.6449843785217386e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,trihalomethanes,3.644656326645001e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,trihalomethanes,2.39990400143999e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,trihalomethanes,2.3998800023999757e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,trihalomethanes,2.399904001439991e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,turbidity,0.0018223281633235765,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,turbidity,0.0018224921892608696,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,turbidity,0.00018223281633224998,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,turbidity,0.00011999520007199951,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,turbidity,0.0001199940001199988,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,turbidity,1.1999520007199952e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,zinc,1.7426013061781697e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,zinc,1.742758155980706e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,zinc,1.7426013061771403e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+treated_storage,zinc,1.147454100688495e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,zinc,1.1474426261474882e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+treated_storage,zinc,1.1474541006884953e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,Electricity Intensity Unit Inlet,0.3071959581294095,Electricity,kwh/m3,big_spring,dwi_a
+municipal_drinking,Electricity Intensity System Treated,0.3074371100309122,Electricity,kwh/m3,big_spring,dwi_a
+municipal_drinking,Unit Levelized Cost,0.02448811631323013,LCOW,$/m3,big_spring,dwi_a
+municipal_drinking,Fixed Capital Investment (FCI),0.1949492210917116,Cost,$MM,big_spring,dwi_a
+municipal_drinking,Land,0.0002924238316375674,Cost,$MM,big_spring,dwi_a
+municipal_drinking,Working Capital,0.00974746105458558,Cost,$MM,big_spring,dwi_a
+municipal_drinking,Total Capital Investment (TCI),0.20498910597793474,Cost,$MM,big_spring,dwi_a
+municipal_drinking,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Electricity,0.034786426882575036,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Other Operating,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Employee Salaries,9.74746105458558e-05,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Benefits,8.772714949127022e-05,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Maintenance,0.0015595937687336928,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Laboratory,0.0005848476632751348,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Insurance and Taxes,0.0003898984421834232,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Total Fixed Operating ,0.0027195416342293767,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Base Employee Salary,9.747461054488105e-05,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Electricity,0.034786426882575036,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Annual O&M Costs,0.03750596851680441,Annual Cost,$MM/yr,big_spring,dwi_a
+municipal_drinking,Inlet Water,0.06584061145889662,Water Flow,m3/s,big_spring,dwi_a
+municipal_drinking,Outlet Water,0.06583402739775074,Water Flow,m3/s,big_spring,dwi_a
+municipal_drinking,Waste Water,6.584061145883945e-06,Water Flow,m3/s,big_spring,dwi_a
+municipal_drinking,bromide,3.064437354853864e-08,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,bromide,3.064713181798495e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,bromide,3.0644373548565252e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,bromide,2.0176442922106215e-09,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,bromide,2.0176241157676994e-09,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,bromide,2.017644292210622e-14,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,calcium,0.0024653398519799466,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,calcium,0.002465561754756902,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,calcium,0.0002465339851982088,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,calcium,0.00016231948330834537,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,calcium,0.00016231786011351227,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,calcium,1.623194833083454e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,chloride,0.009129571767580613,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,chloride,0.00913039351121406,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,chloride,0.0009129571767588542,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,chloride,0.0006010965875353872,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,chloride,0.000601090576569512,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,chloride,6.010965875353873e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,fluoride,2.97250423420828e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,fluoride,2.9727717863445718e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,fluoride,2.9725042342108615e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,fluoride,1.957114963444324e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,fluoride,1.9570953922946896e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,fluoride,1.9571149634443243e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,magnesium,0.0008277045295460263,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,magnesium,0.0008277790304037711,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,magnesium,8.277045295467454e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,magnesium,5.449657233260874e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,magnesium,5.449602736688541e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,magnesium,5.449657233260877e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,potassium,0.0005813237662157789,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,potassium,0.0005813760905871754,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,potassium,5.813237662162838e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,potassium,3.8274712223235554e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,potassium,3.827432947611332e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,potassium,3.8274712223235563e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,silicon,0.0006447576194612524,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,silicon,0.0006448156534504028,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,silicon,6.447576194618125e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,silicon,4.245123590811144e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,silicon,4.245081139575237e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,silicon,4.2451235908111456e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,sodium,0.0070966240263706055,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,sodium,0.007097262786408982,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,sodium,0.0007096624026376769,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,sodium,0.00046724606519013757,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,sodium,0.00046724139272948567,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,sodium,4.672460651901376e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,sulfate,0.005761142227125259,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,sulfate,0.005761660781781165,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,sulfate,0.0005761142227130263,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,sulfate,0.00037931712693559653,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,sulfate,0.00037931333376432715,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,sulfate,3.793171269355966e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,tds,0.15001067672763,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,tds,0.15002417903876658,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,tds,0.015001067672776027,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,tds,0.009876794681110032,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,tds,0.009876695913163222,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,tds,9.876794681110033e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,toc,0.0008064081594471744,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,toc,0.0008064807434399238,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,toc,8.064081594478748e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,toc,5.3094406303445366e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,toc,5.3093875359382325e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,toc,5.309440630344538e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,tss,2.2314585031732204e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,tss,2.231659354523641e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,tss,2.231458503175158e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,tss,1.4692059229407904e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,tss,1.469191230881561e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,tss,1.4692059229407905e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,bod,-6.223015277861142e-61,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,bod,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,bod,2.3896378666986784e-58,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,bod,-4.09727131012433e-62,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,bod,-4.096861582993318e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,bod,1.5733521830863766e-63,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,total_coliforms_fecal_ecoli,0.0020106588488491123,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,total_coliforms_fecal_ecoli,0.0020108398262432482,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,total_coliforms_fecal_ecoli,0.00020106588488508586,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,total_coliforms_fecal_ecoli,0.00013238300804346677,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,total_coliforms_fecal_ecoli,0.00013238168421338635,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,total_coliforms_fecal_ecoli,1.3238300804346678e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrate,-6.223015277861142e-61,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrate,-6.223015277861142e-61,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrate,2.3896378666986784e-58,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrate,-4.09727131012433e-62,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrate,-4.096861582993318e-62,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrate,1.5733521830863766e-63,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,boron,0.0004556230473152174,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,boron,0.0004556640574904932,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,boron,4.556230473156131e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,boron,2.99985000299997e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,boron,2.9998200044999398e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,boron,2.9998500029999703e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,selenium,1.207401075385326e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,selenium,1.207509752349807e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,selenium,1.2074010753863746e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,selenium,7.94960250794992e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,selenium,7.94952301192484e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,selenium,7.949602507949921e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,aluminum,7.016594928654347e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,aluminum,7.017226485353595e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,aluminum,7.016594928660441e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,aluminum,4.619769004619953e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,aluminum,4.619722806929907e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,aluminum,4.619769004619954e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,arsenic,5.80919385326902e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,arsenic,5.809716733003787e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,arsenic,5.809193853274066e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,arsenic,3.8248087538249605e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,arsenic,3.824770505737422e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,arsenic,3.8248087538249616e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,barium,5.148540434661956e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,barium,5.1490038496425736e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,barium,5.148540434666427e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,barium,3.389830503389966e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,barium,3.389796605084932e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,barium,3.3898305033899656e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,chromium,2.1642094747472824e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,chromium,2.1644042730798426e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,chromium,2.164209474749162e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,chromium,1.4249287514249857e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,chromium,1.4249145021374713e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,chromium,1.424928751424986e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,cyanide_as_free,3.0412838408290753e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,cyanide_as_free,3.041557583749042e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,cyanide_as_free,3.041283840831717e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,cyanide_as_free,2.0023998770024794e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,cyanide_as_free,2.0023798530037098e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,cyanide_as_free,2.0023998770024802e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,electrical_conductivity,0.19363979510896737,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,electrical_conductivity,0.19365722443345965,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,electrical_conductivity,0.01936397951091355,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,electrical_conductivity,0.01274936251274987,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,electrical_conductivity,0.012749235019124746,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,electrical_conductivity,1.2749362512749871e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,hardness,0.35538597690586954,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,hardness,0.3554179648425847,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,hardness,0.03553859769061782,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,hardness,0.023398830023399764,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,hardness,0.023398596035099528,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,hardness,2.339883002339977e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,iron,0.0003439954007229891,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,iron,0.00034402636340532237,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,iron,3.439954007232879e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,iron,2.2648867522649773e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,iron,2.2648641033974547e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,iron,2.264886752264978e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,lead,1.1390576182880433e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,lead,1.139160143726233e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,lead,1.1390576182890325e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,lead,7.499625007499923e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,lead,7.499550011249849e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,lead,7.499625007499924e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,manganese,5.991443072195107e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,manganese,5.9919823559999846e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,manganese,5.99144307220031e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,manganese,3.944802753944959e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,manganese,3.94476330591742e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,manganese,3.94480275394496e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,mercury,1.1390576182880433e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,mercury,1.139160143726233e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,mercury,1.1390576182890325e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,mercury,7.499625007499923e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,mercury,7.499550011249849e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,mercury,7.499625007499924e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nickel,5.308008501222282e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nickel,5.308486269764246e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nickel,5.308008501226892e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nickel,3.4948252534949647e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nickel,3.49479030524243e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nickel,3.4948252534949654e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrate_as_nitrogen,0.009841457822008695,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrate_as_nitrogen,0.009842343641794654,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrate_as_nitrogen,0.0009841457822017243,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrate_as_nitrogen,0.0006479676006479935,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrate_as_nitrogen,0.000647961120971987,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrate_as_nitrogen,6.479676006479936e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrite_as_nitrogen,0.0007859497566187499,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrite_as_nitrogen,0.0007860204991711007,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrite_as_nitrogen,7.859497566194325e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,nitrite_as_nitrogen,5.174741255174948e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrite_as_nitrogen,5.174689507762396e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,nitrite_as_nitrogen,5.174741255174948e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,phosphates,0.0005923099615097824,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,phosphates,0.0005923632747376411,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,phosphates,5.923099615102969e-05,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,phosphates,3.89980500389996e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,phosphates,3.899766005849921e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,phosphates,3.899805003899961e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,silver,1.1390576182880433e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,silver,1.139160143726233e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,silver,1.1390576182890325e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,silver,7.499625007499923e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,silver,7.499550011249849e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,silver,7.499625007499924e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,trihalomethanes,3.6449843785217386e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,trihalomethanes,3.6453124599239456e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,trihalomethanes,3.6449843785249046e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,trihalomethanes,2.3998800023999757e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,trihalomethanes,2.3998560035999516e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,trihalomethanes,2.399880002399976e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,turbidity,0.0018224921892608696,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,turbidity,0.0018226562299619728,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,turbidity,0.00018224921892624524,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,turbidity,0.0001199940001199988,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,turbidity,0.00011999280017999759,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,turbidity,1.1999400011999881e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,zinc,1.742758155980706e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,zinc,1.7429150199011362e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,zinc,1.7427581559822196e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+municipal_drinking,zinc,1.1474426261474882e-06,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,zinc,1.1474311517212268e-06,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+municipal_drinking,zinc,1.1474426261474885e-11,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,Electricity Intensity Unit Inlet,0.4095946108392126,Electricity,kwh/m3,big_spring,dwi_a
+deep_well_injection,Electricity Intensity System Treated,0.058063809872166826,Electricity,kwh/m3,big_spring,dwi_a
+deep_well_injection,Unit Levelized Cost,0.13418004501237638,LCOW,$/m3,big_spring,dwi_a
+deep_well_injection,Fixed Capital Investment (FCI),3.3002606509908485,Cost,$MM,big_spring,dwi_a
+deep_well_injection,Land,0.004950390976486273,Cost,$MM,big_spring,dwi_a
+deep_well_injection,Working Capital,0.16501303254954244,Cost,$MM,big_spring,dwi_a
+deep_well_injection,Total Capital Investment (TCI),3.470224074516877,Cost,$MM,big_spring,dwi_a
+deep_well_injection,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Electricity,0.00656990457800875,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Other Operating,0.0,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Employee Salaries,0.0017686646566622067,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Benefits,0.0015917981909959861,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Maintenance,0.02640208520792679,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Laboratory,0.009900781952972545,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Insurance and Taxes,0.006600521301981697,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Total Fixed Operating ,0.04626385131053922,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Base Employee Salary,0.001545644870401403,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Electricity,0.00656990457800875,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Annual O&M Costs,0.05283375588854797,Annual Cost,$MM/yr,big_spring,dwi_a
+deep_well_injection,Inlet Water,0.009326192140318205,Water Flow,m3/s,big_spring,dwi_a
+deep_well_injection,Outlet Water,0.009325259521104174,Water Flow,m3/s,big_spring,dwi_a
+deep_well_injection,Waste Water,9.326192140311081e-07,Water Flow,m3/s,big_spring,dwi_a
+deep_well_injection,bromide,7.825440893372814e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,bromide,7.82614525348923e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,bromide,7.825440893378793e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,bromide,7.298156535429822e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,bromide,7.298083553864468e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,bromide,7.298156535429823e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,calcium,0.6295567198718428,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,calcium,0.6296133856432083,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,calcium,0.06295567198723238,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,calcium,0.005871366932753291,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,calcium,0.005871308219083963,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,calcium,5.871366932753292e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,chloride,2.331355350953629,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,chloride,2.331565193919511,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,chloride,0.23313553509554102,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,chloride,0.021742667950352526,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,chloride,0.02174245052367302,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,chloride,2.174266795035253e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,fluoride,0.00759067766657163,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,fluoride,0.007591360895884552,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,fluoride,0.0007590677666577428,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,fluoride,7.079211839366927e-05,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,fluoride,7.079141047248534e-05,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,fluoride,7.079211839366927e-10,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,magnesium,0.21136515852999974,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,magnesium,0.2113841832967441,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,magnesium,0.02113651585301612,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,magnesium,0.001971232080219595,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,magnesium,0.001971212367898793,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,magnesium,1.971232080219595e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,potassium,0.1484486137472823,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,potassium,0.1484619754586907,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,potassium,0.014844861374739572,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,potassium,0.0013844602947710373,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,potassium,0.0013844464501680896,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,potassium,1.3844602947710375e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,silicon,0.16464727639656404,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,silicon,0.1646620961334134,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,silicon,0.016464727639668983,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,silicon,0.0015355321350544347,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,silicon,0.001535516779733084,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,silicon,1.5355321350544348e-08,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,sodium,1.8122156020872764,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,sodium,1.8123787178030355,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,sodium,0.1812215602088661,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,sodium,0.01690107090474838,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,sodium,0.01690090189403933,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,sodium,1.6901070904748383e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,sulfate,1.4711828879540894,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,sulfate,1.4713153076559753,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,sulfate,0.1471182887955213,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,sulfate,0.013720534286608067,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,sulfate,0.013720397081265202,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,sulfate,1.3720534286608067e-07,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,tds,17.09125360402394,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,tds,17.092791970684967,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,tds,1.7091253604036998,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,tds,0.15939631503003326,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,tds,0.15939472106688296,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,tds,1.593963150300333e-06,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,toc,0.06974078873661381,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,toc,0.06974706603532996,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,toc,0.006974078873666708,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,toc,0.0006504159957750001,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,toc,0.0006504094916150423,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,toc,6.504159957750001e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,tss,0.052511293224355084,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,tss,0.05251601971339417,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,tss,0.00525112932243952,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,tss,0.0004897304101469251,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,tss,0.0004897255128428234,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,tss,4.897304101469251e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,bod,4.861730685829017e-63,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,bod,4.861730685829017e-63,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,bod,1.6335415104385497e-60,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,bod,4.534143451052242e-65,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,bod,4.533690036707137e-65,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,bod,1.5234721995523894e-66,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,total_coliforms_fecal_ecoli,0.047317031320762946,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,total_coliforms_fecal_ecoli,0.047321290279477686,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,total_coliforms_fecal_ecoli,0.004731703132079909,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,total_coliforms_fecal_ecoli,0.00044128772560688974,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,total_coliforms_fecal_ecoli,0.0004412833127296337,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,total_coliforms_fecal_ecoli,4.412877256068898e-09,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrate,4.861730685829017e-63,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrate,4.861730685829017e-63,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrate,1.6335415104385497e-60,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrate,4.534143451052242e-65,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrate,4.533690036707137e-65,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrate,1.5234721995523894e-66,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,boron,6.43339737164721e-08,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,boron,6.433976435317024e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,boron,6.433397371652125e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,boron,5.999910000300001e-10,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,boron,5.999850001199997e-10,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,boron,5.9999100003000015e-15,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,selenium,1.7048503034865103e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,selenium,1.7050037553590113e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,selenium,1.704850303487813e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,selenium,1.5899761500794999e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,selenium,1.5899602503179992e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,selenium,1.5899761500795e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,aluminum,9.907431952336701e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,aluminum,9.908323710388218e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,aluminum,9.90743195234427e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,aluminum,9.239861400461999e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,aluminum,9.239769001847997e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,aluminum,9.239861400462e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,arsenic,8.20258164885019e-11,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,arsenic,8.203319955029205e-11,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,arsenic,8.202581648856459e-12,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,arsenic,7.649885250382499e-13,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,arsenic,7.649808751529997e-13,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,arsenic,7.649885250382502e-18,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,barium,7.2697390299613465e-09,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,barium,7.270393371908237e-09,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,barium,7.2697390299669e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,barium,6.779898300339001e-11,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,barium,6.779830501355997e-11,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,barium,6.779898300339e-16,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,chromium,3.0558637515324246e-11,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,chromium,3.0561388067755865e-11,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,chromium,3.0558637515347593e-12,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,chromium,2.8499572501425004e-13,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,chromium,2.849928750569999e-13,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,chromium,2.8499572501425006e-18,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,cyanide_as_free,4.294292745574512e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,cyanide_as_free,4.294679270574113e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,cyanide_as_free,4.2942927455777925e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,cyanide_as_free,4.0049399252002505e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,cyanide_as_free,4.004899875800998e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,cyanide_as_free,4.0049399252002505e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,electrical_conductivity,2.734193882950064e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,electrical_conductivity,2.7344399850097356e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,electrical_conductivity,2.7341938829521528e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,electrical_conductivity,2.5499617501275e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,electrical_conductivity,2.549936250509999e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,electrical_conductivity,2.5499617501275005e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,hardness,5.018049949884824e-05,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,hardness,5.0185016195472794e-05,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,hardness,5.018049949888658e-06,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,hardness,4.679929800234001e-07,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,hardness,4.6798830009359986e-07,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,hardness,4.679929800234002e-12,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,iron,4.857215015593644e-08,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,iron,4.857652208664354e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,iron,4.857215015597355e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,iron,4.529932050226501e-10,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,iron,4.529886750905999e-10,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,iron,4.529932050226502e-15,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,lead,1.6083493429118024e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,lead,1.6084941088292558e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,lead,1.608349342913031e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,lead,1.4999775000750002e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,lead,1.4999625002999992e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,lead,1.499977500075e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,manganese,8.45991754371608e-09,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,manganese,8.460679012441886e-09,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,manganese,8.459917543722541e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,manganese,7.8898816503945e-11,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,manganese,7.889802751577995e-11,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,manganese,7.889881650394499e-16,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,mercury,1.6083493429118024e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,mercury,1.6084941088292558e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,mercury,1.608349342913031e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,mercury,1.4999775000750002e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,mercury,1.4999625002999992e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,mercury,1.499977500075e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nickel,7.494907937968998e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nickel,7.495582547144333e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nickel,7.494907937974723e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nickel,6.9898951503495e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nickel,6.989825251397997e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nickel,6.9898951503495e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrate_as_nitrogen,1.3896138322757973e-06,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrate_as_nitrogen,1.3897389100284772e-06,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrate_as_nitrogen,1.3896138322768588e-07,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrate_as_nitrogen,1.2959805600648003e-08,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrate_as_nitrogen,1.2959676002591994e-08,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrate_as_nitrogen,1.2959805600648001e-13,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrite_as_nitrogen,1.1097610466091435e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrite_as_nitrogen,1.1098609350921866e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrite_as_nitrogen,1.1097610466099914e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,nitrite_as_nitrogen,1.03498447505175e-09,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrite_as_nitrogen,1.0349741252069995e-09,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,nitrite_as_nitrogen,1.0349844750517502e-14,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,phosphates,8.36341658314137e-08,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,phosphates,8.364169365912128e-08,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,phosphates,8.363416583147759e-09,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,phosphates,7.799883000389998e-10,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,phosphates,7.799805001559994e-10,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,phosphates,7.79988300039e-15,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,silver,1.6083493429118024e-10,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,silver,1.6084941088292558e-10,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,silver,1.608349342913031e-11,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,silver,1.4999775000750002e-12,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,silver,1.4999625002999992e-12,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,silver,1.499977500075e-17,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,trihalomethanes,5.1467178973177665e-11,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,trihalomethanes,5.147181148253619e-11,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,trihalomethanes,5.146717897321698e-12,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,trihalomethanes,4.799928000239999e-13,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,trihalomethanes,4.799880000959997e-13,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,trihalomethanes,4.79992800024e-18,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,turbidity,2.573358948658884e-07,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,turbidity,2.5735905741268095e-07,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,turbidity,2.57335894866085e-08,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,turbidity,2.3999640001200004e-09,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,turbidity,2.3999400004799987e-09,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,turbidity,2.3999640001200006e-14,Waste Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,zinc,2.4607744946550572e-09,Inlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,zinc,2.4609959865087616e-09,Outlet Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,zinc,2.460774494656937e-10,Waste Constituent Density,kg/m3,big_spring,dwi_a
+deep_well_injection,zinc,2.29496557511475e-11,Inlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,zinc,2.294942625458999e-11,Outlet Constituent Total Mass,kg,big_spring,dwi_a
+deep_well_injection,zinc,2.29496557511475e-16,Waste Constituent Total Mass,kg,big_spring,dwi_a
+System,System Total Capital Investment (TCI),18.37625488580644,Cost,$MM,big_spring,dwi_a
+System,System Catalysts and Chemicals,1.2889409634866724,Cost,$MM,big_spring,dwi_a
+System,System Electricity,5.829492307598681,Cost,$MM,big_spring,dwi_a
+System,System Other Variable Operating,2.0509435161231164,Cost,$MM,big_spring,dwi_a
+System,System Fixed Operating,7.33672201441507,Cost,$MM,big_spring,dwi_a
+System,System Total Operating,16.50609880162354,Cost,$MM,big_spring,dwi_a
+System,System Catalysts and Chemicals,0.04296469878288908,Annual Cost,$MM/yr,big_spring,dwi_a
+System,System Electricity,0.19431641025328936,Annual Cost,$MM/yr,big_spring,dwi_a
+System,Other Variable O&M,0.06836478387077055,Annual Cost,$MM/yr,big_spring,dwi_a
+System,System Fixed O&M,0.24455740048050234,Annual Cost,$MM/yr,big_spring,dwi_a
+System,System Total Operating Cost,0.5502032933874514,Annual Cost,$MM/yr,big_spring,dwi_a
+System,TCI LCOW,0.5757803735010172,LCOW,$/m3,big_spring,dwi_a
+System,Electricity LCOW,0.09359495676811937,LCOW,$/m3,big_spring,dwi_a
+System,Fixed Operating LCOW,0.11779416517349338,LCOW,$/m3,big_spring,dwi_a
+System,Other O&M LCOW,0.05362325344732423,LCOW,$/m3,big_spring,dwi_a
+System,Electricity Intensity System Treated,16.50609880162354,Electricity,kwh/m3,big_spring,dwi_a
+System,System Levelized Cost,0.8407927488899543,LCOW,$/m3,big_spring,dwi_a
+System,Electricity Fraction of LCOW,0.8407927488899543,LCOW,$/m3,big_spring,dwi_a
+System,Electricity Intensity,1.717338656295768,Electricity,kwh/m3,big_spring,dwi_a
+System,Water Recovery,87.77870319700098,Water Recovery,%,big_spring,dwi_a

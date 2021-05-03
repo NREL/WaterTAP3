@@ -1,0 +1,1605 @@
+Unit Process Name,Variable,Value,Metric,Unit,Case Study,Scenario
+sw_onshore_intake,Electricity Intensity Unit Inlet,0.10239865270980314,Electricity,kwh/m3,tampa_bay,baseline
+sw_onshore_intake,Electricity Intensity System Treated,0.11971176068519587,Electricity,kwh/m3,tampa_bay,baseline
+sw_onshore_intake,Unit Levelized Cost,0.044849422581566795,LCOW,$/m3,tampa_bay,baseline
+sw_onshore_intake,Fixed Capital Investment (FCI),9.716469594189855,Cost,$MM,tampa_bay,baseline
+sw_onshore_intake,Land,0.014574704391284783,Cost,$MM,tampa_bay,baseline
+sw_onshore_intake,Working Capital,0.48582347970949274,Cost,$MM,tampa_bay,baseline
+sw_onshore_intake,Total Capital Investment (TCI),10.216867778290633,Cost,$MM,tampa_bay,baseline
+sw_onshore_intake,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Electricity,0.3574140494023992,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Employee Salaries,0.004853965500897917,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Benefits,0.0043685689508081256,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Maintenance,0.07773175675351884,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Laboratory,0.029149408782569566,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Insurance and Taxes,0.01943293918837971,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Total Fixed Operating ,0.13553663917617415,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Base Employee Salary,0.004702736180791856,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Electricity,0.3574140494023992,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Annual O&M Costs,0.4929506885785733,Annual Cost,$MM/yr,tampa_bay,baseline
+sw_onshore_intake,Inlet Water,1.92775,Water Flow,m3/s,tampa_bay,baseline
+sw_onshore_intake,Outlet Water,1.9275572250000002,Water Flow,m3/s,tampa_bay,baseline
+sw_onshore_intake,Waste Water,0.00019277499999992287,Water Flow,m3/s,tampa_bay,baseline
+sw_onshore_intake,tss,0.02571429,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,tss,0.025716604517551752,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,tss,0.0025714290000010296,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,tss,0.0495707225475,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,tss,0.049570226840274526,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,tss,4.957072254750001e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,tds,30.0,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,tds,30.002700270027002,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,tds,3.000000000001201,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,tds,57.8325,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,tds,57.831921675000004,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,tds,0.0005783250000000001,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,boron,0.00377143,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,boron,0.003771769462646265,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,boron,0.000377143000000151,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,boron,0.007270374182500001,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,boron,0.007270301478758176,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,boron,7.270374182500002e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,bromide,0.05682857,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,bromide,0.056833685082808276,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,bromide,0.0056828570000022754,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,bromide,0.1095512758175,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,bromide,0.10955018030474183,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,bromide,1.0955127581750002e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,calcium,0.35108571,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,calcium,0.35111731087398734,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,calcium,0.03510857100001405,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,calcium,0.6768054774525,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,calcium,0.6767987093977255,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,calcium,6.7680547745250004e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,chloride,16.4245714,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,chloride,16.426049759261925,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,chloride,1.6424571400006576,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,chloride,31.662467516350002,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,chloride,31.662150891674838,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,chloride,0.0003166246751635001,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,magnesium,1.09542857,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,magnesium,1.095527168431143,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,magnesium,0.10954285700004385,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,magnesium,2.1117124258174997,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,magnesium,2.1116913086932416,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,magnesium,2.1117124258175002e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,potassium,0.33882857,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,potassium,0.33885906762106205,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,potassium,0.03388285700001357,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,potassium,0.6531767758175,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,potassium,0.6531702440497418,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,potassium,6.531767758175002e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,sodium,9.15342857,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,sodium,9.154252460960397,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,sodium,0.9153428570003664,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,sodium,17.6455219258175,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,sodium,17.645345470598244,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,sodium,0.00017645521925817504,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,strontium,0.00111429,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,strontium,0.001114390296129613,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,strontium,0.0001114290000000446,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,strontium,0.0021480725475,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,strontium,0.0021480510667745254,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,strontium,2.1480725475000004e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,sulfate,2.29714286,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,sulfate,2.297349623533753,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,sulfate,0.22971428600009194,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sw_onshore_intake,sulfate,4.428317148365,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,sulfate,4.428272865193517,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sw_onshore_intake,sulfate,4.428317148365001e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,Electricity Intensity Unit Inlet,5.749503240303374e-07,Electricity,kwh/m3,tampa_bay,baseline
+sulfuric_acid_addition,Electricity Intensity System Treated,6.720931471596144e-07,Electricity,kwh/m3,tampa_bay,baseline
+sulfuric_acid_addition,Unit Levelized Cost,0.003449142719650311,LCOW,$/m3,tampa_bay,baseline
+sulfuric_acid_addition,Fixed Capital Investment (FCI),0.21942667818925263,Cost,$MM,tampa_bay,baseline
+sulfuric_acid_addition,Land,0.00032914001728387893,Cost,$MM,tampa_bay,baseline
+sulfuric_acid_addition,Working Capital,0.010971333909462632,Cost,$MM,tampa_bay,baseline
+sulfuric_acid_addition,Total Capital Investment (TCI),0.23072715211599915,Cost,$MM,tampa_bay,baseline
+sulfuric_acid_addition,Catalysts and Chemicals,0.07937062280773542,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Electricity,2.0066159910020147e-06,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Employee Salaries,0.00011571347005941957,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Benefits,0.00010414212305347761,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Maintenance,0.001755413425514021,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Laboratory,0.0006582800345677579,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Insurance and Taxes,0.0004388533563785053,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Total Fixed Operating ,0.003072402409573181,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Base Employee Salary,9.218616502426169e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Electricity,2.0066159910020147e-06,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Annual O&M Costs,0.08244503183329961,Annual Cost,$MM/yr,tampa_bay,baseline
+sulfuric_acid_addition,Inlet Water,1.9275572250000002,Water Flow,m3/s,tampa_bay,baseline
+sulfuric_acid_addition,Outlet Water,1.9273644692775003,Water Flow,m3/s,tampa_bay,baseline
+sulfuric_acid_addition,Waste Water,0.00019275572249988215,Water Flow,m3/s,tampa_bay,baseline
+sulfuric_acid_addition,tss,0.025716604517551752,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,tss,0.02571891924343092,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,tss,0.002571660451756748,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,tss,0.049570226840274526,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,tss,0.049569731138006126,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,tss,4.957022684027453e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,tds,30.002700270027002,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,tds,30.005400783102612,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,tds,3.000270027004535,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,tds,57.831921675000004,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,tds,57.831343355783254,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,tds,0.0005783192167500001,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,boron,0.003771769462646265,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,boron,0.0037721089558472227,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,boron,0.0003771769462648572,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,boron,0.007270301478758176,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,boron,0.007270228775743388,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,boron,7.270301478758178e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,bromide,0.056833685082808276,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,bromide,0.05683880062602004,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,bromide,0.005683368508284304,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,bromide,0.10955018030474183,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,bromide,0.10954908480293878,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,bromide,1.0955018030474184e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,calcium,0.35111731087398734,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,calcium,0.3511489145923378,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,calcium,0.03511173108742021,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,calcium,0.6767987093977255,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,calcium,0.6767919414106315,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,calcium,6.767987093977256e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,chloride,16.426049759261925,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,chloride,16.42752825158949,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,chloride,1.6426049759271972,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,chloride,31.662150891674838,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,chloride,31.66183427016592,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,chloride,0.0003166215089167484,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,magnesium,1.095527168431143,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,magnesium,1.0956257757370322,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,magnesium,0.1095527168431813,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,magnesium,2.1116913086932416,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,magnesium,2.1116701917801546,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,magnesium,2.111691308693242e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,potassium,0.33885906762106205,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,potassium,0.33888956798718456,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,potassium,0.03388590676212693,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,potassium,0.6531702440497418,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,potassium,0.6531637123473013,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,potassium,6.531702440497419e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,sodium,9.154252460960397,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,sodium,9.155076426078393,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,sodium,0.9154252460965996,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,sodium,17.645345470598244,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,sodium,17.645169017143537,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,sodium,0.00017645345470598247,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,strontium,0.001114390296129613,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,strontium,0.0011144906012867802,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,strontium,0.00011143902961302946,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,strontium,0.0021480510667745254,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,strontium,0.0021480295862638574,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,strontium,2.1480510667745257e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,sulfate,2.297349623533753,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,sulfate,2.2975564056780855,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,sulfate,0.22973496235351581,Waste Constituent Density,kg/m3,tampa_bay,baseline
+sulfuric_acid_addition,sulfate,4.428272865193517,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,sulfate,4.428228582464865,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+sulfuric_acid_addition,sulfate,4.428272865193517e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,Electricity Intensity Unit Inlet,3.3398125476126255e-06,Electricity,kwh/m3,tampa_bay,baseline
+ferric_chloride_addition,Electricity Intensity System Treated,3.903712313443459e-06,Electricity,kwh/m3,tampa_bay,baseline
+ferric_chloride_addition,Unit Levelized Cost,0.04920727923957116,LCOW,$/m3,tampa_bay,baseline
+ferric_chloride_addition,Fixed Capital Investment (FCI),2.808977123564844,Cost,$MM,tampa_bay,baseline
+ferric_chloride_addition,Land,0.004213465685347266,Cost,$MM,tampa_bay,baseline
+ferric_chloride_addition,Working Capital,0.1404488561782422,Cost,$MM,tampa_bay,baseline
+ferric_chloride_addition,Total Capital Investment (TCI),2.9536394454284336,Cost,$MM,tampa_bay,baseline
+ferric_chloride_addition,Catalysts and Chemicals,1.1639860576000018,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Electricity,1.1655008811697951e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Employee Salaries,0.0014812988692508731,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Benefits,0.0013331689823257858,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Maintenance,0.022471816988518755,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Laboratory,0.008426931370694533,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Insurance and Taxes,0.005617954247129689,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Total Fixed Operating ,0.03933117045791963,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Base Employee Salary,0.0011801155210442765,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Electricity,1.1655008811697951e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Annual O&M Costs,1.203328883066733,Annual Cost,$MM/yr,tampa_bay,baseline
+ferric_chloride_addition,Inlet Water,1.9273644692775003,Water Flow,m3/s,tampa_bay,baseline
+ferric_chloride_addition,Outlet Water,1.9271717328305726,Water Flow,m3/s,tampa_bay,baseline
+ferric_chloride_addition,Waste Water,0.0001927364469276327,Water Flow,m3/s,tampa_bay,baseline
+ferric_chloride_addition,tss,0.02571891924343092,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,tss,0.02572123417765625,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,tss,0.002571891924344658,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,tss,0.049569731138006126,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,tss,0.04956923544069474,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,tss,4.956973113800613e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,tds,30.005400783102612,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,tds,30.008101539248702,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,tds,3.0005400783120884,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,tds,57.831343355783254,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,tds,57.8307650423497,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,tds,0.0005783134335578327,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,boron,0.0037721089558472227,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,boron,0.003772448479605625,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,boron,0.0003772108955849519,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,boron,0.007270228775743388,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,boron,0.007270156073455631,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,boron,7.270228775743389e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,bromide,0.05683880062602004,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,bromide,0.056843916629676756,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,bromide,0.005683880062605465,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,bromide,0.10954908480293878,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,bromide,0.10954798931209075,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,bromide,1.0954908480293878e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,calcium,0.3511489145923378,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,calcium,0.3511805211553074,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,calcium,0.035114891459255164,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,calcium,0.6767919414106315,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,calcium,0.6767851734912174,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,calcium,6.767919414106316e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,chloride,16.42752825158949,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,chloride,16.429006876994674,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,chloride,1.6427528251599495,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,chloride,31.66183427016592,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,chloride,31.66151765182322,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,chloride,0.00031661834270165927,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,magnesium,1.0956257757370322,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,magnesium,1.0957243919184667,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,magnesium,0.10956257757376994,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,magnesium,2.1116701917801546,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,magnesium,2.111649075078237,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,magnesium,2.111670191780155e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,potassium,0.33888956798718456,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,potassium,0.3389200710986145,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,potassium,0.033888956798739094,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,potassium,0.6531637123473013,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,potassium,0.6531571807101778,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,potassium,6.531637123473015e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,sodium,9.155076426078393,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,sodium,9.155900465360668,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,sodium,0.9155076426083967,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,sodium,17.645169017143537,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,sodium,17.644992565453364,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,sodium,0.00017645169017143538,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,strontium,0.0011144906012867802,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,strontium,0.0011145909154723144,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,strontium,0.00011144906012874588,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,strontium,0.0021480295862638574,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,strontium,0.0021480081059679947,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,strontium,2.1480295862638576e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,sulfate,2.2975564056780855,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,sulfate,2.2977632064346722,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,sulfate,0.22975564056794845,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ferric_chloride_addition,sulfate,4.428228582464865,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,sulfate,4.42818430017904,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ferric_chloride_addition,sulfate,4.428228582464865e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,Electricity Intensity Unit Inlet,5.689e-06,Electricity,kwh/m3,tampa_bay,baseline
+chlorination,Electricity Intensity System Treated,6.648875711637793e-06,Electricity,kwh/m3,tampa_bay,baseline
+chlorination,Unit Levelized Cost,0.03512814176485498,LCOW,$/m3,tampa_bay,baseline
+chlorination,Fixed Capital Investment (FCI),8.812060333244961,Cost,$MM,tampa_bay,baseline
+chlorination,Land,0.013218090499867443,Cost,$MM,tampa_bay,baseline
+chlorination,Working Capital,0.4406030166622481,Cost,$MM,tampa_bay,baseline
+chlorination,Total Capital Investment (TCI),9.265881440407076,Cost,$MM,tampa_bay,baseline
+chlorination,Catalysts and Chemicals,0.16130822943517412,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Electricity,1.9851028658069004e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Employee Salaries,0.004645124613553542,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Benefits,0.004180612152198187,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Maintenance,0.07049648266595969,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Laboratory,0.026436180999734885,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Insurance and Taxes,0.017624120666489922,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Total Fixed Operating ,0.12338252109793622,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Base Employee Salary,0.0040593975823906385,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Electricity,1.9851028658069004e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Annual O&M Costs,0.2847106015617684,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination,Inlet Water,1.9271717328305726,Water Flow,m3/s,tampa_bay,baseline
+chlorination,Outlet Water,1.9269790156572897,Water Flow,m3/s,tampa_bay,baseline
+chlorination,Waste Water,0.00019271717328295246,Water Flow,m3/s,tampa_bay,baseline
+chlorination,tss,0.02572123417765625,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,tss,0.025723549320246494,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,tss,0.002572123417767024,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,tss,0.04956923544069474,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,tss,0.049568739748340335,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,tss,4.956923544069475e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,tds,30.008101539248702,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,tds,30.01080253848716,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,tds,3.000810153926502,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,tds,57.8307650423497,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,tds,57.830186734699275,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,tds,0.000578307650423497,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,boron,0.003772448479605625,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,boron,0.0037727880339242206,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,boron,0.0003772448479607677,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,boron,0.007270156073455631,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,boron,0.007270083371894896,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,boron,7.270156073455632e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,bromide,0.056843916629676756,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,bromide,0.056849033093819834,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,bromide,0.005684391662970768,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,bromide,0.10954798931209075,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,bromide,0.10954689383219762,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,bromide,1.0954798931209078e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,calcium,0.3511805211553074,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,calcium,0.35121213056315215,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,calcium,0.035118052115549844,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,calcium,0.6767851734912174,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,calcium,0.6767784056394824,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,calcium,6.7678517349121745e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,chloride,16.429006876994674,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,chloride,16.430485635489454,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,chloride,1.642900687700361,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,chloride,31.66151765182322,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,chloride,31.661201036646705,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,chloride,0.00031661517651823223,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,magnesium,1.0957243919184667,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,magnesium,1.095823016976245,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,magnesium,0.10957243919190628,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,magnesium,2.111649075078237,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,magnesium,2.111627958587486,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,magnesium,2.1116490750782374e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,potassium,0.3389200710986145,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,potassium,0.3389505769555991,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,potassium,0.033892007109879885,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,potassium,0.6531571807101778,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,potassium,0.6531506491383707,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,potassium,6.531571807101779e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,sodium,9.155900465360668,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,sodium,9.156724578813895,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,sodium,0.915590046536565,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,sodium,17.644992565453364,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,sodium,17.64481611552771,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,sodium,0.0001764499256545337,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,strontium,0.0011145909154723144,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,strontium,0.0011146912386870286,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,strontium,0.00011145909154729206,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,strontium,0.0021480081059679947,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,strontium,0.0021479866258869353,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,strontium,2.1480081059679947e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,sulfate,2.2977632064346722,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,sulfate,2.2979700258051885,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,sulfate,0.2297763206435922,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination,sulfate,4.42818430017904,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,sulfate,4.428140018336038,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination,sulfate,4.428184300179041e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,tampa_bay,baseline
+static_mixer,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,tampa_bay,baseline
+static_mixer,Unit Levelized Cost,0.00037136274971072945,LCOW,$/m3,tampa_bay,baseline
+static_mixer,Fixed Capital Investment (FCI),0.11052361116809963,Cost,$MM,tampa_bay,baseline
+static_mixer,Land,0.00016578541675214945,Cost,$MM,tampa_bay,baseline
+static_mixer,Working Capital,0.0055261805584049814,Cost,$MM,tampa_bay,baseline
+static_mixer,Total Capital Investment (TCI),0.11621557714325675,Cost,$MM,tampa_bay,baseline
+static_mixer,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Employee Salaries,5.6757993573623094e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Benefits,5.108219421626079e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Maintenance,0.000884188889344797,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Laboratory,0.0003315708335042989,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Insurance and Taxes,0.00022104722233619924,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Total Fixed Operating ,0.0015446471329751787,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Base Employee Salary,4.86782828e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Annual O&M Costs,0.0015446471329751787,Annual Cost,$MM/yr,tampa_bay,baseline
+static_mixer,Inlet Water,1.9269790156572897,Water Flow,m3/s,tampa_bay,baseline
+static_mixer,Outlet Water,1.926786317755724,Water Flow,m3/s,tampa_bay,baseline
+static_mixer,Waste Water,0.0001926979015656194,Water Flow,m3/s,tampa_bay,baseline
+static_mixer,tss,0.025723549320246494,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,tss,0.025725864671220414,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,tss,0.0025723549320261123,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,tss,0.049568739748340335,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,tss,0.04956824406094285,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,tss,4.956873974834034e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,tds,30.01080253848716,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,tds,30.013503780839855,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,tds,3.0010802538504224,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,tds,57.830186734699275,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,tds,57.829608432831925,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,tds,0.0005783018673469928,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,boron,0.0037727880339242206,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,boron,0.003773127618805762,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,boron,0.00037727880339263664,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,boron,0.007270083371894896,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,boron,0.0072700106710611775,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,boron,7.270083371894897e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,bromide,0.056849033093819834,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,bromide,0.05685415001849074,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,bromide,0.005684903309385217,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,bromide,0.10954689383219762,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,bromide,0.10954579836325931,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,bromide,1.0954689383219764e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,calcium,0.35121213056315215,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,calcium,0.35124374281612813,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,calcium,0.035121213056335185,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,calcium,0.6767784056394824,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,calcium,0.676771637855426,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,calcium,6.767784056394824e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,chloride,16.430485635489454,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,chloride,16.431964527085803,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,chloride,1.6430485635498797,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,chloride,31.661201036646705,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,chloride,31.660884424636333,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,chloride,0.00031661201036646704,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,magnesium,1.095823016976245,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,magnesium,1.0959216509111662,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,magnesium,0.10958230169768683,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,magnesium,2.111627958587486,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,magnesium,2.1116068423079,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,magnesium,2.1116279585874864e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,potassium,0.3389505769555991,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,potassium,0.33898108555838535,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,potassium,0.033895057695579184,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,potassium,0.6531506491383707,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,potassium,0.6531441176318794,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,potassium,6.531506491383708e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,sodium,9.156724578813895,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,sodium,9.157548766444751,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,sodium,0.9156724578819103,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,sodium,17.64481611552771,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,sodium,17.644639667366555,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,sodium,0.0001764481611552771,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,strontium,0.0011146912386870286,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,strontium,0.0011147915709317348,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,strontium,0.00011146912386876625,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,strontium,0.0021479866258869353,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,strontium,0.0021479651460206764,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,strontium,2.1479866258869354e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,sulfate,2.2979700258051885,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,sulfate,2.298176863791309,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,sulfate,0.2297970025806495,Waste Constituent Density,kg/m3,tampa_bay,baseline
+static_mixer,sulfate,4.428140018336038,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,sulfate,4.4280957369358545,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+static_mixer,sulfate,4.428140018336038e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,Electricity Intensity Unit Inlet,0.19813,Electricity,kwh/m3,tampa_bay,baseline
+tri_media_filtration,Electricity Intensity System Treated,0.2315131463475591,Electricity,kwh/m3,tampa_bay,baseline
+tri_media_filtration,Unit Levelized Cost,0.04793561858686862,LCOW,$/m3,tampa_bay,baseline
+tri_media_filtration,Fixed Capital Investment (FCI),7.236508284814474,Cost,$MM,tampa_bay,baseline
+tri_media_filtration,Land,0.010854762427221712,Cost,$MM,tampa_bay,baseline
+tri_media_filtration,Working Capital,0.36182541424072373,Cost,$MM,tampa_bay,baseline
+tri_media_filtration,Total Capital Investment (TCI),7.60918846148242,Cost,$MM,tampa_bay,baseline
+tri_media_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Electricity,0.6912107102289418,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Employee Salaries,0.0038145997052652504,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Benefits,0.0034331397347387256,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Maintenance,0.05789206627851579,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Laboratory,0.021709524854443423,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Insurance and Taxes,0.014473016569628948,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Total Fixed Operating ,0.10132234714259214,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Base Employee Salary,0.0033335977201041592,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Electricity,0.6912107102289418,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Annual O&M Costs,0.7925330573715339,Annual Cost,$MM/yr,tampa_bay,baseline
+tri_media_filtration,Inlet Water,1.926786317755724,Water Flow,m3/s,tampa_bay,baseline
+tri_media_filtration,Outlet Water,1.7341076859801516,Water Flow,m3/s,tampa_bay,baseline
+tri_media_filtration,Waste Water,0.19267863177557243,Water Flow,m3/s,tampa_bay,baseline
+tri_media_filtration,tss,0.025725864671220414,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,tss,0.0014292147039566936,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,tss,0.24439571437659388,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,tss,0.04956824406094285,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,tss,0.002478412203047149,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,tss,0.047089831857895705,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,tds,30.013503780839855,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,tds,33.34800405089116,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,tds,0.003001350378083986,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,tds,57.829608432831925,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,tds,57.8290301367476,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,tds,0.0005782960843283193,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,boron,0.003773127618805762,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,boron,0.004192322097255082,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,boron,3.7731276188057624e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,boron,0.0072700106710611775,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,boron,0.007269937970954466,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,boron,7.270010671061179e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,bromide,0.05685415001849074,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,bromide,0.06317064608554507,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,bromide,5.685415001849075e-06,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,bromide,0.10954579836325931,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,bromide,0.10954470290527568,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,bromide,1.0954579836325933e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,calcium,0.35124374281612813,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,calcium,0.39026692264299995,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,calcium,3.5124374281612814e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,calcium,0.676771637855426,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,calcium,0.6767648701390475,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,calcium,6.7677163785542614e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,chloride,16.431964527085803,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,chloride,18.25755578604504,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,chloride,0.0016431964527085807,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,chloride,31.660884424636333,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,chloride,31.660567815792092,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,chloride,0.0003166088442463634,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,magnesium,1.0959216509111662,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,magnesium,1.217678546327397,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,magnesium,0.00010959216509111663,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,magnesium,2.1116068423079,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,magnesium,2.1115857262394773,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,magnesium,2.1116068423079003e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,potassium,0.33898108555838535,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,potassium,0.37664188416392197,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,potassium,3.389810855583853e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,potassium,0.6531441176318794,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,potassium,0.6531375861907031,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,potassium,6.531441176318794e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,sodium,9.157548766444751,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,sodium,10.174952434396763,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,sodium,0.0009157548766444753,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,sodium,17.644639667366555,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,sodium,17.644463220969882,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,sodium,0.00017644639667366562,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,strontium,0.0011147915709317348,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,strontium,0.0012386449144622506,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,strontium,1.1147915709317348e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,strontium,0.0021479651460206764,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,strontium,0.002147943666369216,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,strontium,2.1479651460206767e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,sulfate,2.298176863791309,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,sulfate,2.5535043133585233,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,sulfate,0.0002298176863791309,Waste Constituent Density,kg/m3,tampa_bay,baseline
+tri_media_filtration,sulfate,4.4280957369358545,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,sulfate,4.428051455978485,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+tri_media_filtration,sulfate,4.428095736935855e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,tampa_bay,baseline
+cartridge_filtration,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,tampa_bay,baseline
+cartridge_filtration,Unit Levelized Cost,0.022864586139638144,LCOW,$/m3,tampa_bay,baseline
+cartridge_filtration,Fixed Capital Investment (FCI),6.8030869654693875,Cost,$MM,tampa_bay,baseline
+cartridge_filtration,Land,0.01020463044820408,Cost,$MM,tampa_bay,baseline
+cartridge_filtration,Working Capital,0.3401543482734694,Cost,$MM,tampa_bay,baseline
+cartridge_filtration,Total Capital Investment (TCI),7.153445944191061,Cost,$MM,tampa_bay,baseline
+cartridge_filtration,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Employee Salaries,0.0035861291816428444,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Benefits,0.00322751626347856,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Maintenance,0.0544246957237551,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Laboratory,0.02040926089640816,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Insurance and Taxes,0.013606173930938775,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Total Fixed Operating ,0.09525377599622344,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Base Employee Salary,0.003133936189273706,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Annual O&M Costs,0.09525377599622344,Annual Cost,$MM/yr,tampa_bay,baseline
+cartridge_filtration,Inlet Water,1.7341076859801516,Water Flow,m3/s,tampa_bay,baseline
+cartridge_filtration,Outlet Water,1.7339342752115536,Water Flow,m3/s,tampa_bay,baseline
+cartridge_filtration,Waste Water,0.00017341076859800353,Water Flow,m3/s,tampa_bay,baseline
+cartridge_filtration,tss,0.0014292147039566936,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,tss,0.0007146788198603328,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,tss,7.146073519783947,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,tss,0.002478412203047149,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,tss,0.0012392061015235746,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,tss,0.0012392061015235746,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,tds,33.34800405089116,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,tds,33.351005671417795,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,tds,3.3348004050893407,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,tds,57.8290301367476,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,tds,57.82845184644623,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,tds,0.0005782903013674761,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,boron,0.004192322097255082,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,boron,0.004192699443978508,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,boron,0.0004192322097255364,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,boron,0.007269937970954466,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,boron,0.007269865271574758,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,boron,7.269937970954467e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,bromide,0.06317064608554507,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,bromide,0.06317633201228544,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,bromide,0.006317064608554931,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,bromide,0.10954470290527568,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,bromide,0.10954360745824662,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,bromide,1.095447029052757e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,calcium,0.39026692264299995,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,calcium,0.3903020501787914,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,calcium,0.03902669226430262,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,calcium,0.6767648701390475,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,calcium,0.6767581024903461,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,calcium,6.767648701390477e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,chloride,18.25755578604504,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,chloride,18.25919913040022,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,chloride,1.8257555786046267,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,chloride,31.660567815792092,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,chloride,31.660251210113934,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,chloride,0.00031660567815792095,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,magnesium,1.217678546327397,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,magnesium,1.2177881483567692,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,magnesium,0.12176785463274785,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,magnesium,2.1115857262394773,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,magnesium,2.1115646103822145,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,magnesium,2.111585726239477e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,potassium,0.37664188416392197,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,potassium,0.3766757853236127,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,potassium,0.037664188416394725,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,potassium,0.6531375861907031,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,potassium,0.6531310548148411,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,potassium,6.531375861907031e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,sodium,10.174952434396763,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,sodium,10.17586827169959,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,sodium,1.0174952434397448,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,sodium,17.644463220969882,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,sodium,17.644286776337673,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,sodium,0.00017644463220969886,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,strontium,0.0012386449144622506,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,strontium,0.0012387564036534713,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,strontium,0.0001238644914462334,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,strontium,0.002147943666369216,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,strontium,0.0021479221869325524,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,strontium,2.147943666369217e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,sulfate,2.5535043133585233,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,sulfate,2.5537341517305627,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,sulfate,0.2553504313358695,Waste Constituent Density,kg/m3,tampa_bay,baseline
+cartridge_filtration,sulfate,4.428051455978485,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,sulfate,4.428007175463925,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+cartridge_filtration,sulfate,4.428051455978485e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,Electricity Intensity Unit Inlet,2.2119391747207944,Electricity,kwh/m3,tampa_bay,baseline
+ro_first_pass,Electricity Intensity System Treated,2.3243435297996258,Electricity,kwh/m3,tampa_bay,baseline
+ro_first_pass,Unit Levelized Cost,0.6777153492843774,LCOW,$/m3,tampa_bay,baseline
+ro_first_pass,Fixed Capital Investment (FCI),113.84871853497353,Cost,$MM,tampa_bay,baseline
+ro_first_pass,Land,0.1707730778024603,Cost,$MM,tampa_bay,baseline
+ro_first_pass,Working Capital,5.692435926748677,Cost,$MM,tampa_bay,baseline
+ro_first_pass,Total Capital Investment (TCI),119.71192753952467,Cost,$MM,tampa_bay,baseline
+ro_first_pass,Catalysts and Chemicals,1.1384871853497354,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Electricity,6.939610848866957,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Other Operating,0.5590747443502178,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Employee Salaries,0.06003750497529608,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Benefits,0.05403375447776647,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Maintenance,0.9107897482797882,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Laboratory,0.3415461556049206,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Insurance and Taxes,0.22769743706994705,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Total Fixed Operating ,1.5941046004077184,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Base Employee Salary,0.04783044997661475,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Electricity,6.939610848866957,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Annual O&M Costs,10.231277378974628,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_first_pass,Inlet Water,1.7339342752115536,Water Flow,m3/s,tampa_bay,baseline
+ro_first_pass,Outlet Water,1.248708874922205,Water Flow,m3/s,tampa_bay,baseline
+ro_first_pass,Waste Water,0.4887624205415152,Water Flow,m3/s,tampa_bay,baseline
+ro_first_pass,tss,0.0007146788198603328,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,tss,9.923899208297574e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,tss,0.002532860226959488,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,tss,0.0012392061015235746,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,tss,1.2392061015234625e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,tss,0.001237966895422051,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,tds,33.351005671417795,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,tds,0.2609600559774052,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,tds,117.6493656055597,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,tds,57.82845184644623,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,tds,0.32586313789918125,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,tds,57.502588708547044,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,boron,0.004192699443978508,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,boron,0.005821847444925825,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,boron,1.487402665597786e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,boron,0.007269865271574758,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,boron,0.007269792572922041,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,boron,7.269865271574757e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,bromide,0.06317633201228544,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,bromide,0.00074715806338769,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,bromide,0.22221557957175106,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,bromide,0.10954360745824662,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,bromide,0.000932982904721896,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,bromide,0.10861062455352473,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,calcium,0.3903020501787914,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,calcium,0.004615926798205415,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,calcium,1.3728431760118145,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,calcium,0.6767581024903461,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,calcium,0.0057639487589103405,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,calcium,0.6709941537314359,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,chloride,18.25919913040022,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,chloride,0.21594333552993875,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,chloride,64.22466116723696,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,chloride,31.660251210113934,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,chloride,0.26965035955653804,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,chloride,31.39060085055739,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,magnesium,1.2177881483567692,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,magnesium,0.014402232696348773,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,magnesium,4.28343163591842,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,magnesium,2.1115646103822145,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,magnesium,0.01798419578662547,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,magnesium,2.093580414595589,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,potassium,0.3766757853236127,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,potassium,0.004454775092556734,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,potassium,1.3249143354833253,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,potassium,0.6531310548148411,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,potassium,0.005562717193857982,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,potassium,0.6475683376209832,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,sodium,10.17586827169959,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,sodium,0.12034541716813779,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,sodium,35.792462044200214,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,sodium,17.644286776337673,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,sodium,0.15027639047406877,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,sodium,17.494010385863607,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,strontium,0.0012387564036534713,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,strontium,1.4650214820683694e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,strontium,0.004357185094768468,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,strontium,0.0021479221869325524,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,strontium,1.829385326610455e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,strontium,0.0021296283336664475,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,sulfate,2.5537341517305627,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,sulfate,0.030201865199185395,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,sulfate,8.98247012011757,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_first_pass,sulfate,4.428007175463925,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,sulfate,0.03771333711342689,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_first_pass,sulfate,4.390293838350498,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,Electricity Intensity Unit Inlet,0.8648289157774826,Electricity,kwh/m3,tampa_bay,baseline
+ro_second_pass,Electricity Intensity System Treated,0.43849102315663574,Electricity,kwh/m3,tampa_bay,baseline
+ro_second_pass,Unit Levelized Cost,0.15229118416002677,LCOW,$/m3,tampa_bay,baseline
+ro_second_pass,Fixed Capital Investment (FCI),25.561312035488612,Cost,$MM,tampa_bay,baseline
+ro_second_pass,Land,0.03834196805323292,Cost,$MM,tampa_bay,baseline
+ro_second_pass,Working Capital,1.2780656017744307,Cost,$MM,tampa_bay,baseline
+ro_second_pass,Total Capital Investment (TCI),26.877719605316273,Cost,$MM,tampa_bay,baseline
+ro_second_pass,Catalysts and Chemicals,0.25561312035488615,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Electricity,1.309168383423463,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Other Operating,0.37825758295567896,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Employee Salaries,0.01347961943053679,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Benefits,0.012131657487483112,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Maintenance,0.2044904962839089,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Laboratory,0.07668393610646584,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Insurance and Taxes,0.05112262407097722,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Total Fixed Operating ,0.3579083333793719,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Base Employee Salary,0.010738891683479966,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Electricity,1.309168383423463,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Annual O&M Costs,2.3009474201134,Annual Cost,$MM/yr,tampa_bay,baseline
+ro_second_pass,Inlet Water,0.8366349461978775,Water Flow,m3/s,tampa_bay,baseline
+ro_second_pass,Outlet Water,0.8273458701410875,Water Flow,m3/s,tampa_bay,baseline
+ro_second_pass,Waste Water,0.011655567768372977,Water Flow,m3/s,tampa_bay,baseline
+ro_second_pass,tss,9.923899208297574e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,tss,1.0035320389998544e-09,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,tss,7.116236947146865e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,tss,8.3026808802072e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,tss,8.302680880207943e-10,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,tss,8.29437819932699e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,tds,0.2609600559774052,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,tds,0.044952310825449336,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,tds,15.540829694219413,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,tds,0.2183283023924515,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,tds,0.03719110871473401,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,tds,0.18113719367771747,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,boron,0.005821847444925825,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,boron,0.0058871537189361025,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,boron,4.178913563588406e-06,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,boron,0.0048707610238577686,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,boron,0.004870712316247529,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,boron,4.870761023857768e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,bromide,0.00074715806338769,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,bromide,6.4349923167779946e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,bromide,0.05317412194434093,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,bromide,0.0006250985461636703,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,bromide,5.323964317675903e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,bromide,0.0006197745818459944,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,calcium,0.004615926798205415,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,calcium,3.975524716494906e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,calcium,0.328508606788021,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,calcium,0.0038618456684699283,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,calcium,3.289133955835878e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,calcium,0.0038289543289115697,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,chloride,0.21594333552993875,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,chloride,0.0018598389993865962,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,chloride,15.36836423135613,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,chloride,0.1806657409028805,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,chloride,0.001538730115269833,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,chloride,0.17912701078761065,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,magnesium,0.014402232696348773,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,magnesium,0.00012404103132507418,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,magnesium,1.0249853614563043,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,magnesium,0.012049411177039067,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,magnesium,0.00010262483499484139,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,magnesium,0.011946786342044225,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,potassium,0.004454775092556734,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,potassium,3.836730793428146e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,potassium,0.3170396809106125,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,potassium,0.003727020519884848,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,potassium,3.1743033767859146e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,potassium,0.0036952774861169885,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,sodium,0.12034541716813779,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,sodium,0.0010364899648209744,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,sodium,8.564803354896874,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,sodium,0.10068518161762609,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,sodium,0.0008575356918373143,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,sodium,0.09982764592578874,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,strontium,1.4650214820683694e-05,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,strontium,1.2617680840222876e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,strontium,0.0010426338783706692,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,strontium,1.225688168829005e-05,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,strontium,1.0439186133916724e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,strontium,1.2152489826950883e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,sulfate,0.030201865199185395,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,sulfate,0.0002601173433475748,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,sulfate,2.1494215772315393,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ro_second_pass,sulfate,0.02526793586599602,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,sulfate,0.0002152070097706873,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ro_second_pass,sulfate,0.025052728856225337,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,Electricity Intensity Unit Inlet,5.652405629581132e-06,Electricity,kwh/m3,tampa_bay,baseline
+lime_softening,Electricity Intensity System Treated,4.248578173795832e-06,Electricity,kwh/m3,tampa_bay,baseline
+lime_softening,Unit Levelized Cost,0.12005683548853148,LCOW,$/m3,tampa_bay,baseline
+lime_softening,Fixed Capital Investment (FCI),32.65221524605366,Cost,$MM,tampa_bay,baseline
+lime_softening,Land,0.048978322869080486,Cost,$MM,tampa_bay,baseline
+lime_softening,Working Capital,1.6326107623026829,Cost,$MM,tampa_bay,baseline
+lime_softening,Total Capital Investment (TCI),34.33380433122542,Cost,$MM,tampa_bay,baseline
+lime_softening,Catalysts and Chemicals,0.30361554932732765,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Electricity,1.2684647862562123e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Employee Salaries,0.01632610762302683,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Benefits,0.014693496860724149,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Maintenance,0.26121772196842924,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Laboratory,0.09795664573816097,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Insurance and Taxes,0.06530443049210731,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Total Fixed Operating ,0.4554984026824485,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Base Employee Salary,0.01632610762286357,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Electricity,1.2684647862562123e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Annual O&M Costs,0.7591266366576388,Annual Cost,$MM/yr,tampa_bay,baseline
+lime_softening,Inlet Water,1.2394197988654152,Water Flow,m3/s,tampa_bay,baseline
+lime_softening,Outlet Water,1.2381803790665498,Water Flow,m3/s,tampa_bay,baseline
+lime_softening,Waste Water,0.0012394197988654378,Water Flow,m3/s,tampa_bay,baseline
+lime_softening,tss,3.3061298679097424e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,tss,3.309406212823887e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,tss,3.3061298679096832e-09,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,tss,4.0976828159076345e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,tss,4.0976418390794755e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,tss,4.097682815907636e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,tds,0.11676910789544294,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,tds,0.11688482502939337,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,tds,0.0011676910789544081,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,tds,0.14472594422146384,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,tds,0.14472449696202164,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,tds,1.4472594422146385e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,boron,0.005865441129766238,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,boron,0.005871253729084024,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,boron,5.865441129766131e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,boron,0.0072697438653118035,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,boron,0.00726967116787315,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,boron,7.269743865311805e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,bromide,0.00025270559915423126,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,bromide,0.00025295602812636607,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,bromide,2.5270559915422663e-06,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,bromide,0.00031320832287590157,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,bromide,0.0003132051907926728,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,bromide,3.132083228759015e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,calcium,0.0015612098755967076,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,calcium,0.00156275702051847,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,calcium,1.561209875596679e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,calcium,0.0019349944299987712,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,calcium,0.001934975080054471,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,calcium,1.934994429998771e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,chloride,0.07303687487628802,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,chloride,0.07310925376130056,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,chloride,0.0007303687487628669,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,chloride,0.09052334876892738,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,chloride,0.09052244353543971,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,chloride,9.052334876892741e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,magnesium,0.004871157819253806,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,magnesium,0.004875985092768383,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,magnesium,4.871157819253717e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,magnesium,0.006037409444581247,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,magnesium,0.006037349070486802,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,magnesium,6.037409444581246e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,potassium,0.0015067047577023355,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,potassium,0.0015081978885433018,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,potassium,1.5067047577023084e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,potassium,0.0018674397077409928,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,potassium,0.0018674210333439155,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,potassium,1.8674397077409934e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,sodium,0.04070351675393728,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,sodium,0.040743853572342094,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,sodium,0.0004070351675393655,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,sodium,0.05044874454828,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,sodium,0.05044824006083453,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,sodium,5.044874454828002e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,strontium,4.955030930420485e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,strontium,4.959941321432614e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,strontium,4.9550309304203955e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,strontium,6.141363439153669e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,strontium,6.141302025519277e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,strontium,6.14136343915367e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,sulfate,0.010214947565620048,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,sulfate,0.010225070486631023,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,sulfate,0.00010214947565619863,Waste Constituent Density,kg/m3,tampa_bay,baseline
+lime_softening,sulfate,0.012660608257201562,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,sulfate,0.01266048165111899,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+lime_softening,sulfate,1.2660608257201564e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,Electricity Intensity Unit Inlet,5.689e-06,Electricity,kwh/m3,tampa_bay,baseline
+chlorination_b,Electricity Intensity System Treated,4.271807908322935e-06,Electricity,kwh/m3,tampa_bay,baseline
+chlorination_b,Unit Levelized Cost,0.0293051003454897,LCOW,$/m3,tampa_bay,baseline
+chlorination_b,Fixed Capital Investment (FCI),7.6657717759089,Cost,$MM,tampa_bay,baseline
+chlorination_b,Land,0.01149865766386335,Cost,$MM,tampa_bay,baseline
+chlorination_b,Working Capital,0.38328858879544503,Cost,$MM,tampa_bay,baseline
+chlorination_b,Total Capital Investment (TCI),8.060559022368208,Cost,$MM,tampa_bay,baseline
+chlorination_b,Catalysts and Chemicals,0.10363823901424825,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Electricity,1.2754003065729738e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Employee Salaries,0.004040878501911707,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Benefits,0.0036367906517205365,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Maintenance,0.061326174207271204,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Laboratory,0.0229973153277267,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Insurance and Taxes,0.015331543551817801,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Total Fixed Operating ,0.10733270224044796,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Base Employee Salary,0.0035313438897919924,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Electricity,1.2754003065729738e-05,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Annual O&M Costs,0.21098369525776195,Annual Cost,$MM/yr,tampa_bay,baseline
+chlorination_b,Inlet Water,1.2381803790665498,Water Flow,m3/s,tampa_bay,baseline
+chlorination_b,Outlet Water,1.2380565610286431,Water Flow,m3/s,tampa_bay,baseline
+chlorination_b,Waste Water,0.00012381803790662008,Water Flow,m3/s,tampa_bay,baseline
+chlorination_b,tss,3.309406212823887e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,tss,3.309704089170676e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,tss,3.3094062128248205e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,tss,4.0976418390794755e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,tss,4.0976008626610846e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,tss,4.097641839079476e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,tds,0.11688482502939337,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,tds,0.11689534571571467,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,tds,0.011688482502942634,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,tds,0.14472449696202164,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,tds,0.14472304971705202,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,tds,1.4472449696202164e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,boron,0.005871253729084024,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,boron,0.005871782194766209,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,boron,0.000587125372908568,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,boron,0.00726967116787315,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,boron,0.007269598471161471,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,boron,7.269671167873153e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,bromide,0.00025295602812636607,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,bromide,0.00025297879644572936,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,bromide,2.5295602812643743e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,bromide,0.0003132051907926728,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,bromide,0.0003132020587407648,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,bromide,3.1320519079267282e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,calcium,0.00156275702051847,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,calcium,0.0015628976827165365,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,calcium,0.00015627570205189109,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,calcium,0.001934975080054471,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,calcium,0.0019349557303036705,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,calcium,1.9349750800544716e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,chloride,0.07310925376130056,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,chloride,0.07311583425218816,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,chloride,0.007310925376132118,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,chloride,0.09052244353543971,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,chloride,0.09052153831100435,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,chloride,9.052244353543973e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,magnesium,0.004875985092768383,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,magnesium,0.004876423975314986,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,magnesium,0.0004875985092769758,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,magnesium,0.006037349070486802,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,magnesium,0.006037288696996097,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,magnesium,6.037349070486803e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,potassium,0.0015081978885433018,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,potassium,0.0015083336399284092,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,potassium,0.0001508197888543727,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,potassium,0.0018674210333439155,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,potassium,0.001867402359133582,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,potassium,1.8674210333439155e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,sodium,0.040743853572342094,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,sodium,0.04074752088589496,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,sodium,0.004074385357235358,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,sodium,0.05044824006083453,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,sodium,0.05044773557843392,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,sodium,5.044824006083454e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,strontium,4.959941321432614e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,strontium,4.960387760795479e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,strontium,4.959941321434012e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,strontium,6.141302025519277e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,strontium,6.141240612499022e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,strontium,6.141302025519278e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,sulfate,0.010225070486631023,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,sulfate,0.010225990835009658,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,sulfate,0.0010225070486633908,Waste Constituent Density,kg/m3,tampa_bay,baseline
+chlorination_b,sulfate,0.01266048165111899,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,sulfate,0.012660355046302479,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+chlorination_b,sulfate,1.2660481651118995e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,Electricity Intensity Unit Inlet,3.989557897784535e-06,Electricity,kwh/m3,tampa_bay,baseline
+caustic_soda_addition,Electricity Intensity System Treated,2.995415840388532e-06,Electricity,kwh/m3,tampa_bay,baseline
+caustic_soda_addition,Unit Levelized Cost,0.009505941145476966,LCOW,$/m3,tampa_bay,baseline
+caustic_soda_addition,Fixed Capital Investment (FCI),1.403221695666323,Cost,$MM,tampa_bay,baseline
+caustic_soda_addition,Land,0.0021048325434994846,Cost,$MM,tampa_bay,baseline
+caustic_soda_addition,Working Capital,0.07016108478331616,Cost,$MM,tampa_bay,baseline
+caustic_soda_addition,Total Capital Investment (TCI),1.4754876129931387,Cost,$MM,tampa_bay,baseline
+caustic_soda_addition,Catalysts and Chemicals,0.14019279291701853,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Electricity,8.94317900788967e-06,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Employee Salaries,0.0007399813596420105,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Benefits,0.0006659832236778094,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Maintenance,0.011225773565330584,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Laboratory,0.004209665086998969,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Insurance and Taxes,0.002806443391332646,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Total Fixed Operating ,0.01964784662698202,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Base Employee Salary,0.0005895255210979894,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Electricity,8.94317900788967e-06,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Annual O&M Costs,0.15984958272300845,Annual Cost,$MM/yr,tampa_bay,baseline
+caustic_soda_addition,Inlet Water,1.2380565610286431,Water Flow,m3/s,tampa_bay,baseline
+caustic_soda_addition,Outlet Water,1.2379327553725403,Water Flow,m3/s,tampa_bay,baseline
+caustic_soda_addition,Waste Water,0.0001238056561028156,Water Flow,m3/s,tampa_bay,baseline
+caustic_soda_addition,tss,3.309704089170676e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,tss,3.310001992329017e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,tss,3.3097040891719786e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,tss,4.0976008626610846e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,tss,4.097559886652458e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,tss,4.097600862661085e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,tds,0.11689534571571467,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,tds,0.11690586734899239,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,tds,0.011689534571576067,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,tds,0.14472304971705202,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,tds,0.14472160248655483,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,tds,1.4472304971705205e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,boron,0.005871782194766209,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,boron,0.005872310708015063,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,boron,0.000587178219476852,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,boron,0.007269598471161471,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,boron,0.007269525775176759,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,boron,7.269598471161472e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,bromide,0.00025297879644572936,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,bromide,0.00025300156681444633,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,bromide,2.5297879644582898e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,bromide,0.0003132020587407648,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,bromide,0.0003131989267201774,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,bromide,3.132020587407649e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,calcium,0.0015628976827165365,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,calcium,0.001563038357575467,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,calcium,0.00015628976827171517,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,calcium,0.0019349557303036705,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,calcium,0.0019349363807463678,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,calcium,1.934955730303671e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,chloride,0.07311583425218816,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,chloride,0.07312241533537918,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,chloride,0.007311583425221695,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,chloride,0.09052153831100435,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,chloride,0.09052063309562125,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,chloride,9.052153831100437e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,magnesium,0.004876423975314986,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,magnesium,0.004876862897364969,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,magnesium,0.00048764239753169055,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,magnesium,0.006037288696996097,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,magnesium,0.006037228324109126,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,magnesium,6.037288696996098e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,potassium,0.0015083336399284092,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,potassium,0.001508469403532363,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,potassium,0.00015083336399290028,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,potassium,0.001867402359133582,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,potassium,0.0018673836851099907,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,potassium,1.8674023591335822e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,sodium,0.04074752088589496,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,sodium,0.040751188529539045,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,sodium,0.0040747520885911,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,sodium,0.05044773557843392,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,sodium,0.05044723110107813,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,sodium,5.044773557843393e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,strontium,4.960387760795479e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,strontium,4.960834240341905e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,strontium,4.960387760797432e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,strontium,6.141240612499022e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,strontium,6.141179200092898e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,strontium,6.141240612499024e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,sulfate,0.010225990835009658,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,sulfate,0.01022691126622793,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,sulfate,0.0010225990835013683,Waste Constituent Density,kg/m3,tampa_bay,baseline
+caustic_soda_addition,sulfate,0.012660355046302479,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,sulfate,0.012660228442752016,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+caustic_soda_addition,sulfate,1.266035504630248e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,Electricity Intensity Unit Inlet,1.137762807886701e-06,Electricity,kwh/m3,tampa_bay,baseline
+ammonia_addition,Electricity Intensity System Treated,8.541627963257259e-07,Electricity,kwh/m3,tampa_bay,baseline
+ammonia_addition,Unit Levelized Cost,0.005500118254110519,LCOW,$/m3,tampa_bay,baseline
+ammonia_addition,Fixed Capital Investment (FCI),0.6131154339975399,Cost,$MM,tampa_bay,baseline
+ammonia_addition,Land,0.0009196731509963098,Cost,$MM,tampa_bay,baseline
+ammonia_addition,Working Capital,0.030655771699876995,Cost,$MM,tampa_bay,baseline
+ammonia_addition,Total Capital Investment (TCI),0.6446908788484131,Cost,$MM,tampa_bay,baseline
+ammonia_addition,Catalysts and Chemicals,0.10067384652164016,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Electricity,2.550207115293126e-06,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Employee Salaries,0.00032332310273435676,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Benefits,0.0002909907924609211,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Maintenance,0.004904923471980319,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Laboratory,0.0018393463019926197,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Insurance and Taxes,0.0012262308679950797,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Total Fixed Operating ,0.008584814537163296,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Base Employee Salary,0.0002575838136175521,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Electricity,2.550207115293126e-06,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Annual O&M Costs,0.10926121126591874,Annual Cost,$MM/yr,tampa_bay,baseline
+ammonia_addition,Inlet Water,1.2379327553725403,Water Flow,m3/s,tampa_bay,baseline
+ammonia_addition,Outlet Water,1.2378089620970032,Water Flow,m3/s,tampa_bay,baseline
+ammonia_addition,Waste Water,0.00012379327553713185,Water Flow,m3/s,tampa_bay,baseline
+ammonia_addition,tss,3.310001992329017e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,tss,3.3102999223013233e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,tss,3.310001992332284e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,tss,4.097559886652458e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,tss,4.0975189110535915e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,tss,4.097559886652458e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,tds,0.11690586734899239,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,tds,0.11691638992931182,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,tds,0.011690586734910777,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,tds,0.14472160248655483,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,tds,0.14472015527052998,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,tds,1.4472160248655484e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,boron,0.005872310708015063,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,boron,0.005872839268834866,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,boron,0.0005872310708020859,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,boron,0.007269525775176759,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,boron,0.007269453079919008,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,boron,7.26952577517676e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,bromide,0.00025300156681444633,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,bromide,0.00025302433923270147,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,bromide,2.530015668146961e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,bromide,0.0003131989267201774,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,bromide,0.00031319579473091026,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,bromide,3.1319892672017745e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,calcium,0.001563038357575467,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,calcium,0.0015631790450964008,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,calcium,0.00015630383575770097,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,calcium,0.0019349363807463678,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,calcium,0.0019349170313825604,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,calcium,1.9349363807463677e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,chloride,0.07312241533537918,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,chloride,0.0731289970109269,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,chloride,0.007312241533545136,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,chloride,0.09052063309562125,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,chloride,0.09051972788929027,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,chloride,9.052063309562125e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,magnesium,0.004876862897364969,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,magnesium,0.004877301858921887,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,magnesium,0.0004876862897369783,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,magnesium,0.006037228324109126,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,magnesium,0.006037167951825886,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,magnesium,6.037228324109127e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,potassium,0.001508469403532363,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,potassium,0.0015086051793562632,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,potassium,0.00015084694035338522,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,potassium,0.0018673836851099907,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,potassium,0.0018673650112731395,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,potassium,1.867383685109991e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,sodium,0.040751188529539045,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,sodium,0.04075485650330408,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,sodium,0.004075118852957927,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,sodium,0.05044723110107813,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,sodium,0.05044672662876712,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,sodium,5.044723110107814e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,strontium,4.960834240341905e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,strontium,4.961280760075509e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,strontium,4.960834240346803e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,strontium,6.141179200092898e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,strontium,6.141117788300897e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,strontium,6.141179200092899e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,sulfate,0.01022691126622793,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,sulfate,0.010227831780293297,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,sulfate,0.0010226911266238026,Waste Constituent Density,kg/m3,tampa_bay,baseline
+ammonia_addition,sulfate,0.012660228442752016,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,sulfate,0.01266010184046759,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+ammonia_addition,sulfate,1.266022844275202e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,tampa_bay,baseline
+treated_storage,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,tampa_bay,baseline
+treated_storage,Unit Levelized Cost,0.028358423560545947,LCOW,$/m3,tampa_bay,baseline
+treated_storage,Fixed Capital Investment (FCI),8.453186125125471,Cost,$MM,tampa_bay,baseline
+treated_storage,Land,0.012679779187688207,Cost,$MM,tampa_bay,baseline
+treated_storage,Working Capital,0.42265930625627357,Cost,$MM,tampa_bay,baseline
+treated_storage,Total Capital Investment (TCI),8.888525210569433,Cost,$MM,tampa_bay,baseline
+treated_storage,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Employee Salaries,0.0036548091310541248,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Benefits,0.0032893282179487122,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Maintenance,0.06762548900100378,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Laboratory,0.025359558375376415,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Insurance and Taxes,0.016906372250250944,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Total Fixed Operating ,0.11683555697563397,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Base Employee Salary,0.0026740096240420045,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Annual O&M Costs,0.11683555697563397,Annual Cost,$MM/yr,tampa_bay,baseline
+treated_storage,Inlet Water,1.2378089620970032,Water Flow,m3/s,tampa_bay,baseline
+treated_storage,Outlet Water,1.2376851812007934,Water Flow,m3/s,tampa_bay,baseline
+treated_storage,Waste Water,0.00012378089620979085,Water Flow,m3/s,tampa_bay,baseline
+treated_storage,tss,3.3102999223013233e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,tss,3.31059787909001e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,tss,3.3102999222989025e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,tss,4.0975189110535915e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,tss,4.0974779358644815e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,tss,4.097518911053592e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,tds,0.11691638992931182,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,tds,0.11692691345675821,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,tds,0.011691638992922632,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,tds,0.14472015527052998,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,tds,0.14471870806897727,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,tds,1.4472015527053e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,boron,0.005872839268834866,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,boron,0.005873367877229901,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,boron,0.0005872839268830571,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,boron,0.007269453079919008,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,boron,0.007269380385388209,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,boron,7.26945307991901e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,bromide,0.00025302433923270147,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,bromide,0.0002530471137006792,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,bromide,2.5302433923251646e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,bromide,0.00031319579473091026,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,bromide,0.0003131926627729629,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,bromide,3.131957947309103e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,calcium,0.0015631790450964008,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,calcium,0.001563319745280478,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,calcium,0.00015631790450952574,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,calcium,0.0019349170313825604,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,calcium,0.0019348976822122466,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,calcium,1.9349170313825602e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,chloride,0.0731289970109269,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,chloride,0.0731355792788847,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,chloride,0.007312899701087343,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,chloride,0.09051972788929027,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,chloride,0.0905188226920114,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,chloride,9.05197278892903e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,magnesium,0.004877301858921887,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,magnesium,0.004877740859989298,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,magnesium,0.00048773018589183206,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,magnesium,0.006037167951825886,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,magnesium,0.006037107580146368,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,magnesium,6.037167951825886e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,potassium,0.0015086051793562632,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,potassium,0.0015087409674012099,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,potassium,0.000150860517935516,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,potassium,0.0018673650112731395,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,potassium,0.0018673463376230267,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,potassium,1.86736501127314e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,sodium,0.04075485650330408,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,sodium,0.040758524807219774,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,sodium,0.004075485650327427,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,sodium,0.05044672662876712,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,sodium,0.05044622216150084,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,sodium,5.044672662876712e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,strontium,4.961280760075509e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,strontium,4.961727319999908e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,strontium,4.96128076007188e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,strontium,6.141117788300897e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,strontium,6.141056377123013e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,strontium,6.141117788300897e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,sulfate,0.010227831780293297,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,sulfate,0.010228752377213214,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,sulfate,0.0010227831780285819,Waste Constituent Density,kg/m3,tampa_bay,baseline
+treated_storage,sulfate,0.01266010184046759,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,sulfate,0.012659975239449183,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+treated_storage,sulfate,1.2660101840467594e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,Electricity Intensity Unit Inlet,0.10239865270980315,Electricity,kwh/m3,tampa_bay,baseline
+backwash_solids_handling,Electricity Intensity System Treated,0.01196519167748324,Electricity,kwh/m3,tampa_bay,baseline
+backwash_solids_handling,Unit Levelized Cost,0.019552058529824404,LCOW,$/m3,tampa_bay,baseline
+backwash_solids_handling,Fixed Capital Investment (FCI),5.454330939836325,Cost,$MM,tampa_bay,baseline
+backwash_solids_handling,Land,0.008181496409754487,Cost,$MM,tampa_bay,baseline
+backwash_solids_handling,Working Capital,0.27271654699181624,Cost,$MM,tampa_bay,baseline
+backwash_solids_handling,Total Capital Investment (TCI),5.735228983237896,Cost,$MM,tampa_bay,baseline
+backwash_solids_handling,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Electricity,0.03572353781155292,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Employee Salaries,0.002876311873784859,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Benefits,0.002588680686406373,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Maintenance,0.0436346475186906,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Laboratory,0.016362992819508974,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Insurance and Taxes,0.01090866187967265,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Total Fixed Operating ,0.07637129477806345,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Base Employee Salary,0.0022914891492046264,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Electricity,0.03572353781155292,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Annual O&M Costs,0.11209483258961637,Annual Cost,$MM/yr,tampa_bay,baseline
+backwash_solids_handling,Inlet Water,0.19267863177557243,Water Flow,m3/s,tampa_bay,baseline
+backwash_solids_handling,Outlet Water,0.1830447001867938,Water Flow,m3/s,tampa_bay,baseline
+backwash_solids_handling,Waste Water,0.009633931588778621,Water Flow,m3/s,tampa_bay,baseline
+backwash_solids_handling,tss,0.24439571437659388,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,tss,0.012862932335610177,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,tss,4.6435185731552835,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,tss,0.047089831857895705,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,tss,0.0023544915928947804,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,tss,0.044735340265000915,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,tds,0.003001350378083986,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,tds,0.0031592845942949527,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,tds,6.002700756167973e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,tds,0.0005782960843283193,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,tds,0.0005782903013674761,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,tds,5.782960843283195e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,boron,3.7731276188057624e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,boron,3.9716735658206044e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,boron,7.546255237611527e-11,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,boron,7.270010671061179e-08,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,boron,7.269937970954468e-08,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,boron,7.270010671061181e-13,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,bromide,5.685415001849075e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,bromide,5.9845875238937434e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,bromide,1.1370830003698152e-09,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,bromide,1.0954579836325933e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,bromide,1.095447029052757e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,bromide,1.0954579836325935e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,calcium,3.5124374281612814e-05,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,calcium,3.697265582933684e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,calcium,7.024874856322565e-09,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,calcium,6.7677163785542614e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,calcium,6.767648701390476e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,calcium,6.767716378554263e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,chloride,0.0016431964527085807,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,chloride,0.0017296631797305826,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,chloride,3.286392905417162e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,chloride,0.0003166088442463634,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,chloride,0.00031660567815792095,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,chloride,3.166088442463635e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,magnesium,0.00010959216509111663,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,magnesium,0.00011535902017838498,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,magnesium,2.1918433018223332e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,magnesium,2.1116068423079003e-05,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,magnesium,2.1115857262394776e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,magnesium,2.111606842307901e-10,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,potassium,3.389810855583853e-05,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,potassium,3.568186271026629e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,potassium,6.7796217111677095e-09,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,potassium,6.531441176318794e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,potassium,6.531375861907031e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,potassium,6.531441176318797e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,sodium,0.0009157548766444753,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,sodium,0.0009639428622060094,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,sodium,1.831509753288951e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,sodium,0.00017644639667366562,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,sodium,0.00017644463220969886,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,sodium,1.7644639667366565e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,strontium,1.1147915709317348e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,strontium,1.1734530768589742e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,strontium,2.22958314186347e-11,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,strontium,2.1479651460206767e-08,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,strontium,2.1479436663692163e-08,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,strontium,2.147965146020677e-13,Waste Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,sulfate,0.0002298176863791309,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,sulfate,0.00024191093494975487,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,sulfate,4.596353727582619e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+backwash_solids_handling,sulfate,4.428095736935855e-05,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,sulfate,4.428051455978486e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+backwash_solids_handling,sulfate,4.428095736935856e-10,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,Electricity Intensity Unit Inlet,0.30719595812940936,Electricity,kwh/m3,tampa_bay,baseline
+municipal_drinking,Electricity Intensity System Treated,0.23057783252318403,Electricity,kwh/m3,tampa_bay,baseline
+municipal_drinking,Unit Levelized Cost,0.031820383949656375,LCOW,$/m3,tampa_bay,baseline
+municipal_drinking,Fixed Capital Investment (FCI),2.471291731587716,Cost,$MM,tampa_bay,baseline
+municipal_drinking,Land,0.0037069375973815743,Cost,$MM,tampa_bay,baseline
+municipal_drinking,Working Capital,0.12356458657938581,Cost,$MM,tampa_bay,baseline
+municipal_drinking,Total Capital Investment (TCI),2.5985632557644838,Cost,$MM,tampa_bay,baseline
+municipal_drinking,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Electricity,0.6884182168304775,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Employee Salaries,0.0012356458657938579,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Benefits,0.001112081279214472,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Maintenance,0.01977033385270173,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Laboratory,0.007413875194763149,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Insurance and Taxes,0.004942583463175432,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Total Fixed Operating ,0.03447451965564864,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Base Employee Salary,0.0012356458657815015,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Electricity,0.6884182168304775,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Annual O&M Costs,0.7228927364861262,Annual Cost,$MM/yr,tampa_bay,baseline
+municipal_drinking,Inlet Water,1.2376851812007934,Water Flow,m3/s,tampa_bay,baseline
+municipal_drinking,Outlet Water,1.2375614126826733,Water Flow,m3/s,tampa_bay,baseline
+municipal_drinking,Waste Water,0.00012376851812012649,Water Flow,m3/s,tampa_bay,baseline
+municipal_drinking,tss,3.31059787909001e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,tss,3.310895862697489e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,tss,3.310597879088749e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,tss,4.0974779358644815e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,tss,4.0974369610851225e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,tss,4.0974779358644814e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,tds,0.11692691345675821,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,tds,0.11693743793141678,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,tds,0.011692691345671368,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,tds,0.14471870806897727,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,tds,0.14471726088189657,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,tds,1.4471870806897728e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,boron,0.005873367877229901,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,boron,0.005873896533204449,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,boron,0.0005873367877227665,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,boron,0.007269380385388209,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,boron,0.007269307691584356,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,boron,7.269380385388211e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,bromide,0.0002530471137006792,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,bromide,0.0002530698902185641,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,bromide,2.5304711370058288e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,bromide,0.0003131926627729629,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,bromide,0.0003131895308463352,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,bromide,3.13192662772963e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,calcium,0.001563319745280478,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,calcium,0.001563460458128838,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,calcium,0.00015633197452798826,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,calcium,0.0019348976822122466,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,calcium,0.0019348783332354244,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,calcium,1.9348976822122468e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,chloride,0.0731355792788847,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,chloride,0.07314216213930584,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,chloride,0.007313557927885684,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,chloride,0.0905188226920114,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,chloride,0.09051791750378448,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,chloride,9.05188226920114e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,magnesium,0.004877740859989298,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,magnesium,0.004878179900570755,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,magnesium,0.000487774085998744,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,magnesium,0.006037107580146368,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,magnesium,0.006037047209070566,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,magnesium,6.037107580146369e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,potassium,0.0015087409674012099,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,potassium,0.001508876767668303,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,potassium,0.00015087409674006353,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,potassium,0.0018673463376230267,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,potassium,0.001867327664159651,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,potassium,1.867346337623027e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,sodium,0.040758524807219774,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,sodium,0.04076219344131583,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,sodium,0.004075852480720425,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,sodium,0.05044622216150084,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,sodium,0.05044571769927922,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,sodium,5.044622216150084e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,strontium,4.961727319999908e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,strontium,4.962173920118721e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,strontium,4.961727319998019e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,strontium,6.141056377123013e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,strontium,6.140994966559243e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,strontium,6.141056377123015e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,sulfate,0.010228752377213214,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,sulfate,0.010229673056995143,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,sulfate,0.0010228752377209318,Waste Constituent Density,kg/m3,tampa_bay,baseline
+municipal_drinking,sulfate,0.012659975239449183,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,sulfate,0.01265984863969679,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+municipal_drinking,sulfate,1.2659975239449184e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,Electricity Intensity Unit Inlet,0.10239865270980314,Electricity,kwh/m3,tampa_bay,baseline
+surface_discharge,Electricity Intensity System Treated,0.031241923779450613,Electricity,kwh/m3,tampa_bay,baseline
+surface_discharge,Unit Levelized Cost,0.028713828150740524,LCOW,$/m3,tampa_bay,baseline
+surface_discharge,Fixed Capital Investment (FCI),7.599284129260329,Cost,$MM,tampa_bay,baseline
+surface_discharge,Land,0.011398926193890492,Cost,$MM,tampa_bay,baseline
+surface_discharge,Working Capital,0.37996420646301643,Cost,$MM,tampa_bay,baseline
+surface_discharge,Total Capital Investment (TCI),7.9906472619172355,Cost,$MM,tampa_bay,baseline
+surface_discharge,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Electricity,0.09327657053260122,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Employee Salaries,0.0037996420646301647,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Benefits,0.0034196778581671483,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Maintenance,0.06079427303408263,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Laboratory,0.022797852387780985,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Insurance and Taxes,0.015198568258520657,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Total Fixed Operating ,0.10601001360318159,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Base Employee Salary,0.003799642064592168,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Electricity,0.09327657053260122,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Annual O&M Costs,0.19928658413578282,Annual Cost,$MM/yr,tampa_bay,baseline
+surface_discharge,Inlet Water,0.503096923987384,Water Flow,m3/s,tampa_bay,baseline
+surface_discharge,Outlet Water,0.5030466142949853,Water Flow,m3/s,tampa_bay,baseline
+surface_discharge,Waste Water,5.030969239872008e-05,Water Flow,m3/s,tampa_bay,baseline
+surface_discharge,tss,0.004929438277876301,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,tss,0.004929881971690692,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,tss,0.0004929438277878098,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,tss,0.002479985234585235,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,tss,0.0024799604347328892,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,tss,2.4799852345852353e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,tds,114.6630438795791,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,tds,114.67336458559888,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,tds,11.466304387962088,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,tds,57.68662467084669,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,tds,57.68604780459999,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,tds,0.000576866246708467,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,boron,1.686341583114286e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,boron,1.6864933690353582e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,boron,1.6863415831149003e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,boron,8.483932632568128e-07,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,boron,8.483847793241801e-07,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,boron,8.483932632568128e-12,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,bromide,0.21712693315279438,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,bromide,0.21714647653111596,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,bromide,0.02171269331528735,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,bromide,0.10923589218398522,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,bromide,0.10923479982506337,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,bromide,1.0923589218398523e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,calcium,1.3414056254815379,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,calcium,1.341526364061689,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,calcium,0.13414056254820264,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,calcium,0.6748570439991346,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,calcium,0.6748502954286946,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,calcium,6.748570439991346e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,chloride,62.7539425403648,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,chloride,62.7595909600354,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,chloride,6.275394254038766,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,chloride,31.571315460138575,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,chloride,31.570999746983976,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,chloride,0.0003157131546013858,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,magnesium,4.185342793106552,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,magnesium,4.185719511629784,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,magnesium,0.4185342793108078,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,magnesium,2.1056330850446727,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,magnesium,2.1056120287138222,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,magnesium,2.1056330850446733e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,potassium,1.2945743359132018,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,potassium,1.2946908592557682,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,potassium,0.12945743359136733,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,potassium,0.6512963662709422,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,potassium,0.6512898533072795,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,potassium,6.512963662709422e-06,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,sodium,34.97282921666458,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,sodium,34.97597708608102,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,sodium,3.497282921667732,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,sodium,17.594722802040064,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,sodium,17.594546854812045,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,sodium,0.00017594722802040066,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,strontium,0.0042574073277372145,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,strontium,0.004257790532717209,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,strontium,0.00042574073277387654,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,strontium,0.0021418885307459413,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,strontium,0.002141867111860634,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,strontium,2.1418885307459415e-08,Waste Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,sulfate,8.776775206654664,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,sulfate,8.777565195422136,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,sulfate,0.8776775206657861,Waste Constituent Density,kg/m3,tampa_bay,baseline
+surface_discharge,sulfate,4.415568608996698,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,sulfate,4.415524453310606,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+surface_discharge,sulfate,4.4155686089966984e-05,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,Electricity Intensity Unit Inlet,0.0,Electricity,kwh/m3,tampa_bay,baseline
+landfill,Electricity Intensity System Treated,0.0,Electricity,kwh/m3,tampa_bay,baseline
+landfill,Unit Levelized Cost,0.013014329282735288,LCOW,$/m3,tampa_bay,baseline
+landfill,Fixed Capital Investment (FCI),3.8742898644123507,Cost,$MM,tampa_bay,baseline
+landfill,Land,0.005811434796618526,Cost,$MM,tampa_bay,baseline
+landfill,Working Capital,0.19371449322061754,Cost,$MM,tampa_bay,baseline
+landfill,Total Capital Investment (TCI),4.073815792429587,Cost,$MM,tampa_bay,baseline
+landfill,Catalysts and Chemicals,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Other Operating,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Employee Salaries,0.0019371449322061753,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Benefits,0.0017434304389855578,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Maintenance,0.030994318915298805,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Laboratory,0.011622869593237052,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Insurance and Taxes,0.007748579728824701,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Total Fixed Operating ,0.05404634360855229,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Base Employee Salary,0.001937144932186804,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Electricity,0.0,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Annual O&M Costs,0.05404634360855229,Annual Cost,$MM/yr,tampa_bay,baseline
+landfill,Inlet Water,0.19267863177557243,Water Flow,m3/s,tampa_bay,baseline
+landfill,Outlet Water,0.19265936391239488,Water Flow,m3/s,tampa_bay,baseline
+landfill,Waste Water,1.9267863177546696e-05,Water Flow,m3/s,tampa_bay,baseline
+landfill,tss,0.24439571437659388,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,tss,0.24441771219066916,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,tss,0.024439571437672773,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,tss,0.047089831857895705,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,tss,0.04708936095957712,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,tss,4.708983185789572e-07,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,tds,0.003001350378083986,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,tds,0.003001620526632868,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,tds,0.00030013503780856296,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,tds,0.0005782960843283193,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,tds,0.0005782903013674761,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,tds,5.782960843283195e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,boron,3.7731276188057624e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,boron,3.7734672342529995e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,boron,3.7731276188078283e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,boron,7.270010671061179e-08,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,boron,7.269937970954468e-08,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,boron,7.27001067106118e-13,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,bromide,5.685415001849075e-06,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,bromide,5.685926740373093e-06,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,bromide,5.685415001852187e-07,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,bromide,1.0954579836325933e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,bromide,1.095447029052757e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,bromide,1.0954579836325933e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,calcium,3.5124374281612814e-05,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,calcium,3.512753579144914e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,calcium,3.512437428163205e-06,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,calcium,6.7677163785542614e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,calcium,6.767648701390476e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,calcium,6.767716378554263e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,chloride,0.0016431964527085807,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,chloride,0.0016433443551795714,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,chloride,0.00016431964527094804,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,chloride,0.0003166088442463634,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,chloride,0.00031660567815792095,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,chloride,3.166088442463635e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,magnesium,0.00010959216509111664,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,magnesium,0.00010960202937240296,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,magnesium,1.0959216509117666e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,magnesium,2.1116068423079007e-05,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,magnesium,2.1115857262394776e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,magnesium,2.1116068423079012e-10,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,potassium,3.389810855583853e-05,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,potassium,3.390115969072205e-05,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,potassium,3.38981085558571e-06,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,potassium,6.531441176318794e-06,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,potassium,6.531375861907032e-06,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,potassium,6.531441176318795e-11,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,sodium,0.0009157548766444752,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,sodium,0.0009158373028259914,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,sodium,9.157548766449767e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,sodium,0.0001764463966736656,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,sodium,0.00017644463220969886,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,sodium,1.7644639667366563e-09,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,strontium,1.1147915709317347e-07,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,strontium,1.1148919122072461e-07,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,strontium,1.1147915709323452e-08,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,strontium,2.1479651460206764e-08,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,strontium,2.1479436663692163e-08,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,strontium,2.147965146020677e-13,Waste Constituent Total Mass,kg,tampa_bay,baseline
+landfill,sulfate,0.00022981768637913094,Inlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,sulfate,0.0002298383720394711,Outlet Constituent Density,kg/m3,tampa_bay,baseline
+landfill,sulfate,2.298176863792568e-05,Waste Constituent Density,kg/m3,tampa_bay,baseline
+landfill,sulfate,4.4280957369358557e-05,Inlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,sulfate,4.4280514559784866e-05,Outlet Constituent Total Mass,kg,tampa_bay,baseline
+landfill,sulfate,4.428095736935857e-10,Waste Constituent Total Mass,kg,tampa_bay,baseline
+System,System Total Capital Investment (TCI),257.93693529325367,Cost,$MM,tampa_bay,baseline
+System,System Catalysts and Chemicals,68.93771286655536,Cost,$MM,tampa_bay,baseline
+System,System Electricity,202.2978552357381,Cost,$MM,tampa_bay,baseline
+System,System Other Variable Operating,18.746646546117933,Cost,$MM,tampa_bay,baseline
+System,System Fixed Operating,68.60515863817211,Cost,$MM,tampa_bay,baseline
+System,System Total Operating,358.5873732865835,Cost,$MM,tampa_bay,baseline
+System,System Catalysts and Chemicals,3.446885643327768,Annual Cost,$MM/yr,tampa_bay,baseline
+System,System Electricity,10.114892761786905,Annual Cost,$MM/yr,tampa_bay,baseline
+System,Other Variable O&M,0.9373323273058967,Annual Cost,$MM/yr,tampa_bay,baseline
+System,System Fixed O&M,3.430257931908606,Annual Cost,$MM/yr,tampa_bay,baseline
+System,System Total Operating Cost,17.929368664329175,Annual Cost,$MM/yr,tampa_bay,baseline
+System,TCI LCOW,0.7071048700081373,LCOW,$/m3,tampa_bay,baseline
+System,Electricity LCOW,0.34556253626673256,LCOW,$/m3,tampa_bay,baseline
+System,Fixed Operating LCOW,0.11719042988548765,LCOW,$/m3,tampa_bay,baseline
+System,Other O&M LCOW,0.14978126977301848,LCOW,$/m3,tampa_bay,baseline
+System,Electricity Intensity System Treated,358.5873732865835,Electricity,kwh/m3,tampa_bay,baseline
+System,System Levelized Cost,1.319639105933376,LCOW,$/m3,tampa_bay,baseline
+System,Electricity Fraction of LCOW,1.319639105933376,LCOW,$/m3,tampa_bay,baseline
+System,Electricity Intensity,3.387868002615025,Electricity,kwh/m3,tampa_bay,baseline
+System,Water Recovery,64.19719427740492,Water Recovery,%,tampa_bay,baseline
