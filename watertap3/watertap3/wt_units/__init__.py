@@ -48,8 +48,3 @@
 # from . import wt_unit
 # from .wt_unit import WT3UnitProcess
 from . import (sw_onshore_intake, municipal_drinking)
-
-__all__ = ['sw_onshore_intake', 'municipal_drinking']
-
-
-print('this is in the __init__ file for wt_units')

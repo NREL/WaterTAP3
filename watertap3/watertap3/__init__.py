@@ -39,5 +39,4 @@ __all__ = [
            *wt_units.__all__
         ]
 
-print('this is in the __init__ file for watertap3')
 
