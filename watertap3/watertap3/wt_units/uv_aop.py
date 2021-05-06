@@ -5,7 +5,10 @@ from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
 ## REFERENCE:
-# TEXAS WATER BOARD
+## CAPITAL
+# Interpolated values for UV cost based on Texas Water Board - IT3PR documentation Table 3.22
+# https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf
+## ELECTRICITY
 
 module_name = 'uv_aop'
 basis_year = 2014
@@ -59,6 +62,7 @@ class UnitProcess(WT3UnitProcess):
 
         def power_curve(x, a, b):
             return a * x ** b
+
 
         df = pd.read_csv('data/uv_cost_interp.csv', index_col='flow')
         flow_points = [1E-8]

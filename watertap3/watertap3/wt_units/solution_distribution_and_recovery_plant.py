@@ -2,7 +2,11 @@ from pyomo.environ import Block, Expression, units as pyunits, value
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL:
+# "Precious Metal Heap Leach Design and Practice" Daniel W. Kappes (2002)
+# Mineral Processing Plant Design, Practice, and Control, Volume 1, Published 2002 by SME (1606)
+# http://ore-max.com/pdfs/resources/precious_metal_heap_leach_design_and_practice.pdf
 
 module_name = 'solution_distribution_and_recovery_plant'
 basis_year = 2008

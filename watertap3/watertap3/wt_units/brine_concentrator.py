@@ -2,7 +2,15 @@ from pyomo.environ import Block, Constraint, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL AND ELECTRICITY:
+# Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
+# WateReuse Foundation
+# https://www.waterboards.ca.gov/water_issues/programs/grants_loans/water_recycling/research/02_006a_01.pdf
+# Regressions for capital and electricity developed from
+# data in Table 5.1, Table A2.3
+# Capital = f(TDS, recovery, flow)
+# Electricity = f(TDS, recovery, flow)
 
 module_name = 'brine_concentrator'
 basis_year = 2007

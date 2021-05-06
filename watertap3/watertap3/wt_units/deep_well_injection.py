@@ -2,7 +2,9 @@ from pyomo.environ import Block, Expression, NonNegativeReals, Var, units as pyu
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE:
+## CAPITAL
+# Developed from Kay Bailey and produced water case study data
 
 module_name = 'deep_well_injection'
 basis_year = 2011

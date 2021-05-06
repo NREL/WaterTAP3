@@ -2,7 +2,10 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: # Minnesota Rural Water Association, Chapter 16 Lime Softening #(https://www.mrwa.com/WaterWorksMnl/Chapter%2016%20Lime%20Softening.pdf)
+## REFERENCE
+## CAPITAL:
+# Minnesota Rural Water Association, Chapter 16 Lime Softening
+# #(https://www.mrwa.com/WaterWorksMnl/Chapter%2016%20Lime%20Softening.pdf)
 # https://www.necoindustrialwater.com/analysis-ion-exchange-vs-lime-softening/
 
 module_name = 'lime_softening'

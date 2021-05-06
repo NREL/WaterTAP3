@@ -2,7 +2,12 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: Voutchkov (2018) figures 4.2 and 4.4
+## REFERENCE
+## CAPITAL:
+# Based on costs for AQUA AMMONIA FEED 29% SOLUTION - FIGURE 5.5.15
+# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura) (2008)
+# DOI:10.1002/9780470260036
+## ELECTRICITY:
 
 module_name = 'ammonia_addition'
 basis_year = 2007

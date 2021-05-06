@@ -2,7 +2,15 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCES
+## CAPITAL:
+# Regression based on Texas Water Board - IT3PR documentation Table 3.24
+# https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf
+## ELECTRICITY:
+# "A Review of Ozone Systems Costs for Municipal Applications. Report by the Municipal Committee – IOA Pan American Group"
+# (2018) B. Mundy et al. https://doi.org/10.1080/01919512.2018.1467187
+# From source: "5.0–5.5 kWh/lb might be used to include total energy consumption of ozone generator, ozone destruct, nitrogen feed system, cooling water pumps, and other miscellaneous
+# energy uses."
 
 module_name = 'ozone_aop'
 basis_year = 2014
@@ -68,6 +76,7 @@ class UnitProcess(WT3UnitProcess):
         def fixed_cap(flow_in):
             x0 = pyunits.convert(ozone_consumption, to_units=(pyunits.mg / pyunits.liter))  # mg/L
             x1 = flow_in  # MGD
+
             ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
                     x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
             if aop:
@@ -79,6 +88,7 @@ class UnitProcess(WT3UnitProcess):
             return ozone_aop_cap
 
         def electricity(flow_in):
+
             ozone_flow = o3_flow(flow_in)  # lb/day
             flow_in = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
             electricity = (5 * ozone_flow) / flow_in

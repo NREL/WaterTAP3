@@ -2,7 +2,12 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL:
+# Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
+# WateReuse Foundation
+# https://www.waterboards.ca.gov/water_issues/programs/grants_loans/water_recycling/research/02_006a_01.pdf
+# data in Table A2.1, Table A2.2
 
 module_name = 'landfill_zld'
 basis_year = 2007
