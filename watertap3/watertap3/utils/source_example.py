@@ -75,16 +75,10 @@ and used when constructing these,
 see property package for documentation.}"""))
 
     def build(self):
-        
-        # import source_example as unit_process_model
-        
-        # build always starts by calling super().build()
-        # This triggers a lot of boilerplate in the background for you
         super(SourceData, self).build()
-        
         units_meta = self.config.property_package.get_metadata().get_derived_units
-        
-        return print("adding source")
+        # print("adding source")
+        return
     
     def set_source(self): #, unit_params = None): #, module=financials, cost_method="wt", year=None):
 

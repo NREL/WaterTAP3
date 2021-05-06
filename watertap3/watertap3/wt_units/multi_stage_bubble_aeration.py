@@ -3,6 +3,11 @@ from watertap3.utils import cost_curve, financials
 from wt_unit import WT3UnitProcess
 
 ## REFERENCE: ADD REFERENCE HERE
+# CAPITAL AND ELECTRICITY:
+# EPA Drinking Water Treatment Technology Unit Cost Models
+# https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+# EPA model run several times under different conditions
+# Regression for capital and electricity costs based on regression from those model outputs.
 
 module_name = 'multi_stage_bubble_aeration'
 basis_year = 2017

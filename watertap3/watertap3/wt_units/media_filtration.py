@@ -2,7 +2,12 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL:
+# Based on costs for FILTER MEDIA DUAL MEDIA - FIGURE 5.5.27
+# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura) (2008)
+# DOI:10.1002/9780470260036
+## ELECTRICITY:
 
 module_name = 'media_filtration'
 basis_year = 2007

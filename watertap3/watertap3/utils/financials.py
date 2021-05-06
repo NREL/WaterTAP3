@@ -30,11 +30,6 @@ from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
 
 from .ml_regression import get_linear_regression
 
-# global train
-# global source_water
-# global pfd_dict
-
-# TO DO - MOVE TO WHERE NEEDED -> global_costing_parameters
 __all__ = ['SystemSpecs', 'get_complete_costing', 'get_ind_table', 'get_system_specs', 'get_system_costing', 'global_costing_parameters']
 
 last_year_for_cost_indicies = 2050
@@ -216,16 +211,6 @@ def get_system_specs(self, train=None):
     b.tpec = 3.4
     b.tic = 1.65
 
-    # traditional parameters are the only Vars on the block and should be fixed
-    # for v in b.component_objects(Var, descend_into=True):
-    #    for i in v:
-    #        if v[i].value is None:
-    #            raise ConfigurationError(
-    #                '{} parameter {} was not assigned'
-    #                ' a value. Please check your configuration '
-    #                'arguments.'.format(b.name, v.local_name))
-    #        v[i].fix()
-
 
 def get_system_costing(self):
     if not hasattr(self, 'costing'):
@@ -311,7 +296,6 @@ def get_system_costing(self):
 
     sum_of_inflow = 0
     for key in b.parent_block().flow_in_dict.keys():
-        print(key)
         sum_of_inflow = sum_of_inflow + getattr(self, key).flow_vol_in[time]
 
     b.system_recovery = b.treated_water / sum_of_inflow
@@ -323,10 +307,6 @@ def get_system_costing(self):
                     expr=1e6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost)
                          / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
                     doc='Unit Levelized Cost of Water in $/m3'))
-
-            #             setattr(b_unit, 'elec_int_treated', Expression(
-            #         expr= (b_unit.electricity * b_unit.flow_vol_in[time]) / (b.treated_water*sys_specs.plant_cap_utilization),
-            #             doc='Unit Elec Intensity Treated kw/m3'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
                     expr=(b_unit.costing.electricity_cost * 1e6 / b.parent_block().costing_param.electricity_price)
@@ -367,11 +347,6 @@ def global_costing_parameters(self, year=None):
     # Define a default year if none is provided
     if year is None:
         year = '2018'
-
-    # Cost index $/year (method argument or 2018 default)
-    # I just took this from the IDAES costing methods as an example
-    # You could also link to an external database of values, such as the
-    # Excel spreadsheet
     ce_index_dic = {
             '2019': 680, '2018': 671.1, '2017': 567.5, '2016': 541.7,
             '2015': 556.8, '2014': 576.1, '2013': 567.3, '2012': 584.6,

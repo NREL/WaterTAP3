@@ -17,9 +17,9 @@ class UnitProcess(WT3UnitProcess):
         sys_cost_params = self.parent_block().costing_param
         self.tpec_or_tic = tpec_or_tic
         if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = sys_cost_params.tpec
+            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
         else:
-            self.costing.tpec_tic = sys_cost_params.tic
+            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
 
         '''
         We need a get_costing method here to provide a point to call the
@@ -64,10 +64,7 @@ class UnitProcess(WT3UnitProcess):
             electricity = (0.746 * soln_vol_flow * lift_height / (3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
             return electricity
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-                expr=self.base_fixed_cap_cost *
-                     flow_in ** self.cap_scaling_exp,
-                doc='Unadjusted fixed capital investment')  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in), doc="Unadjusted fixed capital investment")  # $M
 
         self.electricity = electricity(flow_in)  # kwh/m3
 

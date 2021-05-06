@@ -2,7 +2,13 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+## REFERENCE
+## CAPITAL:
+# Based on TABLE 7.2 in:
+# Chemical Engineering Design, 2nd Edition. Principles, Practice and Economics of Plant and Process Design (2012)
+# https://www.elsevier.com/books/chemical-engineering-design/towler/978-0-08-096659-5
+# eBook ISBN: 9780080966601
+## ELECTRICITY:
 
 module_name = 'static_mixer'
 basis_year = 2010

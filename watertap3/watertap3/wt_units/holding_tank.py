@@ -2,7 +2,14 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL:
+# "Cone roof tank" costs from:
+# DOE/NETL-2002/1169 - Process Equipment Cost Estimation Final Report
+# Loh, H. P., Lyons, Jennifer, and White, Charles W. Process Equipment Cost Estimation, Final Report.
+# United States: N. p., 2002. Web. doi:10.2172/797810.
+# Regression of cost vs. capacity
+# Capacity calculated based on storage time and surge capacity (user inputs)
 
 module_name = 'holding_tank'
 basis_year = 2007

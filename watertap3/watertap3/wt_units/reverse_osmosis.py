@@ -43,9 +43,14 @@ class UnitProcess(WT3UnitProcess):
         self.deltaP_waste.unfix()
         self.deltaP_outlet.unfix()
 
-        self.permeate = permeate = Block()
-        self.feed = feed = Block()
-        self.retentate = retentate = Block()
+        self.permeate = Block()
+        self.feed = Block()
+        self.retentate = Block()
+
+        permeate = self.permeate
+        feed = self.feed
+        retentate = self.retentate
+
 
         units_meta = self.config.property_package.get_metadata().get_derived_units
 

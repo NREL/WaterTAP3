@@ -2,7 +2,13 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL:
+# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura) (2008)
+# DOI:10.1002/9780470260036
+# Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis) (2010)
+## ELECTRICITY:
+
 
 module_name = 'sedimentation'
 basis_year = 2007

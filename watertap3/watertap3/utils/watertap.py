@@ -759,12 +759,12 @@ def unset_bounds(m=None):
                     )
             q = q + 1
 
-            if m.fs.pfd_dict[key]['Parameter']['pump'] == 'yes':
-
-                setattr(m, ('flux_constraint%s' % q), Constraint(
-                        expr=getattr(m.fs, key).feed.pressure[0] <= max_pressure)
-                        )
-                q = q + 1
+            # if m.fs.pfd_dict[key]['Parameter']['pump'] == 'yes':
+            #
+            #     setattr(m, ('flux_constraint%s' % q), Constraint(
+            #             expr=getattr(m.fs, key).feed.pressure[0] <= max_pressure)
+            #             )
+            #     q = q + 1
 
             setattr(m.fs, ('flux_constraint%s' % q), Constraint(
                     expr=getattr(m.fs, key).a[0] <= a[1])
@@ -810,13 +810,13 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False,
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.fix(30)
 
-    # run_water_tap(m=m, objective=True, skip_small=skip_small)
+    run_water_tap(m=m, objective=True, skip_small=skip_small)
     print_ro_results(m)
 
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.unfix()
 
-    if has_ro is True:
+    if has_ro:
         m = set_bounds(m, source_water_category=ro_bounds)
         print_ro_results(m)
 
@@ -856,9 +856,7 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False,
 
     scenario_name = m.fs.train['scenario']
 
-    if has_ro is True:
-
-        # store RO variables
+    if has_ro:
         ro_stash = {}
         for key in m.fs.pfd_dict.keys():
             if m.fs.pfd_dict[key]['Unit'] == 'reverse_osmosis':

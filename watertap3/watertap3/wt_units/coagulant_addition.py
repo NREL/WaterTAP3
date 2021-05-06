@@ -2,7 +2,12 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+## REFERENCE
+## CAPITAL:
+# Based on costs for LIQUID ALUM FEED - FIGURE 5.5.6
+# Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura) (2008)
+# DOI:10.1002/9780470260036
+## ELECTRICITY:
 
 module_name = 'coagulant_addition'
 basis_year = 2007
@@ -43,7 +48,7 @@ class UnitProcess(WT3UnitProcess):
         base_fixed_cap_cost = 15408
         cap_scaling_exp = 0.5479
 
-        chem_name = unit_params['chemical_name']
+        chem_name = 'Aluminum_Al2_SO4_3'
         chemical_dosage = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))  # kg/m3
         solution_density = 1360 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         ratio_in_solution = 0.50  #

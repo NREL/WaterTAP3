@@ -2,7 +2,11 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE
+## CAPITAL:
+# citation here
+## ELECTRICITY:
+# citation here
 
 module_name = 'unit'
 basis_year = 2020
