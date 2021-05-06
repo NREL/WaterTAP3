@@ -3,8 +3,6 @@
 
 # Import properties and units from 'WaterTAP Library'
 
-from pyomo.network import Arc
-
 from . import importfile, module_import
 from .constituent_removal_water_recovery import create
 from .mixer_example import Mixer
@@ -17,18 +15,14 @@ __all__ = ['add_unit_process',
            'add_mixer']
 
 
-def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, with_connection=False, from_splitter=False, splitter_tream=None, link_to=None, link_from=None, connection_type='series',
-                     stream_name=None):  # in design
+def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):  # in design
 
     up_module = module_import.get_module(unit_process_type)
 
     unit_params = m.fs.pfd_dict[unit_process_name]['Parameter']
 
     if 'basic' in unit_process_type:
-        setattr(m.fs, unit_process_name, up_module.UnitProcess(default={
-                'property_package':
-                    m.fs.water
-                }))
+        setattr(m.fs, unit_process_name, up_module.UnitProcess(default={'property_package': m.fs.water}))
         basic_unit_name = unit_params['unit_process_name']
         m = create(m, basic_unit_name, unit_process_name)
 
@@ -39,18 +33,18 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, wit
     ### SET PARAMS HERE FOR UP ###
     getattr(m.fs, unit_process_name).get_costing(unit_params=unit_params)
 
-    if with_connection == True:
-
-        if from_splitter == True:
-
-            setattr(m.fs, splitter_tream,
-                    Arc(source=getattr(m.fs, link_from).outlet1,
-                        destination=getattr(m.fs, link_to).inlet))
-
-        if from_splitter == False:
-            m = connect_blocks(m=m, up1=link_from, up2=link_to,
-                               connection_type=connection_type,
-                               stream_name=stream_name)
+    # if with_connection == True:
+    #
+    #     if from_splitter == True:
+    #
+    #         setattr(m.fs, splitter_tream,
+    #                 Arc(source=getattr(m.fs, link_from).outlet1,
+    #                     destination=getattr(m.fs, link_to).inlet))
+    #
+    #     if from_splitter == False:
+    #         m = connect_blocks(m=m, up1=link_from, up2=link_to,
+    #                            connection_type=connection_type,
+    #                            stream_name=stream_name)
 
     return m
 

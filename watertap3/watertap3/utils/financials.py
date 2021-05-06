@@ -27,17 +27,16 @@ appropriate)
 '''
 import pandas as pd
 from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
-
 from .ml_regression import get_linear_regression
 
-__all__ = ['SystemSpecs', 'get_complete_costing', 'get_ind_table', 'get_system_specs', 'get_system_costing', 'global_costing_parameters']
+__all__ = ['SystemSpecs',
+           'get_complete_costing',
+           'get_ind_table',
+           'get_system_specs',
+           'get_system_costing',
+           'global_costing_parameters']
 
 last_year_for_cost_indicies = 2050
-
-
-# This first method is used at the flowsheet level and contains any global
-# parameters and methods
-
 
 class SystemSpecs():
 
@@ -46,23 +45,16 @@ class SystemSpecs():
         elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
         elec_cost.index = elec_cost.index.str.lower()
         case_study = train['case_study']
-        print(case_study)
+        print(str(case_study).replace('_', ' ').swapcase())
         location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
         self.elec_price = float(elec_cost.loc[location])
-        self.land_cost_percent_FCI = float(
-                basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
-        self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] ==
-                                                        'working_capital_percent'].loc[case_study].value)
-        self.salaries_percent_FCI = float(
-                basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
-        self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] ==
-                                                              'maintenance_cost_percent'].loc[case_study].value)
+        self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
+        self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] == 'working_capital_percent'].loc[case_study].value)
+        self.salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
+        self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] == 'maintenance_cost_percent'].loc[case_study].value)
         self.lab_fees_percent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
-
-        self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] ==
-                                                            'insurance_and_taxes_percent'].loc[case_study].value)
-        self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] ==
-                                                          'employee_benefits_percent'].loc[case_study].value)
+        self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] == 'insurance_and_taxes_percent'].loc[case_study].value)
+        self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 'employee_benefits_percent'].loc[case_study].value)
         self.plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
         self.analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
         self.debt_interest_rate = float(basis_data[basis_data['variable'] == 'debt_interest_rate'].loc[case_study].value)
@@ -255,11 +247,9 @@ def get_system_costing(self):
             expr=sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs)
     b.fixed_op_cost_total = Expression(
             expr=sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs)
-
     b.operating_cost_total = Expression(
             expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total
                   + b.other_var_cost_total))
-
     b.cat_and_chem_cost_annual = Expression(
             expr=sum(cat_and_chem_cost_lst))
     b.electricity_cost_annual = Expression(
@@ -296,7 +286,7 @@ def get_system_costing(self):
 
     sum_of_inflow = 0
     for key in b.parent_block().flow_in_dict.keys():
-        sum_of_inflow = sum_of_inflow + getattr(self, key).flow_vol_in[time]
+        sum_of_inflow += getattr(self, key).flow_vol_in[time]
 
     b.system_recovery = b.treated_water / sum_of_inflow
 
@@ -344,7 +334,6 @@ def get_system_costing(self):
 
 ### JUST TO GET IDAES TO RUN --> THESE SHOULd BE THE SYSTEM SPECS    
 def global_costing_parameters(self, year=None):
-    # Define a default year if none is provided
     if year is None:
         year = '2018'
     ce_index_dic = {
