@@ -1,6 +1,6 @@
 from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import cost_curve, financials
-from wt_unit import WT3UnitProcess
+from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE: ADD REFERENCE HERE
 # CAPITAL AND ELECTRICITY:

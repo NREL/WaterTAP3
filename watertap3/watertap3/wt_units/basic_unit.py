@@ -1,6 +1,6 @@
 from pyomo.environ import Block, Expression, units as pyunits
-from watertap3.utils import basic_unit, financials
-from wt_unit import WT3UnitProcess
+from watertap3.utils import cost_curves, financials
+from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE: ADD REFERENCE HERE
 
@@ -41,9 +41,9 @@ class UnitProcess(WT3UnitProcess):
             case_specific = None
 
         if case_specific:
-            basis, cap_basis, cap_exp, elect, basis_year, kind = basic_unit(unit_process_name, case_specific=case_specific)
+            basis, cap_basis, cap_exp, elect, basis_year, kind = cost_curves.basic_unit(unit_process_name, case_specific=case_specific)
         else:
-            basis, cap_basis, cap_exp, elect, basis_year, kind = basic_unit(unit_process_name)
+            basis, cap_basis, cap_exp, elect, basis_year, kind = cost_curves.basic_unit(unit_process_name)
 
         self.chem_dict = {}
         self.costing.basis_year = basis_year

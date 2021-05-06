@@ -1,6 +1,6 @@
 from pyomo.environ import Block, Expression, Constraint, Reals, Integers, NonNegativeReals, Var, units as pyunits
-from watertap3.utils import financials, meteolib
-from wt_unit import WT3UnitProcess
+from watertap3.utils import financials
+from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE
 ## EVAPORATION RATE OF PURE WATER ESTIMATION:

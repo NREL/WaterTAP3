@@ -1,7 +1,6 @@
 from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
-from wt_unit import WT3UnitProcess
-
+from watertap3.wt_units.wt_unit import WT3UnitProcess
 ## REFERENCE
 ## CAPITAL:
 # Based on costs for FERRIC CHLORIDE FEED 42% SOLUTION - FIGURE 5.5.13

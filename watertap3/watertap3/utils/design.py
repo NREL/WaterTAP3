@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-# Import properties and units from 'WaterTAP Library'
-
 from . import importfile, module_import
 from .constituent_removal_water_recovery import create
 from .mixer_example import Mixer
@@ -99,12 +94,3 @@ def add_mixer(m=None, mixer_name=None, with_connection=False, inlet_list=None,
             'inlet_list': inlet_list
             }))
     return m
-
-
-def main():
-    print('importing something')
-    # need to define anything here?
-
-
-if __name__ == '__main__':
-    main()

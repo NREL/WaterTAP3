@@ -1,6 +1,6 @@
 from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
-from wt_unit import WT3UnitProcess
+from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE
 ## CAPITAL:
@@ -26,13 +26,7 @@ class UnitProcess(WT3UnitProcess):
             self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
 
         '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
+        Unit DocString
         '''
 
         time = self.flowsheet().config.time.first()

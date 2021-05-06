@@ -5,6 +5,8 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import NonNegativeReals, SolverFactory, Var, units as pyunits
 from pyomo.network import Port
 
+__all__ = ['WT3UnitProcess']
+
 
 @declare_process_block_class('WT3UnitProcess')
 class WT3UnitProcessData(UnitModelBlockData):
@@ -219,13 +221,7 @@ class WT3UnitProcessData(UnitModelBlockData):
         self.waste.add(self.temperature_waste, 'temperature')
         self.waste.add(self.pressure_waste, 'pressure')
 
-    def initialize(
-            blk,
-            state_args=None,
-            routine=None,
-            outlvl=idaeslog.NOTSET,
-            solver='ipopt',
-            optarg={'tol': 1e-6}):
+    def initialize(blk, state_args=None, routine=None, outlvl=idaeslog.NOTSET, solver='ipopt', optarg={'tol': 1e-6}):
         '''
         General wrapper for pressure changer initialization routines
         Keyword Arguments:
@@ -294,35 +290,3 @@ class WT3UnitProcessData(UnitModelBlockData):
         init_log.info(
                 'Initialization Complete: {}'.format(idaeslog.condition(res))
                 )
-
-    # def get_costing(self, tpec_or_tic=None, cost_method='wt', year=None,
-    #                 unit_params=None, basis_year=2020):
-    #     #
-    #     # if not hasattr(self.flowsheet(), 'costing'):
-    #     #     self.flowsheet().get_costing(module=module, year=year)
-    #     #
-    #     self.costing = Block()
-    #     #
-    #     # time = self.flowsheet().config.time.first()
-    #     # flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
-    #
-    #     sys_cost_params = self.parent_block().costing_param
-    #     self.tpec_or_tic = tpec_or_tic
-    #     if self.tpec_or_tic == 'TPEC':
-    #         self.costing.tpec_tic = sys_cost_params.tpec
-    #     else:
-    #         self.costing.tpec_tic = sys_cost_params.tic
-    #
-    #     self.costing.basis_year = basis_year
-    #
-    #     chem_dict = {}
-    #     self.chem_dict = chem_dict
-    #
-    #
-    #     self.costing.fixed_cap_inv_unadjusted = Expression(expr=0,
-    #                                                        doc='Unadjusted fixed capital '
-    #                                                            'investment')  # $MM
-    #
-    #     self.electricity = 0  # kwh/m3
-    #
-    #     financials.get_complete_costing(self.costing)
