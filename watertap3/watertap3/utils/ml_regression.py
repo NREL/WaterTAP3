@@ -1,18 +1,16 @@
-
-import pandas as pd
-
-from scipy.optimize import curve_fit
-from sklearn.preprocessing import PolynomialFeatures
 import numpy as np
+import pandas as pd
+from scipy.optimize import curve_fit
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
 __all__ = ['make_df_for_ml',
            'make_simple_poly',
            'get_linear_regression',
            'get_cost_curve_coefs']
 
-def make_df_for_ml(df1):
 
+def make_df_for_ml(df1):
     poly2 = PolynomialFeatures(3, include_bias=False)
     # X1=np.array(10*np.random.randn(37,3)) test
     df1 = df1.copy(deep=True)
@@ -24,8 +22,8 @@ def make_df_for_ml(df1):
 
     X_poly = poly2.fit_transform(X2)
     X_poly_feature_name = poly2.get_feature_names(
-        ['Feature' + str(l) for l in range(1, 4)]
-    )
+            ['Feature' + str(l) for l in range(1, 4)]
+            )
 
     df_poly = pd.DataFrame(X_poly, columns=X_poly_feature_name)
 
@@ -33,9 +31,6 @@ def make_df_for_ml(df1):
 
 
 def make_simple_poly(df, y_value):
-
-
-
     df['y'] = df[y_value]
     del df[y_value]
 
@@ -58,8 +53,8 @@ def make_simple_poly(df, y_value):
 
     X_poly = poly2.fit_transform(X2)
     X_poly_feature_name = poly2.get_feature_names(
-        ['Feature' + str(l) for l in range(1, 4)]
-    )
+            ['Feature' + str(l) for l in range(1, 4)]
+            )
 
     df_poly = pd.DataFrame(X_poly, columns=X_poly_feature_name)
 
@@ -76,8 +71,8 @@ def make_simple_poly(df, y_value):
 
     X_poly = poly.fit_transform(X2)
     X_poly_feature_name = poly.get_feature_names(
-        ['Feature' + str(l) for l in range(1, 4)]
-    )
+            ['Feature' + str(l) for l in range(1, 4)]
+            )
 
     df_poly = pd.DataFrame(X_poly, columns=X_poly_feature_name)
     df_poly['y'] = df['y']
@@ -94,17 +89,16 @@ def make_simple_poly(df, y_value):
     # print ('R2 value of simple polynomial model:',model_poly.score(X_train,y_train))
 
     coeff_poly = pd.DataFrame(
-        model_poly.coef_,
-        index=df_poly.drop('y', axis=1).columns,
-        columns=['Coefficients'],
-    )
+            model_poly.coef_,
+            index=df_poly.drop('y', axis=1).columns,
+            columns=['Coefficients'],
+            )
 
     return poly, coeff_poly
 
 
 def get_linear_regression(x_values, y_values, variable=None):
     # print('nonlinear did not work, trying linear for:', variable)
-
 
     X = np.array(x_values).reshape(-1, 1)
     y = np.array(y_values).reshape(-1, 1)
@@ -120,27 +114,26 @@ def get_linear_regression(x_values, y_values, variable=None):
 
 
 def power_law(x, a, b):
-    return a*np.power(x, b)
+    return a * np.power(x, b)
 
 
-def get_cost_curve_coefs(flow_in = None, data_id = None, xs = None, ys = None):
- 
+def get_cost_curve_coefs(flow_in=None, data_id=None, xs=None, ys=None):
     if data_id == None:
-        
+
         pars, cov = curve_fit(f=power_law, xdata=xs, ydata=ys)
 
         ys_new = pars[0] * xs ** pars[1]
 
         r2_result = np.corrcoef(ys, ys_new)[0, 1]
-        
+
     else:
 
         df = pd.read_csv('data/chlorine_dose_cost_twb.csv')
 
-        #xs = df[((df.Flow_mgd == data_id) & (df.VariableID == 2))].Value.values
+        # xs = df[((df.Flow_mgd == data_id) & (df.VariableID == 2))].Value.values
         xs = df[((df.Flow_mgd == flow_in) & (df.VariableID == 2))].Value.values
 
-        #ys = df[((df.DataID == data_id) & (df.VariableID == 1))].Value.values
+        # ys = df[((df.DataID == data_id) & (df.VariableID == 1))].Value.values
         ys = df[((df.Cost == data_id) & (df.VariableID == 1))].Value.values
 
     return pars, r2_result, xs, ys, ys_new

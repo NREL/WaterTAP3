@@ -1,6 +1,6 @@
 from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
-from wt_unit import WT3UnitProcess
+from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE:
 # from IT3PR, section 3.5.6 figure 3.3
