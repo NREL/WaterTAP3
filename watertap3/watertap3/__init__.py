@@ -17,9 +17,8 @@ from pyomo.environ import Var
 from pyomo.environ import units as pyunits
 from pyomo.opt import SolverFactory
 
-
-from . import wt_units
 from . import utils
+from .utils import *
 
 __all__ = [
            'ConcreteModel',
@@ -36,7 +35,6 @@ __all__ = [
            'declare_process_block_class',
            'pyunits',
            *utils.__all__
-           # *wt_units.__all__
         ]
 
 

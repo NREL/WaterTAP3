@@ -1,5 +1,5 @@
 import pandas as pd
-from . import generate_constituent_list
+from watertap3.utils import generate_constituent_list
 
 __all__ = ['create']
 
