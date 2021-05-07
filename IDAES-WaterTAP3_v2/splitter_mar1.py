@@ -118,10 +118,11 @@ see property package for documentation.}"""))
         return print("adding splitter") #unit_process_equations.build_up(self, up_name_test = module_name)
     
     
-    def get_split(self, outlet_list=None, unit_params = None):
-
+    def get_split(self, outlet_list_up=None, unit_params = None):
         
-        #print(outlet_list)
+        
+        outlet_list = outlet_list_up.keys()
+        print(outlet_list)
         
 #         if not hasattr(self.flowsheet(), "costing"):
 #             self.flowsheet().get_costing(module=module, year=year)
@@ -203,13 +204,19 @@ see property package for documentation.}"""))
         ## set the split fraction as equal unless, stated otherwise.
 
         i = 0
+        print(outlet_list)
         for p in outlet_list:
-            #self.split_fraction.fix(1 / len(outlet_list))
-            if "split_fraction" in unit_params.keys():
-                getattr(self, ("split_fraction_%s" % p)).fix(unit_params["split_fraction"][i])                    
+            if outlet_list_up[p] == "NA":
+                getattr(self, ("split_fraction_%s" % p)).unfix()
             else:
-                getattr(self, ("split_fraction_%s" % p)).fix(1 / len(outlet_list))
-            i = i + 1
+                getattr(self, ("split_fraction_%s" % p)).fix(outlet_list_up[p])
+            
+#             if "split_fraction" in unit_params.keys():
+#                 print(unit_params["split_fraction"][i])
+#                 getattr(self, ("split_fraction_%s" % p)).fix(unit_params["split_fraction"][i])                    
+#             else:
+#                 getattr(self, ("split_fraction_%s" % p)).unfix()
+#             i = i + 1
                     
             
         t = self.flowsheet().config.time.first() 

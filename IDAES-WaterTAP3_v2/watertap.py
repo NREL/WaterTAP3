@@ -798,6 +798,36 @@ def run_water_tap_ro(m, source_water_category = None, return_df = False,
     
     if case_study == "irwin": m.fs.reverse_osmosis.feed.pressure.unfix()
     
+    if case_study == "upw":
+        
+        m.fs.media_filtration.water_recovery.fix(0.9)
+        
+        m.fs.reverse_osmosis.eq1_upw = Constraint(expr = m.fs.reverse_osmosis.flow_vol_out[0] <= .05678 * 1.01)
+
+        m.fs.reverse_osmosis.eq3_upw = Constraint(expr = m.fs.reverse_osmosis.flow_vol_waste[0] <= .04416 * 1.01)
+        m.fs.reverse_osmosis.eq4_upw = Constraint(expr = m.fs.reverse_osmosis.flow_vol_waste[0] >= .04416 * 0.99)         
+        
+        m.fs.reverse_osmosis_2.eq1_upw = Constraint(
+            expr = m.fs.reverse_osmosis_2.flow_vol_out[0] <= (.5 * m.fs.reverse_osmosis_2.flow_vol_in[0]) * 1.01)
+
+        m.fs.ro_stage.eq1_upw = Constraint(expr = m.fs.ro_stage.flow_vol_out[0] <= .03155 * 1.01)
+        m.fs.ro_stage.eq2_upw = Constraint(expr = m.fs.ro_stage.flow_vol_out[0] >= .03155 * 0.99)        
+
+    if case_study == "uranium":
+
+        m.fs.ro_production.eq1_anna = Constraint(expr = m.fs.ro_production.flow_vol_out[0] <= (.7 * m.fs.ro_production.flow_vol_in[0]) * 1.01)
+
+        m.fs.ro_production.eq2_anna = Constraint(expr = m.fs.ro_production.flow_vol_out[0] >= (.7 * m.fs.ro_production.flow_vol_in[0]) * .99)
+
+        m.fs.ro_restore_stage.eq3_anna = Constraint(expr = m.fs.ro_restore_stage.flow_vol_out[0] <= (.5 * m.fs.ro_restore_stage.flow_vol_in[0]) * 1.01)
+
+        m.fs.ro_restore_stage.eq4_anna = Constraint(expr = m.fs.ro_restore_stage.flow_vol_out[0] >= (.5 * m.fs.ro_restore_stage.flow_vol_in[0]) * .99)
+
+        m.fs.ro_restore.eq5_anna = Constraint(expr = m.fs.ro_restore.flow_vol_out[0] <= (.75 * m.fs.ro_restore.flow_vol_in[0]) * 1.01)
+
+        m.fs.ro_restore.eq6_anna = Constraint(expr = m.fs.ro_restore.flow_vol_out[0] >= (.75 * m.fs.ro_restore.flow_vol_in[0]) * .99)
+
+    
     if has_ro is True:
         m = wt.set_bounds(m, source_water_category = ro_bounds)
         wt.print_ro_results(m)
@@ -823,17 +853,20 @@ def run_water_tap_ro(m, source_water_category = None, return_df = False,
             print("system recovery already lower than desired recovery. desired:", desired_recovery, 
                   "current:", m.fs.costing.system_recovery())
 
+    ur_list = []
+       
+    if case_study == "uranium":
+        ur_list.append(m.fs.ion_exchange.removal_fraction[0, "tds"]())
+        ur_list.append(m.fs.ion_exchange.anion_res_capacity[0]())
+        ur_list.append(m.fs.ion_exchange.cation_res_capacity[0]())    
+        
+    
+    upw_list = []
+    if case_study == "upw":
+        upw_list.append(m.fs.splitter2.split_fraction_outlet3[0]())
+        upw_list.append(m.fs.splitter2.split_fraction_outlet4[0]())
     
     #run model to make sure it  works
-    #Readjust recovery constraint and deactivate objective constraint
-#     m.recovery_bound = Constraint(expr=m.fs.costing.system_recovery >= 0)
-#     m.fs.objective_function.deactivate()
-    
-#     print("Final check before saving RO results and/or desired recovery")
-#     wt.run_water_tap(m=m, objective=False, skip_small=True)
-
-#     wt.print_ro_results(m)
-    
     scenario_name = m.fs.train["scenario"]
 
     if has_ro is True:
@@ -862,6 +895,16 @@ def run_water_tap_ro(m, source_water_category = None, return_df = False,
                 print("Unfixing feed presure and area for", key, '...\n')
         
         if case_study == "irwin": m.fs.reverse_osmosis.feed.pressure.fix(30)
+        
+        if case_study == "upw": 
+            m.fs.media_filtration.water_recovery.fix(0.9)
+            m.fs.splitter2.split_fraction_outlet3.fix(upw_list[0])
+            m.fs.splitter2.split_fraction_outlet4.fix(upw_list[1])
+            
+        if case_study == "uranium":
+            m.fs.ion_exchange.removal_fraction[0, "tds"].fix(ur_list[0])
+            m.fs.ion_exchange.anion_res_capacity.fix(ur_list[1])
+            m.fs.ion_exchange.cation_res_capacity.fix(ur_list[2])
         
         wt.run_water_tap(m=m, objective=True, skip_small=skip_small)
 
