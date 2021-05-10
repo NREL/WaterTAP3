@@ -296,8 +296,8 @@ see property package for documentation.}"""))
         
 
         
-#         self.a.fix(4.2)   
-#         self.b.fix(0.35) 
+        self.a.fix(4.2)   
+        self.b.fix(0.35) 
         
 #         self.a_constant = self.a[t] * 1e-7
 #         self.b_constant = self.b[t] * 1e-7
@@ -503,13 +503,34 @@ see property package for documentation.}"""))
         
         self.const_list2 = list(self.config.property_package.component_list) #.remove("tds")
         self.const_list2.remove("tds")
+        
+        flow_in_m3hr = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m**3/pyunits.hour)
+        flow_waste_m3hr = pyunits.convert(self.flow_vol_waste[t], to_units=pyunits.m**3/pyunits.hour)
+        
+        if "stage" in unit_params:
+            for j in self.const_list2:
+                setattr(self, ("%s_eq" % j), Constraint(
+                    expr = self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j] 
+                    == self.flow_vol_waste[t] * self.conc_mass_waste[t, j] 
+                    ))        
+        else:
+            for j in self.const_list2:
+                setattr(self, ("%s_eq" % j), Constraint(
+                    expr = self.removal_fraction[t, j] * flow_in_m3hr * 
+                    pyunits.convert(self.conc_mass_in[t, j], to_units=pyunits.mg / pyunits.liter)
+                    == flow_waste_m3hr * pyunits.convert(self.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.liter)
+                    ))
+ 
 
-        for j in self.const_list2:
-            setattr(self, ("%s_eq" % j), Constraint(
-                expr = self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j] 
-                == self.flow_vol_waste[t] * self.conc_mass_waste[t, j] 
-                ))
-                 
+                
+#         else:
+#         for j in self.const_list2:
+#             setattr(self, ("%s_eq" % j), Constraint(
+#                 expr = self.removal_fraction[t, j] 
+#                 * self.flow_vol_in[t] * pyunits.convert(self.conc_mass_in[t, j], to_units=pyunits.mg / pyunits.liter) 
+#                 == self.flow_vol_waste[t] * pyunits.convert(self.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.liter) 
+#                 ))
+                        
         
      ########################################################################
         ########################################################################           

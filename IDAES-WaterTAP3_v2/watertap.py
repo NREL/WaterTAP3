@@ -860,7 +860,7 @@ def run_water_tap_ro(m, source_water_category = None, return_df = False,
         ur_list.append(m.fs.ion_exchange.anion_res_capacity[0]())
         ur_list.append(m.fs.ion_exchange.cation_res_capacity[0]())    
         
-    
+    # change this to set splitters
     upw_list = []
     if case_study == "upw":
         upw_list.append(m.fs.splitter2.split_fraction_outlet3[0]())
