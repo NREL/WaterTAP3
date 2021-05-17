@@ -114,11 +114,13 @@ class UnitProcess(WT3UnitProcess):
         self.cat_tank_diam = Var(time, initialize=5, doc='cat tank diam')
         self.cat_tank_depth = Var(time, initialize=5, doc='tank depth')
 
+
+
         self.anion_res_capacity.fix(16)
         self.cation_res_capacity.fix(18)
         self.rinse_volume.fix(70)
-        self.num_ix_units_op.fix(3)
-        self.loading_rate.fix(5)
+        # self.num_ix_units_op.fix(3)
+        # self.loading_rate.fix(5)
 
         self.water_recovery_constraint = Constraint(
                 expr=self.water_recovery[t] * flow_in_gal_day == flow_out_gal_day
@@ -133,12 +135,21 @@ class UnitProcess(WT3UnitProcess):
         #         self.tds_removal_eq = Constraint(
         #             expr = self.removal_fraction[t, 'tds'] <= 0.98
         #         )#fix(0.85)
+        # contam = unit_params['contaminant']
+        contam = ['iron', 'manganese']
 
-        self.removal_fraction[t, 'tds'].fix(0.9)
+        mass_flow = 0
+        total_density = 0
+        for c in contam:
+            mass_flow += self.flow_vol_in[t] * self.conc_mass_in[t, c]
+            total_density += self.conc_mass_in[t, c]
+            # self.removal_fraction[t, c].fix(0.99)
+
+        self.ix_removal_frac = 0.99
 
         self.mass_removed_constr = Constraint(
-                expr=self.mass_removed[t] * 1000 == (((self.conc_mass_in[t, 'tds'] * self.removal_fraction[t, 'tds']
-                                                       * 1e3 * .0548)) / 17.12) * flow_out_gal_day
+                expr=self.mass_removed[t] * 1000 == (((total_density * self.ix_removal_frac
+                                                       * 1e3 * 0.0548)) / 17.12) * flow_out_gal_day
                 )  # mass removed kgr/day
 
         self.an_res_vol_constr = Constraint(
@@ -152,6 +163,8 @@ class UnitProcess(WT3UnitProcess):
 
         self.an_rinse_solids_constr = Constraint(
                 expr=self.anion_rinse_solids[t] == flow_waste_gal_day * (self.mass_removed[t] / 100) / 1000)  # Kgr/day
+
+        self.regen_rate = self.mass_removed[t] / (mass_flow * 3600 * 24 * 15.432)
 
         # self.an_vol_per_unit_constr = Constraint(
         #     expr=self.an_vol_per_unit[t] == self.anion_resin_volume[t] / self.num_ix_units_op[t])
@@ -885,7 +898,7 @@ class UnitProcess(WT3UnitProcess):
         # kg/yr replacement is every 4 days
         naoh_dose = 5.3 / 1000  # 5.3 #mg/l to kg/m3 (kg needed per m3 of inlet flow)
         nacl_dose1 = (8 * (self.cation_resin_volume[t] + self.anion_resin_volume[t]) * 0.453592)  # kg needed per day of replacement
-        nacl_dose2 = nacl_dose1 * (365 / 4)  # kg required per year
+        nacl_dose2 = nacl_dose1 * (365 / self.regen_rate)  # kg required per year
         unknown_factor = 0.8
         nacl_dose3 = (nacl_dose2 / (self.flow_vol_in[t] * 3600 * 24 * 365)) * 0.8  # kg required per m3 of inlet water
 
@@ -901,8 +914,7 @@ class UnitProcess(WT3UnitProcess):
         # media/resin density 43 lb/ft3
         self.resin_loss_replacement = (self.cation_resin_volume[t] + self.anion_resin_volume[t]) * resin_replacement
 
-        self.complete_bed_replacement = (self.cation_resin_volume[t] + self.anion_resin_volume[t] -
-                                         self.resin_loss_replacement) / 7
+        self.complete_bed_replacement = (self.cation_resin_volume[t] + self.anion_resin_volume[t] - self.resin_loss_replacement) / 7
 
         self.other_var_cost = self.resin_cost[t] * (self.complete_bed_replacement + self.resin_loss_replacement) * sys_specs.plant_cap_utilization * 1e-6
 

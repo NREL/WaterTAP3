@@ -3,6 +3,7 @@ import logging
 import warnings
 
 import pandas as pd
+import numpy as np
 from idaes.core import FlowsheetBlock
 from idaes.core.util.model_statistics import degrees_of_freedom
 from pyomo.environ import Block, ConcreteModel, Constraint, Objective, SolverFactory, TransformationFactory, value
@@ -19,7 +20,7 @@ __all__ = ['run_water_tap',
            'run_model',
            'run_water_tap',
            'run_water_tap_ro',
-           'sensitivity_runs',
+           'run_sensitivity',
            'print_ro_results',
            'print_results',
            'set_bounds',
@@ -199,7 +200,7 @@ def print_results(m, print_model_results):
     print('----------------------------------------------------------------------')
 
 
-def sensitivity_runs(m=None, save_results=False, return_results=False,
+def run_sensitivity(m=None, save_results=False, return_results=False,
                      scenario=None, case_study=None, skip_small_sens=True):
     ro_list = ['reverse_osmosis', 'ro_first_pass', 'ro_a1', 'ro_b1',
                'ro_active', 'ro_restore']
@@ -474,7 +475,7 @@ def sensitivity_runs(m=None, save_results=False, return_results=False,
                     scenario_name.append(scenario)
                     elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
                     elec_int.append(value(m.fs.costing.electricity_intensity))
-                    area_list.append(m.fs.evaporation_pond.area())
+                    area_list.append(value(m.fs.evaporation_pond.area[0]))
 
                 getattr(m.fs, key).air_temp.fix(stash_value)
                 df_area = pd.DataFrame(area_list)
@@ -715,12 +716,35 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.fix(30)
 
-    run_water_tap(m=m, objective=True, skip_small=skip_small)
-
+    run_water_tap(m=m, objective=True, skip_small=skip_small, print_model_results='summary')
     print_ro_results(m)
 
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.unfix()
+
+    if case_study == "upw":
+
+        m.fs.media_filtration.water_recovery.fix(0.9)
+        m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.05678 * 1.01)
+        m.fs.reverse_osmosis.eq3_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] <= 0.04416 * 1.01)
+        m.fs.reverse_osmosis.eq4_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] >= 0.04416 * 0.99)
+        m.fs.reverse_osmosis_2.eq1_upw = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] <= (0.5 * m.fs.reverse_osmosis_2.flow_vol_in[0]) * 1.01)
+        m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.03155 * 1.01)
+        m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.03155 * 0.99)
+
+    if case_study == "uranium":
+
+        m.fs.ro_production.eq1_anna = Constraint(expr=m.fs.ro_production.flow_vol_out[0] <= (0.7 * m.fs.ro_production.flow_vol_in[0]) * 1.01)
+        m.fs.ro_production.eq2_anna = Constraint(expr=m.fs.ro_production.flow_vol_out[0] >= (0.7 * m.fs.ro_production.flow_vol_in[0]) * 0.99)
+        m.fs.ro_restore_stage.eq3_anna = Constraint(expr=m.fs.ro_restore_stage.flow_vol_out[0] <= (0.5 * m.fs.ro_restore_stage.flow_vol_in[0]) * 1.01)
+        m.fs.ro_restore_stage.eq4_anna = Constraint(expr=m.fs.ro_restore_stage.flow_vol_out[0] >= (0.5 * m.fs.ro_restore_stage.flow_vol_in[0]) * 0.99)
+        m.fs.ro_restore.eq5_anna = Constraint(expr=m.fs.ro_restore.flow_vol_out[0] <= (0.75 * m.fs.ro_restore.flow_vol_in[0]) * 1.01)
+        m.fs.ro_restore.eq6_anna = Constraint(expr=m.fs.ro_restore.flow_vol_out[0] >= (0.75 * m.fs.ro_restore.flow_vol_in[0]) * 0.99)
+
+    if case_study == "san_luis":
+        if scenario in ["baseline", "dwi"]:
+            m.fs.reverse_osmosis_1.feed.pressure.fix(25.5)
+            m.fs.reverse_osmosis_2.feed.pressure.fix(36)
 
     if has_ro:
         m = set_bounds(m, source_water_category=ro_bounds)
@@ -744,6 +768,18 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
             print('System recovery already lower than desired recovery.'
                   '\n\tDesired:', desired_recovery,
                   '\n\tCurrent:', m.fs.costing.system_recovery())
+    ur_list = []
+
+    if case_study == "uranium":
+        ur_list.append(m.fs.ion_exchange.removal_fraction[0, "tds"]())
+        ur_list.append(m.fs.ion_exchange.anion_res_capacity[0]())
+        ur_list.append(m.fs.ion_exchange.cation_res_capacity[0]())
+
+        # change this to set splitters
+    upw_list = []
+    if case_study == "upw":
+        upw_list.append(m.fs.splitter2.split_fraction_outlet3[0]())
+        upw_list.append(m.fs.splitter2.split_fraction_outlet4[0]())
 
     scenario_name = m.fs.train['scenario']
 
@@ -775,7 +811,17 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         if case_study == 'irwin':
             m.fs.reverse_osmosis.feed.pressure.fix(30)
 
-        run_water_tap(m=m, objective=True, skip_small=skip_small)
+        if case_study == "upw":
+            m.fs.media_filtration.water_recovery.fix(0.9)
+            m.fs.splitter2.split_fraction_outlet3.fix(upw_list[0])
+            m.fs.splitter2.split_fraction_outlet4.fix(upw_list[1])
+
+        if case_study == "uranium":
+            m.fs.ion_exchange.removal_fraction[0, "tds"].fix(ur_list[0])
+            m.fs.ion_exchange.anion_res_capacity.fix(ur_list[1])
+            m.fs.ion_exchange.cation_res_capacity.fix(ur_list[2])
+
+        run_water_tap(m=m, objective=True, skip_small=skip_small, print_model_results='summary')
 
         m.fs.objective_function.deactivate()
 

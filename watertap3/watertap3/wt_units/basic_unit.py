@@ -68,7 +68,10 @@ class UnitProcess(WT3UnitProcess):
                 return basic_cap
 
         def electricity(flow_in):
-            if unit_process_name in ['mbr_nitrification', 'mbr_denitrification']:
+            if unit_process_name in ['mbr_nitrification', 'mbr_denitrification'] and not case_specific:
+                # Electricity consumption for MBRs from:
+                # "Assessing Location and Scale of Urban Nonpotable Water Reuse Systems for Life-Cycle Energy Consumption and Greenhouse Gas Emissions" Kavvada et al (2016)
+                # Equation located in SI
                 return 9.5 * flow_in ** -0.3
             else:
                 return elect
