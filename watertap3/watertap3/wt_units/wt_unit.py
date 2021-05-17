@@ -179,16 +179,16 @@ class WT3UnitProcessData(UnitModelBlockData):
                          doc='Component removal equation')
         def component_removal_equation(b, t, j):
             return (b.removal_fraction[t, j] *
-                    b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
+                    b.flow_vol_in[t] * b.conc_mass_in[t, j]  ==
                     b.flow_vol_waste[t] * b.conc_mass_waste[t, j])
 
         @self.Constraint(time,
                          self.config.property_package.component_list,
                          doc='Component mass balances')
         def component_mass_balance(b, t, j):
-            return (b.flow_vol_in[t] * b.conc_mass_in[t, j] ==
-                    b.flow_vol_out[t] * b.conc_mass_out[t, j] +
-                    b.flow_vol_waste[t] * b.conc_mass_waste[t, j])
+            return (pyunits.convert(b.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr) * pyunits.convert(b.conc_mass_in[t, j], to_units=pyunits.mg / pyunits.L) ==
+                    pyunits.convert(b.flow_vol_out[t], to_units=pyunits.m ** 3 / pyunits.hr) * pyunits.convert(b.conc_mass_out[t, j], to_units=pyunits.mg / pyunits.L) +
+                    pyunits.convert(b.flow_vol_waste[t], to_units=pyunits.m ** 3 / pyunits.hr) * pyunits.convert(b.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.L))
 
         @self.Constraint(time, doc='Outlet temperature equation')
         def outlet_temperature_constraint(b, t):
@@ -221,72 +221,72 @@ class WT3UnitProcessData(UnitModelBlockData):
         self.waste.add(self.temperature_waste, 'temperature')
         self.waste.add(self.pressure_waste, 'pressure')
 
-    def initialize(blk, state_args=None, routine=None, outlvl=idaeslog.NOTSET, solver='ipopt', optarg={'tol': 1e-6}):
-        '''
-        General wrapper for pressure changer initialization routines
-        Keyword Arguments:
-            routine : str stating which initialization routine to execute
-                        * None - currently no specialized routine for RO unit
-            state_args : a dict of arguments to be passed to the property
-                         package(s) to provide an initial state for
-                         initialization (see documentation of the specific
-                         property package) (default = {}).
-            outlvl : sets output level of initialization routine
-            optarg : solver options dictionary object (default={'tol': 1e-6})
-            solver : str indicating whcih solver to use during
-                     initialization (default = 'ipopt')
-        Returns:
-            None
-        '''
-        init_log = idaeslog.getInitLogger(blk.name, outlvl, tag='unit')
-        solve_log = idaeslog.getSolveLogger(blk.name, outlvl, tag='unit')
-        # Set solver options
-        opt = SolverFactory(solver)
-        opt.options = optarg
-
-        # ---------------------------------------------------------------------
-        # Initialize holdup block
-        flags = blk.unit.initialize(
-                outlvl=outlvl,
-                optarg=optarg,
-                solver=solver,
-                state_args=state_args,
-                )
-        init_log.info_high('Initialization Step 1 Complete.')
-        # ---------------------------------------------------------------------
-        # Initialize permeate
-        # Set state_args from inlet state
-        if state_args is None:
-            state_args = {}
-            state_dict = blk.feed_side.properties_in[
-                blk.flowsheet().config.time.first()].define_port_members()
-
-            for k in state_dict.keys():
-                if state_dict[k].is_indexed():
-                    state_args[k] = {}
-                    for m in state_dict[k].keys():
-                        state_args[k][m] = state_dict[k][m].value
-                else:
-                    state_args[k] = state_dict[k].value
-
-        blk.properties_permeate.initialize(
-                outlvl=outlvl,
-                optarg=optarg,
-                solver=solver,
-                state_args=state_args,
-                )
-        init_log.info_high('Initialization Step 2 Complete.')
-
-        # ---------------------------------------------------------------------
-        # Solve unit
-        with idaeslog.solver_log(solve_log, idaeslog.DEBUG) as slc:
-            res = opt.solve(blk, tee=slc.tee)
-        init_log.info_high(
-                'Initialization Step 3 {}.'.format(idaeslog.condition(res)))
-
-        # ---------------------------------------------------------------------
-        # Release Inlet state
-        blk.unit.release_state(flags, outlvl + 1)
-        init_log.info(
-                'Initialization Complete: {}'.format(idaeslog.condition(res))
-                )
+    # def initialize(blk, state_args=None, routine=None, outlvl=idaeslog.NOTSET, solver='ipopt', optarg={'tol': 1e-6}):
+    #     '''
+    #     General wrapper for pressure changer initialization routines
+    #     Keyword Arguments:
+    #         routine : str stating which initialization routine to execute
+    #                     * None - currently no specialized routine for RO unit
+    #         state_args : a dict of arguments to be passed to the property
+    #                      package(s) to provide an initial state for
+    #                      initialization (see documentation of the specific
+    #                      property package) (default = {}).
+    #         outlvl : sets output level of initialization routine
+    #         optarg : solver options dictionary object (default={'tol': 1e-6})
+    #         solver : str indicating whcih solver to use during
+    #                  initialization (default = 'ipopt')
+    #     Returns:
+    #         None
+    #     '''
+    #     init_log = idaeslog.getInitLogger(blk.name, outlvl, tag='unit')
+    #     solve_log = idaeslog.getSolveLogger(blk.name, outlvl, tag='unit')
+    #     # Set solver options
+    #     opt = SolverFactory(solver)
+    #     opt.options = optarg
+    #
+    #     # ---------------------------------------------------------------------
+    #     # Initialize holdup block
+    #     flags = blk.unit.initialize(
+    #             outlvl=outlvl,
+    #             optarg=optarg,
+    #             solver=solver,
+    #             state_args=state_args,
+    #             )
+    #     init_log.info_high('Initialization Step 1 Complete.')
+    #     # ---------------------------------------------------------------------
+    #     # Initialize permeate
+    #     # Set state_args from inlet state
+    #     if state_args is None:
+    #         state_args = {}
+    #         state_dict = blk.feed_side.properties_in[
+    #             blk.flowsheet().config.time.first()].define_port_members()
+    #
+    #         for k in state_dict.keys():
+    #             if state_dict[k].is_indexed():
+    #                 state_args[k] = {}
+    #                 for m in state_dict[k].keys():
+    #                     state_args[k][m] = state_dict[k][m].value
+    #             else:
+    #                 state_args[k] = state_dict[k].value
+    #
+    #     blk.properties_permeate.initialize(
+    #             outlvl=outlvl,
+    #             optarg=optarg,
+    #             solver=solver,
+    #             state_args=state_args,
+    #             )
+    #     init_log.info_high('Initialization Step 2 Complete.')
+    #
+    #     # ---------------------------------------------------------------------
+    #     # Solve unit
+    #     with idaeslog.solver_log(solve_log, idaeslog.DEBUG) as slc:
+    #         res = opt.solve(blk, tee=slc.tee)
+    #     init_log.info_high(
+    #             'Initialization Step 3 {}.'.format(idaeslog.condition(res)))
+    #
+    #     # ---------------------------------------------------------------------
+    #     # Release Inlet state
+    #     blk.unit.release_state(flags, outlvl + 1)
+    #     init_log.info(
+    #             'Initialization Complete: {}'.format(idaeslog.condition(res))
+    #             )

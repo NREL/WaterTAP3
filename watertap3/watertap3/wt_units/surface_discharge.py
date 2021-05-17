@@ -50,16 +50,22 @@ class UnitProcess(WT3UnitProcess):
         pump_eff = 0.9 * pyunits.dimensionless
         motor_eff = 0.9 * pyunits.dimensionless
 
+        try:
+            pump = unit_params['pump']
+        except:
+            pump = 'yes'
+
         def fixed_cap(flow_in):
             surf_dis_cap = base_fixed_cap_cost * (flow_in / capacity_basis) ** cap_scaling_exp
             return surf_dis_cap  # M$
 
         def electricity(flow_in):
-            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons / pyunits.minute)
-            # flow_in_m3hr = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hour)
-            electricity = (0.746 * flow_in_gpm * lift_height / (3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
-
-            return electricity
+            if pump == 'yes':
+                flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons / pyunits.minute)
+                electricity = (0.746 * flow_in_gpm * lift_height / (3960 * pump_eff * motor_eff)) / flow_in  # kWh/m3
+                return electricity
+            else:
+                return 0
 
         self.costing.fixed_cap_inv_unadjusted = Expression(
                 expr=fixed_cap(flow_in),

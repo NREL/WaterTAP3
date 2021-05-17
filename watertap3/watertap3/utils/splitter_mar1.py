@@ -46,11 +46,12 @@ class SplitterProcessData(UnitModelBlockData):
     def build(self):
         super(SplitterProcessData, self).build()
 
-    def get_split(self, outlet_list=None, unit_params=None):
+    def get_split(self, outlet_list_up=None, unit_params=None):
         time = self.flowsheet().config.time
         t = self.flowsheet().config.time.first()
         units_meta = self.config.property_package.get_metadata().get_derived_units
-
+        outlet_list = outlet_list_up.keys()
+        # print(outlet_list)
         # Add ports
         for p in outlet_list:
             setattr(self, p, Port(noruleinit=True, doc='Outlet Port'))  # ARIEL
@@ -118,13 +119,18 @@ class SplitterProcessData(UnitModelBlockData):
         self.inlet.add(self.conc_mass_in, 'conc_mass')
         self.inlet.add(self.temperature_in, 'temperature')
         self.inlet.add(self.pressure_in, 'pressure')
-
-
-        for i, p in enumerate(outlet_list):
-            if 'split_fraction' in unit_params.keys():
-                getattr(self, ('split_fraction_%s' % p)).fix(unit_params['split_fraction'][i])
+        i = 0
+        # print(outlet_list)
+        for p in outlet_list:
+            if outlet_list_up[p] == "NA":
+                getattr(self, ("split_fraction_%s" % p)).unfix()
             else:
-                getattr(self, ('split_fraction_%s' % p)).fix(1 / len(outlet_list))
+                getattr(self, ("split_fraction_%s" % p)).fix(outlet_list_up[p])
+            # if 'split_fraction' in unit_params.keys():
+            #     getattr(self, ('split_fraction_%s' % p)).fix(unit_params['split_fraction'][i])
+            # else:
+            #     getattr(self, ('split_fraction_%s' % p)).fix(1 / len(outlet_list))
+            # i += 1
 
         for p in outlet_list:
             for j in self.config.property_package.component_list:

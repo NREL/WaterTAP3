@@ -26,8 +26,6 @@ from . import optimize_setup
 from .optimize_setup import *
 from . import post_processing
 from .post_processing import *
-from . import sensitivity_runs
-from .sensitivity_runs import *
 from . import split_test2
 from .split_test2 import *
 from . import splitter_mar1
@@ -40,7 +38,8 @@ from . import water_props
 from .water_props import *
 from . import watertap
 from .watertap import *
-import watertap3.wt_units as wt_units
+from . import sensitivity_runs
+from .sensitivity_runs import *
 
 
 __all__ = [
@@ -58,6 +57,7 @@ __all__ = [
            *module_import.__all__,
            *optimize_setup.__all__,
            *post_processing.__all__,
+           *sensitivity_runs.__all__,
            *split_test2.__all__,
            *splitter_mar1.__all__,
            *case_study_trains.__all__,

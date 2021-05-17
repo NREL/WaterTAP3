@@ -102,9 +102,10 @@ def get_case_study(flow=None, m=None):
 
     # add the arcs to the model
     m = create_arcs(m, arc_dict)
-
     # add the waste arcs to the model
     m, arc_i, mixer_i = add_waste_streams(m, arc_i, pfd_dict, mixer_i)
+
+    m.fs.arc_dict2 = arc_dict
 
     return m
 
@@ -253,15 +254,24 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
 
 
 def create_splitters(m, splitter_list, arc_dict, arc_i):
+    # print(splitter_list)
     splitter_i = 1
     outlet_i = 1
     for j in splitter_list:
         outlet_list = []
+        outlet_list_up = {}
+        unit_split_lu_dict = {}
         splitter_name = 'splitter%s' % splitter_i
         for key in list(arc_dict.keys()):
             if ((arc_dict[key][0] == j[0]) & (arc_dict[key][1] == j[1])):
-
-                # outlet list for when splitter is added to model
+                split_dict = {}
+                w = 0
+                for uname in m.fs.pfd_dict[j[0]]['ToUnitName']:
+                    if m.fs.pfd_dict[j[0]]["FromPort"][w] == "outlet":
+                        if 'split_fraction' in m.fs.pfd_dict[j[0]]['Parameter']:
+                            split_dict[uname] = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction'][w]
+                            w = w + 1
+                            # outlet list for when splitter is added to model
                 outlet_name = 'outlet%s' % outlet_i
                 outlet_list.append(outlet_name)
                 outlet_i = outlet_i + 1
@@ -269,19 +279,36 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
                 # add new arc to arc dict
                 arc_dict[arc_i] = [splitter_name, outlet_name, arc_dict[key][2], arc_dict[key][3]]
                 arc_i = arc_i + 1
+                # print(split_dict)
+                # print(arc_dict[key][2])
+                # print(arc_dict[key])
 
+                unit_hold = arc_dict[key][2]
+
+                if arc_dict[key][2] not in split_dict.keys():
+                    for l in m.fs.arc_dict.keys():
+                        if arc_dict[key][2] == m.fs.arc_dict[l][0]:
+                            unit_hold = m.fs.arc_dict[l][2]
+
+                if len(split_dict) > 0:
+                    outlet_list_up[outlet_name] = split_dict[unit_hold]
+                else:
+                    outlet_list_up[outlet_name] = "NA"
                 # delete from arc dict
                 del arc_dict[key]
 
-        # add splitter to model with outlet list  
+        # print(outlet_list_up)
+        # print(outlet_list)
+        # print(split_dict)
+        # add splitter to model with outlet list
 
         setattr(m.fs, splitter_name, Splitter(default={'property_package': m.fs.water}))
         unit_params = m.fs.pfd_dict[j[0]]['Parameter']
-        getattr(m.fs, splitter_name).outlet_list = outlet_list
+        getattr(m.fs, splitter_name).outlet_list = outlet_list_up
         if 'split_fraction' in unit_params:
             print('params into splitter -->', unit_params['split_fraction'])
         # could just have self call the split list directly without reading in unit params. same for all 
-        getattr(m.fs, splitter_name).get_split(outlet_list=outlet_list, unit_params=unit_params)
+        getattr(m.fs, splitter_name).get_split(outlet_list_up=outlet_list_up, unit_params=unit_params)
 
         # arc from mixer outlet to node
         arc_dict[arc_i] = [j[0], j[1], splitter_name, 'inlet']

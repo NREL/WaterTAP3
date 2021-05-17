@@ -40,6 +40,7 @@ class UnitProcess(WT3UnitProcess):
         self.del_component(self.recovery_equation)
         self.del_component(self.flow_balance)
         self.del_component(self.component_removal_equation)
+
         self.deltaP_waste.unfix()
         self.deltaP_outlet.unfix()
 
@@ -50,7 +51,6 @@ class UnitProcess(WT3UnitProcess):
         permeate = self.permeate
         feed = self.feed
         retentate = self.retentate
-
 
         units_meta = self.config.property_package.get_metadata().get_derived_units
 
@@ -197,7 +197,45 @@ class UnitProcess(WT3UnitProcess):
                 # set_water_flux(b
         feed.pressure.unfix()
 
-        ## CONSTANTS
+        self.a.fix(4.2)
+        self.b.fix(0.35)
+
+        self.const_list2 = list(self.config.property_package.component_list)  # .remove("tds")
+        self.const_list2.remove("tds")
+
+        flow_in_m3hr = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hour)
+        flow_waste_m3hr = pyunits.convert(self.flow_vol_waste[t], to_units=pyunits.m ** 3 / pyunits.hour)
+
+        # if "stage" in unit_params:
+        try:
+            scaling = unit_params['scaling']
+
+        except:
+            scaling = 'no'
+
+        for j in self.const_list2:
+            if scaling == 'yes':
+                self.del_component(self.component_mass_balance)
+                setattr(self, ("%s_eq1" % j), Constraint(expr=self.flow_vol_in[t] * self.conc_mass_in[t, j] ==
+                                                              self.flow_vol_out[t] * self.conc_mass_out[t, j] +
+                                                              self.flow_vol_waste[t] * self.conc_mass_waste[t, j]))
+                # if j in ['toc', 'sulfur', 'nitrate_as_nitrogen']:
+                setattr(self, ("%s_eq" % j), Constraint(
+                        expr=self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j]
+                             == self.flow_vol_waste[t] * self.conc_mass_waste[t, j]
+                        ))
+
+            else:
+                setattr(self, ("%s_eq" % j), Constraint(
+                        expr=self.removal_fraction[t, j] * flow_in_m3hr *
+                             pyunits.convert(self.conc_mass_in[t, j], to_units=pyunits.mg / pyunits.liter)
+                             == flow_waste_m3hr * pyunits.convert(self.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.liter)
+                        ))
+
+                # # else:
+                # for j in self.const_list2:
+                #
+                ## CONSTANTS
         pump_eff = 0.8  # efficiency of pump
         erd_eff = 0.9
         mem_cost = 35  # ~30 dollars for 2007 converted to 2020 and from Optimum design of reverse osmosis system under different feed concentration and product specification
@@ -321,15 +359,6 @@ class UnitProcess(WT3UnitProcess):
         ########################################################################
         ########################################################################
 
-        self.const_list2 = list(self.config.property_package.component_list)  # .remove('tds')
-        self.const_list2.remove('tds')
-
-        for j in self.const_list2:
-            setattr(self, ('%s_eq' % j), Constraint(
-                    expr=self.removal_fraction[t, j] * self.flow_vol_in[t] * self.conc_mass_in[t, j]
-                         == self.flow_vol_waste[t] * self.conc_mass_waste[t, j]
-                    ))
-
         self.pressure_waste_outlet_eq = Constraint(
                 expr=self.feed.pressure[t] - pressure_drop == self.pressure_waste[t]
                 )
@@ -378,7 +407,7 @@ class UnitProcess(WT3UnitProcess):
 
         if unit_params['erd'] == 'no':
             self.erd_power = 0
-            b_cost.erd_capital_cost = 0
+        b_cost.erd_capital_cost = 0
 
         b_cost.mem_capital_cost = self.mem_cost[t] * self.membrane_area[t]
 

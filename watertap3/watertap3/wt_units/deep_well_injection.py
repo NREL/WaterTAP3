@@ -55,14 +55,14 @@ class UnitProcess(WT3UnitProcess):
         pipe_cost_basis = 35000  # $ / (inch * mile) -- this value taken from produced water case studies in WT3 Excel model
         pipe_distance = unit_params['pipe_distance'] * pyunits.miles
         pipe_diameter = 8 * pyunits.inches
-        pipe_fixed_cap_cost = (pipe_cost_basis * pipe_distance * pipe_diameter) * 1E-6
-        tot_fixed_cap = well_pump_fixed_cap_cost + pipe_fixed_cap_cost
         pump_eff = 0.9
         motor_eff = 0.9
 
         self.chem_dict = {}
 
         def fixed_cap(flow_in):
+            pipe_fixed_cap_cost = (pipe_cost_basis * pipe_distance * pipe_diameter) * 1E-6
+            tot_fixed_cap = well_pump_fixed_cap_cost + pipe_fixed_cap_cost
             cap_scaling_factor = flow_in / cap_scaling_val
             deep_well_cap = tot_fixed_cap * cap_scaling_factor ** cap_scaling_exp
             return deep_well_cap
