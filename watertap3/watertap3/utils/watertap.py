@@ -570,6 +570,25 @@ def print_ro_results(m):
             print(f'\tPure Water Flux for {unit}: {round(getattr(m.fs, key).pure_water_flux[0]() * 3600, 2)} LMH')
             print(f'\tA constant for {unit}: {round(getattr(m.fs, key).a[0](), 3)}')
             print(f'\tB constant for {unit}: {round(getattr(m.fs, key).b[0](), 3)}\n')
+            print(f'\tRecovery for {unit}: {round(getattr(m.fs, key).water_recovery[0](), 3)}\n')
+
+def print_ro_bounds(source_water_category, feed_flux_min, feed_flux_max, min_pressure, max_pressure, min_area, a=None, b=None):
+    if source_water_category == 'seawater':
+        print(f'\n\nSEAWATER for RO:'
+              f'\n\tFlux [LMH] (min, max) = {feed_flux_min, feed_flux_max}'
+              f'\n\tPressure [bar] (min, max) = {min_pressure, max_pressure}'
+              f'\n\tMin. Area [m2] = {min_area}'
+              f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
+              f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
+    else:
+        print(f'\n\nOTHER bounds for RO:'
+              f'\n\tFlux [LMH] (min, max) = {feed_flux_min, feed_flux_max}'
+              f'\n\tPressure [bar] (min, max) = {min_pressure, max_pressure}'
+              f'\n\tMin. Area [m2] = {min_area}'
+              f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
+              f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
+
+
 
 
 # set reasonable bounds
@@ -582,12 +601,6 @@ def set_bounds(m=None, source_water_category=None):
         max_pressure = 85
         min_area = 500
         min_pressure = 5
-        print(f'\n\nSeawater bounds for RO:'
-              f'\n\tFlux [LMH] (min, max) = {feed_flux_min, feed_flux_max}'
-              f'\n\tPressure [bar] (min, max) = {min_pressure, max_pressure}'
-              f'\n\tMin. Area [m2] = {min_area}'
-              f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
-              f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
     else:
         feed_flux_max = 30  # lmh
         feed_flux_min = 8  # lmh
@@ -596,13 +609,8 @@ def set_bounds(m=None, source_water_category=None):
         max_pressure = 25
         min_area = 250
         min_pressure = 5
-        print(f'\n\nNON Seawater bounds for RO:'
-              f'\n\tFlux [LMH] (min, max) = {feed_flux_min, feed_flux_max}'
-              f'\n\tPressure [bar] (min, max) = {min_pressure, max_pressure}'
-              f'\n\tMin. Area [m2] = {min_area}'
-              f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
-              f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
 
+    print_ro_bounds(source_water_category, feed_flux_min, feed_flux_max, min_pressure, max_pressure, min_area, a=a, b=b)
     q = 1
     for key in m.fs.pfd_dict.keys():
         if m.fs.pfd_dict[key]['Unit'] == 'reverse_osmosis':
@@ -703,6 +711,8 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
     scenario = scenario_name
     case_study = m.fs.train['case_study']
     reference = m.fs.train['reference']
+    case_study_print = case_study.replace('_', ' ').swapcase()
+    scenario_print = scenario.replace('_', ' ').swapcase()
 
     has_ro = False
     for key in m.fs.pfd_dict.keys():
@@ -716,13 +726,15 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.fix(30)
 
-    run_water_tap(m=m, objective=True, skip_small=skip_small, print_model_results='summary')
+    print(f'Case Study = {case_study_print}\nScenario = {scenario_print}\n')
+    run_water_tap(m=m, objective=True, skip_small=skip_small)
+
     print_ro_results(m)
 
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.unfix()
-
-    if case_study == "upw":
+    #
+    if case_study == 'upw':
 
         m.fs.media_filtration.water_recovery.fix(0.9)
         m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.05678 * 1.01)
@@ -732,7 +744,7 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.03155 * 1.01)
         m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.03155 * 0.99)
 
-    if case_study == "uranium":
+    if case_study == 'uranium':
 
         m.fs.ro_production.eq1_anna = Constraint(expr=m.fs.ro_production.flow_vol_out[0] <= (0.7 * m.fs.ro_production.flow_vol_in[0]) * 1.01)
         m.fs.ro_production.eq2_anna = Constraint(expr=m.fs.ro_production.flow_vol_out[0] >= (0.7 * m.fs.ro_production.flow_vol_in[0]) * 0.99)
@@ -741,8 +753,20 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         m.fs.ro_restore.eq5_anna = Constraint(expr=m.fs.ro_restore.flow_vol_out[0] <= (0.75 * m.fs.ro_restore.flow_vol_in[0]) * 1.01)
         m.fs.ro_restore.eq6_anna = Constraint(expr=m.fs.ro_restore.flow_vol_out[0] >= (0.75 * m.fs.ro_restore.flow_vol_in[0]) * 0.99)
 
-    if case_study == "san_luis":
-        if scenario in ["baseline", "dwi"]:
+    if case_study == 'gila_river':
+        if 'reverse_osmosis' in m.fs.pfd_dict.keys():
+
+            m.fs.reverse_osmosis.kurby1 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= (0.59 * m.fs.reverse_osmosis.flow_vol_in[0]) * 1.01)
+            m.fs.reverse_osmosis.kurby2 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] >= (0.59 * m.fs.reverse_osmosis.flow_vol_in[0]) * 0.99)
+
+    if case_study == 'cherokee':
+        if 'reverse_osmosis' in m.fs.pfd_dict.keys():
+
+            m.fs.reverse_osmosis.kurby1 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= (0.98 * m.fs.reverse_osmosis.flow_vol_in[0]) * 1.01)
+            m.fs.reverse_osmosis.kurby2 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] >= (0.98 * m.fs.reverse_osmosis.flow_vol_in[0]) * 0.99)
+
+    if case_study == 'san_luis':
+        if scenario in ['baseline', 'dwi']:
             m.fs.reverse_osmosis_1.feed.pressure.fix(25.5)
             m.fs.reverse_osmosis_2.feed.pressure.fix(36)
 
@@ -770,14 +794,14 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
                   '\n\tCurrent:', m.fs.costing.system_recovery())
     ur_list = []
 
-    if case_study == "uranium":
-        ur_list.append(m.fs.ion_exchange.removal_fraction[0, "tds"]())
+    if case_study == 'uranium':
+        ur_list.append(m.fs.ion_exchange.removal_fraction[0, 'tds']())
         ur_list.append(m.fs.ion_exchange.anion_res_capacity[0]())
         ur_list.append(m.fs.ion_exchange.cation_res_capacity[0]())
 
         # change this to set splitters
     upw_list = []
-    if case_study == "upw":
+    if case_study == 'upw':
         upw_list.append(m.fs.splitter2.split_fraction_outlet3[0]())
         upw_list.append(m.fs.splitter2.split_fraction_outlet4[0]())
 
@@ -811,13 +835,13 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         if case_study == 'irwin':
             m.fs.reverse_osmosis.feed.pressure.fix(30)
 
-        if case_study == "upw":
+        if case_study == 'upw':
             m.fs.media_filtration.water_recovery.fix(0.9)
             m.fs.splitter2.split_fraction_outlet3.fix(upw_list[0])
             m.fs.splitter2.split_fraction_outlet4.fix(upw_list[1])
 
-        if case_study == "uranium":
-            m.fs.ion_exchange.removal_fraction[0, "tds"].fix(ur_list[0])
+        if case_study == 'uranium':
+            m.fs.ion_exchange.removal_fraction[0, 'tds'].fix(ur_list[0])
             m.fs.ion_exchange.anion_res_capacity.fix(ur_list[1])
             m.fs.ion_exchange.cation_res_capacity.fix(ur_list[2])
 
