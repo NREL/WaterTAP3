@@ -46,15 +46,6 @@ class UnitProcess(WT3UnitProcess):
 
         tds_in = pyunits.convert(self.conc_mass_in[time, 'tds'], to_units=(pyunits.mg / pyunits.liter))  # convert from kg/m3 to mg/L
 
-        # self.water_recovery.unfix()
-        self.water_recovery_bound1 = Constraint(
-                expr=self.water_recovery[time] >= 0.5
-                )
-
-        self.water_recovery_bound2 = Constraint(
-                expr=self.water_recovery[time] <= 0.98
-                )
-
         self.chem_dict = {}
 
         self.costing.fixed_cap_inv_unadjusted = Expression(

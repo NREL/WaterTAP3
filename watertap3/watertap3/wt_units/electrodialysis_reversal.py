@@ -45,7 +45,7 @@ class UnitProcess(WT3UnitProcess):
 
         def electricity():
             # Assumed 80% current efficiency basis ===> https://www.saltworkstech.com/articles/what-is-electrodialysis-reversal-and-its-new-innovations/
-            ed_elect = (delta_tds / 630) * 0.337  # kwh/m3
+            ed_elect = (delta_tds * 0.0067) / flow_in
             return ed_elect
 
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
