@@ -1,0 +1,17 @@
+Installation
+============
+
+.. note:: WaterTAP3 supports Python 3.6 and above.
+
+Using Pip
+---------
+The standard utility for installing Python packages is ``pip``. 
+You can install WaterTAP3 in your system Python installation by executing::
+
+   pip install watertap3
+
+
+Dependencies
+------------
+WaterTAP3 has special dependencies on a variety of third-party Python packages.
+To avoid conflicting dependencies, we recommend you to use ``conda`` to manage the environment.

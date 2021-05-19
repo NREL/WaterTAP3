@@ -1,0 +1,12 @@
+User Guide
+============
+
+.. note:: 
+   WaterTAP3 is based on IDAES Integrated Platform, a Python-based energy system engineering framework. 
+   Documentation of IDEAS is provided `here <https://idaes-pse.readthedocs.io/en/stable/index.html>`_.
+
+.. toctree::
+   :maxdepth: 2
+
+   install
+   components

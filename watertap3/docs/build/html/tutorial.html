@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tutorial &mdash; WaterTAP3 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to WaterTAP3 documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> WaterTAP3
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-note">Add note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-code-inline-block">Add code inline &amp; block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-picture">Add picture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-math">Add math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-table">Add table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-internal-link">Add internal link</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#flowsheet">Flowsheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property-package">Property Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unit-model">Unit Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-external-link">Add external link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-autodoc">Add autodoc</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WaterTAP3</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="add-note">
+<h2>Add note<a class="headerlink" href="#add-note" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WaterTAP3 supports Python 3.6 and above.</p>
+</div>
+</div>
+<div class="section" id="add-code-inline-block">
+<h2>Add code inline &amp; block<a class="headerlink" href="#add-code-inline-block" title="Permalink to this headline">¶</a></h2>
+<p>The standard utility for installing Python packages is <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>You can install WaterTAP3 in your system Python installation by executing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">watertap3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-picture">
+<h2>Add picture<a class="headerlink" href="#add-picture" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/nrel-logo.png"><img alt="_images/nrel-logo.png" class="align-center" src="_images/nrel-logo.png" style="width: 150.0px; height: 39.5px;" /></a>
+</div>
+<div class="section" id="add-math">
+<h2>Add math<a class="headerlink" href="#add-math" title="Permalink to this headline">¶</a></h2>
+<p>For inline math, we use like this: <span class="math notranslate nohighlight">\(a^2 + b^2 = c^2\)</span>.</p>
+<p>For displayed math, the directive supports multiple equations, which should be separated by a blank line:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}(a + b)^2 = a^2 + 2ab + b^2\\(a - b)^2 = a^2 - 2ab + b^2\end{aligned}\end{align} \]</div>
+</div></blockquote>
+</div>
+<div class="section" id="add-table">
+<h2>Add table<a class="headerlink" href="#add-table" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 34%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header 1</p></th>
+<th class="head"><p>Header 2</p></th>
+<th class="head"><p>Header 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>body row 1</p></td>
+<td><p>column 2</p></td>
+<td><p>column 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>body row 2</p></td>
+<td colspan="2"><p>Cells may span columns.</p></td>
+</tr>
+<tr class="row-even"><td><p>body row 3</p></td>
+<td rowspan="2"><p>Cells may
+span rows.</p></td>
+<td rowspan="2"><ul class="simple">
+<li><p>Cells</p></li>
+<li><p>contain</p></li>
+<li><p>blocks</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>body row 4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="add-internal-link">
+<h2>Add internal link<a class="headerlink" href="#add-internal-link" title="Permalink to this headline">¶</a></h2>
+<p>Here to introduce each component in WaterTAP3.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#flowsheet"><span class="std std-ref">Flowsheet</span></a></p></li>
+<li><p><a class="reference internal" href="#prop-pkg"><span class="std std-ref">Property Package</span></a></p></li>
+<li><p><a class="reference internal" href="#unit-model"><span class="std std-ref">Unit Model</span></a></p></li>
+</ul>
+<div class="section" id="flowsheet">
+<span id="id1"></span><h3>Flowsheet<a class="headerlink" href="#flowsheet" title="Permalink to this headline">¶</a></h3>
+<p>Flowsheet models are the top level of the modeling heirachy.
+Flowsheet models represent traditional process flowsheets, containing a number of unit models connected together into a flow network and the property packages.</p>
+</div>
+<div class="section" id="property-package">
+<span id="prop-pkg"></span><h3>Property Package<a class="headerlink" href="#property-package" title="Permalink to this headline">¶</a></h3>
+<p>Property packages are a collection of related models that represent the physical, thermodynamic, and reactive properties of the process streams.</p>
+</div>
+<div class="section" id="unit-model">
+<span id="id2"></span><h3>Unit Model<a class="headerlink" href="#unit-model" title="Permalink to this headline">¶</a></h3>
+<p>Unit models represent individual pieces of equipment and their processes.</p>
+</div>
+</div>
+<div class="section" id="add-external-link">
+<h2>Add external link<a class="headerlink" href="#add-external-link" title="Permalink to this headline">¶</a></h2>
+<p>Here is an introduction for <a class="reference external" href="https://www.nawihub.org/watertap">Water-TAP3 project</a>.</p>
+</div>
+<div class="section" id="add-autodoc">
+<h2>Add autodoc<a class="headerlink" href="#add-autodoc" title="Permalink to this headline">¶</a></h2>
+<p>This is an autodoc demo using module <cite>watertap3.utils.financials</cite>.</p>
+<span class="target" id="module-watertap3.utils.financials"></span><p>This is fairly basic at this stage, as I didn’t try too hard to understand the
+calcualtions.</p>
+<p>Note that costing in IDAES is still a fairly new feature, and is still in the
+prototype phase. Notably, we have only really looked at capital costs so far,
+and there is probably a alack of support for operating costs for now.</p>
+<p>However, this is where you would write methods for calculating costs for each
+type of unit operation. The goal would be to write these in a way that would
+work for both WaterTAP3 and ProteusLib. This should be possible as long as we
+clearly document what variables are required for the cost methods and what they
+are called (ideally using the standard IDAES naming conventions where
+appropriate)</p>
+<dl class="py class">
+<dt id="watertap3.utils.financials.SystemSpecs">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">SystemSpecs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.SystemSpecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="watertap3.utils.financials.get_complete_costing">
+<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_complete_costing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_complete_costing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="watertap3.utils.financials.get_ind_table">
+<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_ind_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_yr_cost_indicies</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_ind_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="watertap3.utils.financials.get_system_costing">
+<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_system_costing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_costing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="watertap3.utils.financials.get_system_specs">
+<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_system_specs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_specs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="watertap3.utils.financials.global_costing_parameters">
+<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">global_costing_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.global_costing_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to WaterTAP3 documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, National Renewable Energy Laboratory.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

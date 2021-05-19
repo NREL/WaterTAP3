@@ -1,0 +1,10 @@
+WaterTAP3 Function Demo
+==========================
+
+Here is a demo function using WaterTAP3 source code.
+
+
+.. automodule:: watertap3.watertap
+    :members:
+    :undoc-members:
+    :show-inheritance:

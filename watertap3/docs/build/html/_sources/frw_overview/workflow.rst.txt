@@ -1,0 +1,4 @@
+Workflow
+=============
+
+Here a flow chart can be shown to introduce the Framework.
