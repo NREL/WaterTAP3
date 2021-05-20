@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>watertap3.wt_units package &mdash; WaterTAP3 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="watertap3.utils package" href="watertap3.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> WaterTAP3
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-note">Add note</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-code-inline-block">Add code inline &amp; block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-picture">Add picture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-math">Add math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-table">Add table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-internal-link">Add internal link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#add-external-link">Add external link</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="tutorial.html#add-docstring">Add docstring</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="watertap3.html">watertap3 package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="watertap3.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="watertap3.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="watertap3.html#watertap3-water-props-block-module">watertap3.water_props_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="watertap3.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="watertap3.utils.html">watertap3.utils package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">watertap3.wt_units package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-watertap3-debugging-auto-train-feb20-module">watertap3.wt_units.WaterTAP3_debugging_auto_train_feb20 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-agglom-stacking-module">watertap3.wt_units.agglom_stacking module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-alum-addition-module">watertap3.wt_units.alum_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ammonia-addition-module">watertap3.wt_units.ammonia_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-anion-exchange-module">watertap3.wt_units.anion_exchange module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-anion-exchange-epa-module">watertap3.wt_units.anion_exchange_epa module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-anti-scalant-addition-module">watertap3.wt_units.anti_scalant_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-backwash-solids-handling-module">watertap3.wt_units.backwash_solids_handling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-basic-mass-based-module">watertap3.wt_units.basic_mass_based module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-basic-unit-module">watertap3.wt_units.basic_unit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-brine-concentrator-module">watertap3.wt_units.brine_concentrator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-cartridge-filtration-module">watertap3.wt_units.cartridge_filtration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-cation-exchange-module">watertap3.wt_units.cation_exchange module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-caustic-soda-addition-module">watertap3.wt_units.caustic_soda_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-chemical-addition-module">watertap3.wt_units.chemical_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-chlorination-module">watertap3.wt_units.chlorination module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-co2-addition-module">watertap3.wt_units.co2_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-coag-and-floc-module">watertap3.wt_units.coag_and_floc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-coagulant-addition-module">watertap3.wt_units.coagulant_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-cooling-tower-module">watertap3.wt_units.cooling_tower module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-crystallizer-module">watertap3.wt_units.crystallizer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-deep-well-injection-module">watertap3.wt_units.deep_well_injection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-electrodialysis-reversal-module">watertap3.wt_units.electrodialysis_reversal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-evaporation-pond-module">watertap3.wt_units.evaporation_pond module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ferric-chloride-addition-module">watertap3.wt_units.ferric_chloride_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-fixed-bed-gravity-basin-module">watertap3.wt_units.fixed_bed_gravity_basin module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-fixed-bed-pressure-vessel-module">watertap3.wt_units.fixed_bed_pressure_vessel module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-fluidized-bed-module">watertap3.wt_units.fluidized_bed module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-gac-module">watertap3.wt_units.gac module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-gac-gravity-module">watertap3.wt_units.gac_gravity module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-gac-pressure-vessel-module">watertap3.wt_units.gac_pressure_vessel module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-heap-leaching-module">watertap3.wt_units.heap_leaching module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-holding-tank-module">watertap3.wt_units.holding_tank module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-hydrochloric-acid-addition-module">watertap3.wt_units.hydrochloric_acid_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ion-exchange-module">watertap3.wt_units.ion_exchange module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-iron-and-manganese-removal-module">watertap3.wt_units.iron_and_manganese_removal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-irwin-brine-management-module">watertap3.wt_units.irwin_brine_management module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-landfill-module">watertap3.wt_units.landfill module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-landfill-zld-module">watertap3.wt_units.landfill_zld module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-lime-addition-module">watertap3.wt_units.lime_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-lime-softening-module">watertap3.wt_units.lime_softening module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-media-filtration-module">watertap3.wt_units.media_filtration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-microfiltration-module">watertap3.wt_units.microfiltration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-multi-stage-bubble-aeration-module">watertap3.wt_units.multi_stage_bubble_aeration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-municipal-drinking-module">watertap3.wt_units.municipal_drinking module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-nanofiltration-twb-module">watertap3.wt_units.nanofiltration_twb module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ozone-aop-module">watertap3.wt_units.ozone_aop module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-packed-tower-aeration-module">watertap3.wt_units.packed_tower_aeration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-reverse-osmosis-module">watertap3.wt_units.reverse_osmosis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ro-deep-module">watertap3.wt_units.ro_deep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ro-deep-old-module">watertap3.wt_units.ro_deep_old module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ro-deep-scnd-pass-module">watertap3.wt_units.ro_deep_scnd_pass module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ro-deep-temp-module">watertap3.wt_units.ro_deep_temp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-ro-deep-testing-module">watertap3.wt_units.ro_deep_testing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-sedimentation-module">watertap3.wt_units.sedimentation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-sodium-bisulfite-addition-module">watertap3.wt_units.sodium_bisulfite_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-solution-distribution-and-recovery-plant-module">watertap3.wt_units.solution_distribution_and_recovery_plant module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-static-mixer-module">watertap3.wt_units.static_mixer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-sulfuric-acid-addition-module">watertap3.wt_units.sulfuric_acid_addition module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-surface-discharge-module">watertap3.wt_units.surface_discharge module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-sw-onshore-intake-module">watertap3.wt_units.sw_onshore_intake module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-treated-storage-module">watertap3.wt_units.treated_storage module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-tri-media-filtration-module">watertap3.wt_units.tri_media_filtration module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-unit-template-module">watertap3.wt_units.unit_template module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-uv-aop-module">watertap3.wt_units.uv_aop module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-water-pumping-station-module">watertap3.wt_units.water_pumping_station module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#watertap3-wt-units-well-field-module">watertap3.wt_units.well_field module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.wt_units.wt_unit">watertap3.wt_units.wt_unit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.wt_units">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WaterTAP3</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="tutorial.html">Tutorial</a> &raquo;</li>
+        
+          <li><a href="watertap3.html">watertap3 package</a> &raquo;</li>
+        
+      <li>watertap3.wt_units package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/watertap3.wt_units.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="watertap3-wt-units-package">
+<h1>watertap3.wt_units package<a class="headerlink" href="#watertap3-wt-units-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-watertap3-debugging-auto-train-feb20-module">
+<h2>watertap3.wt_units.WaterTAP3_debugging_auto_train_feb20 module<a class="headerlink" href="#watertap3-wt-units-watertap3-debugging-auto-train-feb20-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-agglom-stacking-module">
+<h2>watertap3.wt_units.agglom_stacking module<a class="headerlink" href="#watertap3-wt-units-agglom-stacking-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-alum-addition-module">
+<h2>watertap3.wt_units.alum_addition module<a class="headerlink" href="#watertap3-wt-units-alum-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ammonia-addition-module">
+<h2>watertap3.wt_units.ammonia_addition module<a class="headerlink" href="#watertap3-wt-units-ammonia-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-anion-exchange-module">
+<h2>watertap3.wt_units.anion_exchange module<a class="headerlink" href="#watertap3-wt-units-anion-exchange-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-anion-exchange-epa-module">
+<h2>watertap3.wt_units.anion_exchange_epa module<a class="headerlink" href="#watertap3-wt-units-anion-exchange-epa-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-anti-scalant-addition-module">
+<h2>watertap3.wt_units.anti_scalant_addition module<a class="headerlink" href="#watertap3-wt-units-anti-scalant-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-backwash-solids-handling-module">
+<h2>watertap3.wt_units.backwash_solids_handling module<a class="headerlink" href="#watertap3-wt-units-backwash-solids-handling-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-basic-mass-based-module">
+<h2>watertap3.wt_units.basic_mass_based module<a class="headerlink" href="#watertap3-wt-units-basic-mass-based-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-basic-unit-module">
+<h2>watertap3.wt_units.basic_unit module<a class="headerlink" href="#watertap3-wt-units-basic-unit-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-brine-concentrator-module">
+<h2>watertap3.wt_units.brine_concentrator module<a class="headerlink" href="#watertap3-wt-units-brine-concentrator-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-cartridge-filtration-module">
+<h2>watertap3.wt_units.cartridge_filtration module<a class="headerlink" href="#watertap3-wt-units-cartridge-filtration-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-cation-exchange-module">
+<h2>watertap3.wt_units.cation_exchange module<a class="headerlink" href="#watertap3-wt-units-cation-exchange-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-caustic-soda-addition-module">
+<h2>watertap3.wt_units.caustic_soda_addition module<a class="headerlink" href="#watertap3-wt-units-caustic-soda-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-chemical-addition-module">
+<h2>watertap3.wt_units.chemical_addition module<a class="headerlink" href="#watertap3-wt-units-chemical-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-chlorination-module">
+<h2>watertap3.wt_units.chlorination module<a class="headerlink" href="#watertap3-wt-units-chlorination-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-co2-addition-module">
+<h2>watertap3.wt_units.co2_addition module<a class="headerlink" href="#watertap3-wt-units-co2-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-coag-and-floc-module">
+<h2>watertap3.wt_units.coag_and_floc module<a class="headerlink" href="#watertap3-wt-units-coag-and-floc-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-coagulant-addition-module">
+<h2>watertap3.wt_units.coagulant_addition module<a class="headerlink" href="#watertap3-wt-units-coagulant-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-cooling-tower-module">
+<h2>watertap3.wt_units.cooling_tower module<a class="headerlink" href="#watertap3-wt-units-cooling-tower-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-crystallizer-module">
+<h2>watertap3.wt_units.crystallizer module<a class="headerlink" href="#watertap3-wt-units-crystallizer-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-deep-well-injection-module">
+<h2>watertap3.wt_units.deep_well_injection module<a class="headerlink" href="#watertap3-wt-units-deep-well-injection-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-electrodialysis-reversal-module">
+<h2>watertap3.wt_units.electrodialysis_reversal module<a class="headerlink" href="#watertap3-wt-units-electrodialysis-reversal-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-evaporation-pond-module">
+<h2>watertap3.wt_units.evaporation_pond module<a class="headerlink" href="#watertap3-wt-units-evaporation-pond-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ferric-chloride-addition-module">
+<h2>watertap3.wt_units.ferric_chloride_addition module<a class="headerlink" href="#watertap3-wt-units-ferric-chloride-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-fixed-bed-gravity-basin-module">
+<h2>watertap3.wt_units.fixed_bed_gravity_basin module<a class="headerlink" href="#watertap3-wt-units-fixed-bed-gravity-basin-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-fixed-bed-pressure-vessel-module">
+<h2>watertap3.wt_units.fixed_bed_pressure_vessel module<a class="headerlink" href="#watertap3-wt-units-fixed-bed-pressure-vessel-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-fluidized-bed-module">
+<h2>watertap3.wt_units.fluidized_bed module<a class="headerlink" href="#watertap3-wt-units-fluidized-bed-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-gac-module">
+<h2>watertap3.wt_units.gac module<a class="headerlink" href="#watertap3-wt-units-gac-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-gac-gravity-module">
+<h2>watertap3.wt_units.gac_gravity module<a class="headerlink" href="#watertap3-wt-units-gac-gravity-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-gac-pressure-vessel-module">
+<h2>watertap3.wt_units.gac_pressure_vessel module<a class="headerlink" href="#watertap3-wt-units-gac-pressure-vessel-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-heap-leaching-module">
+<h2>watertap3.wt_units.heap_leaching module<a class="headerlink" href="#watertap3-wt-units-heap-leaching-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-holding-tank-module">
+<h2>watertap3.wt_units.holding_tank module<a class="headerlink" href="#watertap3-wt-units-holding-tank-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-hydrochloric-acid-addition-module">
+<h2>watertap3.wt_units.hydrochloric_acid_addition module<a class="headerlink" href="#watertap3-wt-units-hydrochloric-acid-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ion-exchange-module">
+<h2>watertap3.wt_units.ion_exchange module<a class="headerlink" href="#watertap3-wt-units-ion-exchange-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-iron-and-manganese-removal-module">
+<h2>watertap3.wt_units.iron_and_manganese_removal module<a class="headerlink" href="#watertap3-wt-units-iron-and-manganese-removal-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-irwin-brine-management-module">
+<h2>watertap3.wt_units.irwin_brine_management module<a class="headerlink" href="#watertap3-wt-units-irwin-brine-management-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-landfill-module">
+<h2>watertap3.wt_units.landfill module<a class="headerlink" href="#watertap3-wt-units-landfill-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-landfill-zld-module">
+<h2>watertap3.wt_units.landfill_zld module<a class="headerlink" href="#watertap3-wt-units-landfill-zld-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-lime-addition-module">
+<h2>watertap3.wt_units.lime_addition module<a class="headerlink" href="#watertap3-wt-units-lime-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-lime-softening-module">
+<h2>watertap3.wt_units.lime_softening module<a class="headerlink" href="#watertap3-wt-units-lime-softening-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-media-filtration-module">
+<h2>watertap3.wt_units.media_filtration module<a class="headerlink" href="#watertap3-wt-units-media-filtration-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-microfiltration-module">
+<h2>watertap3.wt_units.microfiltration module<a class="headerlink" href="#watertap3-wt-units-microfiltration-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-multi-stage-bubble-aeration-module">
+<h2>watertap3.wt_units.multi_stage_bubble_aeration module<a class="headerlink" href="#watertap3-wt-units-multi-stage-bubble-aeration-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-municipal-drinking-module">
+<h2>watertap3.wt_units.municipal_drinking module<a class="headerlink" href="#watertap3-wt-units-municipal-drinking-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-nanofiltration-twb-module">
+<h2>watertap3.wt_units.nanofiltration_twb module<a class="headerlink" href="#watertap3-wt-units-nanofiltration-twb-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ozone-aop-module">
+<h2>watertap3.wt_units.ozone_aop module<a class="headerlink" href="#watertap3-wt-units-ozone-aop-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-packed-tower-aeration-module">
+<h2>watertap3.wt_units.packed_tower_aeration module<a class="headerlink" href="#watertap3-wt-units-packed-tower-aeration-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-reverse-osmosis-module">
+<h2>watertap3.wt_units.reverse_osmosis module<a class="headerlink" href="#watertap3-wt-units-reverse-osmosis-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ro-deep-module">
+<h2>watertap3.wt_units.ro_deep module<a class="headerlink" href="#watertap3-wt-units-ro-deep-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ro-deep-old-module">
+<h2>watertap3.wt_units.ro_deep_old module<a class="headerlink" href="#watertap3-wt-units-ro-deep-old-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ro-deep-scnd-pass-module">
+<h2>watertap3.wt_units.ro_deep_scnd_pass module<a class="headerlink" href="#watertap3-wt-units-ro-deep-scnd-pass-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ro-deep-temp-module">
+<h2>watertap3.wt_units.ro_deep_temp module<a class="headerlink" href="#watertap3-wt-units-ro-deep-temp-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-ro-deep-testing-module">
+<h2>watertap3.wt_units.ro_deep_testing module<a class="headerlink" href="#watertap3-wt-units-ro-deep-testing-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-sedimentation-module">
+<h2>watertap3.wt_units.sedimentation module<a class="headerlink" href="#watertap3-wt-units-sedimentation-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-sodium-bisulfite-addition-module">
+<h2>watertap3.wt_units.sodium_bisulfite_addition module<a class="headerlink" href="#watertap3-wt-units-sodium-bisulfite-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-solution-distribution-and-recovery-plant-module">
+<h2>watertap3.wt_units.solution_distribution_and_recovery_plant module<a class="headerlink" href="#watertap3-wt-units-solution-distribution-and-recovery-plant-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-static-mixer-module">
+<h2>watertap3.wt_units.static_mixer module<a class="headerlink" href="#watertap3-wt-units-static-mixer-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-sulfuric-acid-addition-module">
+<h2>watertap3.wt_units.sulfuric_acid_addition module<a class="headerlink" href="#watertap3-wt-units-sulfuric-acid-addition-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-surface-discharge-module">
+<h2>watertap3.wt_units.surface_discharge module<a class="headerlink" href="#watertap3-wt-units-surface-discharge-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-sw-onshore-intake-module">
+<h2>watertap3.wt_units.sw_onshore_intake module<a class="headerlink" href="#watertap3-wt-units-sw-onshore-intake-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-treated-storage-module">
+<h2>watertap3.wt_units.treated_storage module<a class="headerlink" href="#watertap3-wt-units-treated-storage-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-tri-media-filtration-module">
+<h2>watertap3.wt_units.tri_media_filtration module<a class="headerlink" href="#watertap3-wt-units-tri-media-filtration-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-unit-template-module">
+<h2>watertap3.wt_units.unit_template module<a class="headerlink" href="#watertap3-wt-units-unit-template-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-uv-aop-module">
+<h2>watertap3.wt_units.uv_aop module<a class="headerlink" href="#watertap3-wt-units-uv-aop-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-water-pumping-station-module">
+<h2>watertap3.wt_units.water_pumping_station module<a class="headerlink" href="#watertap3-wt-units-water-pumping-station-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="watertap3-wt-units-well-field-module">
+<h2>watertap3.wt_units.well_field module<a class="headerlink" href="#watertap3-wt-units-well-field-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-watertap3.wt_units.wt_unit">
+<span id="watertap3-wt-units-wt-unit-module"></span><h2>watertap3.wt_units.wt_unit module<a class="headerlink" href="#module-watertap3.wt_units.wt_unit" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="watertap3.wt_units.wt_unit.WT3UnitProcess">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.wt_units.wt_unit.</span></code><code class="sig-name descname"><span class="pre">WT3UnitProcess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.wt_units.wt_unit.WT3UnitProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl>
+<dt>Keys</dt><dd><dl class="simple">
+<dt>dynamic</dt><dd><p>Indicates whether this model will be dynamic or not,
+<strong>default</strong> = False. Equilibrium Reactors do not support
+dynamic behavior.</p>
+</dd>
+</dl>
+<p>has_holdup</p>
+</dd>
+<dt>Indicates whether holdup terms should be</dt><dd><p>constructed or not.</p>
+</dd>
+</dl>
+<p><strong>default</strong> - False. Equilibrium reactors do not have defined volume, thus
+this must be False.</p>
+<blockquote>
+<div><p>property_package</p>
+</div></blockquote>
+<p>Property parameter object used to define property
+calculations,</p>
+<blockquote>
+<div><p><strong>default</strong> - useDefault.
+<strong>Valid values:</strong> {
+<strong>useDefault</strong> - use default package from parent model or flowsheet,
+<strong>PhysicalParameterObject</strong> - a PhysicalParameterBlock object.}</p>
+<blockquote>
+<div><dl class="simple">
+<dt>property_package_args</dt><dd><p>A ConfigBlock with arguments to be passed to a property
+block(s) and used when constructing these, <strong>default</strong> -
+None. <strong>Valid values:</strong> { see property package for
+documentation.}</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(WT3UnitProcess) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="watertap3.wt_units.wt_unit.WT3UnitProcessData">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.wt_units.wt_unit.</span></code><code class="sig-name descname"><span class="pre">WT3UnitProcessData</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.wt_units.wt_unit.WT3UnitProcessData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.unit_model.UnitModelBlockData</span></code></p>
+<p>This class describes the rules for a zeroth-order model for a unit</p>
+<p>The Config Block is used tpo process arguments from when the model is
+instantiated. In IDAES, this serves two purposes:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Allows us to separate physical properties from unit models</p></li>
+<li><p>Lets us give users options for configuring complex units</p></li>
+</ol>
+</div></blockquote>
+<p>The dynamic and has_holdup options are expected arguments which must exist
+The property package arguments let us define different sets of contaminants
+without needing to write a new model.</p>
+<dl class="py attribute">
+<dt id="watertap3.wt_units.wt_unit.WT3UnitProcessData.CONFIG">
+<code class="sig-name descname"><span class="pre">CONFIG</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;pyutilib.misc.config.ConfigDict</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#watertap3.wt_units.wt_unit.WT3UnitProcessData.CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="watertap3.wt_units.wt_unit.WT3UnitProcessData.build">
+<code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.wt_units.wt_unit.WT3UnitProcessData.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>General build method for UnitModelBlockData. This method calls a number
+of sub-methods which automate the construction of expected attributes
+of unit models.</p>
+<p>Inheriting models should call <cite>super().build</cite>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>None</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="watertap3.wt_units.wt_unit.WT3UnitProcessData.initialize">
+<code class="sig-name descname"><span class="pre">initialize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">routine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlvl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ipopt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optarg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'tol':</span> <span class="pre">1e-06}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.wt_units.wt_unit.WT3UnitProcessData.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>General wrapper for pressure changer initialization routines
+Keyword Arguments:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>routine<span class="classifier">str stating which initialization routine to execute</span></dt><dd><ul class="simple">
+<li><p>None - currently no specialized routine for RO unit</p></li>
+</ul>
+</dd>
+<dt>state_args<span class="classifier">a dict of arguments to be passed to the property</span></dt><dd><p>package(s) to provide an initial state for
+initialization (see documentation of the specific
+property package) (default = {}).</p>
+</dd>
+</dl>
+<p>outlvl : sets output level of initialization routine
+optarg : solver options dictionary object (default={‘tol’: 1e-6})
+solver : str indicating whcih solver to use during</p>
+<blockquote>
+<div><p>initialization (default = ‘ipopt’)</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-watertap3.wt_units">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-watertap3.wt_units" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="watertap3.utils.html" class="btn btn-neutral float-left" title="watertap3.utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, National Renewable Energy Laboratory.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
