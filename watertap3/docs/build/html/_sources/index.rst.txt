@@ -10,5 +10,4 @@ Contents
 .. toctree::
    :maxdepth: 2
    
-   library_ref/index
    tutorial

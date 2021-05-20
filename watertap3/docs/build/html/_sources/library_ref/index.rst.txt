@@ -1,7 +1,0 @@
-Library Reference
-=================
-
-.. toctree::
-   :maxdepth: 2
-   
-   add_math
