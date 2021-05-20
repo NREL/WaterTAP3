@@ -10,19 +10,39 @@
 # license information, respectively. Both files are also available online
 # at the URL 'https://github.com/IDAES/idaes-pse'.
 ##############################################################################
+'''
+This is fairly basic at this stage, as I didn't try too hard to understand the
+calcualtions.
 
+Note that costing in IDAES is still a fairly new feature, and is still in the
+prototype phase. Notably, we have only really looked at capital costs so far,
+and there is probably a alack of support for operating costs for now.
+
+However, this is where you would write methods for calculating costs for each
+type of unit operation. The goal would be to write these in a way that would
+work for both WaterTAP3 and ProteusLib. This should be possible as long as we
+clearly document what variables are required for the cost methods and what they
+are called (ideally using the standard IDAES naming conventions where
+appropriate)
+'''
 import pandas as pd
 from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
+
 from .ml_regression import get_linear_regression
 
-__all__ = ['SystemSpecs',
-           'get_complete_costing',
-           'get_ind_table',
-           'get_system_specs',
-           'get_system_costing',
-           'global_costing_parameters']
+# global train
+# global source_water
+# global pfd_dict
+
+# TO DO - MOVE TO WHERE NEEDED -> global_costing_parameters
+__all__ = ['SystemSpecs', 'get_complete_costing', 'get_ind_table', 'get_system_specs', 'get_system_costing', 'global_costing_parameters']
 
 last_year_for_cost_indicies = 2050
+
+
+# This first method is used at the flowsheet level and contains any global
+# parameters and methods
+
 
 class SystemSpecs():
 
@@ -31,16 +51,23 @@ class SystemSpecs():
         elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
         elec_cost.index = elec_cost.index.str.lower()
         case_study = train['case_study']
-        print(str(case_study).replace('_', ' ').swapcase())
+        print(case_study)
         location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
         self.elec_price = float(elec_cost.loc[location])
-        self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
-        self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] == 'working_capital_percent'].loc[case_study].value)
-        self.salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
-        self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] == 'maintenance_cost_percent'].loc[case_study].value)
+        self.land_cost_percent_FCI = float(
+                basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
+        self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] ==
+                                                        'working_capital_percent'].loc[case_study].value)
+        self.salaries_percent_FCI = float(
+                basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
+        self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] ==
+                                                              'maintenance_cost_percent'].loc[case_study].value)
         self.lab_fees_percent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
-        self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] == 'insurance_and_taxes_percent'].loc[case_study].value)
-        self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 'employee_benefits_percent'].loc[case_study].value)
+
+        self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] ==
+                                                            'insurance_and_taxes_percent'].loc[case_study].value)
+        self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] ==
+                                                          'employee_benefits_percent'].loc[case_study].value)
         self.plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
         self.analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
         self.debt_interest_rate = float(basis_data[basis_data['variable'] == 'debt_interest_rate'].loc[case_study].value)
@@ -50,19 +77,6 @@ class SystemSpecs():
 ################## WATERTAP METHOD ###########################################################
 
 def get_complete_costing(self):
-    """
-    This is an example of docstring.
-
-    Args:
-        param1: This is the first param.
-        param2: This is a second param.
-
-    Returns:
-        This is a description of what is returned.
-
-    Raises:
-        KeyError: Raises an exception.
-    """
     sys_specs = self.parent_block().parent_block().costing_param
     time = self.parent_block().flowsheet().config.time.first()
     chem_dict = self.parent_block().chem_dict
@@ -202,6 +216,16 @@ def get_system_specs(self, train=None):
     b.tpec = 3.4
     b.tic = 1.65
 
+    # traditional parameters are the only Vars on the block and should be fixed
+    # for v in b.component_objects(Var, descend_into=True):
+    #    for i in v:
+    #        if v[i].value is None:
+    #            raise ConfigurationError(
+    #                '{} parameter {} was not assigned'
+    #                ' a value. Please check your configuration '
+    #                'arguments.'.format(b.name, v.local_name))
+    #        v[i].fix()
+
 
 def get_system_costing(self):
     if not hasattr(self, 'costing'):
@@ -246,9 +270,11 @@ def get_system_costing(self):
             expr=sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs)
     b.fixed_op_cost_total = Expression(
             expr=sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs)
+
     b.operating_cost_total = Expression(
             expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total
                   + b.other_var_cost_total))
+
     b.cat_and_chem_cost_annual = Expression(
             expr=sum(cat_and_chem_cost_lst))
     b.electricity_cost_annual = Expression(
@@ -285,7 +311,8 @@ def get_system_costing(self):
 
     sum_of_inflow = 0
     for key in b.parent_block().flow_in_dict.keys():
-        sum_of_inflow += getattr(self, key).flow_vol_in[time]
+        print(key)
+        sum_of_inflow = sum_of_inflow + getattr(self, key).flow_vol_in[time]
 
     b.system_recovery = b.treated_water / sum_of_inflow
 
@@ -296,6 +323,10 @@ def get_system_costing(self):
                     expr=1e6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost)
                          / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
                     doc='Unit Levelized Cost of Water in $/m3'))
+
+            #             setattr(b_unit, 'elec_int_treated', Expression(
+            #         expr= (b_unit.electricity * b_unit.flow_vol_in[time]) / (b.treated_water*sys_specs.plant_cap_utilization),
+            #             doc='Unit Elec Intensity Treated kw/m3'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
                     expr=(b_unit.costing.electricity_cost * 1e6 / b.parent_block().costing_param.electricity_price)
@@ -333,8 +364,14 @@ def get_system_costing(self):
 
 ### JUST TO GET IDAES TO RUN --> THESE SHOULd BE THE SYSTEM SPECS    
 def global_costing_parameters(self, year=None):
+    # Define a default year if none is provided
     if year is None:
         year = '2018'
+
+    # Cost index $/year (method argument or 2018 default)
+    # I just took this from the IDAES costing methods as an example
+    # You could also link to an external database of values, such as the
+    # Excel spreadsheet
     ce_index_dic = {
             '2019': 680, '2018': 671.1, '2017': 567.5, '2016': 541.7,
             '2015': 556.8, '2014': 576.1, '2013': 567.3, '2012': 584.6,
