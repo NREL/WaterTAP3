@@ -15,7 +15,6 @@ The standard utility for installing Python packages is ``pip``.
 You can install WaterTAP3 in your system Python installation by executing::
 
    pip install watertap3
-   conda activate
 
 
 Add picture
@@ -38,8 +37,6 @@ For displayed math, the directive supports multiple equations, which should be s
       (a + b)^2 = a^2 + 2ab + b^2
 
       (a - b)^2 = a^2 - 2ab + b^2
-
-      x + y = 9999
 
 
 Add table
@@ -94,12 +91,14 @@ Add external link
 Here is an introduction for `Water-TAP3 project <https://www.nawihub.org/watertap>`_.
 
 
-Add autodoc
------------
+Add docstring
+---------------
 
-This is an autodoc demo using module `watertap3.utils.financials`.
+This is WaterTAP3's full API documentation using Apidoc.
 
-.. automodule:: watertap3.utils.financials
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. toctree::
+   :maxdepth: 2
+   
+   watertap3
+   watertap3.utils
+   watertap3.wt_units

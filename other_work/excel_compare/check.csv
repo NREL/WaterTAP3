@@ -1,0 +1,728 @@
+Case_Study,Scenario,Unit_Process,Variable,Unit,excel,python
+Carlsbad,Baseline,System,System Capital Investment,$MM/yr,,476.707
+Carlsbad,Baseline,System,System Catalysts and Chemicals,$MM,,61.09
+Carlsbad,Baseline,System,System Catalysts and Chemicals,$MM/yr,,3.054
+Carlsbad,Baseline,System,System Electricity,$MM,,890.635
+Carlsbad,Baseline,System,System Electricity,$MM/yr,,44.532
+Carlsbad,Baseline,System,System Fixed Capital Investment (FCI),$MM,,476.707
+Carlsbad,Baseline,System,System Fixed Operating,$MM,,134.79
+Carlsbad,Baseline,System,System Fixed Operating,$MM/yr,,6.74
+Carlsbad,Baseline,System,System Levelized Cost,$/m3,,1.318
+Carlsbad,Baseline,System,System Other Variable Operating,$MM,,0.0
+Carlsbad,Baseline,System,System Other Variable Operating,$MM/yr,,0.0
+Carlsbad,Baseline,System,System Total Operating,$MM,,1221.305
+Carlsbad,Baseline,System,System Total Operating Cost,$MM/yr,,61.065
+Carlsbad,Baseline,ammonia_addition,Base_Employee_Salary_Cost,$MM/yr,0.000724495,
+Carlsbad,Baseline,ammonia_addition,Base_Fixed_Capital_Cost,$MM,0.724495372,
+Carlsbad,Baseline,ammonia_addition,Benefits,$MM/yr,0.000740044,0.001
+Carlsbad,Baseline,ammonia_addition,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,ammonia_addition,Electricity,$MM/yr,1.15e-05,0.0
+Carlsbad,Baseline,ammonia_addition,Employee Salaries,$MM/yr,0.000822272,0.001
+Carlsbad,Baseline,ammonia_addition,Fixed Capital Investment (FCI),$MM,0.810622014,0.809
+Carlsbad,Baseline,ammonia_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,ammonia_addition,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,ammonia_addition,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,ammonia_addition,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,ammonia_addition,Insurance and Taxes,$MM/yr,0.001513161,0.002
+Carlsbad,Baseline,ammonia_addition,Laboratory,$MM/yr,0.002161659,0.002
+Carlsbad,Baseline,ammonia_addition,Land_Cost,$MM,0.001215933,
+Carlsbad,Baseline,ammonia_addition,Maintenance,$MM/yr,0.006484976,0.006
+Carlsbad,Baseline,ammonia_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,ammonia_addition,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,ammonia_addition,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,ammonia_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,ammonia_addition,Total Capital Investment (TCI),$MM,0.852369048,0.851
+Carlsbad,Baseline,ammonia_addition,Total Fixed Operating Costs,$MM/yr,0.011722112,
+Carlsbad,Baseline,ammonia_addition,Total Variable Operating Costs,$MM/yr,1.15e-05,
+Carlsbad,Baseline,ammonia_addition,Working Capital,$MM,0.040531101,0.04
+Carlsbad,Baseline,ammonia_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Base Employee Salary,$MM/yr,,0.001
+Carlsbad,Baseline,ammonia_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Land,$MM,,0.001
+Carlsbad,Baseline,ammonia_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,ammonia_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,ammonia_addition,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,ammonia_addition,Total Fixed Operating ,$MM/yr,,0.012
+Carlsbad,Baseline,ammonia_addition,Total Unit Cost,$MM,,0.863
+Carlsbad,Baseline,ammonia_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Base_Employee_Salary_Cost,$MM/yr,0.00975836,
+Carlsbad,Baseline,backwash_solids_handling,Base_Fixed_Capital_Cost,$MM,9.7583604,
+Carlsbad,Baseline,backwash_solids_handling,Benefits,$MM/yr,0.013231528,0.014
+Carlsbad,Baseline,backwash_solids_handling,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,backwash_solids_handling,Electricity,$MM/yr,0.245463576,0.245
+Carlsbad,Baseline,backwash_solids_handling,Employee Salaries,$MM/yr,0.014701698,0.016
+Carlsbad,Baseline,backwash_solids_handling,Fixed Capital Investment (FCI),$MM,14.72287486,14.723
+Carlsbad,Baseline,backwash_solids_handling,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,backwash_solids_handling,Grid_Electricity,kWh,0.1024,
+Carlsbad,Baseline,backwash_solids_handling,Inlet Water,m3/hr,1823.0,
+Carlsbad,Baseline,backwash_solids_handling,Inlet Water,m3/s,,0.506
+Carlsbad,Baseline,backwash_solids_handling,Insurance and Taxes,$MM/yr,0.0274827,0.029
+Carlsbad,Baseline,backwash_solids_handling,Laboratory,$MM/yr,0.039261,0.044
+Carlsbad,Baseline,backwash_solids_handling,Land_Cost,$MM,0.022084312,
+Carlsbad,Baseline,backwash_solids_handling,Maintenance,$MM/yr,0.117782999,0.118
+Carlsbad,Baseline,backwash_solids_handling,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,backwash_solids_handling,Outlet Water,m3/hr,1732.0,
+Carlsbad,Baseline,backwash_solids_handling,Outlet Water,m3/s,,0.481
+Carlsbad,Baseline,backwash_solids_handling,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,backwash_solids_handling,Total Capital Investment (TCI),$MM,15.48110292,15.482
+Carlsbad,Baseline,backwash_solids_handling,Total Fixed Operating Costs,$MM/yr,0.212459924,
+Carlsbad,Baseline,backwash_solids_handling,Total Variable Operating Costs,$MM/yr,0.245463576,
+Carlsbad,Baseline,backwash_solids_handling,Working Capital,$MM,0.736143743,0.736
+Carlsbad,Baseline,backwash_solids_handling,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Base Employee Salary,$MM/yr,,0.012
+Carlsbad,Baseline,backwash_solids_handling,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Land,$MM,,0.022
+Carlsbad,Baseline,backwash_solids_handling,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,TDS,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,TDS,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Total Fixed Operating ,$MM/yr,,0.221
+Carlsbad,Baseline,backwash_solids_handling,Total Unit Cost,$MM,,15.948
+Carlsbad,Baseline,backwash_solids_handling,Waste Water,m3/s,,0.025
+Carlsbad,Baseline,cartridge_filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055,
+Carlsbad,Baseline,cartridge_filtration,Base_Fixed_Capital_Cost,$MM,5.5,
+Carlsbad,Baseline,cartridge_filtration,Benefits,$MM/yr,0.013521259,0.011
+Carlsbad,Baseline,cartridge_filtration,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,cartridge_filtration,Electricity,$MM/yr,0.0,0.0
+Carlsbad,Baseline,cartridge_filtration,Employee Salaries,$MM/yr,0.015023622,0.013
+Carlsbad,Baseline,cartridge_filtration,Fixed Capital Investment (FCI),$MM,12.37452897,11.987
+Carlsbad,Baseline,cartridge_filtration,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,cartridge_filtration,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,cartridge_filtration,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,cartridge_filtration,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,cartridge_filtration,Insurance and Taxes,$MM/yr,0.023099121,0.024
+Carlsbad,Baseline,cartridge_filtration,Laboratory,$MM/yr,0.032998744,0.036
+Carlsbad,Baseline,cartridge_filtration,Land_Cost,$MM,0.018561793,
+Carlsbad,Baseline,cartridge_filtration,Maintenance,$MM/yr,0.098996232,0.096
+Carlsbad,Baseline,cartridge_filtration,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,cartridge_filtration,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,cartridge_filtration,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,cartridge_filtration,Replacement Parts,$MM/yr,0.143741436,
+Carlsbad,Baseline,cartridge_filtration,Total Capital Investment (TCI),$MM,13.01181721,12.605
+Carlsbad,Baseline,cartridge_filtration,Total Fixed Operating Costs,$MM/yr,0.183638978,
+Carlsbad,Baseline,cartridge_filtration,Total Variable Operating Costs,$MM/yr,0.143741436,
+Carlsbad,Baseline,cartridge_filtration,Working Capital,$MM,0.618726449,0.599
+Carlsbad,Baseline,cartridge_filtration,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Base Employee Salary,$MM/yr,,0.011
+Carlsbad,Baseline,cartridge_filtration,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Land,$MM,,0.018
+Carlsbad,Baseline,cartridge_filtration,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,TDS,kg,,106.944
+Carlsbad,Baseline,cartridge_filtration,TDS,kg/m3,,23.464
+Carlsbad,Baseline,cartridge_filtration,Total Fixed Operating ,$MM/yr,,0.18
+Carlsbad,Baseline,cartridge_filtration,Total Unit Cost,$MM,,12.785
+Carlsbad,Baseline,cartridge_filtration,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,chlorination_twb,Base_Employee_Salary_Cost,$MM/yr,0.00321612,
+Carlsbad,Baseline,chlorination_twb,Base_Fixed_Capital_Cost,$MM,3.216119827,
+Carlsbad,Baseline,chlorination_twb,Benefits,$MM/yr,0.003285144,0.009
+Carlsbad,Baseline,chlorination_twb,Catalysts and Chemicals,$MM/yr,0.257297171,0.266
+Carlsbad,Baseline,chlorination_twb,Electricity,$MM/yr,5.77e-05,0.0
+Carlsbad,Baseline,chlorination_twb,Employee Salaries,$MM/yr,0.00365016,0.01
+Carlsbad,Baseline,chlorination_twb,Fixed Capital Investment (FCI),$MM,3.530539282,9.427
+Carlsbad,Baseline,chlorination_twb,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,chlorination_twb,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,chlorination_twb,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,chlorination_twb,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,chlorination_twb,Insurance and Taxes,$MM/yr,0.00659034,0.019
+Carlsbad,Baseline,chlorination_twb,Laboratory,$MM/yr,0.009414771,0.028
+Carlsbad,Baseline,chlorination_twb,Land_Cost,$MM,0.005295809,
+Carlsbad,Baseline,chlorination_twb,Maintenance,$MM/yr,0.028244314,0.075
+Carlsbad,Baseline,chlorination_twb,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,chlorination_twb,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,chlorination_twb,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,chlorination_twb,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,chlorination_twb,Total Capital Investment (TCI),$MM,3.712362055,9.912
+Carlsbad,Baseline,chlorination_twb,Total Fixed Operating Costs,$MM/yr,0.051184729,
+Carlsbad,Baseline,chlorination_twb,Total Variable Operating Costs,$MM/yr,0.257354859,
+Carlsbad,Baseline,chlorination_twb,Working Capital,$MM,0.176526964,0.471
+Carlsbad,Baseline,chlorination_twb,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Base Employee Salary,$MM/yr,,0.009
+Carlsbad,Baseline,chlorination_twb,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Land,$MM,,0.014
+Carlsbad,Baseline,chlorination_twb,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,chlorination_twb,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,chlorination_twb,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,chlorination_twb,Total Fixed Operating ,$MM/yr,,0.141
+Carlsbad,Baseline,chlorination_twb,Total Unit Cost,$MM,,10.32
+Carlsbad,Baseline,chlorination_twb,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,co2_addition,Base_Employee_Salary_Cost,$MM/yr,0.003,
+Carlsbad,Baseline,co2_addition,Base_Fixed_Capital_Cost,$MM,3.0,
+Carlsbad,Baseline,co2_addition,Benefits,$MM/yr,0.006987396,0.007
+Carlsbad,Baseline,co2_addition,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,co2_addition,Electricity,$MM/yr,0.101405356,0.101
+Carlsbad,Baseline,co2_addition,Employee Salaries,$MM/yr,0.007763773,0.008
+Carlsbad,Baseline,co2_addition,Fixed Capital Investment (FCI),$MM,7.767103773,7.744
+Carlsbad,Baseline,co2_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,co2_addition,Grid_Electricity,kWh,0.01,
+Carlsbad,Baseline,co2_addition,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,co2_addition,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,co2_addition,Insurance and Taxes,$MM/yr,0.014498594,0.015
+Carlsbad,Baseline,co2_addition,Laboratory,$MM/yr,0.020712277,0.023
+Carlsbad,Baseline,co2_addition,Land_Cost,$MM,0.011650656,
+Carlsbad,Baseline,co2_addition,Maintenance,$MM/yr,0.06213683,0.062
+Carlsbad,Baseline,co2_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,co2_addition,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,co2_addition,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,co2_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,co2_addition,Total Capital Investment (TCI),$MM,8.167109618,8.143
+Carlsbad,Baseline,co2_addition,Total Fixed Operating Costs,$MM/yr,0.11209887,
+Carlsbad,Baseline,co2_addition,Total Variable Operating Costs,$MM/yr,0.101405356,
+Carlsbad,Baseline,co2_addition,Working Capital,$MM,0.388355189,0.387
+Carlsbad,Baseline,co2_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,co2_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,co2_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Base Employee Salary,$MM/yr,,0.008
+Carlsbad,Baseline,co2_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,co2_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Electricity consumption,kWh/m3,,0.01
+Carlsbad,Baseline,co2_addition,Land,$MM,,0.012
+Carlsbad,Baseline,co2_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,co2_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,co2_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,co2_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,co2_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,co2_addition,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,co2_addition,Total Fixed Operating ,$MM/yr,,0.115
+Carlsbad,Baseline,co2_addition,Total Unit Cost,$MM,,8.359
+Carlsbad,Baseline,co2_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,coag_and_floc,Base_Employee_Salary_Cost,$MM/yr,0.005365888,
+Carlsbad,Baseline,coag_and_floc,Base_Fixed_Capital_Cost,$MM,5.365888438,
+Carlsbad,Baseline,coag_and_floc,Benefits,$MM/yr,0.010425936,0.011
+Carlsbad,Baseline,coag_and_floc,Catalysts and Chemicals,$MM/yr,1.114695451,1.009
+Carlsbad,Baseline,coag_and_floc,Electricity,$MM/yr,0.108666163,0.098
+Carlsbad,Baseline,coag_and_floc,Employee Salaries,$MM/yr,0.011584374,0.012
+Carlsbad,Baseline,coag_and_floc,Fixed Capital Investment (FCI),$MM,16.11069906,11.766
+Carlsbad,Baseline,coag_and_floc,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,coag_and_floc,Grid_Electricity,kWh,0.005077502,
+Carlsbad,Baseline,coag_and_floc,Inlet Water,m3/hr,18232.0442,
+Carlsbad,Baseline,coag_and_floc,Inlet Water,m3/s,,4.583
+Carlsbad,Baseline,coag_and_floc,Insurance and Taxes,$MM/yr,0.030073305,0.024
+Carlsbad,Baseline,coag_and_floc,Laboratory,$MM/yr,0.042961864,0.035
+Carlsbad,Baseline,coag_and_floc,Land_Cost,$MM,0.024166049,
+Carlsbad,Baseline,coag_and_floc,Maintenance,$MM/yr,0.128885593,0.094
+Carlsbad,Baseline,coag_and_floc,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,coag_and_floc,Outlet Water,m3/hr,18232.0442,
+Carlsbad,Baseline,coag_and_floc,Outlet Water,m3/s,,4.583
+Carlsbad,Baseline,coag_and_floc,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,coag_and_floc,Total Capital Investment (TCI),$MM,16.94040007,12.372
+Carlsbad,Baseline,coag_and_floc,Total Fixed Operating Costs,$MM/yr,0.223931072,
+Carlsbad,Baseline,coag_and_floc,Total Variable Operating Costs,$MM/yr,1.223361614,
+Carlsbad,Baseline,coag_and_floc,Working Capital,$MM,0.805534953,0.588
+Carlsbad,Baseline,coag_and_floc,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Base Employee Salary,$MM/yr,,0.012
+Carlsbad,Baseline,coag_and_floc,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Electricity consumption,kWh/m3,,0.005
+Carlsbad,Baseline,coag_and_floc,Land,$MM,,0.018
+Carlsbad,Baseline,coag_and_floc,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,coag_and_floc,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,TDS,kg,,106.944
+Carlsbad,Baseline,coag_and_floc,TDS,kg/m3,,23.33366666666667
+Carlsbad,Baseline,coag_and_floc,Total Fixed Operating ,$MM/yr,,0.175
+Carlsbad,Baseline,coag_and_floc,Total Unit Cost,$MM,,13.654
+Carlsbad,Baseline,coag_and_floc,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,landfill,Base_Employee_Salary_Cost,$MM/yr,0.001,
+Carlsbad,Baseline,landfill,Base_Fixed_Capital_Cost,$MM,1.0,
+Carlsbad,Baseline,landfill,Benefits,$MM/yr,1.46e-05,0.0
+Carlsbad,Baseline,landfill,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,landfill,Electricity,$MM/yr,0.0,0.0
+Carlsbad,Baseline,landfill,Employee Salaries,$MM/yr,1.63e-05,0.0
+Carlsbad,Baseline,landfill,Fixed Capital Investment (FCI),$MM,0.016240841,0.007
+Carlsbad,Baseline,landfill,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,landfill,Inlet Water,m3/hr,91.0,
+Carlsbad,Baseline,landfill,Inlet Water,m3/s,,0.025
+Carlsbad,Baseline,landfill,Insurance and Taxes,$MM/yr,3.03e-05,0.0
+Carlsbad,Baseline,landfill,Laboratory,$MM/yr,4.33e-05,0.0
+Carlsbad,Baseline,landfill,Land_Cost,$MM,2.44e-05,
+Carlsbad,Baseline,landfill,Maintenance,$MM/yr,0.000129927,0.0
+Carlsbad,Baseline,landfill,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Outlet Water,m3/hr,0.0,
+Carlsbad,Baseline,landfill,Outlet Water,m3/s,,0.025
+Carlsbad,Baseline,landfill,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Total Capital Investment (TCI),$MM,0.017077244,0.008
+Carlsbad,Baseline,landfill,Total Fixed Operating Costs,$MM/yr,0.00023447,
+Carlsbad,Baseline,landfill,Total Variable Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Working Capital,$MM,0.000812042,0.0
+Carlsbad,Baseline,landfill,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,landfill,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,landfill,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Base Employee Salary,$MM/yr,,0.0
+Carlsbad,Baseline,landfill,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,landfill,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,landfill,Land,$MM,,0.0
+Carlsbad,Baseline,landfill,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,landfill,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,landfill,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,landfill,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,landfill,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,landfill,TDS,kg,,0.0
+Carlsbad,Baseline,landfill,TDS,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Total Fixed Operating ,$MM/yr,,0.0
+Carlsbad,Baseline,landfill,Total Unit Cost,$MM,,0.008
+Carlsbad,Baseline,landfill,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,lime_softening,Base_Employee_Salary_Cost,$MM/yr,0.015,
+Carlsbad,Baseline,lime_softening,Base_Fixed_Capital_Cost,$MM,15.0,
+Carlsbad,Baseline,lime_softening,Benefits,$MM/yr,0.044393444,0.047
+Carlsbad,Baseline,lime_softening,Catalysts and Chemicals,$MM/yr,0.78324286,0.779
+Carlsbad,Baseline,lime_softening,Electricity,$MM/yr,0.101405356,0.101
+Carlsbad,Baseline,lime_softening,Employee Salaries,$MM/yr,0.049326049,0.053
+Carlsbad,Baseline,lime_softening,Fixed Capital Investment (FCI),$MM,51.96081587,52.714
+Carlsbad,Baseline,lime_softening,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,lime_softening,Grid_Electricity,kWh,0.01,
+Carlsbad,Baseline,lime_softening,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,lime_softening,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,lime_softening,Insurance and Taxes,$MM/yr,0.096993523,0.105
+Carlsbad,Baseline,lime_softening,Laboratory,$MM/yr,0.138562176,0.158
+Carlsbad,Baseline,lime_softening,Land_Cost,$MM,0.077941224,
+Carlsbad,Baseline,lime_softening,Maintenance,$MM/yr,0.415686527,0.422
+Carlsbad,Baseline,lime_softening,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,lime_softening,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,lime_softening,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,lime_softening,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,lime_softening,Total Capital Investment (TCI),$MM,54.63679789,55.429
+Carlsbad,Baseline,lime_softening,Total Fixed Operating Costs,$MM/yr,0.744961719,
+Carlsbad,Baseline,lime_softening,Total Variable Operating Costs,$MM/yr,0.884648215,
+Carlsbad,Baseline,lime_softening,Working Capital,$MM,2.598040794,2.636
+Carlsbad,Baseline,lime_softening,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,lime_softening,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,lime_softening,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Base Employee Salary,$MM/yr,,0.053
+Carlsbad,Baseline,lime_softening,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,lime_softening,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Electricity consumption,kWh/m3,,0.01
+Carlsbad,Baseline,lime_softening,Land,$MM,,0.079
+Carlsbad,Baseline,lime_softening,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,lime_softening,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,lime_softening,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,lime_softening,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,lime_softening,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,lime_softening,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,lime_softening,Total Fixed Operating ,$MM/yr,,0.785
+Carlsbad,Baseline,lime_softening,Total Unit Cost,$MM,,57.095
+Carlsbad,Baseline,lime_softening,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,municipal_drinking,Base_Employee_Salary_Cost,$MM/yr,0.007381985,
+Carlsbad,Baseline,municipal_drinking,Base_Fixed_Capital_Cost,$MM,7.381985478,
+Carlsbad,Baseline,municipal_drinking,Benefits,$MM/yr,0.004359139,0.004
+Carlsbad,Baseline,municipal_drinking,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,municipal_drinking,Electricity,$MM/yr,3.115131867,3.101
+Carlsbad,Baseline,municipal_drinking,Employee Salaries,$MM/yr,0.004843488,0.004
+Carlsbad,Baseline,municipal_drinking,Fixed Capital Investment (FCI),$MM,4.383651369,4.364
+Carlsbad,Baseline,municipal_drinking,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,municipal_drinking,Grid_Electricity,kWh,0.3072,
+Carlsbad,Baseline,municipal_drinking,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,municipal_drinking,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,municipal_drinking,Insurance and Taxes,$MM/yr,0.008182816,0.009
+Carlsbad,Baseline,municipal_drinking,Laboratory,$MM/yr,0.011689737,0.013
+Carlsbad,Baseline,municipal_drinking,Land_Cost,$MM,0.006575477,
+Carlsbad,Baseline,municipal_drinking,Maintenance,$MM/yr,0.035069211,0.035
+Carlsbad,Baseline,municipal_drinking,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,municipal_drinking,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,municipal_drinking,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,municipal_drinking,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,municipal_drinking,Total Capital Investment (TCI),$MM,4.609409414,4.589
+Carlsbad,Baseline,municipal_drinking,Total Fixed Operating Costs,$MM/yr,0.064144392,
+Carlsbad,Baseline,municipal_drinking,Total Variable Operating Costs,$MM/yr,3.115131867,
+Carlsbad,Baseline,municipal_drinking,Working Capital,$MM,0.219182568,0.218
+Carlsbad,Baseline,municipal_drinking,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Base Employee Salary,$MM/yr,,0.004
+Carlsbad,Baseline,municipal_drinking,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Electricity consumption,kWh/m3,,0.307
+Carlsbad,Baseline,municipal_drinking,Land,$MM,,0.007
+Carlsbad,Baseline,municipal_drinking,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,municipal_drinking,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,municipal_drinking,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,municipal_drinking,Total Fixed Operating ,$MM/yr,,0.065
+Carlsbad,Baseline,municipal_drinking,Total Unit Cost,$MM,,7.755
+Carlsbad,Baseline,municipal_drinking,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,ro_deep,Base_Employee_Salary_Cost,$MM/yr,0.132214351,
+Carlsbad,Baseline,ro_deep,Base_Fixed_Capital_Cost,$MM,132.2143513,
+Carlsbad,Baseline,ro_deep,Benefits,$MM/yr,0.249257725,0.251
+Carlsbad,Baseline,ro_deep,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,ro_deep,Electricity,$MM/yr,31.73089461,33.665
+Carlsbad,Baseline,ro_deep,Employee Salaries,$MM/yr,0.276953028,0.279
+Carlsbad,Baseline,ro_deep,Fixed Capital Investment (FCI),$MM,265.5470507,264.575
+Carlsbad,Baseline,ro_deep,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,ro_deep,Grid_Electricity,kWh,1.6474,
+Carlsbad,Baseline,ro_deep,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,ro_deep,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,ro_deep,Insurance and Taxes,$MM/yr,0.495687828,0.529
+Carlsbad,Baseline,ro_deep,Laboratory,$MM/yr,0.708125469,0.794
+Carlsbad,Baseline,ro_deep,Land_Cost,$MM,0.398320576,
+Carlsbad,Baseline,ro_deep,Maintenance,$MM/yr,2.124376406,2.117
+Carlsbad,Baseline,ro_deep,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,ro_deep,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,ro_deep,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,ro_deep,Replacement Parts,$MM/yr,2.874828729,
+Carlsbad,Baseline,ro_deep,Total Capital Investment (TCI),$MM,279.2227238,278.2
+Carlsbad,Baseline,ro_deep,Total Fixed Operating Costs,$MM/yr,3.854400455,
+Carlsbad,Baseline,ro_deep,Total Variable Operating Costs,$MM/yr,34.60572334,
+Carlsbad,Baseline,ro_deep,Working Capital,$MM,13.27735254,13.229
+Carlsbad,Baseline,ro_deep,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,ro_deep,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,ro_deep,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Base Employee Salary,$MM/yr,,0.222
+Carlsbad,Baseline,ro_deep,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,ro_deep,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Electricity consumption,kWh/m3,,1.747
+Carlsbad,Baseline,ro_deep,Land,$MM,,0.397
+Carlsbad,Baseline,ro_deep,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,ro_deep,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,ro_deep,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,ro_deep,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,ro_deep,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,TDS,kg,,106.94366666666667
+Carlsbad,Baseline,ro_deep,TDS,kg/m3,,36.352
+Carlsbad,Baseline,ro_deep,Total Fixed Operating ,$MM/yr,,3.97
+Carlsbad,Baseline,ro_deep,Total Unit Cost,$MM,,315.835
+Carlsbad,Baseline,ro_deep,Waste Water,m3/s,,2.17
+Carlsbad,Baseline,sodium_bisulfite_addition,Base_Employee_Salary_Cost,$MM/yr,0.000259078,
+Carlsbad,Baseline,sodium_bisulfite_addition,Base_Fixed_Capital_Cost,$MM,0.259078217,
+Carlsbad,Baseline,sodium_bisulfite_addition,Benefits,$MM/yr,0.000414659,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Catalysts and Chemicals,$MM/yr,0.517469171,0.75
+Carlsbad,Baseline,sodium_bisulfite_addition,Electricity,$MM/yr,1.33e-05,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Employee Salaries,$MM/yr,0.000460732,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Fixed Capital Investment (FCI),$MM,0.418717586,0.419
+Carlsbad,Baseline,sodium_bisulfite_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,sodium_bisulfite_addition,Insurance and Taxes,$MM/yr,0.000781606,0.001
+Carlsbad,Baseline,sodium_bisulfite_addition,Laboratory,$MM/yr,0.00111658,0.001
+Carlsbad,Baseline,sodium_bisulfite_addition,Land_Cost,$MM,0.000628076,
+Carlsbad,Baseline,sodium_bisulfite_addition,Maintenance,$MM/yr,0.003349741,0.003
+Carlsbad,Baseline,sodium_bisulfite_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,sodium_bisulfite_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Capital Investment (TCI),$MM,0.440281542,0.44
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Fixed Operating Costs,$MM/yr,0.006123318,
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Variable Operating Costs,$MM/yr,0.517482498,
+Carlsbad,Baseline,sodium_bisulfite_addition,Working Capital,$MM,0.020935879,0.021
+Carlsbad,Baseline,sodium_bisulfite_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Base Employee Salary,$MM/yr,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Land,$MM,,0.001
+Carlsbad,Baseline,sodium_bisulfite_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,TDS,kg,,106.944
+Carlsbad,Baseline,sodium_bisulfite_addition,TDS,kg/m3,,23.464
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Fixed Operating ,$MM/yr,,0.006
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Unit Cost,$MM,,1.197
+Carlsbad,Baseline,sodium_bisulfite_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Base_Employee_Salary_Cost,$MM/yr,0.000231058,
+Carlsbad,Baseline,sulfuric_acid_addition,Base_Fixed_Capital_Cost,$MM,0.231057593,
+Carlsbad,Baseline,sulfuric_acid_addition,Benefits,$MM/yr,0.000369812,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Catalysts and Chemicals,$MM/yr,0.172489724,0.25
+Carlsbad,Baseline,sulfuric_acid_addition,Electricity,$MM/yr,1.11e-05,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Employee Salaries,$MM/yr,0.000410902,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Fixed Capital Investment (FCI),$MM,0.373431154,0.418
+Carlsbad,Baseline,sulfuric_acid_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,sulfuric_acid_addition,Insurance and Taxes,$MM/yr,0.000697071,0.001
+Carlsbad,Baseline,sulfuric_acid_addition,Laboratory,$MM/yr,0.000995816,0.001
+Carlsbad,Baseline,sulfuric_acid_addition,Land_Cost,$MM,0.000560147,
+Carlsbad,Baseline,sulfuric_acid_addition,Maintenance,$MM/yr,0.002987449,0.003
+Carlsbad,Baseline,sulfuric_acid_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,sulfuric_acid_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Total Capital Investment (TCI),$MM,0.392662858,0.44
+Carlsbad,Baseline,sulfuric_acid_addition,Total Fixed Operating Costs,$MM/yr,0.00546105,
+Carlsbad,Baseline,sulfuric_acid_addition,Total Variable Operating Costs,$MM/yr,0.172500797,
+Carlsbad,Baseline,sulfuric_acid_addition,Working Capital,$MM,0.018671558,0.021
+Carlsbad,Baseline,sulfuric_acid_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Base Employee Salary,$MM/yr,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Land,$MM,,0.001
+Carlsbad,Baseline,sulfuric_acid_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,TDS,kg,,106.944
+Carlsbad,Baseline,sulfuric_acid_addition,TDS,kg/m3,,23.463666666666665
+Carlsbad,Baseline,sulfuric_acid_addition,Total Fixed Operating ,$MM/yr,,0.006
+Carlsbad,Baseline,sulfuric_acid_addition,Total Unit Cost,$MM,,0.696
+Carlsbad,Baseline,sulfuric_acid_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,surface_discharge,Base_Employee_Salary_Cost,$MM/yr,0.035,
+Carlsbad,Baseline,surface_discharge,Base_Fixed_Capital_Cost,$MM,35.0,
+Carlsbad,Baseline,surface_discharge,Benefits,$MM/yr,0.02575672,0.026
+Carlsbad,Baseline,surface_discharge,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,surface_discharge,Electricity,$MM/yr,1.04542122,0.992
+Carlsbad,Baseline,surface_discharge,Employee Salaries,$MM/yr,0.028618578,0.029
+Carlsbad,Baseline,surface_discharge,Fixed Capital Investment (FCI),$MM,27.68756789,28.559
+Carlsbad,Baseline,surface_discharge,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,surface_discharge,Grid_Electricity,kWh,0.102398663,
+Carlsbad,Baseline,surface_discharge,Inlet Water,m3/hr,7770.0,
+Carlsbad,Baseline,surface_discharge,Inlet Water,m3/s,,2.171
+Carlsbad,Baseline,surface_discharge,Insurance and Taxes,$MM/yr,0.05168346,0.057
+Carlsbad,Baseline,surface_discharge,Laboratory,$MM/yr,0.073833514,0.086
+Carlsbad,Baseline,surface_discharge,Land_Cost,$MM,0.041531352,
+Carlsbad,Baseline,surface_discharge,Maintenance,$MM/yr,0.221500543,0.228
+Carlsbad,Baseline,surface_discharge,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,surface_discharge,Outlet Water,m3/hr,7770.0,
+Carlsbad,Baseline,surface_discharge,Outlet Water,m3/s,,2.171
+Carlsbad,Baseline,surface_discharge,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,surface_discharge,Total Capital Investment (TCI),$MM,29.11347764,30.03
+Carlsbad,Baseline,surface_discharge,Total Fixed Operating Costs,$MM/yr,0.401392816,
+Carlsbad,Baseline,surface_discharge,Total Variable Operating Costs,$MM/yr,1.04542122,
+Carlsbad,Baseline,surface_discharge,Working Capital,$MM,1.384378394,1.428
+Carlsbad,Baseline,surface_discharge,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Base Employee Salary,$MM/yr,,0.029
+Carlsbad,Baseline,surface_discharge,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Electricity consumption,kWh/m3,,0.102
+Carlsbad,Baseline,surface_discharge,Land,$MM,,0.043
+Carlsbad,Baseline,surface_discharge,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,surface_discharge,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,TDS,kg,,106.08800000000001
+Carlsbad,Baseline,surface_discharge,TDS,kg/m3,,48.87366666666667
+Carlsbad,Baseline,surface_discharge,Total Fixed Operating ,$MM/yr,,0.426
+Carlsbad,Baseline,surface_discharge,Total Unit Cost,$MM,,31.447
+Carlsbad,Baseline,surface_discharge,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Base_Employee_Salary_Cost,$MM/yr,0.020493206,
+Carlsbad,Baseline,sw_onshore_intake,Base_Fixed_Capital_Cost,$MM,20.49320555,
+Carlsbad,Baseline,sw_onshore_intake,Benefits,$MM/yr,0.018903679,0.019
+Carlsbad,Baseline,sw_onshore_intake,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,sw_onshore_intake,Electricity,$MM/yr,1.983294177,1.985
+Carlsbad,Baseline,sw_onshore_intake,Employee Salaries,$MM/yr,0.021004088,0.021
+Carlsbad,Baseline,sw_onshore_intake,Fixed Capital Investment (FCI),$MM,20.98272227,20.98
+Carlsbad,Baseline,sw_onshore_intake,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,sw_onshore_intake,Grid_Electricity,kWh/m3,0.102398663,
+Carlsbad,Baseline,sw_onshore_intake,Inlet Water,m3/hr,16500.0,
+Carlsbad,Baseline,sw_onshore_intake,Inlet Water,m3/s,,4.583
+Carlsbad,Baseline,sw_onshore_intake,Insurance and Taxes,$MM/yr,0.039167748,0.042
+Carlsbad,Baseline,sw_onshore_intake,Laboratory,$MM/yr,0.055953926,0.063
+Carlsbad,Baseline,sw_onshore_intake,Land_Cost,$MM,0.031474083,
+Carlsbad,Baseline,sw_onshore_intake,Maintenance,$MM/yr,0.167861778,0.168
+Carlsbad,Baseline,sw_onshore_intake,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,sw_onshore_intake,Outlet Water,m3/hr,16500.0,
+Carlsbad,Baseline,sw_onshore_intake,Outlet Water,m3/s,,4.583
+Carlsbad,Baseline,sw_onshore_intake,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,sw_onshore_intake,Total Capital Investment (TCI),$MM,22.06333247,22.061
+Carlsbad,Baseline,sw_onshore_intake,Total Fixed Operating Costs,$MM/yr,0.30289122,
+Carlsbad,Baseline,sw_onshore_intake,Total Variable Operating Costs,$MM/yr,1.983294177,
+Carlsbad,Baseline,sw_onshore_intake,Working Capital,$MM,1.049136113,1.049
+Carlsbad,Baseline,sw_onshore_intake,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Base Employee Salary,$MM/yr,,0.02
+Carlsbad,Baseline,sw_onshore_intake,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Electricity consumption,kWh/m3,,0.102
+Carlsbad,Baseline,sw_onshore_intake,Land,$MM,,0.031
+Carlsbad,Baseline,sw_onshore_intake,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,TDS,kg,,106.944
+Carlsbad,Baseline,sw_onshore_intake,TDS,kg/m3,,23.333333333333332
+Carlsbad,Baseline,sw_onshore_intake,Total Fixed Operating ,$MM/yr,,0.313
+Carlsbad,Baseline,sw_onshore_intake,Total Unit Cost,$MM,,24.358
+Carlsbad,Baseline,sw_onshore_intake,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Base_Employee_Salary_Cost,$MM/yr,0.006878438,
+Carlsbad,Baseline,treated_storage_24_hr,Base_Fixed_Capital_Cost,$MM,6.8784383,
+Carlsbad,Baseline,treated_storage_24_hr,Benefits,$MM/yr,0.027847057,0.011
+Carlsbad,Baseline,treated_storage_24_hr,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Electricity,$MM/yr,0.0,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Employee Salaries,$MM/yr,0.030941175,0.012
+Carlsbad,Baseline,treated_storage_24_hr,Fixed Capital Investment (FCI),$MM,36.56378852,12.115
+Carlsbad,Baseline,treated_storage_24_hr,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,treated_storage_24_hr,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,treated_storage_24_hr,Insurance and Taxes,$MM/yr,0.068252405,0.024
+Carlsbad,Baseline,treated_storage_24_hr,Laboratory,$MM/yr,0.097503436,0.036
+Carlsbad,Baseline,treated_storage_24_hr,Land_Cost,$MM,0.054845683,
+Carlsbad,Baseline,treated_storage_24_hr,Maintenance,$MM/yr,0.292510308,0.049
+Carlsbad,Baseline,treated_storage_24_hr,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,treated_storage_24_hr,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,treated_storage_24_hr,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Total Capital Investment (TCI),$MM,38.44682363,12.739
+Carlsbad,Baseline,treated_storage_24_hr,Total Fixed Operating Costs,$MM/yr,0.517054382,
+Carlsbad,Baseline,treated_storage_24_hr,Total Variable Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Working Capital,$MM,1.828189426,0.606
+Carlsbad,Baseline,treated_storage_24_hr,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Base Employee Salary,$MM/yr,,0.01
+Carlsbad,Baseline,treated_storage_24_hr,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Land,$MM,,0.018
+Carlsbad,Baseline,treated_storage_24_hr,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,treated_storage_24_hr,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,treated_storage_24_hr,Total Fixed Operating ,$MM/yr,,0.132
+Carlsbad,Baseline,treated_storage_24_hr,Total Unit Cost,$MM,,12.871
+Carlsbad,Baseline,treated_storage_24_hr,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,tri_media_filtration,Benefits,$MM/yr,,0.012
+Carlsbad,Baseline,tri_media_filtration,Catalysts and Chemicals,$MM/yr,,0.0
+Carlsbad,Baseline,tri_media_filtration,Electricity,$MM/yr,,4.243
+Carlsbad,Baseline,tri_media_filtration,Employee Salaries,$MM/yr,,0.013
+Carlsbad,Baseline,tri_media_filtration,Fixed Capital Investment (FCI),$MM,,12.751
+Carlsbad,Baseline,tri_media_filtration,Inlet Water,m3/s,,5.064
+Carlsbad,Baseline,tri_media_filtration,Insurance and Taxes,$MM/yr,,0.026
+Carlsbad,Baseline,tri_media_filtration,Laboratory,$MM/yr,,0.038
+Carlsbad,Baseline,tri_media_filtration,Maintenance,$MM/yr,,0.102
+Carlsbad,Baseline,tri_media_filtration,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,tri_media_filtration,Total Capital Investment (TCI),$MM,,13.408
+Carlsbad,Baseline,tri_media_filtration,Working Capital,$MM,,0.638
+Carlsbad,Baseline,tri_media_filtration,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Base Employee Salary,$MM/yr,,0.012
+Carlsbad,Baseline,tri_media_filtration,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Electricity consumption,kWh/m3,,0.198
+Carlsbad,Baseline,tri_media_filtration,Land,$MM,,0.019
+Carlsbad,Baseline,tri_media_filtration,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,TDS,kg,,106.944
+Carlsbad,Baseline,tri_media_filtration,TDS,kg/m3,,22.290333333333333
+Carlsbad,Baseline,tri_media_filtration,Total Fixed Operating ,$MM/yr,,0.191
+Carlsbad,Baseline,tri_media_filtration,Total Unit Cost,$MM,,17.842
+Carlsbad,Baseline,tri_media_filtration,Waste Water,m3/s,,0.506
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Base_Employee_Salary_Cost,$MM/yr,0.0055,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Base_Fixed_Capital_Cost,$MM,5.5,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Benefits,$MM/yr,0.014556179,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Catalysts and Chemicals,$MM/yr,0.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Electricity,$MM/yr,4.240259181,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Employee Salaries,$MM/yr,0.016173532,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Fixed Capital Investment (FCI),$MM,13.16290412,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Grid_Electricity,kWh,0.1981,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Inlet Water,m3/hr,18232.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Insurance and Taxes,$MM/yr,0.024570754,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Laboratory,$MM/yr,0.035101078,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Land_Cost,$MM,0.019744356,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Maintenance,$MM/yr,0.105303233,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Replacement Parts,$MM/yr,1.26232091,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Total Capital Investment (TCI),$MM,13.84079368,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Total Fixed Operating Costs,$MM/yr,0.195704776,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Total Variable Operating Costs,$MM/yr,5.502580091,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Working Capital,$MM,0.658145206,

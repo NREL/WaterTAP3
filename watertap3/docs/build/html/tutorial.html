@@ -39,6 +39,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="watertap3 package" href="watertap3.html" />
     <link rel="prev" title="Welcome to WaterTAP3 documentation!" href="index.html" /> 
 </head>
 
@@ -98,7 +99,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#add-external-link">Add external link</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#add-autodoc">Add autodoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-docstring">Add docstring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="watertap3.html">watertap3 package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="watertap3.utils.html">watertap3.utils package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="watertap3.wt_units.html">watertap3.wt_units package</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -182,7 +188,6 @@
 <p>The standard utility for installing Python packages is <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <p>You can install WaterTAP3 in your system Python installation by executing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">watertap3</span>
-<span class="n">conda</span> <span class="n">activate</span>
 </pre></div>
 </div>
 </div>
@@ -196,7 +201,7 @@
 <p>For displayed math, the directive supports multiple equations, which should be separated by a blank line:</p>
 <blockquote>
 <div><div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}(a + b)^2 = a^2 + 2ab + b^2\\(a - b)^2 = a^2 - 2ab + b^2\\x + y = 9999\end{aligned}\end{align} \]</div>
+\[ \begin{align}\begin{aligned}(a + b)^2 = a^2 + 2ab + b^2\\(a - b)^2 = a^2 - 2ab + b^2\end{aligned}\end{align} \]</div>
 </div></blockquote>
 </div>
 <div class="section" id="add-table">
@@ -262,51 +267,123 @@ Flowsheet models represent traditional process flowsheets, containing a number o
 <h2>Add external link<a class="headerlink" href="#add-external-link" title="Permalink to this headline">¶</a></h2>
 <p>Here is an introduction for <a class="reference external" href="https://www.nawihub.org/watertap">Water-TAP3 project</a>.</p>
 </div>
-<div class="section" id="add-autodoc">
-<h2>Add autodoc<a class="headerlink" href="#add-autodoc" title="Permalink to this headline">¶</a></h2>
-<p>This is an autodoc demo using module <cite>watertap3.utils.financials</cite>.</p>
-<span class="target" id="module-watertap3.utils.financials"></span><p>This is fairly basic at this stage, as I didn’t try too hard to understand the
-calcualtions.</p>
-<p>Note that costing in IDAES is still a fairly new feature, and is still in the
-prototype phase. Notably, we have only really looked at capital costs so far,
-and there is probably a alack of support for operating costs for now.</p>
-<p>However, this is where you would write methods for calculating costs for each
-type of unit operation. The goal would be to write these in a way that would
-work for both WaterTAP3 and ProteusLib. This should be possible as long as we
-clearly document what variables are required for the cost methods and what they
-are called (ideally using the standard IDAES naming conventions where
-appropriate)</p>
-<dl class="py class">
-<dt id="watertap3.utils.financials.SystemSpecs">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">SystemSpecs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.SystemSpecs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="watertap3.utils.financials.get_complete_costing">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_complete_costing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_complete_costing" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="watertap3.utils.financials.get_ind_table">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_ind_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_yr_cost_indicies</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_ind_table" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="watertap3.utils.financials.get_system_costing">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_system_costing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_costing" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="watertap3.utils.financials.get_system_specs">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_system_specs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_specs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="watertap3.utils.financials.global_costing_parameters">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">global_costing_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.global_costing_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="add-docstring">
+<h2>Add docstring<a class="headerlink" href="#add-docstring" title="Permalink to this headline">¶</a></h2>
+<p>This is WaterTAP3’s full API documentation using Apidoc.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="watertap3.html">watertap3 package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.html#watertap3-water-props-block-module">watertap3.water_props_block module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watertap3.utils.html">watertap3.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.app3">watertap3.utils.app3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#watertap3-utils-case-study-trains-module">watertap3.utils.case_study_trains module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.constituent_removal_water_recovery">watertap3.utils.constituent_removal_water_recovery module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.cost_curves">watertap3.utils.cost_curves module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.design">watertap3.utils.design module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.display">watertap3.utils.display module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#watertap3-utils-excel-cleaning-module">watertap3.utils.excel_cleaning module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.financials">watertap3.utils.financials module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.generate_constituent_list">watertap3.utils.generate_constituent_list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.get_graph_chars">watertap3.utils.get_graph_chars module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.importfile">watertap3.utils.importfile module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.mixer_example">watertap3.utils.mixer_example module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.mixer_mar5">watertap3.utils.mixer_mar5 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.ml_regression">watertap3.utils.ml_regression module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.module_import">watertap3.utils.module_import module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.optimize_setup">watertap3.utils.optimize_setup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.post_processing">watertap3.utils.post_processing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.sensitivity_runs">watertap3.utils.sensitivity_runs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.source_example">watertap3.utils.source_example module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.split_test2">watertap3.utils.split_test2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-watertap3.utils.splitter_mar1">watertap3.utils.splitter_mar1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#watertap3-utils-tap-config-block-module">watertap3.utils.tap_config_block module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#watertap3-utils-unit-process-equations-module">watertap3.utils.unit_process_equations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#watertap3-utils-water-props-module">watertap3.utils.water_props module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#watertap3-utils-watertap-module">watertap3.utils.watertap module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.utils.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="watertap3.wt_units.html">watertap3.wt_units package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-watertap3-debugging-auto-train-feb20-module">watertap3.wt_units.WaterTAP3_debugging_auto_train_feb20 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-agglom-stacking-module">watertap3.wt_units.agglom_stacking module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-alum-addition-module">watertap3.wt_units.alum_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ammonia-addition-module">watertap3.wt_units.ammonia_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-anion-exchange-module">watertap3.wt_units.anion_exchange module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-anion-exchange-epa-module">watertap3.wt_units.anion_exchange_epa module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-anti-scalant-addition-module">watertap3.wt_units.anti_scalant_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-backwash-solids-handling-module">watertap3.wt_units.backwash_solids_handling module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-basic-mass-based-module">watertap3.wt_units.basic_mass_based module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-basic-unit-module">watertap3.wt_units.basic_unit module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-brine-concentrator-module">watertap3.wt_units.brine_concentrator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-cartridge-filtration-module">watertap3.wt_units.cartridge_filtration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-cation-exchange-module">watertap3.wt_units.cation_exchange module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-caustic-soda-addition-module">watertap3.wt_units.caustic_soda_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-chemical-addition-module">watertap3.wt_units.chemical_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-chlorination-module">watertap3.wt_units.chlorination module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-co2-addition-module">watertap3.wt_units.co2_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-coag-and-floc-module">watertap3.wt_units.coag_and_floc module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-coagulant-addition-module">watertap3.wt_units.coagulant_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-cooling-tower-module">watertap3.wt_units.cooling_tower module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-crystallizer-module">watertap3.wt_units.crystallizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-deep-well-injection-module">watertap3.wt_units.deep_well_injection module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-electrodialysis-reversal-module">watertap3.wt_units.electrodialysis_reversal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-evaporation-pond-module">watertap3.wt_units.evaporation_pond module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ferric-chloride-addition-module">watertap3.wt_units.ferric_chloride_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-fixed-bed-gravity-basin-module">watertap3.wt_units.fixed_bed_gravity_basin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-fixed-bed-pressure-vessel-module">watertap3.wt_units.fixed_bed_pressure_vessel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-fluidized-bed-module">watertap3.wt_units.fluidized_bed module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-gac-module">watertap3.wt_units.gac module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-gac-gravity-module">watertap3.wt_units.gac_gravity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-gac-pressure-vessel-module">watertap3.wt_units.gac_pressure_vessel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-heap-leaching-module">watertap3.wt_units.heap_leaching module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-holding-tank-module">watertap3.wt_units.holding_tank module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-hydrochloric-acid-addition-module">watertap3.wt_units.hydrochloric_acid_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ion-exchange-module">watertap3.wt_units.ion_exchange module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-iron-and-manganese-removal-module">watertap3.wt_units.iron_and_manganese_removal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-irwin-brine-management-module">watertap3.wt_units.irwin_brine_management module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-landfill-module">watertap3.wt_units.landfill module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-landfill-zld-module">watertap3.wt_units.landfill_zld module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-lime-addition-module">watertap3.wt_units.lime_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-lime-softening-module">watertap3.wt_units.lime_softening module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-media-filtration-module">watertap3.wt_units.media_filtration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-microfiltration-module">watertap3.wt_units.microfiltration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-multi-stage-bubble-aeration-module">watertap3.wt_units.multi_stage_bubble_aeration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-municipal-drinking-module">watertap3.wt_units.municipal_drinking module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-nanofiltration-twb-module">watertap3.wt_units.nanofiltration_twb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ozone-aop-module">watertap3.wt_units.ozone_aop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-packed-tower-aeration-module">watertap3.wt_units.packed_tower_aeration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-reverse-osmosis-module">watertap3.wt_units.reverse_osmosis module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ro-deep-module">watertap3.wt_units.ro_deep module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ro-deep-old-module">watertap3.wt_units.ro_deep_old module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ro-deep-scnd-pass-module">watertap3.wt_units.ro_deep_scnd_pass module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ro-deep-temp-module">watertap3.wt_units.ro_deep_temp module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-ro-deep-testing-module">watertap3.wt_units.ro_deep_testing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-sedimentation-module">watertap3.wt_units.sedimentation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-sodium-bisulfite-addition-module">watertap3.wt_units.sodium_bisulfite_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-solution-distribution-and-recovery-plant-module">watertap3.wt_units.solution_distribution_and_recovery_plant module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-static-mixer-module">watertap3.wt_units.static_mixer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-sulfuric-acid-addition-module">watertap3.wt_units.sulfuric_acid_addition module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-surface-discharge-module">watertap3.wt_units.surface_discharge module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-sw-onshore-intake-module">watertap3.wt_units.sw_onshore_intake module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-treated-storage-module">watertap3.wt_units.treated_storage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-tri-media-filtration-module">watertap3.wt_units.tri_media_filtration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-unit-template-module">watertap3.wt_units.unit_template module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-uv-aop-module">watertap3.wt_units.uv_aop module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-water-pumping-station-module">watertap3.wt_units.water_pumping_station module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#watertap3-wt-units-well-field-module">watertap3.wt_units.well_field module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#module-watertap3.wt_units.wt_unit">watertap3.wt_units.wt_unit module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watertap3.wt_units.html#module-watertap3.wt_units">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -316,6 +393,7 @@ appropriate)</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="watertap3.html" class="btn btn-neutral float-right" title="watertap3 package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to WaterTAP3 documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

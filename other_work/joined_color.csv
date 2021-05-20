@@ -1,0 +1,219 @@
+up_name,Train Category,up_tc,css_color3,UnitName,UP
+sw_onshore_intake,Influent Storage and/or Pumping,sw_onshore_intake_0,#9433FF,sw_onshore_intake,sw_onshore_intake
+sulfuric_acid_addition,Pre-treatment,sulfuric_acid_addition_2,#917C51,sulfuric_acid_addition,sulfuric_acid_addition
+ferric_chloride_addition,Pre-treatment,ferric_chloride_addition_2,#917C51,ferric_chloride_addition,ferric_chloride_addition
+chlorination,Pre-treatment,chlorination_2,#8EFFBC,chlorination,chlorination
+chlorination,Post-treatment,chlorination_1,#6BBF8D,chlorination,chlorination
+static_mixer,Pre-treatment,static_mixer_2,#516291,static_mixer,static_mixer
+tri_media_filtration,Pre-treatment,tri_media_filtration_2,#FFEE33 ,tri_media_filtration,tri_media_filtration
+cartridge_filtration,Principal treatment,cartridge_filtration_3,#FFEE33 ,cartridge_filtration,cartridge_filtration
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_first_pass,reverse_osmosis
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_second_pass,reverse_osmosis
+lime_softening,Post-treatment,lime_softening_1,#917C51,lime_softening,lime_softening
+lime_softening,Pre-treatment,lime_softening_2,#6D5D3D,lime_softening,lime_softening
+chlorination,Pre-treatment,chlorination_2,#8EFFBC,chlorination_b,chlorination
+chlorination,Post-treatment,chlorination_1,#6BBF8D,chlorination_b,chlorination
+caustic_soda_addition,Post-treatment,caustic_soda_addition_1,#917C51,caustic_soda_addition,caustic_soda_addition
+caustic_soda_addition,Principal treatment,caustic_soda_addition_3,#6D5D3D,caustic_soda_addition,caustic_soda_addition
+caustic_soda_addition,Pre-treatment,caustic_soda_addition_2,#493E29,caustic_soda_addition,caustic_soda_addition
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,treated_storage,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,treated_storage,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,treated_storage,treated_storage
+backwash_solids_handling,Waste Treatment and Valorization,backwash_solids_handling_7,#33FFFF,backwash_solids_handling,backwash_solids_handling
+municipal_drinking,Product Storage and/or Distribution,municipal_drinking_4,#9EFF33,municipal_drinking,municipal_drinking
+surface_discharge,Waste Product Storage and Disposal,surface_discharge_6,#FF3333,surface_discharge,surface_discharge
+landfill,Waste Product Storage and Disposal,landfill_6,#FF3333,landfill,landfill
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,holding_tank,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,holding_tank,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,holding_tank,treated_storage
+media_filtration,Pre-treatment,media_filtration_2,#FFEE33 ,media_filtration,media_filtration
+anti_scalant_addition,Pre-treatment,anti_scalant_addition_2,#917C51,anti_scalant_addition,anti_scalant_addition
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,reverse_osmosis,reverse_osmosis
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,holding_tank_b,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,holding_tank_b,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,holding_tank_b,treated_storage
+uv_aop,Post-treatment,uv_aop_1,#8CFF33,uv_aop,uv_aop
+uv_aop,Principal treatment,uv_aop_3,#69BF26,uv_aop,uv_aop
+co2_addition,Post-treatment,co2_addition_1,#917C51,co2_addition,co2_addition
+lime_addition,Post-treatment,lime_addition_1,#917C51,lime_addition,lime_addition
+lime_addition,Pre-treatment,lime_addition_2,#6D5D3D,lime_addition,lime_addition
+lime_addition,Principal treatment,lime_addition_3,#493E29,lime_addition,lime_addition
+ammonia_addition,Post-treatment,ammonia_addition_1,#917C51,ammonia_addition,ammonia_addition
+well_field,Influent Storage and/or Pumping,well_field_0,#9433FF,well_field,well_field
+iron_and_manganese_removal,Pre-treatment,iron_and_manganese_removal_2,#917C51,iron_and_manganese_removal,iron_and_manganese_removal
+cartridge_filtration,Principal treatment,cartridge_filtration_3,#FFEE33 ,cartridge_filtration_a,cartridge_filtration
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_a1,reverse_osmosis
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_a2,reverse_osmosis
+decarbonator,Principal treatment,decarbonator_3,#DEFF8E ,decarbonator_a,decarbonator
+decarbonator,Post-treatment,decarbonator_1,#A6BF6B,decarbonator_a,decarbonator
+cartridge_filtration,Principal treatment,cartridge_filtration_3,#FFEE33 ,cartridge_filtration_b,cartridge_filtration
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_b1,reverse_osmosis
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_b2,reverse_osmosis
+decarbonator,Principal treatment,decarbonator_3,#DEFF8E ,decarbonator_b,decarbonator
+decarbonator,Post-treatment,decarbonator_1,#A6BF6B,decarbonator_b,decarbonator
+chlorination,Pre-treatment,chlorination_2,#8EFFBC,chlorination,chlorination
+chlorination,Post-treatment,chlorination_1,#6BBF8D,chlorination,chlorination
+onsite_storage,Influent Storage and/or Pumping,onsite_storage_0,#9433FF,onsite_storage,onsite_storage
+onsite_storage,Product Storage and/or Distribution,onsite_storage_4,#9EFF33,onsite_storage,onsite_storage
+hydrochloric_acid_addition,Pre-treatment,hydrochloric_acid_addition_2,#917C51,hydrochloric_acid_addition,hydrochloric_acid_addition
+sodium_bisulfite_addition,Pre-treatment,sodium_bisulfite_addition_2,#917C51,sodium_bisulfite_addition,sodium_bisulfite_addition
+electrodialysis_reversal,Principal treatment,electrodialysis_reversal_3,#8E9EFF,electrodialysis_reversal,electrodialysis_reversal
+water_pumping_station,Influent Storage and/or Pumping,water_pumping_station_0,#9433FF,water_pumping_station,water_pumping_station
+water_pumping_station,Pre-treatment,water_pumping_station_2,#6B5191,water_pumping_station,water_pumping_station
+lime_softening,Post-treatment,lime_softening_1,#917C51,lime_softening,lime_softening
+lime_softening,Pre-treatment,lime_softening_2,#6D5D3D,lime_softening,lime_softening
+microfiltration,Principal treatment,microfiltration_3,#FFEE33 ,microfiltration,microfiltration
+microfiltration,Pre-treatment,microfiltration_2,#BFB326,microfiltration,microfiltration
+irwin_brine_management,Waste Treatment and Valorization,irwin_brine_management_7,#33FFFF,irwin_brine_management,irwin_brine_management
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,RO1,reverse_osmosis
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,RO2,reverse_osmosis
+deep_well_injection,Waste Product Storage and Disposal,deep_well_injection_6,#FF3333,deep_well_injection,deep_well_injection
+microfiltration,Principal treatment,microfiltration_3,#FFEE33 ,microfiltration,microfiltration
+microfiltration,Pre-treatment,microfiltration_2,#BFB326,microfiltration,microfiltration
+coag_and_floc,Pre-treatment,coag_and_floc_2,#8EAAFF,coag_and_floc,coag_and_floc
+coag_and_floc,Principal treatment,coag_and_floc_3,#FF3365,coag_and_floc,coag_and_floc
+sedimentation,Pre-treatment,sedimentation_2,#FFD88E,sedimentation,sedimentation
+sedimentation,Principal treatment,sedimentation_3,#FF339B,sedimentation,sedimentation
+ozone_aop,Pre-treatment,ozone_aop_2,#917C51,ozonation,ozone_aop
+ozone_aop,Post-treatment,ozone_aop_1,#6D5D3D,ozonation,ozone_aop
+fixed_bed_gravity_basin,Principal treatment,fixed_bed_gravity_basin_3,#FF339B,fixed_bed_gravity_basin,fixed_bed_gravity_basin
+gac_pressure_vessel,Principal treatment,gac_pressure_vessel_3,#3344FF,gac_pressure_vessel,gac_pressure_vessel
+uv_aop,Post-treatment,uv_aop_1,#8CFF33,uv_irradiation,uv_aop
+uv_aop,Principal treatment,uv_aop_3,#69BF26,uv_irradiation,uv_aop
+recharge_pump_well,Product Storage and/or Distribution,recharge_pump_well_4,#9EFF33,recharge_pump_well,recharge_pump_well
+sludge_tank,Waste Treatment and Valorization,sludge_tank_7,#33FFFF,sludge_tank,sludge_tank
+holding_tank,Influent Storage and/or Pumping,holding_tank_0,#9433FF,flow_equalization,holding_tank
+microscreen_filtration,Pre-treatment,microscreen_filtration_2,#FFEE33 ,microscreen_filtration,microscreen_filtration
+buffer_tank,Treatment pumping and/or storage,buffer_tank_5,#6B5191,buffer_tank,buffer_tank
+decarbonator,Principal treatment,decarbonator_3,#DEFF8E ,decarbonator,decarbonator
+decarbonator,Post-treatment,decarbonator_1,#A6BF6B,decarbonator,decarbonator
+holding_tank,Influent Storage and/or Pumping,holding_tank_0,#9433FF,gray_black,holding_tank
+water_pumping_station,Influent Storage and/or Pumping,water_pumping_station_0,#9433FF,water_pumping_station,water_pumping_station
+water_pumping_station,Pre-treatment,water_pumping_station_2,#6B5191,water_pumping_station,water_pumping_station
+mbr_nitrification,Principal treatment,mbr_nitrification_3,#FFEF8E ,mbr_nitrification,mbr_nitrification
+ozone_aop,Pre-treatment,ozone_aop_2,#917C51,ozone_aop,ozone_aop
+ozone_aop,Post-treatment,ozone_aop_1,#6D5D3D,ozone_aop,ozone_aop
+graywater,Product Storage and/or Distribution,graywater_4,#9EFF33,graywater,graywater
+heap_leaching,Pre-treatment,heap_leaching_2,#915151 ,heap_leaching,heap_leaching
+agglom_stacking,Pre-treatment,agglom_stacking_2,#519191,agglom_stacking,agglom_stacking
+solution_distribution_and_recovery_plant,Principal treatment,solution_distribution_and_recovery_plant_3,#33FF97,solution_distribution_and_recovery_plant,solution_distribution_and_recovery_plant
+industrial,Product Storage and/or Distribution,industrial_4,#9EFF33,industrial,industrial
+evaporation_pond,Principal treatment,evaporation_pond_3,#8EB5FF ,evaporation_pond_a,evaporation_pond
+evaporation_pond,Post-treatment,evaporation_pond_1,#6B88BF,evaporation_pond_a,evaporation_pond
+evaporation_pond,Waste Treatment and Valorization,evaporation_pond_7,#475A80,evaporation_pond_a,evaporation_pond
+sedimentation,Pre-treatment,sedimentation_2,#FFD88E,sedimentation,sedimentation
+sedimentation,Principal treatment,sedimentation_3,#FF339B,sedimentation,sedimentation
+evaporation_pond,Principal treatment,evaporation_pond_3,#8EB5FF ,evaporation_pond_b,evaporation_pond
+evaporation_pond,Post-treatment,evaporation_pond_1,#6B88BF,evaporation_pond_b,evaporation_pond
+evaporation_pond,Waste Treatment and Valorization,evaporation_pond_7,#475A80,evaporation_pond_b,evaporation_pond
+onsite_storage,Influent Storage and/or Pumping,onsite_storage_0,#9433FF,onsite_storage,onsite_storage
+onsite_storage,Product Storage and/or Distribution,onsite_storage_4,#9EFF33,onsite_storage,onsite_storage
+well_field,Influent Storage and/or Pumping,well_field_0,#9433FF,active_mine,well_field
+well_field,Influent Storage and/or Pumping,well_field_0,#9433FF,restoration_mine,well_field
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_active,reverse_osmosis
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_restore,reverse_osmosis
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,ro_brine,reverse_osmosis
+mining,Product Storage and/or Distribution,mining_4,#9EFF33,mining,mining
+,,,,cooling_tower,cooling_tower
+settling_pond,Post-treatment,settling_pond_1,#8EFFF1 ,settling_pond,settling_pond
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,treated_storage_a,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,treated_storage_a,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,treated_storage_a,treated_storage
+reverse_osmosis,Principal treatment,reverse_osmosis_3,#ABFF8E,brine_ro,reverse_osmosis
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,treated_storage_b,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,treated_storage_b,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,treated_storage_b,treated_storage
+discharge,Waste Product Storage and Disposal,discharge_6,#FF3333,discharge,discharge
+discharge,Product Storage and/or Distribution,discharge_4,#9EFF33,discharge,discharge
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,holding_tank,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,holding_tank,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,holding_tank,treated_storage
+discharge,Waste Product Storage and Disposal,discharge_6,#FF3333,discharge_a,discharge
+discharge,Product Storage and/or Distribution,discharge_4,#9EFF33,discharge_a,discharge
+tramp_oil_tank,Waste Treatment and Valorization,tramp_oil_tank_7,#33FFFF,tramp_oil_tank,tramp_oil_tank
+discharge,Waste Product Storage and Disposal,discharge_6,#FF3333,discharge_b,discharge
+discharge,Product Storage and/or Distribution,discharge_4,#9EFF33,discharge_b,discharge
+,,,,cooling_tower,cooling_tower
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,holding_tank,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,holding_tank,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,holding_tank,treated_storage
+brine_concentrator,Waste Treatment and Valorization,brine_concentrator_7,#33FFFF,brine_concentrator,brine_concentrator
+evaporation_pond,Principal treatment,evaporation_pond_3,#8EB5FF ,evaporation_pond,evaporation_pond
+evaporation_pond,Post-treatment,evaporation_pond_1,#6B88BF,evaporation_pond,evaporation_pond
+evaporation_pond,Waste Treatment and Valorization,evaporation_pond_7,#475A80,evaporation_pond,evaporation_pond
+industrial,Product Storage and/or Distribution,industrial_4,#9EFF33,industrial_a,industrial
+ultra_filtration,Principal treatment,ultra_filtration_3,#FFEE33 ,ultra_filtration,ultra_filtration
+industrial,Product Storage and/or Distribution,industrial_4,#9EFF33,industrial_b,industrial
+screen,Pre-treatment,screen_2,#FFEE33 ,screen,screen
+dissolved_air_flotation,Principal treatment,dissolved_air_flotation_3,#4EFF33,dissolved_air_flotation,dissolved_air_flotation
+dissolved_air_flotation,Post-treatment,dissolved_air_flotation_1,#516291,dissolved_air_flotation,dissolved_air_flotation
+anaerobic_digestion_oxidation,Post-treatment,anaerobic_digestion_oxidation_1,#FF8E9C,anaerobic_digestion_oxidation,anaerobic_digestion_oxidation
+discharge,Waste Product Storage and Disposal,discharge_6,#FF3333,discharge,discharge
+discharge,Product Storage and/or Distribution,discharge_4,#9EFF33,discharge,discharge
+dual_media_filtration,Principal treatment,dual_media_filtration_3,#FFEE33 ,dual_media_filtration,dual_media_filtration
+intrusion_mitigation,Product Storage and/or Distribution,intrusion_mitigation_4,#9EFF33,intrusion_mitigation,intrusion_mitigation
+feed_water_tank,Influent Storage and/or Pumping,feed_water_tank_0,#9433FF,feed_water_tank,feed_water_tank
+drainage_sump_pump,Influent Storage and/or Pumping,drainage_sump_pump_0,#9433FF,drainage_sump_pump1,drainage_sump_pump
+drainage_sump_pump,Influent Storage and/or Pumping,drainage_sump_pump_0,#9433FF,drainage_sump_pump2,drainage_sump_pump
+raw_water_pump,Influent Storage and/or Pumping,raw_water_pump_0,#9433FF,raw_water_pump1,raw_water_pump
+raw_water_pump,Influent Storage and/or Pumping,raw_water_pump_0,#9433FF,raw_water_pump2,raw_water_pump
+chlorination,Pre-treatment,chlorination_2,#8EFFBC,sodium_hypochlorite_1,chlorination
+chlorination,Post-treatment,chlorination_1,#6BBF8D,sodium_hypochlorite_1,chlorination
+chemical_addition,Pre-treatment,chemical_addition_2,#917C51,molasses_addition,chemical_addition
+chemical_addition,Pre-treatment,chemical_addition_2,#917C51,glycerin_addition,chemical_addition
+hydrochloric_acid_addition,Pre-treatment,hydrochloric_acid_addition_2,#917C51,hydrochloric_acid_addition_1,hydrochloric_acid_addition
+bioreactor,Pre-treatment,bioreactor_2,#FF8ED1,bioreactor,bioreactor
+bioreactor_feed_pump,Treatment pumping and/or storage,bioreactor_feed_pump_5,#6B5191,bioreactor_feed_pump,bioreactor_feed_pump
+abmet_interstage_pump,Treatment pumping and/or storage,abmet_interstage_pump_5,#6B5191,abmet_interstage_pump,abmet_interstage_pump
+abmet_intermediate_pump,Treatment pumping and/or storage,abmet_intermediate_pump_5,#6B5191,abmet_intermediate_pump,abmet_intermediate_pump
+bioreactor_effluent_pump,Treatment pumping and/or storage,bioreactor_effluent_pump_5,#6B5191,bioreactor_effluent_pump,bioreactor_effluent_pump
+bioreactor_bw_pump,Treatment pumping and/or storage,bioreactor_bw_pump_5,#6B5191,bioreactor_bw_pump,bioreactor_bw_pump
+uf_feed_pump,Treatment pumping and/or storage,uf_feed_pump_5,#6B5191,uf_feed_pump,uf_feed_pump
+agriculture,Product Storage and/or Distribution,agriculture_4,#9EFF33,agriculture,agriculture
+smp,Waste Product Storage and Disposal,smp_6,#FF3333,smp,smp
+primary_separator,Pre-treatment,primary_separator_2,#516291,primary_separator,primary_separator
+coagulant_addition,Principal treatment,coagulant_addition_3,#E433FF ,coagulant_addition,coagulant_addition
+coag_and_floc,Pre-treatment,coag_and_floc_2,#8EAAFF,coag_and_floc,coag_and_floc
+coag_and_floc,Principal treatment,coag_and_floc_3,#FF3365,coag_and_floc,coag_and_floc
+caustic_soda_addition,Post-treatment,caustic_soda_addition_1,#917C51,caustic_soda_addition,caustic_soda_addition
+caustic_soda_addition,Principal treatment,caustic_soda_addition_3,#6D5D3D,caustic_soda_addition,caustic_soda_addition
+caustic_soda_addition,Pre-treatment,caustic_soda_addition_2,#493E29,caustic_soda_addition,caustic_soda_addition
+dissolved_air_flotation,Principal treatment,dissolved_air_flotation_3,#4EFF33,dissolved_air_flotation,dissolved_air_flotation
+dissolved_air_flotation,Post-treatment,dissolved_air_flotation_1,#516291,dissolved_air_flotation,dissolved_air_flotation
+raw_water_pump,Influent Storage and/or Pumping,raw_water_pump_0,#9433FF,raw_water_pump1_2,raw_water_pump
+caustic_soda_addition,Post-treatment,caustic_soda_addition_1,#917C51,caustic_soda_addition_2,caustic_soda_addition
+caustic_soda_addition,Principal treatment,caustic_soda_addition_3,#6D5D3D,caustic_soda_addition_2,caustic_soda_addition
+caustic_soda_addition,Pre-treatment,caustic_soda_addition_2,#493E29,caustic_soda_addition_2,caustic_soda_addition
+lime_addition,Post-treatment,lime_addition_1,#917C51,lime_addition_2,lime_addition
+lime_addition,Pre-treatment,lime_addition_2,#6D5D3D,lime_addition_2,lime_addition
+lime_addition,Principal treatment,lime_addition_3,#493E29,lime_addition_2,lime_addition
+aeration_tank,Principal treatment,aeration_tank_3,#33FFCD,aeration_tank,aeration_tank
+coagulant_addition,Principal treatment,coagulant_addition_3,#E433FF ,coagulant_addition_2,coagulant_addition
+lime_addition,Post-treatment,lime_addition_1,#917C51,lime_addition_3,lime_addition
+lime_addition,Pre-treatment,lime_addition_2,#6D5D3D,lime_addition_3,lime_addition
+lime_addition,Principal treatment,lime_addition_3,#493E29,lime_addition_3,lime_addition
+clarifier,Post-treatment,clarifier_1,#516291,clarifier,clarifier
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,treated_storage_2,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,treated_storage_2,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,treated_storage_2,treated_storage
+discharge,Waste Product Storage and Disposal,discharge_6,#FF3333,discharge_2,discharge
+discharge,Product Storage and/or Distribution,discharge_4,#9EFF33,discharge_2,discharge
+aeration_basin,Principal treatment,aeration_basin_3,#33FFCD,aeration_basin1,aeration_basin
+aeration_basin,Principal treatment,aeration_basin_3,#33FFCD,aeration_basin2,aeration_basin
+uv_aop,Post-treatment,uv_aop_1,#8CFF33,uv_aop,uv_aop
+uv_aop,Principal treatment,uv_aop_3,#69BF26,uv_aop,uv_aop
+gac_gravity,Principal treatment,gac_gravity_3,#3344FF,gac_gravity,gac_gravity
+media_filtration,Pre-treatment,media_filtration_2,#FFEE33 ,media_filtration_2,media_filtration
+ultra_filtration,Principal treatment,ultra_filtration_3,#FFEE33 ,ultra_filtration_2,ultra_filtration
+gac_gravity,Principal treatment,gac_gravity_3,#3344FF,gac_gravity_2,gac_gravity
+treated_storage,Product Storage and/or Distribution,treated_storage_4,#9EFF33,treated_storage_3,treated_storage
+treated_storage,Treatment pumping and/or storage,treated_storage_5,#6B5191,treated_storage_3,treated_storage
+treated_storage,Influent Storage and/or Pumping,treated_storage_0,#9433FF,treated_storage_3,treated_storage
+cooling_supply,Product Storage and/or Distribution,cooling_supply_4,#9EFF33,cooling_supply,cooling_supply
+industrial,Product Storage and/or Distribution,industrial_4,#9EFF33,industrial_2,industrial
+municipal_wwtp,Waste Product Storage and Disposal,municipal_wwtp_6,#FF3333,municipal_wwtp,municipal_wwtp
+air_flotation,Pre-treatment,air_flotation_2,#516291,air_flotation,air_flotation
+walnut_shell_filter,Principal treatment,walnut_shell_filter_3,#FFEE33 ,walnut_shell_filter,walnut_shell_filter
+blending_reservoir,Product Storage and/or Distribution,blending_reservoir_4,#9EFF33,blending_reservoir,blending_reservoir
+irrigation,Product Storage and/or Distribution,irrigation_4,#9EFF33,irrigation,irrigation
+waiv,Waste Product Storage and Disposal,waiv_6,#FF3333,waiv,waiv

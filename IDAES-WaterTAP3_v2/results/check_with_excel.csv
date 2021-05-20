@@ -1,0 +1,1652 @@
+Case_Study,Scenario,Unit_Process,Variable,Unit,excel,python
+Ashkelon,Baseline,1-Hour_Storage_Tank,Base_Employee_Salary_Cost,$MM/yr,0.000500436,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Base_Fixed_Capital_Cost,$MM,0.500435883,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Benefits,$MM/yr,0.003958821,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Electricity,$MM/yr,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Employee Salaries,$MM/yr,0.00439869,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Fixed Capital Investment (FCI),$MM,4.914080141,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Grid_Electricity,kWh,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Inlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Insurance and Taxes,$MM/yr,0.00917295,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Laboratory,$MM/yr,0.013104214,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Land_Cost,$MM,0.00737112,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Maintenance,$MM/yr,0.039312641,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Outlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Total Capital Investment (TCI),$MM,5.167155268,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Total Fixed Operating Costs,$MM/yr,0.069947315,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Total Variable Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,1-Hour_Storage_Tank,Working Capital,$MM,0.245704007,
+Ashkelon,Baseline,Caustic_Soda_Addition,Base_Employee_Salary_Cost,$MM/yr,0.001945138,
+Ashkelon,Baseline,Caustic_Soda_Addition,Base_Fixed_Capital_Cost,$MM,1.945138021,
+Ashkelon,Baseline,Caustic_Soda_Addition,Benefits,$MM/yr,0.002548822,
+Ashkelon,Baseline,Caustic_Soda_Addition,Catalysts and Chemicals,$MM/yr,0.367457413,
+Ashkelon,Baseline,Caustic_Soda_Addition,Electricity,$MM/yr,4.2231e-05,
+Ashkelon,Baseline,Caustic_Soda_Addition,Employee Salaries,$MM/yr,0.002832025,
+Ashkelon,Baseline,Caustic_Soda_Addition,Fixed Capital Investment (FCI),$MM,2.635748018,
+Ashkelon,Baseline,Caustic_Soda_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,Caustic_Soda_Addition,Grid_Electricity,kWh,3.98956e-06,
+Ashkelon,Baseline,Caustic_Soda_Addition,Inlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,Caustic_Soda_Addition,Insurance and Taxes,$MM/yr,0.004920063,
+Ashkelon,Baseline,Caustic_Soda_Addition,Laboratory,$MM/yr,0.007028661,
+Ashkelon,Baseline,Caustic_Soda_Addition,Land_Cost,$MM,0.003953622,
+Ashkelon,Baseline,Caustic_Soda_Addition,Maintenance,$MM/yr,0.021085984,
+Ashkelon,Baseline,Caustic_Soda_Addition,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Caustic_Soda_Addition,Outlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,Caustic_Soda_Addition,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,Caustic_Soda_Addition,Total Capital Investment (TCI),$MM,2.771489041,
+Ashkelon,Baseline,Caustic_Soda_Addition,Total Fixed Operating Costs,$MM/yr,0.038415556,
+Ashkelon,Baseline,Caustic_Soda_Addition,Total Variable Operating Costs,$MM/yr,0.367499644,
+Ashkelon,Baseline,Caustic_Soda_Addition,Working Capital,$MM,0.131787401,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Base_Employee_Salary_Cost,$MM/yr,0.00321612,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Base_Fixed_Capital_Cost,$MM,3.216119827,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Benefits,$MM/yr,0.005849818,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Catalysts and Chemicals,$MM/yr,0.600826291,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Electricity,$MM/yr,9.851865e-05,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Employee Salaries,$MM/yr,0.006499798,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Fixed Capital Investment (FCI),$MM,5.528328705,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Grid_Electricity,kWh,5.68881e-06,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Inlet Water,m3/hr,20172.787105,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Insurance and Taxes,$MM/yr,0.010319547,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Laboratory,$MM/yr,0.014742209999999999,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Land_Cost,$MM,0.008292493,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Maintenance,$MM/yr,0.04422663,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Outlet Water,m3/hr,20172.787105,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Total Capital Investment (TCI),$MM,5.813037633,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Total Fixed Operating Costs,$MM/yr,0.0816380025,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Total Variable Operating Costs,$MM/yr,0.60092481,
+Ashkelon,Baseline,Chlorine_Addition_Cylinder,Working Capital,$MM,0.276416435,
+Ashkelon,Baseline,Coagulant_Addition,Base_Employee_Salary_Cost,$MM/yr,0.00142066,
+Ashkelon,Baseline,Coagulant_Addition,Base_Fixed_Capital_Cost,$MM,1.420659676,
+Ashkelon,Baseline,Coagulant_Addition,Benefits,$MM/yr,0.003306522,
+Ashkelon,Baseline,Coagulant_Addition,Catalysts and Chemicals,$MM/yr,6.478907213,
+Ashkelon,Baseline,Coagulant_Addition,Electricity,$MM/yr,0.00010865,
+Ashkelon,Baseline,Coagulant_Addition,Employee Salaries,$MM/yr,0.003673913,
+Ashkelon,Baseline,Coagulant_Addition,Fixed Capital Investment (FCI),$MM,2.973108458,
+Ashkelon,Baseline,Coagulant_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,Coagulant_Addition,Grid_Electricity,kWh,4.51759e-06,
+Ashkelon,Baseline,Coagulant_Addition,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Coagulant_Addition,Insurance and Taxes,$MM/yr,0.005549802,
+Ashkelon,Baseline,Coagulant_Addition,Laboratory,$MM/yr,0.007928289,
+Ashkelon,Baseline,Coagulant_Addition,Land_Cost,$MM,0.004459663,
+Ashkelon,Baseline,Coagulant_Addition,Maintenance,$MM/yr,0.023784868,
+Ashkelon,Baseline,Coagulant_Addition,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Coagulant_Addition,Outlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Coagulant_Addition,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,Coagulant_Addition,Total Capital Investment (TCI),$MM,3.126223544,
+Ashkelon,Baseline,Coagulant_Addition,Total Fixed Operating Costs,$MM/yr,0.044243395,
+Ashkelon,Baseline,Coagulant_Addition,Total Variable Operating Costs,$MM/yr,6.479015863,
+Ashkelon,Baseline,Coagulant_Addition,Working Capital,$MM,0.148655423,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Base_Employee_Salary_Cost,$MM/yr,0.002652104,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Base_Fixed_Capital_Cost,$MM,2.652103844,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Benefits,$MM/yr,0.006172654,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Catalysts and Chemicals,$MM/yr,4.319271475,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Electricity,$MM/yr,8.03241e-05,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Employee Salaries,$MM/yr,0.006858504,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Fixed Capital Investment (FCI),$MM,4.38432564,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Grid_Electricity,kWh,3.33981e-06,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Insurance and Taxes,$MM/yr,0.008184075,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Laboratory,$MM/yr,0.011691535,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Land_Cost,$MM,0.006576488,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Maintenance,$MM/yr,0.035074605,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Outlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Total Capital Investment (TCI),$MM,4.61011841,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Total Fixed Operating Costs,$MM/yr,0.067981372,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Total Variable Operating Costs,$MM/yr,4.319351799,
+Ashkelon,Baseline,Ferric_Chloride_FeCl3_Addition,Working Capital,$MM,0.219216282,
+Ashkelon,Baseline,Static_Mixer,Base_Employee_Salary_Cost,$MM/yr,2.09599e-05,
+Ashkelon,Baseline,Static_Mixer,Base_Fixed_Capital_Cost,$MM,0.020959851,
+Ashkelon,Baseline,Static_Mixer,Benefits,$MM/yr,0.000753461,
+Ashkelon,Baseline,Static_Mixer,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,Static_Mixer,Electricity,$MM/yr,0.0,
+Ashkelon,Baseline,Static_Mixer,Employee Salaries,$MM/yr,0.000837179,
+Ashkelon,Baseline,Static_Mixer,Fixed Capital Investment (FCI),$MM,0.179195252,
+Ashkelon,Baseline,Static_Mixer,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,Static_Mixer,Grid_Electricity,kWh,0.0,
+Ashkelon,Baseline,Static_Mixer,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Static_Mixer,Insurance and Taxes,$MM/yr,0.000334498,
+Ashkelon,Baseline,Static_Mixer,Laboratory,$MM/yr,0.000477854,
+Ashkelon,Baseline,Static_Mixer,Land_Cost,$MM,0.000268793,
+Ashkelon,Baseline,Static_Mixer,Maintenance,$MM/yr,0.001433562,
+Ashkelon,Baseline,Static_Mixer,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Static_Mixer,Outlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Static_Mixer,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,Static_Mixer,Total Capital Investment (TCI),$MM,0.188423808,
+Ashkelon,Baseline,Static_Mixer,Total Fixed Operating Costs,$MM/yr,0.003836555,
+Ashkelon,Baseline,Static_Mixer,Total Variable Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Static_Mixer,Working Capital,$MM,0.008959763,
+Ashkelon,Baseline,Tri-Media_Filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055,
+Ashkelon,Baseline,Tri-Media_Filtration,Base_Fixed_Capital_Cost,$MM,5.5,
+Ashkelon,Baseline,Tri-Media_Filtration,Benefits,$MM/yr,0.019662478,
+Ashkelon,Baseline,Tri-Media_Filtration,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,Tri-Media_Filtration,Electricity,$MM/yr,4.765100259,
+Ashkelon,Baseline,Tri-Media_Filtration,Employee Salaries,$MM/yr,0.021847197,
+Ashkelon,Baseline,Tri-Media_Filtration,Fixed Capital Investment (FCI),$MM,16.93215444,
+Ashkelon,Baseline,Tri-Media_Filtration,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,Tri-Media_Filtration,Grid_Electricity,kWh,0.198129039,
+Ashkelon,Baseline,Tri-Media_Filtration,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Tri-Media_Filtration,Insurance and Taxes,$MM/yr,0.031606688,
+Ashkelon,Baseline,Tri-Media_Filtration,Laboratory,$MM/yr,0.045152412,
+Ashkelon,Baseline,Tri-Media_Filtration,Land_Cost,$MM,0.025398232,
+Ashkelon,Baseline,Tri-Media_Filtration,Maintenance,$MM/yr,0.135457235,
+Ashkelon,Baseline,Tri-Media_Filtration,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,Tri-Media_Filtration,Outlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,Tri-Media_Filtration,Replacement Parts,$MM/yr,1.939671294,
+Ashkelon,Baseline,Tri-Media_Filtration,Total Capital Investment (TCI),$MM,17.80416039,
+Ashkelon,Baseline,Tri-Media_Filtration,Total Fixed Operating Costs,$MM/yr,0.253726011,
+Ashkelon,Baseline,Tri-Media_Filtration,Total Variable Operating Costs,$MM/yr,6.704771553,
+Ashkelon,Baseline,Tri-Media_Filtration,Working Capital,$MM,0.846607722,
+Ashkelon,Baseline,lime_softening,Base_Employee_Salary_Cost,$MM/yr,0.015434861,
+Ashkelon,Baseline,lime_softening,Base_Fixed_Capital_Cost,$MM,15.43486085,
+Ashkelon,Baseline,lime_softening,Benefits,$MM/yr,0.058015578,
+Ashkelon,Baseline,lime_softening,Catalysts and Chemicals,$MM/yr,1.117945708,
+Ashkelon,Baseline,lime_softening,Electricity,$MM/yr,5.98329e-05,
+Ashkelon,Baseline,lime_softening,Employee Salaries,$MM/yr,0.064461753,
+Ashkelon,Baseline,lime_softening,Fixed Capital Investment (FCI),$MM,68.61829156,
+Ashkelon,Baseline,lime_softening,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,lime_softening,Grid_Electricity,kWh,5.65241e-06,
+Ashkelon,Baseline,lime_softening,Inlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,lime_softening,Insurance and Taxes,$MM/yr,0.128087478,
+Ashkelon,Baseline,lime_softening,Laboratory,$MM/yr,0.182982111,
+Ashkelon,Baseline,lime_softening,Land_Cost,$MM,0.102927437,
+Ashkelon,Baseline,lime_softening,Maintenance,$MM/yr,0.548946332,
+Ashkelon,Baseline,lime_softening,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,lime_softening,Outlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,lime_softening,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,lime_softening,Total Capital Investment (TCI),$MM,72.15213357,
+Ashkelon,Baseline,lime_softening,Total Fixed Operating Costs,$MM/yr,0.982493251,
+Ashkelon,Baseline,lime_softening,Total Variable Operating Costs,$MM/yr,1.118005541,
+Ashkelon,Baseline,lime_softening,Working Capital,$MM,3.430914578,
+Ashkelon,Baseline,municipal_drinking,Base_Employee_Salary_Cost,$MM/yr,0.007381985,
+Ashkelon,Baseline,municipal_drinking,Base_Fixed_Capital_Cost,$MM,7.381985478,
+Ashkelon,Baseline,municipal_drinking,Benefits,$MM/yr,0.005592008,
+Ashkelon,Baseline,municipal_drinking,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,municipal_drinking,Electricity,$MM/yr,3.251786185,
+Ashkelon,Baseline,municipal_drinking,Employee Salaries,$MM/yr,0.006213342,
+Ashkelon,Baseline,municipal_drinking,Fixed Capital Investment (FCI),$MM,5.964961624,
+Ashkelon,Baseline,municipal_drinking,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,municipal_drinking,Grid_Electricity,kWh,0.30719599,
+Ashkelon,Baseline,municipal_drinking,Inlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,municipal_drinking,Insurance and Taxes,$MM/yr,0.011134595,
+Ashkelon,Baseline,municipal_drinking,Laboratory,$MM/yr,0.015906564,
+Ashkelon,Baseline,municipal_drinking,Land_Cost,$MM,0.008947442,
+Ashkelon,Baseline,municipal_drinking,Maintenance,$MM/yr,0.047719693,
+Ashkelon,Baseline,municipal_drinking,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,municipal_drinking,Outlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,municipal_drinking,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,municipal_drinking,Total Capital Investment (TCI),$MM,6.272157148,
+Ashkelon,Baseline,municipal_drinking,Total Fixed Operating Costs,$MM/yr,0.086566202,
+Ashkelon,Baseline,municipal_drinking,Total Variable Operating Costs,$MM/yr,3.251786185,
+Ashkelon,Baseline,municipal_drinking,Working Capital,$MM,0.298248081,
+Ashkelon,Baseline,ro_deep,Base_Employee_Salary_Cost,$MM/yr,0.132214351,
+Ashkelon,Baseline,ro_deep,Base_Fixed_Capital_Cost,$MM,132.2143513,
+Ashkelon,Baseline,ro_deep,Benefits,$MM/yr,0.319753727,
+Ashkelon,Baseline,ro_deep,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,ro_deep,Electricity,$MM/yr,34.66810549,
+Ashkelon,Baseline,ro_deep,Employee Salaries,$MM/yr,0.355281919,
+Ashkelon,Baseline,ro_deep,Fixed Capital Investment (FCI),$MM,342.8021517,
+Ashkelon,Baseline,ro_deep,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,ro_deep,Grid_Electricity,kWh,1.441471965,
+Ashkelon,Baseline,ro_deep,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,ro_deep,Insurance and Taxes,$MM/yr,0.63989735,
+Ashkelon,Baseline,ro_deep,Laboratory,$MM/yr,0.914139071,
+Ashkelon,Baseline,ro_deep,Land_Cost,$MM,0.514203228,
+Ashkelon,Baseline,ro_deep,Maintenance,$MM/yr,2.742417213,
+Ashkelon,Baseline,ro_deep,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,ro_deep,Outlet Water,m3/hr,12330.37421,
+Ashkelon,Baseline,ro_deep,Replacement Parts,$MM/yr,4.90826304,
+Ashkelon,Baseline,ro_deep,Total Capital Investment (TCI),$MM,360.4564625,
+Ashkelon,Baseline,ro_deep,Total Fixed Operating Costs,$MM/yr,4.97148928,
+Ashkelon,Baseline,ro_deep,Total Variable Operating Costs,$MM/yr,39.57636853,
+Ashkelon,Baseline,ro_deep,Working Capital,$MM,17.14010758,
+Ashkelon,Baseline,sulfuric_acid_addition,Base_Employee_Salary_Cost,$MM/yr,0.000231058,
+Ashkelon,Baseline,sulfuric_acid_addition,Base_Fixed_Capital_Cost,$MM,0.231057593,
+Ashkelon,Baseline,sulfuric_acid_addition,Benefits,$MM/yr,0.000537776,
+Ashkelon,Baseline,sulfuric_acid_addition,Catalysts and Chemicals,$MM/yr,0.294495782,
+Ashkelon,Baseline,sulfuric_acid_addition,Electricity,$MM/yr,1.38263e-05,
+Ashkelon,Baseline,sulfuric_acid_addition,Employee Salaries,$MM/yr,0.000597529,
+Ashkelon,Baseline,sulfuric_acid_addition,Fixed Capital Investment (FCI),$MM,0.519706924,
+Ashkelon,Baseline,sulfuric_acid_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,sulfuric_acid_addition,Grid_Electricity,kWh,5.74886e-07,
+Ashkelon,Baseline,sulfuric_acid_addition,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,sulfuric_acid_addition,Insurance and Taxes,$MM/yr,0.00097012,
+Ashkelon,Baseline,sulfuric_acid_addition,Laboratory,$MM/yr,0.001385885,
+Ashkelon,Baseline,sulfuric_acid_addition,Land_Cost,$MM,0.00077956,
+Ashkelon,Baseline,sulfuric_acid_addition,Maintenance,$MM/yr,0.004157655,
+Ashkelon,Baseline,sulfuric_acid_addition,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,sulfuric_acid_addition,Outlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,sulfuric_acid_addition,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,sulfuric_acid_addition,Total Capital Investment (TCI),$MM,0.54647183,
+Ashkelon,Baseline,sulfuric_acid_addition,Total Fixed Operating Costs,$MM/yr,0.007648966,
+Ashkelon,Baseline,sulfuric_acid_addition,Total Variable Operating Costs,$MM/yr,0.294509609,
+Ashkelon,Baseline,sulfuric_acid_addition,Working Capital,$MM,0.025985346,
+Ashkelon,Baseline,surface_discharge,Base_Employee_Salary_Cost,$MM/yr,0.035,
+Ashkelon,Baseline,surface_discharge,Base_Fixed_Capital_Cost,$MM,35.0,
+Ashkelon,Baseline,surface_discharge,Benefits,$MM/yr,0.042736129,
+Ashkelon,Baseline,surface_discharge,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,surface_discharge,Electricity,$MM/yr,1.576021173,
+Ashkelon,Baseline,surface_discharge,Employee Salaries,$MM/yr,0.047484588,
+Ashkelon,Baseline,surface_discharge,Fixed Capital Investment (FCI),$MM,47.39179755,
+Ashkelon,Baseline,surface_discharge,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,surface_discharge,Grid_Electricity,kWh,0.102398663,
+Ashkelon,Baseline,surface_discharge,Inlet Water,m3/hr,15684.826,
+Ashkelon,Baseline,surface_discharge,Insurance and Taxes,$MM/yr,0.088464689,
+Ashkelon,Baseline,surface_discharge,Laboratory,$MM/yr,0.126378127,
+Ashkelon,Baseline,surface_discharge,Land_Cost,$MM,0.071087696,
+Ashkelon,Baseline,surface_discharge,Maintenance,$MM/yr,0.37913438,
+Ashkelon,Baseline,surface_discharge,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,surface_discharge,Outlet Water,m3/hr,15684.826,
+Ashkelon,Baseline,surface_discharge,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,surface_discharge,Total Capital Investment (TCI),$MM,49.83247513,
+Ashkelon,Baseline,surface_discharge,Total Fixed Operating Costs,$MM/yr,0.684197913,
+Ashkelon,Baseline,surface_discharge,Total Variable Operating Costs,$MM/yr,1.576021173,
+Ashkelon,Baseline,surface_discharge,Working Capital,$MM,2.369589878,
+Ashkelon,Baseline,sw_onshore_intake,Base_Employee_Salary_Cost,$MM/yr,0.020493206,
+Ashkelon,Baseline,sw_onshore_intake,Base_Fixed_Capital_Cost,$MM,20.49320555,
+Ashkelon,Baseline,sw_onshore_intake,Benefits,$MM/yr,0.027383137,
+Ashkelon,Baseline,sw_onshore_intake,Catalysts and Chemicals,$MM/yr,0.0,
+Ashkelon,Baseline,sw_onshore_intake,Electricity,$MM/yr,2.462737918,
+Ashkelon,Baseline,sw_onshore_intake,Employee Salaries,$MM/yr,0.030425707,
+Ashkelon,Baseline,sw_onshore_intake,Fixed Capital Investment (FCI),$MM,33.57543951,
+Ashkelon,Baseline,sw_onshore_intake,Fuel and Other Utilities,$MM/yr,0.0,
+Ashkelon,Baseline,sw_onshore_intake,Grid_Electricity,kWh/m3,0.102398663,
+Ashkelon,Baseline,sw_onshore_intake,Inlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,sw_onshore_intake,Insurance and Taxes,$MM/yr,0.062674154,
+Ashkelon,Baseline,sw_onshore_intake,Laboratory,$MM/yr,0.089534505,
+Ashkelon,Baseline,sw_onshore_intake,Land_Cost,$MM,0.050363159,
+Ashkelon,Baseline,sw_onshore_intake,Maintenance,$MM/yr,0.268603516,
+Ashkelon,Baseline,sw_onshore_intake,Other Operating Costs,$MM/yr,0.0,
+Ashkelon,Baseline,sw_onshore_intake,Outlet Water,m3/hr,28015.2,
+Ashkelon,Baseline,sw_onshore_intake,Replacement Parts,$MM/yr,0.0,
+Ashkelon,Baseline,sw_onshore_intake,Total Capital Investment (TCI),$MM,35.30457464,
+Ashkelon,Baseline,sw_onshore_intake,Total Fixed Operating Costs,$MM/yr,0.478621019,
+Ashkelon,Baseline,sw_onshore_intake,Total Variable Operating Costs,$MM/yr,2.462737918,
+Ashkelon,Baseline,sw_onshore_intake,Working Capital,$MM,1.678771975,
+Carlsbad,Baseline,System,System Capital Investment,$MM/yr,,420.925
+Carlsbad,Baseline,System,System Catalysts and Chemicals,$MM,,61.09
+Carlsbad,Baseline,System,System Catalysts and Chemicals,$MM/yr,,3.054
+Carlsbad,Baseline,System,System Electricity,$MM,,890.635
+Carlsbad,Baseline,System,System Electricity,$MM/yr,,44.532
+Carlsbad,Baseline,System,System Fixed Capital Investment (FCI),$MM,,420.925
+Carlsbad,Baseline,System,System Fixed Operating,$MM,,118.871
+Carlsbad,Baseline,System,System Fixed Operating,$MM/yr,,5.944
+Carlsbad,Baseline,System,System Levelized Cost,$/m3,,1.237
+Carlsbad,Baseline,System,System Other Variable Operating,$MM,,0.0
+Carlsbad,Baseline,System,System Other Variable Operating,$MM/yr,,0.0
+Carlsbad,Baseline,System,System Total Operating,$MM,,1189.467
+Carlsbad,Baseline,System,System Total Operating Cost,$MM/yr,,59.473
+Carlsbad,Baseline,ammonia_addition,Base_Employee_Salary_Cost,$MM/yr,0.000724495,
+Carlsbad,Baseline,ammonia_addition,Base_Fixed_Capital_Cost,$MM,0.724495372,
+Carlsbad,Baseline,ammonia_addition,Benefits,$MM/yr,0.000740044,0.001
+Carlsbad,Baseline,ammonia_addition,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,ammonia_addition,Electricity,$MM/yr,1.15e-05,0.0
+Carlsbad,Baseline,ammonia_addition,Employee Salaries,$MM/yr,0.000822272,0.001
+Carlsbad,Baseline,ammonia_addition,Fixed Capital Investment (FCI),$MM,0.810622014,0.809
+Carlsbad,Baseline,ammonia_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,ammonia_addition,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,ammonia_addition,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,ammonia_addition,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,ammonia_addition,Insurance and Taxes,$MM/yr,0.001513161,0.002
+Carlsbad,Baseline,ammonia_addition,Laboratory,$MM/yr,0.002161659,0.002
+Carlsbad,Baseline,ammonia_addition,Land_Cost,$MM,0.001215933,
+Carlsbad,Baseline,ammonia_addition,Maintenance,$MM/yr,0.006484976,0.006
+Carlsbad,Baseline,ammonia_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,ammonia_addition,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,ammonia_addition,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,ammonia_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,ammonia_addition,Total Capital Investment (TCI),$MM,0.852369048,0.851
+Carlsbad,Baseline,ammonia_addition,Total Fixed Operating Costs,$MM/yr,0.011722112,
+Carlsbad,Baseline,ammonia_addition,Total Variable Operating Costs,$MM/yr,1.15e-05,
+Carlsbad,Baseline,ammonia_addition,Working Capital,$MM,0.040531101,0.04
+Carlsbad,Baseline,ammonia_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Base Employee Salary,$MM/yr,,0.001
+Carlsbad,Baseline,ammonia_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Land,$MM,,0.001
+Carlsbad,Baseline,ammonia_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,ammonia_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,ammonia_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,ammonia_addition,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,ammonia_addition,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,ammonia_addition,Total Fixed Operating ,$MM/yr,,0.012
+Carlsbad,Baseline,ammonia_addition,Total Unit Cost,$MM,,0.863
+Carlsbad,Baseline,ammonia_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Base_Employee_Salary_Cost,$MM/yr,0.00975836,
+Carlsbad,Baseline,backwash_solids_handling,Base_Fixed_Capital_Cost,$MM,9.7583604,
+Carlsbad,Baseline,backwash_solids_handling,Benefits,$MM/yr,0.013231528,0.014
+Carlsbad,Baseline,backwash_solids_handling,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,backwash_solids_handling,Electricity,$MM/yr,0.245463576,0.245
+Carlsbad,Baseline,backwash_solids_handling,Employee Salaries,$MM/yr,0.014701698,0.016
+Carlsbad,Baseline,backwash_solids_handling,Fixed Capital Investment (FCI),$MM,14.72287486,14.723
+Carlsbad,Baseline,backwash_solids_handling,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,backwash_solids_handling,Grid_Electricity,kWh,0.1024,
+Carlsbad,Baseline,backwash_solids_handling,Inlet Water,m3/hr,1823.0,
+Carlsbad,Baseline,backwash_solids_handling,Inlet Water,m3/s,,0.506
+Carlsbad,Baseline,backwash_solids_handling,Insurance and Taxes,$MM/yr,0.0274827,0.029
+Carlsbad,Baseline,backwash_solids_handling,Laboratory,$MM/yr,0.039261,0.044
+Carlsbad,Baseline,backwash_solids_handling,Land_Cost,$MM,0.022084312,
+Carlsbad,Baseline,backwash_solids_handling,Maintenance,$MM/yr,0.117782999,0.118
+Carlsbad,Baseline,backwash_solids_handling,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,backwash_solids_handling,Outlet Water,m3/hr,1732.0,
+Carlsbad,Baseline,backwash_solids_handling,Outlet Water,m3/s,,0.481
+Carlsbad,Baseline,backwash_solids_handling,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,backwash_solids_handling,Total Capital Investment (TCI),$MM,15.48110292,15.482
+Carlsbad,Baseline,backwash_solids_handling,Total Fixed Operating Costs,$MM/yr,0.212459924,
+Carlsbad,Baseline,backwash_solids_handling,Total Variable Operating Costs,$MM/yr,0.245463576,
+Carlsbad,Baseline,backwash_solids_handling,Working Capital,$MM,0.736143743,0.736
+Carlsbad,Baseline,backwash_solids_handling,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Base Employee Salary,$MM/yr,,0.012
+Carlsbad,Baseline,backwash_solids_handling,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Land,$MM,,0.022
+Carlsbad,Baseline,backwash_solids_handling,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,TDS,kg,,0.0
+Carlsbad,Baseline,backwash_solids_handling,TDS,kg/m3,,0.0
+Carlsbad,Baseline,backwash_solids_handling,Total Fixed Operating ,$MM/yr,,0.221
+Carlsbad,Baseline,backwash_solids_handling,Total Unit Cost,$MM,,15.948
+Carlsbad,Baseline,backwash_solids_handling,Waste Water,m3/s,,0.025
+Carlsbad,Baseline,cartridge_filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055,
+Carlsbad,Baseline,cartridge_filtration,Base_Fixed_Capital_Cost,$MM,5.5,
+Carlsbad,Baseline,cartridge_filtration,Benefits,$MM/yr,0.013521259,0.011
+Carlsbad,Baseline,cartridge_filtration,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,cartridge_filtration,Electricity,$MM/yr,0.0,0.0
+Carlsbad,Baseline,cartridge_filtration,Employee Salaries,$MM/yr,0.015023622,0.013
+Carlsbad,Baseline,cartridge_filtration,Fixed Capital Investment (FCI),$MM,12.37452897,11.987
+Carlsbad,Baseline,cartridge_filtration,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,cartridge_filtration,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,cartridge_filtration,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,cartridge_filtration,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,cartridge_filtration,Insurance and Taxes,$MM/yr,0.023099121,0.024
+Carlsbad,Baseline,cartridge_filtration,Laboratory,$MM/yr,0.032998744,0.036
+Carlsbad,Baseline,cartridge_filtration,Land_Cost,$MM,0.018561793,
+Carlsbad,Baseline,cartridge_filtration,Maintenance,$MM/yr,0.098996232,0.096
+Carlsbad,Baseline,cartridge_filtration,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,cartridge_filtration,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,cartridge_filtration,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,cartridge_filtration,Replacement Parts,$MM/yr,0.143741436,
+Carlsbad,Baseline,cartridge_filtration,Total Capital Investment (TCI),$MM,13.01181721,12.605
+Carlsbad,Baseline,cartridge_filtration,Total Fixed Operating Costs,$MM/yr,0.183638978,
+Carlsbad,Baseline,cartridge_filtration,Total Variable Operating Costs,$MM/yr,0.143741436,
+Carlsbad,Baseline,cartridge_filtration,Working Capital,$MM,0.618726449,0.599
+Carlsbad,Baseline,cartridge_filtration,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Base Employee Salary,$MM/yr,,0.011
+Carlsbad,Baseline,cartridge_filtration,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Land,$MM,,0.018
+Carlsbad,Baseline,cartridge_filtration,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,cartridge_filtration,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,cartridge_filtration,TDS,kg,,106.944
+Carlsbad,Baseline,cartridge_filtration,TDS,kg/m3,,23.464
+Carlsbad,Baseline,cartridge_filtration,Total Fixed Operating ,$MM/yr,,0.18
+Carlsbad,Baseline,cartridge_filtration,Total Unit Cost,$MM,,12.785
+Carlsbad,Baseline,cartridge_filtration,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,chlorination_twb,Base_Employee_Salary_Cost,$MM/yr,0.00321612,
+Carlsbad,Baseline,chlorination_twb,Base_Fixed_Capital_Cost,$MM,3.216119827,
+Carlsbad,Baseline,chlorination_twb,Benefits,$MM/yr,0.003285144,0.009
+Carlsbad,Baseline,chlorination_twb,Catalysts and Chemicals,$MM/yr,0.257297171,0.266
+Carlsbad,Baseline,chlorination_twb,Electricity,$MM/yr,5.77e-05,0.0
+Carlsbad,Baseline,chlorination_twb,Employee Salaries,$MM/yr,0.00365016,0.01
+Carlsbad,Baseline,chlorination_twb,Fixed Capital Investment (FCI),$MM,3.530539282,9.427
+Carlsbad,Baseline,chlorination_twb,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,chlorination_twb,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,chlorination_twb,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,chlorination_twb,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,chlorination_twb,Insurance and Taxes,$MM/yr,0.00659034,0.019
+Carlsbad,Baseline,chlorination_twb,Laboratory,$MM/yr,0.009414771,0.028
+Carlsbad,Baseline,chlorination_twb,Land_Cost,$MM,0.005295809,
+Carlsbad,Baseline,chlorination_twb,Maintenance,$MM/yr,0.028244314,0.075
+Carlsbad,Baseline,chlorination_twb,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,chlorination_twb,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,chlorination_twb,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,chlorination_twb,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,chlorination_twb,Total Capital Investment (TCI),$MM,3.712362055,9.912
+Carlsbad,Baseline,chlorination_twb,Total Fixed Operating Costs,$MM/yr,0.051184729,
+Carlsbad,Baseline,chlorination_twb,Total Variable Operating Costs,$MM/yr,0.257354859,
+Carlsbad,Baseline,chlorination_twb,Working Capital,$MM,0.176526964,0.471
+Carlsbad,Baseline,chlorination_twb,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Base Employee Salary,$MM/yr,,0.009
+Carlsbad,Baseline,chlorination_twb,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Land,$MM,,0.014
+Carlsbad,Baseline,chlorination_twb,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,chlorination_twb,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,chlorination_twb,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,chlorination_twb,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,chlorination_twb,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,chlorination_twb,Total Fixed Operating ,$MM/yr,,0.141
+Carlsbad,Baseline,chlorination_twb,Total Unit Cost,$MM,,10.32
+Carlsbad,Baseline,chlorination_twb,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,co2_addition,Base_Employee_Salary_Cost,$MM/yr,0.003,
+Carlsbad,Baseline,co2_addition,Base_Fixed_Capital_Cost,$MM,3.0,
+Carlsbad,Baseline,co2_addition,Benefits,$MM/yr,0.006987396,0.007
+Carlsbad,Baseline,co2_addition,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,co2_addition,Electricity,$MM/yr,0.101405356,0.101
+Carlsbad,Baseline,co2_addition,Employee Salaries,$MM/yr,0.007763773,0.008
+Carlsbad,Baseline,co2_addition,Fixed Capital Investment (FCI),$MM,7.767103773,7.744
+Carlsbad,Baseline,co2_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,co2_addition,Grid_Electricity,kWh,0.01,
+Carlsbad,Baseline,co2_addition,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,co2_addition,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,co2_addition,Insurance and Taxes,$MM/yr,0.014498594,0.015
+Carlsbad,Baseline,co2_addition,Laboratory,$MM/yr,0.020712277,0.023
+Carlsbad,Baseline,co2_addition,Land_Cost,$MM,0.011650656,
+Carlsbad,Baseline,co2_addition,Maintenance,$MM/yr,0.06213683,0.062
+Carlsbad,Baseline,co2_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,co2_addition,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,co2_addition,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,co2_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,co2_addition,Total Capital Investment (TCI),$MM,8.167109618,8.143
+Carlsbad,Baseline,co2_addition,Total Fixed Operating Costs,$MM/yr,0.11209887,
+Carlsbad,Baseline,co2_addition,Total Variable Operating Costs,$MM/yr,0.101405356,
+Carlsbad,Baseline,co2_addition,Working Capital,$MM,0.388355189,0.387
+Carlsbad,Baseline,co2_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,co2_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,co2_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Base Employee Salary,$MM/yr,,0.008
+Carlsbad,Baseline,co2_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,co2_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Electricity consumption,kWh/m3,,0.01
+Carlsbad,Baseline,co2_addition,Land,$MM,,0.012
+Carlsbad,Baseline,co2_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,co2_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,co2_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,co2_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,co2_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,co2_addition,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,co2_addition,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,co2_addition,Total Fixed Operating ,$MM/yr,,0.115
+Carlsbad,Baseline,co2_addition,Total Unit Cost,$MM,,8.359
+Carlsbad,Baseline,co2_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,coag_and_floc,Base_Employee_Salary_Cost,$MM/yr,0.005365888,
+Carlsbad,Baseline,coag_and_floc,Base_Fixed_Capital_Cost,$MM,5.365888438,
+Carlsbad,Baseline,coag_and_floc,Benefits,$MM/yr,0.010425936,0.011
+Carlsbad,Baseline,coag_and_floc,Catalysts and Chemicals,$MM/yr,1.114695451,1.009
+Carlsbad,Baseline,coag_and_floc,Electricity,$MM/yr,0.108666163,0.098
+Carlsbad,Baseline,coag_and_floc,Employee Salaries,$MM/yr,0.011584374,0.012
+Carlsbad,Baseline,coag_and_floc,Fixed Capital Investment (FCI),$MM,16.11069906,11.766
+Carlsbad,Baseline,coag_and_floc,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,coag_and_floc,Grid_Electricity,kWh,0.005077502,
+Carlsbad,Baseline,coag_and_floc,Inlet Water,m3/hr,18232.0442,
+Carlsbad,Baseline,coag_and_floc,Inlet Water,m3/s,,4.583
+Carlsbad,Baseline,coag_and_floc,Insurance and Taxes,$MM/yr,0.030073305,0.024
+Carlsbad,Baseline,coag_and_floc,Laboratory,$MM/yr,0.042961864,0.035
+Carlsbad,Baseline,coag_and_floc,Land_Cost,$MM,0.024166049,
+Carlsbad,Baseline,coag_and_floc,Maintenance,$MM/yr,0.128885593,0.094
+Carlsbad,Baseline,coag_and_floc,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,coag_and_floc,Outlet Water,m3/hr,18232.0442,
+Carlsbad,Baseline,coag_and_floc,Outlet Water,m3/s,,4.583
+Carlsbad,Baseline,coag_and_floc,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,coag_and_floc,Total Capital Investment (TCI),$MM,16.94040007,12.372
+Carlsbad,Baseline,coag_and_floc,Total Fixed Operating Costs,$MM/yr,0.223931072,
+Carlsbad,Baseline,coag_and_floc,Total Variable Operating Costs,$MM/yr,1.223361614,
+Carlsbad,Baseline,coag_and_floc,Working Capital,$MM,0.805534953,0.588
+Carlsbad,Baseline,coag_and_floc,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Base Employee Salary,$MM/yr,,0.012
+Carlsbad,Baseline,coag_and_floc,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Electricity consumption,kWh/m3,,0.005
+Carlsbad,Baseline,coag_and_floc,Land,$MM,,0.018
+Carlsbad,Baseline,coag_and_floc,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,coag_and_floc,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,coag_and_floc,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,coag_and_floc,TDS,kg,,106.944
+Carlsbad,Baseline,coag_and_floc,TDS,kg/m3,,23.33366666666667
+Carlsbad,Baseline,coag_and_floc,Total Fixed Operating ,$MM/yr,,0.175
+Carlsbad,Baseline,coag_and_floc,Total Unit Cost,$MM,,13.654
+Carlsbad,Baseline,coag_and_floc,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,landfill,Base_Employee_Salary_Cost,$MM/yr,0.001,
+Carlsbad,Baseline,landfill,Base_Fixed_Capital_Cost,$MM,1.0,
+Carlsbad,Baseline,landfill,Benefits,$MM/yr,1.46e-05,0.0
+Carlsbad,Baseline,landfill,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,landfill,Electricity,$MM/yr,0.0,0.0
+Carlsbad,Baseline,landfill,Employee Salaries,$MM/yr,1.63e-05,0.0
+Carlsbad,Baseline,landfill,Fixed Capital Investment (FCI),$MM,0.016240841,0.007
+Carlsbad,Baseline,landfill,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,landfill,Inlet Water,m3/hr,91.0,
+Carlsbad,Baseline,landfill,Inlet Water,m3/s,,0.025
+Carlsbad,Baseline,landfill,Insurance and Taxes,$MM/yr,3.03e-05,0.0
+Carlsbad,Baseline,landfill,Laboratory,$MM/yr,4.33e-05,0.0
+Carlsbad,Baseline,landfill,Land_Cost,$MM,2.44e-05,
+Carlsbad,Baseline,landfill,Maintenance,$MM/yr,0.000129927,0.0
+Carlsbad,Baseline,landfill,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Outlet Water,m3/hr,0.0,
+Carlsbad,Baseline,landfill,Outlet Water,m3/s,,0.025
+Carlsbad,Baseline,landfill,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Total Capital Investment (TCI),$MM,0.017077244,0.008
+Carlsbad,Baseline,landfill,Total Fixed Operating Costs,$MM/yr,0.00023447,
+Carlsbad,Baseline,landfill,Total Variable Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,landfill,Working Capital,$MM,0.000812042,0.0
+Carlsbad,Baseline,landfill,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,landfill,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,landfill,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Base Employee Salary,$MM/yr,,0.0
+Carlsbad,Baseline,landfill,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,landfill,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,landfill,Land,$MM,,0.0
+Carlsbad,Baseline,landfill,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,landfill,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,landfill,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,landfill,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,landfill,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,landfill,TDS,kg,,0.0
+Carlsbad,Baseline,landfill,TDS,kg/m3,,0.0
+Carlsbad,Baseline,landfill,Total Fixed Operating ,$MM/yr,,0.0
+Carlsbad,Baseline,landfill,Total Unit Cost,$MM,,0.008
+Carlsbad,Baseline,landfill,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,lime_softening,Base_Employee_Salary_Cost,$MM/yr,0.015,
+Carlsbad,Baseline,lime_softening,Base_Fixed_Capital_Cost,$MM,15.0,
+Carlsbad,Baseline,lime_softening,Benefits,$MM/yr,0.044393444,0.047
+Carlsbad,Baseline,lime_softening,Catalysts and Chemicals,$MM/yr,0.78324286,0.779
+Carlsbad,Baseline,lime_softening,Electricity,$MM/yr,0.101405356,0.101
+Carlsbad,Baseline,lime_softening,Employee Salaries,$MM/yr,0.049326049,0.053
+Carlsbad,Baseline,lime_softening,Fixed Capital Investment (FCI),$MM,51.96081587,52.714
+Carlsbad,Baseline,lime_softening,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,lime_softening,Grid_Electricity,kWh,0.01,
+Carlsbad,Baseline,lime_softening,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,lime_softening,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,lime_softening,Insurance and Taxes,$MM/yr,0.096993523,0.105
+Carlsbad,Baseline,lime_softening,Laboratory,$MM/yr,0.138562176,0.158
+Carlsbad,Baseline,lime_softening,Land_Cost,$MM,0.077941224,
+Carlsbad,Baseline,lime_softening,Maintenance,$MM/yr,0.415686527,0.422
+Carlsbad,Baseline,lime_softening,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,lime_softening,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,lime_softening,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,lime_softening,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,lime_softening,Total Capital Investment (TCI),$MM,54.63679789,55.429
+Carlsbad,Baseline,lime_softening,Total Fixed Operating Costs,$MM/yr,0.744961719,
+Carlsbad,Baseline,lime_softening,Total Variable Operating Costs,$MM/yr,0.884648215,
+Carlsbad,Baseline,lime_softening,Working Capital,$MM,2.598040794,2.636
+Carlsbad,Baseline,lime_softening,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,lime_softening,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,lime_softening,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Base Employee Salary,$MM/yr,,0.053
+Carlsbad,Baseline,lime_softening,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,lime_softening,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Electricity consumption,kWh/m3,,0.01
+Carlsbad,Baseline,lime_softening,Land,$MM,,0.079
+Carlsbad,Baseline,lime_softening,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,lime_softening,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,lime_softening,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,lime_softening,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,lime_softening,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,lime_softening,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,lime_softening,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,lime_softening,Total Fixed Operating ,$MM/yr,,0.785
+Carlsbad,Baseline,lime_softening,Total Unit Cost,$MM,,57.095
+Carlsbad,Baseline,lime_softening,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,municipal_drinking,Base_Employee_Salary_Cost,$MM/yr,0.007381985,
+Carlsbad,Baseline,municipal_drinking,Base_Fixed_Capital_Cost,$MM,7.381985478,
+Carlsbad,Baseline,municipal_drinking,Benefits,$MM/yr,0.004359139,0.004
+Carlsbad,Baseline,municipal_drinking,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,municipal_drinking,Electricity,$MM/yr,3.115131867,3.101
+Carlsbad,Baseline,municipal_drinking,Employee Salaries,$MM/yr,0.004843488,0.004
+Carlsbad,Baseline,municipal_drinking,Fixed Capital Investment (FCI),$MM,4.383651369,4.364
+Carlsbad,Baseline,municipal_drinking,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,municipal_drinking,Grid_Electricity,kWh,0.3072,
+Carlsbad,Baseline,municipal_drinking,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,municipal_drinking,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,municipal_drinking,Insurance and Taxes,$MM/yr,0.008182816,0.009
+Carlsbad,Baseline,municipal_drinking,Laboratory,$MM/yr,0.011689737,0.013
+Carlsbad,Baseline,municipal_drinking,Land_Cost,$MM,0.006575477,
+Carlsbad,Baseline,municipal_drinking,Maintenance,$MM/yr,0.035069211,0.035
+Carlsbad,Baseline,municipal_drinking,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,municipal_drinking,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,municipal_drinking,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,municipal_drinking,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,municipal_drinking,Total Capital Investment (TCI),$MM,4.609409414,4.589
+Carlsbad,Baseline,municipal_drinking,Total Fixed Operating Costs,$MM/yr,0.064144392,
+Carlsbad,Baseline,municipal_drinking,Total Variable Operating Costs,$MM/yr,3.115131867,
+Carlsbad,Baseline,municipal_drinking,Working Capital,$MM,0.219182568,0.218
+Carlsbad,Baseline,municipal_drinking,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Base Employee Salary,$MM/yr,,0.004
+Carlsbad,Baseline,municipal_drinking,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Electricity consumption,kWh/m3,,0.307
+Carlsbad,Baseline,municipal_drinking,Land,$MM,,0.007
+Carlsbad,Baseline,municipal_drinking,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,municipal_drinking,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,municipal_drinking,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,municipal_drinking,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,municipal_drinking,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,municipal_drinking,Total Fixed Operating ,$MM/yr,,0.065
+Carlsbad,Baseline,municipal_drinking,Total Unit Cost,$MM,,7.755
+Carlsbad,Baseline,municipal_drinking,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,ro_deep,Base_Employee_Salary_Cost,$MM/yr,0.132214351,
+Carlsbad,Baseline,ro_deep,Base_Fixed_Capital_Cost,$MM,132.2143513,
+Carlsbad,Baseline,ro_deep,Benefits,$MM/yr,0.249257725,0.201
+Carlsbad,Baseline,ro_deep,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,ro_deep,Electricity,$MM/yr,31.73089461,33.665
+Carlsbad,Baseline,ro_deep,Employee Salaries,$MM/yr,0.276953028,0.223
+Carlsbad,Baseline,ro_deep,Fixed Capital Investment (FCI),$MM,265.5470507,211.525
+Carlsbad,Baseline,ro_deep,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,ro_deep,Grid_Electricity,kWh,1.6474,
+Carlsbad,Baseline,ro_deep,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,ro_deep,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,ro_deep,Insurance and Taxes,$MM/yr,0.495687828,0.423
+Carlsbad,Baseline,ro_deep,Laboratory,$MM/yr,0.708125469,0.635
+Carlsbad,Baseline,ro_deep,Land_Cost,$MM,0.398320576,
+Carlsbad,Baseline,ro_deep,Maintenance,$MM/yr,2.124376406,1.692
+Carlsbad,Baseline,ro_deep,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,ro_deep,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,ro_deep,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,ro_deep,Replacement Parts,$MM/yr,2.874828729,
+Carlsbad,Baseline,ro_deep,Total Capital Investment (TCI),$MM,279.2227238,222.418
+Carlsbad,Baseline,ro_deep,Total Fixed Operating Costs,$MM/yr,3.854400455,
+Carlsbad,Baseline,ro_deep,Total Variable Operating Costs,$MM/yr,34.60572334,
+Carlsbad,Baseline,ro_deep,Working Capital,$MM,13.27735254,10.576
+Carlsbad,Baseline,ro_deep,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,ro_deep,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,ro_deep,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Base Employee Salary,$MM/yr,,0.178
+Carlsbad,Baseline,ro_deep,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,ro_deep,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Electricity consumption,kWh/m3,,1.747
+Carlsbad,Baseline,ro_deep,Land,$MM,,0.317
+Carlsbad,Baseline,ro_deep,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,ro_deep,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,ro_deep,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,ro_deep,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,ro_deep,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,ro_deep,TDS,kg,,106.94366666666667
+Carlsbad,Baseline,ro_deep,TDS,kg/m3,,36.352
+Carlsbad,Baseline,ro_deep,Total Fixed Operating ,$MM/yr,,3.174
+Carlsbad,Baseline,ro_deep,Total Unit Cost,$MM,,259.257
+Carlsbad,Baseline,ro_deep,Waste Water,m3/s,,2.17
+Carlsbad,Baseline,sodium_bisulfite_addition,Base_Employee_Salary_Cost,$MM/yr,0.000259078,
+Carlsbad,Baseline,sodium_bisulfite_addition,Base_Fixed_Capital_Cost,$MM,0.259078217,
+Carlsbad,Baseline,sodium_bisulfite_addition,Benefits,$MM/yr,0.000414659,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Catalysts and Chemicals,$MM/yr,0.517469171,0.75
+Carlsbad,Baseline,sodium_bisulfite_addition,Electricity,$MM/yr,1.33e-05,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Employee Salaries,$MM/yr,0.000460732,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Fixed Capital Investment (FCI),$MM,0.418717586,0.419
+Carlsbad,Baseline,sodium_bisulfite_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,sodium_bisulfite_addition,Insurance and Taxes,$MM/yr,0.000781606,0.001
+Carlsbad,Baseline,sodium_bisulfite_addition,Laboratory,$MM/yr,0.00111658,0.001
+Carlsbad,Baseline,sodium_bisulfite_addition,Land_Cost,$MM,0.000628076,
+Carlsbad,Baseline,sodium_bisulfite_addition,Maintenance,$MM/yr,0.003349741,0.003
+Carlsbad,Baseline,sodium_bisulfite_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,sodium_bisulfite_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Capital Investment (TCI),$MM,0.440281542,0.44
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Fixed Operating Costs,$MM/yr,0.006123318,
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Variable Operating Costs,$MM/yr,0.517482498,
+Carlsbad,Baseline,sodium_bisulfite_addition,Working Capital,$MM,0.020935879,0.021
+Carlsbad,Baseline,sodium_bisulfite_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Base Employee Salary,$MM/yr,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Land,$MM,,0.001
+Carlsbad,Baseline,sodium_bisulfite_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,sodium_bisulfite_addition,TDS,kg,,106.944
+Carlsbad,Baseline,sodium_bisulfite_addition,TDS,kg/m3,,23.464
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Fixed Operating ,$MM/yr,,0.006
+Carlsbad,Baseline,sodium_bisulfite_addition,Total Unit Cost,$MM,,1.197
+Carlsbad,Baseline,sodium_bisulfite_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Base_Employee_Salary_Cost,$MM/yr,0.000231058,
+Carlsbad,Baseline,sulfuric_acid_addition,Base_Fixed_Capital_Cost,$MM,0.231057593,
+Carlsbad,Baseline,sulfuric_acid_addition,Benefits,$MM/yr,0.000369812,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Catalysts and Chemicals,$MM/yr,0.172489724,0.25
+Carlsbad,Baseline,sulfuric_acid_addition,Electricity,$MM/yr,1.11e-05,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Employee Salaries,$MM/yr,0.000410902,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Fixed Capital Investment (FCI),$MM,0.373431154,0.418
+Carlsbad,Baseline,sulfuric_acid_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Inlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Inlet Water,m3/s,,4.558
+Carlsbad,Baseline,sulfuric_acid_addition,Insurance and Taxes,$MM/yr,0.000697071,0.001
+Carlsbad,Baseline,sulfuric_acid_addition,Laboratory,$MM/yr,0.000995816,0.001
+Carlsbad,Baseline,sulfuric_acid_addition,Land_Cost,$MM,0.000560147,
+Carlsbad,Baseline,sulfuric_acid_addition,Maintenance,$MM/yr,0.002987449,0.003
+Carlsbad,Baseline,sulfuric_acid_addition,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,sulfuric_acid_addition,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,sulfuric_acid_addition,Total Capital Investment (TCI),$MM,0.392662858,0.44
+Carlsbad,Baseline,sulfuric_acid_addition,Total Fixed Operating Costs,$MM/yr,0.00546105,
+Carlsbad,Baseline,sulfuric_acid_addition,Total Variable Operating Costs,$MM/yr,0.172500797,
+Carlsbad,Baseline,sulfuric_acid_addition,Working Capital,$MM,0.018671558,0.021
+Carlsbad,Baseline,sulfuric_acid_addition,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Base Employee Salary,$MM/yr,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Land,$MM,,0.001
+Carlsbad,Baseline,sulfuric_acid_addition,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,sulfuric_acid_addition,TDS,kg,,106.944
+Carlsbad,Baseline,sulfuric_acid_addition,TDS,kg/m3,,23.463666666666665
+Carlsbad,Baseline,sulfuric_acid_addition,Total Fixed Operating ,$MM/yr,,0.006
+Carlsbad,Baseline,sulfuric_acid_addition,Total Unit Cost,$MM,,0.696
+Carlsbad,Baseline,sulfuric_acid_addition,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,surface_discharge,Base_Employee_Salary_Cost,$MM/yr,0.035,
+Carlsbad,Baseline,surface_discharge,Base_Fixed_Capital_Cost,$MM,35.0,
+Carlsbad,Baseline,surface_discharge,Benefits,$MM/yr,0.02575672,0.026
+Carlsbad,Baseline,surface_discharge,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,surface_discharge,Electricity,$MM/yr,1.04542122,0.992
+Carlsbad,Baseline,surface_discharge,Employee Salaries,$MM/yr,0.028618578,0.029
+Carlsbad,Baseline,surface_discharge,Fixed Capital Investment (FCI),$MM,27.68756789,28.559
+Carlsbad,Baseline,surface_discharge,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,surface_discharge,Grid_Electricity,kWh,0.102398663,
+Carlsbad,Baseline,surface_discharge,Inlet Water,m3/hr,7770.0,
+Carlsbad,Baseline,surface_discharge,Inlet Water,m3/s,,2.171
+Carlsbad,Baseline,surface_discharge,Insurance and Taxes,$MM/yr,0.05168346,0.057
+Carlsbad,Baseline,surface_discharge,Laboratory,$MM/yr,0.073833514,0.086
+Carlsbad,Baseline,surface_discharge,Land_Cost,$MM,0.041531352,
+Carlsbad,Baseline,surface_discharge,Maintenance,$MM/yr,0.221500543,0.228
+Carlsbad,Baseline,surface_discharge,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,surface_discharge,Outlet Water,m3/hr,7770.0,
+Carlsbad,Baseline,surface_discharge,Outlet Water,m3/s,,2.171
+Carlsbad,Baseline,surface_discharge,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,surface_discharge,Total Capital Investment (TCI),$MM,29.11347764,30.03
+Carlsbad,Baseline,surface_discharge,Total Fixed Operating Costs,$MM/yr,0.401392816,
+Carlsbad,Baseline,surface_discharge,Total Variable Operating Costs,$MM/yr,1.04542122,
+Carlsbad,Baseline,surface_discharge,Working Capital,$MM,1.384378394,1.428
+Carlsbad,Baseline,surface_discharge,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Base Employee Salary,$MM/yr,,0.029
+Carlsbad,Baseline,surface_discharge,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Electricity consumption,kWh/m3,,0.102
+Carlsbad,Baseline,surface_discharge,Land,$MM,,0.043
+Carlsbad,Baseline,surface_discharge,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,surface_discharge,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,surface_discharge,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,surface_discharge,TDS,kg,,106.08800000000001
+Carlsbad,Baseline,surface_discharge,TDS,kg/m3,,48.87366666666667
+Carlsbad,Baseline,surface_discharge,Total Fixed Operating ,$MM/yr,,0.426
+Carlsbad,Baseline,surface_discharge,Total Unit Cost,$MM,,31.447
+Carlsbad,Baseline,surface_discharge,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Base_Employee_Salary_Cost,$MM/yr,0.020493206,
+Carlsbad,Baseline,sw_onshore_intake,Base_Fixed_Capital_Cost,$MM,20.49320555,
+Carlsbad,Baseline,sw_onshore_intake,Benefits,$MM/yr,0.018903679,0.019
+Carlsbad,Baseline,sw_onshore_intake,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,sw_onshore_intake,Electricity,$MM/yr,1.983294177,1.985
+Carlsbad,Baseline,sw_onshore_intake,Employee Salaries,$MM/yr,0.021004088,0.021
+Carlsbad,Baseline,sw_onshore_intake,Fixed Capital Investment (FCI),$MM,20.98272227,20.98
+Carlsbad,Baseline,sw_onshore_intake,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,sw_onshore_intake,Grid_Electricity,kWh/m3,0.102398663,
+Carlsbad,Baseline,sw_onshore_intake,Inlet Water,m3/hr,16500.0,
+Carlsbad,Baseline,sw_onshore_intake,Inlet Water,m3/s,,4.583
+Carlsbad,Baseline,sw_onshore_intake,Insurance and Taxes,$MM/yr,0.039167748,0.042
+Carlsbad,Baseline,sw_onshore_intake,Laboratory,$MM/yr,0.055953926,0.063
+Carlsbad,Baseline,sw_onshore_intake,Land_Cost,$MM,0.031474083,
+Carlsbad,Baseline,sw_onshore_intake,Maintenance,$MM/yr,0.167861778,0.168
+Carlsbad,Baseline,sw_onshore_intake,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,sw_onshore_intake,Outlet Water,m3/hr,16500.0,
+Carlsbad,Baseline,sw_onshore_intake,Outlet Water,m3/s,,4.583
+Carlsbad,Baseline,sw_onshore_intake,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,sw_onshore_intake,Total Capital Investment (TCI),$MM,22.06333247,22.061
+Carlsbad,Baseline,sw_onshore_intake,Total Fixed Operating Costs,$MM/yr,0.30289122,
+Carlsbad,Baseline,sw_onshore_intake,Total Variable Operating Costs,$MM/yr,1.983294177,
+Carlsbad,Baseline,sw_onshore_intake,Working Capital,$MM,1.049136113,1.049
+Carlsbad,Baseline,sw_onshore_intake,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Base Employee Salary,$MM/yr,,0.02
+Carlsbad,Baseline,sw_onshore_intake,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Electricity consumption,kWh/m3,,0.102
+Carlsbad,Baseline,sw_onshore_intake,Land,$MM,,0.031
+Carlsbad,Baseline,sw_onshore_intake,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,sw_onshore_intake,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,sw_onshore_intake,TDS,kg,,106.944
+Carlsbad,Baseline,sw_onshore_intake,TDS,kg/m3,,23.333333333333332
+Carlsbad,Baseline,sw_onshore_intake,Total Fixed Operating ,$MM/yr,,0.313
+Carlsbad,Baseline,sw_onshore_intake,Total Unit Cost,$MM,,24.358
+Carlsbad,Baseline,sw_onshore_intake,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Base_Employee_Salary_Cost,$MM/yr,0.006878438,
+Carlsbad,Baseline,treated_storage_24_hr,Base_Fixed_Capital_Cost,$MM,6.8784383,
+Carlsbad,Baseline,treated_storage_24_hr,Benefits,$MM/yr,0.027847057,0.011
+Carlsbad,Baseline,treated_storage_24_hr,Catalysts and Chemicals,$MM/yr,0.0,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Electricity,$MM/yr,0.0,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Employee Salaries,$MM/yr,0.030941175,0.012
+Carlsbad,Baseline,treated_storage_24_hr,Fixed Capital Investment (FCI),$MM,36.56378852,12.115
+Carlsbad,Baseline,treated_storage_24_hr,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Grid_Electricity,kWh,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Inlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,treated_storage_24_hr,Inlet Water,m3/s,,2.387
+Carlsbad,Baseline,treated_storage_24_hr,Insurance and Taxes,$MM/yr,0.068252405,0.024
+Carlsbad,Baseline,treated_storage_24_hr,Laboratory,$MM/yr,0.097503436,0.036
+Carlsbad,Baseline,treated_storage_24_hr,Land_Cost,$MM,0.054845683,
+Carlsbad,Baseline,treated_storage_24_hr,Maintenance,$MM/yr,0.292510308,0.049
+Carlsbad,Baseline,treated_storage_24_hr,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Outlet Water,m3/hr,8639.0,
+Carlsbad,Baseline,treated_storage_24_hr,Outlet Water,m3/s,,2.387
+Carlsbad,Baseline,treated_storage_24_hr,Replacement Parts,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Total Capital Investment (TCI),$MM,38.44682363,12.739
+Carlsbad,Baseline,treated_storage_24_hr,Total Fixed Operating Costs,$MM/yr,0.517054382,
+Carlsbad,Baseline,treated_storage_24_hr,Total Variable Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,treated_storage_24_hr,Working Capital,$MM,1.828189426,0.606
+Carlsbad,Baseline,treated_storage_24_hr,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Base Employee Salary,$MM/yr,,0.01
+Carlsbad,Baseline,treated_storage_24_hr,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Electricity consumption,kWh/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Land,$MM,,0.018
+Carlsbad,Baseline,treated_storage_24_hr,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,treated_storage_24_hr,TDS,kg,,0.8553333333333333
+Carlsbad,Baseline,treated_storage_24_hr,TDS,kg/m3,,0.3586666666666667
+Carlsbad,Baseline,treated_storage_24_hr,Total Fixed Operating ,$MM/yr,,0.132
+Carlsbad,Baseline,treated_storage_24_hr,Total Unit Cost,$MM,,12.871
+Carlsbad,Baseline,treated_storage_24_hr,Waste Water,m3/s,,0.0
+Carlsbad,Baseline,tri_media_filtration,Benefits,$MM/yr,,0.012
+Carlsbad,Baseline,tri_media_filtration,Catalysts and Chemicals,$MM/yr,,0.0
+Carlsbad,Baseline,tri_media_filtration,Electricity,$MM/yr,,4.243
+Carlsbad,Baseline,tri_media_filtration,Employee Salaries,$MM/yr,,0.013
+Carlsbad,Baseline,tri_media_filtration,Fixed Capital Investment (FCI),$MM,,12.751
+Carlsbad,Baseline,tri_media_filtration,Inlet Water,m3/s,,5.064
+Carlsbad,Baseline,tri_media_filtration,Insurance and Taxes,$MM/yr,,0.026
+Carlsbad,Baseline,tri_media_filtration,Laboratory,$MM/yr,,0.038
+Carlsbad,Baseline,tri_media_filtration,Maintenance,$MM/yr,,0.102
+Carlsbad,Baseline,tri_media_filtration,Outlet Water,m3/s,,4.558
+Carlsbad,Baseline,tri_media_filtration,Total Capital Investment (TCI),$MM,,13.408
+Carlsbad,Baseline,tri_media_filtration,Working Capital,$MM,,0.638
+Carlsbad,Baseline,tri_media_filtration,Aluminum_Al2_SO4_3,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Aluminum_Al2_SO4_3,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Anionic_Polymer,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Anionic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Base Employee Salary,$MM/yr,,0.012
+Carlsbad,Baseline,tri_media_filtration,Cationic_Polymer,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Cationic_Polymer,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Electricity consumption,kWh/m3,,0.198
+Carlsbad,Baseline,tri_media_filtration,Land,$MM,,0.019
+Carlsbad,Baseline,tri_media_filtration,Lime_Suspension_CaOH_2,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Lime_Suspension_CaOH_2,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Other Operating,$MM/yr,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sodium_Bisullfite_NaHSO3,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sodium_Bisullfite_NaHSO3,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sulphuric_Acid_H2SO4,kg,,0.0
+Carlsbad,Baseline,tri_media_filtration,Sulphuric_Acid_H2SO4,kg/m3,,0.0
+Carlsbad,Baseline,tri_media_filtration,TDS,kg,,106.944
+Carlsbad,Baseline,tri_media_filtration,TDS,kg/m3,,22.290333333333333
+Carlsbad,Baseline,tri_media_filtration,Total Fixed Operating ,$MM/yr,,0.191
+Carlsbad,Baseline,tri_media_filtration,Total Unit Cost,$MM,,17.842
+Carlsbad,Baseline,tri_media_filtration,Waste Water,m3/s,,0.506
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Base_Employee_Salary_Cost,$MM/yr,0.0055,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Base_Fixed_Capital_Cost,$MM,5.5,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Benefits,$MM/yr,0.014556179,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Catalysts and Chemicals,$MM/yr,0.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Electricity,$MM/yr,4.240259181,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Employee Salaries,$MM/yr,0.016173532,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Fixed Capital Investment (FCI),$MM,13.16290412,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Fuel and Other Utilities,$MM/yr,0.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Grid_Electricity,kWh,0.1981,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Inlet Water,m3/hr,18232.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Insurance and Taxes,$MM/yr,0.024570754,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Laboratory,$MM/yr,0.035101078,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Land_Cost,$MM,0.019744356,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Maintenance,$MM/yr,0.105303233,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Other Operating Costs,$MM/yr,0.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Outlet Water,m3/hr,16409.0,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Replacement Parts,$MM/yr,1.26232091,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Total Capital Investment (TCI),$MM,13.84079368,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Total Fixed Operating Costs,$MM/yr,0.195704776,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Total Variable Operating Costs,$MM/yr,5.502580091,
+Carlsbad,Baseline,tri_media_filtration_with_backflush,Working Capital,$MM,0.658145206,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Base_Employee_Salary_Cost,$MM/yr,0.0052839375,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Base_Fixed_Capital_Cost,$MM,5.28393769575,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Benefits,$MM/yr,0.00034998675,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Electricity,$MM/yr,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Employee Salaries,$MM/yr,0.00038887449999999994,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Fixed Capital Investment (FCI),$MM,0.41784065849999996,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Grid_Electricity,kWh,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Inlet Water,m3/hr,395.998604475,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Insurance and Taxes,$MM/yr,0.0007799695,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Laboratory,$MM/yr,0.00111424175,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Land_Cost,$MM,0.00062676075,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Maintenance,$MM/yr,0.0033427255,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Outlet Water,m3/hr,395.998604475,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Total Capital Investment (TCI),$MM,0.43935945325000003,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Total Fixed Operating Costs,$MM/yr,0.005975797000000001,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Total Variable Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,1-Hour_Storage_Tank,Working Capital,$MM,0.020892033250000004,
+Santa_Barbara,Baseline,CO2_Addition,Base_Employee_Salary_Cost,$MM/yr,0.007953579,
+Santa_Barbara,Baseline,CO2_Addition,Base_Fixed_Capital_Cost,$MM,7.953579369,
+Santa_Barbara,Baseline,CO2_Addition,Benefits,$MM/yr,0.00106018,
+Santa_Barbara,Baseline,CO2_Addition,Catalysts and Chemicals,$MM/yr,9.90219e-05,
+Santa_Barbara,Baseline,CO2_Addition,Electricity,$MM/yr,0.0,
+Santa_Barbara,Baseline,CO2_Addition,Employee Salaries,$MM/yr,0.001177977,
+Santa_Barbara,Baseline,CO2_Addition,Fixed Capital Investment (FCI),$MM,1.30898299,
+Santa_Barbara,Baseline,CO2_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,CO2_Addition,Grid_Electricity,kWh,0.0,
+Santa_Barbara,Baseline,CO2_Addition,Inlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,CO2_Addition,Insurance and Taxes,$MM/yr,0.002443435,
+Santa_Barbara,Baseline,CO2_Addition,Laboratory,$MM/yr,0.003490621,
+Santa_Barbara,Baseline,CO2_Addition,Land_Cost,$MM,0.001963474,
+Santa_Barbara,Baseline,CO2_Addition,Maintenance,$MM/yr,0.010471864,
+Santa_Barbara,Baseline,CO2_Addition,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,CO2_Addition,Outlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,CO2_Addition,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,CO2_Addition,Total Capital Investment (TCI),$MM,1.376395615,
+Santa_Barbara,Baseline,CO2_Addition,Total Fixed Operating Costs,$MM/yr,0.018644077,
+Santa_Barbara,Baseline,CO2_Addition,Total Variable Operating Costs,$MM/yr,9.90219e-05,
+Santa_Barbara,Baseline,CO2_Addition,Working Capital,$MM,0.06544915,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Base_Employee_Salary_Cost,$MM/yr,0.00321612,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Base_Fixed_Capital_Cost,$MM,3.216119827,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Benefits,$MM/yr,0.0003627440000000001,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Catalysts and Chemicals,$MM/yr,0.011049864,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Electricity,$MM/yr,2.47745e-06,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Employee Salaries,$MM/yr,0.000403048,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Fixed Capital Investment (FCI),$MM,0.620979462,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Grid_Electricity,kWh,5.68881e-06,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Inlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Insurance and Taxes,$MM/yr,0.001159162,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Laboratory,$MM/yr,0.001655945,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Land_Cost,$MM,0.000931469,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Maintenance,$MM/yr,0.004967836,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Outlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Total Capital Investment (TCI),$MM,0.652959905,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Total Fixed Operating Costs,$MM/yr,0.008548735,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Total Variable Operating Costs,$MM/yr,0.011052341,
+Santa_Barbara,Baseline,Chlorine_Addition_Cylinder,Working Capital,$MM,0.031048972999999997,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Base_Employee_Salary_Cost,$MM/yr,0.002652104,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Base_Fixed_Capital_Cost,$MM,2.652103844,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Benefits,$MM/yr,0.000299129,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Catalysts and Chemicals,$MM/yr,0.05719929599999999,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Electricity,$MM/yr,1.45447e-06,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Employee Salaries,$MM/yr,0.000332365,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Fixed Capital Investment (FCI),$MM,1.103607096,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Grid_Electricity,kWh,3.33981e-06,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Inlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Insurance and Taxes,$MM/yr,0.002060067,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Laboratory,$MM/yr,0.002942952,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Land_Cost,$MM,0.001655411,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Maintenance,$MM/yr,0.008828857,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Outlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Total Capital Investment (TCI),$MM,1.160442861,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Total Fixed Operating Costs,$MM/yr,0.014463368999999998,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Total Variable Operating Costs,$MM/yr,0.05720075,
+Santa_Barbara,Baseline,Ferric_Chloride_FeCl3_Addition,Working Capital,$MM,0.05518035499999999,
+Santa_Barbara,Baseline,Static_Mixer,Base_Employee_Salary_Cost,$MM/yr,2.09599e-05,
+Santa_Barbara,Baseline,Static_Mixer,Base_Fixed_Capital_Cost,$MM,0.020959851,
+Santa_Barbara,Baseline,Static_Mixer,Benefits,$MM/yr,3.8172650000000005e-05,
+Santa_Barbara,Baseline,Static_Mixer,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Electricity,$MM/yr,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Employee Salaries,$MM/yr,4.241405e-05,
+Santa_Barbara,Baseline,Static_Mixer,Fixed Capital Investment (FCI),$MM,0.03257314025,
+Santa_Barbara,Baseline,Static_Mixer,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Grid_Electricity,kWh,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Inlet Water,m3/hr,395.998604475,
+Santa_Barbara,Baseline,Static_Mixer,Insurance and Taxes,$MM/yr,6.0803175e-05,
+Santa_Barbara,Baseline,Static_Mixer,Laboratory,$MM/yr,8.686172500000001e-05,
+Santa_Barbara,Baseline,Static_Mixer,Land_Cost,$MM,4.88597e-05,
+Santa_Barbara,Baseline,Static_Mixer,Maintenance,$MM/yr,0.000260585,
+Santa_Barbara,Baseline,Static_Mixer,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Outlet Water,m3/hr,395.998604475,
+Santa_Barbara,Baseline,Static_Mixer,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Total Capital Investment (TCI),$MM,0.034250657,
+Santa_Barbara,Baseline,Static_Mixer,Total Fixed Operating Costs,$MM/yr,0.00048883675,
+Santa_Barbara,Baseline,Static_Mixer,Total Variable Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,Static_Mixer,Working Capital,$MM,0.0016286572500000002,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Base_Employee_Salary_Cost,$MM/yr,0.009720774,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Base_Fixed_Capital_Cost,$MM,9.720774324,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Benefits,$MM/yr,0.003326925,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Catalysts and Chemicals,$MM/yr,0.031563492,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Electricity,$MM/yr,0.055287209,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Employee Salaries,$MM/yr,0.003696583,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Fixed Capital Investment (FCI),$MM,5.602888485,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Grid_Electricity,kWh,0.1,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Inlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Insurance and Taxes,$MM/yr,0.010458725,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Laboratory,$MM/yr,0.014941036,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Land_Cost,$MM,0.008404333,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Maintenance,$MM/yr,0.044823108,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Outlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Total Capital Investment (TCI),$MM,5.891437242,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Total Fixed Operating Costs,$MM/yr,0.077246377,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Total Variable Operating Costs,$MM/yr,0.086850701,
+Santa_Barbara,Baseline,UV_Irradiation_with_AOP,Working Capital,$MM,0.280144424,
+Santa_Barbara,Baseline,anti_scalant_addition,Base_Employee_Salary_Cost,$MM/yr,0.00021235,
+Santa_Barbara,Baseline,anti_scalant_addition,Base_Fixed_Capital_Cost,$MM,0.212349955,
+Santa_Barbara,Baseline,anti_scalant_addition,Benefits,$MM/yr,2.22479e-05,
+Santa_Barbara,Baseline,anti_scalant_addition,Catalysts and Chemicals,$MM/yr,0.051040622,
+Santa_Barbara,Baseline,anti_scalant_addition,Electricity,$MM/yr,1.9654600000000002e-07,
+Santa_Barbara,Baseline,anti_scalant_addition,Employee Salaries,$MM/yr,2.47199e-05,
+Santa_Barbara,Baseline,anti_scalant_addition,Fixed Capital Investment (FCI),$MM,0.030930607,
+Santa_Barbara,Baseline,anti_scalant_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,anti_scalant_addition,Grid_Electricity,kWh,5.01463e-07,
+Santa_Barbara,Baseline,anti_scalant_addition,Inlet Water,m3/hr,333.9,
+Santa_Barbara,Baseline,anti_scalant_addition,Insurance and Taxes,$MM/yr,5.773709999999999e-05,
+Santa_Barbara,Baseline,anti_scalant_addition,Laboratory,$MM/yr,8.24816e-05,
+Santa_Barbara,Baseline,anti_scalant_addition,Land_Cost,$MM,4.63959e-05,
+Santa_Barbara,Baseline,anti_scalant_addition,Maintenance,$MM/yr,0.000247445,
+Santa_Barbara,Baseline,anti_scalant_addition,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,anti_scalant_addition,Outlet Water,m3/hr,333.9,
+Santa_Barbara,Baseline,anti_scalant_addition,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,anti_scalant_addition,Total Capital Investment (TCI),$MM,0.032523533,
+Santa_Barbara,Baseline,anti_scalant_addition,Total Fixed Operating Costs,$MM/yr,0.000434631,
+Santa_Barbara,Baseline,anti_scalant_addition,Total Variable Operating Costs,$MM/yr,0.05104081800000001,
+Santa_Barbara,Baseline,anti_scalant_addition,Working Capital,$MM,0.00154653,
+Santa_Barbara,Baseline,cartridge_filtration,Base_Employee_Salary_Cost,$MM/yr,0.0055000000000000005,
+Santa_Barbara,Baseline,cartridge_filtration,Base_Fixed_Capital_Cost,$MM,5.5,
+Santa_Barbara,Baseline,cartridge_filtration,Benefits,$MM/yr,0.000885104,
+Santa_Barbara,Baseline,cartridge_filtration,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,cartridge_filtration,Electricity,$MM/yr,0.0,
+Santa_Barbara,Baseline,cartridge_filtration,Employee Salaries,$MM/yr,0.000983448,
+Santa_Barbara,Baseline,cartridge_filtration,Fixed Capital Investment (FCI),$MM,1.261810008,
+Santa_Barbara,Baseline,cartridge_filtration,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,cartridge_filtration,Grid_Electricity,kWh,0.0,
+Santa_Barbara,Baseline,cartridge_filtration,Inlet Water,m3/hr,333.9,
+Santa_Barbara,Baseline,cartridge_filtration,Insurance and Taxes,$MM/yr,0.002355379,
+Santa_Barbara,Baseline,cartridge_filtration,Laboratory,$MM/yr,0.0033648269999999995,
+Santa_Barbara,Baseline,cartridge_filtration,Land_Cost,$MM,0.001892715,
+Santa_Barbara,Baseline,cartridge_filtration,Maintenance,$MM/yr,0.01009448,
+Santa_Barbara,Baseline,cartridge_filtration,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,cartridge_filtration,Outlet Water,m3/hr,333.9,
+Santa_Barbara,Baseline,cartridge_filtration,Replacement Parts,$MM/yr,0.002924964,
+Santa_Barbara,Baseline,cartridge_filtration,Total Capital Investment (TCI),$MM,1.326793223,
+Santa_Barbara,Baseline,cartridge_filtration,Total Fixed Operating Costs,$MM/yr,0.017683238,
+Santa_Barbara,Baseline,cartridge_filtration,Total Variable Operating Costs,$MM/yr,0.002924964,
+Santa_Barbara,Baseline,cartridge_filtration,Working Capital,$MM,0.0630905,
+Santa_Barbara,Baseline,holding_tank,Base_Employee_Salary_Cost,$MM/yr,0.000303618,
+Santa_Barbara,Baseline,holding_tank,Base_Fixed_Capital_Cost,$MM,0.303617561,
+Santa_Barbara,Baseline,holding_tank,Benefits,$MM/yr,0.000244327,
+Santa_Barbara,Baseline,holding_tank,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,holding_tank,Electricity,$MM/yr,0.0,
+Santa_Barbara,Baseline,holding_tank,Employee Salaries,$MM/yr,0.000271475,
+Santa_Barbara,Baseline,holding_tank,Fixed Capital Investment (FCI),$MM,0.28325033,
+Santa_Barbara,Baseline,holding_tank,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,holding_tank,Grid_Electricity,kWh,0.0,
+Santa_Barbara,Baseline,holding_tank,Inlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,holding_tank,Insurance and Taxes,$MM/yr,0.000528734,
+Santa_Barbara,Baseline,holding_tank,Laboratory,$MM/yr,0.000755334,
+Santa_Barbara,Baseline,holding_tank,Land_Cost,$MM,0.000424875,
+Santa_Barbara,Baseline,holding_tank,Maintenance,$MM/yr,0.002266003,
+Santa_Barbara,Baseline,holding_tank,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,holding_tank,Outlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,holding_tank,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,holding_tank,Total Capital Investment (TCI),$MM,0.297837722,
+Santa_Barbara,Baseline,holding_tank,Total Fixed Operating Costs,$MM/yr,0.004065873,
+Santa_Barbara,Baseline,holding_tank,Total Variable Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,holding_tank,Working Capital,$MM,0.014162517,
+Santa_Barbara,Baseline,lime_addition,Base_Employee_Salary_Cost,$MM/yr,0.005100451,
+Santa_Barbara,Baseline,lime_addition,Base_Fixed_Capital_Cost,$MM,5.100451025,
+Santa_Barbara,Baseline,lime_addition,Benefits,$MM/yr,0.000679869,
+Santa_Barbara,Baseline,lime_addition,Catalysts and Chemicals,$MM/yr,0.001237773,
+Santa_Barbara,Baseline,lime_addition,Electricity,$MM/yr,9.05814e-08,
+Santa_Barbara,Baseline,lime_addition,Employee Salaries,$MM/yr,0.00075541,
+Santa_Barbara,Baseline,lime_addition,Fixed Capital Investment (FCI),$MM,1.151656161,
+Santa_Barbara,Baseline,lime_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,lime_addition,Grid_Electricity,kWh,1.63838e-07,
+Santa_Barbara,Baseline,lime_addition,Inlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,lime_addition,Insurance and Taxes,$MM/yr,0.002149758,
+Santa_Barbara,Baseline,lime_addition,Laboratory,$MM/yr,0.003071083,
+Santa_Barbara,Baseline,lime_addition,Land_Cost,$MM,0.001727484,
+Santa_Barbara,Baseline,lime_addition,Maintenance,$MM/yr,0.009213249,
+Santa_Barbara,Baseline,lime_addition,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,lime_addition,Outlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,lime_addition,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,lime_addition,Total Capital Investment (TCI),$MM,1.210966453,
+Santa_Barbara,Baseline,lime_addition,Total Fixed Operating Costs,$MM/yr,0.01586937,
+Santa_Barbara,Baseline,lime_addition,Total Variable Operating Costs,$MM/yr,0.001237864,
+Santa_Barbara,Baseline,lime_addition,Working Capital,$MM,0.057582808,
+Santa_Barbara,Baseline,municipal_drinking,Base_Employee_Salary_Cost,$MM/yr,0.007381985,
+Santa_Barbara,Baseline,municipal_drinking,Base_Fixed_Capital_Cost,$MM,7.381985478,
+Santa_Barbara,Baseline,municipal_drinking,Benefits,$MM/yr,0.000568847,
+Santa_Barbara,Baseline,municipal_drinking,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,municipal_drinking,Electricity,$MM/yr,0.169840088,
+Santa_Barbara,Baseline,municipal_drinking,Employee Salaries,$MM/yr,0.000632052,
+Santa_Barbara,Baseline,municipal_drinking,Fixed Capital Investment (FCI),$MM,0.353247632,
+Santa_Barbara,Baseline,municipal_drinking,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,municipal_drinking,Grid_Electricity,kWh,0.30719599,
+Santa_Barbara,Baseline,municipal_drinking,Inlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,municipal_drinking,Insurance and Taxes,$MM/yr,0.000659396,
+Santa_Barbara,Baseline,municipal_drinking,Laboratory,$MM/yr,0.000941994,
+Santa_Barbara,Baseline,municipal_drinking,Land_Cost,$MM,0.000529871,
+Santa_Barbara,Baseline,municipal_drinking,Maintenance,$MM/yr,0.002825981,
+Santa_Barbara,Baseline,municipal_drinking,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,municipal_drinking,Outlet Water,m3/hr,470.9944179,
+Santa_Barbara,Baseline,municipal_drinking,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,municipal_drinking,Total Capital Investment (TCI),$MM,0.371439885,
+Santa_Barbara,Baseline,municipal_drinking,Total Fixed Operating Costs,$MM/yr,0.005628269,
+Santa_Barbara,Baseline,municipal_drinking,Total Variable Operating Costs,$MM/yr,0.169840088,
+Santa_Barbara,Baseline,municipal_drinking,Working Capital,$MM,0.017662382,
+Santa_Barbara,Baseline,ro_deep,Base_Employee_Salary_Cost,$MM/yr,0.132214351,
+Santa_Barbara,Baseline,ro_deep,Base_Fixed_Capital_Cost,$MM,132.2143513,
+Santa_Barbara,Baseline,ro_deep,Benefits,$MM/yr,0.015079518,
+Santa_Barbara,Baseline,ro_deep,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,ro_deep,Electricity,$MM/yr,0.521742523,
+Santa_Barbara,Baseline,ro_deep,Employee Salaries,$MM/yr,0.016755019,
+Santa_Barbara,Baseline,ro_deep,Fixed Capital Investment (FCI),$MM,14.96496455,
+Santa_Barbara,Baseline,ro_deep,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,ro_deep,Grid_Electricity,kWh,1.331161997,
+Santa_Barbara,Baseline,ro_deep,Inlet Water,m3/hr,333.9,
+Santa_Barbara,Baseline,ro_deep,Insurance and Taxes,$MM/yr,0.0279346,
+Santa_Barbara,Baseline,ro_deep,Laboratory,$MM/yr,0.039906572,
+Santa_Barbara,Baseline,ro_deep,Land_Cost,$MM,0.022447447,
+Santa_Barbara,Baseline,ro_deep,Maintenance,$MM/yr,0.11971971600000002,
+Santa_Barbara,Baseline,ro_deep,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,ro_deep,Outlet Water,m3/hr,157.0648026,
+Santa_Barbara,Baseline,ro_deep,Replacement Parts,$MM/yr,0.05849928000000001,
+Santa_Barbara,Baseline,ro_deep,Total Capital Investment (TCI),$MM,15.73566023,
+Santa_Barbara,Baseline,ro_deep,Total Fixed Operating Costs,$MM/yr,0.21939542600000003,
+Santa_Barbara,Baseline,ro_deep,Total Variable Operating Costs,$MM/yr,0.580241803,
+Santa_Barbara,Baseline,ro_deep,Working Capital,$MM,0.748248228,
+Santa_Barbara,Baseline,surface_discharge,Base_Employee_Salary_Cost,$MM/yr,0.035,
+Santa_Barbara,Baseline,surface_discharge,Base_Fixed_Capital_Cost,$MM,35.0,
+Santa_Barbara,Baseline,surface_discharge,Benefits,$MM/yr,0.003931062,
+Santa_Barbara,Baseline,surface_discharge,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,surface_discharge,Electricity,$MM/yr,0.071290761,
+Santa_Barbara,Baseline,surface_discharge,Employee Salaries,$MM/yr,0.004367847,
+Santa_Barbara,Baseline,surface_discharge,Fixed Capital Investment (FCI),$MM,4.359311688,
+Santa_Barbara,Baseline,surface_discharge,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,surface_discharge,Grid_Electricity,kWh,0.102398663,
+Santa_Barbara,Baseline,surface_discharge,Inlet Water,m3/hr,641.806,
+Santa_Barbara,Baseline,surface_discharge,Insurance and Taxes,$MM/yr,0.008137382,
+Santa_Barbara,Baseline,surface_discharge,Laboratory,$MM/yr,0.011624831,
+Santa_Barbara,Baseline,surface_discharge,Land_Cost,$MM,0.006538968,
+Santa_Barbara,Baseline,surface_discharge,Maintenance,$MM/yr,0.034874494,
+Santa_Barbara,Baseline,surface_discharge,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,surface_discharge,Outlet Water,m3/hr,641.806,
+Santa_Barbara,Baseline,surface_discharge,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,surface_discharge,Total Capital Investment (TCI),$MM,4.58381624,
+Santa_Barbara,Baseline,surface_discharge,Total Fixed Operating Costs,$MM/yr,0.062935616,
+Santa_Barbara,Baseline,surface_discharge,Total Variable Operating Costs,$MM/yr,0.071290761,
+Santa_Barbara,Baseline,surface_discharge,Working Capital,$MM,0.217965584,
+Santa_Barbara,Baseline,sw_onshore_intake,Base_Employee_Salary_Cost,$MM/yr,0.020493206,
+Santa_Barbara,Baseline,sw_onshore_intake,Base_Fixed_Capital_Cost,$MM,20.49320555,
+Santa_Barbara,Baseline,sw_onshore_intake,Benefits,$MM/yr,0.001326995,
+Santa_Barbara,Baseline,sw_onshore_intake,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,sw_onshore_intake,Electricity,$MM/yr,0.04459406899999999,
+Santa_Barbara,Baseline,sw_onshore_intake,Employee Salaries,$MM/yr,0.001474439,
+Santa_Barbara,Baseline,sw_onshore_intake,Fixed Capital Investment (FCI),$MM,0.721672432,
+Santa_Barbara,Baseline,sw_onshore_intake,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,sw_onshore_intake,Grid_Electricity,kWh/m3,0.102398663,
+Santa_Barbara,Baseline,sw_onshore_intake,Inlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,sw_onshore_intake,Insurance and Taxes,$MM/yr,0.001347122,
+Santa_Barbara,Baseline,sw_onshore_intake,Laboratory,$MM/yr,0.00192446,
+Santa_Barbara,Baseline,sw_onshore_intake,Land_Cost,$MM,0.001082509,
+Santa_Barbara,Baseline,sw_onshore_intake,Maintenance,$MM/yr,0.0057733789999999995,
+Santa_Barbara,Baseline,sw_onshore_intake,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,sw_onshore_intake,Outlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,sw_onshore_intake,Replacement Parts,$MM/yr,0.0,
+Santa_Barbara,Baseline,sw_onshore_intake,Total Capital Investment (TCI),$MM,0.7588385619999999,
+Santa_Barbara,Baseline,sw_onshore_intake,Total Fixed Operating Costs,$MM/yr,0.011846395000000001,
+Santa_Barbara,Baseline,sw_onshore_intake,Total Variable Operating Costs,$MM/yr,0.04459406899999999,
+Santa_Barbara,Baseline,sw_onshore_intake,Working Capital,$MM,0.036083622,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Base_Employee_Salary_Cost,$MM/yr,0.0055000000000000005,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Base_Fixed_Capital_Cost,$MM,5.5,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Benefits,$MM/yr,0.00095285,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Catalysts and Chemicals,$MM/yr,0.0,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Electricity,$MM/yr,0.086284135,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Employee Salaries,$MM/yr,0.001058722,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Fixed Capital Investment (FCI),$MM,1.342199302,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Fuel and Other Utilities,$MM/yr,0.0,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Grid_Electricity,kWh,0.198129039,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Inlet Water,m3/hr,371.0,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Insurance and Taxes,$MM/yr,0.002505439,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Laboratory,$MM/yr,0.003579198,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Land_Cost,$MM,0.002013299,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Maintenance,$MM/yr,0.010737593999999998,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Other Operating Costs,$MM/yr,0.0,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Outlet Water,m3/hr,333.9,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Replacement Parts,$MM/yr,0.025686699999999996,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Total Capital Investment (TCI),$MM,1.411322566,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Total Fixed Operating Costs,$MM/yr,0.018833803,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Total Variable Operating Costs,$MM/yr,0.111970835,
+Santa_Barbara,Baseline,tri_media_filtration_with_backflush,Working Capital,$MM,0.067109965,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Base_Employee_Salary_Cost,$MM/yr,0.002731695,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Base_Fixed_Capital_Cost,$MM,1.821130314,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Benefits,$MM/yr,0.009729793,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Electricity,$MM/yr,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Employee Salaries,$MM/yr,0.010810881,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Fixed Capital Investment (FCI),$MM,7.861891218,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Grid_Electricity,kWh,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Inlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Insurance and Taxes,$MM/yr,0.01467553,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Laboratory,$MM/yr,0.020965043,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Land_Cost,$MM,0.011792837,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Maintenance,$MM/yr,0.06289513,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Outlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Total Capital Investment (TCI),$MM,8.266778616,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Total Fixed Operating Costs,$MM/yr,0.119076378,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Total Variable Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,6-Hour_Storage_Tank,Working Capital,$MM,0.393094561,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Base_Employee_Salary_Cost,$MM/yr,0.002917707,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Base_Fixed_Capital_Cost,$MM,1.945138021,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Benefits,$MM/yr,0.001721412,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Catalysts and Chemicals,$MM/yr,0.117527961,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Electricity,$MM/yr,1.05439e-05,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Employee Salaries,$MM/yr,0.00191268,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Fixed Capital Investment (FCI),$MM,1.300800296,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Grid_Electricity,kWh,3.98956e-06,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Inlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Insurance and Taxes,$MM/yr,0.002428161,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Laboratory,$MM/yr,0.003468801,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Land_Cost,$MM,0.0019512,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Maintenance,$MM/yr,0.010406402,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Outlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Total Capital Investment (TCI),$MM,1.367791511,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Total Fixed Operating Costs,$MM/yr,0.019937455,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Total Variable Operating Costs,$MM/yr,0.117538505,
+Tampa_Bay,Baseline,Caustic_Soda_Addition,Working Capital,$MM,0.065040015,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Base_Employee_Salary_Cost,$MM/yr,0.00482418,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Base_Fixed_Capital_Cost,$MM,3.216119827,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Benefits,$MM/yr,0.0036898009999999995,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Catalysts and Chemicals,$MM/yr,0.172928605,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Electricity,$MM/yr,2.213455e-05,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Employee Salaries,$MM/yr,0.0040997785,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Fixed Capital Investment (FCI),$MM,2.797863323,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Grid_Electricity,kWh,5.68881e-06,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Inlet Water,m3/hr,5806.090687,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Insurance and Taxes,$MM/yr,0.005222678499999999,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Laboratory,$MM/yr,0.0074609685,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Land_Cost,$MM,0.004196795,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Maintenance,$MM/yr,0.0223829065,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Outlet Water,m3/hr,5806.090687,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Total Capital Investment (TCI),$MM,2.9419532840000002,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Total Fixed Operating Costs,$MM/yr,0.042856132500000005,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Total Variable Operating Costs,$MM/yr,0.1729507395,
+Tampa_Bay,Baseline,Chlorine_Addition_Cylinder,Working Capital,$MM,0.1398931665,
+Tampa_Bay,Baseline,Coagulant_Addition,Base_Employee_Salary_Cost,$MM/yr,0.00213099,
+Tampa_Bay,Baseline,Coagulant_Addition,Base_Fixed_Capital_Cost,$MM,1.420659676,
+Tampa_Bay,Baseline,Coagulant_Addition,Benefits,$MM/yr,0.00200254,
+Tampa_Bay,Baseline,Coagulant_Addition,Catalysts and Chemicals,$MM/yr,1.773429867,
+Tampa_Bay,Baseline,Coagulant_Addition,Electricity,$MM/yr,2.32155e-05,
+Tampa_Bay,Baseline,Coagulant_Addition,Employee Salaries,$MM/yr,0.002225045,
+Tampa_Bay,Baseline,Coagulant_Addition,Fixed Capital Investment (FCI),$MM,1.461888151,
+Tampa_Bay,Baseline,Coagulant_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,Coagulant_Addition,Grid_Electricity,kWh,4.51759e-06,
+Tampa_Bay,Baseline,Coagulant_Addition,Inlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,Coagulant_Addition,Insurance and Taxes,$MM/yr,0.002728858,
+Tampa_Bay,Baseline,Coagulant_Addition,Laboratory,$MM/yr,0.003898368,
+Tampa_Bay,Baseline,Coagulant_Addition,Land_Cost,$MM,0.002192832,
+Tampa_Bay,Baseline,Coagulant_Addition,Maintenance,$MM/yr,0.011695105,
+Tampa_Bay,Baseline,Coagulant_Addition,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,Coagulant_Addition,Outlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,Coagulant_Addition,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,Coagulant_Addition,Total Capital Investment (TCI),$MM,1.537175391,
+Tampa_Bay,Baseline,Coagulant_Addition,Total Fixed Operating Costs,$MM/yr,0.022549917,
+Tampa_Bay,Baseline,Coagulant_Addition,Total Variable Operating Costs,$MM/yr,1.773453083,
+Tampa_Bay,Baseline,Coagulant_Addition,Working Capital,$MM,0.073094408,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Base_Employee_Salary_Cost,$MM/yr,0.003978156,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Base_Fixed_Capital_Cost,$MM,2.652103844,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Benefits,$MM/yr,0.003738365,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Catalysts and Chemicals,$MM/yr,1.182286578,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Electricity,$MM/yr,1.7163e-05,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Employee Salaries,$MM/yr,0.004153739,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Fixed Capital Investment (FCI),$MM,2.900049548,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Grid_Electricity,kWh,3.33981e-06,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Inlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Insurance and Taxes,$MM/yr,0.005413426,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Laboratory,$MM/yr,0.007733465,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Land_Cost,$MM,0.004350074,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Maintenance,$MM/yr,0.023200396,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Outlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Total Capital Investment (TCI),$MM,3.049402099,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Total Fixed Operating Costs,$MM/yr,0.044239392,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Total Variable Operating Costs,$MM/yr,1.182303741,
+Tampa_Bay,Baseline,Ferric_Chloride_FeCl3_Addition,Working Capital,$MM,0.145002477,
+Tampa_Bay,Baseline,Static_Mixer,Base_Employee_Salary_Cost,$MM/yr,3.14398e-05,
+Tampa_Bay,Baseline,Static_Mixer,Base_Fixed_Capital_Cost,$MM,0.020959851,
+Tampa_Bay,Baseline,Static_Mixer,Benefits,$MM/yr,0.000456321,
+Tampa_Bay,Baseline,Static_Mixer,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Electricity,$MM/yr,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Employee Salaries,$MM/yr,0.000507024,
+Tampa_Bay,Baseline,Static_Mixer,Fixed Capital Investment (FCI),$MM,0.106721374,
+Tampa_Bay,Baseline,Static_Mixer,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Grid_Electricity,kWh,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Inlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,Static_Mixer,Insurance and Taxes,$MM/yr,0.000199213,
+Tampa_Bay,Baseline,Static_Mixer,Laboratory,$MM/yr,0.00028459,
+Tampa_Bay,Baseline,Static_Mixer,Land_Cost,$MM,0.000160082,
+Tampa_Bay,Baseline,Static_Mixer,Maintenance,$MM/yr,0.000853771,
+Tampa_Bay,Baseline,Static_Mixer,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Outlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,Static_Mixer,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Total Capital Investment (TCI),$MM,0.112217525,
+Tampa_Bay,Baseline,Static_Mixer,Total Fixed Operating Costs,$MM/yr,0.00230092,
+Tampa_Bay,Baseline,Static_Mixer,Total Variable Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,Static_Mixer,Working Capital,$MM,0.005336069,
+Tampa_Bay,Baseline,ammonia_addition,Base_Employee_Salary_Cost,$MM/yr,0.001086743,
+Tampa_Bay,Baseline,ammonia_addition,Base_Fixed_Capital_Cost,$MM,0.724495372,
+Tampa_Bay,Baseline,ammonia_addition,Benefits,$MM/yr,0.000641165,
+Tampa_Bay,Baseline,ammonia_addition,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,ammonia_addition,Electricity,$MM/yr,3.00696e-06,
+Tampa_Bay,Baseline,ammonia_addition,Employee Salaries,$MM/yr,0.000712406,
+Tampa_Bay,Baseline,ammonia_addition,Fixed Capital Investment (FCI),$MM,0.582296147,
+Tampa_Bay,Baseline,ammonia_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,ammonia_addition,Grid_Electricity,kWh,1.13776e-06,
+Tampa_Bay,Baseline,ammonia_addition,Inlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,ammonia_addition,Insurance and Taxes,$MM/yr,0.001086953,
+Tampa_Bay,Baseline,ammonia_addition,Laboratory,$MM/yr,0.00155279,
+Tampa_Bay,Baseline,ammonia_addition,Land_Cost,$MM,0.000873444,
+Tampa_Bay,Baseline,ammonia_addition,Maintenance,$MM/yr,0.004658369,
+Tampa_Bay,Baseline,ammonia_addition,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,ammonia_addition,Outlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,ammonia_addition,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,ammonia_addition,Total Capital Investment (TCI),$MM,0.612284398,
+Tampa_Bay,Baseline,ammonia_addition,Total Fixed Operating Costs,$MM/yr,0.008651683,
+Tampa_Bay,Baseline,ammonia_addition,Total Variable Operating Costs,$MM/yr,3.00696e-06,
+Tampa_Bay,Baseline,ammonia_addition,Working Capital,$MM,0.029114807,
+Tampa_Bay,Baseline,backwash_solids_handling,Base_Employee_Salary_Cost,$MM/yr,0.014637541,
+Tampa_Bay,Baseline,backwash_solids_handling,Base_Fixed_Capital_Cost,$MM,9.7583604,
+Tampa_Bay,Baseline,backwash_solids_handling,Benefits,$MM/yr,0.01070819,
+Tampa_Bay,Baseline,backwash_solids_handling,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,backwash_solids_handling,Electricity,$MM/yr,0.058037365,
+Tampa_Bay,Baseline,backwash_solids_handling,Employee Salaries,$MM/yr,0.011897989,
+Tampa_Bay,Baseline,backwash_solids_handling,Fixed Capital Investment (FCI),$MM,6.552634915,
+Tampa_Bay,Baseline,backwash_solids_handling,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,backwash_solids_handling,Grid_Electricity,kWh,0.000102399,
+Tampa_Bay,Baseline,backwash_solids_handling,Inlet Water,m3/hr,767.0,
+Tampa_Bay,Baseline,backwash_solids_handling,Insurance and Taxes,$MM/yr,0.012231585,
+Tampa_Bay,Baseline,backwash_solids_handling,Laboratory,$MM/yr,0.017473693,
+Tampa_Bay,Baseline,backwash_solids_handling,Land_Cost,$MM,0.009828952,
+Tampa_Bay,Baseline,backwash_solids_handling,Maintenance,$MM/yr,0.052421079,
+Tampa_Bay,Baseline,backwash_solids_handling,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,backwash_solids_handling,Outlet Water,m3/hr,729.0,
+Tampa_Bay,Baseline,backwash_solids_handling,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,backwash_solids_handling,Total Capital Investment (TCI),$MM,6.890095613,
+Tampa_Bay,Baseline,backwash_solids_handling,Total Fixed Operating Costs,$MM/yr,0.104732536,
+Tampa_Bay,Baseline,backwash_solids_handling,Total Variable Operating Costs,$MM/yr,0.058037365,
+Tampa_Bay,Baseline,backwash_solids_handling,Working Capital,$MM,0.327631746,
+Tampa_Bay,Baseline,cartridge_filtration,Base_Employee_Salary_Cost,$MM/yr,0.00825,
+Tampa_Bay,Baseline,cartridge_filtration,Base_Fixed_Capital_Cost,$MM,5.5,
+Tampa_Bay,Baseline,cartridge_filtration,Benefits,$MM/yr,0.011061597,
+Tampa_Bay,Baseline,cartridge_filtration,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,cartridge_filtration,Electricity,$MM/yr,0.0,
+Tampa_Bay,Baseline,cartridge_filtration,Employee Salaries,$MM/yr,0.012290664,
+Tampa_Bay,Baseline,cartridge_filtration,Fixed Capital Investment (FCI),$MM,7.448033709,
+Tampa_Bay,Baseline,cartridge_filtration,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,cartridge_filtration,Grid_Electricity,kWh,0.0,
+Tampa_Bay,Baseline,cartridge_filtration,Inlet Water,m3/hr,6901.579496,
+Tampa_Bay,Baseline,cartridge_filtration,Insurance and Taxes,$MM/yr,0.013902996,
+Tampa_Bay,Baseline,cartridge_filtration,Laboratory,$MM/yr,0.019861423,
+Tampa_Bay,Baseline,cartridge_filtration,Land_Cost,$MM,0.011172051,
+Tampa_Bay,Baseline,cartridge_filtration,Maintenance,$MM/yr,0.05958427,
+Tampa_Bay,Baseline,cartridge_filtration,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,cartridge_filtration,Outlet Water,m3/hr,6901.579496,
+Tampa_Bay,Baseline,cartridge_filtration,Replacement Parts,$MM/yr,0.060457836,
+Tampa_Bay,Baseline,cartridge_filtration,Total Capital Investment (TCI),$MM,7.831607445,
+Tampa_Bay,Baseline,cartridge_filtration,Total Fixed Operating Costs,$MM/yr,0.11670095,
+Tampa_Bay,Baseline,cartridge_filtration,Total Variable Operating Costs,$MM/yr,0.060457836,
+Tampa_Bay,Baseline,cartridge_filtration,Working Capital,$MM,0.372401685,
+Tampa_Bay,Baseline,lime_softening,Base_Employee_Salary_Cost,$MM/yr,0.023152291,
+Tampa_Bay,Baseline,lime_softening,Base_Fixed_Capital_Cost,$MM,15.43486085,
+Tampa_Bay,Baseline,lime_softening,Benefits,$MM/yr,0.03918229,
+Tampa_Bay,Baseline,lime_softening,Catalysts and Chemicals,$MM/yr,0.357564918,
+Tampa_Bay,Baseline,lime_softening,Electricity,$MM/yr,1.49386e-05,
+Tampa_Bay,Baseline,lime_softening,Employee Salaries,$MM/yr,0.043535877,
+Tampa_Bay,Baseline,lime_softening,Fixed Capital Investment (FCI),$MM,29.83629065,
+Tampa_Bay,Baseline,lime_softening,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,lime_softening,Grid_Electricity,kWh,5.65241e-06,
+Tampa_Bay,Baseline,lime_softening,Inlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,lime_softening,Insurance and Taxes,$MM/yr,0.055694409,
+Tampa_Bay,Baseline,lime_softening,Laboratory,$MM/yr,0.079563442,
+Tampa_Bay,Baseline,lime_softening,Land_Cost,$MM,0.044754436,
+Tampa_Bay,Baseline,lime_softening,Maintenance,$MM/yr,0.238690325,
+Tampa_Bay,Baseline,lime_softening,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,lime_softening,Outlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,lime_softening,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,lime_softening,Total Capital Investment (TCI),$MM,31.37285962,
+Tampa_Bay,Baseline,lime_softening,Total Fixed Operating Costs,$MM/yr,0.456666343,
+Tampa_Bay,Baseline,lime_softening,Total Variable Operating Costs,$MM/yr,0.357579857,
+Tampa_Bay,Baseline,lime_softening,Working Capital,$MM,1.491814533,
+Tampa_Bay,Baseline,municipal_drinking,Base_Employee_Salary_Cost,$MM/yr,0.011072978,
+Tampa_Bay,Baseline,municipal_drinking,Base_Fixed_Capital_Cost,$MM,7.381985478,
+Tampa_Bay,Baseline,municipal_drinking,Benefits,$MM/yr,0.003776704,
+Tampa_Bay,Baseline,municipal_drinking,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,municipal_drinking,Electricity,$MM/yr,0.811879415,
+Tampa_Bay,Baseline,municipal_drinking,Employee Salaries,$MM/yr,0.004196338,
+Tampa_Bay,Baseline,municipal_drinking,Fixed Capital Investment (FCI),$MM,2.223459345,
+Tampa_Bay,Baseline,municipal_drinking,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,municipal_drinking,Grid_Electricity,kWh,0.30719599,
+Tampa_Bay,Baseline,municipal_drinking,Inlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,municipal_drinking,Insurance and Taxes,$MM/yr,0.004150457,
+Tampa_Bay,Baseline,municipal_drinking,Laboratory,$MM/yr,0.005929225,
+Tampa_Bay,Baseline,municipal_drinking,Land_Cost,$MM,0.003335189,
+Tampa_Bay,Baseline,municipal_drinking,Maintenance,$MM/yr,0.017787675,
+Tampa_Bay,Baseline,municipal_drinking,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,municipal_drinking,Outlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,municipal_drinking,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,municipal_drinking,Total Capital Investment (TCI),$MM,2.337967502,
+Tampa_Bay,Baseline,municipal_drinking,Total Fixed Operating Costs,$MM/yr,0.035840399,
+Tampa_Bay,Baseline,municipal_drinking,Total Variable Operating Costs,$MM/yr,0.811879415,
+Tampa_Bay,Baseline,municipal_drinking,Working Capital,$MM,0.111172967,
+Tampa_Bay,Baseline,ro_deep,Base_Employee_Salary_Cost,$MM/yr,0.198321527,
+Tampa_Bay,Baseline,ro_deep,Base_Fixed_Capital_Cost,$MM,132.2143513,
+Tampa_Bay,Baseline,ro_deep,Benefits,$MM/yr,0.215953778,
+Tampa_Bay,Baseline,ro_deep,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,ro_deep,Electricity,$MM/yr,7.464224904,
+Tampa_Bay,Baseline,ro_deep,Employee Salaries,$MM/yr,0.239948642,
+Tampa_Bay,Baseline,ro_deep,Fixed Capital Investment (FCI),$MM,151.2637338,
+Tampa_Bay,Baseline,ro_deep,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,ro_deep,Grid_Electricity,kWh,1.613877922,
+Tampa_Bay,Baseline,ro_deep,Inlet Water,m3/hr,6901.579496,
+Tampa_Bay,Baseline,ro_deep,Insurance and Taxes,$MM/yr,0.28235897,
+Tampa_Bay,Baseline,ro_deep,Laboratory,$MM/yr,0.403369957,
+Tampa_Bay,Baseline,ro_deep,Land_Cost,$MM,0.226895601,
+Tampa_Bay,Baseline,ro_deep,Maintenance,$MM/yr,1.21010987,
+Tampa_Bay,Baseline,ro_deep,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,ro_deep,Outlet Water,m3/hr,3943.759712,
+Tampa_Bay,Baseline,ro_deep,Replacement Parts,$MM/yr,1.209156728,
+Tampa_Bay,Baseline,ro_deep,Total Capital Investment (TCI),$MM,159.0538161,
+Tampa_Bay,Baseline,ro_deep,Total Fixed Operating Costs,$MM/yr,2.351741217,
+Tampa_Bay,Baseline,ro_deep,Total Variable Operating Costs,$MM/yr,8.673381632,
+Tampa_Bay,Baseline,ro_deep,Working Capital,$MM,7.56318669,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Base_Employee_Salary_Cost,$MM/yr,0.000346586,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Base_Fixed_Capital_Cost,$MM,0.231057593,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Benefits,$MM/yr,0.000325695,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Catalysts and Chemicals,$MM/yr,0.080610449,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Electricity,$MM/yr,2.95429e-06,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Employee Salaries,$MM/yr,0.000361884,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Fixed Capital Investment (FCI),$MM,0.233385438,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Grid_Electricity,kWh,5.74886e-07,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Inlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Insurance and Taxes,$MM/yr,0.000435653,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Laboratory,$MM/yr,0.000622361,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Land_Cost,$MM,0.000350078,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Maintenance,$MM/yr,0.001867084,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Outlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Total Capital Investment (TCI),$MM,0.245404788,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Total Fixed Operating Costs,$MM/yr,0.003612676,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Total Variable Operating Costs,$MM/yr,0.080613403,
+Tampa_Bay,Baseline,sulfuric_acid_addition,Working Capital,$MM,0.011669272,
+Tampa_Bay,Baseline,surface_discharge,Base_Employee_Salary_Cost,$MM/yr,0.0525,
+Tampa_Bay,Baseline,surface_discharge,Base_Fixed_Capital_Cost,$MM,35.0,
+Tampa_Bay,Baseline,surface_discharge,Benefits,$MM/yr,0.019571458,
+Tampa_Bay,Baseline,surface_discharge,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,surface_discharge,Electricity,$MM/yr,0.225895217,
+Tampa_Bay,Baseline,surface_discharge,Employee Salaries,$MM/yr,0.021746065,
+Tampa_Bay,Baseline,surface_discharge,Fixed Capital Investment (FCI),$MM,14.46904713,
+Tampa_Bay,Baseline,surface_discharge,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,surface_discharge,Grid_Electricity,kWh,0.102398663,
+Tampa_Bay,Baseline,surface_discharge,Inlet Water,m3/hr,2957.82,
+Tampa_Bay,Baseline,surface_discharge,Insurance and Taxes,$MM/yr,0.027008888,
+Tampa_Bay,Baseline,surface_discharge,Laboratory,$MM/yr,0.038584126,
+Tampa_Bay,Baseline,surface_discharge,Land_Cost,$MM,0.021703571,
+Tampa_Bay,Baseline,surface_discharge,Maintenance,$MM/yr,0.115752377,
+Tampa_Bay,Baseline,surface_discharge,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,surface_discharge,Outlet Water,m3/hr,2957.82,
+Tampa_Bay,Baseline,surface_discharge,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,surface_discharge,Total Capital Investment (TCI),$MM,15.21420306,
+Tampa_Bay,Baseline,surface_discharge,Total Fixed Operating Costs,$MM/yr,0.222662914,
+Tampa_Bay,Baseline,surface_discharge,Total Variable Operating Costs,$MM/yr,0.225895217,
+Tampa_Bay,Baseline,surface_discharge,Working Capital,$MM,0.723452356,
+Tampa_Bay,Baseline,sw_onshore_intake,Base_Employee_Salary_Cost,$MM/yr,0.030739808,
+Tampa_Bay,Baseline,sw_onshore_intake,Base_Fixed_Capital_Cost,$MM,20.49320555,
+Tampa_Bay,Baseline,sw_onshore_intake,Benefits,$MM/yr,0.015464897,
+Tampa_Bay,Baseline,sw_onshore_intake,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,sw_onshore_intake,Electricity,$MM/yr,0.476227416,
+Tampa_Bay,Baseline,sw_onshore_intake,Employee Salaries,$MM/yr,0.017183219,
+Tampa_Bay,Baseline,sw_onshore_intake,Fixed Capital Investment (FCI),$MM,9.724313283,
+Tampa_Bay,Baseline,sw_onshore_intake,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,sw_onshore_intake,Grid_Electricity,kWh/m3,0.102398663,
+Tampa_Bay,Baseline,sw_onshore_intake,Inlet Water,m3/hr,6939.921604,
+Tampa_Bay,Baseline,sw_onshore_intake,Insurance and Taxes,$MM/yr,0.018152051,
+Tampa_Bay,Baseline,sw_onshore_intake,Laboratory,$MM/yr,0.025931502,
+Tampa_Bay,Baseline,sw_onshore_intake,Land_Cost,$MM,0.01458647,
+Tampa_Bay,Baseline,sw_onshore_intake,Maintenance,$MM/yr,0.077794506,
+Tampa_Bay,Baseline,sw_onshore_intake,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,sw_onshore_intake,Outlet Water,m3/hr,6939.921604,
+Tampa_Bay,Baseline,sw_onshore_intake,Replacement Parts,$MM/yr,0.0,
+Tampa_Bay,Baseline,sw_onshore_intake,Total Capital Investment (TCI),$MM,10.22511542,
+Tampa_Bay,Baseline,sw_onshore_intake,Total Fixed Operating Costs,$MM/yr,0.154526176,
+Tampa_Bay,Baseline,sw_onshore_intake,Total Variable Operating Costs,$MM/yr,0.476227416,
+Tampa_Bay,Baseline,sw_onshore_intake,Working Capital,$MM,0.486215664,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Base_Employee_Salary_Cost,$MM/yr,0.00825,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Base_Fixed_Capital_Cost,$MM,5.5,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Benefits,$MM/yr,0.011908254,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Catalysts and Chemicals,$MM/yr,0.0,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Electricity,$MM/yr,1.018168508,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Employee Salaries,$MM/yr,0.013231393,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Fixed Capital Investment (FCI),$MM,7.922544268,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Fuel and Other Utilities,$MM/yr,0.0,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Grid_Electricity,kWh,0.198129039,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Inlet Water,m3/hr,7668.421662,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Insurance and Taxes,$MM/yr,0.014788749,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Laboratory,$MM/yr,0.021126785,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Land_Cost,$MM,0.011883816,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Maintenance,$MM/yr,0.063380354,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Other Operating Costs,$MM/yr,0.0,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Outlet Water,m3/hr,6901.579496,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Replacement Parts,$MM/yr,0.530933828,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Total Capital Investment (TCI),$MM,8.330555298,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Total Fixed Operating Costs,$MM/yr,0.124435535,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Total Variable Operating Costs,$MM/yr,1.549102336,
+Tampa_Bay,Baseline,tri_media_filtration_with_backflush,Working Capital,$MM,0.396127213,

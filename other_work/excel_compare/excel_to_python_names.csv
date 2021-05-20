@@ -1,0 +1,44 @@
+Excel_variable,Python_variable,Unit
+Fixed Capital Investment (FCI),fixed_cap_inv,$MM
+Land,land_cost,$MM
+Working Capital,working_cap,$MM
+Total Capital Investment (TCI),total_cap_investment,$MM
+Catalysts and Chemicals,cat_and_chem_cost,$MM/yr
+Electricity,electricity_cost,$MM/yr
+Fuel and Other Utilities,(none),$MM/yr
+Replacement Parts,(none),$MM/yr
+Other Operating,other_var_cost,$MM/yr
+Total Variable Operating,(none),$MM/yr
+Employee Salaries,salaries,$MM/yr
+Benefits,benefits,$MM/yr
+Maintenance,maintenance,$MM/yr
+Laboratory,lab,$MM/yr
+Insurance and Taxes,insurance_taxes,$MM/yr
+Total Fixed Operating ,total_fixed_op_cost,$MM/yr
+Capacity_Basis_for_Fixed_Capital_Cost,(none),0
+Base_Fixed_Capital_Cost,(none),$MM
+Capital_Scaling_Exponent,(none),0
+Base Employee Salary,base_employee_salary_cost,$MM/yr
+Fixed_Op_Cost_Scaling_Exponent,fixed_op_cost_scaling_exp,0
+Basis_Year,base_year,0
+Capital_and_Replacement_Parts,cap_replacement_parts,0
+Catalysts_and_Chemicals,catalysts_chemicals,0
+Labor_and_Other_Fixed_Costs,labor_and_other_fixed,0
+Consumer_Price_Index,consumer_price_index,0
+Electricity consumption,electricity,kWh/m3
+Inlet Water,flow_vol_in,m3/hr
+Outlet Water,flow_vol_out,m3/hr
+Total Cost,(none),$MM
+Fixed Capital Investment (FCI),capital_investment_total,$MM
+Catalysts and Chemicals,cat_and_chem_cost_total,$MM
+Electricity,electricity_cost_total,$MM
+Other Variable Operating,other_var_cost_total,$MM
+Fixed Operating,fixed_op_cost_total,$MM
+Total Operating,operating_cost_total,$MM
+Capital Investment,capital_investment_annual,$MM/yr
+Catalysts and Chemicals,cat_and_chem_cost_annual,$MM/yr
+Electricity,electricity_cost_annual,$MM/yr
+Other Variable Operating,other_var_cost_annual,$MM/yr
+Fixed Operating,fixed_op_cost_annual,$MM/yr
+Total Operating Cost,operating_cost_annual,$MM/yr
+Levelized Cost,LCOW,$/m3

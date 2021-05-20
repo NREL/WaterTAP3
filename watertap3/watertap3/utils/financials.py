@@ -10,6 +10,9 @@
 # license information, respectively. Both files are also available online
 # at the URL 'https://github.com/IDAES/idaes-pse'.
 ##############################################################################
+'''
+Here is a docstring.
+'''
 
 import pandas as pd
 from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
