@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -97,14 +100,14 @@
 <li class="toctree-l3 current"><a class="reference internal" href="watertap3.html">watertap3 package</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="watertap3.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="watertap3.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="watertap3.html#watertap3-water-props-block-module">watertap3.water_props_block module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="watertap3.html#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="watertap3.html#module-watertap3.water_props_block">watertap3.water_props_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="watertap3.html#module-watertap3">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">watertap3.utils package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.app3">watertap3.utils.app3 module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#watertap3-utils-case-study-trains-module">watertap3.utils.case_study_trains module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.case_study_trains">watertap3.utils.case_study_trains module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.constituent_removal_water_recovery">watertap3.utils.constituent_removal_water_recovery module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.cost_curves">watertap3.utils.cost_curves module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.design">watertap3.utils.design module</a></li>
@@ -124,11 +127,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.source_example">watertap3.utils.source_example module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.split_test2">watertap3.utils.split_test2 module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.splitter_mar1">watertap3.utils.splitter_mar1 module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#watertap3-utils-tap-config-block-module">watertap3.utils.tap_config_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.tap_config_block">watertap3.utils.tap_config_block module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#watertap3-utils-unit-process-equations-module">watertap3.utils.unit_process_equations module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#watertap3-utils-water-props-module">watertap3.utils.water_props module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#watertap3-utils-watertap-module">watertap3.utils.watertap module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.water_props">watertap3.utils.water_props module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils.watertap">watertap3.utils.watertap module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-watertap3.utils">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="watertap3.wt_units.html">watertap3.wt_units package</a></li>
@@ -136,6 +139,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="unit_models/index.html">Unit Models</a></li>
 </ul>
 
             
@@ -215,68 +219,118 @@
 <div class="section" id="module-watertap3.utils.app3">
 <span id="watertap3-utils-app3-module"></span><h2>watertap3.utils.app3 module<a class="headerlink" href="#module-watertap3.utils.app3" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.app3.run_dash">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.app3.</span></code><code class="sig-name descname"><span class="pre">run_dash</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.app3.run_dash" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.app3.run_dash">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.app3.</span></span><span class="sig-name descname"><span class="pre">run_dash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.app3.run_dash" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
-<div class="section" id="watertap3-utils-case-study-trains-module">
-<h2>watertap3.utils.case_study_trains module<a class="headerlink" href="#watertap3-utils-case-study-trains-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-watertap3.utils.case_study_trains">
+<span id="watertap3-utils-case-study-trains-module"></span><h2>watertap3.utils.case_study_trains module<a class="headerlink" href="#module-watertap3.utils.case_study_trains" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.add_waste_streams">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">add_waste_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pfd_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.add_waste_streams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.check_split_mixer_need">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">check_split_mixer_need</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.check_split_mixer_need" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.create_arc_dict">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">create_arc_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pfd_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.create_arc_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.create_arcs">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">create_arcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.create_arcs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.create_mixers">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">create_mixers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.create_mixers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.create_splitters">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">create_splitters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.create_splitters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.filter_df">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">filter_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.filter_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.get_case_study">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">get_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.get_case_study" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.get_def_source">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">get_def_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.get_def_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.case_study_trains.get_pfd_dict">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.case_study_trains.</span></span><span class="sig-name descname"><span class="pre">get_pfd_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_units</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.case_study_trains.get_pfd_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-watertap3.utils.constituent_removal_water_recovery">
 <span id="watertap3-utils-constituent-removal-water-recovery-module"></span><h2>watertap3.utils.constituent_removal_water_recovery module<a class="headerlink" href="#module-watertap3.utils.constituent_removal_water_recovery" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.constituent_removal_water_recovery.create">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.constituent_removal_water_recovery.</span></code><code class="sig-name descname"><span class="pre">create</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.constituent_removal_water_recovery.create" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.constituent_removal_water_recovery.create">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.constituent_removal_water_recovery.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.constituent_removal_water_recovery.create" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.cost_curves">
 <span id="watertap3-utils-cost-curves-module"></span><h2>watertap3.utils.cost_curves module<a class="headerlink" href="#module-watertap3.utils.cost_curves" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.cost_curves.basic_unit">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.cost_curves.</span></code><code class="sig-name descname"><span class="pre">basic_unit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_specific</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.cost_curves.basic_unit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.cost_curves.basic_unit">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.cost_curves.</span></span><span class="sig-name descname"><span class="pre">basic_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_specific</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.cost_curves.basic_unit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.cost_curves.cost_curve">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.cost_curves.</span></code><code class="sig-name descname"><span class="pre">cost_curve</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.cost_curves.cost_curve" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.cost_curves.cost_curve">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.cost_curves.</span></span><span class="sig-name descname"><span class="pre">cost_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.cost_curves.cost_curve" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.design">
 <span id="watertap3-utils-design-module"></span><h2>watertap3.utils.design module<a class="headerlink" href="#module-watertap3.utils.design" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.design.add_mixer">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></code><code class="sig-name descname"><span class="pre">add_mixer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_mixer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.design.add_mixer">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></span><span class="sig-name descname"><span class="pre">add_mixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_mixer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.design.add_splitter">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></code><code class="sig-name descname"><span class="pre">add_splitter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_fractions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unfix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_splitter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.design.add_splitter">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></span><span class="sig-name descname"><span class="pre">add_splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_fractions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unfix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_splitter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.design.add_unit_process">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></code><code class="sig-name descname"><span class="pre">add_unit_process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_unit_process" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.design.add_unit_process">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></span><span class="sig-name descname"><span class="pre">add_unit_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_unit_process" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.design.add_water_source">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></code><code class="sig-name descname"><span class="pre">add_water_source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_water_source" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.design.add_water_source">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.design.</span></span><span class="sig-name descname"><span class="pre">add_water_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.design.add_water_source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.display">
 <span id="watertap3-utils-display-module"></span><h2>watertap3.utils.display module<a class="headerlink" href="#module-watertap3.utils.display" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.display.show_train2">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.display.</span></code><code class="sig-name descname"><span class="pre">show_train2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GG</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.display.show_train2" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.display.show_train2">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.display.</span></span><span class="sig-name descname"><span class="pre">show_train2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GG</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.display.show_train2" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.display.treatment_train_graph">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.display.</span></code><code class="sig-name descname"><span class="pre">treatment_train_graph</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_recycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.display.treatment_train_graph" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.display.treatment_train_graph">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.display.</span></span><span class="sig-name descname"><span class="pre">treatment_train_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_recycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.display.treatment_train_graph" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -285,120 +339,120 @@
 </div>
 <div class="section" id="module-watertap3.utils.financials">
 <span id="watertap3-utils-financials-module"></span><h2>watertap3.utils.financials module<a class="headerlink" href="#module-watertap3.utils.financials" title="Permalink to this headline">¶</a></h2>
-<p>Here is a docstring.</p>
+<p>This is fairly basic at this stage, as I didn’t try too hard to understand the
+calcualtions.</p>
+<p>Note that costing in IDAES is still a fairly new feature, and is still in the
+prototype phase. Notably, we have only really looked at capital costs so far,
+and there is probably a alack of support for operating costs for now.</p>
+<p>However, this is where you would write methods for calculating costs for each
+type of unit operation. The goal would be to write these in a way that would
+work for both WaterTAP3 and ProteusLib. This should be possible as long as we
+clearly document what variables are required for the cost methods and what they
+are called (ideally using the standard IDAES naming conventions where
+appropriate)</p>
 <dl class="py class">
-<dt id="watertap3.utils.financials.SystemSpecs">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">SystemSpecs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.SystemSpecs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.financials.SystemSpecs">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></span><span class="sig-name descname"><span class="pre">SystemSpecs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.SystemSpecs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.financials.get_complete_costing">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_complete_costing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_complete_costing" title="Permalink to this definition">¶</a></dt>
-<dd><p>This is an example of docstring.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>param1: This is the first param.
-param2: This is a second param.</p>
-</dd>
-<dt>Returns:</dt><dd><p>This is a description of what is returned.</p>
-</dd>
-<dt>Raises:</dt><dd><p>KeyError: Raises an exception.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="watertap3.utils.financials.get_ind_table">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_ind_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_yr_cost_indicies</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_ind_table" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.financials.get_complete_costing">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></span><span class="sig-name descname"><span class="pre">get_complete_costing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_complete_costing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.financials.get_system_costing">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_system_costing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_costing" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.financials.get_ind_table">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></span><span class="sig-name descname"><span class="pre">get_ind_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_yr_cost_indicies</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_ind_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.financials.get_system_specs">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">get_system_specs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_specs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.financials.get_system_costing">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></span><span class="sig-name descname"><span class="pre">get_system_costing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_costing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.financials.global_costing_parameters">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></code><code class="sig-name descname"><span class="pre">global_costing_parameters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.global_costing_parameters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.financials.get_system_specs">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></span><span class="sig-name descname"><span class="pre">get_system_specs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.get_system_specs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.financials.global_costing_parameters">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.financials.</span></span><span class="sig-name descname"><span class="pre">global_costing_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.financials.global_costing_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.generate_constituent_list">
 <span id="watertap3-utils-generate-constituent-list-module"></span><h2>watertap3.utils.generate_constituent_list module<a class="headerlink" href="#module-watertap3.utils.generate_constituent_list" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.generate_constituent_list.get_def_source">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.generate_constituent_list.</span></code><code class="sig-name descname"><span class="pre">get_def_source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.generate_constituent_list.get_def_source" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.generate_constituent_list.get_def_source">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.generate_constituent_list.</span></span><span class="sig-name descname"><span class="pre">get_def_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.generate_constituent_list.get_def_source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.generate_constituent_list.get_removal_factors">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.generate_constituent_list.</span></code><code class="sig-name descname"><span class="pre">get_removal_factors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.generate_constituent_list.get_removal_factors" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.generate_constituent_list.get_removal_factors">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.generate_constituent_list.</span></span><span class="sig-name descname"><span class="pre">get_removal_factors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.generate_constituent_list.get_removal_factors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.generate_constituent_list.run">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.generate_constituent_list.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m_fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.generate_constituent_list.run" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.generate_constituent_list.run">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.generate_constituent_list.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m_fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.generate_constituent_list.run" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.get_graph_chars">
 <span id="watertap3-utils-get-graph-chars-module"></span><h2>watertap3.utils.get_graph_chars module<a class="headerlink" href="#module-watertap3.utils.get_graph_chars" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_all_none_source_end_nodes">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_all_none_source_end_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_all_none_source_end_nodes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_all_none_source_end_nodes">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_all_none_source_end_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_all_none_source_end_nodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_inflow_links">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_inflow_links</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_inflow_links" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_inflow_links">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_inflow_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_inflow_links" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_link_df">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_link_df</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_link_df" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_link_df">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_link_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_link_df" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_link_list">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_link_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_link_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_link_list">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_link_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_link_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_outflow_links">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_outflow_links</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_outflow_links" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_outflow_links">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_outflow_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_outflow_links" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_recovered_water_nodes">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_recovered_water_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_recovered_water_nodes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_recovered_water_nodes">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_recovered_water_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_recovered_water_nodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_source_nodes">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_source_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_source_nodes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_source_nodes">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_source_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_source_nodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_unit_process_name_list">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_unit_process_name_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_unit_process_name_list" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_unit_process_name_list">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_unit_process_name_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_unit_process_name_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.get_graph_chars.get_unit_process_name_list_for_set_up">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></code><code class="sig-name descname"><span class="pre">get_unit_process_name_list_for_set_up</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_unit_process_name_list_for_set_up" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.get_graph_chars.get_unit_process_name_list_for_set_up">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.get_graph_chars.</span></span><span class="sig-name descname"><span class="pre">get_unit_process_name_list_for_set_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_graph_chars.get_unit_process_name_list_for_set_up" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.importfile">
 <span id="watertap3-utils-importfile-module"></span><h2>watertap3.utils.importfile module<a class="headerlink" href="#module-watertap3.utils.importfile" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.importfile.feedwater">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.importfile.</span></code><code class="sig-name descname"><span class="pre">feedwater</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.importfile.feedwater" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.importfile.feedwater">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.importfile.</span></span><span class="sig-name descname"><span class="pre">feedwater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.importfile.feedwater" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -406,8 +460,8 @@ param2: This is a second param.</p>
 <span id="watertap3-utils-mixer-example-module"></span><h2>watertap3.utils.mixer_example module<a class="headerlink" href="#module-watertap3.utils.mixer_example" title="Permalink to this headline">¶</a></h2>
 <p>General purpose mixer block for IDAES models</p>
 <dl class="py class">
-<dt id="watertap3.utils.mixer_example.Mixer">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.mixer_example.</span></code><code class="sig-name descname"><span class="pre">Mixer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.mixer_example.Mixer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.mixer_example.Mixer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.mixer_example.</span></span><span class="sig-name descname"><span class="pre">Mixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.mixer_example.Mixer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
 <dl>
 <dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
@@ -519,8 +573,8 @@ BlockData index exactly to the index in initialize.</p>
 <span id="watertap3-utils-mixer-mar5-module"></span><h2>watertap3.utils.mixer_mar5 module<a class="headerlink" href="#module-watertap3.utils.mixer_mar5" title="Permalink to this headline">¶</a></h2>
 <p>Demonstration zeroth-order model for WaterTAP3</p>
 <dl class="py class">
-<dt id="watertap3.utils.mixer_mar5.UnitProcess">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.mixer_mar5.</span></code><code class="sig-name descname"><span class="pre">UnitProcess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.mixer_mar5.UnitProcess" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.mixer_mar5.UnitProcess">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.mixer_mar5.</span></span><span class="sig-name descname"><span class="pre">UnitProcess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.mixer_mar5.UnitProcess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
 <dl>
 <dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
@@ -572,73 +626,73 @@ BlockData index exactly to the index in initialize.</p>
 <div class="section" id="module-watertap3.utils.ml_regression">
 <span id="watertap3-utils-ml-regression-module"></span><h2>watertap3.utils.ml_regression module<a class="headerlink" href="#module-watertap3.utils.ml_regression" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.ml_regression.get_cost_curve_coefs">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></code><code class="sig-name descname"><span class="pre">get_cost_curve_coefs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.get_cost_curve_coefs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.ml_regression.get_cost_curve_coefs">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></span><span class="sig-name descname"><span class="pre">get_cost_curve_coefs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.get_cost_curve_coefs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.ml_regression.get_linear_regression">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></code><code class="sig-name descname"><span class="pre">get_linear_regression</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.get_linear_regression" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.ml_regression.get_linear_regression">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></span><span class="sig-name descname"><span class="pre">get_linear_regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.get_linear_regression" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.ml_regression.make_df_for_ml">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></code><code class="sig-name descname"><span class="pre">make_df_for_ml</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.make_df_for_ml" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.ml_regression.make_df_for_ml">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></span><span class="sig-name descname"><span class="pre">make_df_for_ml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.make_df_for_ml" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.ml_regression.make_simple_poly">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></code><code class="sig-name descname"><span class="pre">make_simple_poly</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.make_simple_poly" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.ml_regression.make_simple_poly">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.ml_regression.</span></span><span class="sig-name descname"><span class="pre">make_simple_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.ml_regression.make_simple_poly" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.module_import">
 <span id="watertap3-utils-module-import-module"></span><h2>watertap3.utils.module_import module<a class="headerlink" href="#module-watertap3.utils.module_import" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.module_import.get_module">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.module_import.</span></code><code class="sig-name descname"><span class="pre">get_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.module_import.get_module" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.module_import.get_module">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.module_import.</span></span><span class="sig-name descname"><span class="pre">get_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.module_import.get_module" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.optimize_setup">
 <span id="watertap3-utils-optimize-setup-module"></span><h2>watertap3.utils.optimize_setup module<a class="headerlink" href="#module-watertap3.utils.optimize_setup" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.optimize_setup.splitter_streams">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.optimize_setup.</span></code><code class="sig-name descname"><span class="pre">splitter_streams</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.optimize_setup.splitter_streams" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.optimize_setup.splitter_streams">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.optimize_setup.</span></span><span class="sig-name descname"><span class="pre">splitter_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.optimize_setup.splitter_streams" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.post_processing">
 <span id="watertap3-utils-post-processing-module"></span><h2>watertap3.utils.post_processing module<a class="headerlink" href="#module-watertap3.utils.post_processing" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.post_processing.combine_case_study_results">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.post_processing.</span></code><code class="sig-name descname"><span class="pre">combine_case_study_results</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.post_processing.combine_case_study_results" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.post_processing.combine_case_study_results">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.post_processing.</span></span><span class="sig-name descname"><span class="pre">combine_case_study_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.post_processing.combine_case_study_results" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.post_processing.compare_with_excel">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.post_processing.</span></code><code class="sig-name descname"><span class="pre">compare_with_excel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">excel_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.post_processing.compare_with_excel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.post_processing.compare_with_excel">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.post_processing.</span></span><span class="sig-name descname"><span class="pre">compare_with_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">excel_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.post_processing.compare_with_excel" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="watertap3.utils.post_processing.get_results_table">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.post_processing.</span></code><code class="sig-name descname"><span class="pre">get_results_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.post_processing.get_results_table" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.post_processing.get_results_table">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.post_processing.</span></span><span class="sig-name descname"><span class="pre">get_results_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.post_processing.get_results_table" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.sensitivity_runs">
 <span id="watertap3-utils-sensitivity-runs-module"></span><h2>watertap3.utils.sensitivity_runs module<a class="headerlink" href="#module-watertap3.utils.sensitivity_runs" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="watertap3.utils.sensitivity_runs.get_fixed_onm_reduction">
-<code class="sig-prename descclassname"><span class="pre">watertap3.utils.sensitivity_runs.</span></code><code class="sig-name descname"><span class="pre">get_fixed_onm_reduction</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.sensitivity_runs.get_fixed_onm_reduction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.sensitivity_runs.get_fixed_onm_reduction">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.sensitivity_runs.</span></span><span class="sig-name descname"><span class="pre">get_fixed_onm_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction_value_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.sensitivity_runs.get_fixed_onm_reduction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-watertap3.utils.source_example">
 <span id="watertap3-utils-source-example-module"></span><h2>watertap3.utils.source_example module<a class="headerlink" href="#module-watertap3.utils.source_example" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="watertap3.utils.source_example.Source">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.source_example.</span></code><code class="sig-name descname"><span class="pre">Source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.Source" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.source_example.Source">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.source_example.</span></span><span class="sig-name descname"><span class="pre">Source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.Source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
 <dl>
 <dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
@@ -687,18 +741,18 @@ BlockData index exactly to the index in initialize.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="watertap3.utils.source_example.SourceData">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.source_example.</span></code><code class="sig-name descname"><span class="pre">SourceData</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.SourceData" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.source_example.SourceData">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.source_example.</span></span><span class="sig-name descname"><span class="pre">SourceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.SourceData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.unit_model.UnitModelBlockData</span></code></p>
 <p>This class describes the rules for a zeroth-order model for a NF unit</p>
 <dl class="py attribute">
-<dt id="watertap3.utils.source_example.SourceData.CONFIG">
-<code class="sig-name descname"><span class="pre">CONFIG</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;pyutilib.misc.config.ConfigDict</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#watertap3.utils.source_example.SourceData.CONFIG" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.source_example.SourceData.CONFIG">
+<span class="sig-name descname"><span class="pre">CONFIG</span></span><em class="property"> <span class="pre">=</span> <span class="pre">&lt;pyutilib.misc.config.ConfigDict</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#watertap3.utils.source_example.SourceData.CONFIG" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="watertap3.utils.source_example.SourceData.build">
-<code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.SourceData.build" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.source_example.SourceData.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.SourceData.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>General build method for UnitModelBlockData. This method calls a number
 of sub-methods which automate the construction of expected attributes
 of unit models.</p>
@@ -712,8 +766,8 @@ of unit models.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="watertap3.utils.source_example.SourceData.set_source">
-<code class="sig-name descname"><span class="pre">set_source</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.SourceData.set_source" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.source_example.SourceData.set_source">
+<span class="sig-name descname"><span class="pre">set_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.source_example.SourceData.set_source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -723,8 +777,8 @@ of unit models.</p>
 <span id="watertap3-utils-split-test2-module"></span><h2>watertap3.utils.split_test2 module<a class="headerlink" href="#module-watertap3.utils.split_test2" title="Permalink to this headline">¶</a></h2>
 <p>General purpose separator block for IDAES models</p>
 <dl class="py class">
-<dt id="watertap3.utils.split_test2.Separator">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.split_test2.</span></code><code class="sig-name descname"><span class="pre">Separator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.split_test2.Separator" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.split_test2.Separator">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.split_test2.</span></span><span class="sig-name descname"><span class="pre">Separator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.split_test2.Separator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
 <dl>
 <dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
@@ -834,8 +888,8 @@ BlockData index exactly to the index in initialize.</p>
 <div class="section" id="module-watertap3.utils.splitter_mar1">
 <span id="watertap3-utils-splitter-mar1-module"></span><h2>watertap3.utils.splitter_mar1 module<a class="headerlink" href="#module-watertap3.utils.splitter_mar1" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="watertap3.utils.splitter_mar1.Splitter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">watertap3.utils.splitter_mar1.</span></code><code class="sig-name descname"><span class="pre">Splitter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.splitter_mar1.Splitter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="watertap3.utils.splitter_mar1.Splitter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.splitter_mar1.</span></span><span class="sig-name descname"><span class="pre">Splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.splitter_mar1.Splitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
 <dl>
 <dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
@@ -884,20 +938,829 @@ BlockData index exactly to the index in initialize.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="watertap3-utils-tap-config-block-module">
-<h2>watertap3.utils.tap_config_block module<a class="headerlink" href="#watertap3-utils-tap-config-block-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-watertap3.utils.tap_config_block">
+<span id="watertap3-utils-tap-config-block-module"></span><h2>watertap3.utils.tap_config_block module<a class="headerlink" href="#module-watertap3.utils.tap_config_block" title="Permalink to this headline">¶</a></h2>
+<p>Demonstration zeroth-order model for WaterTAP3</p>
 </div>
 <div class="section" id="watertap3-utils-unit-process-equations-module">
 <h2>watertap3.utils.unit_process_equations module<a class="headerlink" href="#watertap3-utils-unit-process-equations-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="watertap3-utils-water-props-module">
-<h2>watertap3.utils.water_props module<a class="headerlink" href="#watertap3-utils-water-props-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-watertap3.utils.water_props">
+<span id="watertap3-utils-water-props-module"></span><h2>watertap3.utils.water_props module<a class="headerlink" href="#module-watertap3.utils.water_props" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.water_props.WaterParameterBlock">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.water_props.</span></span><span class="sig-name descname"><span class="pre">WaterParameterBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.water_props.WaterParameterBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>default_arguments</dt><dd><p>Default arguments to use with Property Package</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(WaterParameterBlock) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.water_props.WaterStateBlock">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.water_props.</span></span><span class="sig-name descname"><span class="pre">WaterStateBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.water_props.WaterStateBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>parameters</dt><dd><p>A reference to an instance of the Property Parameter Block
+associated with this property package.</p>
+</dd>
+<dt>defined_state</dt><dd><p>Flag indicating whether the state should be considered
+fully defined, and thus whether constraints such as sum of
+mass/mole fractions should be included, <strong>default</strong> -
+False. <strong>Valid values:</strong> { <strong>True</strong> - state variables will
+be fully defined, <strong>False</strong> - state variables will not be
+fully defined.}</p>
+</dd>
+<dt>has_phase_equilibrium</dt><dd><p>Flag indicating whether phase equilibrium constraints
+should be constructed in this state block, <strong>default</strong> -
+True. <strong>Valid values:</strong> { <strong>True</strong> - StateBlock should
+calculate phase equilibrium, <strong>False</strong> - StateBlock should
+not calculate phase equilibrium.}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(WaterStateBlock) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="watertap3-utils-watertap-module">
-<h2>watertap3.utils.watertap module<a class="headerlink" href="#watertap3-utils-watertap-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-watertap3.utils.watertap">
+<span id="watertap3-utils-watertap-module"></span><h2>watertap3.utils.watertap module<a class="headerlink" href="#module-watertap3.utils.watertap" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.print_results">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">print_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_model_results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.print_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.print_ro_results">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">print_ro_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.print_ro_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.run_model">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">run_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_model_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_solution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.run_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.run_sensitivity">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">run_sensitivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small_sens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.run_sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.run_water_tap">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">run_water_tap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_model_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialize_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_solution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.run_water_tap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.run_water_tap_ro">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">run_water_tap_ro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_water_category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_recovery</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ro_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.run_water_tap_ro" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.set_bounds">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">set_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_water_category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.set_bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.unset_bounds">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">unset_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.unset_bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap.watertap_setup">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.watertap.</span></span><span class="sig-name descname"><span class="pre">watertap_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap.watertap_setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-watertap3.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-watertap3.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.Mixer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">Mixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.Mixer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>dynamic</dt><dd><p>Indicates whether this model will be dynamic or not,
+<strong>default</strong> = False. Mixer1 blocks are always steady-
+state.</p>
+</dd>
+<dt>has_holdup</dt><dd><p>Mixer1 blocks do not contain holdup, thus this must be
+False.</p>
+</dd>
+<dt>property_package</dt><dd><p>Property parameter object used to define property
+calculations, <strong>default</strong> - useDefault. <strong>Valid values:</strong>
+{ <strong>useDefault</strong> - use default package from parent model
+or flowsheet, <strong>PropertyParameterObject</strong> - a
+PropertyParameterBlock object.}</p>
+</dd>
+<dt>property_package_args</dt><dd><p>A ConfigBlock with arguments to be passed to a property
+block(s) and used when constructing these, <strong>default</strong> -
+None. <strong>Valid values:</strong> { see property package for
+documentation.}</p>
+</dd>
+<dt>inlet_list</dt><dd><p>A list containing names of inlets, <strong>default</strong> - None.
+<strong>Valid values:</strong> { <strong>None</strong> - use num_inlets argument,
+<strong>list</strong> - a list of names to use for inlets.}</p>
+</dd>
+<dt>num_inlets</dt><dd><p>Argument indicating number (int) of inlets to construct,
+not used if inlet_list arg is provided, <strong>default</strong> -
+None. <strong>Valid values:</strong> { <strong>None</strong> - use inlet_list arg
+instead, or default to 2 if neither argument provided,
+<strong>int</strong> - number of inlets to create (will be named with
+sequential integers from 1 to num_inlets).}</p>
+</dd>
+<dt>has_phase_equilibrium</dt><dd><p>Argument indicating whether phase equilibrium should be
+calculated for the resulting mixed stream, <strong>default</strong> -
+False. <strong>Valid values:</strong> { <strong>True</strong> - calculate phase
+equilibrium in mixed stream, <strong>False</strong> - do not calculate
+equilibrium in mixed stream.}</p>
+</dd>
+<dt>material_mixing_type</dt><dd><p>Argument indicating what method to use when mixing
+material flows of incoming streams, <strong>default</strong> -
+MixingType.extensive. <strong>Valid values:</strong> {
+<strong>MixingType.none</strong> - do not include material mixing
+equations, <strong>MixingType.extensive</strong> - mix total flows of
+each phase-component pair.}</p>
+</dd>
+<dt>energy_mixing_type</dt><dd><p>Argument indicating what method to use when mixing energy
+flows of incoming streams, <strong>default</strong> -
+MixingType.extensive. <strong>Valid values:</strong> {
+<strong>MixingType.none</strong> - do not include energy mixing
+equations, <strong>MixingType.extensive</strong> - mix total enthalpy
+flows of each phase.}</p>
+</dd>
+<dt>momentum_mixing_type</dt><dd><p>Argument indicating what method to use when mixing
+momentum/ pressure of incoming streams, <strong>default</strong> -
+MomentumMixingType.minimize. <strong>Valid values:</strong> {
+<strong>MomentumMixingType.none</strong> - do not include momentum
+mixing equations, <strong>MomentumMixingType.minimize</strong> - mixed
+stream has pressure equal to the minimimum pressure of the
+incoming streams (uses smoothMin operator),
+<strong>MomentumMixingType.equality</strong> - enforces equality of
+pressure in mixed and all incoming streams.,
+<strong>MomentumMixingType.minimize_and_equality</strong> - add
+constraints for pressure equal to the minimum pressure of
+the inlets and constraints for equality of pressure in
+mixed and all incoming streams. When the model is
+initially built, the equality constraints are deactivated.
+This option is useful for switching between flow and
+pressure driven simulations.}</p>
+</dd>
+<dt>mixed_state_block</dt><dd><p>An existing state block to use as the outlet stream from
+the Mixer1 block, <strong>default</strong> - None. <strong>Valid values:</strong> {
+<strong>None</strong> - create a new StateBlock for the mixed stream,
+<strong>StateBlock</strong> - a StateBock to use as the destination for
+the mixed stream.}</p>
+</dd>
+<dt>construct_ports</dt><dd><p>Argument indicating whether model should construct Port
+objects linked to all inlet states and the mixed state,
+<strong>default</strong> - True. <strong>Valid values:</strong> { <strong>True</strong> -
+construct Ports for all states, <strong>False</strong> - do not
+construct Ports.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(Mixer) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.Separator">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">Separator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.Separator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>dynamic</dt><dd><p>Indicates whether this model will be dynamic or not,
+<strong>default</strong> = False. Product blocks are always steady-
+state.</p>
+</dd>
+<dt>has_holdup</dt><dd><p>Product blocks do not contain holdup, thus this must be
+False.</p>
+</dd>
+<dt>property_package</dt><dd><p>Property parameter object used to define property
+calculations, <strong>default</strong> - useDefault. <strong>Valid values:</strong>
+{ <strong>useDefault</strong> - use default package from parent model
+or flowsheet, <strong>PropertyParameterObject</strong> - a
+PropertyParameterBlock object.}</p>
+</dd>
+<dt>property_package_args</dt><dd><p>A ConfigBlock with arguments to be passed to a property
+block(s) and used when constructing these, <strong>default</strong> -
+None. <strong>Valid values:</strong> { see property package for
+documentation.}</p>
+</dd>
+<dt>outlet_list</dt><dd><p>A list containing names of outlets, <strong>default</strong> - None.
+<strong>Valid values:</strong> { <strong>None</strong> - use num_outlets argument,
+<strong>list</strong> - a list of names to use for outlets.}</p>
+</dd>
+<dt>num_outlets</dt><dd><p>Argument indicating number (int) of outlets to construct,
+not used if outlet_list arg is provided, <strong>default</strong> -
+None. <strong>Valid values:</strong> { <strong>None</strong> - use outlet_list arg
+instead, or default to 2 if neither argument provided,
+<strong>int</strong> - number of outlets to create (will be named with
+sequential integers from 1 to num_outlets).}</p>
+</dd>
+<dt>split_basis</dt><dd><p>Argument indicating basis to use for splitting mixed
+stream, <strong>default</strong> - SplittingType.totalFlow. <strong>Valid
+values:</strong> { <strong>SplittingType.totalFlow</strong> - split based on
+total flow (split fraction indexed only by time and
+outlet), <strong>SplittingType.phaseFlow</strong> - split based on
+phase flows (split fraction indexed by time, outlet and
+phase), <strong>SplittingType.componentFlow</strong> - split based on
+component flows (split fraction indexed by time, outlet
+and components), <strong>SplittingType.phaseComponentFlow</strong> -
+split based on phase-component flows ( split fraction
+indexed by both time, outlet, phase and components).}</p>
+</dd>
+<dt>energy_split_basis</dt><dd><p>Argument indicating basis to use for splitting energy this
+is not used for when ideal_separation == True. <strong>default</strong>
+- EnergySplittingType.equal_temperature. <strong>Valid values:</strong>
+{ <strong>EnergySplittingType.equal_temperature</strong> - outlet
+temperatures equal inlet
+<strong>EnergySplittingType.equal_molar_enthalpy</strong> - oulet molar
+enthalpies equal inlet}</p>
+</dd>
+<dt>ideal_separation</dt><dd><p>Argument indicating whether ideal splitting should be
+used. Ideal splitting assumes perfect spearation of
+material, and attempts to avoid duplication of StateBlocks
+by directly partitioning outlet flows to ports,
+<strong>default</strong> - True. <strong>Valid values:</strong> { <strong>True</strong> - use
+ideal splitting methods, <strong>False</strong> - use explicit
+splitting equations with split fractions.}</p>
+</dd>
+<dt>ideal_split_map</dt><dd><p>Dictionary containing information on how extensive
+variables should be partitioned when using ideal splitting
+(ideal_separation = True). <strong>default</strong> - None. <strong>Valid
+values:</strong> { <strong>dict</strong> with keys of indexing set members and
+values indicating which outlet this combination of keys
+should be partitioned to. E.g. {(“Vap”, “H2”):
+“outlet_1”}}</p>
+</dd>
+<dt>mixed_state_block</dt><dd><p>An existing state block to use as the source stream from
+the Separator1 block, <strong>default</strong> - None. <strong>Valid
+values:</strong> { <strong>None</strong> - create a new StateBlock for the
+mixed stream, <strong>StateBlock</strong> - a StateBock to use as the
+source for the mixed stream.}</p>
+</dd>
+<dt>construct_ports</dt><dd><p>Argument indicating whether model should construct Port
+objects linked the mixed state and all outlet states,
+<strong>default</strong> - True. <strong>Valid values:</strong> { <strong>True</strong> -
+construct Ports for all states, <strong>False</strong> - do not
+construct Ports.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(Separator) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.Splitter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">Splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.Splitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>dynamic</dt><dd><p>Indicates whether this model will be dynamic or not,
+<strong>default</strong> = False. Equilibrium Reactors do not support
+dynamic behavior.</p>
+</dd>
+<dt>has_holdup</dt><dd><p>Indicates whether holdup terms should be constructed or
+not. <strong>default</strong> - False. Equilibrium reactors do not have
+defined volume, thus this must be False.</p>
+</dd>
+<dt>property_package</dt><dd><p>Property parameter object used to define property
+calculations, <strong>default</strong> - useDefault. <strong>Valid values:</strong>
+{ <strong>useDefault</strong> - use default package from parent model
+or flowsheet, <strong>PhysicalParameterObject</strong> - a
+PhysicalParameterBlock object.}</p>
+</dd>
+<dt>property_package_args</dt><dd><p>A ConfigBlock with arguments to be passed to a property
+block(s) and used when constructing these, <strong>default</strong> -
+None. <strong>Valid values:</strong> { see property package for
+documentation.}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(Splitter) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.SystemSpecs">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">SystemSpecs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.SystemSpecs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.UnitProcess">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">UnitProcess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.UnitProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>dynamic</dt><dd><p>Indicates whether this model will be dynamic or not,
+<strong>default</strong> = False. Equilibrium Reactors do not support
+dynamic behavior.</p>
+</dd>
+<dt>has_holdup</dt><dd><p>Indicates whether holdup terms should be constructed or
+not. <strong>default</strong> - False. Equilibrium reactors do not have
+defined volume, thus this must be False.</p>
+</dd>
+<dt>property_package</dt><dd><p>Property parameter object used to define property
+calculations, <strong>default</strong> - useDefault. <strong>Valid values:</strong>
+{ <strong>useDefault</strong> - use default package from parent model
+or flowsheet, <strong>PhysicalParameterObject</strong> - a
+PhysicalParameterBlock object.}</p>
+</dd>
+<dt>property_package_args</dt><dd><p>A ConfigBlock with arguments to be passed to a property
+block(s) and used when constructing these, <strong>default</strong> -
+None. <strong>Valid values:</strong> { see property package for
+documentation.}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(UnitProcess) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.WaterParameterBlock">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">WaterParameterBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.WaterParameterBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>default_arguments</dt><dd><p>Default arguments to use with Property Package</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(WaterParameterBlock) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="watertap3.utils.WaterStateBlock">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">WaterStateBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.WaterStateBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">idaes.core.process_block.ProcessBlock</span></code></p>
+<dl>
+<dt>Args:</dt><dd><p>rule (function): A rule function or None. Default rule calls build().
+concrete (bool): If True, make this a toplevel model. <strong>Default</strong> - False.
+ctype (str): Pyomo ctype of the block.  <strong>Default</strong> - “Block”
+default (dict): Default ProcessBlockData config</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Keys</dt><dd><dl class="simple">
+<dt>parameters</dt><dd><p>A reference to an instance of the Property Parameter Block
+associated with this property package.</p>
+</dd>
+<dt>defined_state</dt><dd><p>Flag indicating whether the state should be considered
+fully defined, and thus whether constraints such as sum of
+mass/mole fractions should be included, <strong>default</strong> -
+False. <strong>Valid values:</strong> { <strong>True</strong> - state variables will
+be fully defined, <strong>False</strong> - state variables will not be
+fully defined.}</p>
+</dd>
+<dt>has_phase_equilibrium</dt><dd><p>Flag indicating whether phase equilibrium constraints
+should be constructed in this state block, <strong>default</strong> -
+True. <strong>Valid values:</strong> { <strong>True</strong> - StateBlock should
+calculate phase equilibrium, <strong>False</strong> - StateBlock should
+not calculate phase equilibrium.}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>initialize (dict): ProcessBlockData config for individual elements. Keys</dt><dd><p>are BlockData indexes and values are dictionaries described under the
+“default” argument above.</p>
+</dd>
+<dt>idx_map (function): Function to take the index of a BlockData element and</dt><dd><p>return the index in the initialize dict from which to read arguments.
+This can be provided to overide the default behavior of matching the
+BlockData index exactly to the index in initialize.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>(WaterStateBlock) New instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.add_mixer">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">add_mixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.add_mixer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.add_splitter">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">add_splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_fractions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_from</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unfix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.add_splitter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.add_unit_process">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">add_unit_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.add_unit_process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.add_waste_streams">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">add_waste_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pfd_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.add_waste_streams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.add_water_source">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">add_water_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.add_water_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.basic_unit">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">basic_unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_specific</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.basic_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.check_split_mixer_need">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">check_split_mixer_need</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.check_split_mixer_need" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.combine_case_study_results">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">combine_case_study_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.combine_case_study_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.compare_with_excel">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">compare_with_excel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">excel_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">python_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.compare_with_excel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.cost_curve">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">cost_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.cost_curve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.create">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.create_arc_dict">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">create_arc_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pfd_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.create_arc_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.create_arcs">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">create_arcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.create_arcs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.create_mixers">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">create_mixers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mixer_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.create_mixers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.create_splitters">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">create_splitters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arc_i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.create_splitters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.feedwater">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">feedwater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.feedwater" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.filter_df">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">filter_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.filter_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_all_none_source_end_nodes">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_all_none_source_end_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_all_none_source_end_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_case_study">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_case_study</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_case_study" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_complete_costing">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_complete_costing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_complete_costing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_cost_curve_coefs">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_cost_curve_coefs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flow_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_cost_curve_coefs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_def_source">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_def_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_def_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_fixed_onm_reduction">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_fixed_onm_reduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction_value_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_fixed_onm_reduction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_ind_table">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_ind_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_yr_cost_indicies</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_ind_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_inflow_links">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_inflow_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_inflow_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_linear_regression">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_linear_regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_linear_regression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_link_df">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_link_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_link_df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_link_list">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_link_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_link_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_module">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_module" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_outflow_links">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_outflow_links</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_process_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_outflow_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_pfd_dict">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_pfd_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_units</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_pfd_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_recovered_water_nodes">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_recovered_water_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_recovered_water_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_removal_factors">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_removal_factors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_removal_factors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_results_table">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_results_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_results_table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_source_nodes">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_source_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_source_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_system_costing">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_system_costing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_system_costing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_system_specs">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_system_specs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_system_specs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_unit_process_name_list">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_unit_process_name_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_unit_process_name_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.get_unit_process_name_list_for_set_up">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">get_unit_process_name_list_for_set_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.get_unit_process_name_list_for_set_up" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.global_costing_parameters">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">global_costing_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.global_costing_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.make_df_for_ml">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">make_df_for_ml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.make_df_for_ml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.make_simple_poly">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">make_simple_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.make_simple_poly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.print_results">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">print_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_model_results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.print_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.print_ro_results">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">print_ro_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.print_ro_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.run">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m_fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.run_dash">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">run_dash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.run_dash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.run_model">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">run_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_model_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_solution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.run_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.run_sensitivity">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">run_sensitivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small_sens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.run_sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.run_water_tap">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">run_water_tap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_model_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initialize_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_solution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity_flow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.run_water_tap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.run_water_tap_ro">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">run_water_tap_ro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_water_category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_small</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_recovery</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ro_bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.run_water_tap_ro" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.set_bounds">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">set_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_water_category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.set_bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.show_train2">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">show_train2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">GG</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.show_train2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.splitter_streams">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">splitter_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.splitter_streams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.treatment_train_graph">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">treatment_train_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_recycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.treatment_train_graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.unset_bounds">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">unset_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.unset_bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="watertap3.utils.watertap_setup">
+<span class="sig-prename descclassname"><span class="pre">watertap3.utils.</span></span><span class="sig-name descname"><span class="pre">watertap_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dynamic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_case_study</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_scenario</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#watertap3.utils.watertap_setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 

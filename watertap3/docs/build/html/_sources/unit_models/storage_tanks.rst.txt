@@ -1,0 +1,27 @@
+Storage Tanks
+=====================================
+
+Tank costs are calculated as a function of the volume of storage required. The storage required is calculated as:
+
+  .. math::
+
+    storage_capacity = flow in * storage duration * (1 + surge capacity)
+
+flow in = inlet flow to the tank (m3/h)
+storage duration = hours of storage required
+surge capacity = percentage of additional capacity required (provided as a fraction)
+
+Once the capacity is calculated, the cost data below is used to calculate the FCI. The cost data is
+based on figure X from DOE/NETL-2002/1169 - Process Equipment Cost Estimation. The assumed data points
+from the curve are provided below and an adapted cost curve is generated using the scipy curve fit
+function.
+
+Cost ($MM) = 0.15, 0.20, 0.37, 0.78, 1.75, 2.64, 4.66, 6.88
+Storage capacity (m3) = 191.2, 375.6, 1101.1, 3030, 8806, 16908, 29610, 37854.1
+Cost curve equation in WaterTAP3:
+
+  .. math::
+
+    Cost($MM) = (1.48e-4) * Storage capacity ^ (1.014)
+
+The tank unit model does not include any electricity costs or other unit-specific O&M costs.
