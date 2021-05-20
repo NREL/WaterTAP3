@@ -327,7 +327,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
 
     ############################################################
     if m_scenario not in ['edr_ph_ro', 'ro_and_mf']:
-        if m.fs.train['case_study'] == 'cherokee':
+        if m.fs.train['case_study'] in ['cherokee', 'gila_river']:
             print('skips RO sens')
         else:
             print('\n-------', 'RESET', '-------\n')
@@ -461,13 +461,18 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
             if m.fs.pfd_dict[key]['Unit'] == 'evaporation_pond':
 
                 stash_value = value(getattr(m.fs, key).area[0])
-                scenario = 'Area +/- 25%'
+                scenario = 'Area'
                 print('-------', scenario, '-------')
-                ub = 1.25
-                lb = 0.75
+                if m.fs.train['case_study'] == 'cherokee':
+                    ub = 1.5
+                    lb = 0.75
+                if m.fs.train['case_study'] == 'gila_river':
+                    lb = 0.5
+                    ub = 1.05
                 step = (ub - lb) / 50  # 50 runs
                 for i in np.arange(lb, ub + step, step):
                     getattr(m.fs, key).area.fix(i * stash_value)
+                    getattr(m.fs, key).water_recovery.unfix()
                     run_water_tap(m=m, objective=False, skip_small=True)
                     print(scenario, i * stash_value, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -491,7 +496,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     ############ RO scenarios --> pressure % change, membrane area, replacement rate% ############
 
     if m_scenario not in ['edr_ph_ro', 'ro_and_mf']:
-        if m.fs.train['case_study'] == 'cherokee':
+        if m.fs.train['case_study'] in ['cherokee', 'gila_river']:
             print('skips RO sens')
         else:
             for key in m.fs.pfd_dict.keys():
