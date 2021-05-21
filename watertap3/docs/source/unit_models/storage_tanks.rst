@@ -26,6 +26,11 @@ function.
 | Storage Capacity (m3) |191.2|375.6|1101.1|3030|8806 |16908|29610|37854.1|
 +-----------------------+-----+-----+------+----+-----+-----+-----+-------+
 
+Import table from a CSV file
+
+.. csv-table:: Tank Example
+   :file: files/tank.csv
+
 Cost curve equation in WaterTAP3:
 
   .. math::
@@ -33,3 +38,11 @@ Cost curve equation in WaterTAP3:
     Cost($MM) = 1.48e^{-4} * Storage\,Capacity ^ {1.014}
 
 The tank unit model does not include any electricity costs or other unit-specific O&M costs.
+
+watertap3.wt\_units.holding\_tank module
+----------------------------------------
+
+.. automodule:: watertap3.wt_units.holding_tank
+   :members:
+   :undoc-members:
+   :show-inheritance:
