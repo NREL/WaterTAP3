@@ -31,7 +31,8 @@ release = '0.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autosectionlabel',
-              'sphinx.ext.autodoc'           
+              'sphinx.ext.autodoc',
+              'rst2pdf.pdfbuilder'        
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -41,7 +42,7 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
+pdf_documents = [('index', u'watertap3-test', u'WaterTAP3 Documentation', u'Ann Wang')]
 
 # -- Options for HTML output -------------------------------------------------
 
