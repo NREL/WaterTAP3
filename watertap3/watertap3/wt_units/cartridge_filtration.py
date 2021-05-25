@@ -10,6 +10,13 @@ tpec_or_tic = 'TPEC'
 
 
 class UnitProcess(WT3UnitProcess):
+    def fixed_cap(self):
+        cart_filt_cap = base_fixed_cap_cost * flow_in ** cap_scaling_exp
+        return cart_filt_cap
+
+    def elect(self):  # m3/hr
+        electricity = 0
+        return electricity
 
     def get_costing(self, unit_params=None, year=None):
         self.costing = Block()
@@ -17,19 +24,9 @@ class UnitProcess(WT3UnitProcess):
         sys_cost_params = self.parent_block().costing_param
         self.tpec_or_tic = tpec_or_tic
         if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
         else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
 
         time = self.flowsheet().config.time.first()
 
@@ -37,13 +34,13 @@ class UnitProcess(WT3UnitProcess):
 
         self.chem_dict = {}
 
-        base_fixed_cap_cost = 0.72557
-        cap_scaling_exp = 0.5862
-        fixed_op_cost_scaling_exp = 0.7
+        self.base_fixed_cap_cost = 0.72557
+        self.cap_scaling_exp = 0.5862
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=base_fixed_cap_cost * flow_in ** cap_scaling_exp,
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
 
-        self.electricity = 0  # kwh/m3
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
         financials.get_complete_costing(self.costing)

@@ -12,8 +12,8 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
 
+sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
@@ -24,7 +24,6 @@ author = 'Ann Wang'
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -32,8 +31,9 @@ release = '0.0.1'
 # ones.
 extensions = ['sphinx.ext.autosectionlabel',
               'sphinx.ext.autodoc',
-              'rst2pdf.pdfbuilder'        
-]
+              'sphinx.ext.mathjax',
+              'rst2pdf.pdfbuilder'
+              ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

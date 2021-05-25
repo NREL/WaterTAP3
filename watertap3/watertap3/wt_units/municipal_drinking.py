@@ -1,3 +1,4 @@
+
 from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
@@ -12,49 +13,43 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def fixed_cap(self):
+        return (self.base_fixed_cap_cost * self.flow_in ** self.cap_scaling_exp) * self.tpec_tic
+
+    def elect(self):
+        flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)
+        flow_in_m3hr = pyunits.convert(self.flow_in, to_units=pyunits.m ** 3 / pyunits.hour)
+        electricity = (0.746 * flow_in_gpm * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / flow_in_m3hr  # kWh/m3
+        return electricity
+
     def get_costing(self, unit_params=None, year=None):
         self.costing = Block()
         self.costing.basis_year = basis_year
         sys_cost_params = self.parent_block().costing_param
         self.tpec_or_tic = tpec_or_tic
         if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = sys_cost_params.tpec
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
         else:
-            self.costing.tpec_tic = sys_cost_params.tic
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
 
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
+        self.lift_height = 300 * pyunits.ft
+        self.pump_eff = 0.9 * pyunits.dimensionless
+        self.motor_eff = 0.9 * pyunits.dimensionless
 
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
-
-        lift_height = 300 * pyunits.ft
-        pump_eff = 0.9 * pyunits.dimensionless
-        motor_eff = 0.9 * pyunits.dimensionless
-
-        base_fixed_cap_cost = 0.0403
-        cap_scaling_exp = 0.8657
+        self.base_fixed_cap_cost = 0.0403
+        self.cap_scaling_exp = 0.8657
 
         self.chem_dict = {}
 
         time = self.flowsheet().config.time.first()
 
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
 
-        def electricity(flow_in):
-            flow_in_gpm = pyunits.convert(flow_in, to_units=pyunits.gallons / pyunits.minute)
-            flow_in_m3hr = pyunits.convert(flow_in, to_units=pyunits.m ** 3 / pyunits.hour)
-            electricity = (0.746 * flow_in_gpm * lift_height / (3960 * pump_eff * motor_eff)) / flow_in_m3hr  # kWh/m3
-            return electricity
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+                                                           doc='Unadjusted fixed capital investment')  # $M
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-                expr=(base_fixed_cap_cost * flow_in ** cap_scaling_exp) * self.costing.tpec_tic,
-                doc='Unadjusted fixed capital investment')  # $M # $M
-
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
         financials.get_complete_costing(self.costing)
+

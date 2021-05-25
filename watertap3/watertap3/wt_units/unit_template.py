@@ -15,35 +15,31 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def fixed_cap(self):
+        pass
+
+    def electricity(self):
+        pass
+
     def get_costing(self, unit_params=None, year=None):
         self.costing = Block()
         self.costing.basis_year = basis_year
         sys_cost_params = self.parent_block().costing_param
         self.tpec_or_tic = tpec_or_tic
         if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
         else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        Unit DocString
-        '''
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
 
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 
-        ########## NEW CODE HERE ##########
         self.chem_dict = {}
 
-        def fixed_cap(flow_in):
-            pass
-
-        def electricity(flow_in):
-            pass
-
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
 
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
         financials.get_complete_costing(self.costing)

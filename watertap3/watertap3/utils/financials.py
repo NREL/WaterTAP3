@@ -64,6 +64,7 @@ class SystemSpecs():
 ################## WATERTAP METHOD ###########################################################
 
 def get_complete_costing(self):
+
     sys_specs = self.parent_block().parent_block().costing_param
     time = self.parent_block().flowsheet().config.time.first()
     chem_dict = self.parent_block().chem_dict
