@@ -579,7 +579,6 @@ def print_ro_results(m):
             print(f'\tPure Water Flux for {unit}: {round(getattr(m.fs, key).pure_water_flux[0]() * 3600, 2)} LMH')
             print(f'\tA constant for {unit}: {round(getattr(m.fs, key).a[0](), 3)}')
             print(f'\tB constant for {unit}: {round(getattr(m.fs, key).b[0](), 3)}\n')
-            print(f'\tRecovery for {unit}: {round(getattr(m.fs, key).water_recovery[0](), 3)}\n')
 
 def print_ro_bounds(source_water_category, feed_flux_min, feed_flux_max, min_pressure, max_pressure, min_area, a=None, b=None):
     if source_water_category == 'seawater':
@@ -587,15 +586,17 @@ def print_ro_bounds(source_water_category, feed_flux_min, feed_flux_max, min_pre
               f'\n\tFlux [LMH] (min, max) = {feed_flux_min, feed_flux_max}'
               f'\n\tPressure [bar] (min, max) = {min_pressure, max_pressure}'
               f'\n\tMin. Area [m2] = {min_area}'
-              f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
-              f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
+              # f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
+              # f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
+              )
     else:
         print(f'\n\nOTHER bounds for RO:'
               f'\n\tFlux [LMH] (min, max) = {feed_flux_min, feed_flux_max}'
               f'\n\tPressure [bar] (min, max) = {min_pressure, max_pressure}'
               f'\n\tMin. Area [m2] = {min_area}'
-              f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
-              f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
+              # f'\n\tWater Perm. [units] (min, max) = {a[0], a[1]}'
+              # f'\n\tSalt Perm. [units] (min, max) = {b[0], b[1]}\n\n')
+              )
 
 
 

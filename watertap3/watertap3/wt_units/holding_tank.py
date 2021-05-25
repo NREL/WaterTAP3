@@ -18,32 +18,30 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def fixed_cap(self):
+        tank_cap = self.a * self.capacity_needed ** self.b
+        return tank_cap
+
+    def elect(self):  # m3/hr
+        electricity = 0
+        return electricity
+
     def get_costing(self, unit_params=None, year=None):
         self.costing = Block()
         self.costing.basis_year = basis_year
         sys_cost_params = self.parent_block().costing_param
         self.tpec_or_tic = tpec_or_tic
         if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
         else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
+            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
 
         time = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 
         storage_duration = unit_params['avg_storage_time'] * pyunits.hours
         surge_cap = unit_params['surge_cap'] * pyunits.dimensionless
-        capacity_needed = flow_in * storage_duration * (1 + surge_cap)
+        self.capacity_needed = flow_in * storage_duration * (1 + surge_cap)
 
         # Cost curve parameters (a, b) determined from following code:
         # Data taken from WT3 Excel model
@@ -57,23 +55,17 @@ class UnitProcess(WT3UnitProcess):
         # a, b = coeffs[0], coeffs[1]
         # print(a, b)
 
-        a = 0.0001482075293096916
-        b = 1.0143391604819805
+        self.a = 0.0001482075293096916
+        self.b = 1.0143391604819805
 
         chem_dict = {}
         self.chem_dict = chem_dict
 
-        def fixed_cap(flow_in):
-            tank_cap = a * capacity_needed ** b
-            return tank_cap
-
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
-
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
 
-        self.electricity = electricity(flow_in)  # kwh/m3
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
         financials.get_complete_costing(self.costing)
+
