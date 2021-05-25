@@ -24,6 +24,11 @@ function.
     :header: Cost ($MM), Storage Capacity (m :superscript:`3`)
     :file: csvs/storage_tanks.csv
 
+Import table from a CSV file
+
+.. csv-table:: Tank Example
+   :file: files/tank.csv
+
 Cost curve equation in WaterTAP3:
 
   .. math::
@@ -39,3 +44,4 @@ Storage Tank Module
    :members: get_costing, fixed_cap, electricity
    :undoc-members: build
    :exclude-members: build
+
