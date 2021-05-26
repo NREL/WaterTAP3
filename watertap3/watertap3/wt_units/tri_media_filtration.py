@@ -17,7 +17,7 @@ class UnitProcess(WT3UnitProcess):
         return tri_media_cap
 
     def elect(self):  # m3/hr
-        electricity = 0.19813   # kWh/m3
+        electricity = 1E-4   # kWh/m3
         return electricity
 
     def get_costing(self, unit_params=None, year=None):

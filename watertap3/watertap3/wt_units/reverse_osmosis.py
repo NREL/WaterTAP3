@@ -1,4 +1,4 @@
-from pyomo.environ import Block, Constraint, Expression, NonNegativeReals, Var, units as pyunits
+from pyomo.environ import Expression, Block, Constraint, NonNegativeReals, Var, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
@@ -11,26 +11,84 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def fixed_cap(self, t, b_cost):
+        ro_cap = (1.65 * (b_cost.pump_capital_cost + b_cost.mem_capital_cost + b_cost.erd_capital_cost)
+                  + 3.3 * (self.pressure_vessel_cost1[t] + self.rack_support_cost1[t])) * 1E-6  # $MM ### 1.65 is TIC
+        return ro_cap
+
+    def elect(self, t):
+        electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)  # kwh/m3
+        return electricity
+
+    def _set_flow_mass(self, b):
+        time = self.flowsheet().config.time
+        b.mass_flow_h20 = Var(time,
+                              # initialize=1000,
+                              domain=NonNegativeReals,
+                              units=self.units_meta('mass') / self.units_meta('time'),
+                              doc='mass flow rate')
+
+        b.mass_flow_tds = Var(time,
+                              # initialize=50,
+                              domain=NonNegativeReals,
+                              units=self.units_meta('mass') / self.units_meta('time'),
+                              doc='mass flow rate')
+
+    def _set_mass_frac(self, b):
+        time = self.flowsheet().config.time
+        b.mass_frac_h20 = Var(time,
+                              # initialize=0.75,
+                              # domain=NonNegativeReals,
+                              units=pyunits.dimensionless,
+                              doc='mass_fraction')
+
+        b.mass_frac_tds = Var(time,
+                              # initialize=0.35,
+                              # domain=NonNegativeReals,
+                              units=pyunits.dimensionless,
+                              doc='mass_fraction')
+
+    def _set_pressure_osm(self, b):
+        time = self.flowsheet().config.time
+        b.pressure_osm = Var(time,
+                             # initialize=20,
+                             domain=NonNegativeReals,
+                             # units=pyunits.dimensionless,
+                             doc='Osmotic pressure')
+
+    def _set_osm_coeff(self, b):
+        time = self.flowsheet().config.time
+        b.osm_coeff = Var(time,
+                          initialize=0.1,
+                          # domain=NonNegativeReals,
+                          units=pyunits.dimensionless,
+                          doc='Osmotic pressure coefficient')
+
+    def _set_conc_mass(self, b):
+        time = self.flowsheet().config.time
+        b.conc_mass_h20 = Var(time,
+                              # initialize=900,
+                              domain=NonNegativeReals,
+                              units=self.units_meta('mass') / self.units_meta('volume'),
+                              doc='h20 mass density')
+
+        b.conc_mass_total = Var(time,
+                                # initialize=1000,
+                                domain=NonNegativeReals,
+                                units=self.units_meta('mass') / self.units_meta('volume'),
+                                doc='density')
+
+    def _set_pressure(self, b):
+        time = self.flowsheet().config.time
+        b.pressure = Var(time,
+                         initialize=45,
+                         domain=NonNegativeReals,
+                         bounds=(2, 90),
+                         # units=pyunits.dimensionless,
+                         doc='pressure')
+
     def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
-
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         sys_cost_params = self.parent_block().costing_param
@@ -52,88 +110,28 @@ class UnitProcess(WT3UnitProcess):
         feed = self.feed
         retentate = self.retentate
 
-        units_meta = self.config.property_package.get_metadata().get_derived_units
+        self.units_meta = self.config.property_package.get_metadata().get_derived_units
 
         # DEFINE VARIABLES
-        def set_flow_mass(self):
-            self.mass_flow_h20 = Var(time,
-                                     # initialize=1000,
-                                     domain=NonNegativeReals,
-                                     units=units_meta('mass') / units_meta('time'),
-                                     doc='mass flow rate')
-
-            self.mass_flow_tds = Var(time,
-                                     # initialize=50,
-                                     domain=NonNegativeReals,
-                                     units=units_meta('mass') / units_meta('time'),
-                                     doc='mass flow rate')
-
-        def set_mass_frac(self):
-            self.mass_frac_h20 = Var(time,
-                                     # initialize=0.75,
-                                     # domain=NonNegativeReals,
-                                     units=pyunits.dimensionless,
-                                     doc='mass_fraction')
-
-            self.mass_frac_tds = Var(time,
-                                     # initialize=0.35,
-                                     # domain=NonNegativeReals,
-                                     units=pyunits.dimensionless,
-                                     doc='mass_fraction')
-
-        def set_pressure_osm(self):  #
-            self.pressure_osm = Var(time,
-                                    # initialize=20,
-                                    domain=NonNegativeReals,
-                                    # units=pyunits.dimensionless,
-                                    doc='Osmotic pressure')
-
-        def set_osm_coeff(self):
-            self.osm_coeff = Var(time,
-                                 initialize=0.1,
-                                 # domain=NonNegativeReals,
-                                 units=pyunits.dimensionless,
-                                 doc='Osmotic pressure coefficient')
-
-        def set_conc_mass(self):
-            self.conc_mass_h20 = Var(time,
-                                     # initialize=900,
-                                     domain=NonNegativeReals,
-                                     units=units_meta('mass') / units_meta('volume'),
-                                     doc='h20 mass density')
-
-            self.conc_mass_total = Var(time,
-                                       # initialize=1000,
-                                       domain=NonNegativeReals,
-                                       units=units_meta('mass') / units_meta('volume'),
-                                       doc='density')
-
-        def set_pressure(self):
-            self.pressure = Var(time,
-                                initialize=45,
-                                domain=NonNegativeReals,
-                                bounds=(2, 90),
-                                # units=pyunits.dimensionless,
-                                doc='pressure')
 
         self.feed.water_flux = Var(time,
                                    initialize=5e-3,
                                    bounds=(1e-5, 1.5e-2),
-                                   units=units_meta('mass') * units_meta('length') ** -2 * units_meta('time') ** -1,
+                                   units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1,
                                    domain=NonNegativeReals,
                                    doc='water flux')
 
         self.retentate.water_flux = Var(time,
                                         initialize=5e-3,
                                         bounds=(1e-5, 1.5e-2),
-                                        units=units_meta('mass') * units_meta('length') ** -2 * units_meta('time') ** -1,
+                                        units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1,
                                         domain=NonNegativeReals,
                                         doc='water flux')
 
         self.pure_water_flux = Var(time,
                                    initialize=5e-3,
                                    bounds=(1e-3, 1.5e-2),
-                                   units=units_meta('mass') * units_meta('length') ** -2 * units_meta('time') ** -1,
+                                   units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1,
                                    domain=NonNegativeReals,
                                    doc='water flux')
 
@@ -185,15 +183,15 @@ class UnitProcess(WT3UnitProcess):
         # same 4 membranes used for regression ŷ = 15.04895X1 - 131.08641X2 + 29.43797
 
         for b in [permeate, feed, retentate]:
-            set_flow_mass(b)
-            set_mass_frac(b)
-            set_conc_mass(b)
-            set_osm_coeff(b)
-            set_pressure_osm(b)
+            self._set_flow_mass(b)
+            self._set_mass_frac(b)
+            self._set_conc_mass(b)
+            self._set_osm_coeff(b)
+            self._set_pressure_osm(b)
             if str(b) == 'permeate':
                 continue
             else:
-                set_pressure(b)
+                self._set_pressure(b)
                 # set_water_flux(b
         feed.pressure.unfix()
 
@@ -413,15 +411,13 @@ class UnitProcess(WT3UnitProcess):
 
         # total capital investment
         # b_cost.fixed_cap_inv_unadjusted = fixed_cap_mcgiv(self.flow_vol_out[t] *3600)
-        b_cost.fixed_cap_inv_unadjusted = Expression(
-                expr=(1.65 * (b_cost.pump_capital_cost + b_cost.mem_capital_cost + b_cost.erd_capital_cost)
-                      + 3.3 * (self.pressure_vessel_cost1[t] + self.rack_support_cost1[t])) * 1e-6
-                )  # $MM ### 1.65 is TIC
-
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(t, b_cost),
+                                                           doc='Unadjusted fixed capital investment')  # $M
         ################ operating
         # membrane operating cost
         b_cost.other_var_cost = self.factor_membrane_replacement[t] * self.mem_cost[t] * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1e-6
-
+        self.electricity = Expression(expr=self.elect(t),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
         self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)  # kwh/m3

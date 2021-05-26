@@ -35,14 +35,7 @@ class UnitProcess(WT3UnitProcess):
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
 
         time = self.flowsheet().config.time.first()
 
