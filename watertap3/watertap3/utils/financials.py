@@ -63,58 +63,68 @@ class SystemSpecs():
 
 ################## WATERTAP METHOD ###########################################################
 
-def get_complete_costing(self):
+def create_costing_block(unit, basis_year, tpec_or_tic):
+    unit.costing = costing = Block()
+    costing.basis_year = basis_year
+    sys_cost_params = unit.parent_block().costing_param
+    if tpec_or_tic == 'TPEC':
+        costing.tpec_tic = unit.tpec_tic = sys_cost_params.tpec
+    else:
+        costing.tpec_tic = unit.tpec_tic = sys_cost_params.tic
 
-    sys_specs = self.parent_block().parent_block().costing_param
-    time = self.parent_block().flowsheet().config.time.first()
-    chem_dict = self.parent_block().chem_dict
-    electricity = self.parent_block().electricity
+def get_complete_costing(costing):
+    unit = costing.parent_block()
+    basis_year = costing.basis_year
+    sys_specs = unit.parent_block().costing_param
+    time = unit.flowsheet().config.time.first()
+    chem_dict = unit.chem_dict
+    electricity = unit.electricity
 
     df = get_ind_table(sys_specs.analysis_yr_cost_indicies)
-    self.cap_replacement_parts = df.loc[self.basis_year].Capital_Factor
-    self.catalysts_chemicals = df.loc[self.basis_year].CatChem_Factor
-    self.labor_and_other_fixed = df.loc[self.basis_year].Labor_Factor
-    self.consumer_price_index = df.loc[self.basis_year].CPI_Factor
+    costing.cap_replacement_parts = df.loc[basis_year].Capital_Factor
+    costing.catalysts_chemicals = df.loc[basis_year].CatChem_Factor
+    costing.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
+    costing.consumer_price_index = df.loc[basis_year].CPI_Factor
 
-    self.fixed_cap_inv = self.fixed_cap_inv_unadjusted * self.cap_replacement_parts
-    self.land_cost = self.fixed_cap_inv * sys_specs.land_cost_percent_FCI
-    self.working_cap = self.fixed_cap_inv * sys_specs.working_cap_percent_FCI
-    self.total_cap_investment = self.fixed_cap_inv + self.land_cost + self.working_cap
+    costing.fixed_cap_inv = costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts
+    costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
+    costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
+    costing.total_cap_investment = costing.fixed_cap_inv + costing.land_cost + costing.working_cap
 
-    flow_in_m3yr = (pyunits.convert(self.parent_block().flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.year))
+    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.year)
 
     ## cat and chems ##
     cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col='Material')
     chem_cost_sum = 0
     for key in chem_dict.keys():
         if 'unit_cost' == key:
-            chem_cost_sum = chem_dict[key] * self.fixed_cap_inv * 1e6
+            chem_cost_sum = chem_dict[key] * costing.fixed_cap_inv * 1E6
         else:
             chem_cost = cat_chem_df.loc[key].Price
-            chem_cost_sum += self.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * sys_specs.plant_cap_utilization
+            chem_cost_sum += costing.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * sys_specs.plant_cap_utilization
 
-    self.cat_and_chem_cost = chem_cost_sum * 1e-6
+    costing.cat_and_chem_cost = chem_cost_sum * 1E-6
 
-    if not hasattr(self, 'electricity_cost'):
-        self.electricity_cost = Expression(
-                expr=(electricity * flow_in_m3yr * sys_specs.electricity_price / 1000000) * sys_specs.plant_cap_utilization,
+    if not hasattr(costing, 'electricity_cost'):
+        costing.electricity_cost = Expression(
+                expr=(electricity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization,
                 doc='Electricity cost')  # M$/yr
 
-    if not hasattr(self, 'other_var_cost'):
-        self.other_var_cost = 0 * sys_specs.plant_cap_utilization
+    if not hasattr(costing, 'other_var_cost'):
+        costing.other_var_cost = 0 * sys_specs.plant_cap_utilization
 
-    self.base_employee_salary_cost = self.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
-    self.salaries = Expression(
-            expr=self.labor_and_other_fixed * self.base_employee_salary_cost,
+    costing.base_employee_salary_cost = costing.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
+    costing.salaries = Expression(
+            expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost,
             doc='Salaries')
-    self.benefits = self.salaries * sys_specs.benefit_percent_of_salary
-    self.maintenance = sys_specs.maintinance_costs_percent_FCI * self.fixed_cap_inv
-    self.lab = sys_specs.lab_fees_percent_FCI * self.fixed_cap_inv
-    self.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * self.fixed_cap_inv
-    self.total_fixed_op_cost = Expression(
-            expr=self.salaries + self.benefits + self.maintenance + self.lab + self.insurance_taxes)
+    costing.benefits = costing.salaries * sys_specs.benefit_percent_of_salary
+    costing.maintenance = sys_specs.maintinance_costs_percent_FCI * costing.fixed_cap_inv
+    costing.lab = sys_specs.lab_fees_percent_FCI * costing.fixed_cap_inv
+    costing.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * costing.fixed_cap_inv
+    costing.total_fixed_op_cost = Expression(
+            expr=costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes)
 
-    self.annual_op_main_cost = self.cat_and_chem_cost + self.electricity_cost + self.other_var_cost + self.total_fixed_op_cost
+    costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
 
 
 # TO DO MOVE TO FUNCTION BELOW

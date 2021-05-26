@@ -22,14 +22,7 @@ class UnitProcess(WT3UnitProcess):
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
 
         time = self.flowsheet().config.time.first()
 
@@ -44,10 +37,13 @@ class UnitProcess(WT3UnitProcess):
 
         self.chem_dict = {}
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
-                                                           doc='Unadjusted fixed capital investment')  # $M
-
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
+
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+                                                           doc='Unadjusted fixed capital investment')  # $M
+
         financials.get_complete_costing(self.costing)
+
+

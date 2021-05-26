@@ -28,19 +28,6 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):  #
     ### SET PARAMS HERE FOR UP ###
     getattr(m.fs, unit_process_name).get_costing(unit_params=unit_params)
 
-    # if with_connection == True:
-    #
-    #     if from_splitter == True:
-    #
-    #         setattr(m.fs, splitter_tream,
-    #                 Arc(source=getattr(m.fs, link_from).outlet1,
-    #                     destination=getattr(m.fs, link_to).inlet))
-    #
-    #     if from_splitter == False:
-    #         m = connect_blocks(m=m, up1=link_from, up2=link_to,
-    #                            connection_type=connection_type,
-    #                            stream_name=stream_name)
-
     return m
 
 

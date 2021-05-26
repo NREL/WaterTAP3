@@ -1,5 +1,4 @@
-
-from pyomo.environ import Block, Expression, units as pyunits
+from pyomo.environ import Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
@@ -23,14 +22,7 @@ class UnitProcess(WT3UnitProcess):
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
 
         self.lift_height = 300 * pyunits.ft
         self.pump_eff = 0.9 * pyunits.dimensionless
@@ -52,4 +44,3 @@ class UnitProcess(WT3UnitProcess):
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
         financials.get_complete_costing(self.costing)
-

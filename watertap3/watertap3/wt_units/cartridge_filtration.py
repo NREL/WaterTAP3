@@ -11,7 +11,7 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
     def fixed_cap(self):
-        cart_filt_cap = base_fixed_cap_cost * flow_in ** cap_scaling_exp
+        cart_filt_cap = self.base_fixed_cap_cost * self.flow_in ** self.cap_scaling_exp
         return cart_filt_cap
 
     def elect(self):  # m3/hr
@@ -30,7 +30,7 @@ class UnitProcess(WT3UnitProcess):
 
         time = self.flowsheet().config.time.first()
 
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
 
         self.chem_dict = {}
 
