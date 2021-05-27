@@ -235,11 +235,11 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.plant_cap_utilization = i
         run_water_tap(m=m, objective=False, skip_small=True)
-        print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
+        print(scenario, i*100, 'LCOW -->', m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
-        scenario_value.append(i)
+        scenario_value.append(i*100)
         scenario_name.append(scenario)
         elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
         elec_int.append(value(m.fs.costing.electricity_intensity))
@@ -261,11 +261,11 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.wacc = i
         run_water_tap(m=m, objective=False, skip_small=True)
-        print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
+        print(scenario, i*100, 'LCOW -->', m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
-        scenario_value.append(i)
+        scenario_value.append(i*100)
         scenario_name.append(scenario)
         elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
         elec_int.append(value(m.fs.costing.electricity_intensity))
@@ -333,11 +333,11 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
             print('\n-------', 'RESET', '-------\n')
             run_water_tap(m=m, objective=False, skip_small=True)
             print('LCOW -->', m.fs.costing.LCOW())
-            ############ inlet flow +-30% ############
+            ############ inlet flow +-25% ############
             stash_value = []
             for key in m.fs.flow_in_dict:
                 stash_value.append(value(getattr(m.fs, key).flow_vol_in[0]))
-            scenario = 'Inlet Flow +-20%'
+            scenario = 'Inlet Flow +-25%'
             print('-------', scenario, '-------')
             ub = 1.25
             lb = 0.75
@@ -354,7 +354,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
 
                 lcow_list.append(value(m.fs.costing.LCOW))
                 water_recovery_list.append(value(m.fs.costing.system_recovery))
-                scenario_value.append(i)
+                scenario_value.append(stash_value[q - 1] * i)
                 scenario_name.append(scenario)
                 elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
                 elec_int.append(value(m.fs.costing.electricity_intensity))
@@ -404,11 +404,11 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.electricity_price = i
         run_water_tap(m=m, objective=False, skip_small=True)
-        print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
+        print(scenario, i * stash_value, 'LCOW -->', m.fs.costing.LCOW())
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
-        scenario_value.append(i)
+        scenario_value.append(i * stash_value)
         scenario_name.append(scenario)
         elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
         elec_int.append(value(m.fs.costing.electricity_intensity))
@@ -505,7 +505,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                         area = value(getattr(m.fs, key).membrane_area[0])
                         scenario_dict = {
                                 'membrane_area': [-area * 0.2, area * 0.2],
-                                'pressure': [0.85, 1.05],
+                                'pressure': [0.85, 1.15],
                                 'factor_membrane_replacement': [-0.1, 0.3]
                                 }
                         for scenario in scenario_dict.keys():
@@ -548,6 +548,87 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                                 getattr(getattr(m.fs, key), scenario).fix(stash_value)
 
     ############################################################
+    # in depth sens analysis #
+    if m.fs.train['case_study'] in ['san_luis']:
+        
+        tds_in = False
+
+        for key in m.fs.flow_in_dict:
+            if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                tds_in = True
+
+        if tds_in is True:
+            print('\n-------', 'RESET', '-------\n')
+            run_water_tap(m=m, objective=False, skip_small=True)
+            print('LCOW -->', m.fs.costing.LCOW())
+
+            ############ salinity  +-30% ############
+            stash_value = []
+            for key in m.fs.flow_in_dict:
+                if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                    stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, 'tds']))
+            print(stash_value)
+            scenario = 'Inlet TDS +-25%'
+            print('-------', scenario, '-------')
+            ub = 1.25
+            lb = 0.75
+
+            step = (ub - lb) / 1000
+
+            for i in np.arange(lb, ub + step, step):
+                q = 0
+                for key in m.fs.flow_in_dict:
+                    if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                        getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q] * i)
+                        q += 1
+
+                run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
+                print(scenario, sum(stash_value) * i, 'LCOW -->', m.fs.costing.LCOW())
+
+                lcow_list.append(value(m.fs.costing.LCOW))
+                water_recovery_list.append(value(m.fs.costing.system_recovery))
+                scenario_value.append(sum(stash_value) * i)
+                scenario_name.append(scenario)
+                elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+                elec_int.append(value(m.fs.costing.electricity_intensity))
+
+            q = 0
+            for key in m.fs.flow_in_dict:
+                if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                    getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q])
+                    q += 1
+
+     ############################################################
+    
+    
+    if m.fs.train['case_study'] in ['monterey_one']:
+        
+        stash_value = m.fs.coag_and_floc.alum_dose[0]()
+        print(stash_value)
+        scenario = 'Alum Dose 0.5-20 mg/L'
+        print('-------', scenario, '-------')
+        ub = 20
+        lb = 0.5
+        step = (ub - lb) / runs_per_scenario
+        for i in np.arange(lb, ub + step, step):
+            m.fs.coag_and_floc.alum_dose.fix(i)
+            run_water_tap(m=m, objective=False, skip_small=True)
+            print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
+
+            lcow_list.append(value(m.fs.costing.LCOW))
+            water_recovery_list.append(value(m.fs.costing.system_recovery))
+            scenario_value.append(i)
+            scenario_name.append(scenario)
+            elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+            elec_int.append(value(m.fs.costing.electricity_intensity))
+        
+        m.fs.coag_and_floc.alum_dose.fix(stash_value)       
+    
+            
+    
+     ############################################################
+    
+    
 
     # final run to get baseline numbers again
     run_water_tap(m=m, objective=True, skip_small=skip_small_sens)
