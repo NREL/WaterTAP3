@@ -2,7 +2,7 @@ unit_process,flow_basis,cap_basis,cap_exp,elect,year,kind
 agriculture,3.943,0.001,0.87,0,2020,flow
 cas,3.943,0.001,0.59,0,2014,flow
 cooling_supply,3.943,0.048,0.87,0.555,2015,flow
-energy_recovery,3.943,0,0,-3.17,2020,flow
+energy_recovery,3.943,0.1,0.7,-3.17,2020,flow
 mbr_nitrification,3.943,0.666,0.59,2.367,2014,flow
 media_filtration,3.943,0.001,0.59,0,2014,flow
 microfiltration,3.943,0.027,1,0.093,2014,flow

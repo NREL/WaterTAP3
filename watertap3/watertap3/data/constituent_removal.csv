@@ -11,20 +11,20 @@ ashkelon,kg/m3,fractional_constituent_removal,ro_deep,0.992881,sodium,baseline,n
 ashkelon,kg/m3,fractional_constituent_removal,ro_deep,0.992881,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
 ashkelon,kg/m3,fractional_constituent_removal,ro_deep,0.992881,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 ashkelon,kg/m3,fractional_constituent_removal,ro_deep,0.992881,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,tss,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
 big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.973097,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.973097,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.973097,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -38,20 +38,20 @@ big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.973097,strontium,basel
 big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.973097,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.973097,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 big_spring,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992881,tss,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.992,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.992,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.992,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -65,20 +65,20 @@ carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.992,strontium,baseline,n
 carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.992,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.992,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 carlsbad,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
 cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.953008,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.953008,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.953008,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -92,20 +92,20 @@ cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.953008,strontium,baselin
 cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.953008,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.953008,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 cherokee,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.992,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
 damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9793,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9793,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9793,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -119,20 +119,20 @@ damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9793,strontium,baselin
 damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9793,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9793,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 damodar_pr,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
 damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9784,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9784,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9784,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -146,27 +146,27 @@ damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9784,strontium,baselin
 damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9784,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9784,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 damodar_sj,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
 default,kg/m3,fractional_constituent_removal,aeration_basin1,0.5,nonvolatile_toc,baseline,nawi,Pulp and paper case study.,Nonvolatile TOC
 default,kg/m3,fractional_constituent_removal,aeration_basin1,0.7,bod,baseline,nawi,Pulp and paper case study.,Biological Oxygen Demand (BOD)
 default,kg/m3,fractional_constituent_removal,aeration_basin1,0.7,cod,baseline,nawi,Pulp and paper case study.,Chemical Oxygen Demand (COD)
 default,kg/m3,fractional_constituent_removal,aeration_basin1,0.70854,toc,baseline,nawi,Pulp and paper case study.,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,aeration_basin1,0.88,eeq,baseline,nawi,Pulp and paper case study.,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,aeration_basin1,0.99,viruses_enteric,baseline,nawi,Pulp and paper case study.,Viruses (enteric)
-default,kg/m3,fractional_constituent_removal,aeration_basin1,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Pulp and paper case study.,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,aeration_basin1,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Pulp and paper case study.,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,%,absolute_value,aeration_basin1,60,ultraviolet_transmittance_uvt,baseline,nawi,Pulp and paper case study.,Ultraviolet Transmittance (UVT)
 default,kg/m3,fractional_constituent_removal,aeration_basin2,0.5,bod,baseline,nawi,Pulp and paper case study.,Biological Oxygen Demand (BOD)
 default,kg/m3,fractional_constituent_removal,aeration_basin2,0.5,thallium,baseline,nawi,Pulp and paper case study.,Thallium
@@ -226,7 +226,7 @@ default,kg/m3,fractional_constituent_removal,cas,0.5,tss,baseline,nawi,Texas Wat
 default,kg/m3,fractional_constituent_removal,cas,0.70854,toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,cas,0.88,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,cas,0.99,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
-default,kg/m3,fractional_constituent_removal,cas,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,cas,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,%,absolute_value,cas,60,ultraviolet_transmittance_uvt,baseline,nawi,Texas Water Development Board IT3PR User Manual,Ultraviolet Transmittance (UVT)
 default,kg/m3,fractional_constituent_removal,cas_denitrif,0.5,tss,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Suspended Solids (TSS)
 default,kg/m3,fractional_constituent_removal,cas_denitrif,0.7,nonvolatile_toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Nonvolatile TOC
@@ -234,16 +234,16 @@ default,kg/m3,fractional_constituent_removal,cas_denitrif,0.70854,toc,baseline,n
 default,kg/m3,fractional_constituent_removal,cas_denitrif,0.8,nitrate,baseline,nawi,Texas Water Development Board IT3PR User Manual,"Nitrate-N, Dissolved"
 default,kg/m3,fractional_constituent_removal,cas_denitrif,0.88,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,cas_denitrif,0.99,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
-default,kg/m3,fractional_constituent_removal,cas_denitrif,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,cas_denitrif,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,%,absolute_value,cas_denitrif,70,ultraviolet_transmittance_uvt,baseline,nawi,Texas Water Development Board IT3PR User Manual,Ultraviolet Transmittance (UVT)
 default,kg/m3,fractional_constituent_removal,cas_nitrif,0.5,nonvolatile_toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Nonvolatile TOC
 default,kg/m3,fractional_constituent_removal,cas_nitrif,0.5,tss,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Suspended Solids (TSS)
 default,kg/m3,fractional_constituent_removal,cas_nitrif,0.70854,toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,cas_nitrif,0.88,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,cas_nitrif,0.99,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
-default,kg/m3,fractional_constituent_removal,cas_nitrif,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,cas_nitrif,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,%,absolute_value,cas_nitrif,70,ultraviolet_transmittance_uvt,baseline,nawi,Texas Water Development Board IT3PR User Manual,Ultraviolet Transmittance (UVT)
-default,kg/m3,fractional_constituent_removal,chlorination,0.999148,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,chlorination,0.999148,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,chlorination,0.999664,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
 default,kg/m3,fractional_constituent_removal,clarifier,0.990826,tss,baseline,nawi,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses.",Total Suspended Solids (TSS)
 default,kg/m3,fractional_constituent_removal,coag_and_floc,0.95,tss,baseline,nawi,"(1) https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagulation.pdf, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.iwapublishing.com/news/coagulation-and-flocculation-water-and-wastewater-treatment, (4) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis).",Total Suspended Solids (TSS)
@@ -361,7 +361,7 @@ default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.70854,toc,bas
 default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.88,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.9,nonvolatile_toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Nonvolatile TOC
 default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.99,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
-default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,mbr_denitrification,0.9999,cryptosporidium,baseline,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 default,%,absolute_value,mbr_denitrification,70,ultraviolet_transmittance_uvt,baseline,nawi,Texas Water Development Board IT3PR User Manual,Ultraviolet Transmittance (UVT)
 default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.5,tss,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Suspended Solids (TSS)
@@ -369,7 +369,7 @@ default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.6,nonvolatile_t
 default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.70854,toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.88,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.99,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
-default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.998798,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,mbr_nitrification,0.9999,cryptosporidium,baseline,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 default,%,absolute_value,mbr_nitrification,70,ultraviolet_transmittance_uvt,baseline,nawi,Texas Water Development Board IT3PR User Manual,Ultraviolet Transmittance (UVT)
 default,kg/m3,fractional_constituent_removal,media_filtration,0.2,nonvolatile_toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Nonvolatile TOC
@@ -405,13 +405,13 @@ default,kg/m3,fractional_constituent_removal,ozonation,0.294787,cryptosporidium,
 default,kg/m3,fractional_constituent_removal,ozonation,0.728305,toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,ozonation,0.903239,giardia_lamblia,baseline,nawi,Texas Water Development Board IT3PR User Manual,Giardia lamblia
 default,kg/m3,fractional_constituent_removal,ozonation,0.989434,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
-default,kg/m3,fractional_constituent_removal,ozonation,0.997225,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,ozonation,0.997225,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,ozonation,0.997225,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
 default,kg/m3,fractional_constituent_removal,ozone_aop,0.294787,cryptosporidium,baseline,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 default,kg/m3,fractional_constituent_removal,ozone_aop,0.728305,toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,ozone_aop,0.903239,giardia_lamblia,baseline,nawi,Texas Water Development Board IT3PR User Manual,Giardia lamblia
 default,kg/m3,fractional_constituent_removal,ozone_aop,0.989434,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
-default,kg/m3,fractional_constituent_removal,ozone_aop,0.997225,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,ozone_aop,0.997225,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,ozone_aop,0.997225,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
 default,kg/m3,fractional_constituent_removal,primary_separator,0.9,oil_and_grease,baseline,nawi,Defined based on the Iron and Steel case study data.,Oil and Grease
 default,kg/m3,fractional_constituent_removal,primary_separator,0.9,oily_matter,baseline,nawi,Defined based on the Iron and Steel case study data.,Oily Matter
@@ -436,13 +436,13 @@ default,kg/m3,fractional_constituent_removal,uv_aop,0.174607,toc,baseline,nawi,T
 default,kg/m3,fractional_constituent_removal,uv_aop,0.965403,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
 default,kg/m3,fractional_constituent_removal,uv_aop,0.999989,cryptosporidium,baseline,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 default,kg/m3,fractional_constituent_removal,uv_aop,0.999989,giardia_lamblia,baseline,nawi,Texas Water Development Board IT3PR User Manual,Giardia lamblia
-default,kg/m3,fractional_constituent_removal,uv_aop,0.999994,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,uv_aop,0.999994,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,uv_irradiation,0.054565,eeq,baseline,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 default,kg/m3,fractional_constituent_removal,uv_irradiation,0.054565,toc,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 default,kg/m3,fractional_constituent_removal,uv_irradiation,0.965403,viruses_enteric,baseline,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
 default,kg/m3,fractional_constituent_removal,uv_irradiation,0.999989,cryptosporidium,baseline,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 default,kg/m3,fractional_constituent_removal,uv_irradiation,0.999989,giardia_lamblia,baseline,nawi,Texas Water Development Board IT3PR User Manual,Giardia lamblia
-default,kg/m3,fractional_constituent_removal,uv_irradiation,0.999994,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andå E. Coli)
+default,kg/m3,fractional_constituent_removal,uv_irradiation,0.999994,total_coliforms_fecal_ecoli,baseline,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform andï¿½ E. Coli)
 default,kg/m3,fractional_constituent_removal,walnut_shell_filter,0.2,nonvolatile_toc,baseline,nawi,Kern County case study.,Nonvolatile TOC
 default,kg/m3,fractional_constituent_removal,walnut_shell_filter,0.9,tds,baseline,nawi,Kern County case study.,Total Dissolved Solids (TDS)
 default,kg/m3,fractional_constituent_removal,walnut_shell_filter,0.95,chloride,baseline,nawi,Kern County case study.,Chloride
@@ -463,20 +463,20 @@ emwd,kg/m3,fractional_constituent_removal,ro_deep,0.989816,strontium,baseline,na
 emwd,kg/m3,fractional_constituent_removal,ro_deep,0.989816,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 emwd,kg/m3,fractional_constituent_removal,ro_deep,0.989816,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 emwd,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
 emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
 emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.989816,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 irwin,kg/m3,fractional_constituent_removal,ro_deep,0.975226,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 irwin,kg/m3,fractional_constituent_removal,ro_deep,0.975226,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 irwin,kg/m3,fractional_constituent_removal,ro_deep,0.975226,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -490,20 +490,20 @@ irwin,kg/m3,fractional_constituent_removal,ro_deep,0.975226,strontium,baseline,n
 irwin,kg/m3,fractional_constituent_removal,ro_deep,0.975226,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 irwin,kg/m3,fractional_constituent_removal,ro_deep,0.975226,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 irwin,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.987749,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.987749,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.987749,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -517,20 +517,20 @@ kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.987749,strontium,baseline,n
 kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.987749,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.987749,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 kbhdp,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.987749,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9793,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
 ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.80137,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.80137,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.80137,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -544,20 +544,20 @@ ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.80137,strontium,baseline,naw
 ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.80137,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.80137,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 ocwd,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9784,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
 san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9901,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9901,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9901,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -571,20 +571,20 @@ san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9901,strontium,baseline,
 san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9901,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9901,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 san_luis,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9901,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.975226,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
 santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.99262,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.99262,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.99262,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -598,20 +598,20 @@ santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.99262,strontium,bas
 santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.99262,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.99262,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 santa_barbara,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.99262,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
 tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.991483,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.991483,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.991483,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -625,20 +625,20 @@ tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.991483,strontium,baseli
 tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.991483,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.991483,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 tampa_bay,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.991483,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.973097,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 upw,kg/m3,fractional_constituent_removal,ro_deep,0.9752,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 upw,kg/m3,fractional_constituent_removal,ro_deep,0.9752,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 upw,kg/m3,fractional_constituent_removal,ro_deep,0.9752,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -652,20 +652,20 @@ upw,kg/m3,fractional_constituent_removal,ro_deep,0.9752,strontium,baseline,nawi,
 upw,kg/m3,fractional_constituent_removal,ro_deep,0.9752,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 upw,kg/m3,fractional_constituent_removal,ro_deep,0.9752,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 upw,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9752,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.953008,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+ashkelon,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+big_spring,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+carlsbad,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+cherokee,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+damodar_pr,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+damodar_sj,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+emwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+irwin,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+kbhdp,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+san_luis,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+santa_barbara,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+tampa_bay,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
 uranium,kg/m3,fractional_constituent_removal,brine_ro,0.992348,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
 uranium,kg/m3,fractional_constituent_removal,brine_ro,0.992348,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
 uranium,kg/m3,fractional_constituent_removal,brine_ro,0.992348,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
@@ -691,17 +691,17 @@ uranium,kg/m3,fractional_constituent_removal,ro_deep,0.988924,strontium,baseline
 uranium,kg/m3,fractional_constituent_removal,ro_deep,0.988924,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
 uranium,kg/m3,fractional_constituent_removal,ro_deep,0.988924,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
 uranium,kg/m3,fractional_constituent_removal,ro_deep,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.988924,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
+upw,kg/m3,fractional_constituent_removal,reverse_osmosis,0.1,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
 uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.9,toc,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
-uranium,kg/m3,fractional_constituent_removal,reverse_osmosis,0.999,tss,baseline,nawi,"From: ""TOC removal in reclamation of municipal wastewater by RO"" (2005) https://doi.org/10.1016/j.seppur.2005.04.004 -KAS",Total Organic Carbon (TOC)
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,bicarbonate_alkalinity_as_caco3,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bicarbonate Alkalinity as CaCO3
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,bromide,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Bromide
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,calcium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Calcium, Dissolved"
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,chloride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Chloride
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,fluoride,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Fluoride
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,magnesium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Magnesium, Dissolved"
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,potassium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Potassium
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,silicon,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Silicon
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,sodium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sodium, Dissolved"
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,strontium,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Strontium
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,sulfate,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,"Sulfate, Dissolved"
+ocwd,kg/m3,fractional_constituent_removal,reverse_osmosis,0.80137,tds,baseline,nawi,Calculated value for total TDS removal from DEEP 5.1 model from IAEA,Total Dissolved Solids (TDS)
