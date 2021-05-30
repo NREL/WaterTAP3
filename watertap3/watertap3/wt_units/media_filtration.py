@@ -61,7 +61,7 @@ class UnitProcess(WT3UnitProcess):
             return media_filt_cap * tpec_tic
 
         def electricity(flow_in):  # m3/hr
-            electricity = 0
+            electricity = 0.00015  # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
             return electricity
 
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),

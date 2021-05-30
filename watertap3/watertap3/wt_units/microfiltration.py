@@ -42,7 +42,7 @@ class UnitProcess(WT3UnitProcess):
             return mf_cap
 
         def electricity():
-            electricity = 0.307
+            electricity = 0.18 # https://www.sciencedirect.com/science/article/pii/S1364032112003541#bib48
             return electricity
 
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
