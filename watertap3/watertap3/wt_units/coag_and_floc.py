@@ -1,4 +1,4 @@
-from pyomo.environ import Block, Expression, units as pyunits
+from pyomo.environ import Block, Expression, Var, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
@@ -33,10 +33,17 @@ class UnitProcess(WT3UnitProcess):
 
         # FIRST TIME POINT FOR STEADY-STATE ASSUMPTION
         time = self.flowsheet().config.time.first()
+        t = self.flowsheet().config.time
         # UNITS = m3/hr
+        
+        self.alum_dose = Var(t, initialize=10, units= pyunits.mg / pyunits.liter, doc='alum dose mg/L')
+            
+        self.alum_dose.fix(unit_params['alum_dose'])
+        
         flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 
-        alum_dose = pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
+        alum_dose_kgm3 = pyunits.convert(self.alum_dose[time], to_units=(pyunits.kg / pyunits.m ** 3))
+        
         polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
 
         an_polymer = polymer_dose / 2  # MIKE ASSUMPTION NEEDED
@@ -50,13 +57,13 @@ class UnitProcess(WT3UnitProcess):
         rapid_mix_retention_time = 5.5 * pyunits.seconds  # seconds (rapid mix)
         floc_retention_time = 12 * pyunits.minutes  # minutes
 
-        self.chem_dict = {'Aluminum_Al2_SO4_3': alum_dose, 'Anionic_Polymer': an_polymer, 'Cationic_Polymer': cat_polymer}
+        self.chem_dict = {'Aluminum_Al2_SO4_3': alum_dose_kgm3, 'Anionic_Polymer': an_polymer, 'Cationic_Polymer': cat_polymer}
 
         def fixed_cap(flow_in):
             flow_in_gpm = pyunits.convert(flow_in, to_units=pyunits.gallons / pyunits.minute)  # m3/hr to GPM
             rapid_mix_basin_volume = pyunits.convert(rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm  # gallons
             floc_basin_volume = floc_retention_time * flow_in_gpm * 1E-6  # gallons
-            alum_flow = alum_dose * flow_in  # kg / hr
+            alum_flow = alum_dose_kgm3 * flow_in  # kg / hr
             alum_flow = pyunits.convert(alum_flow, to_units=(pyunits.lb / pyunits.hour))  # lb / hr
             poly_flow = polymer_dose * flow_in  # kg / hr
             poly_flow = pyunits.convert(poly_flow, to_units=(pyunits.lb / pyunits.day))  # lb / hr
