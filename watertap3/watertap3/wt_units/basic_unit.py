@@ -80,6 +80,11 @@ class UnitProcess(WT3UnitProcess):
         self.deltaP_waste.unfix()
         self.pressure_out.fix(1)
         self.pressure_waste.fix(1)
+        
+        if unit_process_name == "tramp_oil_tank":
+            disposal_cost = 0.000114 # Kiran's disposal cost assumption $/m3
+            self.costing.other_var_cost = flow_in * 24 * 365 * 0.000114
+
 
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
@@ -87,3 +92,6 @@ class UnitProcess(WT3UnitProcess):
         self.electricity = electricity(flow_in)  # kwh/m3
 
         financials.get_complete_costing(self.costing)
+        
+        
+        
