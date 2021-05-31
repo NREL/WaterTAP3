@@ -83,7 +83,7 @@ class UnitProcess(WT3UnitProcess):
         
         if unit_process_name == "tramp_oil_tank":
             disposal_cost = 0.000114 # Kiran's disposal cost assumption $/m3
-            self.costing.other_var_cost = flow_in * 24 * 365 * 0.000114
+            self.costing.other_var_cost = flow_in * 24 * 365 * 0.000114 * sys_specs.plant_cap_utilizatio
 
 
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(),
