@@ -23,7 +23,7 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def fixed_cap(self):
+    def fixed_cap(self, unit_params):
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         self.chem_dict = {}
@@ -49,19 +49,19 @@ class UnitProcess(WT3UnitProcess):
         except:
             self.humidity = 0.5  # ratio, e.g. 50% humidity = 0.5
             self.wind_speed = 5  # m / s
-        if bool(evap_method):
-            self.evap_method = unit_params['evap_method']
+        if bool(self.evap_method):
+            # self.evap_method = unit_params['evap_method']
             try:
                 self.air_temp.fix(unit_params['air_temp'])  # degree C
                 self.solar_rad = unit_params['solar_rad']  # mJ / m2
             except:
                 self.air_temp.fix(20)
                 self.solar_rad = 25  # average for 40deg latitude
-            if evap_method == 'turc':
+            if self.evap_method == 'turc':
                 # Turc (1961) PE in mm for day
                 self.evap_rate_pure = (0.313 * self.air_temp[t] * (self.solar_rad + 2.1) / (self.air_temp[t] + 15)) * (pyunits.millimeter / pyunits.day)
                 self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
-            if evap_method == 'jensen':
+            if self.evap_method == 'jensen':
                 # Jensen-Haise (1963) PE in mm per day
                 self.evap_rate_pure = (0.41 * (0.025 * self.air_temp[t] + 0.078) * self.solar_rad) * (pyunits.millimeter / pyunits.day)
                 self.evap_rate_pure = pyunits.convert(self.evap_rate_pure, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
@@ -124,7 +124,7 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3

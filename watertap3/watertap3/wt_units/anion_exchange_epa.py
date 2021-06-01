@@ -13,6 +13,7 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
+        t = self.flowsheet().config.time.first()
         def anion_ex_cost_curves(eqn, x):
             cost_df = pd.read_csv('data/an_ex_cost_eqns.csv', index_col='eqn')
             cost_df.drop(columns=['pct_deviation', 'date_modified', 'r_squared', 'max_size', 'min_size'], inplace=True)
@@ -22,18 +23,18 @@ class UnitProcess(WT3UnitProcess):
             return cost
 
         ### VESSEL COST ###
-        pv_ss_cost = anion_ex_cost_curves('ss_pv_eq', (80 * 7.48))  # cost of stainless steel pressure vessel
-        pv_cs_cost = anion_ex_cost_curves('cs_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with stainless internals
-        pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with plastic internals
-        pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', (80 * 7.48))  # cost of fiberglass pressure vessels
-        if pv_material == 'stainless':
-            pv_cost = pv_ss_cost * self.tot_tanks
-        if pv_material == 'carbon with stainless':
-            pv_cost = pv_cs_cost * self.tot_tanks
-        if pv_material == 'carbon with plastic':
-            pv_cost = pv_csp_cost * self.tot_tanks
-        if pv_material == 'fiberglass':
-            pv_cost = pv_fg_cost * self.tot_tanks
+        self.pv_ss_cost = anion_ex_cost_curves('ss_pv_eq', (80 * 7.48))  # cost of stainless steel pressure vessel
+        self.pv_cs_cost = anion_ex_cost_curves('cs_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with stainless internals
+        self.pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with plastic internals
+        self.pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', (80 * 7.48))  # cost of fiberglass pressure vessels
+        if self.pv_material == 'stainless':
+            pv_cost = self.pv_ss_cost * self.tot_tanks
+        if self.pv_material == 'carbon with stainless':
+            pv_cost = self.pv_cs_cost * self.tot_tanks
+        if self.pv_material == 'carbon with plastic':
+            pv_cost = self.pv_csp_cost * self.tot_tanks
+        if self.pv_material == 'fiberglass':
+            pv_cost = self.pv_fg_cost * self.tot_tanks
         #             resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate']
 
         ### RESIN COST ##
@@ -52,11 +53,12 @@ class UnitProcess(WT3UnitProcess):
         # if bw_tank_type == 'hdpe':
         #     bw_tank_cost = bw_hdpe_cost * self.back_tanks
 
-        total_system_cost = pv_cost + self.resin_cap
+        ix_cost = pv_cost + self.resin_cap
 
-        return total_system_cost * 1E-6
+        return ix_cost * 1E-6
 
     def elect(self):  # m3/hr
+        t = self.flowsheet().config.time.first()
         self.pump_power = (self.flow_vol_in[t] * 2 * 1e5) / 0.8  # w 2 bar pressure and 80% pump efficiency
         electricity = (self.pump_power * 1E-3) / (self.flow_vol_in[t] * 3600)  # kwh/m3
         return electricity
@@ -87,17 +89,17 @@ class UnitProcess(WT3UnitProcess):
             self.ph_out = 8.2
 
         try:
-            geom = unit_params['geom']
-            pv_material = unit_params['pv_material']
-            bw_tank_type = unit_params['bw_tank_type']
+            self.geom = unit_params['geom']
+            self.pv_material = unit_params['pv_material']
+            self.bw_tank_type = unit_params['bw_tank_type']
             self.resin_name = unit_params['resin_type']
         except:
-            geom = 'vertical'
-            pv_material = 'stainless'
-            bw_tank_type = 'stainless'
+            self.geom = 'vertical'
+            self.pv_material = 'stainless'
+            self.bw_tank_type = 'stainless'
             self.resin_name = 'styrenic_gel_2'
 
-        resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate', 'custom']
+        self.resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate', 'custom']
 
         self.resin_dict = {
                 'styrenic_gel_1': 148,

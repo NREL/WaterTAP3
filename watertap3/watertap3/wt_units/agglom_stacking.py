@@ -17,6 +17,7 @@ class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time.first()
+        self.chem_dict = {}
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         try:
             self.mining_capacity = unit_params['mining_capacity'] * (pyunits.tonnes / pyunits.day)
@@ -45,6 +46,7 @@ class UnitProcess(WT3UnitProcess):
         self.stacking_op = 6.28846 * self.mining_capacity ** 0.56932
         self.dist_recov_op = 7.71759 * self.mining_capacity ** 0.91475
         self.stacking_other = self.stacking_op / self.make_up_water  # make_up_flow needs to be in m3/day?
+        self.other_var_cost = self.stacking_other
         self.flow_factor = self.flow_in / 65
         stacking_cap = self.flow_factor * self.stacking_basis ** self.stacking_exp
         return stacking_cap
@@ -55,8 +57,6 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-        self.chem_dict = {}
-        self.other_var_cost = self.stacking_other
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),

@@ -12,6 +12,13 @@ class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
         time = self.flowsheet().config.time.first()
+        sys_cost_params = self.parent_block().costing_param
+        flow_in_m3yr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.year))
+
+        if self.unit_process_name == "tramp_oil_tank":
+            disposal_cost = 0.000114 # Kiran's disposal cost assumption $/m3
+            self.costing.other_var_cost = flow_in_m3yr * 0.00114 * sys_cost_params.plant_cap_utilization # $ / yr
+
         if self.kind == 'flow':
             flow_basis = self.basis * (pyunits.m ** 3 / pyunits.hour)
             flow_factor = self.flow_in / flow_basis

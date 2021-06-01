@@ -16,8 +16,8 @@ class UnitProcess(WT3UnitProcess):
     def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time
         t = self.flowsheet().config.time.first()
+        self.lift_height = Var(time, initialize=400, domain=NonNegativeReals, units=pyunits.ft, doc='Lift height for pump [ft]')  # lift height in feet
         self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
-
         try:
             self.lift_height.fix(unit_params['lift_height'])
         except:
@@ -41,7 +41,6 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time
         self.pump_eff = 0.9
         self.motor_eff = 0.9
-        self.lift_height = Var(time, initialize=400, domain=NonNegativeReals, units=pyunits.ft, doc='lift height for pump in ft')  # lift height in feet
         flow_in_gpm = pyunits.convert(self.flow_in, to_units=(pyunits.gallon / pyunits.minute))
         electricity = (0.746 * flow_in_gpm * self.lift_height[t] / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in
         return electricity

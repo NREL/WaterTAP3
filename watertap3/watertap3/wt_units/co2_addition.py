@@ -28,7 +28,7 @@ class UnitProcess(WT3UnitProcess):
 
     def elect(self):
         electricity = 0.01
-        return
+        return electricity
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)

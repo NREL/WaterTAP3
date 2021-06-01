@@ -25,7 +25,7 @@ class UnitProcess(WT3UnitProcess):
         for constituent in self.config.property_package.component_list:
             self.conc_mass_tot += self.conc_mass_in[time, constituent]
         self.density = 0.6312 * self.conc_mass_tot + 997.86  # kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = total_mass = self.density * flow_in
+        self.total_mass = total_mass = self.density * self.flow_in
         self.chem_dict = {}
         landfill_cap = (self.total_mass / self.capacity_basis) ** self.cap_scaling_exp
         return landfill_cap
@@ -36,7 +36,6 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),

@@ -53,6 +53,7 @@ class UnitProcess(WT3UnitProcess):
         self.stacking_op = 6.28846 * self.mining_capacity ** 0.56932
         self.dist_recov_op = 7.71759 * self.mining_capacity ** 0.91475
         self.mining_to_heap_other = (self.mine_equip_op + self.crushing_op + self.leach_op) / self.make_up_water
+        self.other_var_cost = self.mining_to_heap_other
         self.stacking_other = self.stacking_op / self.make_up_water
         self.flow_factor = self.flow_in / 73
         heap_cap = self.flow_factor * self.mining_to_heap_basis ** self.mining_to_heap_exp
@@ -64,7 +65,6 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-        self.other_var_cost = self.mining_to_heap_other
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),
