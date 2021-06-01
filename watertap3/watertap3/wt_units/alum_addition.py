@@ -15,6 +15,7 @@ tpec_or_tic = 'TPEC'
 
 
 class UnitProcess(WT3UnitProcess):
+
     def solution_vol_flow(self):  # m3/hr
         self.solution_density = 1360 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         self.ratio_in_solution = 0.50

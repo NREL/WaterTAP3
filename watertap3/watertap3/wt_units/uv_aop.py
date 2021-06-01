@@ -30,8 +30,9 @@ class UnitProcess(WT3UnitProcess):
             cost = temp[((temp.dose == self.uv_dose) & (temp.uvt == self.uvt_in))]
             cost = cost.iloc[0]['cost']
             self.flow_points.append(cost)
-        self.coeffs, self.cov = curve_fit(power_curve, self.flow_list, self.flow_points)
+        coeffs, cov = curve_fit(power_curve, self.flow_list, self.flow_points)
         self.a, self.b = coeffs[0], coeffs[1]
+        return self.a, self.b
 
     def solution_vol_flow(self):  # m3/hr
         chemical_rate = self.flow_in * self.ox_dose  # kg/hr
@@ -42,8 +43,12 @@ class UnitProcess(WT3UnitProcess):
     def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        self.uvt_in = unit_params['uvt_in']
-        self.uv_dose = unit_params['uv_dose']
+        try:
+            self.uvt_in = unit_params['uvt_in']
+            self.uv_dose = unit_params['uv_dose']
+        except:
+            self.uvt_in = 0.9
+            self.uv_dose = 100
         self.aop = unit_params['aop']
         if self.aop:
             self.ox_dose = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
@@ -53,10 +58,10 @@ class UnitProcess(WT3UnitProcess):
             self.h2o2_cap_exp = 0.2277
         else:
             self.chem_dict = {}
-        uv_regress()
+        self.a, self.b = self.uv_regress()
         flow_in_mgd = pyunits.convert(self.flow_in, to_units=(pyunits.Mgallons / pyunits.day))
         uv_cap = (self.a * flow_in_mgd ** self.b) * 1E-3
-        if aop:
+        if self.aop:
             h2o2_cap = (self.h2o2_base_cap * self.solution_vol_flow() ** self.h2o2_cap_exp) * 1E-3
         else:
             h2o2_cap = 0

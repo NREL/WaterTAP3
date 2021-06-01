@@ -40,8 +40,8 @@ class UnitProcess(WT3UnitProcess):
         fe_mn_cap = total_cap_cost * cap_scaling_factor ** self.cap_scaling_exp
         return fe_mn_cap
 
-    def electricity(self):
-        self.blower_power = (147.8 * (pyunits.hp / (pyunits.m ** 3 / pyunits.hour)) * self.air_flow_rate)
+    def elect(self):
+        self.blower_power = 147.8 * (pyunits.hp / (pyunits.m ** 3 / pyunits.hour)) * self.air_flow_rate
         self.blower_power = pyunits.convert(self.blower_power, to_units=pyunits.kilowatt)
         electricity = self.blower_power / self.flow_in  # kWh / m3
         return electricity

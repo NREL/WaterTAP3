@@ -62,6 +62,7 @@ class UnitProcess(WT3UnitProcess):
         # print(c, d)
         self.c = 0.10239940765681513
         self.d = 0.9999999999999999
+        flow_in_mgd = pyunits.convert(self.flow_in, to_units=(pyunits.Mgallons / pyunits.day))
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
         electricity = (self.c * (flow_in_mgd / 440.29) ** self.d) / flow_in_m3hr  # kWh / m3
         return electricity

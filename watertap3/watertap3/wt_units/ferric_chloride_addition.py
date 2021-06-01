@@ -25,7 +25,7 @@ class UnitProcess(WT3UnitProcess):
         soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
         return soln_vol_flow  # gal/day
 
-    def fixed_cap(self):
+    def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time.first()
         self.number_of_units = 2
         self.base_fixed_cap_cost = 34153
@@ -48,7 +48,7 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3

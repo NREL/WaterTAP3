@@ -18,12 +18,12 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def fixed_cap(self):
+    def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        storage_duration = unit_params['avg_storage_time'] * pyunits.hours
-        surge_cap = unit_params['surge_cap'] * pyunits.dimensionless
-        self.capacity_needed = flow_in * storage_duration * (1 + surge_cap)
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        self.storage_duration = unit_params['avg_storage_time'] * pyunits.hours
+        self.surge_cap = unit_params['surge_cap'] * pyunits.dimensionless
+        self.capacity_needed = self.flow_in * self.storage_duration * (1 + self.surge_cap)
         # Cost curve parameters (a, b) determined from following code:
         # Data taken from WT3 Excel model
         # from scipy.optimize import curve_fit
@@ -47,7 +47,7 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3

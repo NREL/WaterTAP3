@@ -11,16 +11,18 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
+        time = self.flowsheet().config.time.first()
         if self.kind == 'flow':
             flow_basis = self.basis * (pyunits.m ** 3 / pyunits.hour)
             flow_factor = self.flow_in / flow_basis
             basic_cap = self.cap_basis * flow_factor ** self.cap_exp
             return basic_cap
 
-        if kind == 'mass':
+        if self.kind == 'mass':
+            constituents = self.config.property_package.component_list
             mass_basis = self.basis * (pyunits.kg / pyunits.hour)
             mass_in = 0
-            for constituent in self.constituents:
+            for constituent in constituents:
                 mass_in += self.conc_mass_in[time, constituent]
             density = 0.6312 * mass_in + 997.86  # kg / m3
             total_mass_in = density * self.flow_in  # kg / hr
@@ -48,8 +50,7 @@ class UnitProcess(WT3UnitProcess):
             self.case_specific = None
             self.basis, self.cap_basis, self.cap_exp, self.elect_intensity, self.basis_year, self.kind = cost_curves.basic_unit(self.unit_process_name)
         self.chem_dict = {}
-        financials.create_costing_block(self, basis_year, tpec_or_tic)
-        self.constituents = self.config.property_package.component_list
+        financials.create_costing_block(self, self.basis_year, tpec_or_tic)
         self.deltaP_outlet.unfix()
         self.deltaP_waste.unfix()
         self.pressure_out.fix(1)

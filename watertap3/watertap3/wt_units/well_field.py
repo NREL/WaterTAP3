@@ -13,14 +13,14 @@ class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
         time = self.flowsheet().config.time.first()
-        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.base_fixed_cap_cost = 4731.6
         self.cap_scaling_exp = 0.9196
         self.chem_dict = {}
         well_cap = self.base_fixed_cap_cost * flow_in ** self.cap_scaling_exp * 1E-6
         return well_cap
 
-    def electricity(self):
+    def elect(self):
         electricity = 0
         return electricity
 

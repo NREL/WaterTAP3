@@ -11,7 +11,22 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def fixed_cap(self):
+    def fixed_cap(self, unit_params):
+        time = self.flowsheet().config.time.first()
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        self.alum_dose = pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
+        self.polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
+        self.an_polymer = self.polymer_dose / 2  # MIKE ASSUMPTION NEEDED
+        self.cat_polymer = self.polymer_dose / 2  # MIKE ASSUMPTION NEEDE
+        self.rapid_mixers = 1 * pyunits.dimensionless
+        self.floc_mixers = 3 * pyunits.dimensionless
+        self.rapid_mix_processes = 1 * pyunits.dimensionless
+        self.floc_processes = 2 * pyunits.dimensionless
+        self.coag_processes = 1 * pyunits.dimensionless
+        self.floc_injection_processes = 1 * pyunits.dimensionless
+        self.rapid_mix_retention_time = 5.5 * pyunits.seconds  # seconds (rapid mix)
+        self.floc_retention_time = 12 * pyunits.minutes  # minutes
+        self.chem_dict = {'Aluminum_Al2_SO4_3': self.alum_dose, 'Anionic_Polymer': self.an_polymer, 'Cationic_Polymer': self.cat_polymer}
         flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)  # m3/hr to GPM
         rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm  # gallons
         floc_basin_volume = self.floc_retention_time * flow_in_gpm * 1E-6  # gallons
@@ -29,7 +44,7 @@ class UnitProcess(WT3UnitProcess):
     def elect(self):
         flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)  # MGD to GPM
         rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm
-        rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_basin_volume, to_units=pyunits.m ** 3)  # gallons to m3
+        rapid_mix_basin_volume = pyunits.convert(rapid_mix_basin_volume, to_units=pyunits.m ** 3)  # gallons to m3
         rapid_mix_power_consumption = (900 ** 2 * 0.001 * rapid_mix_basin_volume) * pyunits.watts  # W
         rapid_mix_power = rapid_mix_power_consumption * self.rapid_mixers * 1E-3  # kW
         floc_basin_volume = self.floc_retention_time * flow_in_gpm
@@ -41,22 +56,8 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-        time = self.flowsheet().config.time.first()
-        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        self.alum_dose = pyunits.convert(unit_params['alum_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
-        self.polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
-        self.an_polymer = self.polymer_dose / 2  # MIKE ASSUMPTION NEEDED
-        self.cat_polymer = self.polymer_dose / 2  # MIKE ASSUMPTION NEEDE
-        self.rapid_mixers = 1 * pyunits.dimensionless
-        self.floc_mixers = 3 * pyunits.dimensionless
-        self.rapid_mix_processes = 1 * pyunits.dimensionless
-        self.floc_processes = 2 * pyunits.dimensionless
-        self.coag_processes = 1 * pyunits.dimensionless
-        self.floc_injection_processes = 1 * pyunits.dimensionless
-        self.rapid_mix_retention_time = 5.5 * pyunits.seconds  # seconds (rapid mix)
-        self.floc_retention_time = 12 * pyunits.minutes  # minutes
-        self.chem_dict = {'Aluminum_Al2_SO4_3': self.alum_dose, 'Anionic_Polymer': self.an_polymer, 'Cationic_Polymer': self.cat_polymer}
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
