@@ -2,7 +2,7 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE: TWB
 
 module_name = 'microfiltration'
 basis_year = 2014
@@ -11,43 +11,23 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
-
+    def fixed_cap(self):
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.Mgallons / pyunits.day))
-
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.Mgallons / pyunits.day))
         self.chem_dict = {}
-        base_fixed_cap_cost = 2.5
+        self.base_fixed_cap_cost = 2.5
+        mf_cap = self.base_fixed_cap_cost * self.flow_in
+        return mf_cap
 
-        def fixed_cap(flow_in):
-            mf_cap = base_fixed_cap_cost * flow_in
-            return mf_cap
+    def elect(self):
+        electricity = 0.307
+        return electricity
 
-        def electricity():
-            electricity = 0.307
-            return electricity
+    def get_costing(self, unit_params=None, year=None):
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
-
-        self.electricity = electricity()  # kwh/m3
-
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
         financials.get_complete_costing(self.costing)

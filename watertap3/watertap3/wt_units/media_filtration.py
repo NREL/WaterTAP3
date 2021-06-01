@@ -16,57 +16,35 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
+    def base_filter_surface_area(self):
+        self.filtration_rate = 10 * (pyunits.meter / pyunits.hour)
+        surface_area = pyunits.convert((self.flow_in / self.filtration_rate), to_units=pyunits.ft ** 2)  # conversion to ft2
+        return surface_area  # total surface area of the filter, in ft2
 
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
+    def dual_media_filter(self):
+        self.number_of_units = 6
+        dual_cost = (38.319 * self.base_filter_surface_area() + 21377) * self.number_of_units  # calculations done based on ft2
+        return dual_cost
 
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
+    def filter_backwash(self):
+        filter_backwash_cost = 292.44 * self.base_filter_surface_area() + 92497  # calculations done based on ft2
+        return filter_backwash_cost
 
+    def fixed_cap(self):
         time = self.flowsheet().config.time.first()
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.chem_dict = {}
+        media_filt_cap = (self.dual_media_filter() + self.tpec_tic * self.filter_backwash()) * 1E-6
+        return media_filt_cap
 
-        filtration_rate = 10 * (pyunits.meter / pyunits.hour)
-        number_of_units = 6
+    def elect(self):  # m3/hr
+        electricity = 0
+        return electricity
 
-        def base_filter_surface_area(flow_in):
-            surface_area = pyunits.convert((flow_in / filtration_rate), to_units=pyunits.ft ** 2)  # conversion to ft2
-            return surface_area  # total surface area of the filter, in ft2
-
-        def dual_media_filter(flow_in):
-            dual_cost = (38.319 * base_filter_surface_area(flow_in) + 21377) * number_of_units  # calculations done based on ft2
-            return dual_cost
-
-        def filter_backwash(flow_in):
-            filter_backwash_cost = 292.44 * base_filter_surface_area(flow_in) + 92497  # calculations done based on ft2
-            return filter_backwash_cost
-
-        def fixed_cap(flow_in):
-            media_filt_cap = (dual_media_filter(flow_in) + filter_backwash(flow_in)) * 1E-6
-            return media_filt_cap * tpec_tic
-
-        def electricity(flow_in):  # m3/hr
-            electricity = 0
-            return electricity
-
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap(flow_in),
+    def get_costing(self, unit_params=None, year=None):
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
-
-        self.electricity = electricity(flow_in)  # kwh/m3
-
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
         financials.get_complete_costing(self.costing)

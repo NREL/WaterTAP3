@@ -1,4 +1,4 @@
-from pyomo.environ import Expression, Block, Constraint, NonNegativeReals, Var, units as pyunits
+from pyomo.environ import Block, Constraint, Expression, NonNegativeReals, Var, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 

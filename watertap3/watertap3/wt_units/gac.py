@@ -11,37 +11,242 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def autosize(system_type, flow, num_tanks, num_lines, ebct, ebct_tank, geom='vertical'):
+
+        def autosize_constraints(system_type, flow=flow, num_tanks=num_tanks, num_lines=num_lines, ebct=ebct, geom=geom):
+
+            if system_type == 'pressure':
+                # vessel surface area
+                comp_min_sa_vessel = comp_sa_min / num_lines  # based on max load, design flow, and target number of lines
+                comp_max_sa_vessel = comp_sa_max / num_lines  # based on min load, design flow, and target number of lines
+
+                if geom == 'vertical':
+                    # vertical vessel height
+                    comp_min_vert_height = 3  # from reasonable dimensions table
+                    comp_max_vert_height = 14  # from reasonable dimensions table
+
+                    # vertical bed depth
+                    min_depth_a = comp_vol_required / num_tanks / sa_all_vessels  # ensures that bed depth is sufficient to pass diameter check on vessel design sheet
+                    min_depth_b = min_bed_depth  # from guidance on input sheet
+                    comp_min_vert_bed_depth = max(min_depth_a, min_depth_b)  # strictest of the above
+                    max_depth_a = (max_height - freeboard) / (1 + bed_expansion)  # max bed depth for max_height, given freeboard and bed expansion
+                    max_depth_b = max_bed_depth  # from guidance on input sheet
+                    comp_max_vert_bed_depth = min(max_depth_a, max_depth_b)  # strictest max of the above, rounded
+
+                    # vertical vessel diameter
+                    min_diam_a = 2 * ((
+                                              comp_vol_required / num_tanks / 3.14159 / comp_max_vert_bed_depth / num_lines) ** 0.5 + vessel_thickness)  # min diam to avoid bed depth becoming
+                    # too deep, given required volume
+                    min_diam_b = 2 * ((comp_min_sa_vessel / 3.14159) ** 0.5 + vessel_thickness)  # from min surface area
+                    min_diam_c = 1.5  # from reasonable dimensions table
+                    comp_min_vert_diam = 2 * max(min_diam_a, min_diam_b, min_diam_c), 0 / 2
+                    max_diam_a = 14  # max diameter CDA
+                    max_diam_b = 2 * ((comp_max_sa_vessel / 3.14159) ** 0.5 + vessel_thickness)  # from max surface area
+                    comp_max_vert_diam = max(0.5, 2 * min(max_diam_a, max_diam_b) / 2)  # from reasonable dimensions table
+
+                    return comp_min_vert_height, comp_max_vert_height, comp_min_vert_diam, comp_max_vert_diam, comp_min_vert_bed_depth, comp_max_vert_bed_depth
+
+                if geom == 'horizontal':
+                    # horizontal vessel diameter
+                    comp_min_horiz_diam = 8  # from guidance provided by Bob Dvorin, 5/16/05
+                    comp_max_horiz_diam = min(max_height, max_diam)  # strictest of max_height CDA and max_diam CDA
+
+                    # horizontal vessel length
+                    min_length_a = comp_min_sa_vessel / (comp_horiz_diam - 2 * vessel_thickness)  # from max load and actual diameter
+                    min_length_b = 20
+                    comp_min_horiz_length = max(min_length_a, min_length_b)
+                    max_length_a = max_length  # max length CDA
+                    max_length_b = comp_max_vol / (comp_horiz_diam * comp_horiz_diam * 3.14159 / 4) / 7.48  # max volume combined with actual diameter
+                    comp_max_horiz_length = min(max_length_a, max_length_b)
+
+                    # horizontal bed depth
+                    min_depth_a = comp_vol_required / num_tanks / sa_all_vessels  # ensures that bed depth is sufficient for required volume of medium
+                    min_depth_b = min_bed_depth  # from media constraint table
+                    comp_min_horiz_bed_depth = max(min_depth_a, min_depth_b)
+                    max_depth_a = (min(max_height, max_diam) - freeboard) / (1 + bed_expansion)  # max bed depth for max_height or max_diam, given freeboard and bed expansion
+                    max_depth_b = max_bed_depth  # from media constraint table
+                    comp_max_horiz_bed_depth = min(max_depth_a, max_depth_b)
+
+                    return comp_min_horiz_diam, comp_max_horiz_diam, comp_min_horiz_length, comp_max_horiz_length, comp_min_horiz_bed_depth, comp_max_horiz_bed_depth
+
+            if system_type == 'gravity':
+                # bed depth
+                min_depth_a = min_depth  # from min_depth CDA
+                min_depth_b = flow * ebct / (num_lines * 30 * max_width) / 7.48  # assuming max-size contactor and number of contactors above, min depth for sufficient media volume
+                comp_min_bed_depth_a = max(min_depth_a, min_depth_b)
+                comp_max_bed_depth_a = max_depth  # from max_depth CDA
+
+                # surface area
+                comp_min_sa_a = flow / num_lines / load_max  # from loading: based on design flow per target line, max loading
+                comp_max_sa_a = flow / num_lines / load_min  # from loading: based on design flow per target line, min loading
+
+                # contactor length
+                comp_min_length_a = 6  # from min_length CDA
+                comp_max_length_a = 30  # from max_length CDA
+
+                # contactor width
+                comp_min_width_a = min_width  # from min_width CDA
+                comp_max_width_a = max_width  # from max_width CDA
+
+                return comp_min_bed_depth_a, comp_max_bed_depth_a, comp_min_sa_a, comp_max_sa_a, comp_min_length_a, comp_max_length_a, comp_min_width_a, comp_max_width_a
+
+            ## PRESSURE ##
+
+        if system_type == 'pressure':
+
+            comp_vol_required_stg1 = flow * ebct_tank / 7.48  # volume of media in first-stage vessels
+            comp_sa_min = flow / load_max  # to reach maximum loading rate
+            comp_sa_max = flow / load_min  # to reach minimum loading rate
+            comp_vol_required = flow * ebct / 7.481  # volume of media in all vessels
+
+            if geom == 'vertical':
+                comp_target_bed_depth_vert = target_bed_depth_over  # based on target load CDA
+                comp_sa_required_vert = comp_vol_required_stg1 / comp_target_bed_depth_vert  # based on media volume and bed depth
+                comp_vert_diam = 2 * ((comp_sa_required_vert / num_lines / 3.14159) ** 0.5 + vessel_thickness)  # target diameter
+                sa_one_vessel = (comp_vert_diam - 2 * vessel_thickness) * (comp_vert_diam - 2 * vessel_thickness) * 3.14159 / 4  # surface area, one vessel
+                sa_all_vessels = sa_one_vessel * num_lines  # surface area, all vessels
+
+                comp_min_vert_height, comp_max_vert_height, comp_min_vert_diam, comp_max_vert_diam, comp_min_vert_bed_depth, comp_max_vert_bed_depth = autosize_constraints(system_type, geom=geom)
+
+                # vertical design search
+                comp_vert_max_media = (comp_max_vert_diam / 2 - vessel_thickness) * (
+                        comp_max_vert_diam / 2 - vessel_thickness) * 3.14159 * comp_max_vert_bed_depth  # based on guidance and CDAs for max dimensions
+                comp_vert_max_sa = (max_diam / 2 - vessel_thickness) * (max_diam / 2 - vessel_thickness) * 3.14159  # based on max_diam CDA
+
+                num_lines_vert_a = comp_sa_min / comp_vert_max_sa  # based on surface area from max load
+                num_lines_vert_b = comp_sa_required_vert / comp_vert_max_sa  # based on surface area from bed depth
+                num_lines_vert_c = comp_vol_required_stg1 / comp_vert_max_media  # based on media volume
+                comp_vert_min_number = max(num_lines_vert_a, num_lines_vert_b, num_lines_vert_c)
+
+                # inputs
+
+                comp_vert_bed_depth = comp_vol_required / num_tanks / sa_all_vessels  # bed depth
+                comp_vert_height = (1 + bed_expansion) * comp_vert_bed_depth + freeboard  # target height
+                comp_bed_depth = comp_vert_bed_depth  # bed depth for chosen geometry
+
+                if comp_vert_diam < comp_min_vert_diam:
+                    comp_vert_diam = comp_min_vert_diam
+                elif comp_vert_diam > comp_max_vert_diam:
+                    comp_vert_diam = comp_max_vert_diam
+                else:
+                    comp_vert_diam = 2 * comp_vert_diam / 2
+
+                if comp_min_vert_bed_depth <= comp_max_vert_bed_depth:
+                    if comp_bed_depth < comp_min_vert_bed_depth:
+                        comp_bed_depth = comp_min_vert_bed_depth
+                    elif comp_bed_depth > comp_max_vert_bed_depth:
+                        comp_bed_depth = comp_max_vert_bed_depth
+                    else:
+                        comp_bed_depth = comp_vert_bed_depth
+
+                if comp_min_vert_height > comp_max_vert_height:
+                    comp_vert_height = -1
+                    print(f'Min vert height greater than max vert height.\n\tcomp_min_vert_height = {comp_min_vert_height}\n\tcomp_max_vert_height = {comp_max_vert_height}')
+                    print('I am not sure what this means yet.')
+                elif comp_vert_height > comp_max_vert_height:
+                    comp_vert_height = comp_max_vert_height
+                elif comp_vert_height < comp_min_vert_height:
+                    comp_vert_height = 2 * comp_vert_height / 2  ## NEED TO HAVE A ROUNDUP FUNCTION HERE
+
+                return comp_vert_min_number, comp_vert_height, comp_bed_depth, comp_vert_diam
+
+            if geom == 'horizontal':
+
+                comp_min_horiz_diam, comp_max_horiz_diam, comp_min_horiz_length, comp_max_horiz_length, comp_min_horiz_bed_depth, comp_max_horiz_bed_depth = autosize_constraints(system_type,
+                                                                                                                                                                                  geom=geom)
+                # inputs
+                comp_max_vol = 27100  # max pressure vessel volume LOOKED UP
+                comp_max_vol_length = comp_max_vol / 7.48 / (3.14159 * comp_max_horiz_diam * comp_max_horiz_diam / 4)  # rounded to reflect the length we will actually use on the input sheet
+                comp_target_bed_depth_horiz = target_bed_depth_horiz  # based on target load CDA
+                comp_sa_required_horiz = comp_vol_required_stg1 / comp_target_bed_depth_horiz  # based on media volume and bed depth
+
+                fb = comp_max_vol_length * (comp_max_horiz_diam * comp_max_horiz_diam / 2 * np.arcsin((freeboard / comp_max_horiz_diam) ** 0.5) - (comp_max_horiz_diam / 2 - freeboard) * (
+                        (comp_max_horiz_diam - freeboard) * freeboard) ** 0.5)  # freeboard - volume of a horizontal slice of a cylinder
+                ud = comp_max_vol_length * (
+                        comp_max_horiz_diam * comp_max_horiz_diam / 2 * np.arcsin((horiz_underdrain / comp_max_horiz_diam) ** 0.5) - (comp_max_horiz_diam / 2 - horiz_underdrain) * (
+                        (comp_max_horiz_diam - horiz_underdrain) * horiz_underdrain) ** 0.5)  # underdrain
+                comp_horiz_void_required = fb + ud  # total of the two void volumes above
+                comp_horiz_void_area = comp_horiz_void_required / comp_max_vol_length  # assumed void volume per length
+                comp_horiz_expanded_bd = comp_target_bed_depth_horiz * (1 + bed_expansion)  # target bed depth after expansion
+                comp_horiz_diam = (comp_horiz_expanded_bd + (comp_horiz_expanded_bd * comp_horiz_expanded_bd + 3.14159 * comp_horiz_void_area) ** 0.5) / (3.14159 / 2)  # target diameter
+                # comp_horiz_diam_old = (comp_sa_required_horiz / num_lines / length_diam_ratio) ** 0.5
+                comp_horiz_length = comp_sa_required_horiz / (comp_horiz_diam - 2 * vessel_thickness) / num_lines  # target length
+                sa_all_vessels = num_lines * (comp_horiz_diam - 2 * vessel_thickness) * comp_horiz_length  # surface area for all vessels
+                comp_horiz_bed_depth = comp_vol_required / num_tanks / sa_all_vessels
+                comp_bed_depth = comp_horiz_bed_depth  # bed depth for chosen geometry
+
+                # horizontal design search
+
+                comp_max_horiz_sa = (comp_max_horiz_diam - 2 * vessel_thickness) * comp_max_vol_length  # max vessel surface area
+                comp_target_bed_depth_horiz = target_bed_depth_horiz  # based on target load CDA -- NEEDS TO BE ADJUSTABLE FOR FLOW AND INCLUSION OF UV AOP
+                comp_sa_required_horiz = comp_vol_required_stg1 / comp_target_bed_depth_horiz  # total vessel surface area, based upon media volume and ved depth
+
+                comp_horiz_max_media = (comp_max_vol / 7.481 - comp_horiz_void_required) / (1 + bed_expansion)  # max media volume
+                num_lines_horiz_a = comp_sa_min / comp_max_horiz_sa  # based on surface area from max load
+                num_lines_horiz_b = comp_sa_required_horiz / comp_max_horiz_sa  # based on surface area from bed depth
+                num_lines_horiz_c = comp_vol_required_stg1 / comp_horiz_max_media  # based on media volume
+                comp_horiz_min_number = max(num_lines_horiz_a, num_lines_horiz_b, num_lines_horiz_c)  # min number of lines, horizontal vessels
+
+                if comp_min_horiz_diam <= comp_max_horiz_diam:
+                    if comp_horiz_diam < comp_min_horiz_diam:
+                        comp_horiz_diam = comp_min_horiz_diam
+                    elif comp_horiz_diam > comp_max_horiz_diam:
+                        comp_horiz_diam = comp_max_horiz_diam
+                    else:
+                        comp_horiz_diam = 2 * comp_horiz_diam / 2  ##  NEED ROUND UP FUNCtiON HERE
+
+                if comp_min_horiz_length <= comp_max_horiz_length:
+                    if comp_horiz_length < comp_min_horiz_length:
+                        comp_horiz_length = comp_min_horiz_length
+                    elif comp_horiz_length > comp_max_horiz_length:
+                        comp_horiz_length = comp_max_horiz_length
+                    else:
+                        comp_horiz_length = comp_horiz_length
+
+                return comp_max_horiz_sa, comp_horiz_length, comp_bed_depth, comp_horiz_min_number
+
+        if system_type == 'gravity':
+            comp_min_bed_depth_a, comp_max_bed_depth_a, comp_min_sa_a, comp_max_sa_a, comp_min_length_a, comp_max_length_a, comp_min_width_a, comp_max_width_a = autosize_constraints(system_type,
+                                                                                                                                                                                      geom=geom)
+
+            comp_vol_required_a = flow * ebct / 7.481  # volume of media in all vessels
+            # design search
+            comp_vert_max_media_a = comp_max_bed_depth_a * comp_max_length_a * comp_max_width_a  # based on guidance and CDAs for max dimensions
+            comp_sa_min_a = flow / load_max  # to reach maximum loading rate
+            comp_sa_max_a = flow / load_min  # to reach minimum loading rate
+            comp_target_bed_depth_vert_a = target_bed_depth_over  ## based on Target Bed Depth CDA -- NEEDS TO BE ADJUSTABLE FOR SMALLER FLOWS AND INCLUSION (OR NOT) OF UV AOP... SEE
+            # DOCUMENTATION AND EXCEL SHEET
+            comp_sa_required_vert_a = comp_vol_required_a / comp_target_bed_depth_vert_a  # based on media volume and bed depth
+            num_lines_grav_a = comp_min_sa_a / comp_sa_max_a
+            num_lines_grav_b = comp_sa_required_vert_a / comp_sa_max_a
+            num_lines_grav_c = comp_vol_required_a / comp_vert_max_media_a
+            comp_vert_min_number_a = min(num_lines_grav_a, num_lines_grav_b, num_lines_grav_c)  # below this number of lines, we are constrained to horizontal vessels
+
+            comp_length_width_a = (comp_sa_required_vert_a / num_lines) ** 0.5  # target side length
+            sa_one_vessel = comp_length_width_a ** 2  # surface area one vessel
+            sa_all_vessels = num_lines * sa_one_vessel  # surface area all vessels
+            comp_bed_depth_a = comp_vol_required_a / num_tanks / sa_all_vessels  # bed depth
+
+            if comp_length_width_a < comp_min_length_a:
+                comp_length_width_a = comp_min_length_a
+            elif comp_length_width_a > comp_max_length_a:
+                comp_length_width_a = 2 * comp_length_width_a / 2  ## NEED ROUND UP FUNCTION HERE=
+
+            return comp_length_width_a, comp_bed_depth_a, comp_vert_min_number_a
+
     def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
-
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
         t = self.flowsheet().config.time
         time = self.flowsheet().config.time.first()
         self.ebct = Var(t, initialize=unit_params['ebct'],
                         domain=NonNegativeReals,
                         bounds=(1, 30),  # units=pyunits.dimensionless,
                         doc='ebct')
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
 
-        system_type = unit_params['system_type']
+        self.system_type = unit_params['system_type']
         # regen = unit_params['regen']
-        regen = 'onsite'
+        self.regen = 'onsite'
         try:
             self.freund1 = unit_params['freund1']  # Kf (ug/g)(L/ug)1/n
             self.freund2 = unit_params['freund2']  # dimensionless
@@ -58,27 +263,27 @@ class UnitProcess(WT3UnitProcess):
         # geom should be determined by autosize function
         # or should be able to be determined by autosize function
         try:
-            geom = unit_params['geom']
-            pv_material = unit_params['pv_material']
-            bw_tank_type = unit_params['bw_tank_type']
+            self.geom = unit_params['geom']
+            self.pv_material = unit_params['pv_material']
+            self.bw_tank_type = unit_params['bw_tank_type']
         except:
-            geom = 'vertical'
-            pv_material = 'stainless'
-            bw_tank_type = 'stainless'
+            self.geom = 'vertical'
+            self.pv_material = 'stainless'
+            self.bw_tank_type = 'stainless'
 
         ############## SYSTEM INPUTS ##############
         #     flow_in = 1
-        bp_pct = 0  # * pyunits.dimensionless # bypass percent of flow
-        comm_diam = 8.5  # * pyunits.ft # vessel diameter ??
-        vessel_thickness = 0  # * pyunits.ft # thickness of vessel walls ?
-        comm_height_length = 11  # * pyunits.ft # 'straight' height of vessel ??
-        bed_depth = 6.7  # * pyunits.ft # vessel bed depth
-        backwash_load_rate = 3  # * (pyunits.gallon / pyunits.minute) / pyunits.ft**2 # backwash loading rate
-        backwash_time = 12  # * pyunits.minutes # backwashing time
-        backwash_interval = 168  # * pyunits.hours # interval between backwash occurrences, depends on many things # 48 hours for surface water if loading rate 4-6 gpm/sf; 7+ days for ground water 
+        self.bp_pct = 0  # * pyunits.dimensionless # bypass percent of flow
+        self.comm_diam = 8.5  # * pyunits.ft # vessel diameter ??
+        self.vessel_thickness = 0  # * pyunits.ft # thickness of vessel walls ?
+        self.comm_height_length = 11  # * pyunits.ft # 'straight' height of vessel ??
+        self.bed_depth = 6.7  # * pyunits.ft # vessel bed depth
+        self.backwash_load_rate = 3  # * (pyunits.gallon / pyunits.minute) / pyunits.ft**2 # backwash loading rate
+        self.backwash_time = 12  # * pyunits.minutes # backwashing time
+        self.backwash_interval = 168  # * pyunits.hours # interval between backwash occurrences, depends on many things # 48 hours for surface water if loading rate 4-6 gpm/sf; 7+ days for ground water
         # (Richard E. Hubel, Peter Keenan, American Water Works Service Company, Inc).  2 weeks or loss of head based on operational experience (Verna Arnette, Greater Cincinnati Water Works).
-        regen_list = ['onsite', 'offsite', 'throw_nonhaz', 'offsite_haz', 'throw_haz', 'throw_rad', 'throw_hazrad']
-        pv_material_list = ['stainless', 'carbon with stainless', 'carbon with plastic', 'fiberglass']
+        self.regen_list = ['onsite', 'offsite', 'throw_nonhaz', 'offsite_haz', 'throw_haz', 'throw_rad', 'throw_hazrad']
+        self.pv_material_list = ['stainless', 'carbon with stainless', 'carbon with plastic', 'fiberglass']
         #     regen = 'onsite'
 
         ########################################################
@@ -88,74 +293,74 @@ class UnitProcess(WT3UnitProcess):
         ########################################################
 
         ############## GAC CONTACTOR DESIGN ##############
-        bed_expansion = 0.5  # * pyunits.dimensionless # resin expansion during backwash
-        load_min = 0.5  # gpm / ft2, # Hydraulic surface loading rate determines headloss and is usually kept between 2 -10 gpm/sf. Higher loading rates OK if hydraulics and tests allow. Typical 
+        self.bed_expansion = 0.5  # * pyunits.dimensionless # resin expansion during backwash
+        self.load_min = 0.5  # gpm / ft2, # Hydraulic surface loading rate determines headloss and is usually kept between 2 -10 gpm/sf. Higher loading rates OK if hydraulics and tests allow. Typical
         # hydraulic design criteria are a surface loading rate of 2-10 gpm/ft2 (Montgomery, James M.  Water Treatment Principles and Design.  New York: John Wiley and Sons, 1985. Pp. 553.)  Most 
         # regulatory agencies will not approve rates in excess of 2 gpm/ft2 without successful pilot-scale testing (American Water Works Association and American Society of Civil Engineers. Water 
         # Treatment Plant Design. Third Edition. New York: McGraw Hill, 1998. Pp. 158.).
-        load_max = 10  # gpm / ft2, # Many systems can operate to 0.5 gpm/sf (Richard E. Hubel, Peter Keenan, American Water Works Service Company, Inc.).
+        self.load_max = 10  # gpm / ft2, # Many systems can operate to 0.5 gpm/sf (Richard E. Hubel, Peter Keenan, American Water Works Service Company, Inc.).
 
         ############## PRESSURE VESSEL DESIGN ##############
-        if system_type == 'pressure':
-            max_height = 14  # * pyunits.ft
-            max_length = 53  # * pyunits.ft
-            freeboard = 0.5  # * pyunits.ft # free board above media at full expansion
-            horiz_underdrain = 1.5  # * pyunits.ft # underdrain space for horizontal vessels
-            length_diam_ratio = 2.5
-            min_bed_depth = 2  # * pyunits.ft # Typical pressure GAC bed depths are 2-8.5 ft
-            max_bed_depth = 8.5  # * pyunits.ft
-            target_bed_depth_under = 4  # * pyunits.ft # pressure designs < 1MGD
-            target_bed_depth_over = 7  # * pyunits.ft # pressure designs > 1MGD
-            target_bed_depth_horiz = 8  # * pyunits.ft # horizontal designs
+        if self.system_type == 'pressure':
+            self.max_height = 14  # * pyunits.ft
+            self.max_length = 53  # * pyunits.ft
+            self.freeboard = 0.5  # * pyunits.ft # free board above media at full expansion
+            self.horiz_underdrain = 1.5  # * pyunits.ft # underdrain space for horizontal vessels
+            self.length_diam_ratio = 2.5
+            self.min_bed_depth = 2  # * pyunits.ft # Typical pressure GAC bed depths are 2-8.5 ft
+            self.max_bed_depth = 8.5  # * pyunits.ft
+            self.target_bed_depth_under = 4  # * pyunits.ft # pressure designs < 1MGD
+            self.target_bed_depth_over = 7  # * pyunits.ft # pressure designs > 1MGD
+            self.target_bed_depth_horiz = 8  # * pyunits.ft # horizontal designs
 
         ############## GRAVITY BASIN DESIGN ##############
-        if system_type == 'gravity':
-            max_length = 30  # * pyunits.ft
-            min_length = 6  # * pyunits.ft
-            max_width = 30  # * pyunits.ft
-            min_width = 6  # * pyunits.ft
-            max_depth = 10  # * pyunits.ft
-            min_depth = 3  # * pyunits.ft # Typical gravity GAC bed depths are 3-10 ft
-            freeboard = 2  # * pyunits.ft # free board above media at full expansion
-            target_bed_depth_under = 6  # * pyunits.ft # gravity designs < 1MGD
-            target_bed_depth_uv_aop = 5.4  # * pyunits.ft # gravity with UV AOP no matter flow
-            target_bed_depth_over = 8  # * pyunits.ft # pressure designs > 1MGD
+        if self.system_type == 'gravity':
+            self.max_length = 30  # * pyunits.ft
+            self.min_length = 6  # * pyunits.ft
+            self.max_width = 30  # * pyunits.ft
+            self.min_width = 6  # * pyunits.ft
+            self.max_depth = 10  # * pyunits.ft
+            self.min_depth = 3  # * pyunits.ft # Typical gravity GAC bed depths are 3-10 ft
+            self.freeboard = 2  # * pyunits.ft # free board above media at full expansion
+            self.target_bed_depth_under = 6  # * pyunits.ft # gravity designs < 1MGD
+            self.target_bed_depth_uv_aop = 5.4  # * pyunits.ft # gravity with UV AOP no matter flow
+            self.target_bed_depth_over = 8  # * pyunits.ft # pressure designs > 1MGD
 
         ############## GENERAL FOR ALL BASINS ##############
-        num_stairs = 15  # only if concrete used
-        overexcavate = 4  # * pyunits.ft # 2 feet each side in each dimension. This assumption used only if concrete basins are used.
-        conc_thick = 1  # * pyunits.ft # This assumption used only if concrete basins are used
+        self.num_stairs = 15  # only if concrete used
+        self.overexcavate = 4  # * pyunits.ft # 2 feet each side in each dimension. This assumption used only if concrete basins are used.
+        self.conc_thick = 1  # * pyunits.ft # This assumption used only if concrete basins are used
 
         ############## PUMPING ##############
-        pump_safety_factor = 0.25  # * pyunits.dimensionless # safety factor for pumps
-        num_redund_pumps = 1  # number of redundant pumps
-        num_redund_back_pumps = 1
-        num_pumps = 1
+        self.pump_safety_factor = 0.25  # * pyunits.dimensionless # safety factor for pumps
+        self.num_redund_pumps = 1  # number of redundant pumps
+        self.num_redund_back_pumps = 1
+        self.num_pumps = 1
 
         ############## BACKWASH ##############
-        backwash_rate = 12  # * pyunits.gallon / pyunits.minute / pyunits.ft ** 2 # Fluidization occurs at 2-4 gpm/sf; 12-15 gpm/sf is needed to 'expand' GAC and wash out particulates [Calgon 
+        self.backwash_rate = 12  # * pyunits.gallon / pyunits.minute / pyunits.ft ** 2 # Fluidization occurs at 2-4 gpm/sf; 12-15 gpm/sf is needed to 'expand' GAC and wash out particulates [Calgon
         # Carbon] (Richard E. Hubel, Peter Keenan, American Water Works Service Company, Inc)
-        backwash_time = 10  # * pyunits.minute # Backwash duration is time allowed for backwash of filter. Use highest expected duration. Typically 5-10 minutes. Default is 10 minutes.
-        back_multiplier = 1  # volume # number of backwash ctcles to provide a storage volume for clean water
-        back_ratio = 0.6  # only if concrete basins are used
-        back_freeboard = 3  # * pyunits.ft # only if concrete basins are  used
+        self.backwash_time = 10  # * pyunits.minute # Backwash duration is time allowed for backwash of filter. Use highest expected duration. Typically 5-10 minutes. Default is 10 minutes.
+        self.back_multiplier = 1  # volume # number of backwash ctcles to provide a storage volume for clean water
+        self.back_ratio = 0.6  # only if concrete basins are used
+        self.back_freeboard = 3  # * pyunits.ft # only if concrete basins are  used
 
         ############## GAC REGENERATION AND TRANSFER ##############
-        gac_density = 30  # * pyunits.lb / pyunits.ft ** 3 # Bulk density, not particle density. GAC density range of 22-30 lb/cubic ft; lignite GAC approximately 22 and bituminous GAC 
+        self.gac_density = 30  # * pyunits.lb / pyunits.ft ** 3 # Bulk density, not particle density. GAC density range of 22-30 lb/cubic ft; lignite GAC approximately 22 and bituminous GAC
         # approximately 28 lb/cubic ft (Randal J. Braker, General Manager, Duck River Utility Commission)
-        regen_runtime = 0.85  # Percent of time that regeneration facility operates. Less than full time (100%) to allow for routine maintenance.
-        regen_redund = 1  # 100% means no redundancy (i.e., no additional capacity beyond that needed to account for runtime). Use a value greater than 100% to add capacity and provide redundancy.
-        makeup_rate = 0.1  # Makeup carbon 10% for on-site regeneration (Richard E. Hubel, Peter Keenan, American Water Works Service Company).
-        makeup_rate_off = 0.3  # Makeup carbon needs are higher for transport and regeneration off-site -- 30% (Richard E. Hubel, Peter Keenan, American Water Works Service Company).
-        transfer_time = 4  # * pyunits.hours # Time to empty GAC bed; for mechanical transfer only
-        transfer_time_hold = 4  # * pyunits.hours # Time to empty holding tank/basin soilds; for mechanical transfer only
-        virgin_gac_storage = 1.33  # bed volumes
-        spent_gac_storage = 1.33
-        regen_gac_storage = 1.33
-        storage_basins = 1  # Default: one each for virgin, spent, and regenerated GAC. This assumption applies if concrete basins are used. If steel tanks are used, number calculated on 
+        self.regen_runtime = 0.85  # Percent of time that regeneration facility operates. Less than full time (100%) to allow for routine maintenance.
+        self.regen_redund = 1  # 100% means no redundancy (i.e., no additional capacity beyond that needed to account for runtime). Use a value greater than 100% to add capacity and provide redundancy.
+        self.makeup_rate = 0.1  # Makeup carbon 10% for on-site regeneration (Richard E. Hubel, Peter Keenan, American Water Works Service Company).
+        self.makeup_rate_off = 0.3  # Makeup carbon needs are higher for transport and regeneration off-site -- 30% (Richard E. Hubel, Peter Keenan, American Water Works Service Company).
+        self.transfer_time = 4  # * pyunits.hours # Time to empty GAC bed; for mechanical transfer only
+        self.transfer_time_hold = 4  # * pyunits.hours # Time to empty holding tank/basin soilds; for mechanical transfer only
+        self.virgin_gac_storage = 1.33  # bed volumes
+        self.spent_gac_storage = 1.33
+        self.regen_gac_storage = 1.33
+        self.storage_basins = 1  # Default: one each for virgin, spent, and regenerated GAC. This assumption applies if concrete basins are used. If steel tanks are used, number calculated on
         # regeneration sheet.
-        storage_ratio = 0.6  # only if concrete used
-        storage_freeboard = 3  # * pyunits.ft # only if concrete used
+        self.storage_ratio = 0.6  # only if concrete used
+        self.storage_freeboard = 3  # * pyunits.ft # only if concrete used
 
         ########################################################
         ########################################################
@@ -164,15 +369,15 @@ class UnitProcess(WT3UnitProcess):
         ########################################################
 
         ############## FROM INPUTS ##############
-        design_flow = flow_in  # MGD
-        average_flow = (1 - bp_pct) * design_flow  # MGD
+        self.design_flow = self.flow_in  # MGD
+        self.average_flow = (1 - self.bp_pct) * self.design_flow  # MGD
         # design_flow_rate = design_flow * 1E6 / (24 * 60)  ## convert to gpm  .convert(design_flow, to_units=* (pyunits.gallon / pyunits.min)
-        design_flow_rate = pyunits.convert(design_flow, to_units=(pyunits.gallon / pyunits.min))
+        self.design_flow_rate = pyunits.convert(self.design_flow, to_units=(pyunits.gallon / pyunits.min))
         # average_flow_rate = average_flow * 1E6 / (24 * 60)  ## convert to gpm .convert(design_flow, to_units=* (pyunits.gallon / pyunits.min)
-        average_flow_rate = pyunits.convert(average_flow, to_units=(pyunits.gallon / pyunits.min))
+        self.average_flow_rate = pyunits.convert(self.average_flow, to_units=(pyunits.gallon / pyunits.min))
 
-        bp_flow_rate = bp_pct / (1 - bp_pct) * design_flow_rate  # gpm - bypass flowrate
-        target_contaminant = 'test'  #
+        self.bp_flow_rate = self.bp_pct / (1 - self.bp_pct) * self.design_flow_rate  # gpm - bypass flowrate
+        self.target_contaminant = 'test'  #
         #     conc_in = 10  # * (pyunits.mg / pyunits.L) # influent concentration of target contaminant
         #     conc_out = 1  # * (pyunits.mg / pyunits.L) # target effluent concentration of target contaminant
         #     conc_breakthru = 5  # * (pyunits.mg / pyunits.L) # breakthrough concentration
@@ -180,97 +385,97 @@ class UnitProcess(WT3UnitProcess):
         #     ebct = (np.log(conc_in / conc_out) / kss) * 60  # * pyunits.min # calculated EBCT based on Kss - conc_out/conc_in = exp(-kss * ebct)
         #     ebct = 4  # * pyunits.min # empty bed contact time - INPUT
 
-        if system_type == 'pressure':
+        if self.system_type == 'pressure':
             ############## PRESSURE VESSELS ##############
-            num_vessels = 1
+            self.num_vessels = 1
 
             ############## FROM CENTRAL COST DATABASE ##############
-            max_diam = 14  # * pyunits.ft # max diameter for vessel
-            min_diam = 1.5  # * pyunits.ft # min diameter for vessel
+            self.max_diam = 14  # * pyunits.ft # max diameter for vessel
+            self.min_diam = 1.5  # * pyunits.ft # min diameter for vessel
 
             ############## VESSEL REQUIREMENTS BASED ON BED DEPTH AND CONTACT TIME ##############
-            contact_material = design_flow_rate * self.ebct[time] / 7.481  # * pyunits.ft ** 3 # minimum contact material needed
+            self.contact_material = self.design_flow_rate * self.ebct[time] / 7.481  # * pyunits.ft ** 3 # minimum contact material needed
 
             ############## QUANTITIES BASED ON USER-SPECIFIED VESSEL DIMENSIONS ##############
 
-            comm_vol = 3.14159 * comm_diam ** 2 / 4 * comm_height_length  # ft3 - total vessel volume
+            self.comm_vol = 3.14159 * comm_diam ** 2 / 4 * comm_height_length  # ft3 - total vessel volume
 
             ############## CHECKS ON USER-SPECIFIED DIMENSIONS ##############
             #### ::: DESIGN DIMENSIONS FOR VERTICAL VESSELS ::: ####
-            height = bed_depth * (1 + bed_expansion) + freeboard  # * pyunits.ft # check on required height of vessel
-            min_comm_height = 6  # * pyunits.ft # minimum commercial height given diameter - NEED TO DETERMINE DYNAMICALLY
-            max_comm_height = 20  # * pyunits.ft # maximum commercial height given diameter - NEED TO DETERMINE DYNAMICALLY
+            self.height = self.bed_depth * (1 + self.bed_expansion) + self.freeboard  # * pyunits.ft # check on required height of vessel
+            self.min_comm_height = 6  # * pyunits.ft # minimum commercial height given diameter - NEED TO DETERMINE DYNAMICALLY
+            self.max_comm_height = 20  # * pyunits.ft # maximum commercial height given diameter - NEED TO DETERMINE DYNAMICALLY
 
             #### ::: VOID SPACE REQUIRED FOR HORIZONTAL VESSELS ::: ####
-            freeboard_horiz_void = comm_height_length * (
-                    comm_diam * comm_diam / 2 * np.arcsin((freeboard / comm_diam) ** 0.5) - (comm_diam / 2 - freeboard) * ((comm_diam - freeboard) * freeboard) ** 0.5)
-            underdrain_horiz_void = comm_height_length * (comm_diam * comm_diam / 2 * np.arcsin((horiz_underdrain / comm_diam) ** 0.5) - (comm_diam / 2 - horiz_underdrain) * (
-                    (comm_diam - horiz_underdrain) * horiz_underdrain) ** 0.5)  # * pyunits.ft**3
-            horiz_void = freeboard_horiz_void + underdrain_horiz_void  # * pyunits.ft**3
+            self.freeboard_horiz_void = self.comm_height_length * (
+                    self.comm_diam * self.comm_diam / 2 * np.arcsin((self.freeboard / self.comm_diam) ** 0.5) - (self.comm_diam / 2 - self.freeboard) * ((self.comm_diam - self.freeboard) * self.freeboard) ** 0.5)
+            self.underdrain_horiz_void = self.comm_height_length * (self.comm_diam * self.comm_diam / 2 * np.arcsin((self.horiz_underdrain / self.comm_diam) ** 0.5) - (self.comm_diam / 2 - self.horiz_underdrain) * (
+                    (self.comm_diam - self.horiz_underdrain) * self.horiz_underdrain) ** 0.5)  # * pyunits.ft**3
+            self.horiz_void = self.freeboard_horiz_void + self.underdrain_horiz_void  # * pyunits.ft**3
 
             #### ::: VOLUME AVAILABLE FOR MEDIA AND EXPANSION ::: ####
-            vert_vol_avail = (comm_height_length - freeboard) * 3.14159 * comm_diam ** 2 / 4  # * pyunits.ft**3 - volume available for vertical vessel
-            horiz_vol_avail = comm_vol - horiz_void  # * pyunits.ft**3 - volume available for horizontal vessel
-            vol_tol = 0.40  # * pyunits.dimensionless # tolerance for oversized vessels; possibly could determine dynamically based on tank geometry and flow
-            ebct_tank = self.ebct[time] / num_vessels
-            distance_above = 0  # pyunits.ft # height available above media bed for horizontal vessels
-            void_above = 0  # * pyunits.ft**3 # void space above media bed for horizontal vessels
-            if geom == 'vertical':
-                self.max_sa = ((comm_diam - (2 * vessel_thickness)) ** 2 * 3.14159 / 4)  # * pynits.ft**2 # surface area of vessel- depends on tank_geom
-                self.media_vol = (self.max_sa * bed_depth)  # * pyunits.ft ** 3 # GAC volume per contactor
-                flow_per_vessel = (self.media_vol * 7.48) / ebct_tank  # flow per vessel # depends on tank_geom
-            if geom == 'horizontal':
-                self.max_sa = ((comm_diam - (2 * vessel_thickness)) * comm_height_length)  # * pynits.ft**2 # surface area of vessel- depends on tank_geom
-                self.media_vol = (comm_vol - underdrain_horiz_void - void_above)  # * pyunits.ft ** 3 # GAC volume per contactor
-                flow_per_vessel = (self.media_vol * 7.48) / ebct_tank
+            self.vert_vol_avail = (self.comm_height_length - self.freeboard) * 3.14159 * self.comm_diam ** 2 / 4  # * pyunits.ft**3 - volume available for vertical vessel
+            self.horiz_vol_avail = self.comm_vol - self.horiz_void  # * pyunits.ft**3 - volume available for horizontal vessel
+            self.vol_tol = 0.40  # * pyunits.dimensionless # tolerance for oversized vessels; possibly could determine dynamically based on tank geometry and flow
+            self.ebct_tank = self.ebct[time] / self.num_vessels
+            self.distance_above = 0  # pyunits.ft # height available above media bed for horizontal vessels
+            self.void_above = 0  # * pyunits.ft**3 # void space above media bed for horizontal vessels
+            if self.geom == 'vertical':
+                self.max_sa = ((self.comm_diam - (2 * self.vessel_thickness)) ** 2 * 3.14159 / 4)  # * pynits.ft**2 # surface area of vessel- depends on tank_geom
+                self.media_vol = (self.max_sa * self.bed_depth)  # * pyunits.ft ** 3 # GAC volume per contactor
+                self.flow_per_vessel = (self.media_vol * 7.48) / self.ebct_tank  # flow per vessel # depends on tank_geom
+            if self.geom == 'horizontal':
+                self.max_sa = ((self.comm_diam - (2 * vessel_thickness)) * self.comm_height_length)  # * pynits.ft**2 # surface area of vessel- depends on tank_geom
+                self.media_vol = (self.comm_vol - self.underdrain_horiz_void - self.void_above)  # * pyunits.ft ** 3 # GAC volume per contactor
+                self.flow_per_vessel = (self.media_vol * 7.48) / self.ebct_tank
             # num_treat_lines = math.ceil(design_flow_rate / flow_per_vessel)  # * pyunits.dimensionless # number of treatment trains
-            num_treat_lines = design_flow_rate / flow_per_vessel  # * pyunits.dimensionless # number of treatment trains
+            self.num_treat_lines = self.design_flow_rate / self.flow_per_vessel  # * pyunits.dimensionless # number of treatment trains
 
             #     num_treat_lines = design_flow_rate / flow_per_vessel  # need to determine dynamically; see above line
             # self.op_num_tanks = math.ceil(num_treat_lines * num_vessels)  # * pyunits.dimensionless # number of vessels excluding redundancy
-            self.op_num_tanks = num_treat_lines * num_vessels  # * pyunits.dimensionless # number of vessels excluding redundancy
+            self.op_num_tanks = self.num_treat_lines * self.num_vessels  # * pyunits.dimensionless # number of vessels excluding redundancy
 
-            num_redund_tanks = 1  # number redundant vessles # NEED TO FIGURE OUT HOW TO CALCULATE DYNAMICALLY
+            self.num_redund_tanks = 1  # number redundant vessles # NEED TO FIGURE OUT HOW TO CALCULATE DYNAMICALLY
             self.tot_num_tanks = self.op_num_tanks + num_redund_tanks  # * pyunits.dimensionless # total number of vessels needed
-            contact_mat_per_vessel = contact_material / self.op_num_tanks
-            min_sa = contact_mat_per_vessel / bed_depth
-            diameter = (min_sa * 4 / 3.14159) ** 0.5 + (2 * vessel_thickness)  # pyunits.ft # check on required diameter of vessel
-            self.gac_each = self.media_vol * gac_density  # * pyunits.lb # GAC quantity each contactor
+            self.contact_mat_per_vessel = self.contact_material / self.op_num_tanks
+            self.min_sa = self.contact_mat_per_vessel / self.bed_depth
+            self.diameter = (self.min_sa * 4 / 3.14159) ** 0.5 + (2 * self.vessel_thickness)  # pyunits.ft # check on required diameter of vessel
+            self.gac_each = self.media_vol * self.gac_density  # * pyunits.lb # GAC quantity each contactor
             self.gac_total = self.gac_each * self.tot_num_tanks
-            gac_expand = self.media_vol * (1 + bed_expansion)
+            self.gac_expand = self.media_vol * (1 + self.bed_expansion)
 
-        if system_type == 'gravity':
+        if self.system_type == 'gravity':
             ############## GRAVITY CONTACT BASINS ##############
             self.min_basin_vol = design_flow_rate * self.ebct[time] / 7.48  # * pyunits.ft ** 3
-            basin_freeboard = 2  # * pyunits.ft # Basin freeboard above filter media at full expansion
+            self.basin_freeboard = 2  # * pyunits.ft # Basin freeboard above filter media at full expansion
             self.basin_width = 8  # * pyunits.ft
             self.basin_length = self.basin_width
-            basin_op_depth = 7.9  # * pyunits.ft
-            basin_depth = basin_op_depth * (1 + bed_expansion) + basin_freeboard
-            num_redund_basins = 1  # number redundant basins # NEED TO FIGURE OUT HOW TO CALCULATE DYNAMICALLY
+            self.basin_op_depth = 7.9  # * pyunits.ft
+            self.basin_depth = self.basin_op_depth * (1 + self.bed_expansion) + self.basin_freeboard
+            self.num_redund_basins = 1  # number redundant basins # NEED TO FIGURE OUT HOW TO CALCULATE DYNAMICALLY
             # self.op_num_basins = math.ceil(self.min_basin_vol / (self.basin_width * self.basin_length * basin_op_depth))
-            self.op_num_basins = self.min_basin_vol / (self.basin_width * self.basin_length * basin_op_depth)
+            self.op_num_basins = self.min_basin_vol / (self.basin_width * self.basin_length * self.basin_op_depth)
 
-            self.tot_num_basins = num_redund_basins + self.op_num_basins
-            basin_conc_vol = (2 * (self.basin_width * self.tot_num_basins + conc_thick * (self.tot_num_basins + 1)) * basin_depth * conc_thick + (
-                    self.tot_num_basins + 1) * self.basin_length * basin_depth * conc_thick + (self.basin_length + 2 * conc_thick) * (
-                                      self.basin_width * self.tot_num_basins + conc_thick * (self.tot_num_basins + 1)) * conc_thick) / 27  # * pyunits.yard ** 3 # concrete vol for contact basins
-            excavation_vol = ((self.tot_num_basins * self.basin_width + (self.tot_num_basins + 1) * conc_thick + overexcavate) * (self.basin_length + 2 * conc_thick + overexcavate) * (
-                    basin_depth + conc_thick + overexcavate) + 0.5 * (3 * (basin_depth + conc_thick + overexcavate) * (basin_depth + conc_thick + overexcavate) * (
+            self.tot_num_basins = self.num_redund_basins + self.op_num_basins
+            self.basin_conc_vol = (2 * (self.basin_width * self.tot_num_basins + self.conc_thick * (self.tot_num_basins + 1)) * self.basin_depth * self.conc_thick + (
+                    self.tot_num_basins + 1) * self.basin_length * self.basin_depth * self.conc_thick + (self.basin_length + 2 * self.conc_thick) * (
+                                      self.basin_width * self.tot_num_basins + self.conc_thick * (self.tot_num_basins + 1)) * self.conc_thick) / 27  # * pyunits.yard ** 3 # concrete vol for contact basins
+            self.excavation_vol = ((self.tot_num_basins * self.basin_width + (self.tot_num_basins + 1) * conc_thick + overexcavate) * (self.basin_length + 2 * self.conc_thick + self.overexcavate) * (
+                    self.basin_depth + self.conc_thick + self.overexcavate) + 0.5 * (3 * (self.basin_depth + self.conc_thick + self.overexcavate) * (self.basin_depth + self.conc_thick + self.overexcavate) * (
                     self.basin_length + 2 * conc_thick + overexcavate))) / 27  # * pyunits.yard ** 3 # concrete excavation vol for contact basins
-            backfill_vol = excavation_vol - (self.tot_num_basins * self.basin_width + (self.tot_num_basins + 1) * conc_thick) * (self.basin_length + 2 * conc_thick) * (basin_depth + conc_thick) / 27
-            railing = 2 * (self.tot_num_basins * self.basin_width + 2 * conc_thick / 2 + (self.tot_num_basins - 1) * conc_thick) + 2 * (
-                    self.basin_length + 2 * conc_thick / 2)  # * pyunits.ft # railing length for contact basins
+            self.backfill_vol = excavation_vol - (self.tot_num_basins * self.basin_width + (self.tot_num_basins + 1) * self.conc_thick) * (self.basin_length + 2 * self.conc_thick) * (self.basin_depth + self.conc_thick) / 27
+            self.railing = 2 * (self.tot_num_basins * self.basin_width + 2 * self.conc_thick / 2 + (self.tot_num_basins - 1) * self.conc_thick) + 2 * (
+                    self.basin_length + 2 * self.conc_thick / 2)  # * pyunits.ft # railing length for contact basins
             self.basin_area = self.basin_width * self.basin_length  # * pyunits.ft ** 2 # surface area for each contactor
-            loading_rate = design_flow_rate / (self.op_num_basins * (self.basin_width * self.basin_length))  # * pyunits.gallon / pyunits.minute / pyunits.ft ** 2 # basin loading rate
-            self.media_vol = self.basin_width * basin_op_depth * self.basin_length
-            self.gac_each = self.media_vol * gac_density  # * pyunits.lb # GAC quantity each contactor
+            self.loading_rate = self.design_flow_rate / (self.op_num_basins * (self.basin_width * self.basin_length))  # * pyunits.gallon / pyunits.minute / pyunits.ft ** 2 # basin loading rate
+            self.media_vol = self.basin_width * self.basin_op_depth * self.basin_length
+            self.gac_each = self.media_vol * self.gac_density  # * pyunits.lb # GAC quantity each contactor
             self.gac_total = self.gac_each * self.tot_num_basins
-            gac_expand = self.media_vol * (1 + bed_expansion)
+            self.gac_expand = self.media_vol * (1 + self.bed_expansion)
 
         ############## MEDIA QUANTITIES ##############
 
-        media_vol_expanded = self.media_vol * (1 + bed_expansion)
+        self.media_vol_expanded = self.media_vol * (1 + self.bed_expansion)
 
         ########################################################
         ########################################################
@@ -279,24 +484,24 @@ class UnitProcess(WT3UnitProcess):
         ########################################################
 
         ############## FROM INPUTS ##############
-        bw_pumps = 1  # variable to determine method of backwashing
-        bw_tanks = 1  # variable to determine method of backwashing
-        storage_basins = 1  # how many storage basins do you want for each of virgin, spent, regen GAC
+        self.bw_pumps = 1  # variable to determine method of backwashing
+        self.bw_tanks = 1  # variable to determine method of backwashing
+        self.storage_basins = 1  # how many storage basins do you want for each of virgin, spent, regen GAC
 
         ############## BACKWASH ##############
-        if system_type == 'pressure':
-            water_flush = backwash_rate * self.max_sa  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
-        if system_type == 'gravity':
-            water_flush = backwash_rate * self.basin_width * self.basin_length  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
-        total_backwash = water_flush * backwash_time  # * pyunits.gallons # total backwash volume
-        backwash_storage = total_backwash * back_multiplier / 7.48  # * pyunits.ft ** 3 # backwash storage volume
-        num_back_basins = 1  # default value, number of backwash basins
-        back_basin_op_depth = (backwash_storage / num_back_basins) ** (1 / 3) * back_ratio  # * pyunits.ft # operational depth
-        back_basin_width = ((total_backwash / num_back_basins) / back_basin_op_depth) ** 0.5
-        back_basin_length = back_basin_width
-        back_basin_depth = back_basin_op_depth + back_freeboard  # * pyunits.ft # total depth including freeboard
-        back_basin_vol = back_basin_width * back_basin_length * back_basin_depth * 7.48  # pyunits.gallons # backwash basin volume
-        back_conc_vol = (2 * (back_basin_width * num_back_basins + conc_thick * (num_back_basins + 1)) * back_basin_depth * conc_thick + (
+        if self.system_type == 'pressure':
+            self.water_flush = self.backwash_rate * self.max_sa  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
+        if self.system_type == 'gravity':
+            self.water_flush = self.backwash_rate * self.basin_width * self.basin_length  # * (pyunits.gallons / pyunits.minute) # backwash flow rate
+        self.total_backwash = water_flush * backwash_time  # * pyunits.gallons # total backwash volume
+        self.backwash_storage = total_backwash * back_multiplier / 7.48  # * pyunits.ft ** 3 # backwash storage volume
+        self.num_back_basins = 1  # default value, number of backwash basins
+        self.back_basin_op_depth = (backwash_storage / num_back_basins) ** (1 / 3) * back_ratio  # * pyunits.ft # operational depth
+        self.back_basin_width = ((total_backwash / num_back_basins) / back_basin_op_depth) ** 0.5
+        self.back_basin_length = back_basin_width
+        self.back_basin_depth = back_basin_op_depth + back_freeboard  # * pyunits.ft # total depth including freeboard
+        self.back_basin_vol = back_basin_width * back_basin_length * back_basin_depth * 7.48  # pyunits.gallons # backwash basin volume
+        self.back_conc_vol = (2 * (back_basin_width * num_back_basins + conc_thick * (num_back_basins + 1)) * back_basin_depth * conc_thick + (
                 num_back_basins + 1) * back_basin_length * back_basin_depth * conc_thick + (back_basin_length + 2 * conc_thick) * (
                                  back_basin_width * num_back_basins + conc_thick * (num_back_basins + 1)) * conc_thick) / 27  # * pyunits.yards ** 3 # Concrete volume
         back_excavation_vol = ((num_back_basins * back_basin_width + (num_back_basins + 1) * conc_thick + overexcavate) * (back_basin_length + 2 * conc_thick + overexcavate) * (
@@ -773,228 +978,7 @@ class UnitProcess(WT3UnitProcess):
 
             return total_system_cost * 1E-6
 
-        def autosize(system_type, flow, num_tanks, num_lines, ebct, ebct_tank, geom='vertical'):
 
-            def autosize_constraints(system_type, flow=flow, num_tanks=num_tanks, num_lines=num_lines, ebct=ebct, geom=geom):
-
-                if system_type == 'pressure':
-                    # vessel surface area
-                    comp_min_sa_vessel = comp_sa_min / num_lines  # based on max load, design flow, and target number of lines
-                    comp_max_sa_vessel = comp_sa_max / num_lines  # based on min load, design flow, and target number of lines
-
-                    if geom == 'vertical':
-                        # vertical vessel height
-                        comp_min_vert_height = 3  # from reasonable dimensions table
-                        comp_max_vert_height = 14  # from reasonable dimensions table
-
-                        # vertical bed depth
-                        min_depth_a = comp_vol_required / num_tanks / sa_all_vessels  # ensures that bed depth is sufficient to pass diameter check on vessel design sheet
-                        min_depth_b = min_bed_depth  # from guidance on input sheet
-                        comp_min_vert_bed_depth = max(min_depth_a, min_depth_b)  # strictest of the above
-                        max_depth_a = (max_height - freeboard) / (1 + bed_expansion)  # max bed depth for max_height, given freeboard and bed expansion
-                        max_depth_b = max_bed_depth  # from guidance on input sheet
-                        comp_max_vert_bed_depth = min(max_depth_a, max_depth_b)  # strictest max of the above, rounded
-
-                        # vertical vessel diameter
-                        min_diam_a = 2 * ((
-                                                  comp_vol_required / num_tanks / 3.14159 / comp_max_vert_bed_depth / num_lines) ** 0.5 + vessel_thickness)  # min diam to avoid bed depth becoming 
-                        # too deep, given required volume
-                        min_diam_b = 2 * ((comp_min_sa_vessel / 3.14159) ** 0.5 + vessel_thickness)  # from min surface area
-                        min_diam_c = 1.5  # from reasonable dimensions table
-                        comp_min_vert_diam = 2 * max(min_diam_a, min_diam_b, min_diam_c), 0 / 2
-                        max_diam_a = 14  # max diameter CDA
-                        max_diam_b = 2 * ((comp_max_sa_vessel / 3.14159) ** 0.5 + vessel_thickness)  # from max surface area
-                        comp_max_vert_diam = max(0.5, 2 * min(max_diam_a, max_diam_b) / 2)  # from reasonable dimensions table
-
-                        return comp_min_vert_height, comp_max_vert_height, comp_min_vert_diam, comp_max_vert_diam, comp_min_vert_bed_depth, comp_max_vert_bed_depth
-
-                    if geom == 'horizontal':
-                        # horizontal vessel diameter
-                        comp_min_horiz_diam = 8  # from guidance provided by Bob Dvorin, 5/16/05
-                        comp_max_horiz_diam = min(max_height, max_diam)  # strictest of max_height CDA and max_diam CDA
-
-                        # horizontal vessel length
-                        min_length_a = comp_min_sa_vessel / (comp_horiz_diam - 2 * vessel_thickness)  # from max load and actual diameter
-                        min_length_b = 20
-                        comp_min_horiz_length = max(min_length_a, min_length_b)
-                        max_length_a = max_length  # max length CDA
-                        max_length_b = comp_max_vol / (comp_horiz_diam * comp_horiz_diam * 3.14159 / 4) / 7.48  # max volume combined with actual diameter
-                        comp_max_horiz_length = min(max_length_a, max_length_b)
-
-                        # horizontal bed depth
-                        min_depth_a = comp_vol_required / num_tanks / sa_all_vessels  # ensures that bed depth is sufficient for required volume of medium
-                        min_depth_b = min_bed_depth  # from media constraint table
-                        comp_min_horiz_bed_depth = max(min_depth_a, min_depth_b)
-                        max_depth_a = (min(max_height, max_diam) - freeboard) / (1 + bed_expansion)  # max bed depth for max_height or max_diam, given freeboard and bed expansion
-                        max_depth_b = max_bed_depth  # from media constraint table
-                        comp_max_horiz_bed_depth = min(max_depth_a, max_depth_b)
-
-                        return comp_min_horiz_diam, comp_max_horiz_diam, comp_min_horiz_length, comp_max_horiz_length, comp_min_horiz_bed_depth, comp_max_horiz_bed_depth
-
-                if system_type == 'gravity':
-                    # bed depth
-                    min_depth_a = min_depth  # from min_depth CDA
-                    min_depth_b = flow * ebct / (num_lines * 30 * max_width) / 7.48  # assuming max-size contactor and number of contactors above, min depth for sufficient media volume
-                    comp_min_bed_depth_a = max(min_depth_a, min_depth_b)
-                    comp_max_bed_depth_a = max_depth  # from max_depth CDA
-
-                    # surface area
-                    comp_min_sa_a = flow / num_lines / load_max  # from loading: based on design flow per target line, max loading
-                    comp_max_sa_a = flow / num_lines / load_min  # from loading: based on design flow per target line, min loading
-
-                    # contactor length
-                    comp_min_length_a = 6  # from min_length CDA
-                    comp_max_length_a = 30  # from max_length CDA
-
-                    # contactor width
-                    comp_min_width_a = min_width  # from min_width CDA
-                    comp_max_width_a = max_width  # from max_width CDA
-
-                    return comp_min_bed_depth_a, comp_max_bed_depth_a, comp_min_sa_a, comp_max_sa_a, comp_min_length_a, comp_max_length_a, comp_min_width_a, comp_max_width_a
-
-                ## PRESSURE ##
-
-            if system_type == 'pressure':
-
-                comp_vol_required_stg1 = flow * ebct_tank / 7.48  # volume of media in first-stage vessels
-                comp_sa_min = flow / load_max  # to reach maximum loading rate
-                comp_sa_max = flow / load_min  # to reach minimum loading rate
-                comp_vol_required = flow * ebct / 7.481  # volume of media in all vessels
-
-                if geom == 'vertical':
-                    comp_target_bed_depth_vert = target_bed_depth_over  # based on target load CDA
-                    comp_sa_required_vert = comp_vol_required_stg1 / comp_target_bed_depth_vert  # based on media volume and bed depth
-                    comp_vert_diam = 2 * ((comp_sa_required_vert / num_lines / 3.14159) ** 0.5 + vessel_thickness)  # target diameter
-                    sa_one_vessel = (comp_vert_diam - 2 * vessel_thickness) * (comp_vert_diam - 2 * vessel_thickness) * 3.14159 / 4  # surface area, one vessel
-                    sa_all_vessels = sa_one_vessel * num_lines  # surface area, all vessels
-
-                    comp_min_vert_height, comp_max_vert_height, comp_min_vert_diam, comp_max_vert_diam, comp_min_vert_bed_depth, comp_max_vert_bed_depth = autosize_constraints(system_type, geom=geom)
-
-                    # vertical design search
-                    comp_vert_max_media = (comp_max_vert_diam / 2 - vessel_thickness) * (
-                            comp_max_vert_diam / 2 - vessel_thickness) * 3.14159 * comp_max_vert_bed_depth  # based on guidance and CDAs for max dimensions
-                    comp_vert_max_sa = (max_diam / 2 - vessel_thickness) * (max_diam / 2 - vessel_thickness) * 3.14159  # based on max_diam CDA
-
-                    num_lines_vert_a = comp_sa_min / comp_vert_max_sa  # based on surface area from max load
-                    num_lines_vert_b = comp_sa_required_vert / comp_vert_max_sa  # based on surface area from bed depth
-                    num_lines_vert_c = comp_vol_required_stg1 / comp_vert_max_media  # based on media volume
-                    comp_vert_min_number = max(num_lines_vert_a, num_lines_vert_b, num_lines_vert_c)
-
-                    # inputs
-
-                    comp_vert_bed_depth = comp_vol_required / num_tanks / sa_all_vessels  # bed depth
-                    comp_vert_height = (1 + bed_expansion) * comp_vert_bed_depth + freeboard  # target height
-                    comp_bed_depth = comp_vert_bed_depth  # bed depth for chosen geometry
-
-                    if comp_vert_diam < comp_min_vert_diam:
-                        comp_vert_diam = comp_min_vert_diam
-                    elif comp_vert_diam > comp_max_vert_diam:
-                        comp_vert_diam = comp_max_vert_diam
-                    else:
-                        comp_vert_diam = 2 * comp_vert_diam / 2
-
-                    if comp_min_vert_bed_depth <= comp_max_vert_bed_depth:
-                        if comp_bed_depth < comp_min_vert_bed_depth:
-                            comp_bed_depth = comp_min_vert_bed_depth
-                        elif comp_bed_depth > comp_max_vert_bed_depth:
-                            comp_bed_depth = comp_max_vert_bed_depth
-                        else:
-                            comp_bed_depth = comp_vert_bed_depth
-
-                    if comp_min_vert_height > comp_max_vert_height:
-                        comp_vert_height = -1
-                        print(f'Min vert height greater than max vert height.\n\tcomp_min_vert_height = {comp_min_vert_height}\n\tcomp_max_vert_height = {comp_max_vert_height}')
-                        print('I am not sure what this means yet.')
-                    elif comp_vert_height > comp_max_vert_height:
-                        comp_vert_height = comp_max_vert_height
-                    elif comp_vert_height < comp_min_vert_height:
-                        comp_vert_height = 2 * comp_vert_height / 2  ## NEED TO HAVE A ROUNDUP FUNCTION HERE
-
-                    return comp_vert_min_number, comp_vert_height, comp_bed_depth, comp_vert_diam
-
-                if geom == 'horizontal':
-
-                    comp_min_horiz_diam, comp_max_horiz_diam, comp_min_horiz_length, comp_max_horiz_length, comp_min_horiz_bed_depth, comp_max_horiz_bed_depth = autosize_constraints(system_type,
-                                                                                                                                                                                      geom=geom)
-                    # inputs
-                    comp_max_vol = 27100  # max pressure vessel volume LOOKED UP
-                    comp_max_vol_length = comp_max_vol / 7.48 / (3.14159 * comp_max_horiz_diam * comp_max_horiz_diam / 4)  # rounded to reflect the length we will actually use on the input sheet
-                    comp_target_bed_depth_horiz = target_bed_depth_horiz  # based on target load CDA
-                    comp_sa_required_horiz = comp_vol_required_stg1 / comp_target_bed_depth_horiz  # based on media volume and bed depth
-
-                    fb = comp_max_vol_length * (comp_max_horiz_diam * comp_max_horiz_diam / 2 * np.arcsin((freeboard / comp_max_horiz_diam) ** 0.5) - (comp_max_horiz_diam / 2 - freeboard) * (
-                            (comp_max_horiz_diam - freeboard) * freeboard) ** 0.5)  # freeboard - volume of a horizontal slice of a cylinder
-                    ud = comp_max_vol_length * (
-                            comp_max_horiz_diam * comp_max_horiz_diam / 2 * np.arcsin((horiz_underdrain / comp_max_horiz_diam) ** 0.5) - (comp_max_horiz_diam / 2 - horiz_underdrain) * (
-                            (comp_max_horiz_diam - horiz_underdrain) * horiz_underdrain) ** 0.5)  # underdrain
-                    comp_horiz_void_required = fb + ud  # total of the two void volumes above
-                    comp_horiz_void_area = comp_horiz_void_required / comp_max_vol_length  # assumed void volume per length
-                    comp_horiz_expanded_bd = comp_target_bed_depth_horiz * (1 + bed_expansion)  # target bed depth after expansion
-                    comp_horiz_diam = (comp_horiz_expanded_bd + (comp_horiz_expanded_bd * comp_horiz_expanded_bd + 3.14159 * comp_horiz_void_area) ** 0.5) / (3.14159 / 2)  # target diameter
-                    # comp_horiz_diam_old = (comp_sa_required_horiz / num_lines / length_diam_ratio) ** 0.5
-                    comp_horiz_length = comp_sa_required_horiz / (comp_horiz_diam - 2 * vessel_thickness) / num_lines  # target length
-                    sa_all_vessels = num_lines * (comp_horiz_diam - 2 * vessel_thickness) * comp_horiz_length  # surface area for all vessels
-                    comp_horiz_bed_depth = comp_vol_required / num_tanks / sa_all_vessels
-                    comp_bed_depth = comp_horiz_bed_depth  # bed depth for chosen geometry
-
-                    # horizontal design search
-
-                    comp_max_horiz_sa = (comp_max_horiz_diam - 2 * vessel_thickness) * comp_max_vol_length  # max vessel surface area
-                    comp_target_bed_depth_horiz = target_bed_depth_horiz  # based on target load CDA -- NEEDS TO BE ADJUSTABLE FOR FLOW AND INCLUSION OF UV AOP
-                    comp_sa_required_horiz = comp_vol_required_stg1 / comp_target_bed_depth_horiz  # total vessel surface area, based upon media volume and ved depth
-
-                    comp_horiz_max_media = (comp_max_vol / 7.481 - comp_horiz_void_required) / (1 + bed_expansion)  # max media volume
-                    num_lines_horiz_a = comp_sa_min / comp_max_horiz_sa  # based on surface area from max load
-                    num_lines_horiz_b = comp_sa_required_horiz / comp_max_horiz_sa  # based on surface area from bed depth
-                    num_lines_horiz_c = comp_vol_required_stg1 / comp_horiz_max_media  # based on media volume
-                    comp_horiz_min_number = max(num_lines_horiz_a, num_lines_horiz_b, num_lines_horiz_c)  # min number of lines, horizontal vessels
-
-                    if comp_min_horiz_diam <= comp_max_horiz_diam:
-                        if comp_horiz_diam < comp_min_horiz_diam:
-                            comp_horiz_diam = comp_min_horiz_diam
-                        elif comp_horiz_diam > comp_max_horiz_diam:
-                            comp_horiz_diam = comp_max_horiz_diam
-                        else:
-                            comp_horiz_diam = 2 * comp_horiz_diam / 2  ##  NEED ROUND UP FUNCtiON HERE
-
-                    if comp_min_horiz_length <= comp_max_horiz_length:
-                        if comp_horiz_length < comp_min_horiz_length:
-                            comp_horiz_length = comp_min_horiz_length
-                        elif comp_horiz_length > comp_max_horiz_length:
-                            comp_horiz_length = comp_max_horiz_length
-                        else:
-                            comp_horiz_length = comp_horiz_length
-
-                    return comp_max_horiz_sa, comp_horiz_length, comp_bed_depth, comp_horiz_min_number
-
-            if system_type == 'gravity':
-                comp_min_bed_depth_a, comp_max_bed_depth_a, comp_min_sa_a, comp_max_sa_a, comp_min_length_a, comp_max_length_a, comp_min_width_a, comp_max_width_a = autosize_constraints(system_type,
-                                                                                                                                                                                          geom=geom)
-
-                comp_vol_required_a = flow * ebct / 7.481  # volume of media in all vessels
-                # design search
-                comp_vert_max_media_a = comp_max_bed_depth_a * comp_max_length_a * comp_max_width_a  # based on guidance and CDAs for max dimensions
-                comp_sa_min_a = flow / load_max  # to reach maximum loading rate
-                comp_sa_max_a = flow / load_min  # to reach minimum loading rate
-                comp_target_bed_depth_vert_a = target_bed_depth_over  ## based on Target Bed Depth CDA -- NEEDS TO BE ADJUSTABLE FOR SMALLER FLOWS AND INCLUSION (OR NOT) OF UV AOP... SEE 
-                # DOCUMENTATION AND EXCEL SHEET
-                comp_sa_required_vert_a = comp_vol_required_a / comp_target_bed_depth_vert_a  # based on media volume and bed depth
-                num_lines_grav_a = comp_min_sa_a / comp_sa_max_a
-                num_lines_grav_b = comp_sa_required_vert_a / comp_sa_max_a
-                num_lines_grav_c = comp_vol_required_a / comp_vert_max_media_a
-                comp_vert_min_number_a = min(num_lines_grav_a, num_lines_grav_b, num_lines_grav_c)  # below this number of lines, we are constrained to horizontal vessels
-
-                comp_length_width_a = (comp_sa_required_vert_a / num_lines) ** 0.5  # target side length
-                sa_one_vessel = comp_length_width_a ** 2  # surface area one vessel
-                sa_all_vessels = num_lines * sa_one_vessel  # surface area all vessels
-                comp_bed_depth_a = comp_vol_required_a / num_tanks / sa_all_vessels  # bed depth
-
-                if comp_length_width_a < comp_min_length_a:
-                    comp_length_width_a = comp_min_length_a
-                elif comp_length_width_a > comp_max_length_a:
-                    comp_length_width_a = 2 * comp_length_width_a / 2  ## NEED ROUND UP FUNCTION HERE=
-
-                return comp_length_width_a, comp_bed_depth_a, comp_vert_min_number_a
 
         self.chem_dict = {}
 
