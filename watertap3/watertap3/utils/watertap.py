@@ -743,7 +743,7 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
 
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.unfix()
-    #
+
     if case_study == 'upw':
 
         m.fs.media_filtration.water_recovery.fix(0.9)
@@ -772,8 +772,12 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
     if case_study == 'cherokee':
         if 'reverse_osmosis' in m.fs.pfd_dict.keys():
 
-            m.fs.reverse_osmosis.kurby1 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= (0.98 * m.fs.reverse_osmosis.flow_vol_in[0]) * 1.01)
-            m.fs.reverse_osmosis.kurby2 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] >= (0.98 * m.fs.reverse_osmosis.flow_vol_in[0]) * 0.99)
+            m.fs.reverse_osmosis.kurby1 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= (0.75 * m.fs.reverse_osmosis.flow_vol_in[0]) * 1.01)
+            m.fs.reverse_osmosis.kurby2 = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] >= (0.75 * m.fs.reverse_osmosis.flow_vol_in[0]) * 0.99)
+
+        if 'reverse_osmosis_a' in m.fs.pfd_dict.keys():
+
+            m.fs.reverse_osmosis_a.kurby4 = Constraint(expr=m.fs.reverse_osmosis_a.flow_vol_out[0] >= (0.95 * m.fs.reverse_osmosis_a.flow_vol_in[0]))
 
     if case_study == 'san_luis':
         if scenario in ['baseline', 'dwi']:
@@ -788,8 +792,7 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         if m.fs.costing.system_recovery() > desired_recovery:
             print('Running for desired recovery -->', desired_recovery)
             m.fs.recovery_bound = Constraint(expr=m.fs.costing.system_recovery <= desired_recovery)
-            m.fs.recovery_bound1 = Constraint(
-                    expr=m.fs.costing.system_recovery >= desired_recovery - 1.5)
+            m.fs.recovery_bound1 = Constraint(expr=m.fs.costing.system_recovery >= desired_recovery - 1.5)
 
             if scenario_name == 'baseline':
                 run_water_tap(m=m, objective=True, skip_small=skip_small)
