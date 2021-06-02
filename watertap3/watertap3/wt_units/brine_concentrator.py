@@ -18,6 +18,7 @@ tpec_or_tic = 'TPEC'
 
 
 class UnitProcess(WT3UnitProcess):
+
     def fixed_cap(self):
         time = self.flowsheet().config.time.first()
         self.chem_dict = {}
@@ -33,7 +34,6 @@ class UnitProcess(WT3UnitProcess):
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),

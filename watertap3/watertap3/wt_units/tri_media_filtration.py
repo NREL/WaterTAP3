@@ -22,7 +22,7 @@ class UnitProcess(WT3UnitProcess):
         return tri_media_cap
 
     def elect(self):  # m3/hr
-        electricity = 1E-4   # kWh/m3
+        electricity = 0.00045 # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant --- multiplied by 3 for trimedia
         return electricity
 
     def get_costing(self, unit_params=None, year=None):

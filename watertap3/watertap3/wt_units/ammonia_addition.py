@@ -16,15 +16,6 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def solution_vol_flow(self):  # m3/hr
-        self.solution_density = 900 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
-        self.ratio_in_solution = 0.3 * pyunits.dimensionless
-        chemical_rate = self.flow_in * self.chemical_dosage  # kg/hr
-        chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
-        soln_vol_flow = chemical_rate / self.solution_density / self.ratio_in_solution
-        soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
-        return soln_vol_flow  # gal/day
-
     def fixed_cap(self, unit_params):
         self.number_of_units = 2
         self.base_fixed_cap_cost = 6699.1
@@ -43,6 +34,15 @@ class UnitProcess(WT3UnitProcess):
         soln_vol_flow = pyunits.convert(self.solution_vol_flow(), to_units=(pyunits.gallon / pyunits.minute))
         electricity = (0.746 * soln_vol_flow * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in  # kWh/m3
         return electricity
+
+    def solution_vol_flow(self):  # m3/hr
+        self.solution_density = 900 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
+        self.ratio_in_solution = 0.3 * pyunits.dimensionless
+        chemical_rate = self.flow_in * self.chemical_dosage  # kg/hr
+        chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
+        soln_vol_flow = chemical_rate / self.solution_density / self.ratio_in_solution
+        soln_vol_flow = pyunits.convert(soln_vol_flow, to_units=(pyunits.gallon / pyunits.day))
+        return soln_vol_flow  # gal/day
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)

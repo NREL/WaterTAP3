@@ -16,6 +16,17 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def fixed_cap(self):
+        time = self.flowsheet().config.time.first()
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        self.chem_dict = {}
+        media_filt_cap = self.tpec_tic * (self.dual_media_filter() + self.filter_backwash()) * 1E-6
+        return media_filt_cap
+
+    def elect(self):  # m3/hr
+        electricity = 0.00015 # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
+        return electricity
+
     def base_filter_surface_area(self):
         self.filtration_rate = 10 * (pyunits.meter / pyunits.hour)
         surface_area = pyunits.convert((self.flow_in / self.filtration_rate), to_units=pyunits.ft ** 2)  # conversion to ft2
@@ -29,17 +40,6 @@ class UnitProcess(WT3UnitProcess):
     def filter_backwash(self):
         filter_backwash_cost = 292.44 * self.base_filter_surface_area() + 92497  # calculations done based on ft2
         return filter_backwash_cost
-
-    def fixed_cap(self):
-        time = self.flowsheet().config.time.first()
-        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        self.chem_dict = {}
-        media_filt_cap = (self.dual_media_filter() + self.tpec_tic * self.filter_backwash()) * 1E-6
-        return media_filt_cap
-
-    def elect(self):  # m3/hr
-        electricity = 0
-        return electricity
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)

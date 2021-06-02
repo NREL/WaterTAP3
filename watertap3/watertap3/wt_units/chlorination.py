@@ -61,7 +61,7 @@ class UnitProcess(WT3UnitProcess):
         return (a * self.flow_in ** b) * 1E-3  # $MM
 
     def elect(self):
-        electricity = 0.000005689
+        electricity = 0.00005 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
         return electricity
 
     def get_costing(self, unit_params=None, year=None):

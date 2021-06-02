@@ -54,7 +54,7 @@ class UnitProcess(WT3UnitProcess):
             self.case_specific = unit_params['case_specific']
             self.basis, self.cap_basis, self.cap_exp, self.elect_intensity, self.basis_year, self.kind = cost_curves.basic_unit(self.unit_process_name, case_specific=self.case_specific)
         else:
-            self.case_specific = None
+            self.case_specific = False
             self.basis, self.cap_basis, self.cap_exp, self.elect_intensity, self.basis_year, self.kind = cost_curves.basic_unit(self.unit_process_name)
         self.chem_dict = {}
         financials.create_costing_block(self, self.basis_year, tpec_or_tic)

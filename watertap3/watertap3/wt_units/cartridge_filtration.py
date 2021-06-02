@@ -10,6 +10,7 @@ tpec_or_tic = 'TPEC'
 
 
 class UnitProcess(WT3UnitProcess):
+
     def fixed_cap(self):
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
@@ -20,7 +21,7 @@ class UnitProcess(WT3UnitProcess):
         return cart_filt_cap
 
     def elect(self):  # m3/hr
-        electricity = 0
+        electricity = 2E-4 #0.00015 # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant -- rounded up for the model
         return electricity
 
     def get_costing(self, unit_params=None, year=None):

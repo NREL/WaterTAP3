@@ -17,29 +17,6 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def uv_regress(self):
-
-        def power_curve(x, a, b):
-            return a * x ** b
-
-        self.df = pd.read_csv('data/uv_cost_interp.csv', index_col='flow')
-        self.flow_points = [1E-8]
-        self.flow_list = [1E-8, 1, 3, 5, 10, 25]  # flow in mgd
-        for flow in self.flow_list[1:]:
-            temp = self.df.loc[flow]
-            cost = temp[((temp.dose == self.uv_dose) & (temp.uvt == self.uvt_in))]
-            cost = cost.iloc[0]['cost']
-            self.flow_points.append(cost)
-        coeffs, cov = curve_fit(power_curve, self.flow_list, self.flow_points)
-        self.a, self.b = coeffs[0], coeffs[1]
-        return self.a, self.b
-
-    def solution_vol_flow(self):  # m3/hr
-        chemical_rate = self.flow_in * self.ox_dose  # kg/hr
-        chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
-        soln_vol_flow = chemical_rate
-        return soln_vol_flow  # lb / day
-
     def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
@@ -71,6 +48,29 @@ class UnitProcess(WT3UnitProcess):
     def elect(self):  # m3/hr
         electricity = 0.1  # kWh / m3
         return electricity
+
+    def uv_regress(self):
+
+        def power_curve(x, a, b):
+            return a * x ** b
+
+        self.df = pd.read_csv('data/uv_cost_interp.csv', index_col='flow')
+        self.flow_points = [1E-8]
+        self.flow_list = [1E-8, 1, 3, 5, 10, 25]  # flow in mgd
+        for flow in self.flow_list[1:]:
+            temp = self.df.loc[flow]
+            cost = temp[((temp.dose == self.uv_dose) & (temp.uvt == self.uvt_in))]
+            cost = cost.iloc[0]['cost']
+            self.flow_points.append(cost)
+        coeffs, cov = curve_fit(power_curve, self.flow_list, self.flow_points)
+        self.a, self.b = coeffs[0], coeffs[1]
+        return self.a, self.b
+
+    def solution_vol_flow(self):  # m3/hr
+        chemical_rate = self.flow_in * self.ox_dose  # kg/hr
+        chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
+        soln_vol_flow = chemical_rate
+        return soln_vol_flow  # lb / day
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)

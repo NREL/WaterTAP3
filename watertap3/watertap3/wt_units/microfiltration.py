@@ -20,12 +20,11 @@ class UnitProcess(WT3UnitProcess):
         return mf_cap
 
     def elect(self):
-        electricity = 0.307
+        electricity = 0.18 # https://www.sciencedirect.com/science/article/pii/S1364032112003541#bib48
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
-
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
         self.electricity = Expression(expr=self.elect(),

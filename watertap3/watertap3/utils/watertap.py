@@ -100,7 +100,7 @@ def watertap_setup(dynamic=False, case_study=None, reference=None, scenario=None
     return m
 
 
-def run_model(m=None, solver_results=False, print_model_results=False, objective=False, max_attempts=0, return_solution=False):
+def run_model(m=None, solver_results=False, print_model_results=False, objective=False, max_attempts=0, return_termination=False):
     financials.get_system_costing(m.fs)
 
     TransformationFactory('network.expand_arcs').apply_to(m)
@@ -116,9 +116,9 @@ def run_model(m=None, solver_results=False, print_model_results=False, objective
     print('\nDegrees of Freedom:', degrees_of_freedom(m))
 
     results = solver.solve(m, tee=solver_results)
-
+    termination = results.solver.termination_condition
     attempt_number = 1
-    while ((results.solver.termination_condition == 'infeasible') & (attempt_number <= max_attempts)):
+    while ((termination == 'infeasible') & (attempt_number <= max_attempts)):
         print(f'\nAttempt {attempt_number}')
         print('\nWaterTAP3 solver returned an infeasible solution...\n')
         print(f'Running again with updated initial conditions --- attempt {attempt_number}\n')
@@ -126,15 +126,15 @@ def run_model(m=None, solver_results=False, print_model_results=False, objective
 
         attempt_number += 1
 
-    print('\nWaterTAP3 solution', results.solver.termination_condition, '\n')
+    print('\nWaterTAP3 solution', termination, '\n')
     print('----------------------------------------------------------------------')
 
-    if results.solver.termination_condition == 'infeasible':
+    if termination == 'infeasible':
         print('\nWaterTAP3 solver returned an infeasible solution. Check option to run model with updated initial conditions.\n\n')
         print('----------------------------------------------------------------------')
 
-    if return_solution is True:
-        return results.solver.termination_condition
+    if return_termination:
+        return termination
 
 
 def print_results(m, print_model_results):
