@@ -110,12 +110,14 @@ def get_complete_costing(costing):
                 expr=(electricity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization,
                 doc='Electricity cost')  # M$/yr
 
+
     if not hasattr(costing, 'other_var_cost'):
         costing.other_var_cost = 0 * sys_specs.plant_cap_utilization
 
     costing.base_employee_salary_cost = costing.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
     costing.salaries = Expression(
             expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost,
+
             doc='Salaries')
     costing.benefits = costing.salaries * sys_specs.benefit_percent_of_salary
     costing.maintenance = sys_specs.maintinance_costs_percent_FCI * costing.fixed_cap_inv

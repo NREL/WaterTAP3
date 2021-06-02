@@ -32,3 +32,4 @@ class UnitProcess(WT3UnitProcess):
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
         financials.get_complete_costing(self.costing)
+

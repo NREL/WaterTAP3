@@ -42,6 +42,7 @@ drainage_sump_pump2,15772.5491,4.488923561,0.8671,0.025599666,2018,flow
 dual_media_filtration,4732,12.17829669,0.5862,0.050718512,2014,flow
 electro_deionization,2271.246833,13.5,0.9,0,2020,flow
 electrodialysis_reversal,946.352946,31,1,0,2016,flow
+energy_recovery,3.943,0.1,0.7,-3.17,2020,flow
 engineered_buffer_with_chloramine,2271.246833,3,0.7,0,2014,flow
 engineered_buffer_with_chlorine,2271.246833,3,0.7,0,2014,flow
 evaporation_pond_waterreuse,22712.4,4.656144248,1,0,2007,mass
@@ -57,8 +58,8 @@ irrigation,15772.5491,7.381985478,0.8657,0.051199332,2020,flow
 irwin_brackish,100000,2,0.7,0,2020,flow
 irwin_brine,100000,2,0.7,0,2020,flow
 irwin_brine_management,9463.52946,35,0.7,0,2016,mass
-mbr_denitrification,4731.764235,5.5,0.5862, 2.36698 ,2014,flow
-mbr_nitrification,4731.764235,5.5,0.5862, 2.36698 ,2014,flow
+mbr_denitrification,4731.764235,5.5,0.5862,2.36698,2014,flow
+mbr_nitrification,4731.764235,5.5,0.5862,2.36698,2014,flow
 media_filtration,4731.764235,5.5,0.5862,0,2014,flow
 microfiltration,4731.764235,112.5,1,0.30735,2014,flow
 microscreen_filtration,16666.66667,3.25,0.9,0,2018,flow
@@ -86,6 +87,6 @@ tramp_oil_tank,100000,1,0.7,0,2020,mass
 tuscarora_md,4731.764235,150,1,1,2014,flow
 uf_feed_pump,15772.5491,4.488923561,0.7,0.025599666,2018,flow
 ultra_filtration,4731.764235,75,1,0.231344952,2014,flow
-waiv,100000,0.146162352,1,0,2020,mass
+waiv,1,0.11,1,0,2020,mass
 walnut_shell_filter,4731.764235,5.5,0.5862,0,2014,flow
 passthrough,1,0,0,0,2020,flow

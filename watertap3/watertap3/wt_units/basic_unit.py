@@ -16,8 +16,8 @@ class UnitProcess(WT3UnitProcess):
         flow_in_m3yr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.year))
 
         if self.unit_process_name == "tramp_oil_tank":
-            disposal_cost = 0.000114 # Kiran's disposal cost assumption $/m3
-            self.costing.other_var_cost = flow_in_m3yr * 0.00114 * sys_cost_params.plant_cap_utilization # $ / yr
+            disposal_cost = 0.00114 # Kiran's disposal cost assumption $/m3
+            self.costing.other_var_cost = flow_in_m3yr * disposal_cost * sys_cost_params.plant_cap_utilization # $ / yr
 
         if self.kind == 'flow':
             flow_basis = self.basis * (pyunits.m ** 3 / pyunits.hour)
@@ -62,9 +62,11 @@ class UnitProcess(WT3UnitProcess):
         self.deltaP_waste.unfix()
         self.pressure_out.fix(1)
         self.pressure_waste.fix(1)
+
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
 
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
         financials.get_complete_costing(self.costing)
+

@@ -60,7 +60,7 @@ class UnitProcess(WT3UnitProcess):
         b = ml_regression.get_cost_curve_coefs(xs=xs, ys=ys)[0][1]
         return (a * self.flow_in ** b) * 1E-3  # $MM
 
-    def elect(self):
+    def elect(self):]
         electricity = 0.00005 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
         return electricity
 

@@ -12,7 +12,8 @@ default,,abmet_interstage_pump,0.9999,,Defined based on the San Luis case study 
 pulp_and_paper,baseline,aeration_basin,0.9999,,Defined based on the Pulp and Paper case study data.
 default,,aeration_basin1,0.9999,,
 default,,aeration_basin2,0.9999,,
-iron_and_steel,baseline,aeration_tank,0.9999,,Defined based on the Iron and Steel case study data.
+default,,aeration_tank,0.9999,,Defined based on the Iron and Steel case study data.
+iron_and_steel_b,baseline,aeration_tank,0.9999,,Defined based on the Iron and Steel case study data.
 heap_leaching,baseline,agglom_stacking,0.9999,,Heap leaching (gold/copper) case study.
 default,,agglom_stacking,0.9999,,
 default,,agriculture,0.99999,,
@@ -71,6 +72,7 @@ default,,drainage_sump_pump2,0.9999,,"(1) https://onlinelibrary.wiley.com/doi/pd
 default,,dual_media_filtration,0.99,,Placeholder. Not utilized in any case studies. 
 default,,electro_deionization,0.99,,"(1) Based on costs from Fort Irwin / Irwin Water Works case study including ""Project Compares Brackish Water Desalination Technologies, Parts 1 and 2"". (2) Energy costs from 80% Current Efficiency Basis ==> https://www.saltworkstech.com/articles/what-is-electrodialysis-reversal-and-its-new-innovations/"
 default,,electrodialysis_reversal,0.9214,,Texas Water Development Board IT3PR User Manual
+default,,energy_recovery,0.9999,,
 default,,engineered_buffer_with_chloramine,0.9999,,Texas Water Development Board IT3PR User Manual
 default,,engineered_buffer_with_chlorine,0.9999,,
 default,,evaporation_pond,0.9,0.97,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).

@@ -372,6 +372,7 @@ class UnitProcess(WT3UnitProcess):
         self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / pump_eff  # W
         b_cost.pump_capital_cost = self.pump_power * (53 / 1E5 * 3600)  ** 0.97 #
 
+
         self.pump_constraint_power = Constraint(
                 expr=self.pump_power >= 0
                 )
