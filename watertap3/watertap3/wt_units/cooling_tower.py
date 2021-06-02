@@ -28,7 +28,7 @@ class UnitProcess(WT3UnitProcess):
         self.ttd = 4.44  # Celsius based on typical range of 8F from EPRI 2004
         self.range = 11.11  # Celsius based on typical range of 20F from EPRI 2004
         if 'cycles' in unit_params:
-            print('Cycles of concentration are set based on parameters to:', unit_params['cycles'])
+            # print('Cycles of concentration are set based on parameters to:', unit_params['cycles'])
             self.cycles = unit_params['cycles'];
         else:
             self.cycles = 5.0;
