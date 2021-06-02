@@ -18,35 +18,10 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
-        source_cost = self.a + self.b * self.flow_in ** self.c
-        mix_cap = (source_cost * self.tpec_tic * self.number_of_units) * 1E-6
-        return mix_cap
-
-    def elect(self):  # m3/hr
-        electricity = 0  # kWh/m3
-        return electricity
-
-    def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = self.tpec_tic = sys_cost_params.tic
-
         time = self.flowsheet().config.time.first()
-
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-
         self.number_of_units = 2
-        self.lift_height = 100 * pyunits.ft
-        self.pump_eff = 0.9 * pyunits.dimensionless
-        self.motor_eff = 0.9 * pyunits.dimensionless
-
         self.chem_dict = {}
-
         # a, b, c generated with the following code:
         # Data from ______________________
         # from scipy.optimize import curve_fit
@@ -59,15 +34,21 @@ class UnitProcess(WT3UnitProcess):
         #
         # cc_params, _ = curve_fit(func, flow_cc, cost_cc)
         # a, b, c = cc_params[0], cc_params[1], cc_params[2]
-
         self.a = 14317.142
         self.b = 389.454
         self.c = -57.342
+        source_cost = self.a + self.b * self.flow_in ** self.c
+        mix_cap = (source_cost * self.tpec_tic * self.number_of_units) * 1E-6
+        return mix_cap
 
+    def elect(self):  # m3/hr
+        electricity = 0  # kWh/m3
+        return electricity
+
+    def get_costing(self, unit_params=None, year=None):
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
-
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
-
         financials.get_complete_costing(self.costing)

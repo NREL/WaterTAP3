@@ -19,40 +19,23 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
-
-        # FIRST TIME POINT FOR STEADY-STATE ASSUMPTION
+    def fixed_cap(self):
         time = self.flowsheet().config.time.first()
-
-        flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        tds_in = pyunits.convert(self.conc_mass_in[time, 'tds'], to_units=(pyunits.mg / pyunits.liter))  # convert from kg/m3 to mg/L
-        water_recovery = self.water_recovery[time]
-
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        self.tds_in = pyunits.convert(self.conc_mass_in[time, 'tds'], to_units=(pyunits.mg / pyunits.liter))  # convert from kg/m3 to mg/L
+        self.wr = self.water_recovery[time]
         self.chem_dict = {}
+        crystal_cap = 1.41 - self.tds_in * 7.11E-7 + self.wr * 1.45 + self.flow_in * 5.55E-1
+        return crystal_cap
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(
-            expr=1.41 - tds_in * 7.11E-7 + water_recovery * 1.45 + flow_in * 5.55E-1,
-            doc='Unadjusted fixed capital investment')  # $M
+    def elect(self):
+        electricity = 56.7 + self.tds_in * 1.83E-5 - self.wr * 9.47 - self.flow_in * 8.63E-4
+        return electricity
 
-        ## electricity consumption ##
-        self.electricity = 56.7 + tds_in * 1.83E-5 - water_recovery * 9.47 - flow_in * 8.63E-4  # kwh/m3
-
+    def get_costing(self, unit_params=None, year=None):
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
+                                                           doc='Unadjusted fixed capital investment')  # $M
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
         financials.get_complete_costing(self.costing)

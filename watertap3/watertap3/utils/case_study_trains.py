@@ -140,7 +140,7 @@ def filter_df(df, m):
 
 # ADDING ARCS TO MODEL
 def create_arcs(m, arc_dict):
-    print('\nConnecting unit processes...')
+    # print('\nConnecting unit processes...')
     for key in arc_dict.keys():
         source = arc_dict[key][0]
         source_port = arc_dict[key][1]
@@ -270,18 +270,15 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
                     if m.fs.pfd_dict[j[0]]["FromPort"][w] == "outlet":
                         if 'split_fraction' in m.fs.pfd_dict[j[0]]['Parameter']:
                             split_dict[uname] = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction'][w]
-                            w = w + 1
+                            w += 1
                             # outlet list for when splitter is added to model
                 outlet_name = 'outlet%s' % outlet_i
                 outlet_list.append(outlet_name)
-                outlet_i = outlet_i + 1
+                outlet_i += 1
 
                 # add new arc to arc dict
                 arc_dict[arc_i] = [splitter_name, outlet_name, arc_dict[key][2], arc_dict[key][3]]
-                arc_i = arc_i + 1
-                # print(split_dict)
-                # print(arc_dict[key][2])
-                # print(arc_dict[key])
+                arc_i += 1
 
                 unit_hold = arc_dict[key][2]
 
@@ -297,16 +294,14 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
                 # delete from arc dict
                 del arc_dict[key]
 
-        # print(outlet_list_up)
-        # print(outlet_list)
-        # print(split_dict)
         # add splitter to model with outlet list
 
         setattr(m.fs, splitter_name, Splitter(default={'property_package': m.fs.water}))
         unit_params = m.fs.pfd_dict[j[0]]['Parameter']
         getattr(m.fs, splitter_name).outlet_list = outlet_list_up
         if 'split_fraction' in unit_params:
-            print('params into splitter -->', unit_params['split_fraction'])
+            print(' ')
+            # print('params into splitter -->', unit_params['split_fraction'])
         # could just have self call the split list directly without reading in unit params. same for all 
         getattr(m.fs, splitter_name).get_split(outlet_list_up=outlet_list_up, unit_params=unit_params)
 

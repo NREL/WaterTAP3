@@ -12,25 +12,59 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
+    def fixed_cap(self):
+        t = self.flowsheet().config.time.first()
+        def anion_ex_cost_curves(eqn, x):
+            cost_df = pd.read_csv('data/an_ex_cost_eqns.csv', index_col='eqn')
+            cost_df.drop(columns=['pct_deviation', 'date_modified', 'r_squared', 'max_size', 'min_size'], inplace=True)
+            coeffs = dict(cost_df.loc[eqn].items())
+            cost = coeffs['C1'] * x ** coeffs['C2'] + coeffs['C3'] * log(x) + coeffs['C4'] + coeffs['C5'] * exp(coeffs['C6'] * x) + coeffs['C7'] * x ** 3 + coeffs['C8'] * x ** 2 + coeffs[
+                'C9'] * x + coeffs['C10']
+            return cost
+
+        ### VESSEL COST ###
+        self.pv_ss_cost = anion_ex_cost_curves('ss_pv_eq', (80 * 7.48))  # cost of stainless steel pressure vessel
+        self.pv_cs_cost = anion_ex_cost_curves('cs_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with stainless internals
+        self.pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with plastic internals
+        self.pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', (80 * 7.48))  # cost of fiberglass pressure vessels
+        if self.pv_material == 'stainless':
+            pv_cost = self.pv_ss_cost * self.tot_tanks
+        if self.pv_material == 'carbon with stainless':
+            pv_cost = self.pv_cs_cost * self.tot_tanks
+        if self.pv_material == 'carbon with plastic':
+            pv_cost = self.pv_csp_cost * self.tot_tanks
+        if self.pv_material == 'fiberglass':
+            pv_cost = self.pv_fg_cost * self.tot_tanks
+        #             resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate']
+
+        ### RESIN COST ##
+        # Cost taken from 'Cost Data' tab of 'wbs-anion-123017.xlsx'
+        # look up table = sba_res_cost_cl
+        self.resin_cap = (self.anion_resin_volume[t] * self.resin_cost[t]) + (self.cation_resin_volume[t] * self.resin_cost[t])
+
+        ### BACKWASH TANKS ###
+        # bw_ss_cost = anion_ex_cost_curves('st_bwt_eq', back_tank_vol)
+        # bw_fg_cost = anion_ex_cost_curves('fg_bwt_eq', back_tank_vol)
+        # bw_hdpe_cost = anion_ex_cost_curves('hdpe_bwt_eq', back_tank_vol)
+        # if bw_tank_type == 'stainless':
+        #     bw_tank_cost = bw_ss_cost * self.back_tanks
+        # if bw_tank_type == 'fiberglass':
+        #     bw_tank_cost = bw_fg_cost * self.back_tanks
+        # if bw_tank_type == 'hdpe':
+        #     bw_tank_cost = bw_hdpe_cost * self.back_tanks
+
+        ix_cost = pv_cost + self.resin_cap
+
+        return ix_cost * 1E-6
+
+    def elect(self):  # m3/hr
+        t = self.flowsheet().config.time.first()
+        self.pump_power = (self.flow_vol_in[t] * 2 * 1e5) / 0.8  # w 2 bar pressure and 80% pump efficiency
+        electricity = (self.pump_power * 1E-3) / (self.flow_vol_in[t] * 3600)  # kwh/m3
+        return electricity
+
     def get_costing(self, unit_params=None, year=None):
-        self.costing = Block()
-        self.costing.basis_year = basis_year
-        sys_cost_params = self.parent_block().costing_param
-        self.tpec_or_tic = tpec_or_tic
-        if self.tpec_or_tic == 'TPEC':
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tpec
-        else:
-            self.costing.tpec_tic = tpec_tic = sys_cost_params.tic
-
-        '''
-        We need a get_costing method here to provide a point to call the
-        costing methods, but we call out to an external consting module
-        for the actual calculations. This lets us easily swap in different
-        methods if needed.
-
-        Within IDAES, the year argument is used to set the initial value for
-        the cost index when we build the model.
-        '''
+        financials.create_costing_block(self, basis_year, tpec_or_tic)
 
         # FIRST TIME POINT FOR STEADY-STATE ASSUMPTION
         time = self.flowsheet().config.time
@@ -55,17 +89,17 @@ class UnitProcess(WT3UnitProcess):
             self.ph_out = 8.2
 
         try:
-            geom = unit_params['geom']
-            pv_material = unit_params['pv_material']
-            bw_tank_type = unit_params['bw_tank_type']
+            self.geom = unit_params['geom']
+            self.pv_material = unit_params['pv_material']
+            self.bw_tank_type = unit_params['bw_tank_type']
             self.resin_name = unit_params['resin_type']
         except:
-            geom = 'vertical'
-            pv_material = 'stainless'
-            bw_tank_type = 'stainless'
+            self.geom = 'vertical'
+            self.pv_material = 'stainless'
+            self.bw_tank_type = 'stainless'
             self.resin_name = 'styrenic_gel_2'
 
-        resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate', 'custom']
+        self.resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate', 'custom']
 
         self.resin_dict = {
                 'styrenic_gel_1': 148,
@@ -592,49 +626,7 @@ class UnitProcess(WT3UnitProcess):
         # _______________________________________________________  # _______________________________________________________
 
         # CONTACTORS  ## PRESSURE VESSELS
-        def fixed_cap():
-            def anion_ex_cost_curves(eqn, x):
-                cost_df = pd.read_csv('data/an_ex_cost_eqns.csv', index_col='eqn')
-                cost_df.drop(columns=['pct_deviation', 'date_modified', 'r_squared', 'max_size', 'min_size'], inplace=True)
-                coeffs = dict(cost_df.loc[eqn].items())
-                cost = coeffs['C1'] * x ** coeffs['C2'] + coeffs['C3'] * log(x) + coeffs['C4'] + coeffs['C5'] * exp(coeffs['C6'] * x) + coeffs['C7'] * x ** 3 + coeffs['C8'] * x ** 2 + coeffs[
-                    'C9'] * x + coeffs['C10']
-                return cost
 
-            ### VESSEL COST ###
-            pv_ss_cost = anion_ex_cost_curves('ss_pv_eq', (80 * 7.48))  # cost of stainless steel pressure vessel
-            pv_cs_cost = anion_ex_cost_curves('cs_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with stainless internals
-            pv_csp_cost = anion_ex_cost_curves('csp_pv_eq', (80 * 7.48))  # cost of carbon steel pressure vessels with plastic internals
-            pv_fg_cost = anion_ex_cost_curves('fg_pv_eq', (80 * 7.48))  # cost of fiberglass pressure vessels
-            if pv_material == 'stainless':
-                pv_cost = pv_ss_cost * self.tot_tanks
-            if pv_material == 'carbon with stainless':
-                pv_cost = pv_cs_cost * self.tot_tanks
-            if pv_material == 'carbon with plastic':
-                pv_cost = pv_csp_cost * self.tot_tanks
-            if pv_material == 'fiberglass':
-                pv_cost = pv_fg_cost * self.tot_tanks
-            #             resin_type_list = ['styrenic_gel_1', 'styrenic_gel_2', 'styrenic_macro_1', 'styrenic_macro_2', 'polyacrylic', 'nitrate']
-
-            ### RESIN COST ##
-            # Cost taken from 'Cost Data' tab of 'wbs-anion-123017.xlsx'
-            # look up table = sba_res_cost_cl
-            self.resin_cap = (self.anion_resin_volume[t] * self.resin_cost[t]) + (self.cation_resin_volume[t] * self.resin_cost[t])
-
-            ### BACKWASH TANKS ###
-            # bw_ss_cost = anion_ex_cost_curves('st_bwt_eq', back_tank_vol)
-            # bw_fg_cost = anion_ex_cost_curves('fg_bwt_eq', back_tank_vol)
-            # bw_hdpe_cost = anion_ex_cost_curves('hdpe_bwt_eq', back_tank_vol)
-            # if bw_tank_type == 'stainless':
-            #     bw_tank_cost = bw_ss_cost * self.back_tanks
-            # if bw_tank_type == 'fiberglass':
-            #     bw_tank_cost = bw_fg_cost * self.back_tanks
-            # if bw_tank_type == 'hdpe':
-            #     bw_tank_cost = bw_hdpe_cost * self.back_tanks
-
-            total_system_cost = pv_cost + self.resin_cap
-
-            return total_system_cost * 1E-6
 
         #         @self.Constraint(time, doc='Outlet pressure equation')
         #         def outlet_pressure_constraint(self, t):
@@ -908,19 +900,11 @@ class UnitProcess(WT3UnitProcess):
 
         self.costing.other_var_cost = self.other_var_cost
 
-        # self.chem_dict = {}
-
-        def electricity():  # m3/hr
-
-            self.pump_power = (self.flow_vol_in[t] * 2 * 1e5) / 0.8  # w 2 bar pressure and 80% pump efficiency
-
-            return (self.pump_power / 1000) / (self.flow_vol_in[t] * 3600)  # kwh/m3
-
         ## fixed_cap_inv_unadjusted ## 1.65 for TIC assumption
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=fixed_cap() * 1.65,
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M
 
-        ## electricity consumption ##
-        self.electricity = electricity()  # kwh/m3 asumes pump
+        self.electricity = Expression(expr=self.elect(),
+                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
 
         financials.get_complete_costing(self.costing)
