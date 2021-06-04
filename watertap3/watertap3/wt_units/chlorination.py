@@ -60,11 +60,14 @@ class UnitProcess(WT3UnitProcess):
         b = ml_regression.get_cost_curve_coefs(xs=xs, ys=ys)[0][1]
         return (a * self.flow_in ** b) * 1E-3  # $MM
 
-    def elect(self):]
+    def elect(self):
         electricity = 0.00005 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M

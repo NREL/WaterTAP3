@@ -24,6 +24,13 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+        **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
+
+        **EXAMPLE: {'dose': 10}**
+        :param unit_params:
+        :return:
+        '''
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         self.chem_dict = {}
@@ -90,16 +97,9 @@ class UnitProcess(WT3UnitProcess):
             self.land_cost = 5000  # $ / acre
             self.land_clearing_cost = 1000  # $ / acre
             self.dike_height = 8  # ft
-        x0 = self.air_temp[t]
-        x1 = self.tds_in
-        x2 = self.humidity
-        x3 = self.wind_speed
 
-        ## CHANGED RATIO FUNCTION TO BE DEGREE=2 5/2/2021 -KAS
-        ## THIS ISN'T USED CURRENTLY
-        self.ratio = 0.0181657227 * (x0) + 4.38801e-05 * (x1) + 0.2504964875 * (x2) + 0.011328485 * (x3) - 0.0003463853 * (x0 ** 2) - 2.16888e-05 * (x0 * x1) - 0.0181098164 * (
-                x0 * x2) + 0.0002098163 * (x0 * x3) + 8.654e-07 * (x1 ** 2) - 0.0004358946 * (x1 * x2) - 8.73918e-05 * (x1 * x3) - 0.0165224935 * (x2 ** 2) - 0.0174278724 * (
-                             x2 * x3) + 0.0003850584 * (x3 ** 2) + 0.7943236298
+
+        ratio = self.evaporation_rate()
         self.evap_rate = self.evap_rate_pure * 0.7  # ratio factor from the BLM document
         self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute))  # volume coming in
         self.flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute))  # left over volume
@@ -119,10 +119,29 @@ class UnitProcess(WT3UnitProcess):
             return 0.03099 * flow_in_m3_d ** 0.7613  # this is Lenntech cost curve based on flow for 1 m/y evap rate
 
     def elect(self):
+        '''
+        WaterTAP3 has no electricity intensity associated with storage tanks.
+        '''
         electricity = 0
         return electricity
 
+    def evaporation_rate(self):
+        x0 = self.air_temp[t]
+        x1 = self.tds_in
+        x2 = self.humidity
+        x3 = self.wind_speed
+        ## CHANGED RATIO FUNCTION TO BE DEGREE=2 5/2/2021 -KAS
+        ## THIS ISN'T USED CURRENTLY - NEEDS TO BE TESTED
+        self.ratio = 0.0181657227 * (x0) + 4.38801e-05 * (x1) + 0.2504964875 * (x2) + 0.011328485 * (x3) - 0.0003463853 * (x0 ** 2) - 2.16888e-05 * (x0 * x1) - 0.0181098164 * (
+                x0 * x2) + 0.0002098163 * (x0 * x3) + 8.654e-07 * (x1 ** 2) - 0.0004358946 * (x1 * x2) - 8.73918e-05 * (x1 * x3) - 0.0165224935 * (x2 ** 2) - 0.0174278724 * (
+                             x2 * x3) + 0.0003850584 * (x3 ** 2) + 0.7943236298
+        return self.ratio
+
+
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M

@@ -88,6 +88,9 @@ class UnitProcess(WT3UnitProcess):
                          doc='pressure')
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
@@ -192,7 +195,6 @@ class UnitProcess(WT3UnitProcess):
                 continue
             else:
                 self._set_pressure(b)
-                # set_water_flux(b
         feed.pressure.unfix()
 
         self.a.fix(4.2)
@@ -230,10 +232,7 @@ class UnitProcess(WT3UnitProcess):
                              == flow_waste_m3hr * pyunits.convert(self.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.liter)
                         ))
 
-                # # else:
-                # for j in self.const_list2:
-                #
-                ## CONSTANTS
+        ## CONSTANTS
         pump_eff = 0.8  # efficiency of pump
         erd_eff = 0.9
         mem_cost = 35  # ~30 dollars for 2007 converted to 2020 and from Optimum design of reverse osmosis system under different feed concentration and product specification

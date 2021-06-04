@@ -18,18 +18,39 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+        **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
+
+        **EXAMPLE: {'aop': True, 'uv_dose': 350, 'dose': 5, 'chemical_name': 'Hydrogen Peroxide'}**
+
+        :param aop: (**required**) Boolean that determines if UV is used with AOP. Must be either True or False
+        :type aop: bool
+        :param uvt_in: (**optional**, default is 0.9) UV transmission (UVT) into unit
+        :type uvt_in: float
+        :param uv_dose: (**optional**, default is 100) Reduction Equivalent Dose (RED)  [mJ/cm2]
+        :type uv_dose: float
+        :param dose: (**optional**, no default) Dose for oxidant (if AOP) [mg/L]
+        :type dose: float
+        :param chemical_name: (**optional**, default is ``'Hydrogen_Peroxide'``) Name of oxidant used for AOP.
+        :type chemical_name: str
+
+        .. important:: ``chemical_name`` parameter *must* match exactly with chemical entry in catalyst_chemicals.csv or there will be an error.
+
+        :return: Fixed capital for UV or UV+AOP unit [$MM]
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
+        self.aop = unit_params['aop']
         try:
             self.uvt_in = unit_params['uvt_in']
             self.uv_dose = unit_params['uv_dose']
+            chem_name = unit_params['chemical_name']
         except:
             self.uvt_in = 0.9
             self.uv_dose = 100
-        self.aop = unit_params['aop']
+            chem_name = 'Hydrogen_Peroxide'
         if self.aop:
             self.ox_dose = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
-            chem_name = unit_params['chemical_name']
             self.chem_dict = {chem_name: self.ox_dose}
             self.h2o2_base_cap = 1228
             self.h2o2_cap_exp = 0.2277
@@ -50,8 +71,22 @@ class UnitProcess(WT3UnitProcess):
         return electricity
 
     def uv_regress(self):
+        '''
+        Determine a, b costing parameters as a function of flow, UVT, and UV dose for unit.
+
+        :param flow_in: Volumetric flow into unit [MGD]
+        :type flow_in: float
+        :param uvt_in: UV transmission (UVT) into unit
+        :type uvt_in: float
+        :param uv_dose: UV dose used by the unit [mg/L]
+        :type uv_dose: float
+        :return: a, b
+        '''
 
         def power_curve(x, a, b):
+            '''
+            Return power curve. Used for fitting cost data to determine a, b.
+            '''
             return a * x ** b
 
         self.df = pd.read_csv('data/uv_cost_interp.csv', index_col='flow')
@@ -67,12 +102,24 @@ class UnitProcess(WT3UnitProcess):
         return self.a, self.b
 
     def solution_vol_flow(self):  # m3/hr
+        '''
+        Determine oxidant solution flow rate in gal / day
+
+        **Calculations:**
+
+        1. Oxidant flow rate [kg/hr] = Flow in * Oxidant dose
+
+        :return: Oxidant solution flow [gal/day]
+        '''
         chemical_rate = self.flow_in * self.ox_dose  # kg/hr
         chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
         soln_vol_flow = chemical_rate
         return soln_vol_flow  # lb / day
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M

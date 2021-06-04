@@ -1,43 +1,66 @@
 Storage Tanks
 =====================================
 
-Tank costs are calculated as a function of the volume of storage required. The storage required is calculated as:
+Capital Costs
+---------------
 
-  .. math::
+Storage tank capital costs are calculated as a function of the volume of storage required:
 
-    Storage\,Capacity = Flow\,In * Storage\,Duration * (1 + Surge\,Capacity)
+:math:`V_{s} = Q_{in} t (1 + x)`
 
-  .. math::
+* :math:`\small{V_{s} [m^3]}` = Storage volume needed
+* :math:`Q_{in} [m^3/hr]` = Flow in to tank
+* :math:`t [hr]` = Storage duration
+* :math:`x` = Surge capacity
 
-    \small\text{flow in = inlet flow to the tank (m3/h)}
+The storage volume is used to calculate capital costs ($MM):
 
-    \small\text{storage duration = hours of storage required}
+:math:`Cost = \big( V_{s} a \big) ^ b`
 
-    \small\text{surge capacity = percentage of additional capacity required (provided as a fraction)}
 
-Once the capacity is calculated, the cost data below is used to calculate the FCI. The cost data is
-based on figure X from DOE/NETL-2002/1169 - Process Equipment Cost Estimation. The assumed data points
-from the curve are provided below and an adapted cost curve is generated using the scipy curve fit
-function.
+`a` and `b` can be determined via regression of the following data with to::
 
-+-----------------------+-----+-----+------+----+-----+-----+-----+-------+
-| Cost ($MM)            |0.15 |0.20 |0.37  |0.78|1.75 |2.64 |4.66 |6.88   |
-+-----------------------+-----+-----+------+----+-----+-----+-----+-------+
-| Storage Capacity (m3) |191.2|375.6|1101.1|3030|8806 |16908|29610|37854.1|
-+-----------------------+-----+-----+------+----+-----+-----+-----+-------+
+        from scipy.optimize import curve_fit
 
-Cost curve equation in WaterTAP3:
+        def power(x, a, b):
+            return a * x ** b
 
-  .. math::
+        cost_MM = [0, 0.151967998, 0.197927546, 0.366661915, 0.780071937, 1.745265206, 2.643560777, 4.656835949, 6.8784383]
+        storage_m3 = [1E-8, 191.2, 375.6, 1101.1, 3030, 8806, 16908, 29610, 37854.1]
+        coeffs, _ = curve_fit(power, storage_m3, cost_MM)
+        a, b = coeffs[0], coeffs[1]
+        print(a, b)
 
-    Cost($MM) = 1.48e^{-4} * Storage\,Capacity ^ {1.014}
+Electricity Cost
+------------------
 
 The tank unit model does not include any electricity costs or other unit-specific O&M costs.
+
+Data Used
+------------
+
+.. csv-table:: Cost ($MM) vs. Volume
+    :file: csvs/storage_tanks.csv
+    :align: center
+
+This data comes from "cone roof tanks" on page 7:
+
+
+.. image:: images/storage_tanks.png
+   :scale: 100 %
+   :align: center
+
+The `full reference <https://www.osti.gov/servlets/purl/797810>`_ is:
+
+| DOE/NETL-2002/1169 - Process Equipment Cost Estimation Final Report.
+| Loh, H. P., Lyons, Jennifer, and White, Charles W.
+| United States: N. p., 2002. Web. doi:10.2172/797810.
+
 
 Storage Tank Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.holding_tank.UnitProcess
-   :members: get_costing, fixed_cap, electricity
+   :members: fixed_cap, elect, get_costing
    :undoc-members: build
    :exclude-members: build

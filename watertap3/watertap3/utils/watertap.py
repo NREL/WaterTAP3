@@ -195,8 +195,6 @@ def print_results(m, print_model_results):
           round(value(100 * m.fs.costing.elec_frac_LCOW()), 3))
     print('----------------------------------------------------------------------')
 
-
-
 def run_sensitivity_power(m=None, save_results=False, return_results=False,
                           scenario=None, case_study=None, skip_small_sens=True):
     ro_list = ['reverse_osmosis', 'ro_first_pass', 'ro_a1', 'ro_b1',

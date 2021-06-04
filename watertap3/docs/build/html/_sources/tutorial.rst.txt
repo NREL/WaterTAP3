@@ -32,7 +32,7 @@ For inline math, we use like this: :math:`a^2 + b^2 = c^2`.
 
 For displayed math, the directive supports multiple equations, which should be separated by a blank line:
 
-   .. math::
+    .. math::
 
       (a + b)^2 = a^2 + 2ab + b^2
 
