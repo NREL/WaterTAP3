@@ -152,11 +152,8 @@ def get_ind_table(analysis_yr_cost_indicies):
         ind_name = '%s_Index' % variable
         fac_name = '%s_Factor' % variable
         df[fac_name] = (
-                df[df.Year == analysis_yr_cost_indicies][ind_name].max() / df[ind_name]
-        )
-
+                df[df.Year == analysis_yr_cost_indicies][ind_name].max() / df[ind_name])
     df = df.set_index(df.Year)
-
     df = df.replace(1.0, 1.00000000001)
 
     return df
@@ -307,41 +304,41 @@ def get_system_costing(self):
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
             setattr(b_unit, 'LCOW', Expression(
-                    expr=1e6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost)
+                    expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost)
                          / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
                     doc='Unit Levelized Cost of Water in $/m3'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
-                    expr=(b_unit.costing.electricity_cost * 1e6 / b.parent_block().costing_param.electricity_price)
+                    expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price)
                          / (b.treated_water * 3600 * 24 * 365),
                     doc='Electricity Intensity in kwh/m3'))
 
     # LCOW by cost category
     b.LCOW_TCI = Expression(
-            expr=1e6 * (b.capital_investment_total * b.capital_recovery_factor) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+            expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     b.LCOW_elec = Expression(
-            expr=1e6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+            expr=1E6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     b.LCOW_fixed_op = Expression(
-            expr=1e6 * (b.fixed_op_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+            expr=1E6 * (b.fixed_op_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     b.LCOW_other_onm = Expression(
-            expr=1e6 * (b.cat_and_chem_cost_annual + b.other_var_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+            expr=1E6 * (b.cat_and_chem_cost_annual + b.other_var_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     ## GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water
     b.electricity_intensity = Expression(
-            expr=(b.electricity_cost_annual * 1e6 / b.parent_block().costing_param.electricity_price)
+            expr=(b.electricity_cost_annual * 1E6 / b.parent_block().costing_param.electricity_price)
                  / (b.treated_water * 3600 * 24 * 365),
             doc='Electricity Intensity in kwh/m3')
 
     b.LCOW = Expression(
-            expr=1e6 * (b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual)
+            expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual)
                  / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
             doc='Levelized Cost of Water in $/m3')
 
     b.elec_frac_LCOW = Expression(
-            expr=((1e6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
+            expr=((1E6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
             doc='elec_frac_LCOW fraction')
 
 

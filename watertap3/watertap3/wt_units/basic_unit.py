@@ -47,6 +47,9 @@ class UnitProcess(WT3UnitProcess):
             return self.elect_intensity
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.unit_process_name = unit_params['unit_process_name']

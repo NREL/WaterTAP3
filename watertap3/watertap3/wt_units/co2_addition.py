@@ -18,6 +18,19 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
+        '''
+        **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
+
+        **EXAMPLE: {'dose': 10}**
+
+        Fixed capital for alum addition is a function of alum dose, alum solution flow, and the number of units.
+
+        **Assumptions:**
+
+        * Number of units = 2
+
+        :return: Alum addition fixed capital cost [$MM]
+        '''
         self.chem_dict = {}
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
@@ -31,6 +44,9 @@ class UnitProcess(WT3UnitProcess):
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
                                                            doc='Unadjusted fixed capital investment')  # $M

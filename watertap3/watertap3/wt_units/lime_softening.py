@@ -16,6 +16,18 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+        **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
+
+        **EXAMPLE: {'lime': 10}**
+
+        Fixed capital for lime addition is a function of lime dose, lime solution flow, and the number of units.
+
+        :param lime: Lime dose [mg/L]
+        :type lime: float
+
+        :return: Lime addition fixed capital cost [$MM]
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.base_fixed_cap_cost = 0.0704
@@ -28,7 +40,13 @@ class UnitProcess(WT3UnitProcess):
         lime_cap = self.base_fixed_cap_cost * self.flow_in ** self.cap_scaling_exp
         return lime_cap
 
-    def elect(self):  # m3/hr
+    def elect(self):
+        '''
+        Electricity intensity for chemical additions is a function of lift height, pump efficiency, and motor efficiency.
+
+
+        :return: Electricity intensity [kWh/m3]
+        '''
         self.lift_height = 100 * pyunits.ft
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless
@@ -36,7 +54,13 @@ class UnitProcess(WT3UnitProcess):
         electricity = (0.746 * soln_vol_flow * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in  # kWh/m3
         return electricity
 
-    def solution_vol_flow(self):  # m3/hr
+    def solution_vol_flow(self):
+        '''
+        Determine alum solution flow rate in gal / day
+
+
+        :return: Lime solution flow [gal/day]
+        '''
         self.solution_density = 1250 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         chemical_rate = self.flow_in * self.chemical_dosage  # kg/hr
         chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.kg / pyunits.day))
@@ -44,6 +68,9 @@ class UnitProcess(WT3UnitProcess):
         return soln_vol_flow  # m3/d
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M

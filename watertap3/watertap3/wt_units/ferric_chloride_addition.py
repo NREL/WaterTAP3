@@ -17,6 +17,15 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+        **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
+
+        **EXAMPLE: {'dose': 10}**
+
+        Fixed capital for ferric chloride addition is a function of ferric dose, ferric solution flow, and the number of units.
+
+        :return: Ferric addition fixed capital cost [$MM]
+        '''
         time = self.flowsheet().config.time.first()
         self.number_of_units = 2
         self.base_fixed_cap_cost = 34153
@@ -29,7 +38,13 @@ class UnitProcess(WT3UnitProcess):
         fecl3_cap = (source_cost * self.tpec_tic * self.number_of_units) * 1E-6
         return fecl3_cap
 
-    def elect(self):  # m3/hr
+    def elect(self):
+        '''
+        Electricity intensity for chemical additions is a function of lift height, pump efficiency, and motor efficiency.
+
+
+        :return: Electricity intensity [kWh/m3]
+        '''
         self.lift_height = 100 * pyunits.ft
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless
@@ -37,7 +52,13 @@ class UnitProcess(WT3UnitProcess):
         electricity = (0.746 * soln_vol_flow * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in  # kWh/m3
         return electricity
 
-    def solution_vol_flow(self):  # m3/hr
+    def solution_vol_flow(self):
+        '''
+        Determine ferric chloride solution flow rate in gal / day
+
+
+        :return: Ferric solution flow [gal/day]
+        '''
         self.solution_density = 1460 * (pyunits.kg / pyunits.m ** 3)  # kg/m3
         self.ratio_in_solution = 0.42
         chemical_rate = self.flow_in * self.chemical_dosage  # kg/hr
@@ -47,6 +68,9 @@ class UnitProcess(WT3UnitProcess):
         return soln_vol_flow  # gal/day
 
     def get_costing(self, unit_params=None, year=None):
+        '''
+        Initialize the unit in WaterTAP3.
+        '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
