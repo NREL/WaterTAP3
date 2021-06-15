@@ -51,7 +51,7 @@ class SystemSpecs():
         self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
         self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] == 'working_capital_percent'].loc[case_study].value)
         self.salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
-        self.maintinance_costs_percent_FCI = float(basis_data[basis_data['variable'] == 'maintenance_cost_percent'].loc[case_study].value)
+        self.maintenance_costs_percent_FCI = float(basis_data[basis_data['variable'] == 'maintenance_cost_percent'].loc[case_study].value)
         self.lab_fees_percent_FCI = float(basis_data[basis_data['variable'] == 'laboratory_fees_percent'].loc[case_study].value)
         self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] == 'insurance_and_taxes_percent'].loc[case_study].value)
         self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 'employee_benefits_percent'].loc[case_study].value)
@@ -115,17 +115,12 @@ def get_complete_costing(costing):
         costing.other_var_cost = 0 * sys_specs.plant_cap_utilization
 
     costing.base_employee_salary_cost = costing.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
-    costing.salaries = Expression(
-            expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost,
-
-            doc='Salaries')
+    costing.salaries = Expression(expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost, doc='Salaries')
     costing.benefits = costing.salaries * sys_specs.benefit_percent_of_salary
-    costing.maintenance = sys_specs.maintinance_costs_percent_FCI * costing.fixed_cap_inv
+    costing.maintenance = sys_specs.maintenance_costs_percent_FCI * costing.fixed_cap_inv
     costing.lab = sys_specs.lab_fees_percent_FCI * costing.fixed_cap_inv
     costing.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * costing.fixed_cap_inv
-    costing.total_fixed_op_cost = Expression(
-            expr=costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes)
-
+    costing.total_fixed_op_cost = Expression(expr=costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes)
     costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
 
 
@@ -173,9 +168,9 @@ def get_system_specs(self, train=None):
             initialize=0.07,
             doc='Electricity cost [$/kWh]')
 
-    b.maintinance_costs_percent_FCI = Var(
+    b.maintenance_costs_percent_FCI = Var(
             initialize=0.07,
-            doc='maintinance_costs_percent_FCI cost [%]')
+            doc='maintenance_costs_percent_FCI cost [%]')
 
     b.salaries_percent_FCI = Var(
             initialize=0.07,
@@ -200,7 +195,7 @@ def get_system_specs(self, train=None):
     b.electricity_price.fix(system_specs.elec_price)
     b.salaries_percent_FCI.fix(system_specs.salaries_percent_FCI)
     b.land_cost_percent_FCI = system_specs.land_cost_percent_FCI
-    b.maintinance_costs_percent_FCI.fix(system_specs.maintinance_costs_percent_FCI)
+    b.maintenance_costs_percent_FCI.fix(system_specs.maintenance_costs_percent_FCI)
     b.lab_fees_percent_FCI.fix(system_specs.lab_fees_percent_FCI)
     b.insurance_taxes_percent_FCI.fix(system_specs.insurance_taxes_percent_FCI)
     b.plant_lifetime_yrs = system_specs.plant_lifetime_yrs

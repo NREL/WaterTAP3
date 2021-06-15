@@ -8,7 +8,7 @@ def get_fixed_onm_reduction(m = None, reduction_value_list = None, skip_small=No
     
     print('RUNNING 50% REDUCTION IN FIXED O&M SCENARIO')
     
-    fixed_onm_variables = ['salaries_percent_FCI', 'maintinance_costs_percent_FCI', 'benefit_percent_of_salary', 
+    fixed_onm_variables = ['salaries_percent_FCI', 'maintenance_costs_percent_FCI', 'benefit_percent_of_salary',
                 'lab_fees_percent_FCI', 'insurance_taxes_percent_FCI']
     print(reduction_value_list)
     fixed_onm_v_dict = {}
