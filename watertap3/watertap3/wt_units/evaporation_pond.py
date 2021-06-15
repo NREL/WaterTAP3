@@ -99,7 +99,7 @@ class UnitProcess(WT3UnitProcess):
             self.dike_height = 8  # ft
 
 
-        ratio = self.evaporation_rate()
+        ratio = self.evaporation_rate(t)
         self.evap_rate = self.evap_rate_pure * 0.7  # ratio factor from the BLM document
         self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute))  # volume coming in
         self.flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute))  # left over volume
@@ -125,7 +125,7 @@ class UnitProcess(WT3UnitProcess):
         electricity = 0
         return electricity
 
-    def evaporation_rate(self):
+    def evaporation_rate(self, t):
         x0 = self.air_temp[t]
         x1 = self.tds_in
         x2 = self.humidity

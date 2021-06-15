@@ -24,7 +24,8 @@ __all__ = ['run_water_tap',
            'print_ro_results',
            'print_results',
            'set_bounds',
-           'run_sensitivity_power']
+           'run_sensitivity_power'
+           ]
 
 
 
@@ -204,17 +205,22 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
 
     m_scenario = scenario
 
-    lcow_list = []
-    water_recovery_list = []
-    scenario_value = []
-    scenario_name = []
-    elec_lcow = []
-    elec_int = []
+    m.fs.lcow_list = lcow_list = []
+    m.fs.water_recovery_list = water_recovery_list = []
+    m.fs.scenario_value = scenario_value = []
+    m.fs.scenario_name = scenario_name = []
+    m.fs.elec_lcow = elec_lcow = []
+    m.fs.elec_int = elec_int = []
+    m.fs.treated_water = treated_water = []
+    m.fs.elect_cost = elect_cost = []
+    m.fs.bc_elec = bc_elec = []
+    m.fs.ro_elec = ro_elec = []
 
-    area_list = []
-    
+
+    m.fs.area_list = area_list = []
+
     if m.fs.train['case_study'] == "cherokee" and m_scenario == "zld_ct":
-        if 'reverse_osmosis_a' in m.fs.pfd_dict.keys(): 
+        if 'reverse_osmosis_a' in m.fs.pfd_dict.keys():
             stash_value = value(getattr(m.fs, 'evaporation_pond').area[0])
             cenario = 'Area'
             print('-------', scenario, '-------')
@@ -225,15 +231,15 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
             getattr(m.fs, 'evaporation_pond').area.unfix()
             m.fs.reverse_osmosis_a.feed.pressure.unfix()
             m.fs.reverse_osmosis_a.membrane_area.unfix()
-            
+
             for recovery_rate in np.arange(lb, ub, step):
                 m.fs.reverse_osmosis_a.kurby4 = Constraint(
-                    expr=m.fs.reverse_osmosis_a.flow_vol_out[0] <= 
+                    expr=m.fs.reverse_osmosis_a.flow_vol_out[0] <=
                 (recovery_rate * m.fs.reverse_osmosis_a.flow_vol_in[0]))
-                
+
                 run_water_tap(m=m, objective=True, skip_small=True)
                 print(scenario, recovery_rate, 'LCOW -->', m.fs.costing.LCOW())
-                
+
                 print('evap pond recovery:', getattr(m.fs, 'evaporation_pond').water_recovery[0]())
                 print('evap pond area:', getattr(m.fs, 'evaporation_pond').area[0]())
                 print('RO recovery:', m.fs.reverse_osmosis_a.flow_vol_out[0]() / m.fs.reverse_osmosis_a.flow_vol_in[0]())
@@ -245,12 +251,14 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
                 elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
                 elec_int.append(value(m.fs.costing.electricity_intensity))
                 area_list.append(value(m.fs.evaporation_pond.area[0]))
+                treated_water.append(m.fs.costing.treated_water())
+                elect_cost.append(m.fs.reverse_osmosis_a.costing.electricity_cost())
             getattr(m.fs, 'evaporation_pond').water_recovery.unfix()
             getattr(m.fs, 'evaporation_pond').area.fix(stash_value)
 
-            
+
     if m.fs.train['case_study'] == "gila_river" and m_scenario == "baseline":
-        if 'reverse_osmosis' in m.fs.pfd_dict.keys(): 
+        if 'reverse_osmosis' in m.fs.pfd_dict.keys():
             stash_value = value(getattr(m.fs, 'evaporation_pond').area[0])
             cenario = 'Area'
             print('-------', scenario, '-------')
@@ -260,20 +268,20 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
             step = (ub - lb) / 50  # 50 runs
             getattr(m.fs, 'evaporation_pond').water_recovery.fix(0.9)
             getattr(m.fs, 'evaporation_pond').area.unfix()
-            
+
             m.fs.reverse_osmosis.feed.pressure.unfix()
             m.fs.reverse_osmosis.membrane_area.unfix()
-            
+
             for recovery_rate in np.arange(lb, ub, step):
                 m.fs.reverse_osmosis.kurby4 = Constraint(
-                    expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 
+                    expr=m.fs.reverse_osmosis.flow_vol_out[0] <=
                 (recovery_rate * m.fs.reverse_osmosis.flow_vol_in[0]))
-                
+
                 m.fs.brine_concentrator.water_recovery.fix(recovery_rate)
-                
+
                 run_water_tap(m=m, objective=True, skip_small=True)
                 print(scenario, recovery_rate, 'LCOW -->', m.fs.costing.LCOW())
-                
+
                 print('evap pond recovery:', getattr(m.fs, 'evaporation_pond').water_recovery[0]())
                 print('evap pond area:', getattr(m.fs, 'evaporation_pond').area[0]())
                 print('RO recovery:', m.fs.reverse_osmosis.flow_vol_out[0]() / m.fs.reverse_osmosis.flow_vol_in[0]())
@@ -284,8 +292,11 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
                 elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
                 elec_int.append(value(m.fs.costing.electricity_intensity))
                 area_list.append(value(m.fs.evaporation_pond.area[0]))
-            
-            
+                treated_water.append(m.fs.costing.treated_water())
+                elect_cost.append(m.fs.costing.electricity_cost_annual())
+                bc_elec.append(m.fs.brine_concentrator.costing.electricity_cost())
+                ro_elec.append(m.fs.reverse_osmosis.costing.electricity_cost())
+
             getattr(m.fs, 'evaporation_pond').water_recovery.unfix()
             getattr(m.fs, 'evaporation_pond').area.fix(stash_value)
 
@@ -293,8 +304,8 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
     # final run to get baseline numbers again
     print('\n-------', 'RESET', '-------\n')
     run_water_tap(m=m, objective=False, skip_small=True)
-    print('LCOW -->', m.fs.costing.LCOW())    
-    
+    print('LCOW -->', m.fs.costing.LCOW())
+
     run_water_tap(m=m, objective=True, skip_small=skip_small_sens)
 
     sens_df['lcow'] = lcow_list
@@ -323,13 +334,15 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     sens_df = pd.DataFrame()
 
     m_scenario = scenario
+    case_print = m.fs.train['case_study'].replace('_', ' ').swapcase()
+    scenario_print = m.fs.train['scenario'].replace('_', ' ').swapcase()
 
-    lcow_list = []
-    water_recovery_list = []
-    scenario_value = []
-    scenario_name = []
-    elec_lcow = []
-    elec_int = []
+    m.fs.lcow_list = lcow_list = []
+    m.fs.water_recovery_list = water_recovery_list = []
+    m.fs.scenario_value = scenario_value = []
+    m.fs.scenario_name = scenario_name = []
+    m.fs.elec_lcow = elec_lcow = []
+    m.fs.elec_int = elec_int = []
 
     lcow_list.append(value(m.fs.costing.LCOW))
     water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -348,10 +361,16 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     lb = 0.7
     step = (ub - lb) / runs_per_scenario
     for i in np.arange(lb, ub + step, step):
+
         m.fs.costing_param.plant_cap_utilization = i
+
         run_water_tap(m=m, objective=False, skip_small=True)
 
+        print('\n===============================')
+        print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+        print('===============================\n')
         print(scenario, i * 100, 'LCOW -->', m.fs.costing.LCOW())
+
 
         lcow_list.append(value(m.fs.costing.LCOW))
         water_recovery_list.append(value(m.fs.costing.system_recovery))
@@ -376,6 +395,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     lb = 0.05
     step = (ub - lb) / runs_per_scenario
     for i in np.arange(lb, ub + step, step):
+        print('\n===============================')
+        print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+        print('===============================\n')
         m.fs.costing_param.wacc = i
         run_water_tap(m=m, objective=False, skip_small=True)
         print(scenario, i * 100, 'LCOW -->', m.fs.costing.LCOW())
@@ -426,7 +448,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                 if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
                     getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q] * i)
                     q += 1
-
+            print('\n===============================')
+            print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+            print('===============================\n')
             run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
             print(scenario, sum(stash_value) * i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -466,7 +490,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                 for key in m.fs.flow_in_dict:
                     getattr(m.fs, key).flow_vol_in[0].fix(stash_value[q] * i)
                     q += 1
-
+                print('\n===============================')
+                print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+                print('===============================\n')
                 run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
                 print(scenario, stash_value[q - 1] * i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -496,6 +522,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     step = (ub - lb) / runs_per_scenario
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.plant_lifetime_yrs = i
+        print('\n===============================')
+        print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+        print('===============================\n')
         run_water_tap(m=m, objective=False, skip_small=True)
         print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -521,6 +550,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     step = (ub - lb) / runs_per_scenario
     for i in np.arange(lb, ub + step, step):
         m.fs.costing_param.electricity_price = i
+        print('\n===============================')
+        print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+        print('===============================\n')
         run_water_tap(m=m, objective=False, skip_small=True)
         print(scenario, i * stash_value, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -537,7 +569,6 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     print('\n-------', 'RESET', '-------\n')
     run_water_tap(m=m, objective=False, skip_small=True)
     print('LCOW -->', m.fs.costing.LCOW())
-    ############ lifetime years ############
 
     dwi_list = ['emwd', 'big_spring']
     if m.fs.train['case_study'] in dwi_list:
@@ -552,6 +583,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                 step = (ub - lb) / runs_per_scenario
                 for i in np.arange(lb, ub + step, step):
                     getattr(m.fs, key).lift_height.fix(i)
+                    print('\n===============================')
+                    print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+                    print('===============================\n')
                     run_water_tap(m=m, objective=False, skip_small=True)
                     print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -571,17 +605,17 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     run_water_tap(m=m, objective=False, skip_small=True)
     print('LCOW -->', m.fs.costing.LCOW())
     ############ power sens -> adjust recovery of pre-evap pond to see evaporation area needs ############
-    
+
     # cherokee
     # set RO recovery for ccro + brine to change, evap pond area unfixed and calculated by model, recovery set at 90%.
     # same for gila baseline
-    
-    
-    
+
+
+
     area_list = []
-    
+
     if m.fs.train['case_study'] == "cherokee" and m_scenario == "zld_ct":
-        if 'reverse_osmosis_a' in m.fs.pfd_dict.keys(): 
+        if 'reverse_osmosis_a' in m.fs.pfd_dict.keys():
             stash_value = value(getattr(m.fs, 'evaporation_pond').area[0])
             cenario = 'Area'
             print('-------', scenario, '-------')
@@ -597,7 +631,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                 m.fs.reverse_osmosis_a.kurby4 = Constraint(
                         expr=m.fs.reverse_osmosis_a.flow_vol_out[0] >=
                              (recovery_rate * m.fs.reverse_osmosis_a.flow_vol_in[0]))
-
+                print('\n===============================')
+                print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+                print('===============================\n')
                 run_water_tap(m=m, objective=False, skip_small=True)
                 print(scenario, recovery_rate, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -615,8 +651,8 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
             df_area.to_csv('results/case_studies/area_list_%s_%s_%s.csv' % (
                     m.fs.train['case_study'], m_scenario, key))
 
-            
-                
+
+
 #         for key in m.fs.pfd_dict.keys():
 #             if m.fs.pfd_dict[key]['Unit'] == 'evaporation_pond':
 
@@ -648,7 +684,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
 #                 df_area = pd.DataFrame(area_list)
 #                 df_area.to_csv('results/case_studies/area_list_%s_%s_%s.csv' % (
 #                         m.fs.train['case_study'], m_scenario, key))
-                
+
 
     ############################################################
     print('\n-------', 'RESET', '-------\n')
@@ -657,7 +693,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
     ############ RO scenarios --> pressure % change, membrane area, replacement rate% ############
 
     if m_scenario not in ['edr_ph_ro', 'ro_and_mf']:
-        if m.fs.train['case_study'] in ['cherokee', 'gila_river']:
+        if m.fs.train['case_study'] in ['cherokee', 'gila_river', 'upw']:
             print('skips RO sens')
         else:
             for key in m.fs.pfd_dict.keys():
@@ -692,7 +728,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                                     getattr(getattr(getattr(m.fs, key), 'feed'), scenario).fix(i)
                                 else:
                                     getattr(getattr(m.fs, key), scenario).fix(i)
-
+                                print('\n===============================')
+                                print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+                                print('===============================\n')
                                 run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
                                 print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -742,7 +780,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                     if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
                         getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q] * i)
                         q += 1
-
+                print('\n===============================')
+                print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+                print('===============================\n')
                 run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
                 print(scenario, sum(stash_value) * i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -759,10 +799,99 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
                     getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q])
                     q += 1
 
+    ############################################################
+    ############################################################
+    ############################################################
+    ############################################################
+
+    # toc_in = False
+    # for key in m.fs.flow_in_dict:
+    #     if 'toc' in list(getattr(m.fs, key).config.property_package.component_list):
+    #         toc_in = True
+    #
+    # if toc_in:
+    #     print('\n-------', 'RESET', '-------\n')
+    #     run_water_tap(m=m, objective=False, skip_small=True)
+    #     print('LCOW -->', m.fs.costing.LCOW())
+    #
+    #     ############ TOC  +-30% ############
+    #     stash_value = []
+    #     for key in m.fs.flow_in_dict:
+    #         if 'toc' in list(getattr(m.fs, key).config.property_package.component_list):
+    #             stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, 'toc']))
+    #     print(stash_value)
+    #     scenario = 'Inlet TOC +-25%'
+    #     print('-------', scenario, '-------')
+    #     ub = 1.25
+    #     lb = 0.75
+    #
+    #     step = (ub - lb) / runs_per_scenario
+    #
+    #     for i in np.arange(lb, ub + step, step):
+    #         q = 0
+    #         for key in m.fs.flow_in_dict:
+    #             if 'toc' in list(getattr(m.fs, key).config.property_package.component_list):
+    #                 getattr(m.fs, key).conc_mass_in[0, 'toc'].fix(stash_value[q] * i)
+    #                 q += 1
+    #         print('\n===============================')
+    #         print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+    #         print('===============================\n')
+    #         run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
+    #         print(scenario, sum(stash_value) * i, 'LCOW -->', m.fs.costing.LCOW())
+    #
+    #         lcow_list.append(value(m.fs.costing.LCOW))
+    #         water_recovery_list.append(value(m.fs.costing.system_recovery))
+    #         scenario_value.append(sum(stash_value) * i)
+    #         scenario_name.append(scenario)
+    #         elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+    #         elec_int.append(value(m.fs.costing.electricity_intensity))
+    #
+    #     q = 0
+    #     for key in m.fs.flow_in_dict:
+    #         if 'toc' in list(getattr(m.fs, key).config.property_package.component_list):
+    #             getattr(m.fs, key).conc_mass_in[0, 'toc'].fix(stash_value[q])
+    #             q += 1
+    #
+    #
+    #
+    # print('\n-------', 'RESET', '-------\n')
+    # run_water_tap(m=m, objective=False, skip_small=True)
+    # print('LCOW -->', m.fs.costing.LCOW())
+    #
+    # ############ Component Replacement Costs -75% ############
+    # stash_value = m.fs.costing_param.maintenance_costs_percent_FCI()
+    #
+    # print(stash_value)
+    # scenario = 'Component Replacement Costs -75%'
+    # print('-------', scenario, '-------')
+    # ub = 1
+    # lb = 0.25
+    #
+    # step = (ub - lb) / runs_per_scenario
+    #
+    # for i in np.arange(lb, ub + step, step):
+    #     m.fs.costing_param.maintenance_costs_percent_FCI.fix(stash_value * i)
+    #     print('\n===============================')
+    #     print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+    #     print('===============================\n')
+    #     run_water_tap(m=m, objective=False, skip_small=skip_small_sens)
+    #     print(scenario, stash_value * i, 'LCOW -->', m.fs.costing.LCOW())
+    #
+    #     lcow_list.append(value(m.fs.costing.LCOW))
+    #     water_recovery_list.append(value(m.fs.costing.system_recovery))
+    #     scenario_value.append(stash_value * i)
+    #     scenario_name.append(scenario)
+    #     elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
+    #     elec_int.append(value(m.fs.costing.electricity_intensity))
+
 
      ############################################################
-    
-    
+    ############################################################
+    ############################################################
+    ############################################################
+
+
+
     if m.fs.train['case_study'] in ['monterey_one']:
         stash_value = m.fs.coag_and_floc.alum_dose[0]()
         print(stash_value)
@@ -773,6 +902,9 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
         step = (ub - lb) / runs_per_scenario
         for i in np.arange(lb, ub + step, step):
             m.fs.coag_and_floc.alum_dose.fix(i)
+            print('\n===============================')
+            print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}\n')
+            print('===============================\n')
             run_water_tap(m=m, objective=False, skip_small=True)
             print(scenario, i, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -783,11 +915,11 @@ def run_sensitivity(m=None, save_results=False, return_results=False,
             elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
             elec_int.append(value(m.fs.costing.electricity_intensity))
 
-        
-        m.fs.coag_and_floc.alum_dose.fix(stash_value)       
-    
-            
-    
+
+        m.fs.coag_and_floc.alum_dose.fix(stash_value)
+
+
+
      ############################################################
 
 
@@ -980,6 +1112,28 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         if scenario in ['baseline', 'dwi']:
             m.fs.reverse_osmosis_1.feed.pressure.fix(25.5)
             m.fs.reverse_osmosis_2.feed.pressure.fix(36)
+
+    # if case_study == 'kbhdp':
+    #     m.fs.ro_recovery_constr1 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] <= 0.81)
+    #     m.fs.ro_recovery_constr2 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] >= 0.77)
+    #     m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] >= 10)
+    #     m.fs.ro1_press_constr2 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] <= 14)
+    #     m.fs.ro2_press_constr1 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] >= 10)
+    #     m.fs.ro2_press_constr2 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] <= 14)
+    #     # m.fs.ro_first_stage_flux_constr1 = Constraint(expr=m.fs.ro_first_stage.pure_water_flux[0] >= 0.004)
+    #     # m.fs.ro_first_stage_flux_constr2 = Constraint(expr=m.fs.ro_first_stage.pure_water_flux[0] <= 0.01)
+    #     # m.fs.ro_second_stage_flux_constr1 = Constraint(expr=m.fs.ro_second_stage.pure_water_flux[0] >= 0.004)
+    #     # m.fs.ro_second_stage_flux_constr2 = Constraint(expr=m.fs.ro_second_stage.pure_water_flux[0] <= 0.01)
+    #     # m.fs.ro_first_stage_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] <= 75000)
+    #     # m.fs.ro_first_stage_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] >= 55000)
+    #     # m.fs.ro_second_stage_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] <= 37000)
+    #     # m.fs.ro_second_stage_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] >= 25000)
+    #     m.fs.ro_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] / m.fs.ro_second_stage.membrane_area[0] <= 2.1)
+    #     m.fs.ro_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] / m.fs.ro_second_stage.membrane_area[0] >= 1.9)
+    #     # m.fs.ro_first_stage.a.unfix()
+    #     # m.fs.ro_second_stage.a.unfix()
+    #     # m.fs.ro_first_stage.b.unfix()
+    #     # m.fs.ro_second_stage.b.unfix()
 
     if has_ro:
         m = set_bounds(m, source_water_category=ro_bounds)

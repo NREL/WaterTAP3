@@ -12,7 +12,7 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, t, b_cost):
-        ro_cap = (1.65 * (b_cost.pump_capital_cost + b_cost.mem_capital_cost + b_cost.erd_capital_cost)
+        ro_cap = (self.tpec_tic * (b_cost.pump_capital_cost + b_cost.mem_capital_cost + b_cost.erd_capital_cost)
                   + 3.3 * (self.pressure_vessel_cost1[t] + self.rack_support_cost1[t])) * 1E-6  # $MM ### 1.65 is TIC
         return ro_cap
 
