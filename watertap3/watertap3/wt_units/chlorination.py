@@ -13,13 +13,22 @@ tpec_or_tic = 'TPEC'
 
 class UnitProcess(WT3UnitProcess):
 
-    def fixed_cap(self, unit_params):  # flow in mgd for this cost curve
+    def fixed_cap(self, unit_params):
+        '''
+
+        :param unit_params: Unit parameters from input sheet.
+        :return:
+        '''
+
+
+
+
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
-        self.contact_time = 1.5  # hours
-        self.contact_time_mins = 1.5 * 60  # min
-        self.ct = 450  # mg/L-min
-        self.chlorine_decay_rate = 3.0  # mg/Lh
+        self.contact_time = 1.5  * pyunits.hour
+        self.contact_time_mins = pyunits.convert(self.contact_time, to_units=pyunits.minute)
+        self.ct = 450 * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter)) # mg/L-min
+        self.chlorine_decay_rate = 3.0  * (pyunits.milligram / (pyunits.liter * pyunits.hour)) # mg/Lh
         self.dose = self.chlorine_decay_rate * self.contact_time + self.ct / self.contact_time_mins
         chem_name = unit_params['chemical_name']
         self.chem_dict = {chem_name: self.dose * 1E-3}
@@ -61,6 +70,11 @@ class UnitProcess(WT3UnitProcess):
         return (a * self.flow_in ** b) * 1E-3  # $MM
 
     def elect(self):
+        '''
+        Electricity intensity.
+
+        :return: Electricity intensity [kWh/m3]
+        '''
         electricity = 0.00005 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
         return electricity
 

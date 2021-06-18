@@ -40,9 +40,14 @@ class UnitProcess(WT3UnitProcess):
 
     def elect(self):
         '''
-        Electricity intensity for chemical additions is a function of lift height, pump efficiency, and motor efficiency.
+        Electricity intensity.
 
-
+        :param lift_height: Lift height for pump [ft]
+        :type lift_height: float
+        :param pump_eff: Pump efficiency
+        :type pump_eff: float
+        :param motor_eff: Motor efficiency
+        :type motor_eff: float
         :return: Electricity intensity [kWh/m3]
         '''
         self.lift_height = 100 * pyunits.ft
@@ -54,7 +59,12 @@ class UnitProcess(WT3UnitProcess):
 
     def solution_vol_flow(self):
         '''
-        Determine caustic soda solution flow rate in gal / day
+        Chemical solution flow in gal/day
+
+        :param solution_density: Solution density [kg/m3]
+        :type solution_density: float
+        :param ratio_in_solution: Ratio of chemical in solution
+        :type ratio_in_solution: float
 
         :return: Caustic soda solution flow [gal/day]
         '''

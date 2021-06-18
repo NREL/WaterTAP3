@@ -1067,14 +1067,14 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
 
     if case_study == 'irwin':
         m.fs.reverse_osmosis.feed.pressure.unfix()
-    #
+
     if case_study == 'upw':
 
         m.fs.media_filtration.water_recovery.fix(0.9)
         m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.05678 * 1.01)
         m.fs.reverse_osmosis.eq3_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] <= 0.04416 * 1.01)
         m.fs.reverse_osmosis.eq4_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] >= 0.04416 * 0.99)
-        m.fs.reverse_osmosis_2.eq1_upw = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] <= (0.5 * m.fs.reverse_osmosis_2.flow_vol_in[0]) * 1.01)
+        # m.fs.reverse_osmosis_2.eq1_upw = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] <= (0.5 * m.fs.reverse_osmosis_2.flow_vol_in[0]) * 1.01)
         m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.03155 * 1.01)
         m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.03155 * 0.99)
 
@@ -1135,6 +1135,34 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
     #     # m.fs.ro_first_stage.b.unfix()
     #     # m.fs.ro_second_stage.b.unfix()
 
+    # if case_study == 'emwd':
+    #     # m.fs.manifee_area_constr1 = Constraint(expr=m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0] <= 19000)
+    #     m.fs.manifee_area_constr2 = Constraint(expr=m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0] >= 17000)
+    #     m.fs.manifee_area_constr3 = Constraint(expr=m.fs.ro_a1.membrane_area[0] == m.fs.ro_a2.membrane_area[0])
+    #     # m.fs.perris_area_constr1 = Constraint(expr=m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0] <= 28000)
+    #     m.fs.perris_area_constr2 = Constraint(expr=m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0] >= 26000)
+    #     m.fs.perris_area_constr3 = Constraint(expr=m.fs.ro_b1.membrane_area[0] == m.fs.ro_b2.membrane_area[0])
+    #     m.fs.press_constr = Constraint(expr=m.fs.ro_a1.feed.pressure[0] == m.fs.ro_b1.feed.pressure[0])
+    #     m.fs.manifee_pressure_constr1 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] <= 12)
+    #     # m.fs.manifee_pressure_constr2 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] >= 9)
+    #     m.fs.manifee_pressure_constr3 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] == m.fs.ro_a2.feed.pressure[0])
+    #     m.fs.perris_pressure_constr1 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] <= 12)
+    #     # m.fs.perris_pressure_constr2 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] >= 9)
+    #     m.fs.perris_pressure_constr3 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] == m.fs.ro_b2.feed.pressure[0])
+    #     # m.fs.manifee_recovery_constr1 = Constraint(expr=m.fs.ro_a1.flow_vol_out[0] >= 0.7 * m.fs.ro_a1.flow_vol_in[0])
+    #     # m.fs.manifee_recovery_constr2 = Constraint(expr=m.fs.ro_a2.flow_vol_out[0] >= 0.7 * m.fs.ro_a2.flow_vol_in[0])
+    #     # m.fs.perris_recovery_constr1 = Constraint(expr=m.fs.ro_b1.flow_vol_out[0] >= 0.7 * m.fs.ro_b1.flow_vol_in[0])
+    #     # m.fs.mperris_recovery_constr1 = Constraint(expr=m.fs.ro_b2.flow_vol_out[0] >= 0.7 * m.fs.ro_b2.flow_vol_in[0])
+    #
+    #     m.fs.area_constr1 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) <= 1.6)
+    #     m.fs.area_constr2 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) >= 1.4)
+    #     # m.fs.dwi_constr = Constraint(expr=m.fs.deep_well_injection.conc_mass_in[0, 'tds'] >= 9)
+    #     # m.fs.ro_a1.b.fix(0.15)
+    #     # m.fs.ro_a2.b.fix(0.15)
+    #     # m.fs.ro_b1.b.fix(0.15)
+    #     # m.fs.ro_b2.b.fix(0.15)
+
+
     if has_ro:
         m = set_bounds(m, source_water_category=ro_bounds)
         # print_ro_results(m)
@@ -1171,6 +1199,13 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         upw_list.append(m.fs.splitter2.split_fraction_outlet4[0]())
 
     scenario_name = m.fs.train['scenario']
+
+    if scenario == 'edr_ph_ro':
+        m.fs.primary_separator.conc_mass_in[0, 'tds'].fix(7)
+        m.fs.primary_separator.conc_mass_in[0, 'boron'].fix(0.03)
+
+    if scenario == 'ro_and_mf':
+        m.fs.primary_separator.conc_mass_in[0, 'tds'].fix(10)
 
     if has_ro:
         ro_stash = {}

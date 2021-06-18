@@ -9,19 +9,16 @@ Capital Costs
 ---------------
 The chemical solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = \big( S a \big) ^ b`
+:math:`\text{Cost} = S a ^ b`
 
 For a single alum addition unit, `a` = 15408 and `b` = 0.5479. The full cost equation in
 WaterTAP3 is:
 
 :math:`\text{Cost } ($MM) = N_{units}\big( 15408 S \big) ^{0.5479}\times 10^{-6}`
 
-These parameters were determined by fitting data from FIGURE 5.5.15 - LIQUID ALUM FEED to the
-general form.
+These parameters were determined by fitting data from FIGURE 5.5.15 - LIQUID ALUM FEED  from the
+below reference to the general form.
 
-.. image:: images/alum_addition.png
-   :scale: 100 %
-   :align: center
 
 Assumptions:
 ****************

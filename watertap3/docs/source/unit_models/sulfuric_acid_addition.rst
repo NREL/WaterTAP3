@@ -10,21 +10,17 @@ Capital Costs
 
 The sulfuric acid solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = \big( S a \big) ^ b`
+:math:`\text{Cost} = S a ^ b`
 
 For a single sulfuric acid addition unit, `a` = 900.97 and `b` = 0.6179. The full cost equation in
 WaterTAP3 is:
 
 :math:`\text{Cost } ($MM) = N_{units}\big( 900.97 S \big) ^{0.6179}\times 10^{-6}`
 
-These parameters were determined by fitting data from FIGURE 5.5.11 - SULFURIC ACID FEED to the
-general form.
+These parameters were determined by fitting data from FIGURE 5.5.11 - SULFURIC ACID FEED in the
+below reference to the general form.
 
-.. image:: images/sulfuric_acid.png
-   :scale: 100 %
-   :align: center
-
-Assumptions:
+Assumptions
 ****************
 
 * Number of units = 2
