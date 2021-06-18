@@ -41,8 +41,6 @@ specifically for Hydrogen Peroxide.
 Electricity Cost
 ------------------
 
-The tank unit model does not include any electricity costs or other unit-specific O&M costs.
-
 
 
 UV + AOP Module

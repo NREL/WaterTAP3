@@ -15,7 +15,7 @@ Storage tank capital costs are calculated as a function of the volume of storage
 
 The storage volume is used to calculate capital costs ($MM):
 
-:math:`Cost = \big( V_{s} a \big) ^ b`
+:math:`Cost = V_{s} a ^ b`
 
 
 `a` and `b` can be determined via regression of the following data with to::

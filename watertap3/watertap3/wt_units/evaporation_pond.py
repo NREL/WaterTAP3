@@ -26,16 +26,21 @@ class UnitProcess(WT3UnitProcess):
     def fixed_cap(self, unit_params):
         '''
         **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
+        Evaporation ponds can have many unit_params
 
-        **EXAMPLE: {'dose': 10}**
+        **EXAMPLE: {'approach': 'wt3', 'area': 3500, 'humidity': 0.75, 'wind_speed': 10}**
+
         :param unit_params:
-        :return:
+        :type unit_params: dict
+
+        :return: Fixed capital cost for evaporation ponds [$MM]
         '''
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         self.chem_dict = {}
         self.tds_in = pyunits.convert(self.conc_mass_in[t, 'tds'], to_units=(pyunits.mg / pyunits.L))  # convert from kg/m3 to mg/L
         self.approach = unit_params['approach']
+
         self.air_temp = Var(time,
                             initialize=25,
                             domain=NonNegativeReals,
@@ -46,6 +51,65 @@ class UnitProcess(WT3UnitProcess):
                                domain=NonNegativeReals,
                                units=pyunits.acres,
                                doc='Evap. Pond Area [acres]')
+
+        if 'area' in unit_params.keys():
+            self.water_recovery.unfix()
+            self.area.fix(unit_params['area'])
+
+        self.evaporation_rate(unit_params, t)
+        self.evaporation_rate_regress(t)
+        self.evap_rate = self.evap_rate_pure * 0.7  # ratio factor from the BLM document
+        self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute))  # volume coming in
+        self.flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute))  # left over volume
+        self.flow_out = pyunits.convert(self.flow_vol_out[t], to_units=(pyunits.gallons / pyunits.minute))  # what gets evaporated
+
+        self.flow_constr = Constraint(expr=self.area[t] * self.evap_rate == self.flow_out)
+        self.total_area = 1.2 * self.area[t] * (1 + 0.155 * self.dike_height / (self.area[t] ** 0.5))
+        self.cost_per_acre = 5406 + 465 * self.liner_thickness + 1.07 * self.land_cost + 0.931 * self.land_clearing_cost + 217.5 * self.dike_height  # $ / acre
+        if self.approach == 'zld':
+            return 0.3 * area
+        if self.approach == 'wt3':
+            return (self.cost_per_acre * self.total_area) * 1E-6
+        else:  # this is Lenntech cost curve based on flow for 1 m/y evap rate
+            flow_in_m3_d = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day))
+            return 0.03099 * flow_in_m3_d ** 0.7613  # this is Lenntech cost curve based on flow for 1 m/y evap rate
+
+    def elect(self):
+        '''
+        WaterTAP3 has no electricity intensity associated with evaporation ponds.
+        '''
+        electricity = 0
+        return electricity
+
+    def evaporation_rate(self, unit_params, t):
+        '''
+        Calculation of evaporation rate [gpm/acre]
+
+        :param unit_params: Input dictionary from input sheet.
+        :type unit_params: dict
+        :param t: Time indexing variable to use in Var()
+        :type t: int
+        :param evap_method: Evaporation rate method
+        :type evap_method: str
+        :param humidity: Humidity expressed as decimal for evaporation rate calculation
+        :type humidity: float
+        :param wind_speed: Wind speed for evaporation rate calculation [m/s]
+        :type wind_speed: float
+        :param air_temp: Air temperature for evaporation rate calculation [C]
+        :type air_temp: float
+        :param solar_rad: Incident solar radiation for evaporation rate calculation [mJ/m2]
+        :type solar_rad: float
+        :param liner_thickness: Liner thickness [mil]
+        :type liner_thickness: float
+        :param land_cost: Cost of land for evaporation pond [$/acre]
+        :type land_cost: float
+        :param land_clearing_cost: Cost to clear land for evaporation pond [$/acre]
+        :type land_clearing_cost: float
+        :param dike_height: Height of dikes [ft]
+        :type dike_height: float
+
+        :return:
+        '''
         try:
             self.evap_method = unit_params['evap_method']
         except:
@@ -56,7 +120,7 @@ class UnitProcess(WT3UnitProcess):
         except:
             self.humidity = 0.5  # ratio, e.g. 50% humidity = 0.5
             self.wind_speed = 5  # m / s
-        if bool(self.evap_method):
+        if self.evap_method:
             # self.evap_method = unit_params['evap_method']
             try:
                 self.air_temp.fix(unit_params['air_temp'])  # degree C
@@ -79,6 +143,7 @@ class UnitProcess(WT3UnitProcess):
             self.evap_rate_pure_mm_d = (0.41 * (0.025 * self.air_temp[t] + 0.078) * self.solar_rad) * (pyunits.millimeter / pyunits.day)
             self.evap_rate_pure = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.gallons / pyunits.minute / pyunits.acre))
             self.evap_rate_m_yr = pyunits.convert(self.evap_rate_pure_mm_d, to_units=(pyunits.meter / pyunits.year))
+
         ## This costing model adapted from
         # Membrane Concentrate Disposal: Practices and Regulation (April 2006) - Bureau Land Management
         try:
@@ -90,42 +155,14 @@ class UnitProcess(WT3UnitProcess):
             # sparsely wooded areas = $2,000 per acre
             # medium-wooded areas = $4,000 per acre
             # heavily wooded area = $7,000 per acre
-            self.dike_height = unit_params['dike_height']
-            # dikes between 4-12 ft are typical (from BLM source)
+            self.dike_height = unit_params['dike_height']  # dikes between 4-12 ft are typical (from BLM source)
         except:
             self.liner_thickness = 50  # mil (equal to 1/1000th of an inch)
             self.land_cost = 5000  # $ / acre
             self.land_clearing_cost = 1000  # $ / acre
             self.dike_height = 8  # ft
 
-
-        ratio = self.evaporation_rate(t)
-        self.evap_rate = self.evap_rate_pure * 0.7  # ratio factor from the BLM document
-        self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute))  # volume coming in
-        self.flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute))  # left over volume
-        self.flow_out = pyunits.convert(self.flow_vol_out[t], to_units=(pyunits.gallons / pyunits.minute))  # what gets evaporated
-        if 'area' in unit_params.keys():
-            self.water_recovery.unfix()
-            self.area.fix(unit_params['area'])
-        self.flow_constr = Constraint(expr=self.area[t] * self.evap_rate == self.flow_out)
-        self.total_area = 1.2 * self.area[t] * (1 + 0.155 * self.dike_height / (self.area[t] ** 0.5))
-        self.cost_per_acre = 5406 + 465 * self.liner_thickness + 1.07 * self.land_cost + 0.931 * self.land_clearing_cost + 217.5 * self.dike_height  # $ / acre
-        if self.approach == 'zld':
-            return 0.3 * area
-        if self.approach == 'wt3':
-            return (self.cost_per_acre * self.total_area) * 1E-6
-        else:  # this is Lenntech cost curve based on flow for 1 m/y evap rate
-            flow_in_m3_d = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day))
-            return 0.03099 * flow_in_m3_d ** 0.7613  # this is Lenntech cost curve based on flow for 1 m/y evap rate
-
-    def elect(self):
-        '''
-        WaterTAP3 has no electricity intensity associated with storage tanks.
-        '''
-        electricity = 0
-        return electricity
-
-    def evaporation_rate(self, t):
+    def evaporation_rate_regress(self, t):
         x0 = self.air_temp[t]
         x1 = self.tds_in
         x2 = self.humidity
@@ -135,7 +172,6 @@ class UnitProcess(WT3UnitProcess):
         self.ratio = 0.0181657227 * (x0) + 4.38801e-05 * (x1) + 0.2504964875 * (x2) + 0.011328485 * (x3) - 0.0003463853 * (x0 ** 2) - 2.16888e-05 * (x0 * x1) - 0.0181098164 * (
                 x0 * x2) + 0.0002098163 * (x0 * x3) + 8.654e-07 * (x1 ** 2) - 0.0004358946 * (x1 * x2) - 8.73918e-05 * (x1 * x3) - 0.0165224935 * (x2 ** 2) - 0.0174278724 * (
                              x2 * x3) + 0.0003850584 * (x3 ** 2) + 0.7943236298
-        return self.ratio
 
 
     def get_costing(self, unit_params=None, year=None):

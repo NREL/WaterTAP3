@@ -9,19 +9,15 @@ Capital Costs
 ---------------
 The ferric chloride solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = \big( S a \big) ^ b`
+:math:`\text{Cost} = S a ^ b`
 
 For a single ferric chloride addition unit, `a` = 34153 and `b` = 0.319. The full cost equation in
 WaterTAP3 is:
 
 :math:`\text{Cost } ($MM) = N_{units}\big( 34153 S \big) ^{0.319}\times 10^{-6}`
 
-These parameters were determined by fitting data from FIGURE 5.5.13 - FERRIC CHLORIDE FEED 42% SOLUTION to the
-general form.
-
-.. image:: images/ferric_chloride.png
-   :scale: 100 %
-   :align: center
+These parameters were determined by fitting data from FIGURE 5.5.13 - FERRIC CHLORIDE FEED 42% SOLUTION
+in the below reference to the general form.
 
 Assumptions:
 ****************

@@ -40,6 +40,11 @@ class UnitProcess(WT3UnitProcess):
         return co2_cap
 
     def elect(self):
+        '''
+        Electricity intensity.
+
+        :return: Electricity intensity [kWh/m3]
+        '''
         electricity = 0.01
         return electricity
 
