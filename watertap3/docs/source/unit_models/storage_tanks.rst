@@ -31,25 +31,22 @@ The storage volume is used to calculate capital costs ($MM):
         a, b = coeffs[0], coeffs[1]
         print(a, b)
 
-Electricity Cost
-------------------
+Electricity Intensity
+------------------------
 
 The tank unit model does not include any electricity costs or other unit-specific O&M costs.
 
+Reference
+-----------
+
 Data Used
-------------
+*************
 
 .. csv-table:: Cost ($MM) vs. Volume
     :file: csvs/storage_tanks.csv
     :align: center
 
-This data comes from "cone roof tanks" on page 7:
-
-
-.. image:: images/storage_tanks.png
-   :scale: 100 %
-   :align: center
-
+This data comes from "cone roof tanks" on page 7.
 The `full reference <https://www.osti.gov/servlets/purl/797810>`_ is:
 
 | DOE/NETL-2002/1169 - Process Equipment Cost Estimation Final Report.

@@ -31,7 +31,6 @@ release = '0.0.1'
 # ones.
 extensions = ['sphinx.ext.autosectionlabel',
               'sphinx.ext.autodoc',
-              'sphinx.ext.mathjax',
               'rst2pdf.pdfbuilder'
               ]
 
@@ -42,13 +41,16 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-pdf_documents = [('index', u'watertap3-test', u'WaterTAP3 Documentation', u'Ann Wang')]
+pdf_documents = [('index', u'watertap3-doc-draft', u'WaterTAP3 Documentation', u'Kurban Sitterley')]
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+# def setup(app):
+#     app.add_css_file('custom.css')
+
 html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,

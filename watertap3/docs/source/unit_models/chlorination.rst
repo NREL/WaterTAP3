@@ -26,15 +26,17 @@ According to the reference, capital costs only include chemical feed equipment a
 is sufficient contact time downstream of the chlorine feed point.
 
 
-Electricity Cost
-------------------
+Electricity Intensity
+------------------------
 Electricity intensity for chlorination is fixed at  :math:`5 \times 10 ^ {-5}` kWh/m3 and is taken
 from the below reference.
 
 
-Reference:
-*************
+References
+------------------------
+
 CAPITAL
+*********
 
 | `User's Manual for Integrated Treatment Train Toolbox - Potable Reuse (IT3PR) Version 2.0 <https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf>`_
 | Steinle-Darling, E., Salveson, A., Russel, C., He, Q., Chiu, C., Lesan, D.
@@ -42,15 +44,14 @@ CAPITAL
 | December 2016
 
 ELECTRICITY
+****************
 
 | An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant.
 | Bukhary, S., Batista, J., Ahmad, S. (2019).
 | Water, 12(1), 1-21.
 
 
-
-
-Alum Addition Module
+Chlorination Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.chlorination.UnitProcess

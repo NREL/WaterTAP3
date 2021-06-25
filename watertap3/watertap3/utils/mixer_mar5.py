@@ -5,14 +5,7 @@
 # Lawrence Berkeley National Laboratory,  National Technology & Engineering
 # Solutions of Sandia, LLC, Carnegie Mellon University, West Virginia
 # University Research Corporation, et al. All rights reserved.
-#
-# Please see the files COPYRIGHT.txt and LICENSE.txt for full copyright and
-# license information, respectively. Both files are also available online
-# at the URL "https://github.com/IDAES/idaes-pse".
 ##############################################################################
-"""
-Demonstration zeroth-order model for WaterTAP3
-"""
 
 # Import Pyomo libraries
 from pyomo.common.config import ConfigBlock, ConfigValue, In

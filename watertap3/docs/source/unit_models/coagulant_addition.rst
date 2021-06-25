@@ -28,15 +28,10 @@ Assumptions:
 * Alum solution density [kg/m3] = 1360
 * Ratio in solution = 50%
 
-Reference:
-*************
 
-| Cost Estimating Manual for Water Treatment Facilities (2008)
-| William McGivney & Susumu Kawamura
-| DOI:10.1002/9780470260036
 
-Electricity Cost
-------------------
+Electricity Intensity
+------------------------
 
 Electricity intensity for chemical additions in WaterTAP3 is based off the pump used to inject
 the chemical solution, the chemical solution flow rate, and the influent flow rate. The model
@@ -45,6 +40,14 @@ assumes:
 * Lift height = 100 ft
 * Pump efficiency = 90%
 * Motor efficiency = 90%
+
+
+Reference
+----------------------------------------
+
+| Cost Estimating Manual for Water Treatment Facilities (2008)
+| William McGivney & Susumu Kawamura
+| DOI:10.1002/9780470260036
 
 Coagulant Addition Module
 ----------------------------------------

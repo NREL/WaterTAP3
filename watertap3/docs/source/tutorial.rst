@@ -55,16 +55,6 @@ Add table
 +------------+------------+-----------+
 
 
-Add internal link
--------------------
-
-Here to introduce each component in WaterTAP3.
-
-* :ref:`flowsheet`
-* :ref:`prop_pkg`
-* :ref:`unit_model`
-
-.. _flowsheet:
 
 Flowsheet
 ************
@@ -72,14 +62,14 @@ Flowsheet models are the top level of the modeling heirachy.
 Flowsheet models represent traditional process flowsheets, containing a number of unit models connected together into a flow network and the property packages.
 
 
-.. _prop_pkg:
+
 
 Property Package
 ********************
 Property packages are a collection of related models that represent the physical, thermodynamic, and reactive properties of the process streams.
 
 
-.. _unit_model:
+
 
 Unit Model
 **************
@@ -98,7 +88,9 @@ This is WaterTAP3's full API documentation using Apidoc.
 
 .. toctree::
    :maxdepth: 2
-   
-   watertap3
-   watertap3.utils
-   watertap3.wt_units
+    financials
+    modules
+    template
+    tutorial
+    watertap3
+    unit_models/index

@@ -215,6 +215,8 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
     m.fs.elect_cost = elect_cost = []
     m.fs.bc_elec = bc_elec = []
     m.fs.ro_elec = ro_elec = []
+    m.fs.ro_pressure = ro_pressure = []
+    m.fs.ro_elect_int = ro_elect_int = []
 
 
     m.fs.area_list = area_list = []
@@ -253,6 +255,15 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False,
                 area_list.append(value(m.fs.evaporation_pond.area[0]))
                 treated_water.append(m.fs.costing.treated_water())
                 elect_cost.append(m.fs.reverse_osmosis_a.costing.electricity_cost())
+                ro_pressure.append(m.fs.reverse_osmosis_a.feed.pressure[0]())
+                ro_elect_int.append(m.fs.reverse_osmosis_a.electricity())
+                # print('Electricity intensity', elec_int[-1])
+                # print('Electricity intensity RO:', m.fs.reverse_osmosis_a.costing.elec_int_treated())
+                print('Electricity cost RO-A:', m.fs.reverse_osmosis_a.costing.electricity_cost())
+                # print('Electricity intensity RO-B:', m.fs.reverse_osmosis.electricity())
+                print('Treated water:', m.fs.costing.treated_water())
+                # print('Area', area_list)
+                print_ro_results(m)
             getattr(m.fs, 'evaporation_pond').water_recovery.unfix()
             getattr(m.fs, 'evaporation_pond').area.fix(stash_value)
 
@@ -1058,15 +1069,18 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
             # print(f'\nUnfixing feed pressure and area for {unit}...\n')
             has_ro = True
 
-    if case_study == 'irwin':
-        m.fs.reverse_osmosis.feed.pressure.fix(30)
+    # if case_study == 'irwin':
+    #     m.fs.final_tds_constr = Constraint(expr=m.fs.irwin_brine_management.conc_mass_in[0, 'tds'] >= 140)
+    #     m.fs.press_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 20)
+        # m.fs.reverse_osmosis.feed.pressure.fix(30)
 
     run_water_tap(m=m, objective=True, skip_small=skip_small)
 
     # print_ro_results(m)
 
-    if case_study == 'irwin':
-        m.fs.reverse_osmosis.feed.pressure.unfix()
+    # if case_study == 'irwin':
+    #     m.fs.reverse_osmosis.feed.pressure.unfix()
+
 
     if case_study == 'upw':
 
@@ -1074,7 +1088,7 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
         m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.05678 * 1.01)
         m.fs.reverse_osmosis.eq3_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] <= 0.04416 * 1.01)
         m.fs.reverse_osmosis.eq4_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] >= 0.04416 * 0.99)
-        # m.fs.reverse_osmosis_2.eq1_upw = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] <= (0.5 * m.fs.reverse_osmosis_2.flow_vol_in[0]) * 1.01)
+        m.fs.reverse_osmosis_2.eq1_upw = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] <= (0.5 * m.fs.reverse_osmosis_2.flow_vol_in[0]) * 1.01)
         m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.03155 * 1.01)
         m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.03155 * 0.99)
 
@@ -1113,54 +1127,54 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
             m.fs.reverse_osmosis_1.feed.pressure.fix(25.5)
             m.fs.reverse_osmosis_2.feed.pressure.fix(36)
 
-    # if case_study == 'kbhdp':
-    #     m.fs.ro_recovery_constr1 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] <= 0.81)
-    #     m.fs.ro_recovery_constr2 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] >= 0.77)
-    #     m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] >= 10)
-    #     m.fs.ro1_press_constr2 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] <= 14)
-    #     m.fs.ro2_press_constr1 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] >= 10)
-    #     m.fs.ro2_press_constr2 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] <= 14)
+    # if case_study == 'irwin':
+    #     m.fs.final_tds_constr = Constraint(expr=m.fs.irwin_brine_management.conc_mass_in[0, 'tds'] >= 140)
+
+    if case_study == 'kbhdp':
+        m.fs.ro_recovery_constr1 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] <= 0.81)
+        m.fs.ro_recovery_constr2 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] >= 0.77)
+    #     # m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] >= 10)
+        m.fs.ro1_press_constr2 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] <= 14)
+        # m.fs.ro2_press_constr1 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] >= 10)
+        m.fs.ro2_press_constr2 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] <= 18)
     #     # m.fs.ro_first_stage_flux_constr1 = Constraint(expr=m.fs.ro_first_stage.pure_water_flux[0] >= 0.004)
     #     # m.fs.ro_first_stage_flux_constr2 = Constraint(expr=m.fs.ro_first_stage.pure_water_flux[0] <= 0.01)
     #     # m.fs.ro_second_stage_flux_constr1 = Constraint(expr=m.fs.ro_second_stage.pure_water_flux[0] >= 0.004)
     #     # m.fs.ro_second_stage_flux_constr2 = Constraint(expr=m.fs.ro_second_stage.pure_water_flux[0] <= 0.01)
-    #     # m.fs.ro_first_stage_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] <= 75000)
-    #     # m.fs.ro_first_stage_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] >= 55000)
-    #     # m.fs.ro_second_stage_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] <= 37000)
-    #     # m.fs.ro_second_stage_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] >= 25000)
-    #     m.fs.ro_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] / m.fs.ro_second_stage.membrane_area[0] <= 2.1)
-    #     m.fs.ro_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] / m.fs.ro_second_stage.membrane_area[0] >= 1.9)
-    #     # m.fs.ro_first_stage.a.unfix()
-    #     # m.fs.ro_second_stage.a.unfix()
-    #     # m.fs.ro_first_stage.b.unfix()
-    #     # m.fs.ro_second_stage.b.unfix()
+    #     m.fs.ro_first_stage_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] <= 75000)
+    #     m.fs.ro_first_stage_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] >= 55000)
+    #     m.fs.ro_second_stage_area_constr1 = Constraint(expr=m.fs.ro_second_stage.membrane_area[0] <= 37000)
+    #     m.fs.ro_second_stage_area_constr2 = Constraint(expr=m.fs.ro_second_stage.membrane_area[0] >= 25000)
+        m.fs.ro_area_constr1 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] / m.fs.ro_second_stage.membrane_area[0] <= 2.1)
+        m.fs.ro_area_constr2 = Constraint(expr=m.fs.ro_first_stage.membrane_area[0] / m.fs.ro_second_stage.membrane_area[0] >= 1.9)
+        # m.fs.ro_first_stage.a.unfix()
+        # m.fs.ro_second_stage.a.unfix()
+        # m.fs.ro_first_stage.b.unfix()
+        # m.fs.ro_second_stage.b.unfix()
 
-    # if case_study == 'emwd':
-    #     # m.fs.manifee_area_constr1 = Constraint(expr=m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0] <= 19000)
-    #     m.fs.manifee_area_constr2 = Constraint(expr=m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0] >= 17000)
-    #     m.fs.manifee_area_constr3 = Constraint(expr=m.fs.ro_a1.membrane_area[0] == m.fs.ro_a2.membrane_area[0])
-    #     # m.fs.perris_area_constr1 = Constraint(expr=m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0] <= 28000)
-    #     m.fs.perris_area_constr2 = Constraint(expr=m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0] >= 26000)
-    #     m.fs.perris_area_constr3 = Constraint(expr=m.fs.ro_b1.membrane_area[0] == m.fs.ro_b2.membrane_area[0])
-    #     m.fs.press_constr = Constraint(expr=m.fs.ro_a1.feed.pressure[0] == m.fs.ro_b1.feed.pressure[0])
-    #     m.fs.manifee_pressure_constr1 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] <= 12)
-    #     # m.fs.manifee_pressure_constr2 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] >= 9)
-    #     m.fs.manifee_pressure_constr3 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] == m.fs.ro_a2.feed.pressure[0])
-    #     m.fs.perris_pressure_constr1 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] <= 12)
-    #     # m.fs.perris_pressure_constr2 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] >= 9)
-    #     m.fs.perris_pressure_constr3 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] == m.fs.ro_b2.feed.pressure[0])
-    #     # m.fs.manifee_recovery_constr1 = Constraint(expr=m.fs.ro_a1.flow_vol_out[0] >= 0.7 * m.fs.ro_a1.flow_vol_in[0])
-    #     # m.fs.manifee_recovery_constr2 = Constraint(expr=m.fs.ro_a2.flow_vol_out[0] >= 0.7 * m.fs.ro_a2.flow_vol_in[0])
-    #     # m.fs.perris_recovery_constr1 = Constraint(expr=m.fs.ro_b1.flow_vol_out[0] >= 0.7 * m.fs.ro_b1.flow_vol_in[0])
-    #     # m.fs.mperris_recovery_constr1 = Constraint(expr=m.fs.ro_b2.flow_vol_out[0] >= 0.7 * m.fs.ro_b2.flow_vol_in[0])
-    #
-    #     m.fs.area_constr1 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) <= 1.6)
-    #     m.fs.area_constr2 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) >= 1.4)
-    #     # m.fs.dwi_constr = Constraint(expr=m.fs.deep_well_injection.conc_mass_in[0, 'tds'] >= 9)
-    #     # m.fs.ro_a1.b.fix(0.15)
-    #     # m.fs.ro_a2.b.fix(0.15)
-    #     # m.fs.ro_b1.b.fix(0.15)
-    #     # m.fs.ro_b2.b.fix(0.15)
+    if case_study == 'emwd':
+        if scenario in ['baseline', 'dwi']:
+            m.fs.manifee_area_constr = Constraint(expr=m.fs.ro_a1.membrane_area[0] == m.fs.ro_a2.membrane_area[0])
+            m.fs.perris_area_constr = Constraint(expr=m.fs.ro_b1.membrane_area[0] == m.fs.ro_b2.membrane_area[0])
+            m.fs.manifee_pressure_constr1 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] <= 14)
+            m.fs.manifee_pressure_constr2 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] == m.fs.ro_a2.feed.pressure[0])
+            m.fs.perris_pressure_constr1 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] <= 14)
+            m.fs.perris_pressure_constr2 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] == m.fs.ro_b2.feed.pressure[0])
+
+            m.fs.area_constr1 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) >= 1.4)
+            m.fs.area_constr2 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) <= 1.6)
+
+        elif 'zld' in scenario:
+            m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_a_first_pass.feed.pressure[0] <= 14)
+            m.fs.ro1_press_constr2 = Constraint(expr=m.fs.ro_a_first_pass.feed.pressure[0] == m.fs.ro_b_first_pass.feed.pressure[0])
+            m.fs.ro2_press_constr1 = Constraint(expr=m.fs.ro_a_second_pass.feed.pressure[0] <= 18)
+            m.fs.ro2_press_constr2 = Constraint(expr=m.fs.ro_a_second_pass.feed.pressure[0] == m.fs.ro_b_second_pass.feed.pressure[0])
+            m.fs.area_constr1 = Constraint(expr=(m.fs.ro_b_first_pass.membrane_area[0] + m.fs.ro_b_second_pass.membrane_area[0]) / (m.fs.ro_a_first_pass.membrane_area[0] + m.fs.ro_a_second_pass.membrane_area[0]) >= 1.4)
+            m.fs.area_constr2 = Constraint(expr=(m.fs.ro_b_first_pass.membrane_area[0] + m.fs.ro_b_second_pass.membrane_area[0]) / (m.fs.ro_a_first_pass.membrane_area[0] + m.fs.ro_a_second_pass.membrane_area[0]) <= 1.6)
+            m.fs.ro_area_constr1 = Constraint(expr=m.fs.ro_a_first_pass.membrane_area[0] <= m.fs.ro_a_second_pass.membrane_area[0])
+            m.fs.ro_area_constr2 = Constraint(expr=m.fs.ro_b_first_pass.membrane_area[0] <= m.fs.ro_b_second_pass.membrane_area[0])
+            m.fs.area_ratio_constr1 = Constraint(expr=(m.fs.ro_a_first_pass.membrane_area[0] / m.fs.ro_a_second_pass.membrane_area[0]) == (m.fs.ro_b_first_pass.membrane_area[0] / m.fs.ro_b_second_pass.membrane_area[0]))
+
 
 
     if has_ro:
@@ -1232,8 +1246,8 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
                 getattr(m.fs, key).membrane_area.unfix()
                 # print('Unfixing feed pressure and area for', unit, '...\n')
 
-        if case_study == 'irwin':
-            m.fs.reverse_osmosis.feed.pressure.fix(30)
+        # if case_study == 'irwin':
+        #     m.fs.reverse_osmosis.feed.pressure.fix(30)
 
         if case_study == 'upw':
             m.fs.media_filtration.water_recovery.fix(0.9)

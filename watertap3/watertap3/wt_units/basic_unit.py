@@ -11,6 +11,10 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
+        '''
+        :param flow_in: Flow in to basic unit [m3/hr]
+        :type flow_in: float
+        '''
         time = self.flowsheet().config.time.first()
         sys_cost_params = self.parent_block().costing_param
         flow_in_m3yr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.year))
@@ -38,6 +42,11 @@ class UnitProcess(WT3UnitProcess):
             return basic_cap
 
     def elect(self):
+        '''
+        Electricity intensity for basic units.
+
+        :return: Electricity intensity [kWh/m3]
+        '''
         if self.unit_process_name in ['mbr_nitrification', 'mbr_denitrification'] and not self.case_specific:
             # Electricity consumption for MBRs from:
             # "Assessing Location and Scale of Urban Nonpotable Water Reuse Systems for Life-Cycle Energy Consumption and Greenhouse Gas Emissions" Kavvada et al (2016)

@@ -14,6 +14,17 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+        Fixed capital cost for deep well injection.
+
+        :param unit_params: Input parameter dictionary from input sheet.
+        :type unit_params: dict
+        :param lift_height: Lift height for pump [ft]
+        :type lift_height: float
+        :param pipe_distance: Piping distance to deep well injection site
+        :type pipe_distance: float
+        :return: Fixed capital cost for deep well injection [$MM]
+        '''
         time = self.flowsheet().config.time
         t = self.flowsheet().config.time.first()
         self.lift_height = Var(time, initialize=400, domain=NonNegativeReals, units=pyunits.ft, doc='Lift height for pump [ft]')  # lift height in feet
@@ -37,6 +48,13 @@ class UnitProcess(WT3UnitProcess):
         return deep_well_cap
 
     def elect(self):
+        '''
+        Electricity intensity for deep well injection [kWh/m3]
+
+        :param lift_height: Lift height for pump [ft]
+        :type lift_height: float
+        :return: Electricity intensity [kWh/m3]
+        '''
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         self.pump_eff = 0.9
