@@ -1,14 +1,11 @@
 Evaporation Ponds
 =====================================
 
-.. important:: The WaterTAP3 evaporation pond module is under active development. Aspects of the
-               module are likely to change in future releases.
+Unit Basics
+------------------
 
 Evaporation ponds are commonly used to further concentrate membrane brine to reduce the volume
 needed for disposal.
-
-The evaporation pond model in WaterTAP3 draws from several sources and includes several optional
-parameters for user input.
 
 The generalized approach is as follows:
 
@@ -16,6 +13,93 @@ The generalized approach is as follows:
 2. Determine area required for evaporation ponds using a mass balance approach.
 3. Calculate capital costs based off of area and costing approach selected by user.
 
+Unit Parameters
+--------------------
+
+The evaporation pond model in WaterTAP3 draws from several sources and includes several optional
+parameters for user input. Further detail on these parameters is provided below:
+
+* ``"approach"`` - costing approach used for the model (more detail is provided below on each
+  approach):
+
+    * Options are ``wt3``, ``zld``, and ``lenntech``
+
+    * Default approach is ``wt3`` if no input given
+
+* ``"evap_method"`` - method used to calculate evaporation rate
+
+    * Two options are ``turc`` and ``jensen``
+
+    * Defaults to ``jensen`` if no input given
+
+* ``"air_temp"`` - air temperature for evaporation rate calculation [C]
+
+    * Default value is 20C
+
+    * Note: Must provide both ``air_temp`` and ``solar_rad`` together or default values for both
+      will be used.
+
+* ``"solar_rad"`` - incident solar radiation for evaporation rate calculation [mJ/cm2]
+
+    * Default value is 25 mJ/cm2
+
+    * Note: Must provide both ``air_temp`` and ``solar_rad`` together or default values for both
+      will be used.
+
+* ``"humidity"`` - humidity for use in calculation of ratio to adjust pure water evaporation rate
+  to saline water evaporation rate
+
+    * Default value is 0.5 (i.e. 50% humidity)
+
+    * Note: Must provide both ``humidity`` and ``wind_speed`` together or default values for both
+      will be used.
+
+* ``"wind_speed"`` - wind speed for use in calculation of ratio to adjust pure water evaporation
+  rate [m/s]
+
+    * Default value is 5 m/s
+
+    * Note: Must provide both ``humidity`` and ``wind_speed`` together or default values for both
+      will be used.
+
+* ``"liner_thickness"`` - thickness of liner used for calculation of cost per acre [mil]
+
+    * Default value is 50 mil
+
+    * Note that 1 mil = 1/1000 inches
+
+    * Note: Must provide ``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and
+      ``dike_height`` together or default values for all will be used.
+
+* ``"land_cost"`` - cost to purchase land for evaporation pond [$/acre]
+
+    * Default value is $5,000/acre
+
+* ``"land_clearing_cost"`` - cost to clear land for evaporation pond [$/acre]
+
+    * Default value is $1,000/acre
+
+    * Note: Must provide ``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and
+      ``dike_height`` together or default values for all will be used.
+
+    * Typical costs for different types of land cover (from Bureau of Reclamation reference):
+
+        * brush = $1,000/acre
+
+        * sparsley wooded = $2,000/acre
+
+        * medium wooded = $4,000/acre
+
+        * heavily wooded = $7,000/acre
+
+* ``"dike_height"`` - height of dikes for evaporation pond [ft]
+
+    * Default value is 8 ft
+
+    * Typical dike heights are 4-12 ft (from Bureau of Reclamation reference)
+
+    * Note: Must provide ``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and
+      ``dike_height`` together or default values for all will be used.
 
 
 
@@ -33,6 +117,9 @@ conditions. In WaterTAP3,evaporation ponds are used as a zero liquid discharge (
 brine, so the water is assumed to be saline. The evaporation rate of saline water can be
 estimated to be 70% that of pure water. Thus, this calculated evaporation rate is multiplied by 0.7 to arrive at the estimated evaporation rate :math:`\big( E_{saline} = 0.7E_{pure} \big)`.
 
+Pond Area Calculation
+----------------------------------
+
 For mass balance purposes in WaterTAP3, the flow of evaporated water is the considered to be the
 flow out of the unit. To accomodate a given water recovery, he area of the pond :math:`\big(A_{pond} \big)`
 is calculated as:
@@ -46,33 +133,109 @@ is calculated as:
 Capital Costs
 ---------------
 
+The user can choose one of three costing approaches for evaporation ponds in WaterTAP3 that can
+be provided as an option in ``unit_params`` under ``"approach"``:
+
+1. ``"approach": "wt3"`` - default approach if the user does not provide one. Incorporates an
+   adjusted pond area and more indepth costing function. Based on Bureau of Reclamation reference
+   below.
+2. ``"approach": "zld"`` - only considers area and assumes $0.3M/acre. Based on WateReuse
+   reference below.
+3. ``"approach": "lenntech"`` - capital cost determined purely from flow. Based on Lenntech
+   reference below.
+
+WT3 Approach:
+*********************
+
+The WT3 approach is the default approach and uses a regression for total pond area from the
+Bureau of Reclamation reference below. After calculation of the required pond area based on flow
+above, if this approach is used the pond area is adjusted upwards to inorporate the additional
+area needed for dikes :math:`\big(A_{adj} \big)`:
+
+    .. math::
+
+           A_{adj} = 1.2 (A_{pond}) \Bigg(1 + 0.155 \frac{h_{dike}}{\sqrt{A_{pond}}} \Bigg)
 
 
-Assumptions:
-****************
+Then, the cost per acre :math:`\big(C_{acre} \big)` ($/acre) is determined that incorporates
+``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and ``dike_height``:
+
+    .. math::
+
+           C_{acre} = 5406 + 465 \big( z_{liner} \big) + 1.07 \big( c_{land} \big)
+           + 0.931 \big( c_{clear} \big) + 217.5 \big( h_{dike} \big)
+
+Thus, using this approach capital costs for evaporation ponds are calculated as:
+
+    .. math::
+
+           \text{Cost } ($MM) = \big( A_{adj} C_{acre} \big) \times 10 ^ {-6}
+
+ZLD Approach:
+*********************
+
+The ZLD approach is named from the WateReuse document it was adapted from. Using this approach,
+the unadjusted pond area is used. The cost per acre is assumed to be $0.3MM. Thus, the capital
+costs are calculated as:
+
+    .. math::
+
+           \text{Cost } ($MM) = A_{pond} \times 0.3
+
+Lenntech Approach:
+*********************
+
+This approach is based entirely on flow in [m3/d] to the evaporation pond and does not include the
+calculation for evaporation pond area. It assumes an evaporation rate of 1 m/yr:
+
+    .. math::
+
+           \text{Cost } ($MM) = 0.031 Q_{in} ^ {0.7613}
+
+Note that while the reference mentions salt concentrations, land and earthwork costs, and liner
+costs, it is unclear how these are incorporated into the cost curve above.
 
 
-
-References
-*************
-
-EVAPORATION RATE
-
-| Turc, L. (1961)
-| "Water requirements assessment of irrigation, potential evapotranspiration:
-| Simplified and updated climatic formula."
-| Annales Agronomiques, 12, 13-49.
-
-| Jensen, M.E.Haise, H.R. 1963,
-| Estimating evapotranspiration from solar radiation.
-| Proceedings of the American Society of Civil Engineers
-| Journal of the Irrigation and Drainage Division, vol. 89, pp. 15-41.
 
 Electricity Cost
 ------------------
 
 WaterTAP3 does not include any electricity intensity for evaporation ponds.
 
+
+
+
+References
+------------------
+
+EVAPORATION RATE
+++++++++++++++++++++++++
+
+| Turc, L. (1961)
+| "Water requirements assessment of irrigation, potential evapotranspiration:
+| Simplified and updated climatic formula."
+| Annales Agronomiques, 12, 13-49.
+
+| Jensen, M.E., Haise, H.R. (1963)
+| "Estimating evapotranspiration from solar radiation."
+| Proceedings of the American Society of Civil Engineers
+| Journal of the Irrigation and Drainage Division, vol. 89, pp. 15-41.
+
+COSTING
+++++++++++++++++++++++++
+
+| Mickley, Michael C. (2006)
+| "Membrane Concentrate Disposal: Practices and Regulation"
+| Chapter 10: Evaporation Pond Disposal
+| U.S. Bureau of Reclamation
+
+| Mickley, Michael C. (2008)
+| "Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities"
+| WateReuse Foundation
+| ISBN: 978-1-934183-08-3
+
+| Lenntech.com
+| https://www.lenntech.com/Data-sheets/Brine-Evaporation-Ponds.pdf
 
 Evaporation Pond Module
 ----------------------------------------

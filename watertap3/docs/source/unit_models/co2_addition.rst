@@ -5,8 +5,8 @@ Capital Costs
 ---------------
 
 
-Electricity Cost
-------------------
+Electricity Intensity
+------------------------
 
 Carbon Dioxide Addition Module
 ----------------------------------------

@@ -105,10 +105,6 @@ class UnitProcess(WT3UnitProcess):
         '''
         Determine oxidant solution flow rate in gal / day
 
-        **Calculations:**
-
-        1. Oxidant flow rate [kg/hr] = Flow in * Oxidant dose
-
         :return: Oxidant solution flow [gal/day]
         '''
         chemical_rate = self.flow_in * self.ox_dose  # kg/hr

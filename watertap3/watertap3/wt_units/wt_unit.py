@@ -1,3 +1,8 @@
+
+# “Institute for the Design of Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE Framework) Copyright (c) 2019, by the software owners:
+# The Regents of the University of California, through Lawrence Berkeley National Laboratory,
+# National Technology & Engineering Solutions of Sandia, LLC, Carnegie Mellon University, West Virginia University Research Corporation, et al.
+# All rights reserved."
 import idaes.logger as idaeslog
 from idaes.core import (UnitModelBlockData, declare_process_block_class, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
@@ -13,7 +18,7 @@ class WT3UnitProcessData(UnitModelBlockData):
     '''
     This class describes the rules for a zeroth-order model for a unit
 
-    The Config Block is used tpo process arguments from when the model is
+    The Config Block is used to process arguments from when the model is
     instantiated. In IDAES, this serves two purposes:
          1. Allows us to separate physical properties from unit models
          2. Lets us give users options for configuring complex units

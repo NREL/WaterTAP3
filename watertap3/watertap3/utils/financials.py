@@ -10,21 +10,7 @@
 # license information, respectively. Both files are also available online
 # at the URL 'https://github.com/IDAES/idaes-pse'.
 ##############################################################################
-'''
-This is fairly basic at this stage, as I didn't try too hard to understand the
-calcualtions.
 
-Note that costing in IDAES is still a fairly new feature, and is still in the
-prototype phase. Notably, we have only really looked at capital costs so far,
-and there is probably a alack of support for operating costs for now.
-
-However, this is where you would write methods for calculating costs for each
-type of unit operation. The goal would be to write these in a way that would
-work for both WaterTAP3 and ProteusLib. This should be possible as long as we
-clearly document what variables are required for the cost methods and what they
-are called (ideally using the standard IDAES naming conventions where
-appropriate)
-'''
 import pandas as pd
 from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
 from .ml_regression import get_linear_regression
@@ -64,6 +50,17 @@ class SystemSpecs():
 ################## WATERTAP METHOD ###########################################################
 
 def create_costing_block(unit, basis_year, tpec_or_tic):
+    '''
+    Function to create costing block and establish basis year and TPEC/TIC factor for each WaterTAP3 unit.
+
+    :param unit: WaterTAP3 unit
+    :type unit: str
+    :param basis_year: Basis year for adjusting cost calculations
+    :type basis_year: str
+    :param tpec_or_tic: either 'TPEC' or 'TIC'; determines which factor to use for FCI adjustment (if necessary)
+    :type tpec_or_tic: str
+    :return:
+    '''
     unit.costing = costing = Block()
     costing.basis_year = basis_year
     sys_cost_params = unit.parent_block().costing_param
@@ -73,6 +70,13 @@ def create_costing_block(unit, basis_year, tpec_or_tic):
         costing.tpec_tic = unit.tpec_tic = sys_cost_params.tic
 
 def get_complete_costing(costing):
+    '''
+    Function to build costing block for each WaterTAP3 unit.
+
+    :param costing: Costing block object from WaterTAP3 unit model.
+    :type costing: object
+    :return:
+    '''
     unit = costing.parent_block()
     basis_year = costing.basis_year
     sys_specs = unit.parent_block().costing_param
@@ -126,6 +130,13 @@ def get_complete_costing(costing):
 
 # TO DO MOVE TO FUNCTION BELOW
 def get_ind_table(analysis_yr_cost_indicies):
+    '''
+    Function to get costing indicies for WaterTAP3 model.
+
+    :param analysis_yr_cost_indicies: Year to get costing indicies for.
+    :type analysis_yr_cost_indicies: int
+    :return: Indicies DataFrame
+    '''
     df = pd.read_csv('data/plant_cost_indices.csv')
 
     df1 = pd.DataFrame()
@@ -161,6 +172,11 @@ def get_ind_table(analysis_yr_cost_indicies):
 ### THIS IS NOT CURRENTLY USED --> add_costing_param_block    
 
 def get_system_specs(self, train=None):
+    '''
+    Function to set costing parameters for WaterTAP3 model.
+
+
+    '''
     self.costing_param = Block()
     b = self.costing_param
 
@@ -210,19 +226,15 @@ def get_system_specs(self, train=None):
 
 
 def get_system_costing(self):
+    '''
+    Function to aggregate unit model results for calculation of system costing for WaterTAP3 model.
+
+    '''
     if not hasattr(self, 'costing'):
         self.costing = Block()
     b = self.costing
 
     sys_specs = self.costing_param
-    #     b.LCOW = Var(
-    #         initialize=1e5,
-    #         domain=NonNegativeReals,
-    #         doc='Levelized cost of water [$/m3]')
-    #     b.capital_recovery_factor = Var(
-    #          initialize=0.1,
-    #          domain=NonNegativeReals,
-    #          doc='Captial recovery factor')
 
     total_capital_investment_var_lst = []
     cat_and_chem_cost_lst = []
@@ -301,12 +313,12 @@ def get_system_costing(self):
             setattr(b_unit, 'LCOW', Expression(
                     expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost)
                          / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
-                    doc='Unit Levelized Cost of Water in $/m3'))
+                    doc='Unit Levelized Cost of Water [$/m3]'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
                     expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price)
                          / (b.treated_water * 3600 * 24 * 365),
-                    doc='Electricity Intensity in kwh/m3'))
+                    doc='Unit Electricity Intensity [kWh/m3]'))
 
     # LCOW by cost category
     b.LCOW_TCI = Expression(
@@ -325,16 +337,16 @@ def get_system_costing(self):
     b.electricity_intensity = Expression(
             expr=(b.electricity_cost_annual * 1E6 / b.parent_block().costing_param.electricity_price)
                  / (b.treated_water * 3600 * 24 * 365),
-            doc='Electricity Intensity in kwh/m3')
+            doc='Electricity Intensity [kWh/m3]')
 
     b.LCOW = Expression(
             expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual)
                  / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
-            doc='Levelized Cost of Water in $/m3')
+            doc='Levelized Cost of Water [$/m3]')
 
     b.elec_frac_LCOW = Expression(
             expr=((1E6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
-            doc='elec_frac_LCOW fraction')
+            doc='Electricity cost as fraction of LCOW')
 
 
 ### JUST TO GET IDAES TO RUN --> THESE SHOULd BE THE SYSTEM SPECS    

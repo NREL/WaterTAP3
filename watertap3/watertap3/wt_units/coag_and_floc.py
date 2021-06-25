@@ -12,6 +12,11 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+
+        :param unit_params:
+        :return:
+        '''
         time = self.flowsheet().config.time
         t = self.flowsheet().config.time.first()
         self.alum_dose = Var(time, initialize=10, units=pyunits.mg / pyunits.liter, doc='Alum dose [mg/L]')

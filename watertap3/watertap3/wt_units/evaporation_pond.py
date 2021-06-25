@@ -30,8 +30,16 @@ class UnitProcess(WT3UnitProcess):
 
         **EXAMPLE: {'approach': 'wt3', 'area': 3500, 'humidity': 0.75, 'wind_speed': 10}**
 
-        :param unit_params:
+        :param unit_params: Input parameter dictionary from input sheet.
         :type unit_params: dict
+        :param liner_thickness: Liner thickness [mil]
+        :type liner_thickness: float
+        :param land_cost: Cost of land for evaporation pond [$/acre]
+        :type land_cost: float
+        :param land_clearing_cost: Cost to clear land for evaporation pond [$/acre]
+        :type land_clearing_cost: float
+        :param dike_height: Height of dikes [ft]
+        :type dike_height: float
 
         :return: Fixed capital cost for evaporation ponds [$MM]
         '''
@@ -39,8 +47,10 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time
         self.chem_dict = {}
         self.tds_in = pyunits.convert(self.conc_mass_in[t, 'tds'], to_units=(pyunits.mg / pyunits.L))  # convert from kg/m3 to mg/L
-        self.approach = unit_params['approach']
-
+        try:
+            self.approach = unit_params['approach']
+        except:
+            self.approach = 'wt3'
         self.air_temp = Var(time,
                             initialize=25,
                             domain=NonNegativeReals,
@@ -56,6 +66,22 @@ class UnitProcess(WT3UnitProcess):
             self.water_recovery.unfix()
             self.area.fix(unit_params['area'])
 
+        try:
+            self.liner_thickness = unit_params['liner_thickness']
+            self.land_cost = unit_params['land_cost']
+            self.land_clearing_cost = unit_params['land_clearing_cost']
+            # Land clearing cost (typical) for clearing (from BLM source):
+            # brush = $1,000 per acre
+            # sparsely wooded areas = $2,000 per acre
+            # medium-wooded areas = $4,000 per acre
+            # heavily wooded area = $7,000 per acre
+            self.dike_height = unit_params['dike_height']  # dikes between 4-12 ft are typical (from BLM source)
+        except:
+            self.liner_thickness = 50  # mil (equal to 1/1000th of an inch)
+            self.land_cost = 5000  # $ / acre
+            self.land_clearing_cost = 1000  # $ / acre
+            self.dike_height = 8  # ft
+
         self.evaporation_rate(unit_params, t)
         self.evaporation_rate_regress(t)
         self.evap_rate = self.evap_rate_pure * 0.7  # ratio factor from the BLM document
@@ -68,11 +94,12 @@ class UnitProcess(WT3UnitProcess):
         self.cost_per_acre = 5406 + 465 * self.liner_thickness + 1.07 * self.land_cost + 0.931 * self.land_clearing_cost + 217.5 * self.dike_height  # $ / acre
         if self.approach == 'zld':
             return 0.3 * area
-        if self.approach == 'wt3':
-            return (self.cost_per_acre * self.total_area) * 1E-6
-        else:  # this is Lenntech cost curve based on flow for 1 m/y evap rate
+        elif self.approach == 'lenntech': # this is Lenntech cost curve based on flow for 1 m/y evap rate
             flow_in_m3_d = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day))
             return 0.03099 * flow_in_m3_d ** 0.7613  # this is Lenntech cost curve based on flow for 1 m/y evap rate
+        elif self.approach == 'wt3':
+            return (self.cost_per_acre * self.total_area) * 1E-6
+
 
     def elect(self):
         '''
@@ -99,14 +126,7 @@ class UnitProcess(WT3UnitProcess):
         :type air_temp: float
         :param solar_rad: Incident solar radiation for evaporation rate calculation [mJ/m2]
         :type solar_rad: float
-        :param liner_thickness: Liner thickness [mil]
-        :type liner_thickness: float
-        :param land_cost: Cost of land for evaporation pond [$/acre]
-        :type land_cost: float
-        :param land_clearing_cost: Cost to clear land for evaporation pond [$/acre]
-        :type land_clearing_cost: float
-        :param dike_height: Height of dikes [ft]
-        :type dike_height: float
+
 
         :return:
         '''
@@ -146,23 +166,15 @@ class UnitProcess(WT3UnitProcess):
 
         ## This costing model adapted from
         # Membrane Concentrate Disposal: Practices and Regulation (April 2006) - Bureau Land Management
-        try:
-            self.liner_thickness = unit_params['liner_thickness']
-            self.land_cost = unit_params['land_cost']
-            self.land_clearing_cost = unit_params['land_clearing_cost']
-            # Land clearing cost (typical) for clearing (from BLM source):
-            # brush = $1,000 per acre
-            # sparsely wooded areas = $2,000 per acre
-            # medium-wooded areas = $4,000 per acre
-            # heavily wooded area = $7,000 per acre
-            self.dike_height = unit_params['dike_height']  # dikes between 4-12 ft are typical (from BLM source)
-        except:
-            self.liner_thickness = 50  # mil (equal to 1/1000th of an inch)
-            self.land_cost = 5000  # $ / acre
-            self.land_clearing_cost = 1000  # $ / acre
-            self.dike_height = 8  # ft
+
 
     def evaporation_rate_regress(self, t):
+        '''
+        **NOTE: THIS FUNCTION IS NOT USED IN THE CURRENT RELEASE OF WaterTAP3**
+
+        Calculates evaporation rate based on air temperature, TDS in, humidity, and wind speed.
+
+        '''
         x0 = self.air_temp[t]
         x1 = self.tds_in
         x2 = self.humidity

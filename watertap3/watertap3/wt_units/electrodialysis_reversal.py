@@ -19,12 +19,20 @@ class UnitProcess(WT3UnitProcess):
         return ed_cap
 
     def elect(self):
+        # OLD ELECTRICITY CALCUCLATION BELOW ##########
         # Assumed 80% current efficiency basis ===> https://www.saltworkstech.com/articles/what-is-electrodialysis-reversal-and-its-new-innovations/
+        # self.tds_out = pyunits.convert(self.conc_mass_out[time, 'tds'], to_units=(pyunits.mg / pyunits.L))
+        # self.delta_tds = self.tds_in - self.tds_out
+        # ed_elect = (self.delta_tds * 0.0067) / self.flow_in
+        #######################################################
+        # EDR electricity intensity updated June 23, 2021
+        # Correspondence with Cameron McKay on June 22, 2021
+        # This regression was done in excel EDR_electricity.xlsx
+        # Figure is from Membrane Technology and Applications, by Richard W. Baker and is citing the following source for this figure:
+        # L.H. Shaffer and M.S. Mintz, Electrodialysis, in Principles of Desalination, K.S. Spiegler (ed.), Academic Press, New York, pp. 200-289 (1966).
         time = self.flowsheet().config.time.first()
         self.tds_in = pyunits.convert(self.conc_mass_in[time, 'tds'], to_units=(pyunits.mg / pyunits.L))
-        self.tds_out = pyunits.convert(self.conc_mass_out[time, 'tds'], to_units=(pyunits.mg / pyunits.L))
-        self.delta_tds = self.tds_in - self.tds_out
-        ed_elect = (self.delta_tds * 0.0067) / self.flow_in
+        ed_elect = 5.149E-4 * self.tds_in + 0.2534
         return ed_elect
 
     def get_costing(self, unit_params=None, year=None):

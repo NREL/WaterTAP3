@@ -20,6 +20,26 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+        Fixed capital for Ozone/Ozone AOP unit.
+
+        :param unit_params: Input parameter dictionary from input sheet
+        :type unit_params: dict
+        :param toc_in: TOC concentration into unit [mg/L]
+        :type toc_in: float
+        :param aop: Boolean to indicate if unit is AOP or not.
+        :type aop: bool
+        :param contact_time: Ozone contact time [min]
+        :type contact_time: float
+        :param ct: Concentration * time (Ct) target [mg/(L*min)]
+        :type ct: float
+        :param mass_transfer: Mass transfer coefficient
+        :type mass_transfer: float
+        :param chemical_name: Name of oxidant used if unit is AOP
+        :type chemical_name: str
+
+        :return: Fixed capital cost for Ozone/Ozone AOP  [$MM]
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
         self.toc_in = pyunits.convert(self.conc_mass_in[time, 'toc'], to_units=(pyunits.mg / pyunits.liter))
@@ -29,7 +49,7 @@ class UnitProcess(WT3UnitProcess):
         self.mass_transfer = unit_params['mass_transfer'] * pyunits.dimensionless
         self.ozone_consumption = ((self.toc_in + self.ct / self.contact_time) / self.mass_transfer)
         self.ozone_consumption = pyunits.convert(self.ozone_consumption, to_units=(pyunits.kg / pyunits.m ** 3))
-        self.o3_toc_ratio = 1 + (self.ct / self.contact_time / self.toc_in)
+        self.o3_toc_ratio = 1 + ((self.ct / self.contact_time) / self.toc_in)
         if self.aop:
             self.ox_dose = pyunits.convert((0.5 * self.o3_toc_ratio * self.toc_in), to_units=(pyunits.kg / pyunits.m ** 3))
             chem_name = unit_params['chemical_name']
@@ -51,18 +71,36 @@ class UnitProcess(WT3UnitProcess):
         return ozone_aop_cap
 
     def elect(self):
+        '''
+        Electricity intensity for Ozone/Ozone AOP unit.
+
+        :param ozone_flow: Flow of ozone from ozone generator [lb/day]
+        :type ozone_flow: float
+
+        :return: Ozone/Ozone AOP electricity intenstiy [kWh/m3]
+        '''
         ozone_flow = self.o3_flow()  # lb/day
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
         electricity = (5 * ozone_flow) / flow_in_m3hr
         return electricity
 
     def solution_vol_flow(self):
+        '''
+        Determine oxidant solution flow rate [gal/day]
+
+        :return: Oxidant solution flow [gal/day]
+        '''
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))  # convert from MGD to m3/hr
         chemical_rate = flow_in_m3hr * self.ox_dose  # kg/hr
         chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
         return chemical_rate
 
     def o3_flow(self):
+        '''
+        Determine ozone flow rate [lb/day]
+
+        :return: Ozone flow [lb/day]
+        '''
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))  # convert from MGD to m3/hr
         ozone_flow = flow_in_m3hr * self.ozone_consumption  # kg/hr
         ozone_flow = pyunits.convert(ozone_flow, to_units=(pyunits.lb / pyunits.hour))
