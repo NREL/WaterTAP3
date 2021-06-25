@@ -12,18 +12,20 @@ densities to use in a cost curve. All chemical additions assume 2 chemical addit
 
 Capital Costs
 ---------------
-.. important:: Because this is a generic chemical addition unit model, the costs are based off of the
-          sulfuric acid addition costing parameters. The model assumes a solution density of 1000
-          kg/m3.
 
-The chemical solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
+The generic chemical addition module is based off costing parameters for sulfuric acid.
 
-:math:`\text{Cost} = S a ^ b`
+The chemical solution flow `S` is used in a cost curve of the general form:
 
-For a single sulfuric acid addition unit, `a` = 900.97 and `b` = 0.6179. The full cost equation in
-WaterTAP3 is:
+    .. math::
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 900.97 S \big) ^{0.6179}\times 10^{-6}`
+        C = S a ^ b
+
+For a single unit, `a` = 900.97 and `b` = 0.6179. The full cost equation in WaterTAP3 is:
+
+    .. math::
+
+        C_{chem} = N_{units} ( 900.97 S ) ^ {0.6179}
 
 These parameters were determined by fitting data from FIGURE 5.5.11 - SULFURIC ACID FEED in the
 below reference to the general form.
@@ -67,3 +69,8 @@ Chemical Addition Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

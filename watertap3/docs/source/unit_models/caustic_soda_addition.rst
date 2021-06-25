@@ -8,15 +8,18 @@ densities to use in a cost curve. All chemical additions assume 2 chemical addit
 Capital Costs:
 ---------------
 
-The caustic soda solution flow :math:`\big( S \big)` is used in a cost curve of the general
-form:
+The caustic soda flow `S` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = S a ^ b`
+    .. math::
+
+        C = S a ^ b
 
 For a single caustic soda addition unit, `a` = 2262.8 and `b` = 0.6195. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 2262.8 S \big) ^{0.6195}\times 10^{-6}`
+    .. math::
+
+        C_{NaOH} = N_{units}( 2262.8 S ) ^ {0.6195}
 
 These parameters were determined by fitting data from FIGURE 5.5.12b - SODIUM HYDROXIDE FEED in
 the below reference to the general form.
@@ -55,3 +58,8 @@ Caustic Soda Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

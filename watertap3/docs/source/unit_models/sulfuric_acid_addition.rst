@@ -5,17 +5,28 @@ In general, costs for chemical additions in WaterTAP3 are a function of the chem
 flow in. The chemical solution flow is calculated from these two values and assumed solution
 densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
 
+Unit Parameters
+--------------------
+
+* ``"dose"`` - dose of chemical [mg/L]
+
+    * Required parameter
+
 Capital Costs
 ---------------
 
-The sulfuric acid solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
+The sulfuric acid solution flow `S` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = S a ^ b`
+    .. math::
+
+        C = S a ^ b
 
 For a single sulfuric acid addition unit, `a` = 900.97 and `b` = 0.6179. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 900.97 S \big) ^{0.6179}\times 10^{-6}`
+    .. math::
+
+        C_{sulf} = N_{units}( 900.97 S ) ^ {0.6179}
 
 These parameters were determined by fitting data from FIGURE 5.5.11 - SULFURIC ACID FEED in the
 below reference to the general form.
@@ -53,3 +64,8 @@ Sulfuric Acid Addition Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

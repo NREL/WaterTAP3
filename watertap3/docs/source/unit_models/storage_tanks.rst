@@ -1,40 +1,40 @@
 Storage Tanks
 =====================================
 
+Unit Parameters
+--------------------
+
+* ``"avg_storage_time"`` - storage time for volume calculation [hr]
+
+    * Required parameter
+
+* ``"surge_cap"`` - desired surge capacity for volume calculation
+
+    * Required parameter
+    * Can be zero if no surge capacity is desired
+
 Capital Costs
 ---------------
 
-Storage tank capital costs are calculated as a function of the volume of storage required:
+Storage tank capital costs are calculated as a function of the volume of storage `V`
+[m3] required, flow in `Q_{in}` [m3/hr], storage duration `t` [hr], and surge capacity needed `x`:
 
-:math:`V_{s} = Q_{in} t (1 + x)`
+    .. math::
 
-* :math:`\small{V_{s} [m^3]}` = Storage volume needed
-* :math:`Q_{in} [m^3/hr]` = Flow in to tank
-* :math:`t [hr]` = Storage duration
-* :math:`x` = Surge capacity
+        V = Q_{in} t (1 + x)
+
 
 The storage volume is used to calculate capital costs ($MM):
 
-:math:`Cost = V_{s} a ^ b`
+    .. math::
 
+        C_{tank} = V a ^ b`
 
-`a` and `b` can be determined via regression of the following data with to::
-
-        from scipy.optimize import curve_fit
-
-        def power(x, a, b):
-            return a * x ** b
-
-        cost_MM = [0, 0.151967998, 0.197927546, 0.366661915, 0.780071937, 1.745265206, 2.643560777, 4.656835949, 6.8784383]
-        storage_m3 = [1E-8, 191.2, 375.6, 1101.1, 3030, 8806, 16908, 29610, 37854.1]
-        coeffs, _ = curve_fit(power, storage_m3, cost_MM)
-        a, b = coeffs[0], coeffs[1]
-        print(a, b)
 
 Electricity Intensity
 ------------------------
 
-The tank unit model does not include any electricity costs or other unit-specific O&M costs.
+There are no electricity costs associated with storage tanks in WaterTAP3.
 
 Reference
 -----------
@@ -61,3 +61,8 @@ Storage Tank Module
    :members: fixed_cap, elect, get_costing
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

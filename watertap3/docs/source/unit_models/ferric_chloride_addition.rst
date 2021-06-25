@@ -5,16 +5,28 @@ In general, costs for chemical additions in WaterTAP3 are a function of the chem
 flow in. The chemical solution flow is calculated from these two values and assumed solution
 densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
 
+Unit Parameters
+--------------------
+
+* ``"dose"`` - dose of chemical [mg/L]
+
+    * Required parameter
+
 Capital Costs
 ---------------
-The ferric chloride solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = S a ^ b`
+The ferric chloride solution flow `S` is used in a cost curve of the general form:
+
+    .. math::
+
+        C = S a ^ b
 
 For a single ferric chloride addition unit, `a` = 34153 and `b` = 0.319. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 34153 S \big) ^{0.319}\times 10^{-6}`
+    .. math::
+
+        C_{ferric} = N_{units} ( 34153 S ) ^ {0.319}
 
 These parameters were determined by fitting data from FIGURE 5.5.13 - FERRIC CHLORIDE FEED 42% SOLUTION
 in the below reference to the general form.
@@ -53,3 +65,8 @@ Ferric Chloride Addition Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

@@ -3,8 +3,9 @@ Unit Models
 
 This is the index page for the unit models in WaterTAP3.
 
-.. toctree::
-    :maxdepth: 2
+..  toctree::
+    :maxdepth: 1
+
     alum_addition
     ammonia_addition
     anti_scalant_addition
@@ -29,3 +30,7 @@ This is the index page for the unit models in WaterTAP3.
     unit_doc_template
     uv_aop
 
+
+..  raw:: pdf
+
+    PageBreak

@@ -9,14 +9,19 @@ This unit is identical to ``alum_addition``.
 
 Capital Costs
 ---------------
-The chemical solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = S a ^ b`
+The coagulant flow `S` is used in a cost curve of the general form:
+
+    .. math::
+
+        C = S a ^ b
 
 For a single alum addition unit, `a` = 15408 and `b` = 0.5479. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 15408 S \big) ^{0.5479}\times 10^{-6}`
+    .. math::
+
+        C_{coag} = N_{units} ( 15408 S ) ^ {0.5479}
 
 These parameters were determined by fitting data from FIGURE 5.5.15 - LIQUID ALUM FEED in the
 below reference to the general form.
@@ -27,8 +32,6 @@ Assumptions:
 * Number of units = 2
 * Alum solution density [kg/m3] = 1360
 * Ratio in solution = 50%
-
-
 
 Electricity Intensity
 ------------------------
@@ -56,3 +59,8 @@ Coagulant Addition Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

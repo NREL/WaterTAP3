@@ -1,4 +1,4 @@
-Ozone and Ozone+AOP
+Ozone + AOP
 ============================================================
 
 Unit Basics
@@ -14,9 +14,7 @@ Unit parameters are read in from the ``unit_params`` dictionary given in the inp
 * ``"aop"`` - boolean to indicate if the unit includes AOP costs:
 
     * Required parameter
-
     * If ``True``, oxidant costs are included
-
     * If ``False``, oxidant costs are excluded
 
 * ``"contact_time"`` - contact time with ozone [min]
@@ -34,28 +32,29 @@ Unit parameters are read in from the ``unit_params`` dictionary given in the inp
 * ``"chemical_name"`` - oxidant chemical name
 
     * Required parameter if ``aop = True``
-
     * Must match exactly the chemical name in ``chemical_name.csv``
-
 
 
 Capital Costs
 ---------------
 
+The Ozone/AOP unit in WaterTAP3 is used for both Ozone only units and Ozone+AOP units. For this
+reason costs are broken up between the ozone system and the oxidant injection system (typically
+Hydrogen Peroxide).
+
 Ozone Capital Costs
 *********************
 
-Ozone capital costs in WaterTAP3 are a function of the ozone contact time :math:`\big( t \big)`,
-Ct, ozone mass transfer :math:`\big( \eta \big)`, ozone dose
-:math:`\big( D_{O3} \big)`, TOC concentration :math:`\big( c_{toc} \big)`, flow in
-:math:`\big( Q{in} \big)`, and the ozone/TOC ratio :math:`\big( R \big)`.
+Ozone capital costs in WaterTAP3 are a function of the ozone contact time `t`,
+Ct, ozone mass transfer :math:`\eta`, ozone dose :math:`D_{O3}`, TOC concentration :math:`c_{toc}`,
+flow in :math:`Q{in}`, and the ozone/TOC ratio `X`.
 
 TOC concentration and flow in are taken from the model. Contact time, mass transfer, and Ct are
 taken from user input. Ozone demand is calculated as:
 
     .. math::
 
-         D_{O3} = \large{ \frac{ \frac{  c_{toc} + Ct }{ t }}{ \normalsize{\eta} } }
+         D_{O3} = \frac{ \frac{  c_{toc} + Ct }{ t }}{ \eta }
 
 Ozone dose is then used in a regression dervied from data found in Table 3.24 from the reference
 below.
@@ -66,21 +65,22 @@ Oxidant Capital Costs
 The unit can accept any chemical name and dose, but the cost curve used was developed
 specifically for Hydrogen Peroxide.
 
-Oxidant costs :math:`\big( C_{ox} \big)` are calculated with:
+Oxidant costs are calculated with:
 
     .. math::
 
-        C_{ox} = 1228 \big( Q_{in} \times D_{ox} ) ^ {0.2277}
+        C_{ox} = 1228 ( Q_{in} D_{ox} ) ^ {0.2277}
 
-Where :math:`D_{ox}` is the oxidant dose [kg/m3]:
+Where `D_{ox}` is the oxidant dose [kg/m3]:
 
     .. math::
 
-        D_{ox} = 0.5 \times R \times c_{toc}
+        D_{ox} = 0.5 X  c_{toc}
 
 Electricity Intensity
 ------------------------
 
+Need to find the reference for this!
 
 References
 -------------------
@@ -96,7 +96,7 @@ COSTING
 ELECTRICITY
 *************
 
-
+Need to find the reference for this!
 
 Ozone + AOP Module
 ----------------------------------------
@@ -104,3 +104,8 @@ Ozone + AOP Module
 .. autoclass:: watertap3.wt_units.ozone_aop.UnitProcess
     :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak
