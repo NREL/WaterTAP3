@@ -1131,8 +1131,8 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
     #     m.fs.final_tds_constr = Constraint(expr=m.fs.irwin_brine_management.conc_mass_in[0, 'tds'] >= 140)
 
     if case_study == 'kbhdp':
-        m.fs.ro_recovery_constr1 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] <= 0.81)
-        m.fs.ro_recovery_constr2 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] >= 0.77)
+        m.fs.ro_recovery_constr1 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] <= 0.83)
+        m.fs.ro_recovery_constr2 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] >= 0.81)
     #     # m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] >= 10)
         m.fs.ro1_press_constr2 = Constraint(expr=m.fs.ro_first_stage.feed.pressure[0] <= 14)
         # m.fs.ro2_press_constr1 = Constraint(expr=m.fs.ro_second_stage.feed.pressure[0] >= 10)

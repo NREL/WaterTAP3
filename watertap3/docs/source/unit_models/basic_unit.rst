@@ -6,11 +6,22 @@ Unit Basics
 
 The basic unit in WaterTAP3 is used to create cost curves for units that do not yet have a more
 developed WaterTAP3 model. Capital costs for these units are based entirely on either the
-flow in to the unit or the mass flow in to the unit. They typically incorporate a single data
+flow into the unit or the mass flow into the unit. They typically incorporate a single data
 point for costing the given unit.
 
 All of the data for each of the basic units is read in from the ``basic_unit.csv`` located in the
 data folder.
+
+
+Unit Parameters
+--------------------
+
+* ``"unit_process_name"`` - unit process name that is being represented as a basic unit.
+
+    * Required parameter
+    * Must be enclosed in double ``" "`` or single ``' '`` quotes
+    * Must match *exactly* the entry in the ``unit_process`` column in ``basic_unit.csv``
+
 
 basic_unit.csv
 ******************
@@ -20,17 +31,11 @@ intensity for all basic units. The columns are:
 
 * ``unit_process`` - unit process name in WaterTAP3
 
-* ``flow_basis`` - flow from costing source [m3/hr]
+* ``flow_basis`` - `Q_{basis}` flow from costing source [m3/hr]
 
-    * :math:`Q_{in}`
+* ``cap_basis`` - `B` fixed capital investment from costing source [$MM]
 
-* ``cap_basis`` - fixed capital investment from costing source [$MM]
-
-    * :math:`B`
-
-* ``cap_exp`` - fixed capital investment scaling exponent
-
-    * :math:`x`
+* ``cap_exp`` - `x` fixed capital investment scaling exponent
 
 * ``elect`` - electricity intensity for unit [kWh/m3]
 
@@ -49,31 +54,31 @@ Capital costs for basic units based on water flow are calculated with the genera
 
     .. math::
 
-        \text{Cost } ($MM) = B * \frac{Q_{in}}{Q_{basis}} ^ {x}
+        C_{basic} = B * \frac{Q_{in}}{Q_{basis}} ^ {x}
 
-Where :math:`B` is the capital costing basis, :math:`Q_{in}` is flow into the unit,
-:math:`Q_{basis}` is the flow from the source for the costing basis, and :math:`x` is the
-scaling exponent from the source.
+Where `B` is the capital costing basis, `Q_{in}` is flow into the unit,
+`Q_{basis}` is the flow from the source for the costing basis, and `x` is the
+scaling exponent from the source (read in from csv).
 
 Mass Based
 *************
 
 For those units based on mass flow, the mass flowing into the unit must be determined.
-First we determine the concentration flowing into the unit :math:`\big( C_{in} \big)`
-[kg/m3]. :math:`C_{in}` is calculated as the summation of the concentration of all :math:`n`
-constituents :math:`\big( c_i \big)` entering the unit:
+First we determine the concentration flowing into the unit `C_{in}`
+[kg/m3]. `C_{in}` is calculated as the summation of the concentration of all `n`
+constituents `c_i` entering the unit:
 
     .. math::
 
        C_{in} = \sum_{i}^{n} c_i
 
-Then, we estimate the density of the solution :math:`\big( \rho_{in} \big)` [kg/m3]:
+Then, we estimate the density of the solution `\rho_{in}` [kg/m3]:
 
     .. math::
 
-        \rho_{in} = 0.6312 \big( C_{in} \big) + 997.86
+        \rho_{in} = 0.6312 ( C_{in} ) + 997.86
 
-Mass flow :math:`\big( M_{in} \big)` [kg/hr] is determined with:
+Mass flow `M_{in}` [kg/hr] is determined with:
 
     .. math::
 
@@ -83,17 +88,17 @@ Capital costs for basic units based on mass flow are calculated with the general
 
     .. math::
 
-        \text{Cost } ($MM) = B * \frac{M_{in}}{M_{basis}} ^ {x}
+        C_{basic} = B \frac{M_{in}}{M_{basis}} ^ {x}
 
-Where :math:`M_{in}` is the mass flow into the unit and :math:`M_{basis}` is the mass flow from
+Where `M_{in}` is the mass flow into the unit and `M_{basis}` is the mass flow from
 the source for the costing basis.
 
 
 Electricity Intensity
 ------------------------
 
-Electricity intensity for basic units is read directly from the ``elect`` column in ``basic_unit
-.csv`` (see above) and does not scale with flow (i.e. it is a fixed value).
+Electricity intensity for basic units is read directly from the ``elect`` column in
+``basic_unit.csv`` (see above) and does not scale with flow (i.e. it is a fixed value).
 
 List of Basic Units
 ----------------------
@@ -159,3 +164,8 @@ Basic Unit Module
 .. autoclass:: watertap3.wt_units.basic_unit.UnitProcess
     :members: fixed_cap, elect
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

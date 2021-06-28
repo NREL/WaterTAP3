@@ -22,84 +22,73 @@ parameters for user input. Further detail on these parameters is provided below:
 * ``"approach"`` - costing approach used for the model (more detail is provided below on each
   approach):
 
-    * Options are ``wt3``, ``zld``, and ``lenntech``
-
-    * Default approach is ``wt3`` if no input given
+    * Options are ``"wt3"``, ``"zld"``, and ``"lenntech"``
+    * Default approach is ``"wt3"`` if no input given
+    * Must be enclosed in double ``" "`` or single ``' '`` quotes
 
 * ``"evap_method"`` - method used to calculate evaporation rate
 
-    * Two options are ``turc`` and ``jensen``
-
-    * Defaults to ``jensen`` if no input given
+    * Two options are ``"turc"`` and ``"jensen"``
+    * Defaults to ``"jensen"`` if no input given
+    * Must be enclosed in double ``" "`` or single ``' '`` quotes
 
 * ``"air_temp"`` - air temperature for evaporation rate calculation [C]
 
     * Default value is 20C
-
-    * Note: Must provide both ``air_temp`` and ``solar_rad`` together or default values for both
+    * Note: Must provide both ``"air_temp"`` and ``"solar_rad"`` together or default values for both
       will be used.
 
 * ``"solar_rad"`` - incident solar radiation for evaporation rate calculation [mJ/cm2]
 
     * Default value is 25 mJ/cm2
-
-    * Note: Must provide both ``air_temp`` and ``solar_rad`` together or default values for both
+    * Note: Must provide both ``"air_temp"`` and ``"solar_rad"`` together or default values for both
       will be used.
 
 * ``"humidity"`` - humidity for use in calculation of ratio to adjust pure water evaporation rate
   to saline water evaporation rate
 
     * Default value is 0.5 (i.e. 50% humidity)
-
-    * Note: Must provide both ``humidity`` and ``wind_speed`` together or default values for both
-      will be used.
+    * Note: Must provide both ``"humidity"`` and ``"wind_speed"`` together or default values for
+      both will be used.
 
 * ``"wind_speed"`` - wind speed for use in calculation of ratio to adjust pure water evaporation
   rate [m/s]
 
     * Default value is 5 m/s
-
-    * Note: Must provide both ``humidity`` and ``wind_speed`` together or default values for both
-      will be used.
+    * Note: Must provide both ``"humidity"`` and ``"wind_speed"`` together or default values for
+      both will be used.
 
 * ``"liner_thickness"`` - thickness of liner used for calculation of cost per acre [mil]
 
     * Default value is 50 mil
-
     * Note that 1 mil = 1/1000 inches
-
-    * Note: Must provide ``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and
-      ``dike_height`` together or default values for all will be used.
+    * Note: Must provide ``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and
+      ``"dike_height"`` together or default values for all will be used.
 
 * ``"land_cost"`` - cost to purchase land for evaporation pond [$/acre]
 
     * Default value is $5,000/acre
+    * Note: Must provide ``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and
+      ``"dike_height"`` together or default values for all will be used.
 
 * ``"land_clearing_cost"`` - cost to clear land for evaporation pond [$/acre]
 
     * Default value is $1,000/acre
-
-    * Note: Must provide ``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and
-      ``dike_height`` together or default values for all will be used.
-
+    * Note: Must provide ``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and
+      ``"dike_height"`` together or default values for all will be used.
     * Typical costs for different types of land cover (from Bureau of Reclamation reference):
 
         * brush = $1,000/acre
-
         * sparsley wooded = $2,000/acre
-
         * medium wooded = $4,000/acre
-
         * heavily wooded = $7,000/acre
 
 * ``"dike_height"`` - height of dikes for evaporation pond [ft]
 
     * Default value is 8 ft
-
     * Typical dike heights are 4-12 ft (from Bureau of Reclamation reference)
-
-    * Note: Must provide ``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and
-      ``dike_height`` together or default values for all will be used.
+    * Note: Must provide ``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and
+      ``"dike_height"`` together or default values for all will be used.
 
 
 
@@ -112,21 +101,26 @@ are commonlny used to concentrate brine streams, an evaporation rate calculated 
 must be adjusted downward.
 
 WaterTAP3 uses one of two regressions from each of the two references below to estimate the
-evaporation rate of pure water :math:`\big( E_{pure} \big)` under the given meteorological
+evaporation rate of pure water `R_{pure}` under the given meteorological
 conditions. In WaterTAP3,evaporation ponds are used as a zero liquid discharge (ZLD) technology to reduce the volume of
-brine, so the water is assumed to be saline. The evaporation rate of saline water can be
-estimated to be 70% that of pure water. Thus, this calculated evaporation rate is multiplied by 0.7 to arrive at the estimated evaporation rate :math:`\big( E_{saline} = 0.7E_{pure} \big)`.
+brine, so the water is assumed to be saline. The evaporation rate of saline water `R_{saline}`
+can be estimated to be 70% that of pure water. Thus, this calculated evaporation rate is
+multiplied by 0.7 to arrive at the estimated evaporation rate
+
+    .. math::
+
+        R_{saline} = 0.7R_{pure}
 
 Pond Area Calculation
 ----------------------------------
 
 For mass balance purposes in WaterTAP3, the flow of evaporated water is the considered to be the
-flow out of the unit. To accomodate a given water recovery, he area of the pond :math:`\big(A_{pond} \big)`
+flow out of the unit. To accomodate a given water recovery, the area of the pond `A_{pond}`
 is calculated as:
 
     .. math::
 
-           A_{pond} = \frac{Q_{out}}{E_{saline}}
+           A_{pond} = \frac{Q_{out}}{R_{saline}}
 
 
 
@@ -150,26 +144,25 @@ WT3 Approach:
 The WT3 approach is the default approach and uses a regression for total pond area from the
 Bureau of Reclamation reference below. After calculation of the required pond area based on flow
 above, if this approach is used the pond area is adjusted upwards to inorporate the additional
-area needed for dikes :math:`\big(A_{adj} \big)`:
+area needed for dikes `A_{adj}`:
 
     .. math::
 
-           A_{adj} = 1.2 (A_{pond}) \Bigg(1 + 0.155 \frac{h_{dike}}{\sqrt{A_{pond}}} \Bigg)
+           A_{adj} = 1.2 (A_{pond}) (1 + 0.155 \frac{h_{dike}}{\sqrt{A_{pond}}} )
 
 
-Then, the cost per acre :math:`\big(C_{acre} \big)` ($/acre) is determined that incorporates
-``liner_thickness``, ``land_cost``, ``land_clearing_cost``, and ``dike_height``:
+Then, the cost per acre `C_{acre}` ($/acre) is determined that incorporates
+``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and ``"dike_height"``:
 
     .. math::
 
-           C_{acre} = 5406 + 465 \big( z_{liner} \big) + 1.07 \big( c_{land} \big)
-           + 0.931 \big( c_{clear} \big) + 217.5 \big( h_{dike} \big)
+           C_{acre} = 5406 + 465 ( z_{liner} ) + 1.07 ( c_{land} )+ 0.931 ( c_{clear} ) + 217.5 ( h_{dike} )
 
 Thus, using this approach capital costs for evaporation ponds are calculated as:
 
     .. math::
 
-           \text{Cost } ($MM) = \big( A_{adj} C_{acre} \big) \times 10 ^ {-6}
+           C_{evap} = ( A_{adj} C_{acre} )
 
 ZLD Approach:
 *********************
@@ -180,7 +173,7 @@ costs are calculated as:
 
     .. math::
 
-           \text{Cost } ($MM) = A_{pond} \times 0.3
+           C_{evap} = A_{pond} \times 0.3
 
 Lenntech Approach:
 *********************
@@ -190,7 +183,7 @@ calculation for evaporation pond area. It assumes an evaporation rate of 1 m/yr:
 
     .. math::
 
-           \text{Cost } ($MM) = 0.031 Q_{in} ^ {0.7613}
+           C_{evap} = 0.031 Q_{in} ^ {0.7613}
 
 Note that while the reference mentions salt concentrations, land and earthwork costs, and liner
 costs, it is unclear how these are incorporated into the cost curve above.
@@ -244,3 +237,8 @@ Evaporation Pond Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow, evaporation_rate, evaporation_rate_regress
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

@@ -5,20 +5,31 @@ In general, costs for chemical additions in WaterTAP3 are a function of the chem
 flow in. The chemical solution flow is calculated from these two values and assumed solution
 densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
 
+Unit Parameters
+--------------------
+
+* ``"dose"`` - dose of chemical [mg/L]
+
+    * Required parameter
+
 Capital Costs
 ---------------
-The chemical solution flow :math:`\big( S \big)` is used in a cost curve of the general form:
 
-:math:`\text{Cost} = S a ^ b`
+The chemical solution flow `S` is used in a cost curve of the general form:
+
+    .. math::
+
+        C = S a ^ b
 
 For a single alum addition unit, `a` = 15408 and `b` = 0.5479. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 15408 S \big) ^{0.5479}\times 10^{-6}`
+    .. math::
+
+        C_{alum} = N_{units} ( 15408 S ) ^ {0.5479}
 
 These parameters were determined by fitting data from FIGURE 5.5.15 - LIQUID ALUM FEED  from the
 below reference to the general form.
-
 
 Assumptions:
 ****************
@@ -54,3 +65,8 @@ Alum Addition Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

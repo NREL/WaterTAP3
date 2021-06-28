@@ -4,32 +4,34 @@ Crystallizer
 Unit Basics
 --------------
 
-Crystallizers in WaterTAP3 are modeled after thermal crystallizers
-routinely used in zero liquid discharge (ZLD) schemes.
+Crystallizers in WaterTAP3 are modeled after thermal crystallizers routinely used in zero liquid 
+discharge (ZLD) schemes.
+
+Unit Parameters
+--------------------
+
+There are no unit parameters for the crystallizer.
 
 Capital Costs
 ---------------
 
-Capital costs for crystallizers are a function of influent TDS :math:`\big(c_{TDS} \big)`,
-water recovery :math:`\big( x_{wr} \big)`, and flow in :math:`\big( Q_{in} \big)`.
+Capital costs for crystallizers are a function of influent TDS `c_{TDS}`, water recovery
+`x_{wr}`, and flow in `Q_{in}`.
+
 The regression is based off of data found in Tables A2.1 and A2.3 found in the below reference.
 
     .. math::
 
-           \text{Cost } ($MM) = 1.41 - 7.11 \times 10 ^ {-7} \big( c_{TDS} \big) +
-           1.45 \big(x_{wr} \big) + 0.56 \big( Q_{in} \big)
+           C_{cryst} = 1.41 - 7.11 \times 10 ^ {-7} ( c_{TDS} ) + 1.45 (x_{wr} ) + 0.56 ( Q_{in} )
 
 Electricity Intensity
 -----------------------
 
-Electricity intensity for crystallizers is a function of influent TDS :math:`\big(c_{TDS} \big)`,
-water recovery :math:`\big( x_{wr} \big)`, and flow in :math:`\big( Q_{in} \big)`.
-The regression is based off of data found in Tables A2.1 and A2.3 found in the below reference.
+Electricity intensity is a function of the same variables and uses the same reference.
 
     .. math::
 
-           \text{Electricity  [kWh/m3]} = 56.7 + 1.83 \times 10 ^ {-5} \big( c_{TDS} \big) -
-           9.47 \big(x_{wr} \big) - 8.63 \times 10 ^ {-4} \big( Q_{in} \big)
+           E_{cryst} = 56.7 + 1.83 \times 10 ^ {-5} ( c_{TDS} ) - 9.47 (x_{wr} ) - 8.63 \times 10^ {-4} ( Q_{in} )
 
 Reference
 -----------------------
@@ -46,3 +48,8 @@ Crystallizer Module
 .. autoclass:: watertap3.wt_units.crystallizer.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

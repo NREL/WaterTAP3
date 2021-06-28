@@ -5,19 +5,21 @@ In general, costs for chemical additions in WaterTAP3 are a function of the chem
 flow in. The chemical solution flow is calculated from these two values and assumed solution
 densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
 
-Chlorination Capital Costs
+Capital Costs
 ---------------------------------
 Chlorination capital costs are a function of the applied chlorine dose and the flow using data
 in Table 3.23 of the Texas Water Board reference (below).
 
 The chlorine dose is calculated from:
 
-:math:`\text{Dose [mg/L]} = Cl_{demand} + r_{decay} t + \frac{Ct}{t}`
+    .. math::
 
-* :math:`\small{Cl_{demand}}` = Chlorine demand [mg/L]
-* :math:`r_{decay}` = Chlorine decay rate [mg/Lhr]; default = 3
-* :math:`t` = Contact time [hr]; default = 1.5
-* :math:`Ct` = Desired Ct [mg*min/L]; default = 450
+        D_{Cl} = C + r t + \frac{Ct}{t}
+
+* `C` = Chlorine demand [mg/L]
+* `r` = Chlorine decay rate [mg/Lhr]; default = 3
+* `t` = Contact time [hr]; default = 1.5
+* `Ct` = Desired Ct [mg*min/L]; default = 450
 
 Assumptions:
 ****************
@@ -28,8 +30,11 @@ is sufficient contact time downstream of the chlorine feed point.
 
 Electricity Intensity
 ------------------------
-Electricity intensity for chlorination is fixed at  :math:`5 \times 10 ^ {-5}` kWh/m3 and is taken
-from the below reference.
+Electricity intensity for chlorination is fixed and is taken from the below reference.
+
+    .. math::
+
+        E_{Cl} = 5 \times 10 ^ {-5}
 
 
 References
@@ -58,3 +63,8 @@ Chlorination Module
    :members: fixed_cap, elect, get_costing
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

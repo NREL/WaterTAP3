@@ -5,17 +5,28 @@ In general, costs for chemical additions in WaterTAP3 are a function of the chem
 flow in. The chemical solution flow is calculated from these two values and assumed solution
 densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
 
+Unit Parameters
+--------------------
+
+* ``"dose"`` - dose of chemical [mg/L]
+
+    * Required parameter
+
 Capital Costs
 ---------------
-The ammonia solution flow :math:`\big( S \big)` is used in a cost curve of the general
-form:
 
-:math:`\text{Cost} = S a ^ b`
+The ammonia solution flow `S` is used in a cost curve of the general form:
+
+    .. math::
+
+        C = S a ^ b
 
 For a ammonia addition unit, `a` = 6699.1 and `b` = 0.4219. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 6699.1 S \big) ^{0.4219}\times 10^{-6}`
+    .. math::
+
+        C_{amm} = N_{units}( 6699.1 S ) ^ {0.4219}
 
 These parameters were determined by fitting data from FIGURE 5.5.11 - AQUA AMMONIA FEED 29%
 SOLUTION in the below reference to the general form.
@@ -54,3 +65,8 @@ Sodium Bisulfite Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

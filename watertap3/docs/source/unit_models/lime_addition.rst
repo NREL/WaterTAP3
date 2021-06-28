@@ -5,18 +5,29 @@ In general, costs for chemical additions in WaterTAP3 are a function of the chem
 flow in. The chemical solution flow is calculated from these two values and assumed solution
 densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
 
+Unit Parameters
+--------------------
+
+* ``"lime"`` - dose of lime [mg/L]
+
+    * Required parameter
+
 Capital Costs
 ---------------
 
-The lime solution flow :math:`\big( S \big)` is used in a cost curve of the general
+The lime solution flow `S` is used in a cost curve of the general
 form:
 
-:math:`\text{Cost} = S a ^ b`
+    .. math::
+
+        C = S a ^ b
 
 For a single lime addition unit, `a` = 16972 and `b` = 0.5435. The full cost equation in
 WaterTAP3 is:
 
-:math:`\text{Cost } ($MM) = N_{units}\big( 16972 S \big) ^{0.5435}\times 10^{-6}`
+    .. math::
+
+        C_{lime} = N_{units}( 16972 S ) ^ {0.5435}
 
 These parameters were determined by fitting data from FIGURE 5.5.9 - LIME FEED in the below
 reference to the general form.
@@ -59,3 +70,8 @@ Lime Addition Module
    :members: fixed_cap, elect, get_costing, solution_vol_flow
    :undoc-members: build
    :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak
