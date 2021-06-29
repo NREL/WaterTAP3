@@ -32,7 +32,6 @@ def get_def_source(reference, water_type, case_study, scenario):
 
 
 def get_case_study(flow=None, m=None):
-    # get source water information that will be used to get the flow in if not specified
     if flow is None:
         flow = {}
     if isinstance(m.fs.source_water['water_type'], list) and not flow:
@@ -49,8 +48,7 @@ def get_case_study(flow=None, m=None):
                             m.fs.source_water['scenario'])
         flow[m.fs.source_water['water_type']] = df.loc['flow'].value
     m.fs.flow_in_dict = flow
-    # set the flow based on the case study if not specified.
-    #     if flow is None: fow = df_source.loc['flow'].value
+
 
     case_study_library = 'data/treatment_train_setup.xlsx'
 

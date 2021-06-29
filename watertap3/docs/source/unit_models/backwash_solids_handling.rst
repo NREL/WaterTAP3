@@ -1,70 +1,86 @@
 Backwash Solids Handling
 ============================================================
 
-Unit Basics
---------------
-
-Backwash handling is a separate unit in WaterTAP3 and can be used to handle the waste/backwash
-stream from filtration units (e.g. tri-media filtration).
+The backwash solids handling unit model represents the handling of the waste/backwash streams
+from  filtration processes (e.g. tri-media filtration). It is typically recycled back into  the
+treatment train or sent to a final waste unit.
 
 Unit Parameters
 --------------------
 
 There is one parameter for backwash solids handling:
 
-*``"recovery"`` - ???
+*``"recovery"`` - proportion of flow recycled back to treatment technology
 
+    * Required parameter
+    * Value between 0 and 1
+|
 Capital Costs
 ---------------
 
-The capital costs are a function of mass flow [kg/hr] from Figure 5.7.1 in the below reference:
+The capital costs are a function of mass flow [kg/hr] from Figure 5.7.1 in in McGivney & Kawamura
+(2008):
 
     .. math::
 
-        C_{bw} = 9.76 M_{in} ^ {0.918}
-
+        C_{bw} = 9.76 \frac{M_{in}}{1577255} ^ {0.918}
+|
 The mass flow in is the sum of all the constituents flowing into the unit:
 
     .. math::
 
        C_{in} = \sum_{i}^{n} c_i
-
-Then, we estimate the density of the solution [kg/m3]:
+|
+Then, the density of the solution is [kg/m3]:
 
     .. math::
 
         \rho_{in} = 0.6312 ( C_{in} ) + 997.86
-
-And mass flow [kg/hr] is determined with:
+|
+And mass flow is determined with [kg/hr]:
 
     .. math::
 
         M_{in} = \rho_{in} Q_{in}
-
-
-Assumptions
---------------
-
-Several aspects of the unit are assumed.
-
-The lift height is 100 ft:
-
-    .. math::
-
-        h = 100
-
-The pump and motor efficiency are 90%:
-
-    .. math::
-
-        \eta_{pump} = \eta_{motor} = 0.9
-
+|
 
 Electricity Intensity
 ------------------------
 
-Electricity intensity for onshore intake in WaterTAP3 is based off the pump used,
-the pump/motor efficiencies, lift height, and the influent flow rate.
+Electricity intensity for backwash solids handling is based off the pump used. The
+calculation includes:
+
+* Lift height [ft]:
+
+    .. math::
+
+        h
+|
+* The pump and motor efficiencies:
+
+    .. math::
+
+        \eta_{pump}, \eta_{motor}
+|
+* And the influent flow in [gal/min] and [m3/hr]:
+
+    .. math::
+
+        Q_{gpm}, Q_{m3hr}
+|
+Then the electricity intensity is calculated as:
+
+    .. math::
+
+        E_{bw} = \frac{0.746 Q_{gpm} h}{3960 \eta_{pump} \eta_{motor} Q_{m3hr}}
+|
+
+Assumptions
+------------------------
+
+* Lift height [ft] = 100
+* Pump efficiency = 0.9
+* Motor efficiency = 0.9
 
 References
 -------------

@@ -1,9 +1,6 @@
 Multi-Stage Bubble Aeration
 ============================================================
 
-Unit Basics
---------------
-
 The multi-stage bubble aeration in WaterTAP3 is based off of a regression of several runs
 using EPA's Work Breakdown Structure-Based (WBS EPA) model (see reference). These models incorporate
 several aspects of cost of the treatment process, including treatment, monitoring, and
@@ -23,7 +20,7 @@ Both sets of data are fit to a power curve:
     .. math::
 
         Y = a Q ^ b
-
+|
 Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
 flow in for the particular case study.
 
@@ -43,7 +40,7 @@ unit flow [m3/hr] to determine capital costs:
 
         C_{msba} = a Q_{in} ^ b
 
-
+|
 Electricity Intensity
 ------------------------
 
@@ -55,7 +52,7 @@ the unit flow [m3/hr] to determine capital costs:
 
         E_{msba} = a Q_{in} ^ b
 
-
+|
 Chemical Use
 --------------
 
@@ -75,3 +72,7 @@ Unit Template
 .. autoclass:: watertap3.wt_units.multi_stage_bubble_aeration.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+..  raw:: pdf
+
+    PageBreak

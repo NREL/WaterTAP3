@@ -14,10 +14,6 @@ from pyomo.network import Port
 from idaes.core import (UnitModelBlockData, declare_process_block_class, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 
-# Import WaterTAP# finanacilas module
-# from financials import *  # ARIEL ADDED
-
-# Import properties and units from "WaterTAP Library"
 
 __all__ = ['UnitProcess']
 
@@ -25,11 +21,6 @@ __all__ = ['UnitProcess']
 module_name = "mixer_mar5"
 
 
-##########################################
-##########################################
-
-# You don't really want to know what this decorator does
-# Suffice to say it automates a lot of Pyomo boilerplate for you
 @declare_process_block_class("UnitProcess")
 class UnitProcessData(UnitModelBlockData):
        
@@ -84,27 +75,16 @@ see property package for documentation.}"""))
     def build(self):
         
         import mixer_mar5 as unit_process_model
-        
-        # build always starts by calling super().build()
-        # This triggers a lot of boilerplate in the background for you
         super(unit_process_model.UnitProcessData, self).build()
-
-        # Next, get the base units of measurement from the property definition
         units_meta = self.config.property_package.get_metadata().get_derived_units        
         
-        return print("adding mixer") #unit_process_equations.build_up(self, up_name_test = module_name)
+        return print("adding mixer")
     
     
     def get_mix(self, inlet_list=None):
 
         print(inlet_list)
-        #print(inlet_list)
-        
-#         if not hasattr(self.flowsheet(), "costing"):
-#             self.flowsheet().get_costing(module=module, year=year)
-            
-            
-        # Add ports and variables for inlets and inlets
+
         time = self.flowsheet().config.time
         units_meta = self.config.property_package.get_metadata().get_derived_units
         
@@ -167,38 +147,16 @@ see property package for documentation.}"""))
         self.outlet.add(self.conc_mass_out, "conc_mass")
         self.outlet.add(self.temperature_out, "temperature")
         self.outlet.add(self.pressure_out, "pressure")
-        
-        #self.split_fraction.fix(1 / len(inlet_list)) #does not exist for mixer
 
         t = self.flowsheet().config.time.first() 
-        
-#         for p in inlet_list:
-#             for j in self.config.property_package.component_list:
-#                 setattr(self, ("%s_%s_eq" % (p, j)), Constraint(expr = self.conc_mass_out[t, j] 
-#                                                         == getattr(self, ("conc_mass_%s" % p))[t, j]))
-            
-#         for p in inlet_list:
-#             setattr(self, ("%s_eq_flow" % p), Constraint(expr = self.split_fraction[t] * self.flow_vol_out[t]
-#                                                     == getattr(self, ("flow_vol_%s" % p))[t]))
 
-#         for p in inlet_list:
-#             setattr(self, ("%s_eq_temp" % (p)), Constraint(expr = self.temperature_out[t] 
-#                                                     == getattr(self, ("temperature_%s" % p))[t]))
-                
-#         for p in inlet_list:
-#             setattr(self, ("%s_eq_pres" % (p)), Constraint(expr = self.pressure_out[t] 
-#                                                     == getattr(self, ("pressure_%s" % p))[t])) 
-            
-            
-            
-        # Next, add constraints linking these
         @self.Constraint(time, doc="Overall flow balance")
         def flow_balance(b, t):
             flow_vol_sum = 0 
             for p in inlet_list:
                 flow_vol_sum = getattr(b, ("flow_vol_%s" % p))[t] + flow_vol_sum
             
-            return flow_vol_sum == b.flow_vol_out[t] #b.flow_vol_in[t] == b.flow_vol_out[t]
+            return flow_vol_sum == b.flow_vol_out[t]
         
         
         @self.Constraint(time,
@@ -219,7 +177,7 @@ see property package for documentation.}"""))
             for p in inlet_list:
                 temperature_sum = getattr(b, ("temperature_%s" % p))[t] + temperature_sum
             
-            return temperature_sum / len(inlet_list) == b.temperature_out[t] #+ 1e-4
+            return temperature_sum / len(inlet_list) == b.temperature_out[t]
         
         
         @self.Constraint(time, doc="Outlet pressure equation")
@@ -229,48 +187,8 @@ see property package for documentation.}"""))
             for p in inlet_list:
                 pressure_sum = getattr(b, ("pressure_%s" % p))[t] + pressure_sum            
             
-            return pressure_sum / len(inlet_list) == b.pressure_out[t] #+ 1e-4            
-            
-            
-            
-            
-            
-            
-#         @self.Constraint(time,
-#                          inlet_list,
-#                          doc="Component removal equation")
-#         def flow_balance(b, t, o):        
-#             return self.split_fraction[t] * b.flow_vol_in[t] == getattr(b, ("flow_vol_%s" % o))[t]        
+            return pressure_sum / len(inlet_list) == b.pressure_out[t]
 
-
-#         @self.Constraint(time,
-#                          self.config.property_package.component_list,
-#                          doc="Component mass balances")
-#         def component_mass_balance(b, t, j):
-#             component_sum = 0
-#             for p in inlet_list:
-#                 component_sum = getattr(b, ("flow_vol_%s" % p))[t] * getattr(b, ("conc_mass_%s" % p))[t, j] + component_sum
-
-#             return component_sum == b.flow_vol_in[t]*b.conc_mass_in[t, j]       
-
-#         @self.Constraint(time, doc="inlet temperature equation")
-#         def inlet_temperature_constraint(b, t):
-
-#             temperature_sum = 0 
-#             for p in inlet_list:
-#                 temperature_sum = getattr(b, ("temperature_%s" % p))[t] + temperature_sum
-
-#             return temperature_sum / len(inlet_list) == b.temperature_in[t]
-
-
-#         @self.Constraint(time, doc="inlet pressure equation")
-#         def inlet_pressure_constraint(b, t):
-
-#             pressure_sum = 0 
-#             for p in inlet_list:
-#                 pressure_sum = getattr(b, ("pressure_%s" % p))[t] + pressure_sum            
-
-#             return pressure_sum / len(inlet_list) == b.pressure_in[t]  
         
         
         

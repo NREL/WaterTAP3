@@ -34,20 +34,20 @@ class UnitProcess(WT3UnitProcess):
         self.floc_processes = 2 * pyunits.dimensionless
         self.coag_processes = 1 * pyunits.dimensionless
         self.floc_injection_processes = 1 * pyunits.dimensionless
-        self.rapid_mix_retention_time = 5.5 * pyunits.seconds  # seconds (rapid mix)
-        self.floc_retention_time = 12 * pyunits.minutes  # minutes
+        self.rapid_mix_retention_time = 5.5 * pyunits.seconds
+        self.floc_retention_time = 12 * pyunits.minutes
         self.chem_dict = {'Aluminum_Al2_SO4_3': alum_dose_kgm3, 'Anionic_Polymer': self.an_polymer, 'Cationic_Polymer': self.cat_polymer}
-        flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)  # m3/hr to GPM
-        rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm  # gallons
-        floc_basin_volume = self.floc_retention_time * flow_in_gpm * 1E-6  # gallons
-        alum_flow = alum_dose_kgm3 * self.flow_in  # kg / hr
-        alum_flow = pyunits.convert(alum_flow, to_units=(pyunits.lb / pyunits.hour))  # lb / hr
-        poly_flow = self.polymer_dose * self.flow_in  # kg / hr
-        poly_flow = pyunits.convert(poly_flow, to_units=(pyunits.lb / pyunits.day))  # lb / hr
-        rapid_mix_cap = (7.0814 * rapid_mix_basin_volume + 33269) * self.rapid_mix_processes  # $
-        floc_cap = (952902 * floc_basin_volume + 177335) * self.floc_processes  # $
-        coag_inj_cap = (212.32 * alum_flow + 73225) * self.coag_processes  # $
-        floc_inj_cap = (13662 * poly_flow + 20861) * self.floc_injection_processes  # $
+        flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)
+        rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm
+        floc_basin_volume = self.floc_retention_time * flow_in_gpm * 1E-6
+        alum_flow = alum_dose_kgm3 * self.flow_in
+        alum_flow = pyunits.convert(alum_flow, to_units=(pyunits.lb / pyunits.hour))
+        poly_flow = self.polymer_dose * self.flow_in
+        poly_flow = pyunits.convert(poly_flow, to_units=(pyunits.lb / pyunits.day))
+        rapid_mix_cap = (7.0814 * rapid_mix_basin_volume + 33269) * self.rapid_mix_processes
+        floc_cap = (952902 * floc_basin_volume + 177335) * self.floc_processes
+        coag_inj_cap = (212.32 * alum_flow + 73225) * self.coag_processes
+        floc_inj_cap = (13662 * poly_flow + 20861) * self.floc_injection_processes
         coag_floc_cap = (rapid_mix_cap + floc_cap + coag_inj_cap + floc_inj_cap) * 1E-6 * self.tpec_tic
         return coag_floc_cap
 
@@ -57,15 +57,15 @@ class UnitProcess(WT3UnitProcess):
 
         :return:
         '''
-        flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)  # MGD to GPM
+        flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)
         rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm
-        rapid_mix_basin_volume = pyunits.convert(rapid_mix_basin_volume, to_units=pyunits.m ** 3)  # gallons to m3
-        rapid_mix_power_consumption = (900 ** 2 * 0.001 * rapid_mix_basin_volume) * pyunits.watts  # W
-        rapid_mix_power = rapid_mix_power_consumption * self.rapid_mixers * 1E-3  # kW
+        rapid_mix_basin_volume = pyunits.convert(rapid_mix_basin_volume, to_units=pyunits.m ** 3)
+        rapid_mix_power_consumption = (900 ** 2 * 0.001 * rapid_mix_basin_volume) * pyunits.watts
+        rapid_mix_power = rapid_mix_power_consumption * self.rapid_mixers * 1E-3
         floc_basin_volume = self.floc_retention_time * flow_in_gpm
-        floc_basin_volume = pyunits.convert(floc_basin_volume, to_units=(pyunits.m ** 3))  # gallons to m3
-        floc_power_consumption = (80 ** 2 * 0.001 * floc_basin_volume) * pyunits.watts  # W
-        floc_mix_power = floc_power_consumption * self.floc_mixers * 1E-3  # kW
+        floc_basin_volume = pyunits.convert(floc_basin_volume, to_units=(pyunits.m ** 3))
+        floc_power_consumption = (80 ** 2 * 0.001 * floc_basin_volume) * pyunits.watts
+        floc_mix_power = floc_power_consumption * self.floc_mixers * 1E-3
         total_power = (rapid_mix_power + floc_mix_power) / self.flow_in
         return total_power  # kWh/m3
 
@@ -75,7 +75,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

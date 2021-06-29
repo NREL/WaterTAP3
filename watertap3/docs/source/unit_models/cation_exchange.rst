@@ -1,9 +1,6 @@
 Cation Exchange
 ============================================================
 
-Unit Basics
---------------
-
 The cation exchange model in WaterTAP3 is based off of a regression of several runs using EPA's
 Work Breakdown Structure-Based (WBS EPA) model (see reference). These models incorporate
 several aspects of cost of the treatment process, including treatment, monitoring, and
@@ -26,7 +23,7 @@ Both sets of data are fit to a power curve:
     .. math::
 
         Y = a Q ^ b
-
+|
 Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
 flow in for the particular case study.
 
@@ -38,9 +35,8 @@ Cation exchange has one parameter:
 * ``"tds_in"`` - the influent TDS to the unit [mg/L]:
 
     * Required parameter
-
     * There are different costing data for 0-600, 600-1000, and >1000 mg/L
-
+|
 Capital Costs
 ---------------
 
@@ -51,8 +47,7 @@ unit flow [m3/hr] to determine capital costs:
     .. math::
 
         C_{cx} = a Q_{in} ^ b
-
-
+|
 Electricity Intensity
 ------------------------
 
@@ -64,14 +59,13 @@ the unit flow [m3/hr] to determine capital costs:
 
         E_{cx} = a Q_{in} ^ b
 
-
+|
 Chemical Use
 --------------
 
 The WBS EPA model includes costs for sodium chloride and ion exchange resins. Rather than fit
 this data to a cost curve vs. standard design flows, the average is taken for the range of flows
 and assumed to be the "dose" for the particular chemical.
-
 
 References
 --------------

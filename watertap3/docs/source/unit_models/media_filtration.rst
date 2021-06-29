@@ -10,35 +10,33 @@ Capital Costs
 ---------------
 
 Capital costs for media filtration includes the cost of the filter and the cost of the backwash
-system.
+system (McGivney & Kawamura (2008)).
 
     .. math::
 
         C_{mf} = C_{filter} + C_{bw}
-
+|
 The cost of the filter is a function of the surface area and the number of units:
 
     .. math::
 
-        C_{filter} = (92497 + 38.319 A) n
-
-With the filter surface area calculated as [ft2]:
+        C_{filter} = (21377 + 38.319 A) n
+|
+With the filter surface area calculated with the assumed filtration rate [ft2]:
 
     .. math::
 
         A = \frac{Q_{in}}{v}
-
+|
 The cost of the backwash system is also a function of filter surface area:
 
     .. math::
 
         C_{bw} = 92947 + 292.44 A
-
+|
 
 Assumptions
 --------------
-
-Several aspects of the unit are assumed:
 
 There are six units:
 
@@ -56,7 +54,7 @@ The filtration rate is 10 m/hr:
 Electricity Intensity
 ------------------------
 
-Electricity intensity is fixed at 0.00015 kWh/m3 from the below reference.
+Electricity intensity is fixed at 0.00015 kWh/m3 from Bukhary et al. (2019).
 
 References
 --------------
@@ -83,3 +81,8 @@ Media Filtration Module
 .. autoclass:: watertap3.wt_units.media_filtration.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

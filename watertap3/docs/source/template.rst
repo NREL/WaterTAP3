@@ -24,5 +24,10 @@ Unit Template
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.unit_template.UnitProcess
-    :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
+    :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

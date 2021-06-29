@@ -21,7 +21,7 @@ def cost_curve(unit_process, **kwargs):
         k, v = temp[0], temp[1]
 
         if k == 'tds_in':
-            # df = df[['flow_in', 'cap_total', 'electricity_flow', k]]
+
             if unit_process == 'cation_exchange':
                 if v >= 1000:
                     df = df[df.tds_in == 1000]
@@ -38,14 +38,14 @@ def cost_curve(unit_process, **kwargs):
                     df = df[df.tds_in == 50]
 
         if k == 'radon_rem':
-            # df = df[['flow_in', 'cap_total', 'electricity_flow', k]]
+
             if v >= 0.9:
                 df = df[df.radon_rem == 0.99]
             else:
                 df = df[df.radon_rem == 0.9]
 
         if k == 'ebct':
-            # df = df[['flow_in', 'cap_total', 'electricity_flow', k]]
+
             if v > 30:
                 df = df[df.ebct == 60]
             else:

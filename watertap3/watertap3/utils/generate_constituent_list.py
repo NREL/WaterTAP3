@@ -27,7 +27,7 @@ def run(m_fs):
     df.case_study = np.where(df.case_study == 'default', train['case_study'], df.case_study)
     df = df[df.reference == train['reference']]
     df = df[df.case_study == train['case_study']]
-    df = df[df.scenario == 'baseline']  # FIX THIS ARIEL/KURBY TODO
+    df = df[df.scenario == 'baseline']
     list1 = df[df.value >= 0].constituent.unique()
 
     if isinstance(source_water['water_type'], list):
@@ -54,7 +54,7 @@ def get_removal_factors(unit_process, m):
     df.case_study = np.where(df.case_study == 'default', train['case_study'], df.case_study)
     df = df[df.reference == train['reference']]
     df = df[df.case_study == train['case_study']]
-    df = df[df.scenario == 'baseline']  # FIX THIS ARIEL/KURBY TODO
+    df = df[df.scenario == 'baseline']
     df = df[df.unit_process == unit_process]
 
     removal_dict = {}

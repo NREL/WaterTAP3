@@ -1,9 +1,6 @@
 Anion Exchange
 ============================================================
 
-Unit Basics
---------------
-
 The anion exchange model in WaterTAP3 is based off of a regression of several runs using EPA's
 Work Breakdown Structure-Based (WBS EPA) model (see reference). These models incorporate
 several aspects of cost of the treatment process, including treatment, monitoring, and
@@ -26,7 +23,7 @@ Both sets of data are fit to a power curve:
     .. math::
 
         Y = a Q ^ b
-
+|
 Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
 flow in for the particular case study.
 
@@ -38,7 +35,6 @@ Anion exchange has one parameter:
 * ``"tds_in"`` - the influent sulfate to the unit [mg/L]:
 
     * Required parameter
-
     * There are different costing data for 0-50, 50-100, and >150 mg/L
 
 Capital Costs
@@ -51,7 +47,7 @@ unit flow [m3/hr] to determine capital costs:
     .. math::
 
         C_{ax} = a Q_{in} ^ b
-
+|
 
 Electricity Intensity
 ------------------------
@@ -64,7 +60,7 @@ the unit flow [m3/hr] to determine capital costs:
 
         E_{ax} = a Q_{in} ^ b
 
-
+|
 Chemical Use
 --------------
 

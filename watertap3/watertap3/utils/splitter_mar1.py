@@ -1,3 +1,13 @@
+##############################################################################
+# Institute for the Design of Advanced Energy Systems Process Systems
+# Engineering Framework (IDAES PSE Framework) Copyright (c) 2018-2020, by the
+# software owners: The Regents of the University of California, through
+# Lawrence Berkeley National Laboratory,  National Technology & Engineering
+# Solutions of Sandia, LLC, Carnegie Mellon University, West Virginia
+# University Research Corporation, et al. All rights reserved.
+##############################################################################
+
+
 from idaes.core import (UnitModelBlockData, declare_process_block_class, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 from pyomo.common.config import ConfigBlock, ConfigValue, In

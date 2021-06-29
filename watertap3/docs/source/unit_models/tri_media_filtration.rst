@@ -9,7 +9,7 @@ None
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [MGD]:
+The capital costs are a function of flow [MGD] from the Texas Water Development Board (2016):
 
     .. math::
 
@@ -18,7 +18,7 @@ The capital costs are a function of flow [MGD]:
 Electricity Intensity
 ------------------------
 
-Electricity intensity is fixed at 0.00045 kWh/m3 from the below reference.
+Electricity intensity is fixed at 0.00045 kWh/m3 from Bukhary et al. (2019).
 
 References
 ______________

@@ -1,27 +1,22 @@
 Deep Well Injection
 ==========================
 
-Unit Basics
---------------
-Deep well injection is used as a ZLD technology to dispose of brine waste from desalination
-treatment processes.
+Deep well injection is used to dispose of waste streams.
 
 Unit Parameters
 --------------------
 
-The evaporation pond model in WaterTAP3 draws from several sources and includes several optional
-parameters for user input. Further detail on these parameters is provided below:
+Deep well injection has two parameters:
 
 * ``"lift_height"`` - lift height for injection pump [ft]:
 
     * Optional parameter
     * Default value is 400 ft
-
+|
 * ``"pipe_distance"`` - pipe distance from facility to deep well injection site [mi]
 
     * Required parameter
-
-
+|
 Capital Costs
 ---------------
 
@@ -33,24 +28,54 @@ cost assumes an 8 in diameter pipe, and is calculated as:
     .. math::
 
         C_{pipe} = 0.28 x_{pipe}
-
+|
 The total fixed cost is then calculated by scaling with KBH flow according to:
 
     .. math::
 
         C_{dwi} = ( C_{well} + C_{pipe} ) \frac{Q_{in}}{Q_{KBH}} ^ {0.7}
+|
 
 Electricity Intensity
 ------------------------
 
-Electricity intensity for deep well injection in WaterTAP3 is based off the pump used for
-injection. The model assumes:
+Electricity intensity for deep well injection is based off the pump used. The
+calculation includes:
 
-    * Lift height = 400 ft
+* Lift height [ft]:
 
-        * Can be changed by user in unit parameters (see above)
-    * Pump efficiency = 90%
-    * Motor efficiency = 90%
+    .. math::
+
+        h
+|
+* The pump and motor efficiencies:
+
+    .. math::
+
+        \eta_{pump}, \eta_{motor}
+|
+* And the influent flow in [gal/min] and [m3/hr]:
+
+    .. math::
+
+        Q_{gpm}, Q_{m3hr}
+|
+Then the electricity intensity is calculated as [kWh/m3]:
+
+    .. math::
+
+        E_{dwi} = \frac{0.746 Q_{gpm} h}{3960 \eta_{pump} \eta_{motor} Q_{m3hr}}
+|
+
+Assumptions
+------------------------
+
+* Lift height [ft] = 100
+* Pump efficiency = 0.9
+* Motor efficiency = 0.9
+
+Reference
+---------------------
 
 
 Module

@@ -44,12 +44,12 @@ class UnitProcess(WT3UnitProcess):
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
         self.toc_in = pyunits.convert(self.conc_mass_in[time, 'toc'], to_units=(pyunits.mg / pyunits.liter))
         self.aop = unit_params['aop']
-        self.contact_time = unit_params['contact_time'] * (1 / pyunits.minutes)
+        self.contact_time = unit_params['contact_time'] * pyunits.minutes
         self.ct = unit_params['ct'] * (pyunits.mg / (pyunits.liter * pyunits.minute))
         self.mass_transfer = unit_params['mass_transfer'] * pyunits.dimensionless
-        self.ozone_consumption = ((self.toc_in + self.ct / self.contact_time) / self.mass_transfer)
+        self.ozone_consumption = ((self.toc_in + self.ct * self.contact_time) / self.mass_transfer)
         self.ozone_consumption = pyunits.convert(self.ozone_consumption, to_units=(pyunits.kg / pyunits.m ** 3))
-        self.o3_toc_ratio = 1 + ((self.ct / self.contact_time) / self.toc_in)
+        self.o3_toc_ratio = 1 + ((self.ct * self.contact_time) / self.toc_in)
         if self.aop:
             self.ox_dose = pyunits.convert((0.5 * self.o3_toc_ratio * self.toc_in), to_units=(pyunits.kg / pyunits.m ** 3))
             chem_name = unit_params['chemical_name']
@@ -58,8 +58,8 @@ class UnitProcess(WT3UnitProcess):
             self.h2o2_cap_exp = 0.2277
         else:
             self.chem_dict = {}
-        x0 = pyunits.convert(self.ozone_consumption, to_units=(pyunits.mg / pyunits.liter))  # mg/L
-        x1 = self.flow_in  # MGD
+        x0 = pyunits.convert(self.ozone_consumption, to_units=(pyunits.mg / pyunits.liter))
+        x1 = self.flow_in
         ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
                 x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
         if self.aop:
@@ -79,7 +79,7 @@ class UnitProcess(WT3UnitProcess):
 
         :return: Ozone/Ozone AOP electricity intenstiy [kWh/m3]
         '''
-        ozone_flow = self.o3_flow()  # lb/day
+        ozone_flow = self.o3_flow()
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
         electricity = (5 * ozone_flow) / flow_in_m3hr
         return electricity
@@ -90,21 +90,21 @@ class UnitProcess(WT3UnitProcess):
 
         :return: Oxidant solution flow [gal/day]
         '''
-        flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))  # convert from MGD to m3/hr
+        flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
         chemical_rate = flow_in_m3hr * self.ox_dose  # kg/hr
         chemical_rate = pyunits.convert(chemical_rate, to_units=(pyunits.lb / pyunits.day))
         return chemical_rate
 
     def o3_flow(self):
         '''
-        Determine ozone flow rate [lb/day]
+        Determine ozone flow rate [lb/hr]
 
-        :return: Ozone flow [lb/day]
+        :return: Ozone flow [lb/hr]
         '''
-        flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))  # convert from MGD to m3/hr
-        ozone_flow = flow_in_m3hr * self.ozone_consumption  # kg/hr
+        flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hour))
+        ozone_flow = flow_in_m3hr * self.ozone_consumption
         ozone_flow = pyunits.convert(ozone_flow, to_units=(pyunits.lb / pyunits.hour))
-        return ozone_flow  # lb / day
+        return ozone_flow
 
     def get_costing(self, unit_params=None, year=None):
         '''
@@ -112,7 +112,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

@@ -19,7 +19,7 @@ class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
         time = self.flowsheet().config.time.first()
-        self.flow_in = self.flow_vol_in[time] # needs to be in m3/s, so no conversion
+        self.flow_in = self.flow_vol_in[time]
         self.chem_dict = {}
         self.base_fixed_cap_cost = 13572
         self.cap_scaling_exp = 0.3182
@@ -29,7 +29,7 @@ class UnitProcess(WT3UnitProcess):
         sed_cap = self.base_fixed_cap_cost * basin_surface_area ** self.cap_scaling_exp * self.tpec_tic * 1E-6
         return sed_cap
 
-    def elect(self):  # m3/hr
+    def elect(self):
         electricity = 0
         return electricity
 
@@ -39,7 +39,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)
