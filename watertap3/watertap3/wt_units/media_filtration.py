@@ -23,7 +23,7 @@ class UnitProcess(WT3UnitProcess):
         media_filt_cap = self.tpec_tic * (self.dual_media_filter() + self.filter_backwash()) * 1E-6
         return media_filt_cap
 
-    def elect(self):  # m3/hr
+    def elect(self):
         electricity = 0.00015 # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
         return electricity
 

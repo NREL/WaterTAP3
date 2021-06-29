@@ -17,6 +17,14 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
+        '''
+
+        :param unit_params: Input parameters from input sheet.
+        :type unit_params: dict
+        :param tds_in: TDS into unit [mg/L]
+        :type tds_in: float
+        :return:
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.tds_in = pyunits.convert(self.conc_mass_in[time, 'tds'], to_units=(pyunits.mg / pyunits.L))
@@ -28,6 +36,10 @@ class UnitProcess(WT3UnitProcess):
         return cat_ex_cap * 1E-6  # M$
 
     def elect(self):  # m3/hr
+        '''
+        Electricity intensity for cation exchange module [kWh/m3]
+        :return:
+        '''
         electricity = self.elect_coeffs[0] * self.flow_in ** self.elect_coeffs[1]  # kWh/m3
         return electricity
 

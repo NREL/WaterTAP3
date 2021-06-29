@@ -58,19 +58,20 @@ Oxidant Capital Costs
 The unit can accept any chemical name and dose, but the cost curve used was developed
 specifically for Hydrogen Peroxide.
 
-Oxidant costs `C_{ox}` are calculated with:
+Oxidant costs are calculated with:
 
     .. math::
 
         C_{ox} = 1228 ( Q_{in} * D_{ox} ) ^ {0.2277}
 
-Where `D_{ox}` is the oxidant dose [kg/m3] and is taken from the input parameter ``"dose"``.
+Where the oxidant dose [kg/m3] is taken from the input parameter ``"dose"``.
 
 
 Electricity Intensity
 -------------------------
 
-Need to find the reference!
+Electricity intensity for chlorination is fixed at 0.1 kWh/m3 and is taken from the below
+reference.
 
 Reference
 -----------
@@ -85,6 +86,10 @@ CAPITAL
 
 ELECTRICITY
 *************
+
+| US Environmental Protection Agency (2010)
+| "Evaluation of Energy Conservation Measures for Wastewater Treatment Facilities"
+| https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1008SBM.TXT
 
 
 

@@ -17,6 +17,10 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        '''
+
+        :return: Fixed capital for pressure vessel GAC [$MM]
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.ebct = unit_params['ebct']
@@ -27,7 +31,11 @@ class UnitProcess(WT3UnitProcess):
         gac_press_cap = self.cost_coeffs[0] * self.flow_in ** self.cost_coeffs[1]  # $
         return gac_press_cap * 1E-6  # M$
 
-    def elect(self):  # m3/hr
+    def elect(self):
+        '''
+        Electricity intensity for pressure vessel GAC [kWh/m3]
+        :return:
+        '''
         electricity = self.elect_coeffs[0] * self.flow_in ** self.elect_coeffs[1]  # kWh/m3
         return electricity
 

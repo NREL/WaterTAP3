@@ -1176,6 +1176,8 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
             m.fs.area_ratio_constr1 = Constraint(expr=(m.fs.ro_a_first_pass.membrane_area[0] / m.fs.ro_a_second_pass.membrane_area[0]) == (m.fs.ro_b_first_pass.membrane_area[0] / m.fs.ro_b_second_pass.membrane_area[0]))
 
 
+    # if case_study == 'ocwd':
+    #     m.fs.ro_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 10)
 
     if has_ro:
         m = set_bounds(m, source_water_category=ro_bounds)

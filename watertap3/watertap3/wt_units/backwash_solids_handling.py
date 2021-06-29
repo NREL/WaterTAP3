@@ -28,9 +28,7 @@ class UnitProcess(WT3UnitProcess):
         self.density = 0.6312 * self.conc_mass_tot + 997.86  # kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
         self.total_mass = total_mass = self.density * pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
         self.chem_dict = {}
-        self.lift_height = 100 * pyunits.ft
-        self.pump_eff = 0.9 * pyunits.dimensionless
-        self.motor_eff = 0.9 * pyunits.dimensionless
+
 
         filter_backwash_pumping_cost = 186458
         surface_wash_system = 99941
@@ -65,6 +63,9 @@ class UnitProcess(WT3UnitProcess):
         return backwash_cap  # MM$
 
     def elect(self):
+        self.lift_height = 100 * pyunits.ft
+        self.pump_eff = 0.9 * pyunits.dimensionless
+        self.motor_eff = 0.9 * pyunits.dimensionless
         flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=pyunits.m ** 3 / pyunits.hour)
         electricity = (0.746 * flow_in_gpm * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / flow_in_m3hr  # kWh/m3

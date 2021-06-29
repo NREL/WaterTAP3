@@ -29,17 +29,20 @@ class UnitProcess(WT3UnitProcess):
         self.contact_time_mins = pyunits.convert(self.contact_time, to_units=pyunits.minute)
         self.ct = 450 * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter)) # mg/L-min
         self.chlorine_decay_rate = 3.0  * (pyunits.milligram / (pyunits.liter * pyunits.hour)) # mg/Lh
-        self.dose = self.chlorine_decay_rate * self.contact_time + self.ct / self.contact_time_mins
+        try:
+            self.dose = unit_params['dose']
+        except:
+            self.dose = self.chlorine_decay_rate * self.contact_time + self.ct / self.contact_time_mins
         chem_name = unit_params['chemical_name']
         self.chem_dict = {chem_name: self.dose * 1E-3}
-        df = pd.read_csv('data/chlorine_dose_cost_twb.csv')
-        new_dose_list = np.arange(0, 25.1, 0.5)
-        cost_list = []
-        flow_list = []
-        dose_list = []
+        self.df = df = pd.read_csv('data/chlorine_dose_cost_twb.csv')
+        self.new_dose_list = new_dose_list = np.arange(0, 25.1, 0.1)
+        self.cost_list = cost_list = []
+        self.flow_list = flow_list = []
+        self.dose_list = dose_list = []
         for flow in df.Flow_mgd.unique():
-            df_hold = df[df.Flow_mgd == flow]
-            del df_hold['Flow_mgd']
+            self.df_hold = df_hold = df[df.Flow_mgd == flow]
+            # del df_hold['Flow_mgd']
             if 0 not in df_hold.Cost.values:
                 xs = np.hstack((0, df_hold.Dose.values))  # dont think we need the 0s
                 ys = np.hstack((0, df_hold.Cost.values))  # dont think we need the 0s
@@ -58,11 +61,11 @@ class UnitProcess(WT3UnitProcess):
                     cost_list.append(a * new_dose ** b)
                 dose_list.append(new_dose)
                 flow_list.append(flow)
-        dose_cost_table = pd.DataFrame()
+        self.dose_cost_table = dose_cost_table = pd.DataFrame()
         dose_cost_table['flow_mgd'] = flow_list
         dose_cost_table['dose'] = dose_list
         dose_cost_table['cost'] = cost_list
-        df1 = dose_cost_table[dose_cost_table.dose == self.dose]
+        self.df1 = df1 = dose_cost_table[dose_cost_table.dose == self.dose]
         xs = np.hstack((0, df1.flow_mgd.values))
         ys = np.hstack((0, df1.cost.values))
         a = ml_regression.get_cost_curve_coefs(xs=xs, ys=ys)[0][0]
