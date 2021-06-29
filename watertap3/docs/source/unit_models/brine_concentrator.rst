@@ -15,8 +15,8 @@ There are no unit parameters for the brine concentrator.
 Capital Costs
 ---------------
 
-Capital costs for brine concentrators are a function of influent TDS `c_{TDS}`,
-water recovery `x_{wr}`, and flow in `Q_{in}`. The regression is based off of data found in
+Capital costs for brine concentrators are a function of influent TDS,
+water recovery, and flow in. The regression is based off of data found in
 Tables 5.1 and A2.3 found in the below reference.
 
     .. math::

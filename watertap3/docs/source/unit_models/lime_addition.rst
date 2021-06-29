@@ -59,8 +59,8 @@ assumes:
 Reference
 ------------------------
 
-| Cost Estimating Manual for Water Treatment Facilities (2008)
-| William McGivney & Susumu Kawamura
+| William McGivney & Susumu Kawamura (2008)
+| Cost Estimating Manual for Water Treatment Facilities
 | DOI:10.1002/9780470260036
 
 Lime Addition Module

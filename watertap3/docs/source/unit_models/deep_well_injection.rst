@@ -20,23 +20,21 @@ parameters for user input. Further detail on these parameters is provided below:
 * ``"pipe_distance"`` - pipe distance from facility to deep well injection site [mi]
 
     * Required parameter
-    * `x_{pipe}`
 
 
 Capital Costs
 ---------------
 
 Capital costs for deep well injection are based off of the costs for the Kay Baily Hutchinson
-(KBH) deep well injection site. Costing calculation is split into well construction
-`C_{well}` and pipe construction `C_{pipe}`. From the KBH data, `C_{well}` = $16.9 MM. Piping
+(KBH) deep well injection site. Costing calculation is split into well construction and pipe
+construction. From the KBH data, well construction is $16.9 MM. Piping
 cost assumes an 8 in diameter pipe, and is calculated as:
 
     .. math::
 
         C_{pipe} = 0.28 x_{pipe}
 
-The total fixed cost `C_{dwi}` is then calculated by scaling with KBH flow
-according to:
+The total fixed cost is then calculated by scaling with KBH flow according to:
 
     .. math::
 

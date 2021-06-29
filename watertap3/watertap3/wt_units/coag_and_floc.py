@@ -14,7 +14,9 @@ class UnitProcess(WT3UnitProcess):
     def fixed_cap(self, unit_params):
         '''
 
-        :param unit_params:
+        :param unit_params: Input parameters from input sheet
+        :type unit_params: dict
+
         :return:
         '''
         time = self.flowsheet().config.time
@@ -24,8 +26,8 @@ class UnitProcess(WT3UnitProcess):
         self.alum_dose.fix(alum_dose_kgm3)
         self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
         self.polymer_dose = pyunits.convert(unit_params['polymer_dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
-        self.an_polymer = self.polymer_dose / 2  # MIKE ASSUMPTION NEEDED
-        self.cat_polymer = self.polymer_dose / 2  # MIKE ASSUMPTION NEEDE
+        self.an_polymer = self.polymer_dose / 2
+        self.cat_polymer = self.polymer_dose / 2
         self.rapid_mixers = 1 * pyunits.dimensionless
         self.floc_mixers = 3 * pyunits.dimensionless
         self.rapid_mix_processes = 1 * pyunits.dimensionless
@@ -50,6 +52,11 @@ class UnitProcess(WT3UnitProcess):
         return coag_floc_cap
 
     def elect(self):
+        '''
+        Electricity intensity for coagulation/flocculation [kWh/m3]
+
+        :return:
+        '''
         flow_in_gpm = pyunits.convert(self.flow_in, to_units=pyunits.gallons / pyunits.minute)  # MGD to GPM
         rapid_mix_basin_volume = pyunits.convert(self.rapid_mix_retention_time, to_units=pyunits.minutes) * flow_in_gpm
         rapid_mix_basin_volume = pyunits.convert(rapid_mix_basin_volume, to_units=pyunits.m ** 3)  # gallons to m3

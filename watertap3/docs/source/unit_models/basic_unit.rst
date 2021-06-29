@@ -64,21 +64,20 @@ Mass Based
 *************
 
 For those units based on mass flow, the mass flowing into the unit must be determined.
-First we determine the concentration flowing into the unit `C_{in}`
-[kg/m3]. `C_{in}` is calculated as the summation of the concentration of all `n`
-constituents `c_i` entering the unit:
+First we determine the concentration flowing into the unit [kg/m3], calculated as the
+summation of the concentration of all constituents entering the unit:
 
     .. math::
 
        C_{in} = \sum_{i}^{n} c_i
 
-Then, we estimate the density of the solution `\rho_{in}` [kg/m3]:
+Then, we estimate the density of the solution [kg/m3]:
 
     .. math::
 
         \rho_{in} = 0.6312 ( C_{in} ) + 997.86
 
-Mass flow `M_{in}` [kg/hr] is determined with:
+Mass flow [kg/hr] is determined with:
 
     .. math::
 

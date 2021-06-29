@@ -101,9 +101,9 @@ are commonlny used to concentrate brine streams, an evaporation rate calculated 
 must be adjusted downward.
 
 WaterTAP3 uses one of two regressions from each of the two references below to estimate the
-evaporation rate of pure water `R_{pure}` under the given meteorological
+evaporation rate of pure water under the given meteorological
 conditions. In WaterTAP3,evaporation ponds are used as a zero liquid discharge (ZLD) technology to reduce the volume of
-brine, so the water is assumed to be saline. The evaporation rate of saline water `R_{saline}`
+brine, so the water is assumed to be saline. The evaporation rate of saline water
 can be estimated to be 70% that of pure water. Thus, this calculated evaporation rate is
 multiplied by 0.7 to arrive at the estimated evaporation rate
 
@@ -115,7 +115,7 @@ Pond Area Calculation
 ----------------------------------
 
 For mass balance purposes in WaterTAP3, the flow of evaporated water is the considered to be the
-flow out of the unit. To accomodate a given water recovery, the area of the pond `A_{pond}`
+flow out of the unit. To accomodate a given water recovery, the area of the pond
 is calculated as:
 
     .. math::
@@ -144,14 +144,14 @@ WT3 Approach:
 The WT3 approach is the default approach and uses a regression for total pond area from the
 Bureau of Reclamation reference below. After calculation of the required pond area based on flow
 above, if this approach is used the pond area is adjusted upwards to inorporate the additional
-area needed for dikes `A_{adj}`:
+area needed for dikes:
 
     .. math::
 
            A_{adj} = 1.2 (A_{pond}) (1 + 0.155 \frac{h_{dike}}{\sqrt{A_{pond}}} )
 
 
-Then, the cost per acre `C_{acre}` ($/acre) is determined that incorporates
+Then, the cost per acre ($/acre) is determined that incorporates
 ``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and ``"dike_height"``:
 
     .. math::

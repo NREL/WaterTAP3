@@ -2,7 +2,7 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE: from PML tab, for the kg/hr and not consistent with the usual flow rate cost curves TODO
+## REFERENCE:
 
 module_name = 'surface_discharge'
 basis_year = 2020

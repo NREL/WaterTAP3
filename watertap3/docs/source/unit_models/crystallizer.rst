@@ -15,8 +15,7 @@ There are no unit parameters for the crystallizer.
 Capital Costs
 ---------------
 
-Capital costs for crystallizers are a function of influent TDS `c_{TDS}`, water recovery
-`x_{wr}`, and flow in `Q_{in}`.
+Capital costs for crystallizers are a function of influent TDS, water recovery, and flow in.
 
 The regression is based off of data found in Tables A2.1 and A2.3 found in the below reference.
 

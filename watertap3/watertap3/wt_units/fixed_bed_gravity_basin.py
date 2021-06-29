@@ -17,6 +17,10 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
+        '''
+
+        :return: Fixed capital for fixed bed gravity basin [$MM]
+        '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.cost_coeffs, self.elect_coeffs, self.mats_name, self.mats_cost, _ = cost_curve(module_name)
@@ -27,6 +31,10 @@ class UnitProcess(WT3UnitProcess):
         return gac_grav_cap * 1E-6  # M$
 
     def elect(self):  # m3/hr
+        '''
+        Electricity intensity for fixed bed gravity basin [kWh/m3]
+        :return:
+        '''
         electricity = self.elect_coeffs[0] * self.flow_in ** self.elect_coeffs[1]  # kWh/m3
         return electricity
 

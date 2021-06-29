@@ -45,9 +45,9 @@ Hydrogen Peroxide).
 Ozone Capital Costs
 *********************
 
-Ozone capital costs in WaterTAP3 are a function of the ozone contact time `t`,
-Ct, ozone mass transfer :math:`\eta`, ozone dose :math:`D_{O3}`, TOC concentration :math:`c_{toc}`,
-flow in :math:`Q{in}`, and the ozone/TOC ratio `X`.
+Ozone capital costs in WaterTAP3 are a function of the ozone contact time,
+Ct, ozone mass transfer, ozone dose, TOC concentration,
+flow in, and the ozone/TOC ratio.
 
 TOC concentration and flow in are taken from the model. Contact time, mass transfer, and Ct are
 taken from user input. Ozone demand is calculated as:
@@ -80,7 +80,11 @@ Where `D_{ox}` is the oxidant dose [kg/m3]:
 Electricity Intensity
 ------------------------
 
-Need to find the reference for this!
+Electricity intensity is a function of the ozone flow [lb/day] and water flow into unit [m3/hr]:
+
+    .. math::
+
+        E_{O3} = 5 \frac{Q_{O3}}{Q_{in}}
 
 References
 -------------------
@@ -93,10 +97,6 @@ COSTING
 | Texas Water Development Board
 | December 2016
 
-ELECTRICITY
-*************
-
-Need to find the reference for this!
 
 Ozone + AOP Module
 ----------------------------------------

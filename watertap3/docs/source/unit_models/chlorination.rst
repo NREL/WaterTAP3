@@ -30,11 +30,9 @@ is sufficient contact time downstream of the chlorine feed point.
 
 Electricity Intensity
 ------------------------
-Electricity intensity for chlorination is fixed and is taken from the below reference.
 
-    .. math::
-
-        E_{Cl} = 5 \times 10 ^ {-5}
+Electricity intensity for chlorination is fixed at 5E-5 kWh/m3 and is taken from the below
+reference.
 
 
 References
@@ -51,9 +49,9 @@ CAPITAL
 ELECTRICITY
 ****************
 
-| An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant.
 | Bukhary, S., Batista, J., Ahmad, S. (2019).
-| Water, 12(1), 1-21.
+| An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water TreatmentPlant.
+| *Water*, 12(1), 1-21.
 
 
 Chlorination Module

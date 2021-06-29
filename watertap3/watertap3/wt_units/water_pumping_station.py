@@ -1,4 +1,4 @@
-from pyomo.environ import Block, Expression, units as pyunits
+from pyomo.environ import Block, Expression, value, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
@@ -50,7 +50,7 @@ class UnitProcess(WT3UnitProcess):
         pumping_cap = self.tpec_tic * self.a * self.flow_in ** self.b * 1E-6
         return pumping_cap
 
-    def elect(self):  # m3/hr
+    def elect(self, unit_params):  # m3/hr
         # Electricity costing parameters c, d determined with the following code:
         # Data taken from WT3 excel model
         # motor_eff = 0.9
@@ -64,7 +64,15 @@ class UnitProcess(WT3UnitProcess):
         self.d = 0.9999999999999999
         flow_in_mgd = pyunits.convert(self.flow_in, to_units=(pyunits.Mgallons / pyunits.day))
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
-        electricity = (self.c * (flow_in_mgd / 440.29) ** self.d) / flow_in_m3hr  # kWh / m3
+        self.flow_in_gpm = value(pyunits.convert(self.flow_in, to_units=(pyunits.gallons / pyunits.minute)))
+        if 'pump_power' in unit_params.keys():
+            self.pump_power_hp = unit_params['pump_power'] * pyunits.hp
+            self.pump_power_kw = pyunits.convert(self.pump_power_hp, to_units=pyunits.kilowatts)
+        else:
+            self.pump_power_kw = (self.c * (flow_in_mgd / 440.29) ** self.d) * pyunits.kilowatts
+        self.pump_power_kw = self.pump_power_kw * pyunits.kilowatts
+        electricity =  self.pump_power_kw / flow_in_m3hr  # kWh / m3
+        # electricity = (self.c * (flow_in_mgd / 440.29) ** self.d) / flow_in_m3hr  # kWh / m3
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -74,6 +82,6 @@ class UnitProcess(WT3UnitProcess):
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')  # $M
-        self.electricity = Expression(expr=self.elect(),
+        self.electricity = Expression(expr=self.elect(unit_params),
                                       doc='Electricity intensity [kwh/m3]')  # kwh/m3
         financials.get_complete_costing(self.costing)
