@@ -1,34 +1,17 @@
 GAC - Gravity
 ============================================================
 
-Unit Basics
---------------
-
-The GAC gravity model in WaterTAP3 is based off of a regression of several runs using EPA's
-Work Breakdown Structure-Based (WBS EPA) model (see reference). These models incorporate
-several aspects of cost of the treatment process, including treatment, monitoring, and
-administrative costs. Both capital cost and electricity intensity are based entirely on
-volumetric flow, but are assumed to incorporate these costing aspects of the EPA model.
-
-The WBS EPA models each have some "standard designs" that make default assumptions (see EPA
-documentation) and span a range of flows 7.4 MGD to 75 MGD. Empty bed contact time (EBCT) also
-affects cost. The EPA model outputs several costing parameters, including total
-capital cost.
+The GAC gravity in WaterTAP3 is based off of a regression of several runs using
+EPA's Work Breakdown Structure-Based (WBS EPA) model. The WBS EPA models each
+have some  "standard designs" that make default assumptions (USEPA (2019)) and span a
+range of flows 0.03 MGD to 75 MGD.
 
 The approach for the WT3 model is to regress the total capital cost output from the EPA model vs.
-flow for each ofthe EPA model standard designs using influent sulfate of 30 and 60 minutes.
-The different capital costs for each of these model runs is determined from the user input
-``"ebct"``. i.e. the cost curve is different if the EBCT is 10 min vs. 90 min. A
+flow for each of the EPA model standard designs with the fixed bed gravity basin option. A
 similar approach is taken to determine electricity intensity.
 
-Both sets of data are fit to a power curve:
-
-    .. math::
-
-        Y = a Q ^ b
-
-Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
-flow in for the particular case study.
+Both sets of data are fit to a power curve. Then `a` and `b` are used with the
+flow for the model.
 
 Unit Parameters
 --------------------
@@ -38,9 +21,8 @@ Anion exchange has one parameter:
 * ``"ebct"`` - empty bed contact time for the unit [min]:
 
     * Required parameter
-
     * There are different costing data for 0-60 min and >60 min
-
+|
 Capital Costs
 ---------------
 
@@ -51,8 +33,7 @@ unit flow [m3/hr] to determine capital costs:
     .. math::
 
         C_{gac} = a Q_{in} ^ b
-
-
+|
 Electricity Intensity
 ------------------------
 
@@ -63,8 +44,7 @@ the unit flow [m3/hr] to determine capital costs:
     .. math::
 
         E_{gac} = a Q_{in} ^ b
-
-
+|
 Chemical Use
 --------------
 
@@ -85,3 +65,8 @@ Unit Template
 .. autoclass:: watertap3.wt_units.gac_pressure_vessel.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

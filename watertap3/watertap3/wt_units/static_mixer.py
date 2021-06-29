@@ -41,8 +41,8 @@ class UnitProcess(WT3UnitProcess):
         mix_cap = (source_cost * self.tpec_tic * self.number_of_units) * 1E-6
         return mix_cap
 
-    def elect(self):  # m3/hr
-        electricity = 0  # kWh/m3
+    def elect(self):
+        electricity = 0
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -51,7 +51,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

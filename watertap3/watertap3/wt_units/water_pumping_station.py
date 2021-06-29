@@ -50,7 +50,7 @@ class UnitProcess(WT3UnitProcess):
         pumping_cap = self.tpec_tic * self.a * self.flow_in ** self.b * 1E-6
         return pumping_cap
 
-    def elect(self, unit_params):  # m3/hr
+    def elect(self, unit_params):
         # Electricity costing parameters c, d determined with the following code:
         # Data taken from WT3 excel model
         # motor_eff = 0.9
@@ -71,8 +71,7 @@ class UnitProcess(WT3UnitProcess):
         else:
             self.pump_power_kw = (self.c * (flow_in_mgd / 440.29) ** self.d) * pyunits.kilowatts
         self.pump_power_kw = self.pump_power_kw * pyunits.kilowatts
-        electricity =  self.pump_power_kw / flow_in_m3hr  # kWh / m3
-        # electricity = (self.c * (flow_in_mgd / 440.29) ** self.d) / flow_in_m3hr  # kWh / m3
+        electricity =  self.pump_power_kw / flow_in_m3hr
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -81,7 +80,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(unit_params),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

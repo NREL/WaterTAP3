@@ -1,5 +1,5 @@
 Source Water
-------------------------
+=============================
 
 ``data/case_study_water_sources.csv``
 

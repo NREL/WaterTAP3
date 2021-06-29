@@ -24,21 +24,21 @@ class UnitProcess(WT3UnitProcess):
         return media_filt_cap
 
     def elect(self):
-        electricity = 0.00015 # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
+        electricity = 0.00015
         return electricity
 
     def base_filter_surface_area(self):
         self.filtration_rate = 10 * (pyunits.meter / pyunits.hour)
-        surface_area = pyunits.convert((self.flow_in / self.filtration_rate), to_units=pyunits.ft ** 2)  # conversion to ft2
-        return surface_area  # total surface area of the filter, in ft2
+        surface_area = pyunits.convert((self.flow_in / self.filtration_rate), to_units=pyunits.ft ** 2)
+        return surface_area
 
     def dual_media_filter(self):
         self.number_of_units = 6
-        dual_cost = (38.319 * self.base_filter_surface_area() + 21377) * self.number_of_units  # calculations done based on ft2
+        dual_cost = (38.319 * self.base_filter_surface_area() + 21377) * self.number_of_units
         return dual_cost
 
     def filter_backwash(self):
-        filter_backwash_cost = 292.44 * self.base_filter_surface_area() + 92497  # calculations done based on ft2
+        filter_backwash_cost = 292.44 * self.base_filter_surface_area() + 92497
         return filter_backwash_cost
 
     def get_costing(self, unit_params=None, year=None):
@@ -47,7 +47,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

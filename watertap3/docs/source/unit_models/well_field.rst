@@ -9,7 +9,7 @@ None.
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [m3/hr]:
+The capital costs are a function of flow [m3/hr] from Voutchkov (2018):
 
     .. math::
 
@@ -18,7 +18,7 @@ The capital costs are a function of flow [m3/hr]:
 Electricity Intensity
 ------------------------
 
-There are no electricity costs associated with storage tanks in WaterTAP3.
+There are no electricity costs associated with well field in WaterTAP3.
 
 References
 ______________

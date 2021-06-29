@@ -5,10 +5,6 @@
 # Lawrence Berkeley National Laboratory,  National Technology & Engineering
 # Solutions of Sandia, LLC, Carnegie Mellon University, West Virginia
 # University Research Corporation, et al. All rights reserved.
-#
-# Please see the files COPYRIGHT.txt and LICENSE.txt for full copyright and
-# license information, respectively. Both files are also available online
-# at the URL 'https://github.com/IDAES/idaes-pse'.
 ##############################################################################
 
 import pandas as pd
@@ -46,8 +42,6 @@ class SystemSpecs():
         self.debt_interest_rate = float(basis_data[basis_data['variable'] == 'debt_interest_rate'].loc[case_study].value)
         self.plant_cap_utilization = float(basis_data[basis_data['variable'] == 'plant_cap_utilization'].loc[case_study].value)
 
-
-################## WATERTAP METHOD ###########################################################
 
 def create_costing_block(unit, basis_year, tpec_or_tic):
     '''
@@ -128,7 +122,6 @@ def get_complete_costing(costing):
     costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
 
 
-# TO DO MOVE TO FUNCTION BELOW
 def get_ind_table(analysis_yr_cost_indicies):
     '''
     Function to get costing indicies for WaterTAP3 model.
@@ -164,12 +157,6 @@ def get_ind_table(analysis_yr_cost_indicies):
 
     return df
 
-
-####################################
-###### FROM TIM's RO MODEL #######    
-####################################
-# The parameters below should replace the constants above.
-### THIS IS NOT CURRENTLY USED --> add_costing_param_block    
 
 def get_system_specs(self, train=None):
     '''
@@ -280,8 +267,6 @@ def get_system_costing(self):
             expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual
                   + b.other_var_cost_annual))
 
-    # RECOVERED WATER = IF OUTLET IS NOT GOING ANYWHERE
-    # from case_study_trains import check_waste
     recovered_water_flow = 0
     wastewater_list = []
 
@@ -349,7 +334,6 @@ def get_system_costing(self):
             doc='Electricity cost as fraction of LCOW')
 
 
-### JUST TO GET IDAES TO RUN --> THESE SHOULd BE THE SYSTEM SPECS    
 def global_costing_parameters(self, year=None):
     if year is None:
         year = '2018'

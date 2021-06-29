@@ -15,12 +15,12 @@ Water Board reference:
     .. math::
 
         C_{MF} = 2.5 Q_{in}
-
+|
 
 Electricity Intensity
 ------------------------
 
-Electricity intensity is fixed at 0.18 kWh/m3 from the below reference.
+Electricity intensity is fixed at 0.18 kWh/m3 from Plappally & Lienhard (2012).
 
 References
 -------------
@@ -47,3 +47,7 @@ Microfiltation Module
 .. autoclass:: watertap3.wt_units.microfiltration.UnitProcess
     :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
     :exclude-members: build
+
+..  raw:: pdf
+
+    PageBreak

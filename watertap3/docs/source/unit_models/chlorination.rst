@@ -1,14 +1,28 @@
 Chlorination
 =================
 
-In general, costs for chemical additions in WaterTAP3 are a function of the chemical dose and the
-flow in. The chemical solution flow is calculated from these two values and assumed solution
-densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
+Costs for chemical additions are based on the chemical dose required to treat the water and the inlet flow to the unit.
 
+Unit Parameters
+--------------------
+
+There are two unit parameters:
+
+* ``"chemical_name"`` - the name of the chemical for chlorination:
+
+    * Required parameter
+    * Must be in single ``' '`` or double ``" "`` quotes
+|
+* ``"dose"`` - chlorination dose [mg/L]:
+
+    * Optional parameter
+    * Default value is 9.5 mg/L (calculated below)
+|
 Capital Costs
 ---------------------------------
+
 Chlorination capital costs are a function of the applied chlorine dose and the flow using data
-in Table 3.23 of the Texas Water Board reference (below).
+in Table 3.23 of the Texas Water Development Board (2016).
 
 The chlorine dose is calculated from:
 
@@ -20,19 +34,32 @@ The chlorine dose is calculated from:
 * `r` = Chlorine decay rate [mg/Lhr]; default = 3
 * `t` = Contact time [hr]; default = 1.5
 * `Ct` = Desired Ct [mg*min/L]; default = 450
+|
+Then, using the data provided in Table 3.23, cost data is read in based on the dose and fit to
+the general form based on flow [MGD]:
 
-Assumptions:
-****************
+    .. math::
 
-According to the reference, capital costs only include chemical feed equipment and assume there
-is sufficient contact time downstream of the chlorine feed point.
+        C = a Q ^ b
+|
+In other words, values of `a` and `b` will depend on the dose used for the unit. Once `a` and `b`
+are known, the capital costs for chlorination are:
 
+    .. math::
 
+        C_{Cl} = a Q_{in} ^ b
+|
 Electricity Intensity
 ------------------------
 
-Electricity intensity for chlorination is fixed at 5E-5 kWh/m3 and is taken from the below
-reference.
+Electricity intensity for chlorination is fixed at 5E-5 kWh/m3 and is taken from Bukhary,
+et al. (2019).
+
+Assumptions
+------------------------
+
+According to the reference, capital costs only include chemical feed equipment and assume there
+is sufficient contact time downstream of the chlorine feed point.
 
 
 References

@@ -21,8 +21,8 @@ class UnitProcess(WT3UnitProcess):
         tri_media_cap = self.base_fixed_cap_cost * self.flow_in ** self.cap_scaling_exp
         return tri_media_cap
 
-    def elect(self):  # m3/hr
-        electricity = 0.00045 # kwh/m3 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant --- multiplied by 3 for trimedia
+    def elect(self):
+        electricity = 0.00045
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -31,8 +31,8 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)
 

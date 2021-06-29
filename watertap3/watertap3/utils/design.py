@@ -10,7 +10,7 @@ __all__ = ['add_unit_process',
            'add_mixer']
 
 
-def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):  # in design
+def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):
 
     up_module = module_import.get_module(unit_process_type)
 
@@ -25,14 +25,14 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):  #
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={'property_package': m.fs.water}))
         m = create(m, unit_process_type, unit_process_name)
 
-    ### SET PARAMS HERE FOR UP ###
+
     getattr(m.fs, unit_process_name).get_costing(unit_params=unit_params)
 
     return m
 
 
 def add_water_source(m=None, source_name=None, link_to=None,
-                     reference=None, water_type=None, case_study=None, flow=None):  # in design
+                     reference=None, water_type=None, case_study=None, flow=None):
 
     df = importfile.feedwater(
             input_file='data/case_study_water_sources.csv',
@@ -56,7 +56,7 @@ def add_water_source(m=None, source_name=None, link_to=None,
 
 
 def add_splitter(m=None, split_name=None, with_connection=False, outlet_list=None, outlet_fractions=None,
-                 link_to=None, link_from=None, stream_name=None, unfix=False):  # in design
+                 link_to=None, link_from=None, stream_name=None, unfix=False):
 
     setattr(m.fs, split_name, Separator(default={
             'property_package': m.fs.water,
@@ -74,7 +74,7 @@ def add_splitter(m=None, split_name=None, with_connection=False, outlet_list=Non
 
 # TO DO MAKE THE FRACTION A DICTIONARY
 def add_mixer(m=None, mixer_name=None, with_connection=False, inlet_list=None,
-              link_to=None, link_from=None, stream_name=None):  # in design
+              link_to=None, link_from=None, stream_name=None):
 
     setattr(m.fs, mixer_name, Mixer(default={
             'property_package': m.fs.water,

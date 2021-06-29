@@ -5,7 +5,7 @@ __all__ = ['create']
 
 
 def create(m, unit_process_type, unit_process_name):
-    # Get get water recovery
+
     df = pd.read_csv('data/water_recovery.csv')
     case_study_name = m.fs.train['case_study']
 

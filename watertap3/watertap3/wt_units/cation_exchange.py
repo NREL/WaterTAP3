@@ -32,15 +32,15 @@ class UnitProcess(WT3UnitProcess):
         for k, v in self.mats_cost.items():
             self.mats_cost[k] = v * (pyunits.kg / pyunits.m ** 3)
         self.chem_dict = self.mats_cost
-        cat_ex_cap = self.cost_coeffs[0] * self.flow_in ** self.cost_coeffs[1]  # $
-        return cat_ex_cap * 1E-6  # M$
+        cat_ex_cap = self.cost_coeffs[0] * self.flow_in ** self.cost_coeffs[1]
+        return cat_ex_cap * 1E-6
 
-    def elect(self):  # m3/hr
+    def elect(self):
         '''
         Electricity intensity for cation exchange module [kWh/m3]
         :return:
         '''
-        electricity = self.elect_coeffs[0] * self.flow_in ** self.elect_coeffs[1]  # kWh/m3
+        electricity = self.elect_coeffs[0] * self.flow_in ** self.elect_coeffs[1]
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -49,7 +49,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

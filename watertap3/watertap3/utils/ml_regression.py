@@ -12,7 +12,6 @@ __all__ = ['make_df_for_ml',
 
 def make_df_for_ml(df1):
     poly2 = PolynomialFeatures(3, include_bias=False)
-    # X1=np.array(10*np.random.randn(37,3)) test
     df1 = df1.copy(deep=True)
     df1 = df1.T
     X = []
@@ -42,7 +41,6 @@ def make_simple_poly(df, y_value):
             del df[c_name]
 
     poly2 = PolynomialFeatures(3, include_bias=False)
-    # X1=np.array(10*np.random.randn(37,3)) test
     df1 = df.copy(deep=True)
     del df1['y']
     df1 = df1.T
@@ -60,7 +58,6 @@ def make_simple_poly(df, y_value):
 
     poly = PolynomialFeatures(3, include_bias=False)
 
-    # X1=np.array(10*np.random.randn(37,3)) test
     df1 = df.copy(deep=True)
     del df1['y']
     df1 = df1.T
@@ -85,8 +82,6 @@ def make_simple_poly(df, y_value):
     model_poly = poly.fit(X_train, y_train)
     y_poly = poly.predict(X_train)
     RMSE_poly = np.sqrt(np.sum(np.square(y_poly - y_train)))
-    # print('Root-mean-square error of simple polynomial model:',RMSE_poly)
-    # print ('R2 value of simple polynomial model:',model_poly.score(X_train,y_train))
 
     coeff_poly = pd.DataFrame(
             model_poly.coef_,
@@ -98,17 +93,13 @@ def make_simple_poly(df, y_value):
 
 
 def get_linear_regression(x_values, y_values, variable=None):
-    # print('nonlinear did not work, trying linear for:', variable)
 
     X = np.array(x_values).reshape(-1, 1)
     y = np.array(y_values).reshape(-1, 1)
     reg = LinearRegression().fit(X, y)
-    # print('linear score for:', variable, reg.score(X, y))
 
-    # a_list=[0] -> NOT SURE WHY THIS WAS HERE
     a = reg.coef_[0]
     b = reg.intercept_
-    # threshold_temp=[0]
 
     return a[0], b[0]
 
@@ -130,10 +121,8 @@ def get_cost_curve_coefs(flow_in=None, data_id=None, xs=None, ys=None):
 
         df = pd.read_csv('data/chlorine_dose_cost_twb.csv')
 
-        # xs = df[((df.Flow_mgd == data_id) & (df.VariableID == 2))].Value.values
         xs = df[((df.Flow_mgd == flow_in) & (df.VariableID == 2))].Value.values
 
-        # ys = df[((df.DataID == data_id) & (df.VariableID == 1))].Value.values
         ys = df[((df.Cost == data_id) & (df.VariableID == 1))].Value.values
 
     return pars, r2_result, xs, ys, ys_new
@@ -141,7 +130,6 @@ def get_cost_curve_coefs(flow_in=None, data_id=None, xs=None, ys=None):
 
 def main():
     print('importing something')
-    # need to define anything here?
 
 
 if __name__ == '__main__':

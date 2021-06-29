@@ -7,9 +7,8 @@ def feedwater(
     reference=None,
     water_type=None,
     case_study=None,
-    scenario=None,
-):
-    # TO DO: add file type for imports,
+    scenario=None):
+
     df = pd.read_csv(input_file, index_col='variable')
     if reference is not None:
         df = df[df.reference == reference]
@@ -24,6 +23,6 @@ def feedwater(
     if scenario is not None:
         df = df[df.scenario == scenario]
 
-    df = df.set_index(df.index) # TODO - BE BETTER
+    df = df.set_index(df.index)
 
     return df

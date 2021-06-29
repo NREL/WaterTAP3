@@ -4,7 +4,7 @@ Electrodialysis Reversal
 Unit Parameters
 --------------------
 
-None
+None.
 
 Capital Costs
 ---------------
@@ -14,17 +14,17 @@ Capital costs for electrodialysis reversal are based on those from the Irwin cas
     .. math::
 
         C_{EDR} = 31 \frac{Q_{in}}{946}
-
+|
 Electricity Intensity
 ------------------------
 
 Electricity intensity is a function of TDS [mg/L] into the unit and based off of a regression of
-data from the below reference:
+data from Baker (2004):
 
     .. math::
 
         E_{EDR} = 0.2534 + 5.149 \times 10 ^ {-4} c_{tds}
-
+|
 References
 ------------
 
@@ -34,8 +34,6 @@ ELECTRICITY
 | Richard W. Baker (2004)
 | "Membrane Technology and Applications, Second Edition"
 | DOI:10.1002/0470020393
-
-
 
 Electrodialysis Reversal Module
 ----------------------------------------

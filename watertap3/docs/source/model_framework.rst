@@ -1,11 +1,12 @@
 WaterTAP3 Framework
 ========================
 
-WaterTAP3 simulates a steady-state water treatment facility for given source water conditions,
-process flows, and system-level technoeconomic assumptions. Capital costs, operating costs, and
-unit performance are estimated for both individual treatment processes and the system as a whole.
-Users can perform new analysis either by selecting a premade train from the treatment train
-library or connecting any number of unit processes together in a custom configuration.
+WaterTAP3 simulates steady-state water treatment train performance and costs including flow and
+constituent mass balance across unit processes, based on source water conditions, configurations
+of treatment technologies, and system-level techno-economic assumptions. Capital costs, operating
+costs, and unit performance are estimated for both individual treatment processes and the system
+as a whole. Users can perform new analysis either by selecting a premade train from the treatment
+train library or connecting any number of unit processes together in a custom configuration.
 
 The model contains various technical and cost parameter options for several treatment technology
 models and a library of influent water quality characteristics for a variety of source waters.

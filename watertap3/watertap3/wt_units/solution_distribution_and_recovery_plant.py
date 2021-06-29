@@ -53,8 +53,8 @@ class UnitProcess(WT3UnitProcess):
         self.dist_recov_exp = 0.719
         self.dist_recov_other = self.dist_recov_op / self.make_up_water
         self.other_var_cost = self.dist_recov_other
-        self.stacking_other = self.stacking_op / self.make_up_water  # make_up_flow needs to be in m3/day?
-        # basis year for the unit model - based on reference for the method.
+        self.stacking_other = self.stacking_op / self.make_up_water
+
         self.flow_factor = self.flow_in / self.recycle_water
         self.chem_dict = {}
         dist_recov_cap = self.flow_factor * self.dist_recov_basis ** self.dist_recov_exp
@@ -70,7 +70,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

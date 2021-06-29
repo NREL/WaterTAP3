@@ -34,7 +34,6 @@ class UnitProcess(WT3UnitProcess):
         :param chemical_name: (**optional**, default is ``'Hydrogen_Peroxide'``) Name of oxidant used for AOP.
         :type chemical_name: str
 
-        .. important:: ``chemical_name`` parameter *must* match exactly with chemical entry in catalyst_chemicals.csv or there will be an error.
 
         :return: Fixed capital for UV or UV+AOP unit [$MM]
         '''

@@ -1,4 +1,3 @@
-# from watertap3.wt_units import sw_onshore_intake, sulfuric_acid_addition
 
 __all__ = ['get_module']
 

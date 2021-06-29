@@ -62,34 +62,34 @@ class UnitProcess(WT3UnitProcess):
 
     def _set_constraints(self, t):
         ## FEED CONSTRAINTS
-        self.feed.eq1 = Constraint(expr=self.feed.conc_mass_total[t] == 0.6312 * self.conc_mass_in[t, 'tds'] + 997.86)  # kg/m3
-        self.feed.eq2 = Constraint(expr=self.feed.conc_mass_H2O[t] == self.feed.conc_mass_total[t] - self.conc_mass_in[t, 'tds'])  # kg/m3
-        self.feed.eq3 = Constraint(expr=self.feed.mass_flow_H2O[t] == self.feed.conc_mass_H2O[t] * self.flow_vol_in[t])  # kg/s
-        self.feed.eq4 = Constraint(expr=self.feed.mass_flow_tds[t] == self.conc_mass_in[t, 'tds'] * self.flow_vol_in[t])  # kg/s
+        self.feed.eq1 = Constraint(expr=self.feed.conc_mass_total[t] == 0.6312 * self.conc_mass_in[t, 'tds'] + 997.86)  
+        self.feed.eq2 = Constraint(expr=self.feed.conc_mass_H2O[t] == self.feed.conc_mass_total[t] - self.conc_mass_in[t, 'tds']) 
+        self.feed.eq3 = Constraint(expr=self.feed.mass_flow_H2O[t] == self.feed.conc_mass_H2O[t] * self.flow_vol_in[t])  
+        self.feed.eq4 = Constraint(expr=self.feed.mass_flow_tds[t] == self.conc_mass_in[t, 'tds'] * self.flow_vol_in[t])  
         self.feed.eq5 = Constraint(expr=self.feed.mass_frac_tds[t] * (self.feed.mass_flow_H2O[t] + self.feed.mass_flow_tds[t]) == self.feed.mass_flow_tds[t])
         self.feed.eq6 = Constraint(expr=self.feed.mass_frac_H2O[t] == 1 - self.feed.mass_frac_tds[t])
-        self.feed.eq7 = Constraint(expr=self.feed.osm_coeff[t] == 4.92 * self.feed.mass_frac_tds[t] ** 2 + self.feed.mass_frac_tds[t] * 0.0889 + 0.918)  # unitless
-        self.feed.eq8 = Constraint(expr=self.feed.pressure_osm[t] * 1e5 * (1 - self.feed.mass_frac_tds[t]) == 8.45e7 * self.feed.osm_coeff[t] * self.feed.mass_frac_tds[t])  # bar
+        self.feed.eq7 = Constraint(expr=self.feed.osm_coeff[t] == 4.92 * self.feed.mass_frac_tds[t] ** 2 + self.feed.mass_frac_tds[t] * 0.0889 + 0.918)  
+        self.feed.eq8 = Constraint(expr=self.feed.pressure_osm[t] * 1e5 * (1 - self.feed.mass_frac_tds[t]) == 8.45e7 * self.feed.osm_coeff[t] * self.feed.mass_frac_tds[t])  
 
         ## FLUX CONSTRAINTS
         self.water_salt_perm_eq1 = Constraint(expr=self.b[t] <= (0.083 * self.a[t] - 0.002) * 1.25)
         self.water_salt_perm_eq2 = Constraint(expr=self.b[t] >= (0.083 * self.a[t] - 0.002) * 0.75)
 
         ## RETENTATE CONSTRAINTS
-        self.retentate.eq1 = Constraint(expr=self.retentate.conc_mass_total[t] == 0.6312 * self.conc_mass_waste[t, 'tds'] + 997.86)  # kg/m3
-        self.retentate.eq2 = Constraint(expr=self.retentate.conc_mass_H2O[t] == self.retentate.conc_mass_total[t] - self.conc_mass_waste[t, 'tds'])  # kg/m3
+        self.retentate.eq1 = Constraint(expr=self.retentate.conc_mass_total[t] == 0.6312 * self.conc_mass_waste[t, 'tds'] + 997.86)  
+        self.retentate.eq2 = Constraint(expr=self.retentate.conc_mass_H2O[t] == self.retentate.conc_mass_total[t] - self.conc_mass_waste[t, 'tds'])  
         self.retentate.eq3 = Constraint(expr=self.retentate.mass_frac_tds[t] * self.retentate.conc_mass_total[t] == self.conc_mass_waste[t, 'tds'])
         self.retentate.eq4 = Constraint(expr=self.retentate.mass_frac_H2O[t] == 1 - self.retentate.mass_frac_tds[t])
-        self.retentate.eq5 = Constraint(expr=self.retentate.osm_coeff[t] == 4.92 * self.retentate.mass_frac_tds[t] ** 2 + self.retentate.mass_frac_tds[t] * 0.0889 + 0.918)  # unitless
-        self.retentate.eq6 = Constraint(expr=self.retentate.pressure_osm[t] * 1E5 * (1 - self.retentate.mass_frac_tds[t]) == 8.45E7 * self.retentate.osm_coeff[t] * self.retentate.mass_frac_tds[t])  # bar
+        self.retentate.eq5 = Constraint(expr=self.retentate.osm_coeff[t] == 4.92 * self.retentate.mass_frac_tds[t] ** 2 + self.retentate.mass_frac_tds[t] * 0.0889 + 0.918)  
+        self.retentate.eq6 = Constraint(expr=self.retentate.pressure_osm[t] * 1E5 * (1 - self.retentate.mass_frac_tds[t]) == 8.45E7 * self.retentate.osm_coeff[t] * self.retentate.mass_frac_tds[t])  
 
         ## PERMEATE CONSTRAINTS
-        self.permeate.eq1 = Constraint(expr=self.permeate.conc_mass_total[t] == 756 * self.permeate.mass_frac_tds[t] * 1e-6 + 995)
-        self.permeate.eq2 = Constraint(expr=self.conc_mass_out[t, 'tds'] == self.permeate.conc_mass_total[t] * self.permeate.mass_frac_tds[t] * 1e-6)
+        self.permeate.eq1 = Constraint(expr=self.permeate.conc_mass_total[t] == 756 * self.permeate.mass_frac_tds[t] * 1E-6 + 995)
+        self.permeate.eq2 = Constraint(expr=self.conc_mass_out[t, 'tds'] == self.permeate.conc_mass_total[t] * self.permeate.mass_frac_tds[t] * 1E-6)
         self.permeate.eq3 = Constraint(expr=self.permeate.mass_flow_H2O[t] == self.membrane_area[t] * self.pure_water_flux[t])
-        self.permeate.eq4 = Constraint(expr=self.permeate.mass_flow_tds[t] == 0.5 * self.membrane_area[t] * self.b[t] * 1e-7 * (self.conc_mass_in[t, 'tds'] + self.conc_mass_waste[t, 'tds']))
+        self.permeate.eq4 = Constraint(expr=self.permeate.mass_flow_tds[t] == 0.5 * self.membrane_area[t] * self.b[t] * 1E-7 * (self.conc_mass_in[t, 'tds'] + self.conc_mass_waste[t, 'tds']))
         self.permeate.eq5 = Constraint(expr=self.permeate.mass_frac_tds[t] * (self.permeate.mass_flow_tds[t] + self.permeate.mass_flow_H2O[t]) == 1e6 * self.permeate.mass_flow_tds[t])
-        self.permeate.eq6 = Constraint(expr=self.pure_water_flux[t] == self.pw * self.a[t] * 1e-7 * ((self.feed.pressure[t] - self.p_atm - self.pressure_drop * 0.5) - (self.feed.pressure_osm[t] + self.retentate.pressure_osm[t]) * 0.5))
+        self.permeate.eq6 = Constraint(expr=self.pure_water_flux[t] == self.pw * self.a[t] * 1E-7 * ((self.feed.pressure[t] - self.p_atm - self.pressure_drop * 0.5) - (self.feed.pressure_osm[t] + self.retentate.pressure_osm[t]) * 0.5))
 
         # PRESSURE BALANCE
         self.momentum_balance_eq = Constraint(expr=self.retentate.pressure[t] == self.feed.pressure[t] - self.pressure_drop)
@@ -136,9 +136,9 @@ class UnitProcess(WT3UnitProcess):
         self.units_meta = self.config.property_package.get_metadata().get_derived_units
 
         # DEFINE VARIABLES
-        self.feed.water_flux = Var(time, initialize=5e-3, bounds=(1e-5, 1.5e-2), units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1, domain=NonNegativeReals, doc='water flux')
-        self.retentate.water_flux = Var(time, initialize=5e-3, bounds=(1e-5, 1.5e-2), units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1, domain=NonNegativeReals, doc='water flux')
-        self.pure_water_flux = Var(time, initialize=5e-3, bounds=(1e-3, 1.5e-2), units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1, domain=NonNegativeReals, doc='water flux')
+        self.feed.water_flux = Var(time, initialize=5E-3, bounds=(1E-5, 1.5E-2), units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1, domain=NonNegativeReals, doc='water flux')
+        self.retentate.water_flux = Var(time, initialize=5E-3, bounds=(1E-5, 1.5E-2), units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1, domain=NonNegativeReals, doc='water flux')
+        self.pure_water_flux = Var(time, initialize=5E-3, bounds=(1E-3, 1.5E-2), units=self.units_meta('mass') * self.units_meta('length') ** -2 * self.units_meta('time') ** -1, domain=NonNegativeReals, doc='water flux')
         self.a = Var(time, initialize=4.2, bounds=(1, 9), domain=NonNegativeReals, doc='water permeability')
         self.b = Var(time, initialize=0.35, bounds=(0.1, 0.9), domain=NonNegativeReals, doc='Salt permeability')
         self.mem_cost = Var(time, initialize=40, bounds=(10, 80), domain=NonNegativeReals, doc='Membrane cost')
@@ -166,20 +166,18 @@ class UnitProcess(WT3UnitProcess):
         self.mem_cost.fix(30)
         self.a.fix(4.2)
         self.b.fix(0.35)
-        self.const_list2 = list(self.config.property_package.component_list)  # .remove("tds")
+        self.const_list2 = list(self.config.property_package.component_list)  
         self.const_list2.remove("tds")
 
         ## CONSTANTS
-        self.pump_eff = 0.8  # efficiency of pump
+        self.pump_eff = 0.8 
         self.erd_eff = 0.9
-        self.pressure_drop = 3  # bar Typical pressure drops range from 0.1-3 bar.
-        # a = 4.2e-7  # water permeability coefficient m bar-1 s-1
-        # b_constant = 0.35e-7  # Salt permeability coefficient m s-1
-        self.p_atm = 1  # bar atmospheric pressure
-        self.pw = 1000  # density of water kg/m3
+        self.pressure_drop = 3  
+        self.p_atm = 1  
+        self.pw = 1000  
 
         self.pressure_diff = (self.feed.pressure[t] - self.pressure_in[t]) * 1E5  # assumes atm pressure before pump. change to Pa
-        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / self.pump_eff  # W
+        self.pump_power = (self.flow_vol_in[t] * self.pressure_diff) / self.pump_eff 
 
         self._set_constraints(t)
 
@@ -203,7 +201,7 @@ class UnitProcess(WT3UnitProcess):
                 setattr(self, ("%s_eq" % j), Constraint(expr=self.removal_fraction[t, j] * flow_in_m3hr * pyunits.convert(self.conc_mass_in[t, j], to_units=pyunits.mg / pyunits.liter) == flow_waste_m3hr * pyunits.convert(self.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.liter)))
 
         b_cost = self.costing
-        b_cost.pump_capital_cost = self.pump_power * (53 / 1E5 * 3600) ** 0.97  #
+        b_cost.pump_capital_cost = self.pump_power * (53 / 1E5 * 3600) ** 0.97 
         b_cost.pressure_vessel_cap_cost1 = self.pressure_vessel_cost1[t] + self.rack_support_cost1[t]
 
         ################ Energy Recovery
@@ -218,17 +216,17 @@ class UnitProcess(WT3UnitProcess):
         b_cost.erd_capital_cost = 0
         b_cost.mem_capital_cost = self.mem_cost[t] * self.membrane_area[t]
 
-        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(t, b_cost), doc='Unadjusted fixed capital investment')  # $M
+        self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(t, b_cost), doc='Unadjusted fixed capital investment') 
 
         ################ operating
         # membrane operating cost
-        b_cost.other_var_cost = self.factor_membrane_replacement[t] * self.mem_cost[t] * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1e-6
-        self.electricity = Expression(expr=self.elect(t), doc='Electricity intensity [kwh/m3]')  # kwh/m3
+        b_cost.other_var_cost = self.factor_membrane_replacement[t] * self.mem_cost[t] * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1E-6
+        self.electricity = Expression(expr=self.elect(t), doc='Electricity intensity [kwh/m3]')  
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
-        self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)  # kwh/m3
-        b_cost.pump_electricity_cost = 1e-6 * (self.pump_power / 1000) * 365 * 24 * sys_specs.electricity_price  # $MM/yr
-        b_cost.erd_electricity_sold = 1e-6 * (self.erd_power / 1000) * 365 * 24 * sys_specs.electricity_price  # $MM/yr
+        self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)  
+        b_cost.pump_electricity_cost = 1E-6 * (self.pump_power / 1000) * 365 * 24 * sys_specs.electricity_price  
+        b_cost.erd_electricity_sold = 1E-6 * (self.erd_power / 1000) * 365 * 24 * sys_specs.electricity_price  
         b_cost.electricity_cost = (b_cost.pump_electricity_cost - b_cost.erd_electricity_sold) * sys_cost_params.plant_cap_utilization
 
         self.chem_dict = {'unit_cost': 0.01}

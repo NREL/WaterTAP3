@@ -70,11 +70,11 @@ class WT3UnitProcessData(UnitModelBlockData):
                                initialize=1,
                                domain=NonNegativeReals,
                                units=units_meta('volume') / units_meta('time'),
-                               bounds=(1e-8, 1e2),
+                               bounds=(1E-8, 1E2),
                                doc='Volumetric flowrate of water into unit')
         self.conc_mass_in = Var(time,
                                 self.config.property_package.component_list,
-                                initialize=1e-5,
+                                initialize=1E-5,
                                 units=units_meta('mass') / units_meta('volume'),
                                 doc='Mass concentration of species at inlet')
         self.temperature_in = Var(time,
@@ -108,7 +108,7 @@ class WT3UnitProcessData(UnitModelBlockData):
                                 units=units_meta('pressure'),
                                 doc='Pressure at outlet')
         self.deltaP_outlet = Var(time,
-                                 initialize=1e-6,
+                                 initialize=1E-6,
                                  # domain=NonNegativeReals,
                                  units=units_meta('pressure'),
                                  doc='Pressure change between inlet and outlet')
@@ -138,7 +138,7 @@ class WT3UnitProcessData(UnitModelBlockData):
                                   doc='Pressure of waste')
 
         self.deltaP_waste = Var(time,
-                                initialize=1e-6,
+                                initialize=1E-6,
                                 # domain=NonNegativeReals,
                                 units=units_meta('pressure'),
                                 doc='Pressure change between inlet and waste')
@@ -150,7 +150,7 @@ class WT3UnitProcessData(UnitModelBlockData):
                                   initialize=0.8,
                                   domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
-                                  bounds=(1e-8, 1.0000001),
+                                  bounds=(1E-8, 1.0000001),
                                   doc='Water recovery fraction')
         self.removal_fraction = Var(time,
                                     self.config.property_package.component_list,
@@ -226,7 +226,7 @@ class WT3UnitProcessData(UnitModelBlockData):
         self.waste.add(self.temperature_waste, 'temperature')
         self.waste.add(self.pressure_waste, 'pressure')
 
-    # def initialize(blk, state_args=None, routine=None, outlvl=idaeslog.NOTSET, solver='ipopt', optarg={'tol': 1e-6}):
+    # def initialize(blk, state_args=None, routine=None, outlvl=idaeslog.NOTSET, solver='ipopt', optarg={'tol': 1E-6}):
     #     '''
     #     General wrapper for pressure changer initialization routines
     #     Keyword Arguments:
@@ -237,7 +237,7 @@ class WT3UnitProcessData(UnitModelBlockData):
     #                      initialization (see documentation of the specific
     #                      property package) (default = {}).
     #         outlvl : sets output level of initialization routine
-    #         optarg : solver options dictionary object (default={'tol': 1e-6})
+    #         optarg : solver options dictionary object (default={'tol': 1E-6})
     #         solver : str indicating whcih solver to use during
     #                  initialization (default = 'ipopt')
     #     Returns:

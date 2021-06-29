@@ -20,15 +20,12 @@ class UnitProcess(WT3UnitProcess):
         :return:
         '''
 
-
-
-
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
         self.contact_time = 1.5  * pyunits.hour
         self.contact_time_mins = pyunits.convert(self.contact_time, to_units=pyunits.minute)
-        self.ct = 450 * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter)) # mg/L-min
-        self.chlorine_decay_rate = 3.0  * (pyunits.milligram / (pyunits.liter * pyunits.hour)) # mg/Lh
+        self.ct = 450 * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter))
+        self.chlorine_decay_rate = 3.0  * (pyunits.milligram / (pyunits.liter * pyunits.hour))
         try:
             self.dose = unit_params['dose']
         except:
@@ -42,10 +39,9 @@ class UnitProcess(WT3UnitProcess):
         self.dose_list = dose_list = []
         for flow in df.Flow_mgd.unique():
             self.df_hold = df_hold = df[df.Flow_mgd == flow]
-            # del df_hold['Flow_mgd']
             if 0 not in df_hold.Cost.values:
-                xs = np.hstack((0, df_hold.Dose.values))  # dont think we need the 0s
-                ys = np.hstack((0, df_hold.Cost.values))  # dont think we need the 0s
+                xs = np.hstack((0, df_hold.Dose.values))
+                ys = np.hstack((0, df_hold.Cost.values))
             else:
                 xs = df_hold.Dose.values
                 ys = df_hold.Cost.values
@@ -70,7 +66,7 @@ class UnitProcess(WT3UnitProcess):
         ys = np.hstack((0, df1.cost.values))
         a = ml_regression.get_cost_curve_coefs(xs=xs, ys=ys)[0][0]
         b = ml_regression.get_cost_curve_coefs(xs=xs, ys=ys)[0][1]
-        return (a * self.flow_in ** b) * 1E-3  # $MM
+        return (a * self.flow_in ** b) * 1E-3
 
     def elect(self):
         '''
@@ -78,7 +74,7 @@ class UnitProcess(WT3UnitProcess):
 
         :return: Electricity intensity [kWh/m3]
         '''
-        electricity = 0.00005 # An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
+        electricity = 0.00005
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -87,7 +83,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

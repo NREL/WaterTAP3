@@ -9,16 +9,17 @@ None
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [MGD]:
+The capital costs are a function of flow [MGD] in McGivney & Kawamura
+(2008):
 
     .. math::
 
         C_{co2} = 0.464 Q_{in} ^ {0.7}
-
+|
 Electricity Intensity
 ------------------------
 
-Electricity intensity is fixed at 0.01 kWh/m3 from the below reference.
+Electricity intensity is fixed at 0.01 kWh/m3 from ___________.
 
 References
 ------------
@@ -33,7 +34,6 @@ CAPITAL
 ELECTRICITY
 ************
 
-????????????????????
 
 Carbon Dioxide Addition Module
 ----------------------------------------

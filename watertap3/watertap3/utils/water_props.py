@@ -29,7 +29,6 @@ class PhysicalParameterData(PhysicalParameterBlock):
         train_constituent_list = generate_constituent_list.run(self.parent_block())
 
         for constituent_name in train_constituent_list:
-            # for constituent_name in ["TOC", "nitrates", "TDS"]:
             setattr(self, constituent_name, Component())
 
     @classmethod
@@ -46,7 +45,7 @@ class PhysicalParameterData(PhysicalParameterBlock):
 @declare_process_block_class("WaterStateBlock")
 class WaterStateBlockData(StateBlockData):
     """
-    This won;t actually be used for most WaterTAP3 models, but is included to
+    This won't actually be used for most WaterTAP3 models, but is included to
     allow for future integration with ProteusLib and IDAES
     """
 

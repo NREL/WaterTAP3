@@ -18,11 +18,11 @@ class UnitProcess(WT3UnitProcess):
         self.conc_mass_tot = 0
         for constituent in self.config.property_package.component_list:
             self.conc_mass_tot += self.conc_mass_in[time, constituent]
-        self.density = 0.6312 * self.conc_mass_tot + 997.86  # kg/m3 # assumption from Tim's reference (ask Ariel for Excel if needed)
-        self.total_mass = self.density * self.flow_in  # kg/hr to tons for Mike's Excel needs
+        self.density = 0.6312 * self.conc_mass_tot + 997.86
+        self.total_mass = self.density * self.flow_in
         self.base_fixed_cap_cost = 35
         self.cap_scaling_exp = 0.873
-        self.capacity_basis = 10417  # m3/hr - from PML tab based on 250000 gallons per day
+        self.capacity_basis = 10417
         self.pipe_cost_basis = 35000
         try:
             self.pipe_distance = unit_params['pipe_distance'] * pyunits.miles
@@ -32,7 +32,7 @@ class UnitProcess(WT3UnitProcess):
             return surf_dis_cap
         except:
             surf_dis_cap = self.base_fixed_cap_cost * (self.flow_in / self.capacity_basis) ** self.cap_scaling_exp
-            return surf_dis_cap  # M$
+            return surf_dis_cap
 
     def elect(self, unit_params):
         time = self.flowsheet().config.time.first()
@@ -45,7 +45,7 @@ class UnitProcess(WT3UnitProcess):
         self.motor_eff = 0.9 * pyunits.dimensionless
         if pump == 'yes':
             flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons / pyunits.minute)
-            electricity = (0.746 * flow_in_gpm * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in  # kWh/m3
+            electricity = (0.746 * flow_in_gpm * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in
             return electricity
         else:
             return 0
@@ -56,7 +56,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(unit_params),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

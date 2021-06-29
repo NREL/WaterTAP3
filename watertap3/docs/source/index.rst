@@ -1,5 +1,6 @@
+############################
 WaterTAP3 Documentation
-==================================
+############################
 
 This is the documentation for the WaterTAP3 model.
 
@@ -8,7 +9,7 @@ This is the documentation for the WaterTAP3 model.
     PageBreak
 
 ..  toctree::
-    :maxdepth: 1
+    :maxdepth: 5
 
     watertap3
     model_framework
@@ -17,8 +18,11 @@ This is the documentation for the WaterTAP3 model.
     water_recovery
     constituent_removal
     financials
-    financial_basis
     unit_models/index
+
+
+
+
 
 
 

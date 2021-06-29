@@ -1,31 +1,17 @@
 Fixed Bed Pressure Vessel
 ============================================================
 
-
-Unit Basics
---------------
-
-The fixed bed pressure vessel unit in WaterTAP3 is based off of a regression of several runs using
-EPA's Work Breakdown Structure-Based (WBS EPA) model (see reference). These models incorporate
-several aspects of cost of the treatment process, including treatment, monitoring, and
-administrative costs. Both capital cost and electricity intensity are based entirely on
-volumetric flow, but are assumed to incorporate these costing aspects of the EPA model.
-
-The WBS EPA models each have some "standard designs" that make default assumptions (see EPA
-documentation) and span a range of flows 0.03 MGD to 75 MGD.
+The fixed bed gravity basin unit in WaterTAP3 is based off of a regression of several runs using
+EPA's Work Breakdown Structure-Based (WBS EPA) model. The WBS EPA models each
+have some  "standard designs" that make default assumptions (USEPA (2019)) and span a
+range of flows 0.03 MGD to 75 MGD.
 
 The approach for the WT3 model is to regress the total capital cost output from the EPA model vs.
-flow for each of the EPA model standard designs with the fixed bed pressure vessel option. A
+flow for each of the EPA model standard designs with the fixed bed gravity basin option. A
 similar approach is taken to determine electricity intensity.
 
-Both sets of data are fit to a power curve:
-
-    .. math::
-
-        Y = a Q ^ b
-
-Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
-flow in for the particular case study.
+Both sets of data are fit to a power curve. Then `a` and `b` are used with the
+flow for the model to determine capital and electricity intensity.
 
 Unit Parameters
 --------------------
@@ -42,7 +28,7 @@ unit flow [m3/hr] to determine capital costs:
     .. math::
 
         C_{fbpv} = a Q_{in} ^ b
-
+|
 Electricity Intensity
 ------------------------
 
@@ -53,8 +39,7 @@ the unit flow [m3/hr] to determine capital costs:
     .. math::
 
         E_{fbpv} = a Q_{in} ^ b
-
-
+|
 Chemical Use
 --------------
 
@@ -76,3 +61,8 @@ Unit Template
 .. autoclass:: watertap3.wt_units.fixed_bed_gravity_basin.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

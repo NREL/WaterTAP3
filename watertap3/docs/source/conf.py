@@ -19,11 +19,11 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 project = 'WaterTAP3'
 copyright = 'Copyright (c) 2021, Alliance for Sustainable Energy, LLC'
-author = 'Ariel Miara & Kurban Sitterley'
+author = 'Ariel Miara, Kurban Sitterley, Mike Talmadge, Zhe Huang, Anna Evans, Jennifer Stokes-Draut, & Jordan Macknick'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
-
+version = release
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -41,7 +41,7 @@ break_level = 1
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-pdf_documents = [('index', u'watertap3-doc-draft', u'WaterTAP3 Documentation', u'Ariel Miara & Kurban Sitterley')]
+pdf_documents = [('watertap3', u'watertap3-doc-draft-TEST', u'WaterTAP3 Documentation', u'Ariel Miara, Kurban Sitterley, Mike Talmadge, Zhe Huang, Anna Evans, Jennifer Stokes-Draut, & Jordan Macknick')]
 pdf_toc_depth = 2
 
 # -- Options for HTML output -------------------------------------------------
@@ -54,7 +54,10 @@ def setup(app):
 
 
 html_theme = 'sphinx_rtd_theme'
+latex_elements = {
 
+  'preamble': r'''\usepackage{lscape}'''
+}
 # latex_engine = 'pdflatex'
 # latex_engine = 'pdflatex'
 # Add any paths that contain custom static files (such as style sheets) here,

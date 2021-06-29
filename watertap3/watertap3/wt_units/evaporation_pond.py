@@ -46,7 +46,7 @@ class UnitProcess(WT3UnitProcess):
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         self.chem_dict = {}
-        self.tds_in = pyunits.convert(self.conc_mass_in[t, 'tds'], to_units=(pyunits.mg / pyunits.L))  # convert from kg/m3 to mg/L
+        self.tds_in = pyunits.convert(self.conc_mass_in[t, 'tds'], to_units=(pyunits.mg / pyunits.L))
         try:
             self.approach = unit_params['approach']
         except:
@@ -70,33 +70,28 @@ class UnitProcess(WT3UnitProcess):
             self.liner_thickness = unit_params['liner_thickness']
             self.land_cost = unit_params['land_cost']
             self.land_clearing_cost = unit_params['land_clearing_cost']
-            # Land clearing cost (typical) for clearing (from BLM source):
-            # brush = $1,000 per acre
-            # sparsely wooded areas = $2,000 per acre
-            # medium-wooded areas = $4,000 per acre
-            # heavily wooded area = $7,000 per acre
-            self.dike_height = unit_params['dike_height']  # dikes between 4-12 ft are typical (from BLM source)
+            self.dike_height = unit_params['dike_height']
         except:
-            self.liner_thickness = 50  # mil (equal to 1/1000th of an inch)
-            self.land_cost = 5000  # $ / acre
-            self.land_clearing_cost = 1000  # $ / acre
-            self.dike_height = 8  # ft
+            self.liner_thickness = 50
+            self.land_cost = 5000
+            self.land_clearing_cost = 1000
+            self.dike_height = 8
 
         self.evaporation_rate(unit_params, t)
         self.evaporation_rate_regress(t)
-        self.evap_rate = self.evap_rate_pure * 0.7  # ratio factor from the BLM document
-        self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute))  # volume coming in
-        self.flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute))  # left over volume
-        self.flow_out = pyunits.convert(self.flow_vol_out[t], to_units=(pyunits.gallons / pyunits.minute))  # what gets evaporated
+        self.evap_rate = self.evap_rate_pure * 0.7
+        self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=(pyunits.gallons / pyunits.minute))
+        self.flow_waste = pyunits.convert(self.flow_vol_waste[t], to_units=(pyunits.gallons / pyunits.minute))
+        self.flow_out = pyunits.convert(self.flow_vol_out[t], to_units=(pyunits.gallons / pyunits.minute))
 
         self.flow_constr = Constraint(expr=self.area[t] * self.evap_rate == self.flow_out)
         self.total_area = 1.2 * self.area[t] * (1 + 0.155 * self.dike_height / (self.area[t] ** 0.5))
-        self.cost_per_acre = 5406 + 465 * self.liner_thickness + 1.07 * self.land_cost + 0.931 * self.land_clearing_cost + 217.5 * self.dike_height  # $ / acre
+        self.cost_per_acre = 5406 + 465 * self.liner_thickness + 1.07 * self.land_cost + 0.931 * self.land_clearing_cost + 217.5 * self.dike_height
         if self.approach == 'zld':
             return 0.3 * area
-        elif self.approach == 'lenntech': # this is Lenntech cost curve based on flow for 1 m/y evap rate
+        elif self.approach == 'lenntech':
             flow_in_m3_d = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day))
-            return 0.03099 * flow_in_m3_d ** 0.7613  # this is Lenntech cost curve based on flow for 1 m/y evap rate
+            return 0.03099 * flow_in_m3_d ** 0.7613
         elif self.approach == 'wt3':
             return (self.cost_per_acre * self.total_area) * 1E-6
 
@@ -135,19 +130,19 @@ class UnitProcess(WT3UnitProcess):
         except:
             self.evap_method = False
         try:
-            self.humidity = unit_params['humidity']  # ratio, e.g. 50% humidity = 0.5
-            self.wind_speed = unit_params['wind_speed']  # m / s
+            self.humidity = unit_params['humidity']
+            self.wind_speed = unit_params['wind_speed']
         except:
-            self.humidity = 0.5  # ratio, e.g. 50% humidity = 0.5
-            self.wind_speed = 5  # m / s
+            self.humidity = 0.5
+            self.wind_speed = 5
         if self.evap_method:
-            # self.evap_method = unit_params['evap_method']
+
             try:
-                self.air_temp.fix(unit_params['air_temp'])  # degree C
-                self.solar_rad = unit_params['solar_rad']  # mJ / m2
+                self.air_temp.fix(unit_params['air_temp'])
+                self.solar_rad = unit_params['solar_rad']
             except:
                 self.air_temp.fix(20)
-                self.solar_rad = 25  # average for 40deg latitude
+                self.solar_rad = 25
             if self.evap_method == 'turc':
                 # Turc (1961) PE in mm for day
                 self.evap_rate_pure = (0.313 * self.air_temp[t] * (self.solar_rad + 2.1) / (self.air_temp[t] + 15)) * (pyunits.millimeter / pyunits.day)
@@ -192,7 +187,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

@@ -5,25 +5,16 @@
 # Lawrence Berkeley National Laboratory,  National Technology & Engineering
 # Solutions of Sandia, LLC, Carnegie Mellon University, West Virginia
 # University Research Corporation, et al. All rights reserved.
-#
-# Please see the files COPYRIGHT.txt and LICENSE.txt for full copyright and
-# license information, respectively. Both files are also available online
-# at the URL "https://github.com/IDAES/idaes-pse".
 ##############################################################################
-"""
-Demonstration zeroth-order model for WaterTAP3
-"""
 
-# Import Pyomo libraries
+
 from pyomo.common.config import ConfigBlock, ConfigValue, In
 
-# Import IDAES cores
+
 from idaes.core import (useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 
-# Import WaterTAP financials module
 
-# Import properties and units from "WaterTAP Library"
 
 
 CONFIG = ConfigBlock()

@@ -1,20 +1,31 @@
+###############
 Unit Models
-==========================================
+###############
 
-This is the index page for the unit models in WaterTAP3.
+
+All unit processes achieve the mass balances described in the water recovery and constituent
+removal section. The calculations of water recovery and constituent removal are based on factors
+(in the data folder) or equations that represent some level of the physical processes that occur
+in the treatment process. There are four levels of detail (discussed also in the Financials
+section) across the unit models and the current status of the unit models is shown in the figure
+below.
+
+
+..  raw:: pdf
+
+    PageBreak
+
 
 ..  toctree::
-    :maxdepth: 1
+    :maxdepth: 5
 
     alum_addition
     ammonia_addition
-    anion_exchange
     anti_scalant_addition
     backwash_solids_handling
     basic_unit
     brine_concentrator
     cartridge_filtration
-    cation_exchange
     caustic_soda_addition
     chemical_addition
     chlorination
@@ -37,7 +48,6 @@ This is the index page for the unit models in WaterTAP3.
     lime_softening
     media_filtration
     microfiltration
-    multi_stage_bubble_aeration
     municipal_drinking
     ozone_aop
     reverse_osmosis
@@ -51,8 +61,3 @@ This is the index page for the unit models in WaterTAP3.
     uv_aop
     water_pumping_station
     well_field
-
-
-..  raw:: pdf
-
-    PageBreak

@@ -29,9 +29,9 @@ class UnitProcess(WT3UnitProcess):
         self.number_of_units = 6
         self.filter_surf_area = 580 * pyunits.m ** 2
         self.filter_surf_area = pyunits.convert(self.filter_surf_area, to_units=pyunits.ft ** 2)
-        self.air_water_ratio = 0.001 * pyunits.dimensionless  # v / v
+        self.air_water_ratio = 0.001 * pyunits.dimensionless
         self.air_flow_rate = self.air_water_ratio * self.cap_scaling_val
-        self.air_blower_cap = 100000  # fixed cost for air blower that should be changed
+        self.air_blower_cap = 100000
         self.chem_dict = {}
         dual_media_filter_cap = 21377 + 38.319 * self.filter_surf_area
         filter_backwash_cap = 92947 + 292.44 * self.filter_surf_area
@@ -43,7 +43,7 @@ class UnitProcess(WT3UnitProcess):
     def elect(self):
         self.blower_power = 147.8 * (pyunits.hp / (pyunits.m ** 3 / pyunits.hour)) * self.air_flow_rate
         self.blower_power = pyunits.convert(self.blower_power, to_units=pyunits.kilowatt)
-        electricity = self.blower_power / self.flow_in  # kWh / m3
+        electricity = self.blower_power / self.flow_in
         return electricity
 
     def get_costing(self, unit_params=None, year=None):
@@ -52,7 +52,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

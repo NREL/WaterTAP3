@@ -27,13 +27,13 @@ class UnitProcess(WT3UnitProcess):
         '''
         time = self.flowsheet().config.time
         t = self.flowsheet().config.time.first()
-        self.lift_height = Var(time, initialize=400, domain=NonNegativeReals, units=pyunits.ft, doc='Lift height for pump [ft]')  # lift height in feet
+        self.lift_height = Var(time, initialize=400, domain=NonNegativeReals, units=pyunits.ft, doc='Lift height for pump [ft]')
         self.flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
         try:
             self.lift_height.fix(unit_params['lift_height'])
         except:
             self.lift_height.fix(400)
-        self.delta_pressure = self.lift_height[t] * 0.0299  # lift height converted to bar
+        self.delta_pressure = self.lift_height[t] * 0.0299
         self.cap_scaling_exp = 0.7
         self.cap_scaling_val = 473.2
         self.well_pump_fixed_cap_cost = 16.9  # this is wells/pumps fixed capital AFTER applying TIC factor -- DOES NOT INCLUDE ANY PIPING
@@ -69,7 +69,7 @@ class UnitProcess(WT3UnitProcess):
         '''
         financials.create_costing_block(self, basis_year, tpec_or_tic)
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
-                                                           doc='Unadjusted fixed capital investment')  # $M
+                                                           doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
-                                      doc='Electricity intensity [kwh/m3]')  # kwh/m3
+                                      doc='Electricity intensity [kwh/m3]')
         financials.get_complete_costing(self.costing)

@@ -1,9 +1,7 @@
 Lime Addition
 =====================================
 
-In general, costs for chemical additions in WaterTAP3 are a function of the chemical dose and the
-flow in. The chemical solution flow is calculated from these two values and assumed solution
-densities to use in a cost curve. All chemical additions assume 2 chemical addition units.
+Costs for chemical additions are based on the chemical dose required to treat the water and the inlet flow to the unit.
 
 Unit Parameters
 --------------------
@@ -11,50 +9,75 @@ Unit Parameters
 * ``"lime"`` - dose of lime [mg/L]
 
     * Required parameter
-
+|
 Capital Costs
 ---------------
 
-The lime solution flow `S` is used in a cost curve of the general
+The lime solution mass flow `M` [lb/day] is used in a cost curve of the general
 form:
 
     .. math::
 
-        C = S a ^ b
-
+        C = a M ^ b
+|
 For a single lime addition unit, `a` = 16972 and `b` = 0.5435. The full cost equation in
 WaterTAP3 is:
 
     .. math::
 
-        C_{lime} = N_{units}( 16972 S ) ^ {0.5435}
-
-These parameters were determined by fitting data from FIGURE 5.5.9 - LIME FEED in the below
-reference to the general form.
-
-Assumptions:
-****************
-
-* Number of units = 2
-* Chemical solution density [kg/m3] = 1250
-
-Reference:
-*************
-
-| Cost Estimating Manual for Water Treatment Facilities (2008)
-| William McGivney & Susumu Kawamura
-| DOI:10.1002/9780470260036
+        C_{lime} = 16972 S ^ {0.5435}
+|
+This cost is then multiplied by the number of units and the TPEC factor for the final FCI for the
+chemical addition. These parameters were determined by fitting data from FIGURE 5.5.9 - LIME FEED
+in McGivney & Kawamura (2008).
 
 Electricity Intensity
 ------------------------
 
-Electricity intensity for chemical additions in WaterTAP3 is based off the pump used to inject
-the chemical solution, the chemical solution flow rate, and the influent flow rate. The model
-assumes:
+Electricity intensity for chemical additions is based off the pump used to inject
+the chemical solution, the chemical solution flow rate, and the influent flow rate. The
+calculation includes:
 
-* Lift height = 100 ft
-* Pump efficiency = 90%
-* Motor efficiency = 90%
+* Lift height [ft]:
+
+    .. math::
+
+        h
+|
+* The mass flow rate [kg/hr] of the solution necessary to achieve the desired dose:
+
+    .. math::
+
+        M_{lime} = Q_{in} D_{lime}
+|
+* The volumetric flow `S` [m3/hr] of the chemical solution, which incorporates the solution
+  density [kg/m3]:
+
+    .. math::
+
+        S = \frac{M_{lime}}{\rho_{lime}}
+|
+* The pump and motor efficiencies:
+
+    .. math::
+
+        \eta_{pump}, \eta_{motor}
+|
+Then the electricity intensity is calculated as [kWh/m3]:
+
+    .. math::
+
+        E_{lime} = \frac{0.746 S h}{3960 \eta_{pump} \eta_{motor} Q_{in}}
+|
+
+Assumptions
+------------------------
+
+* Number of units = 2
+* Solution density [kg/m3] = 1250
+* Lift height [ft] = 100
+* Pump efficiency = 0.9
+* Motor efficiency = 0.9
 
 Reference
 ------------------------

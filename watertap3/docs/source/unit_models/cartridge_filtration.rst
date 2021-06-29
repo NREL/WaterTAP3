@@ -1,7 +1,6 @@
 Cartridge Filtration
 ============================================================
 
-
 Unit Parameters
 --------------------
 
@@ -10,17 +9,18 @@ None
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [MGD]:
+The capital costs are a function of flow [MGD] with cost curve parameters from McGivney &
+Kawamura (2008):
 
     .. math::
 
         C_{cart} = 0.72557 Q_{in} ^ {0.5862}
-
+|
 Electricity Intensity
 ------------------------
 
-Electricity intensity for cartridge filtration is fixed at 2E-4 kWh/m3 and is taken from the below
-reference.
+Electricity intensity for cartridge filtration is fixed at 2E-4 kWh/m3 and is taken from Bukhary,
+et al. (2019).
 
 References
 -------------
@@ -35,16 +35,16 @@ CAPITAL
 ELECTRICITY
 **************
 
-| An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant.
 | Bukhary, S., Batista, J., Ahmad, S. (2019).
-| Water, 12(1), 1-21.
+| An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant.
+| *Water*, 12(1), 1-21.
 
 
 Cartridge Filtration Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.cartridge_filtration.UnitProcess
-    :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
+    :members: fixed_cap, elect, get_costing
     :exclude-members: build
 
 
