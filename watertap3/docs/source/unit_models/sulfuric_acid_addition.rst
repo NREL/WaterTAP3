@@ -28,7 +28,7 @@ WaterTAP3 is:
 
         C_{sulf} = 900.97 S  ^ {0.6179}
 
-This cost is then multiplied by the number of units and the TPEC factor for the final FCI for the
+This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
 chemical addition. These parameters were determined by fitting data from FIGURE 5.5.11 - SULFURIC
 ACID FEED in McGivney & Kawamura (2008).
 

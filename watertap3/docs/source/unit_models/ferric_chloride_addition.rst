@@ -28,7 +28,7 @@ WaterTAP3 is:
 
         C_{ferric} = 34153 S ^ {0.319}
 |
-This cost is then multiplied by the number of units and the TPEC factor for the final FCI for the
+This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
 chemical addition. These parameters were determined by fitting data from FIGURE 5.5.13 - FERRIC
 CHLORIDE FEED 42% SOLUTION in McGivney & Kawamura (2008).
 

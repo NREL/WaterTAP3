@@ -1,20 +1,3 @@
-############################
-WaterTAP3 Documentation
-############################
-
-
-..  toctree::
-    :maxdepth: 5
-
-    model_framework
-    source_water
-    treatment_train_design
-    water_recovery
-    constituent_removal
-    financials
-    unit_models/index
-
-
 WaterTAP3 Overview
 ========================
 
@@ -126,3 +109,4 @@ analytical experience through the publicly available graphical user interface (u
 ..  raw:: pdf
 
     PageBreak
+

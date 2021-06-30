@@ -131,7 +131,7 @@ The input dataset is arranged into the following columns:
 
     * *analysis_year*:  The first year of the plant is/was in operation
     * *location_basis*: The country or U.S. state where the plant is located. Used for assigning the
-      electricity cost ($/kwh). Electricity costs are provided in the data folder.
+      electricity cost [$/kwh]. Electricity costs are provided in the data folder.
     * *plant_life_yrs*: The initial design basis for plant-life and used for life cycle analysis
       calculations. The default plant-life is 20 years.
     * *land_cost_percent*: The assumed cost of land as a percentage of total fixed capital
@@ -177,43 +177,46 @@ detail:
 * As a function of volumetric or mass flow only:
 
     * e.g. Basic units
+
 |
 * As function volumetric or mass flow and at least one other design criteria, such as chemical
-   additions in which a dose is a required parameter:
+  additions in which a dose is a required parameter:
 
     * e.g. chemical additions
+
 |
 * Based on physical performance/attributes of unit model, such as water recovery or constituent
-   removal:
+  removal:
 
     * e.g. UV/AOP
+
 |
 * Multiple cost elements summed to calculate the TIC based on physical performance/attributes of
-unit model,
-   such as pump and membrane costs for RO based on feed and osmotic pressures or evaporation pond
-   costs that are based on evaporation rates, water recovery, and other design criteria:
+  unit model, such as pump and membrane costs for RO based on feed and osmotic pressures or
+  evaporation pond costs that are based on evaporation rates, water recovery, and other design
+  criteria:
 
     * e.g. Reverse osmosis
+
 |
-Depending on the costs assumed to be included in the TIC calculation, some
-units may require additional cost multipliers to adjust and fully represent the TIC. For these
-units, the TIC (unadjusted – as calculated by one of the four methods above) is multiplied by the
-Equipment Installation Factor with a default value of 3.4 based on the published
-values between 2.5 and 6.7 or the Indirect Cost Factor with a default value of
-1.65 based on published values between 1.2 and 1.7. After inclusion of either of these factors
-(if necessary), TIC is assumed to include indirect costs associated with constructing the process
-such as engineering costs, construction expenses, legal expenses, contractor fees, and
-contingencies and is considered the **unadjusted Fixed Capital Investment (FCI)**:
+Depending on the costs assumed to be included in the unit’s capital cost calculation (one of the four
+methods described above), some units may require additional cost multipliers to fully represent the TIC.
+For these units, the calculated capital cost is multiplied by either the **Equipment Installation
+Factor (EIF)** or the **Indirect Cost Factor (ICF)**. The EIF and ICF have default values of 3.4
+(typical value range: 2.5-6.7) and 1.65 (typical value range: 1.2-1.7), respectively. After inclusion
+of either of these factors (if necessary), TIC is assumed to include indirect costs associated with
+constructing the process such as engineering costs, construction expenses, legal expenses, contractor fees, and contingencies.
+This is the **unadjusted Fixed Capital Investment**:
 
     .. math::
 
-        FCI_{unadj} = 3.4 TIC
+        FCI_{unadj} = (EIF) TIC
 |
 
 Or:
     .. math::
 
-        FCI_{unadj} = 1.65 TIC
+        FCI_{unadj} = (ICF) TIC
 |
 Then TIC is adjusted by the Capital Cost Index Factor (defined above) to get the
 FCI:
@@ -229,13 +232,13 @@ added to the FCI:
 
         TCI = FCI + C_{land} + C_{work}
 |
-Where
+Where:
 
     .. math::
 
         C_{land} = f_{land} FCI
 |
-And
+And:
 
     .. math::
 
@@ -254,9 +257,9 @@ Variable Operating Costs
 Variable operating costs include any chemical additions, electricity costs, and other variable costs such as equipment
 replacements (e.g., membrane replacement costs for a reverse osmosis unit).
 
-Chemical costs are based on the chemical dosage (kg/m3) as defined in the model or by the user
+Chemical costs are based on the chemical dosage [kg/m3] as defined in the model or by the user
 for a given chemical addition. The costs of the chemicals can be found in the data folder. The
-annual chemical costs ($MM/yr) are calculated as:
+annual chemical costs [$MM/yr] are calculated as:
 
     .. math::
 
@@ -265,7 +268,7 @@ annual chemical costs ($MM/yr) are calculated as:
 Where `D` is the dose [kg/m3] of chemical `k` and `C` is the unit cost [$/kg] of chemical `k` as
 found in ``catalysts_chemicals.csv``.
 
-Electricity costs are based on the electricity intensity (kWh/m3] of each unit process, which is
+Electricity costs are based on the electricity intensity [kWh/m3] of each unit process, which is
 provided as a constant or calculated based on the configuration of the treatment process (see unit models for details).
 The annual electricity costs [$MM/yr] are calculated as:
 
@@ -333,7 +336,7 @@ Pipe Parity Metrics
 Levelized Cost of Water (LCOW)
 **************************************
 
-The Levelized Cost Of Water (LCOW) ($/m3) is one of the primary pipe-parity metrics provided as an
+The Levelized Cost Of Water (LCOW) [$/m3] is one of the primary pipe-parity metrics provided as an
 output from WaterTAP3.
 
     .. math::

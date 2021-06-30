@@ -26,8 +26,8 @@ Anion exchange has one parameter:
 Capital Costs
 ---------------
 
-The ``cap_total`` column is read in from the ``cost_curves.csv`` based on influent TDS and is
-fit to the power curve described above. Then `a` and `b` from that regression is used with the
+The ``cap_total`` column is read in from the ``cost_curves.csv`` based on user-defined EBCT and is
+fit to a power curve. Then `a` and `b` from that regression is used with the
 unit flow [m3/hr] to determine capital costs:
 
     .. math::
@@ -38,9 +38,9 @@ unit flow [m3/hr] to determine capital costs:
 Electricity Intensity
 ------------------------
 
-The ``electricity_flow`` column is read in from the ``cost_curves.csv`` based on influent TDS
-and is fit to the power curve described above. Then `a` and `b` from that regression is used with
-the unit flow [m3/hr] to determine capital costs:
+The ``electricity_flow`` column is read in from the ``cost_curves.csv`` based on user-defined EBCT
+and is fit to a power curve. Then `a` and `b` from that regression is used with the unit flow
+[m3/hr] to determine electricity intensity:
 
     .. math::
 
@@ -60,6 +60,7 @@ References
 | US Environmental Protection Agency (2017)
 | "Work Breakdown Structure-Based Cost Model for Granular Activated Carbon Drinking Water Treatment"
 | https://www.epa.gov/sites/production/files/2019-03/documents/wbs-gac-documentation-dec-2017_v2.pdf
+| https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
 Unit Template
 ----------------------------------------

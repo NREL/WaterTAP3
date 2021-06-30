@@ -1,28 +1,16 @@
 Multi-Stage Bubble Aeration
 ============================================================
 
-The multi-stage bubble aeration in WaterTAP3 is based off of a regression of several runs
-using EPA's Work Breakdown Structure-Based (WBS EPA) model (see reference). These models incorporate
-several aspects of cost of the treatment process, including treatment, monitoring, and
-administrative costs. Both capital cost and electricity intensity are based entirely on
-volumetric flow, but are assumed to incorporate these costing aspects of the EPA model.
-
-The WBS EPA models each have some "standard designs" that make default assumptions (see EPA
-documentation) and span a range of flows 0.74 MGD to 75 MGD. The EPA model outputs several costing parameters, including total
-capital cost.
+The multi-stage bubble aeration unit in WaterTAP3 is based off of a regression of several runs using
+EPA's Work Breakdown Structure-Based (WBS EPA) model. These models each have some "standard
+designs" that make default assumptions and span a range of flows 0.03 MGD to 75 MGD (USEPA (2019)).
 
 The approach for the WT3 model is to regress the total capital cost output from the EPA model vs.
-flow for each ofthe EPA model standard designs. A similar approach is taken to determine
+flow for each of the EPA model standard designs. A similar approach is taken to determine
 electricity intensity.
 
-Both sets of data are fit to a power curve:
-
-    .. math::
-
-        Y = a Q ^ b
-|
-Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
-flow in for the particular case study.
+Both sets of data are fit to a power curve. Then `a` and `b` are used with the
+flow for the model to determine capital and electricity intensity.
 
 Unit Parameters
 --------------------
@@ -65,6 +53,7 @@ References
 | US Environmental Protection Agency (2017)
 | "Work Breakdown Structure-Based Cost Model for Multi-Stage Bubble Aeration Drinking Water Treatment"
 | https://www.epa.gov/sites/production/files/2019-03/documents/wbs-msba-documentation-dec-2017_v2.pdf
+| https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
 Unit Template
 ----------------------------------------

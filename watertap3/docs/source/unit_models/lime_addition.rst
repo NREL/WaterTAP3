@@ -27,7 +27,7 @@ WaterTAP3 is:
 
         C_{lime} = 16972 S ^ {0.5435}
 |
-This cost is then multiplied by the number of units and the TPEC factor for the final FCI for the
+This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
 chemical addition. These parameters were determined by fitting data from FIGURE 5.5.9 - LIME FEED
 in McGivney & Kawamura (2008).
 

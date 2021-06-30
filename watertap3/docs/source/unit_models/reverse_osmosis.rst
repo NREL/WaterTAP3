@@ -156,6 +156,11 @@ The total capital costs for RO are calculated as follows, which each component d
 
         C_{RO} = C_{pump} + C_{mem} + C_{erd} + 3.3 C_{pv,r}
 |
+
+The value is then multiplied by the Indirect Cost Factor (IDF = 1.65) to arrive at the final
+fixed capital for reverse osmosis.
+
+
 Pump Capital Costs
 **********************************************
 
@@ -244,6 +249,7 @@ And the electricity intensity for the unit is calculated as [kWh/m3]:
 
         E_{RO} = \frac{p_{pump} - p_{erd} }{ Q_{in} }
 |
+
 Membrane Replacement Rate & Chemical Cost
 -----------------------------------------------
 
@@ -256,6 +262,7 @@ Membrane replacement costs (assumed to be 25% of area per year):
 
         C_{replace} = 0.25 C_{mem}
 |
+
 Chemical costs are assumed to equal 1% of the capital cost.
 
 References
