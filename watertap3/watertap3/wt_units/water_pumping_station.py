@@ -62,17 +62,17 @@ class UnitProcess(WT3UnitProcess):
         # print(c, d)
         self.c = 0.10239940765681513
         self.d = 0.9999999999999999
-        flow_in_mgd = pyunits.convert(self.flow_in, to_units=(pyunits.Mgallons / pyunits.day))
+        flow_in_mgd = value(pyunits.convert(self.flow_in, to_units=(pyunits.Mgallons / pyunits.day)))
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
         self.flow_in_gpm = value(pyunits.convert(self.flow_in, to_units=(pyunits.gallons / pyunits.minute)))
         if 'pump_power' in unit_params.keys():
             self.pump_power_hp = unit_params['pump_power'] * pyunits.hp
             self.pump_power_kw = pyunits.convert(self.pump_power_hp, to_units=pyunits.kilowatts)
         else:
-            self.pump_power_kw = (self.c * (flow_in_mgd / 440.29) ** self.d) * pyunits.kilowatts
+            self.pump_power_kw = (self.c * (flow_in_mgd / 440.29) ** self.d)
         self.pump_power_kw = self.pump_power_kw * pyunits.kilowatts
-        electricity =  self.pump_power_kw / flow_in_m3hr
-        return electricity
+        self.elect_intens =  self.pump_power_kw / flow_in_m3hr
+        return self.elect_intens
 
     def get_costing(self, unit_params=None, year=None):
         '''

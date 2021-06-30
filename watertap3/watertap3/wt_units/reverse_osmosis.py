@@ -6,7 +6,7 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 module_name = 'reverse_osmosis'
 basis_year = 2007
-tpec_or_tic = 'TPEC'
+tpec_or_tic = 'TIC'
 
 
 class UnitProcess(WT3UnitProcess):

@@ -2,12 +2,11 @@ Fixed Bed Pressure Vessel
 ============================================================
 
 The fixed bed gravity basin unit in WaterTAP3 is based off of a regression of several runs using
-EPA's Work Breakdown Structure-Based (WBS EPA) model. The WBS EPA models each
-have some  "standard designs" that make default assumptions (USEPA (2019)) and span a
-range of flows 0.03 MGD to 75 MGD.
+EPA's Work Breakdown Structure-Based (WBS EPA) model. These models each have some "standard
+designs" that make default assumptions and span a range of flows 0.03 MGD to 75 MGD (USEPA (2019)).
 
 The approach for the WT3 model is to regress the total capital cost output from the EPA model vs.
-flow for each of the EPA model standard designs with the fixed bed gravity basin option. A
+flow for each of the EPA model standard designs with the fixed bed pressure vessel option. A
 similar approach is taken to determine electricity intensity.
 
 Both sets of data are fit to a power curve. Then `a` and `b` are used with the
@@ -21,9 +20,8 @@ None
 Capital Costs
 ---------------
 
-The ``cap_total`` column is read in from the ``cost_curves.csv`` based on influent TDS and is
-fit to the power curve described above. Then `a` and `b` from that regression is used with the
-unit flow [m3/hr] to determine capital costs:
+The ``cap_total`` column is read in from the ``cost_curves.csv`` and is fit to a power curve.
+Then `a` and `b` from that regression is used with the unit flow [m3/hr] to determine capital costs:
 
     .. math::
 
@@ -32,9 +30,9 @@ unit flow [m3/hr] to determine capital costs:
 Electricity Intensity
 ------------------------
 
-The ``electricity_flow`` column is read in from the ``cost_curves.csv`` based on influent TDS
-and is fit to the power curve described above. Then `a` and `b` from that regression is used with
-the unit flow [m3/hr] to determine capital costs:
+The ``electricity_flow`` column is read in from the ``cost_curves.csv`` and is fit to a power
+curve. Then `a` and `b` from that regression is used with the unit flow [m3/hr] to determine
+electricity intensity:
 
     .. math::
 
@@ -54,6 +52,7 @@ References
 | US Environmental Protection Agency (2019)
 | "Work Breakdown Structure-Based Cost Model for Biological Drinking Water Treatment"
 | https://www.epa.gov/sites/production/files/2019-07/documents/wbs-biotreat-documentation-june-2019.pdf
+| https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
 Unit Template
 ----------------------------------------

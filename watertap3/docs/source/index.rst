@@ -4,9 +4,7 @@ WaterTAP3 Documentation
 
 This is the documentation for the WaterTAP3 model.
 
-..  raw:: pdf
 
-    PageBreak
 
 ..  toctree::
     :maxdepth: 5
@@ -19,6 +17,11 @@ This is the documentation for the WaterTAP3 model.
     constituent_removal
     financials
     unit_models/index
+
+
+..  raw:: pdf
+
+    PageBreak
 
 
 
