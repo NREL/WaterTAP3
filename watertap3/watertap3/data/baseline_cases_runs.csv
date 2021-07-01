@@ -19,12 +19,12 @@ carlsbad,one_ro,seawater,0.5,TRUE,TRUE,seawater
 santa_barbara,baseline,seawater,0.5,TRUE,TRUE,seawater
 tampa_bay,baseline,seawater,0.56,TRUE,TRUE,seawater
 tampa_bay,one_ro,seawater,0.56,TRUE,TRUE,seawater
-emwd,baseline,brackish,0.7,TRUE,TRUE,other
-emwd,dwi,brackish,0.7,TRUE,TRUE,other
-emwd,zld_a,brackish,0.7,TRUE,TRUE,other
+emwd,baseline,brackish,0.75,TRUE,TRUE,other
+emwd,dwi,brackish,0.75,TRUE,TRUE,other
+emwd,zld_a,brackish,0.75,TRUE,TRUE,other
 emwd,zld_b,brackish,1,TRUE,TRUE,other
 emwd,zld_c,brackish,1,TRUE,TRUE,other
-irwin,baseline,brackish,1,TRUE,TRUE,other
+irwin,baseline,brackish,0.996,TRUE,TRUE,other
 kbhdp,baseline,brackish,0.92,TRUE,TRUE,other
 kbhdp,zld_a,brackish,0.92,TRUE,TRUE,other
 kbhdp,zld_b,brackish,1,TRUE,TRUE,other
