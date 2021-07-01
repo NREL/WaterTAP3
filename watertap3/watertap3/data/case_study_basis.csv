@@ -468,7 +468,7 @@ beef,baseline,3.4,nawi,default_tpec_multiplier
 beef,baseline,1.65,nawi,default_tic_multiplier
 beef,baseline,0.0005,nawi,base_salary_per_fci
 produced_water_injection,baseline,2020,nawi,analysis_year
-produced_water_injection,baseline,oklahoma,nawi,location_basis
+produced_water_injection,baseline,texas,nawi,location_basis
 produced_water_injection,baseline,15,nawi,plant_life_yrs
 produced_water_injection,baseline,0.0015,nawi,land_cost_percent
 produced_water_injection,baseline,0.05,nawi,working_capital_percent

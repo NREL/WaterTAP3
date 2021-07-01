@@ -28,8 +28,8 @@ class SystemSpecs():
         elec_cost.index = elec_cost.index.str.lower()
         case_study = train['case_study']
         print(str(case_study).replace('_', ' ').swapcase())
-        location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
-        self.elec_price = float(elec_cost.loc[location])
+        self.location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
+        self.elec_price = float(elec_cost.loc[self.location])
         self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
         self.working_cap_percent_FCI = float(basis_data[basis_data['variable'] == 'working_capital_percent'].loc[case_study].value)
         self.salaries_percent_FCI = float(basis_data[basis_data['variable'] == 'base_salary_per_fci'].loc[case_study].value)
@@ -195,6 +195,7 @@ def get_system_specs(self, train=None):
 
     system_specs = SystemSpecs(train)
 
+    b.location = system_specs.location
     b.electricity_price.fix(system_specs.elec_price)
     b.salaries_percent_FCI.fix(system_specs.salaries_percent_FCI)
     b.land_cost_percent_FCI = system_specs.land_cost_percent_FCI

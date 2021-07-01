@@ -142,7 +142,7 @@ class UnitProcess(WT3UnitProcess):
         self.a = Var(time, initialize=4.2, bounds=(1, 9), domain=NonNegativeReals, doc='water permeability')
         self.b = Var(time, initialize=0.35, bounds=(0.1, 0.9), domain=NonNegativeReals, doc='Salt permeability')
         self.mem_cost = Var(time, initialize=40, bounds=(10, 80), domain=NonNegativeReals, doc='Membrane cost')
-        self.membrane_area = Var(time, initialize=1e5, domain=NonNegativeReals, bounds=(1e1, 1e12), doc='area')
+        self.membrane_area = Var(time, initialize=1E5, domain=NonNegativeReals, bounds=(1E1, 1E12), doc='area')
         self.factor_membrane_replacement = Var(time, initialize=0.2, domain=NonNegativeReals, bounds=(0.01, 3), doc='replacement rate membrane fraction')
         self.pressure_vessel_cost1 = Var(time, domain=NonNegativeReals)
         self.rack_support_cost1 = Var(time, domain=NonNegativeReals)
