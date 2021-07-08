@@ -9,16 +9,14 @@
 
 import pandas as pd
 from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
+
 from .ml_regression import get_linear_regression
 
-__all__ = ['SystemSpecs',
-           'get_complete_costing',
-           'get_ind_table',
-           'get_system_specs',
-           'get_system_costing',
-           'global_costing_parameters']
+__all__ = ['SystemSpecs', 'get_complete_costing', 'get_ind_table', 'get_system_specs',
+           'get_system_costing', 'global_costing_parameters']
 
 last_year_for_cost_indicies = 2050
+
 
 class SystemSpecs():
 
@@ -27,7 +25,8 @@ class SystemSpecs():
         elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
         elec_cost.index = elec_cost.index.str.lower()
         case_study = train['case_study']
-        print(str(case_study).replace('_', ' ').swapcase())
+        scenario = train['scenario']
+        print(str(case_study).replace('_', ' ').swapcase() + ':', str(scenario).replace('_', ' ').swapcase())
         self.location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
         self.elec_price = float(elec_cost.loc[self.location])
         self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
@@ -45,13 +44,15 @@ class SystemSpecs():
 
 def create_costing_block(unit, basis_year, tpec_or_tic):
     '''
-    Function to create costing block and establish basis year and TPEC/TIC factor for each WaterTAP3 unit.
+    Function to create costing block and establish basis year and TPEC/TIC factor for each
+    WaterTAP3 unit.
 
     :param unit: WaterTAP3 unit
     :type unit: str
     :param basis_year: Basis year for adjusting cost calculations
     :type basis_year: str
-    :param tpec_or_tic: either 'TPEC' or 'TIC'; determines which factor to use for FCI adjustment (if necessary)
+    :param tpec_or_tic: either 'TPEC' or 'TIC'; determines which factor to use for FCI adjustment
+    (if necessary)
     :type tpec_or_tic: str
     :return:
     '''
@@ -62,6 +63,7 @@ def create_costing_block(unit, basis_year, tpec_or_tic):
         costing.tpec_tic = unit.tpec_tic = sys_cost_params.tpec
     else:
         costing.tpec_tic = unit.tpec_tic = sys_cost_params.tic
+
 
 def get_complete_costing(costing):
     '''
@@ -89,7 +91,8 @@ def get_complete_costing(costing):
     costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
     costing.total_cap_investment = costing.fixed_cap_inv + costing.land_cost + costing.working_cap
 
-    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.year)
+    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[time],
+                                   to_units=pyunits.m ** 3 / pyunits.year)
 
     ## cat and chems ##
     cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col='Material')
@@ -107,7 +110,6 @@ def get_complete_costing(costing):
         costing.electricity_cost = Expression(
                 expr=(electricity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization,
                 doc='Electricity cost')  # M$/yr
-
 
     if not hasattr(costing, 'other_var_cost'):
         costing.other_var_cost = 0 * sys_specs.plant_cap_utilization
@@ -134,9 +136,7 @@ def get_ind_table(analysis_yr_cost_indicies):
 
     df1 = pd.DataFrame()
     for name in df.columns[1:]:
-        a, b = get_linear_regression(
-                list(df.Year), list(df[('%s' % name)]), name
-                )
+        a, b = get_linear_regression(list(df.Year), list(df[('%s' % name)]), name)
         new_list = []
         yr_list = []
         for yr in range(df.Year.max() + 1, last_year_for_cost_indicies + 1):
@@ -150,8 +150,7 @@ def get_ind_table(analysis_yr_cost_indicies):
     for variable in new_cost_variables:
         ind_name = '%s_Index' % variable
         fac_name = '%s_Factor' % variable
-        df[fac_name] = (
-                df[df.Year == analysis_yr_cost_indicies][ind_name].max() / df[ind_name])
+        df[fac_name] = (df[df.Year == analysis_yr_cost_indicies][ind_name].max() / df[ind_name])
     df = df.set_index(df.Year)
     df = df.replace(1.0, 1.00000000001)
 
@@ -167,29 +166,12 @@ def get_system_specs(self, train=None):
     self.costing_param = Block()
     b = self.costing_param
 
-    b.electricity_price = Var(
-            initialize=0.07,
-            doc='Electricity cost [$/kWh]')
-
-    b.maintenance_costs_percent_FCI = Var(
-            initialize=0.07,
-            doc='maintenance_costs_percent_FCI cost [%]')
-
-    b.salaries_percent_FCI = Var(
-            initialize=0.07,
-            doc='salaries_percent_FCI cost [%]')
-
-    b.benefit_percent_of_salary = Var(
-            initialize=0.07,
-            doc='benefit_percent_of_salary cost [%]')
-
-    b.insurance_taxes_percent_FCI = Var(
-            initialize=0.07,
-            doc='insurance_taxes_percent_FCI cost [%]')
-
-    b.lab_fees_percent_FCI = Var(
-            initialize=0.07,
-            doc='lab_fees_percent_FCI cost [%]')
+    b.electricity_price = Var(initialize=0.07, doc='Electricity cost [$/kWh]')
+    b.maintenance_costs_percent_FCI = Var(initialize=0.07, doc='maintenance_costs_percent_FCI cost [%]')
+    b.salaries_percent_FCI = Var(initialize=0.07, doc='salaries_percent_FCI cost [%]')
+    b.benefit_percent_of_salary = Var(initialize=0.07, doc='benefit_percent_of_salary cost [%]')
+    b.insurance_taxes_percent_FCI = Var(initialize=0.07, doc='insurance_taxes_percent_FCI cost [%]')
+    b.lab_fees_percent_FCI = Var(initialize=0.07, doc='lab_fees_percent_FCI cost [%]')
 
     # ADD THE REST AS VARIABLES.
 
@@ -232,7 +214,8 @@ def get_system_costing(self):
 
     wacc = sys_specs.wacc
 
-    b.capital_recovery_factor = (wacc * (1 + wacc) ** sys_specs.plant_lifetime_yrs) / (((1 + wacc) ** sys_specs.plant_lifetime_yrs) - 1)
+    b.capital_recovery_factor = (wacc * (1 + wacc) ** sys_specs.plant_lifetime_yrs) / (
+            ((1 + wacc) ** sys_specs.plant_lifetime_yrs) - 1)
 
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
@@ -242,31 +225,17 @@ def get_system_costing(self):
             other_var_cost_lst.append(b_unit.costing.other_var_cost)
             total_fixed_op_cost_lst.append(b_unit.costing.total_fixed_op_cost)
 
-    b.capital_investment_total = Expression(
-            expr=sum(total_capital_investment_var_lst))
-    b.cat_and_chem_cost_total = Expression(
-            expr=sum(cat_and_chem_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.electricity_cost_total = Expression(
-            expr=sum(electricity_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.other_var_cost_total = Expression(
-            expr=sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.fixed_op_cost_total = Expression(
-            expr=sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.operating_cost_total = Expression(
-            expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total
-                  + b.other_var_cost_total))
-    b.cat_and_chem_cost_annual = Expression(
-            expr=sum(cat_and_chem_cost_lst))
-    b.electricity_cost_annual = Expression(
-            expr=sum(electricity_cost_lst))
-    b.other_var_cost_annual = Expression(
-            expr=sum(other_var_cost_lst))
-    b.fixed_op_cost_annual = Expression(
-            expr=sum(total_fixed_op_cost_lst))
-
-    b.operating_cost_annual = Expression(
-            expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual
-                  + b.other_var_cost_annual))
+    b.capital_investment_total = Expression(expr=sum(total_capital_investment_var_lst))
+    b.cat_and_chem_cost_total = Expression(expr=sum(cat_and_chem_cost_lst) * self.costing_param.plant_lifetime_yrs)
+    b.electricity_cost_total = Expression(expr=sum(electricity_cost_lst) * self.costing_param.plant_lifetime_yrs)
+    b.other_var_cost_total = Expression(expr=sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs)
+    b.fixed_op_cost_total = Expression(expr=sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs)
+    b.operating_cost_total = Expression(expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total + b.other_var_cost_total))
+    b.cat_and_chem_cost_annual = Expression(expr=sum(cat_and_chem_cost_lst))
+    b.electricity_cost_annual = Expression(expr=sum(electricity_cost_lst))
+    b.other_var_cost_annual = Expression(expr=sum(other_var_cost_lst))
+    b.fixed_op_cost_annual = Expression(expr=sum(total_fixed_op_cost_lst))
+    b.operating_cost_annual = Expression(expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual + b.other_var_cost_annual))
 
     recovered_water_flow = 0
     wastewater_list = []
@@ -297,41 +266,45 @@ def get_system_costing(self):
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
             setattr(b_unit, 'LCOW', Expression(
-                    expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost)
-                         / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
                     doc='Unit Levelized Cost of Water [$/m3]'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
-                    expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price)
-                         / (b.treated_water * 3600 * 24 * 365),
-                    doc='Unit Electricity Intensity [kWh/m3]'))
+                    expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price) /
+                         (b.treated_water * 3600 * 24 * 365),
+                    doc='Unit Electricity Intensity [''kWh/m3]'))
 
     # LCOW by cost category
-    b.LCOW_TCI = Expression(
-            expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+    b.LCOW_TCI = Expression(expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor) / (
+            b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
-    b.LCOW_elec = Expression(
-            expr=1E6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+    b.LCOW_elec = Expression(expr=1E6 * (b.electricity_cost_annual) / (
+            b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
-    b.LCOW_fixed_op = Expression(
-            expr=1E6 * (b.fixed_op_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+    b.LCOW_fixed_op = Expression(expr=1E6 * (b.fixed_op_cost_annual) / (
+            b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
-    b.LCOW_other_onm = Expression(
-            expr=1E6 * (b.cat_and_chem_cost_annual + b.other_var_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+    b.LCOW_chem = Expression(expr=1E6 * (b.cat_and_chem_cost_annual) / (
+            b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+
+    b.LCOW_other_onm = Expression(expr=1E6 * (b.other_var_cost_annual) / (
+            b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     ## GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water
     b.electricity_intensity = Expression(
-            expr=(b.electricity_cost_annual * 1E6 / b.parent_block().costing_param.electricity_price)
-                 / (b.treated_water * 3600 * 24 * 365),
+            expr=(b.electricity_cost_annual * 1E6 / b.parent_block().costing_param.electricity_price) /
+                 (b.treated_water * 3600 * 24 * 365),
             doc='Electricity Intensity [kWh/m3]')
 
     b.LCOW = Expression(
-            expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual)
-                 / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+            expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) /
+                 (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
             doc='Levelized Cost of Water [$/m3]')
 
     b.elec_frac_LCOW = Expression(
-            expr=((1E6 * (b.electricity_cost_annual) / (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
+            expr=((1E6 * (b.electricity_cost_annual) /
+                   (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
             doc='Electricity cost as fraction of LCOW')
 
 
@@ -339,10 +312,17 @@ def global_costing_parameters(self, year=None):
     if year is None:
         year = '2018'
     ce_index_dic = {
-            '2019': 680, '2018': 671.1, '2017': 567.5, '2016': 541.7,
-            '2015': 556.8, '2014': 576.1, '2013': 567.3, '2012': 584.6,
-            '2011': 585.7, '2010': 550.8
+            '2019': 680,
+            '2018': 671.1,
+            '2017': 567.5,
+            '2016': 541.7,
+            '2015': 556.8,
+            '2014': 576.1,
+            '2013': 567.3,
+            '2012': 584.6,
+            '2011': 585.7,
+            '2010': 550.8
             }
 
     self.CE_index = Param(mutable=True, initialize=ce_index_dic[year],
-                          doc='Chemical Engineering Plant Cost Index $ year')
+            doc='Chemical Engineering Plant Cost Index $ year')

@@ -14,7 +14,6 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.Mgallons / pyunits.day))
         pump_type = unit_params['pump_type']
-        # tdh = unit_params['tdh'] * pyunits.ft
         if pump_type == 'raw':
             # Costing parameters a, b determined with the following code:
             # Data taken from WT3 excel model
@@ -51,26 +50,23 @@ class UnitProcess(WT3UnitProcess):
         return pumping_cap
 
     def elect(self, unit_params):
-        # Electricity costing parameters c, d determined with the following code:
-        # Data taken from WT3 excel model
-        # motor_eff = 0.9
-        # pump_eff = 0.9
-        # tdh_lst = [25, 50, 75, 100, 200, 300, 400, 1000, 2500]  # TDH in ft
-        # tdh_elect = [(0.746 * 440.29 * x) / (3960 * motor_eff * pump_eff) for x in tdh_lst]
-        # cc, _ = curve_fit(power_curve, tdh_lst, tdh_elect)
-        # c, d = cc[0], cc[1]
-        # print(c, d)
-        self.c = 0.10239940765681513
-        self.d = 0.9999999999999999
-        flow_in_mgd = value(pyunits.convert(self.flow_in, to_units=(pyunits.Mgallons / pyunits.day)))
+        self.pump_eff = 0.9
+        self.motor_eff = 0.9
+
         flow_in_m3hr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.hr))
-        self.flow_in_gpm = value(pyunits.convert(self.flow_in, to_units=(pyunits.gallons / pyunits.minute)))
+        flow_in_gpm = value(pyunits.convert(self.flow_in, to_units=(pyunits.gallons / pyunits.minute)))
+
+        if 'lift_height' in unit_params.keys():
+            self.lift_height = unit_params['lift_height']
+        else:
+            self.lift_height = 100 # 100 ft = 3 bar of dynamic head, assume 90% efficiency for motor and pump
+
         if 'pump_power' in unit_params.keys():
             self.pump_power_hp = unit_params['pump_power'] * pyunits.hp
             self.pump_power_kw = pyunits.convert(self.pump_power_hp, to_units=pyunits.kilowatts)
         else:
-            self.pump_power_kw = (self.c * (flow_in_mgd / 440.29) ** self.d)
-        self.pump_power_kw = self.pump_power_kw * pyunits.kilowatts
+            self.pump_power_kw = (0.746 * flow_in_gpm * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) * pyunits.kilowatts
+
         self.elect_intens =  self.pump_power_kw / flow_in_m3hr
         return self.elect_intens
 
