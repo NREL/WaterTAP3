@@ -275,14 +275,6 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
     up_nice_name_list.append('System')
     python_param.append('electricity_intensity')
     category.append('Electricity')
-    variable_list.append('Electricity Intensity System Treated')
-    unit_list.append('kWh/m3')
-
-    value_list.append(value(m.fs.costing.electricity_intensity))
-    python_var.append('system')
-    up_nice_name_list.append('System')
-    python_param.append('electricity_intensity')
-    category.append('Electricity')
     variable_list.append('Electricity Intensity')
     unit_list.append('kWh/m3')
 
@@ -449,7 +441,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
             if hasattr(b_unit, 'LCOW'):
                 python_var.append(unit_str)
                 up_nice_name_list.append(up_nice_name)
-                python_param.append('LCOW')
+                python_param.append('unit_LCOW')
                 category.append('LCOW')
                 variable_list.append('Unit Levelized Cost')
                 value_list.append(value(b_unit.LCOW))

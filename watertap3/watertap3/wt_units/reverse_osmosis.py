@@ -18,7 +18,7 @@ class UnitProcess(WT3UnitProcess):
         :return: Fixed capital costs for reverse osmosis [$MM]
         '''
         ro_cap = (self.tpec_tic * (b_cost.pump_capital_cost + b_cost.mem_capital_cost + b_cost.erd_capital_cost) +
-                  3.3 * (self.pressure_vessel_cost1[t] + self.rack_support_cost1[t])) * 1E-6  # $MM ### 1.65 is TIC
+                  3.3 * (self.pressure_vessel_cost[t] + self.rack_support_cost[t])) * 1E-6  # $MM ### 1.65 is TIC
         return ro_cap
 
     def elect(self, t):
@@ -94,7 +94,7 @@ class UnitProcess(WT3UnitProcess):
         self.feed.eq7 = Constraint(
                 expr=self.feed.osm_coeff[t] == 4.92 * self.feed.mass_frac_tds[t] ** 2 + self.feed.mass_frac_tds[t] * 0.0889 + 0.918)
         self.feed.eq8 = Constraint(
-                expr=self.feed.pressure_osm[t] * 1e5 * (1 - self.feed.mass_frac_tds[t]) == 8.45e7 * self.feed.osm_coeff[t] * self.feed.mass_frac_tds[t])
+                expr=self.feed.pressure_osm[t] * 1E5 * (1 - self.feed.mass_frac_tds[t]) == 8.45e7 * self.feed.osm_coeff[t] * self.feed.mass_frac_tds[t])
 
         ## FLUX CONSTRAINTS
         self.water_salt_perm_eq1 = Constraint(
@@ -154,14 +154,14 @@ class UnitProcess(WT3UnitProcess):
                 expr=self.pump_power >= 0)
 
         # VESSEL COST
-        self.pressure_vessel_cost1_eq = Constraint(
-                expr=self.pressure_vessel_cost1[t] * 0.99 <= self.membrane_area[t] * 0.025 * 1000)  # assumes 2 trains. 150 ft start, 5ft per additional vessel. EPA.
-        self.rack_support_cost1_eq = Constraint(
-                expr=self.rack_support_cost1[t] * 0.99 <= (150 + (self.membrane_area[t] * 0.025 * 5)) * 33 * 2)
-        self.pressure_vessel_cost1_eq2 = Constraint(
-                expr=self.pressure_vessel_cost1[t] * 1.01 >= self.membrane_area[t] * 0.025 * 1000)  # assumes 2 trains. 150 ft start, 5ft per additional vessel. EPA.
-        self.rack_support_cost1_eq2 = Constraint(
-                expr=self.rack_support_cost1[t] * 1.01 >= (150 + (self.membrane_area[t] * 0.025 * 5)) * 33 * 2)
+        self.pressure_vessel_cost_eq = Constraint(
+                expr=self.pressure_vessel_cost[t] * 0.99 <= self.membrane_area[t] * 0.025 * 1000)  # assumes 2 trains. 150 ft start, 5ft per additional vessel. EPA.
+        self.rack_support_cost_eq = Constraint(
+                expr=self.rack_support_cost[t] * 0.99 <= (150 + (self.membrane_area[t] * 0.025 * 5)) * 33 * 2)
+        self.pressure_vessel_cost_eq2 = Constraint(
+                expr=self.pressure_vessel_cost[t] * 1.01 >= self.membrane_area[t] * 0.025 * 1000)  # assumes 2 trains. 150 ft start, 5ft per additional vessel. EPA.
+        self.rack_support_cost_eq2 = Constraint(
+                expr=self.rack_support_cost[t] * 1.01 >= (150 + (self.membrane_area[t] * 0.025 * 5)) * 33 * 2)
 
     def get_costing(self, unit_params=None, year=None):
         '''
@@ -231,9 +231,9 @@ class UnitProcess(WT3UnitProcess):
                                                domain=NonNegativeReals,
                                                bounds=(0.01, 3),
                                                doc='replacement rate membrane fraction')
-        self.pressure_vessel_cost1 = Var(time,
+        self.pressure_vessel_cost = Var(time,
                                          domain=NonNegativeReals)
-        self.rack_support_cost1 = Var(time,
+        self.rack_support_cost = Var(time,
                                       domain=NonNegativeReals)
         self.factor_membrane_replacement.fix(0.25)  #
 
@@ -302,7 +302,7 @@ class UnitProcess(WT3UnitProcess):
 
         b_cost = self.costing
         b_cost.pump_capital_cost = self.pump_power * (53 / 1E5 * 3600) ** 0.97
-        b_cost.pressure_vessel_cap_cost1 = self.pressure_vessel_cost1[t] + self.rack_support_cost1[t]
+        b_cost.pressure_vessel_cap_cost = self.pressure_vessel_cost[t] + self.rack_support_cost[t]
 
         ################ Energy Recovery
         # assumes atmospheric pressure out
@@ -325,6 +325,7 @@ class UnitProcess(WT3UnitProcess):
         self.flux = self.flow_vol_out[t] / (self.membrane_area[t] * pyunits.m ** 2)
         self.flux_lmh = pyunits.convert(self.flux,
                                         to_units=(pyunits.liter / pyunits.m ** 2 / pyunits.hour))
+        self.salt_rejection = (1 - self.permeate.mass_flow_tds[0] / self.feed.mass_flow_tds[0]) * 100
         ################ operating
         # membrane operating cost
         b_cost.other_var_cost = self.factor_membrane_replacement[t] * self.mem_cost[t] * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1E-6
