@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from pylab import *
 from pyomo.environ import Block, units as pyunits, value
@@ -736,7 +737,13 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
     df['Metric'] = np.where(df.Unit == '$MM/yr', 'Annual Cost', df.Metric)
     df['Metric'] = np.where(df.Unit == '$/m3', 'LCOW', df.Metric)
     if save is True:
-        df.to_csv('results/case_studies/%s_%s.csv' % (case_study, scenario), index=False)
+        cwd = os.getcwd()
+        results_path = cwd + '/results/case_studies'
+        if os.path.isdir(results_path):
+            df.to_csv('results/case_studies/%s_%s.csv' % (case_study, scenario), index=False)
+        else:
+            os.makedirs(results_path)
+            df.to_csv('results/case_studies/%s_%s.csv' % (case_study, scenario), index=False)
 
     return df
 

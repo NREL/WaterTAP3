@@ -42,7 +42,7 @@ break_level = 1
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 pdf_documents = [('index', u'watertap3-doc-draft-TEST', u'WaterTAP3 Documentation', u'Ariel Miara, Kurban Sitterley, Michael Talmadge, Zhe Huang, Anna Evans, Jennifer Stokes-Draut, Jordan Macknick')]
-pdf_toc_depth = 2
+pdf_toc_depth = 3
 
 # -- Options for HTML output -------------------------------------------------
 

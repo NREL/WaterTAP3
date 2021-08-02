@@ -45,6 +45,15 @@ current GitHub repo available at https://github.com/NREL/WaterTAP3:
     * ``git clone https://github.com/NREL/NAWI-WaterTAP3``
     * All the necessary python files and data files will be downloaded into your working directory
 
+#. Install watertap3 as an editable package:
+
+    * Must be in directory containing ``setup.py`` file
+    * In terminal, enter ``python –m pip install –e .``
+
+        * **NOTE: MUST INCLUDE THE PERIOD AT THE END OF THIS COMMAND**
+
+    * You should end up with new directory ``watertap3.egg-info`` in current directory
+
 #. Create the ``watertap3`` Python environment:
 
     * ``conda env create --file watertap3.yml``

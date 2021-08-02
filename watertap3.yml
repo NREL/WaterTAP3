@@ -231,4 +231,3 @@ dependencies:
     - tinydb==4.4.0
     - toml==0.10.2
     - tzlocal==2.1
-prefix: /Users/ksitterl/opt/anaconda3/envs/watertap3

@@ -262,7 +262,7 @@ class UnitProcess(WT3UnitProcess):
         ## CONSTANTS
         self.pump_eff = 0.8
         self.erd_eff = 0.9
-        self.pressure_drop = 3
+        self.pressure_drop = 3 * pyunits.bar
         self.p_atm = 1
         self.pw = 1000
 
@@ -325,7 +325,11 @@ class UnitProcess(WT3UnitProcess):
         self.flux = self.flow_vol_out[t] / (self.membrane_area[t] * pyunits.m ** 2)
         self.flux_lmh = pyunits.convert(self.flux,
                                         to_units=(pyunits.liter / pyunits.m ** 2 / pyunits.hour))
-        self.salt_rejection = (1 - self.permeate.mass_flow_tds[0] / self.feed.mass_flow_tds[0]) * 100
+        self.salt_rejection_mass = (1 - self.permeate.mass_flow_tds[t] / self.feed.mass_flow_tds[t]) * 100
+        self.salt_rejection_conc = (1 - self.conc_mass_out[t, 'tds'] / self.conc_mass_in[t, 'tds']) * 100
+        self.SEC = ((self.flow_vol_in[t] * self.pressure_drop) / self.flow_vol_out[t]) * self.pump_eff # specific energy consumption, from - Zhu, A., Christofides, P., Cohen, Y., "On RO membrane and energy costs..."
+        self.salt_flux = self.b[t] * (self.conc_mass_in[t, 'tds'] - self.conc_mass_out[t, 'tds'])
+
         ################ operating
         # membrane operating cost
         b_cost.other_var_cost = self.factor_membrane_replacement[t] * self.mem_cost[t] * self.membrane_area[t] * sys_cost_params.plant_cap_utilization * 1E-6
