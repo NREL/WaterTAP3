@@ -27,13 +27,13 @@ class UnitProcess(WT3UnitProcess):
         :return: Ferric addition fixed capital cost [$MM]
         '''
         time = self.flowsheet().config.time.first()
+        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.number_of_units = 2
         self.base_fixed_cap_cost = 34153
         self.cap_scaling_exp = 0.319
         chem_name = 'Iron_FeCl3'
         self.chemical_dosage = pyunits.convert(unit_params['dose'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
         self.chem_dict = {chem_name: self.chemical_dosage}
-        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         source_cost = self.base_fixed_cap_cost * self.solution_vol_flow() ** self.cap_scaling_exp
         fecl3_cap = (source_cost * self.tpec_tic * self.number_of_units) * 1E-6
         return fecl3_cap

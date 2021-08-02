@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from idaes.core import FlowsheetBlock
 from idaes.core.util.model_statistics import degrees_of_freedom
+import os
 from pyomo.environ import Block, ConcreteModel, Constraint, Objective, SolverFactory, TransformationFactory, units as pyunits, value
 from pyomo.network import SequentialDecomposition
 
@@ -52,7 +53,7 @@ def run_water_tap(m=None, solver_results=False, print_model_results=False, objec
         print_results(m, print_model_results)
 
 
-def watertap_setup(dynamic=False, case_study=None, reference=None, scenario=None,
+def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=None,
                    source_reference=None, source_case_study=None, source_scenario=None):
     m = ConcreteModel()
 
@@ -418,7 +419,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
 
     lcow_list.append(value(m.fs.costing.LCOW))
     water_recovery_list.append(value(m.fs.costing.system_recovery))
-    scenario_value.append(None)
+    scenario_value.append('baseline')
     scenario_name.append(scenario)
     elec_lcow.append(value(m.fs.costing.elec_frac_LCOW))
     elec_int.append(value(m.fs.costing.electricity_intensity))
@@ -885,12 +886,14 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
     ############ RO scenarios --> pressure % change, membrane area, replacement rate% ############
 
     if m_scenario not in ['edr_ph_ro', 'ro_and_mf']:
-        if m.fs.train['case_study'] in ['cherokee', 'gila_river', 'upw', 'ocwd']:
+        if m.fs.train['case_study'] in ['cherokee', 'gila_river', 'upw']:
             print('skips RO sens')
         else:
             for key in m.fs.pfd_dict.keys():
                 if m.fs.pfd_dict[key]['Unit'] == 'reverse_osmosis':
                     if key in ro_list:
+                        # if m.fs.train['case_study'] == 'ocwd':
+                        #     m.fs.del_component(m.fs.ro_pressure_constr)
                         area = value(getattr(m.fs, key).membrane_area[0])
                         scenario_dict = {
                                 'membrane_area': [-area * 0.2, area * 0.2],
@@ -1330,8 +1333,8 @@ def set_bounds(m=None, source_water_category=None):
     return m
 
 
-def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=None,
-                     desired_recovery=0, ro_bounds=None, source_scenario=None, scenario_name=None):
+def run_water_tap_ro(m, return_df=False, skip_small=True,
+                     desired_recovery=1, ro_bounds='seawater', source_scenario=None, scenario_name=None):
     scenario = scenario_name
     case_study = m.fs.train['case_study']
     reference = m.fs.train['reference']
@@ -1487,7 +1490,7 @@ def run_water_tap_ro(m, source_water_category=None, return_df=False, skip_small=
             m.fs.splitter2.split_fraction_outlet4.fix(upw_list[1])
 
         if case_study == 'ocwd':  # Facility data in email from Dan Giammar 7/7/2021
-            m.fs.ro_pressure_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 15)  # Facility data: RO pressure is 140-220 psi (~9.7-15.1 bar)
+            # m.fs.ro_pressure_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 15)  # Facility data: RO pressure is 140-220 psi (~9.7-15.1 bar)
             m.fs.microfiltration.water_recovery.fix(0.9)
 
         if case_study == 'uranium':
