@@ -11,7 +11,7 @@
 from idaes.core import (UnitModelBlockData, declare_process_block_class, useDefault)
 from idaes.core.util.config import is_physical_parameter_block
 from pyomo.common.config import ConfigBlock, ConfigValue, In
-from pyomo.environ import Constraint, NonNegativeReals, Var, units as pyunits
+from pyomo.environ import Constraint, ConstraintList, NonNegativeReals, Binary, Integers, Param, Var, units as pyunits
 from pyomo.network import Port
 
 module_name = 'splitter_mar1'
@@ -61,6 +61,9 @@ class SplitterProcessData(UnitModelBlockData):
         t = self.flowsheet().config.time.first()
         units_meta = self.config.property_package.get_metadata().get_derived_units
         outlet_list = outlet_list_up.keys()
+        self.decision = all(splits == 1 for splits in outlet_list_up.values())
+        self.decision_vars = []
+        self.split_fraction_vars = []
         # print(outlet_list)
         # Add ports
         for p in outlet_list:
@@ -69,18 +72,18 @@ class SplitterProcessData(UnitModelBlockData):
             setattr(self, ('flow_vol_%s' % p), Var(time,
                                                    # initialize=0.5,
                                                    domain=NonNegativeReals,
-                                                   bounds=(1e-9, 1e2),
+                                                   bounds=(1E-9, 1E2),
                                                    units=units_meta('volume') / units_meta('time'),
                                                    doc='Volumetric flowrate of water out of unit'))
 
             setattr(self, ('conc_mass_%s' % p), Var(time,
                                                     self.config.property_package.component_list,
-                                                    initialize=1e-3,
+                                                    initialize=1E-3,
                                                     units=units_meta('mass') / units_meta('volume'),
                                                     doc='Mass concentration of species at outlet'))
 
             setattr(self, ('pressure_%s' % p), Var(time,
-                                                   initialize=1e5,
+                                                   initialize=1E5,
                                                    domain=NonNegativeReals,
                                                    units=units_meta('pressure'),
                                                    doc='Pressure at outlet'))
@@ -90,13 +93,31 @@ class SplitterProcessData(UnitModelBlockData):
                                                       domain=NonNegativeReals,
                                                       units=units_meta('temperature'),
                                                       doc='Temperature at outlet'))
+            if not self.decision:
+                setattr(self, ('split_fraction_%s' % p), Var(time,
+                                                             initialize=0.5,
+                                                             domain=NonNegativeReals,
+                                                             bounds=(0.01, 0.99),
+                                                             # units=units_meta('pressure'),
+                                                             doc='split fraction'))
 
-            setattr(self, ('split_fraction_%s' % p), Var(time,
-                                                         initialize=0.5,
-                                                         domain=NonNegativeReals,
-                                                         bounds=(0.01, 0.99),
-                                                         # units=units_meta('pressure'),
-                                                         doc='split fraction'))
+            if self.decision:
+                setattr(self, ('split_fraction_%s' % p), Var(time,
+                                                             initialize=1,
+                                                             domain=NonNegativeReals,
+                                                             bounds=(0, 1),
+                                                             # units=units_meta('pressure'),
+                                                             doc='split fraction'))
+
+                setattr(self, ('decision_var_%s' % p), Var(time,
+                                                            initialize=1,
+                                                            # bounds=(0, 1),
+                                                           within=Binary,
+                                                            doc='variable for directing flow'))
+                decision_var_name = ('decision_var_%s' % p)
+                split_fraction_var_name = ('split_fraction_%s' % p)
+                self.decision_vars.append(getattr(self, decision_var_name)[t])
+                self.split_fraction_vars.append(getattr(self, split_fraction_var_name)[t])
 
             getattr(self, p).add(getattr(self, ('temperature_%s' % p)), 'temperature')
             getattr(self, p).add(getattr(self, ('pressure_%s' % p)), 'pressure')
@@ -108,12 +129,12 @@ class SplitterProcessData(UnitModelBlockData):
         self.flow_vol_in = Var(time,
                                # initialize=1,
                                domain=NonNegativeReals,
-                               bounds=(1e-9, 1e2),
+                               bounds=(1E-9, 1E2),
                                units=units_meta('volume') / units_meta('time'),
                                doc='Volumetric flowrate of water out of unit')
         self.conc_mass_in = Var(time,
                                 self.config.property_package.component_list,
-                                initialize=1e-3,
+                                initialize=1E-3,
                                 units=units_meta('mass') / units_meta('volume'),
                                 doc='Mass concentration of species at outlet')
         self.temperature_in = Var(time,
@@ -121,7 +142,7 @@ class SplitterProcessData(UnitModelBlockData):
                                   units=units_meta('temperature'),
                                   doc='Temperature at outlet')
         self.pressure_in = Var(time,
-                               initialize=1e5,
+                               initialize=1E5,
                                units=units_meta('pressure'),
                                doc='Pressure at outlet')
 
@@ -132,10 +153,12 @@ class SplitterProcessData(UnitModelBlockData):
         i = 0
         # print(outlet_list)
         for p in outlet_list:
-            if outlet_list_up[p] == "NA":
-                getattr(self, ("split_fraction_%s" % p)).unfix()
+            if outlet_list_up[p] == 'NA':
+                getattr(self, ('split_fraction_%s' % p)).unfix()
+            elif self.decision:
+                getattr(self, ('split_fraction_%s' % p)).fix(1)
             else:
-                getattr(self, ("split_fraction_%s" % p)).fix(outlet_list_up[p])
+                getattr(self, ('split_fraction_%s' % p)).fix(outlet_list_up[p])
             # if 'split_fraction' in unit_params.keys():
             #     getattr(self, ('split_fraction_%s' % p)).fix(unit_params['split_fraction'][i])
             # else:
@@ -147,11 +170,21 @@ class SplitterProcessData(UnitModelBlockData):
                 setattr(self, ('%s_%s_eq' % (p, j)), Constraint(expr=self.conc_mass_in[t, j]
                                                                      == getattr(self, ('conc_mass_%s' % p))[t, j]))
 
-        for p in outlet_list:
-            setattr(self, ('%s_eq_flow' % p),
-                    Constraint(
-                            expr=getattr(self, ('split_fraction_%s' % p))[t] * pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
-                                 == pyunits.convert(getattr(self, ('flow_vol_%s' % p))[t],to_units=pyunits.m ** 3 / pyunits.hr)))
+        if self.decision:
+
+            # self.split_fraction_constr = Constraint(expr=sum(self.split_fraction_vars) == 1)
+            self.decision_var_constr = Constraint(expr=sum(self.decision_vars) == 1)
+            for p in outlet_list:
+                setattr(self, ('%s_eq_flow' % p),
+                        Constraint(
+                                expr=getattr(self, ('split_fraction_%s' % p))[t] * getattr(self, ('decision_var_%s' % p))[t] * pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
+                                     == pyunits.convert(getattr(self, ('flow_vol_%s' % p))[t], to_units=pyunits.m ** 3 / pyunits.hr)))
+        else:
+            for p in outlet_list:
+                setattr(self, ('%s_eq_flow' % p),
+                        Constraint(
+                                expr=getattr(self, ('split_fraction_%s' % p))[t] * pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
+                                     == pyunits.convert(getattr(self, ('flow_vol_%s' % p))[t],to_units=pyunits.m ** 3 / pyunits.hr)))
 
         for p in outlet_list:
             setattr(self, ('%s_eq_temp' % (p)), Constraint(expr=self.temperature_in[t] == getattr(self, ('temperature_%s' % p))[t]))

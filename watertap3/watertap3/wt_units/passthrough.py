@@ -8,7 +8,7 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 ## ELECTRICITY:
 # citation here
 
-module_name = 'unit'
+module_name = 'passthrough'
 basis_year = 2020
 tpec_or_tic = 'TPEC'
 
@@ -24,8 +24,8 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.chem_dict = {}
-        unit_cap = 0
-        return unit_cap
+        passthrough_cap = 0
+        return passthrough_cap
 
     def elect(self):
         '''
@@ -45,4 +45,8 @@ class UnitProcess(WT3UnitProcess):
                                                            doc='Unadjusted fixed capital investment')
         self.electricity = Expression(expr=self.elect(),
                                       doc='Electricity intensity [kwh/m3]')
+        self.deltaP_outlet.unfix()
+        self.deltaP_waste.unfix()
+        self.pressure_out.fix(1)
+        self.pressure_waste.fix(1)
         financials.get_complete_costing(self.costing)

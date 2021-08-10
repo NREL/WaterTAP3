@@ -12,7 +12,7 @@ __all__ = ['add_unit_process',
 
 def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):
 
-    up_module = module_import.get_module(unit_process_type)
+    up_module = m.fs.unit_module = module_import.get_module(unit_process_type)
 
     unit_params = m.fs.pfd_dict[unit_process_name]['Parameter']
 
@@ -27,6 +27,8 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None):
 
 
     getattr(m.fs, unit_process_name).get_costing(unit_params=unit_params)
+    unit = getattr(m.fs, unit_process_name)
+    unit.unit_name = unit_process_name
 
     return m
 

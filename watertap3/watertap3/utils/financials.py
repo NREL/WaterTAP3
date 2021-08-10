@@ -256,7 +256,7 @@ def get_system_costing(self):
 
     b.treated_water = recovered_water_flow
 
-    sum_of_inflow = 0
+    b.sum_of_inflow = sum_of_inflow = 0
     for key in b.parent_block().flow_in_dict.keys():
         sum_of_inflow += getattr(self, key).flow_vol_in[time]
 
@@ -273,7 +273,7 @@ def get_system_costing(self):
             setattr(b_unit, 'elec_int_treated', Expression(
                     expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price) /
                          (b.treated_water * 3600 * 24 * 365),
-                    doc='Unit Electricity Intensity [''kWh/m3]'))
+                    doc='Unit Electricity Intensity [kWh/m3]'))
 
     # LCOW by cost category
     b.LCOW_TCI = Expression(expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor) / (

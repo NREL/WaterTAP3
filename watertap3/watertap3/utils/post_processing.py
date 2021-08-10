@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from pylab import *
-from pyomo.environ import Block, units as pyunits, value
+from pyomo.environ import Block, Expression, units as pyunits, value
 from watertap3.utils import generate_constituent_list
 
 __all__ = ['get_results_table', 'combine_case_study_results', 'compare_with_excel']
@@ -121,11 +121,11 @@ def get_unit_nice_name(unit_str):
         return unit_str.replace('_', ' ').title()
 
 
-def get_results_table(m=None, scenario=None, case_study=None, save=True):
+def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_constituent_results=False):
     if scenario is None:
-        scenario = case_study_trains.train['scenario']
+        scenario = m.fs.train['scenario']
     if case_study is None:
-        case_study = case_study_trains.train['case_study']
+        case_study = m.fs.train['case_study']
 
     pfd_dict = m.fs.pfd_dict
     m.fs.python_var = python_var = []
@@ -149,121 +149,165 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
 
     name_lup = pd.read_csv('data/excel_to_python_names.csv', index_col='Python_variable')
 
-    for variable in m.fs.costing.component_objects():
-        if 'CE_index' in str(variable):
-            continue
-        elif 'capital_recovery_factor' in str(variable):
-            continue
-        elif 'elec_frac_LCOW' in str(variable):
-            value_list.append(value(m.fs.costing.elec_frac_LCOW))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('elec_frac_LCOW')
-            category.append('Electricity')
-            variable_list.append('Electricity Fraction of LCOW')
-            unit_list.append('$/m3')
-        elif 'LCOW_TCI' in str(variable):
-            value_list.append(value(m.fs.costing.LCOW_TCI))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('LCOW_TCI')
-            category.append('LCOW')
-            variable_list.append('TCI LCOW')
-            unit_list.append('$/m3')
-        elif 'LCOW_elec' in str(variable):
-            value_list.append(value(m.fs.costing.LCOW_elec))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('LCOW_elec')
-            category.append('LCOW')
-            variable_list.append('Electricity LCOW')
-            unit_list.append('$/m3')
-        elif 'LCOW_fixed_op' in str(variable):
-            value_list.append(value(m.fs.costing.LCOW_fixed_op))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('LCOW_fixed_op')
-            category.append('LCOW')
-            variable_list.append('Fixed Operating LCOW')
-            unit_list.append('$/m3')
-        elif 'LCOW_chem' in str(variable):
-            value_list.append(value(m.fs.costing.LCOW_chem))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('LCOW_chem')
-            category.append('LCOW')
-            variable_list.append('Chemical LCOW')
-            unit_list.append('$/m3')
-        elif 'LCOW_other_onm' in str(variable):
-            value_list.append(value(m.fs.costing.LCOW_other_onm))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('LCOW_other_onm')
-            category.append('LCOW')
-            variable_list.append('Other O&M LCOW')
-            unit_list.append('$/m3')
-        elif 'operating_cost_annual' in str(variable):
-            value_list.append(value(getattr(m.fs.costing, 'operating_cost_annual')))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('operating_cost_annual')
-            category.append('Annual Cost')
-            variable_list.append('System Total Operating Cost')
-            unit_list.append('$MM/yr')
-        elif 'fixed_op_cost_annual' in str(variable):
-            value_list.append(value(getattr(m.fs.costing, 'fixed_op_cost_annual')))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('fixed_op_cost_annual')
-            category.append('Annual Cost')
-            variable_list.append('System Fixed O&M')
-            unit_list.append('$MM/yr')
-        elif 'cat_and_chem_cost_annual' in str(variable):
-            value_list.append(value(getattr(m.fs.costing, 'cat_and_chem_cost_annual')))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('cat_and_chem_cost_annual')
-            category.append('Annual Cost')
-            variable_list.append('System Catalysts and Chemicals')
-            unit_list.append('$MM/yr')
-        elif 'electricity_cost_annual' in str(variable):
-            value_list.append(value(getattr(m.fs.costing, 'electricity_cost_annual')))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('electricity_cost_annual')
-            category.append('Annual Cost')
-            variable_list.append('System Electricity')
-            unit_list.append('$MM/yr')
-        elif 'other_var_cost_annual' in str(variable):
-            value_list.append(value(getattr(m.fs.costing, 'other_var_cost_annual')))
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append('other_var_cost_annual')
-            category.append('Annual Cost')
-            variable_list.append('Other Variable O&M')
-            unit_list.append('$MM/yr')
+    value_list.append(value(m.fs.costing.LCOW))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('system_LCOW')
+    category.append('LCOW')
+    variable_list.append('System LCOW')
+    unit_list.append('$/m3')
 
-        elif 'system_recovery' in str(variable):
-            continue
-        elif 'electricity_intensity' in str(variable):
-            continue
-        else:
-            variable_str = str(variable)[11:]
-            python_var.append('system')
-            up_nice_name_list.append('System')
-            python_param.append(variable_str)
-            variable_list.append('System ' + name_lup.loc[variable_str].Excel_variable)
-            value_list.append(value(getattr(m.fs.costing, variable_str)))
-            unit_list.append(name_lup.loc[variable_str].Unit)
-            category.append('Cost')
+    value_list.append(value(m.fs.costing.LCOW_TCI))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_TCI')
+    category.append('LCOW')
+    variable_list.append('System TCI LCOW')
+    unit_list.append('$/m3')
+
+    value_list.append(value(m.fs.costing.LCOW_fixed_op))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_fixed_op')
+    category.append('LCOW')
+    variable_list.append('System Fixed Operating LCOW')
+    unit_list.append('$/m3')
+
+    value_list.append(value(m.fs.costing.LCOW_elec))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_elec')
+    category.append('LCOW')
+    variable_list.append('System Electricity LCOW')
+    unit_list.append('$/m3')
+
+    value_list.append(value(m.fs.costing.LCOW_chem))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_chem')
+    category.append('LCOW')
+    variable_list.append('System Chemical LCOW')
+    unit_list.append('$/m3')
+
+    value_list.append(value(m.fs.costing.LCOW_other_onm))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_other_onm')
+    category.append('LCOW')
+    variable_list.append('System Other O&M LCOW')
+    unit_list.append('$/m3')
+
+    value_list.append(value(m.fs.costing.capital_investment_total))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('capital_investment_total')
+    category.append('Cost')
+    variable_list.append('System Total Capital Investment (TCI)')
+    unit_list.append('$MM')
+
+    value_list.append(value(m.fs.costing.operating_cost_total))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('operating_cost_total')
+    category.append('Cost')
+    variable_list.append('System Total Operating Cost')
+    unit_list.append('$MM')
+
+    value_list.append(value(m.fs.costing.fixed_op_cost_total))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('fixed_op_cost_total')
+    category.append('Cost')
+    variable_list.append('System Fixed Operating Cost')
+    unit_list.append('$MM')
+
+    value_list.append(value(m.fs.costing.electricity_cost_total))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('electricity_cost_total')
+    category.append('Cost')
+    variable_list.append('System Electricity Cost')
+    unit_list.append('$MM')
+
+    value_list.append(value(m.fs.costing.cat_and_chem_cost_total))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('cat_and_chem_cost_total')
+    category.append('Cost')
+    variable_list.append('System Catalyst and Chemical Cost')
+    unit_list.append('$MM')
+
+    value_list.append(value(m.fs.costing.other_var_cost_total))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('other_var_cost_total')
+    category.append('Cost')
+    variable_list.append('System Other Operating Cost')
+    unit_list.append('$MM')
+
+    value_list.append(value(m.fs.costing.operating_cost_annual))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('operating_cost_annual')
+    category.append('Annual Cost')
+    variable_list.append('System Total Operating Cost (Annual)')
+    unit_list.append('$MM/yr')
+
+    value_list.append(value(m.fs.costing.fixed_op_cost_annual))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('fixed_op_cost_annual')
+    category.append('Annual Cost')
+    variable_list.append('System Fixed Operating Cost (Annual)')
+    unit_list.append('$MM/yr')
+
+    value_list.append(value(m.fs.costing.electricity_cost_annual))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('electricity_cost_annual')
+    category.append('Annual Cost')
+    variable_list.append('System Electricity Cost (Annual)')
+    unit_list.append('$MM/yr')
+
+    value_list.append(value(m.fs.costing.cat_and_chem_cost_annual))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('cat_and_chem_cost_annual')
+    category.append('Annual Cost')
+    variable_list.append('System Catalyst and Chemical Cost (Annual)')
+    unit_list.append('$MM/yr')
+
+    value_list.append(value(m.fs.costing.other_var_cost_annual))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('other_var_cost_annual')
+    category.append('Annual Cost')
+    variable_list.append('System Other Operating Cost (Annual)')
+    unit_list.append('$MM/yr')
+
+    value_list.append(value(m.fs.costing.electricity_intensity))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('electricity_intensity')
+    category.append('Electricity')
+    variable_list.append('System Electricity Intensity')
+    unit_list.append('kWh/m3')
+
+    value_list.append(value(m.fs.costing.elec_frac_LCOW))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('elec_frac_LCOW')
+    category.append('Electricity')
+    variable_list.append('Electricity Fraction of LCOW')
+    unit_list.append('--')
 
     intake_str = [k for k, v in m.fs.pfd_dict.items() if v['Type'] == 'intake']
     waste_str = [k for k, v in m.fs.pfd_dict.items() if v['Type'] == 'waste']
 
-    intakes = [b_unit for b_unit in m.fs.component_objects(Block, descend_into=False) if
-               hasattr(b_unit, 'flow_vol_in') and str(b_unit)[3:] in intake_str]
-    wastes = [b_unit for b_unit in m.fs.component_objects(Block, descend_into=False) if
-              hasattr(b_unit, 'flow_vol_in') and str(b_unit)[3:] in waste_str]
+    intakes = [unit for unit in m.fs.component_objects(Block, descend_into=False) if
+               hasattr(unit, 'flow_vol_in') and str(unit)[3:] in intake_str]
+    wastes = [unit for unit in m.fs.component_objects(Block, descend_into=False) if
+              hasattr(unit, 'flow_vol_in') and str(unit)[3:] in waste_str]
 
     flow_ins = [getattr(intake, 'flow_vol_in')[0]() for intake in intakes]
     flow_wastes = [getattr(waste, 'flow_vol_in')[0]() for waste in wastes]
@@ -415,55 +459,128 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
     variable_list.append('Land Cost % FCI')
     unit_list.append('%')
 
-    for b_unit in m.fs.component_objects(Block, descend_into=False):
-        unit = b_unit
-        unit_str = unit_name = str(b_unit)[3:]
+    for unit in m.fs.component_objects(Block, descend_into=False):
+        unit_str = unit_name = str(unit)[3:]
         up_nice_name = get_unit_nice_name(unit_str)
 
-        if hasattr(b_unit, 'electricity'):
+        if hasattr(unit, 'electricity'):
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('electricity')
             variable_list.append('Electricity Intensity Unit Inlet')
-            value_list.append(value(getattr(b_unit, 'electricity')))
+            value_list.append(value(unit.electricity))
             unit_list.append('kWh/m3')
             category.append('Electricity')
 
-        if hasattr(b_unit, 'elec_int_treated'):
+        if hasattr(unit, 'elec_int_treated'):
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('elec_int_treated')
             variable_list.append('Electricity Intensity System Treated')
-            value_list.append(value(b_unit.elec_int_treated))
+            value_list.append(value(unit.elec_int_treated))
             unit_list.append('kWh/m3')
             category.append('Electricity')
 
-        if hasattr(b_unit, 'costing'):
-            if hasattr(b_unit, 'LCOW'):
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                python_param.append('unit_LCOW')
-                category.append('LCOW')
-                variable_list.append('Unit Levelized Cost')
-                value_list.append(value(b_unit.LCOW))
-                unit_list.append('$/m3')
+        if hasattr(unit, 'costing'):
+            b = unit.costing
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW')
+            category.append('LCOW')
+            variable_list.append('Unit LCOW')
+            value_list.append(value(unit.LCOW))
+            unit_list.append('$/m3')
+
+            treated_water = m.fs.costing.treated_water * 3600 * 24 * 365
+            plant_cap_util = m.fs.costing_param.plant_cap_utilization
+
+            b.total_operating_cost = Expression(expr=(b.total_fixed_op_cost + b.cat_and_chem_cost + b.electricity_cost + b.other_var_cost))
+
+            b.LCOW_TCI = Expression(expr=1E6 * (b.total_cap_investment * m.fs.costing.capital_recovery_factor) / (treated_water * plant_cap_util))
+
+            b.LCOW_elec = Expression(expr=1E6 * (b.electricity_cost) / (treated_water * plant_cap_util))
+
+            b.LCOW_fixed_op = Expression(expr=1E6 * (b.total_fixed_op_cost) / (treated_water * plant_cap_util))
+
+            b.LCOW_chem = Expression(expr=1E6 * (b.cat_and_chem_cost) / (treated_water * plant_cap_util))
+
+            b.LCOW_other = Expression(expr=1E6 * (b.other_var_cost) / (treated_water * plant_cap_util))
+
+            b.LCOW_total_op = Expression(expr=1E6 * (b.total_operating_cost) / (treated_water * plant_cap_util))
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW_TCI')
+            category.append('LCOW')
+            variable_list.append('Unit TCI LCOW')
+            value_list.append(value(b.LCOW_TCI))
+            unit_list.append('$/m3')
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW_elec')
+            category.append('LCOW')
+            variable_list.append('Unit Electricity LCOW')
+            value_list.append(value(b.LCOW_elec))
+            unit_list.append('$/m3')
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW_fixed_op')
+            category.append('LCOW')
+            variable_list.append('Unit Fixed Operating LCOW')
+            value_list.append(value(b.LCOW_fixed_op))
+            unit_list.append('$/m3')
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW_chem')
+            category.append('LCOW')
+            variable_list.append('Unit Chemical LCOW')
+            value_list.append(value(b.LCOW_chem))
+            unit_list.append('$/m3')
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW_other')
+            category.append('LCOW')
+            variable_list.append('Unit Other O&M LCOW')
+            value_list.append(value(b.LCOW_other))
+            unit_list.append('$/m3')
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_LCOW_total_op')
+            category.append('LCOW')
+            variable_list.append('Unit Total Operating LCOW')
+            value_list.append(value(b.LCOW_total_op))
+            unit_list.append('$/m3')
+
+            python_var.append(unit_str)
+            up_nice_name_list.append(up_nice_name)
+            python_param.append('unit_total_operating_cost')
+            category.append('Annual Cost')
+            variable_list.append('Unit Total Operating Cost')
+            value_list.append(value(b.total_operating_cost))
+            unit_list.append('$MM/yr')
 
             for variable in up_variables:
                 python_var.append(unit_str)
                 up_nice_name_list.append(up_nice_name)
                 if variable == 'annual_op_main_cost':
                     variable_list.append('Annual O&M Costs')
-                    value_list.append(value(getattr(b_unit.costing, variable)))
+                    value_list.append(value(getattr(unit.costing, variable)))
                     unit_list.append('$MM/yr')
                     python_param.append(variable)
                 elif variable == 'fixed_cap_inv_unadjusted':
                     variable_list.append('Fixed Capital Investment (unadj)')
-                    value_list.append(value(getattr(b_unit.costing, variable)))
+                    value_list.append(value(getattr(unit.costing, variable)))
                     unit_list.append('$MM')
                     python_param.append(variable)
                 else:
                     variable_list.append(name_lup.loc[variable].Excel_variable)
-                    value_list.append(value(getattr(b_unit.costing, variable)))
+                    value_list.append(value(getattr(unit.costing, variable)))
                     unit_list.append(name_lup.loc[variable].Unit)
                     python_param.append(variable)
                 if variable == 'electricity':
@@ -471,7 +588,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
                 else:
                     category.append('Cost')
 
-            value_list.append((value(getattr(m.fs, unit_str).flow_vol_in[0])))
+            value_list.append((value(unit.flow_vol_in[0])))
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             variable_list.append('Inlet Water Flow')
@@ -479,7 +596,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
             unit_list.append('m3/s')
             python_param.append('flow_vol_in')
 
-            value_list.append((value(getattr(m.fs, unit_str).flow_vol_out[0])))
+            value_list.append((value(unit.flow_vol_out[0])))
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             variable_list.append('Outlet Water Flow')
@@ -487,7 +604,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
             unit_list.append('m3/s')
             python_param.append('flow_vol_out')
 
-            value_list.append(value(getattr(m.fs, unit_str).flow_vol_waste[0]))
+            value_list.append(value(unit.flow_vol_waste[0]))
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             variable_list.append('Waste Water Flow')
@@ -495,8 +612,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
             unit_list.append('m3/s')
             python_param.append('flow_vol_waste')
 
-            value_list.append(value(getattr(m.fs, unit_str).flow_vol_out[0]) /
-                              value(getattr(m.fs, unit_str).flow_vol_in[0]))
+            value_list.append(value(unit.flow_vol_out[0]) / value(unit.flow_vol_in[0]))
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             variable_list.append('Unit Water Recovery')
@@ -582,61 +698,60 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True):
                 python_param.append('b')
                 unit_list.append('m/hr')
 
-            for conc in generate_constituent_list.run(m.fs):
-                constituent, units = get_constituent_nice_name(conc)
+            if incl_constituent_results:
 
-                ### MASS IN KG PER M3
-                value_list.append(value(getattr(m.fs, unit_str).conc_mass_in[0, conc]))
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                category.append('Inlet Constituent Density')
-                variable_list.append(constituent)
-                python_param.append(conc)
-                unit_list.append(units)
+                for conc in generate_constituent_list.run(m.fs):
+                    constituent, units = get_constituent_nice_name(conc)
 
-                value_list.append(value(getattr(m.fs, unit_str).conc_mass_out[0, conc]))
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                category.append('Outlet Constituent Density')
-                variable_list.append(constituent)
-                python_param.append(conc)
-                unit_list.append(units)
+                    ### MASS IN KG PER M3
+                    value_list.append(value(unit.conc_mass_in[0, conc]))
+                    python_var.append(unit_str)
+                    up_nice_name_list.append(up_nice_name)
+                    category.append('Inlet Concentration')
+                    variable_list.append(constituent)
+                    python_param.append(conc)
+                    unit_list.append(units)
 
-                value_list.append(value(getattr(m.fs, unit_str).conc_mass_waste[0, conc]))
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                category.append('Waste Constituent Density')
-                variable_list.append(constituent)
-                python_param.append(conc)
-                unit_list.append(units)
+                    value_list.append(value(unit.conc_mass_out[0, conc]))
+                    python_var.append(unit_str)
+                    up_nice_name_list.append(up_nice_name)
+                    category.append('Outlet Concentration')
+                    variable_list.append(constituent)
+                    python_param.append(conc)
+                    unit_list.append(units)
 
-                ### MASS IN KG --> MULTIPLIED BY FLOW
-                value_list.append(value(getattr(m.fs, unit_str).conc_mass_in[0, conc]) *
-                                  value(getattr(m.fs, unit_str).flow_vol_in[0]))
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                category.append('Inlet Constituent Total Mass')
-                variable_list.append(constituent)
-                python_param.append(conc)
-                unit_list.append('kg')
+                    value_list.append(value(unit.conc_mass_waste[0, conc]))
+                    python_var.append(unit_str)
+                    up_nice_name_list.append(up_nice_name)
+                    category.append('Waste Concentration')
+                    variable_list.append(constituent)
+                    python_param.append(conc)
+                    unit_list.append(units)
 
-                value_list.append(value(getattr(m.fs, unit_str).conc_mass_out[0, conc]) *
-                                  value(getattr(m.fs, unit_str).flow_vol_out[0]))
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                category.append('Outlet Constituent Total Mass')
-                variable_list.append(constituent)
-                python_param.append(conc)
-                unit_list.append('kg')
+                    ### MASS IN KG --> MULTIPLIED BY FLOW
+                    value_list.append(value(unit.conc_mass_in[0, conc]) * value(unit.flow_vol_in[0]))
+                    python_var.append(unit_str)
+                    up_nice_name_list.append(up_nice_name)
+                    category.append('Inlet Mass Flow')
+                    variable_list.append(constituent)
+                    python_param.append(conc)
+                    unit_list.append('kg/s')
 
-                value_list.append(value(getattr(m.fs, unit_str).conc_mass_waste[0, conc]) *
-                                  value(getattr(m.fs, unit_str).flow_vol_waste[0]))
-                python_var.append(unit_str)
-                up_nice_name_list.append(up_nice_name)
-                category.append('Waste Constituent Total Mass')
-                variable_list.append(constituent)
-                python_param.append(conc)
-                unit_list.append('kg')
+                    value_list.append(value(unit.conc_mass_out[0, conc]) * value(unit.flow_vol_out[0]))
+                    python_var.append(unit_str)
+                    up_nice_name_list.append(up_nice_name)
+                    category.append('Outlet Mass Flow')
+                    variable_list.append(constituent)
+                    python_param.append(conc)
+                    unit_list.append('kg/s')
+
+                    value_list.append(value(unit.conc_mass_waste[0, conc]) * value(unit.flow_vol_waste[0]))
+                    python_var.append(unit_str)
+                    up_nice_name_list.append(up_nice_name)
+                    category.append('Waste Mass Flow')
+                    variable_list.append(constituent)
+                    python_param.append(conc)
+                    unit_list.append('kg')
 
 ## FOR CALCULATING SYSTEM RO PARAMETERS
 

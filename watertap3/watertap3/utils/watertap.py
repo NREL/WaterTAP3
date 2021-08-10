@@ -7,9 +7,10 @@ import pandas as pd
 from idaes.core import FlowsheetBlock
 from idaes.core.util.model_statistics import degrees_of_freedom
 import os
-from pyomo.environ import Block, ConcreteModel, Constraint, Objective, SolverFactory, TransformationFactory, units as pyunits, value
-from pyomo.network import SequentialDecomposition
-
+from pyomo.environ import Var, Expression, NonNegativeReals, Block, ConcreteModel, Constraint, Objective, SolverFactory, TransformationFactory, units as pyunits, value
+from pyomo.network import SequentialDecomposition, Arc
+from pyomo.network.port import SimplePort
+# from pyomo.contrib.mindtpy.MindtPy import MindtPySolver
 from . import financials
 from .case_study_trains import *
 from .post_processing import get_results_table
@@ -107,11 +108,14 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
         m.fs.objective_function = Objective(expr=m.fs.costing.LCOW)
 
     solver = SolverFactory('ipopt')
+    # solver = SolverFactory('mindtpy')
+
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
     print('----------------------------------------------------------------------')
     print('\nDegrees of Freedom:', degrees_of_freedom(m))
 
     results = solver.solve(m, tee=solver_results)
+    # results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
 
     attempt_number = 1
     while ((results.solver.termination_condition in ['infeasible', 'maxIterations']) & (attempt_number <= max_attempts)):
@@ -494,8 +498,8 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
     scenario = 'Weighted Average Cost of Capital 5-10%'
     sens_var = 'wacc'
     print('-------', scenario, '-------')
-    ub = 0.1
-    lb = 0.05
+    ub = stash_value + 0.05
+    lb = stash_value
     step = (ub - lb) / runs_per_scenario
     for i in np.arange(lb, ub + step, step):
         print('\n===============================')
@@ -1249,6 +1253,9 @@ def print_ro_results(m):
             print(f'\tRecovery = {round(recovs[-1], 3) * 100}%')
             print(f'\tArea = {round(areas[-1])} m2 ---> {round(num_mems[-1])} membrane modules')
             print(f'\tFlux = {round(value(fluxs[-1]), 1)} LMH')
+            print(f'\tFeed Flow Rate = {round(unit.flow_vol_in[0](), 2)} m3/s = {round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.Mgallons / pyunits.day)(), 2)} MGD')
+            print(f'\tPermeate Flow Rate= {round(unit.flow_vol_out[0](), 2)} m3/s = {round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 2)} MGD')
+            print(f'\tReject Flow Rate= {round(unit.flow_vol_waste[0](), 2)} m3/s = {round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 2)} MGD')
             print(f'\tWater Perm. = {kws[-1]} m/(bar.hr)')
             print(f'\tSalt Perm. = {kss[-1]} m/hr\n')
 
@@ -1330,29 +1337,11 @@ def set_bounds(m=None, source_water_category=None):
 
     run_water_tap(m=m, objective=True, skip_small=True)
 
+
     return m
 
 
-def run_water_tap_ro(m, return_df=False, skip_small=True,
-                     desired_recovery=1, ro_bounds='seawater', source_scenario=None, scenario_name=None):
-    scenario = scenario_name
-    case_study = m.fs.train['case_study']
-    reference = m.fs.train['reference']
-    case_study_print = case_study.replace('_', ' ').swapcase()
-    scenario_print = scenario.replace('_', ' ').swapcase()
-    print(f'===================================\nCase Study = {case_study_print}\nScenario = '
-          f'{scenario_print}\n===================================')
-
-    has_ro = False
-    for key in m.fs.pfd_dict.keys():
-        unit = str(key).replace('_', ' ').swapcase()
-        if m.fs.pfd_dict[key]['Unit'] == 'reverse_osmosis':
-            getattr(m.fs, key).feed.pressure.unfix()
-            getattr(m.fs, key).membrane_area.unfix()
-            has_ro = True
-
-    run_water_tap(m=m, objective=True, skip_small=skip_small)
-
+def case_study_constraints(m, case_study, scenario):
     if case_study == 'upw':
         m.fs.media_filtration.water_recovery.fix(0.9)
         m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.05678 * 1.01)
@@ -1423,8 +1412,274 @@ def run_water_tap_ro(m, return_df=False, skip_small=True,
         m.fs.ro_pressure_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 15)  # Facility data: RO pressure is 140-220 psi (~9.7-15.1 bar)
         m.fs.microfiltration.water_recovery.fix(0.9)
 
-    if has_ro:
-        m = set_bounds(m, source_water_category=ro_bounds)
+    return m
+
+
+def find_arcs_and_ports(m, unit, get_ports=False, keep_inlet=False, keep_outlet=False):
+
+    def delete_arcs(arcs):
+        for arc in arcs:
+            try:
+                deleted_arcs.append(arc)
+                m.fs.del_component(arc)
+            except:
+                continue
+
+    m.fs.deleted_arcs = deleted_arcs = []
+    unit_inlets = []
+    unit_outlets = []
+    for component in unit.component_objects():
+        if type(component) == SimplePort:
+            component_str = str(component).split('.')[-1]
+            arcs = component.arcs()
+            if 'inlet' in component_str and keep_inlet:
+                unit_inlets.append(component)
+                for arc in arcs:
+                    print('keep', str(unit), component_str, str(arc))
+                continue
+            elif 'outlet' in component_str and keep_outlet:
+                unit_outlets.append(component)
+                for arc in arcs:
+                    print('keep', str(unit), component_str, str(arc))
+                continue
+            elif 'inlet' in component_str:
+                unit_inlets.append(component)
+                for arc in arcs:
+                    print('delete', str(unit), component_str, str(arc))
+                    delete_arcs(arcs)
+            elif 'outlet' in component_str:
+                unit_outlets.append(component)
+                for arc in arcs:
+                    print('delete', str(unit), component_str, str(arc))
+                    delete_arcs(arcs)
+    if get_ports:
+        return unit_inlets, unit_outlets
+    else:
+        return
+
+
+def make_decision(m, case_study, scenario):
+
+    def connected_units(u, units=[]):
+        if isinstance(u, list):
+            for unit in u:
+                next_unit = temp_pfd_dict[unit]['ToUnitName']
+                if next_unit in units:
+                    continue
+                units.append(next_unit)
+                connected_units(next_unit, units=units)
+            return units
+        if u is np.nan:
+            return units
+        next_unit = temp_pfd_dict[u]['ToUnitName']
+        if next_unit is np.nan:
+            return units
+        if isinstance(next_unit, list):
+            for unit in next_unit:
+                if unit in units:
+                    continue
+                units.append(unit)
+                connected_units(unit, units=units)
+            return units
+        else:
+            if next_unit in units:
+                return units
+            units.append(next_unit)
+            connected_units(next_unit, units=units)
+            return units
+
+    m.fs.units_to_drop = units_to_drop = []
+    m.fs.units_to_keep = units_to_keep = []
+
+    for splitter_num, destination_dict in m.fs.unit_options.items():
+        splitter_name = 'splitter' + str(splitter_num)
+        splitter = getattr(m.fs, splitter_name)
+        m.fs.from_unit_name = from_unit_name = list(destination_dict.keys())[0]
+        temp_unit_names = [d.replace('_', ' ').title() for d in destination_dict[from_unit_name]]
+        print(f'For {splitter_name.title()} from {from_unit_name.title()} to {*temp_unit_names, }:')
+        from_unit = getattr(m.fs, from_unit_name)
+        from_unit_flow_out = from_unit.flow_vol_out[0]()
+        decision_dict = {}
+        m.fs.decision_vars = decision_vars = []
+        m.fs.decision_vals = decision_vals = []
+        m.fs.dest_units = dest_units = []
+        m.fs.drop_decision_units = drop_decision_units = []
+        outlets = []
+        m.fs.split_fraction_vars = split_fraction_vars = []
+        m.fs.from_unit_dict = from_unit_dict = {}
+        m.fs.to_unit_dict = to_unit_dict = {}
+        m.fs.deleted_units = deleted_units = []
+    #     num_decision_var = len(destinations)
+        for i, destination in enumerate(destination_dict[from_unit_name], 1):
+            decision_var_name = 'decision_var_outlet' + str(i)
+            outlet_name = 'flow_vol_outlet' + str(i)
+            split_fraction_var_name = 'split_fraction_outlet' + str(i)
+            split_fraction_var = getattr(splitter, split_fraction_var_name)
+            split_fraction_vars.append(split_fraction_var)
+            decision_var = getattr(splitter, decision_var_name)
+            outlet = getattr(splitter, outlet_name)
+            outlets.append(outlet)
+            decision_vars.append(decision_var)
+            decision_vals.append(decision_var[0]())
+            dest_unit = getattr(m.fs, destination)
+            dest_units.append(dest_unit)
+            temp_name = destination.replace('_', ' ').title()
+            print(f'\tFlow weight to {temp_name} = {round(decision_vals[-1], 3)}')
+
+        max_index = decision_vals.index(max(decision_vals))
+
+
+        for i, v in enumerate(decision_vars):
+            if i != max_index:
+                # v.fix(0)
+                # split_fraction_vars[i].fix(0)
+                drop_decision_units.append(dest_units[i].unit_name)
+                del_index = m.fs.df_units[m.fs.df_units['UnitName'] == drop_decision_units[-1]].index
+                m.fs.df_units.drop(del_index, inplace=True)
+            else:
+                # v.fix(1)
+                # split_fraction_vars[i].fix(1)
+                continue
+
+        # decision_vars[max_index].fix(1)
+        # split_fraction_vars[max_index].fix(1)
+        # split_fraction_vars[min_index].fix(0)
+        # m.fs.del_component(splitter.split_fraction_constr)
+        # outlets[max_index].fix(from_unit_flow_out)
+        # decision_vars[min_index].fix(0)
+        # m.fs.del_unit_name = del_unit_name = dest_units[min_index].unit_name
+        m.fs.to_unit_name = to_unit_name = dest_units[max_index].unit_name
+        temp_name = to_unit_name.replace('_', ' ').title()
+        print(f'\tWT3 directs flow to {temp_name}\n')
+
+        df_from_unit = m.fs.df_units.set_index('UnitName').loc[from_unit_name]
+        from_unit_params = ast.literal_eval(df_from_unit.Parameter)
+        new_params = str()
+        for param in from_unit_params.items():
+            if 'split_fraction' in param:
+                continue
+            new_params += "'" + param[0] + "'" + ':' + str(param[1])
+
+        new_params = '{' + new_params + '}'
+        df_from_unit.Parameter = new_params
+        df_from_unit.ToUnitName = to_unit_name
+        df_from_unit.FromPort = 'outlet'
+        df_from_unit['UnitName'] = from_unit_name
+
+        from_index = m.fs.df_units[m.fs.df_units['UnitName'] == from_unit_name].index
+        m.fs.df_units.drop(from_index, inplace=True)
+
+        m.fs.df_units.loc[from_index[0]] = df_from_unit
+
+        m.fs.temp_pfd_dict = temp_pfd_dict = get_pfd_dict(m.fs.df_units)
+
+        for drop in drop_decision_units:
+            m.fs.start_u = start_u = m.fs.pfd_dict[drop]['ToUnitName']
+            if isinstance(start_u, list):
+                temp_drop = connected_units(start_u, units=[s for s in start_u])
+            else:
+                temp_drop = connected_units(start_u, units=[start_u])
+            units_to_drop += temp_drop
+
+        temp_keep = connected_units(from_unit_name, units=[])
+        units_to_keep += temp_keep
+
+    units_to_drop = list(set(units_to_drop))
+    units_to_keep = list(set(units_to_keep))
+
+    for u in units_to_keep:
+        if u in units_to_drop:
+            idx = units_to_drop.index(u)
+            units_to_drop.pop(idx)
+
+    for u in units_to_drop:
+        remove_idx = m.fs.df_units[m.fs.df_units.UnitName == u].index
+        m.fs.df_units.drop(remove_idx, inplace=True)
+
+    m.fs.df_units.sort_index(inplace=True)
+    m.fs.new_df_units = new_df_units = m.fs.df_units.copy()
+
+    m = watertap_setup(case_study=case_study, scenario=scenario)
+    m = get_case_study(m=m, new_df_units=new_df_units)
+
+    return m
+
+
+        # m.fs.del_component(splitter)
+        # find_arcs_and_ports(m, splitter)
+        # deleted_units.append(splitter)
+
+        # m.fs.del_component(del_unit)
+        # find_arcs_and_ports(m, del_unit)
+        # deleted_units.append(del_unit)
+
+        # to_unit_inlets, to_unit_outlets = find_arcs_and_ports(m, to_unit, get_ports=True, keep_outlet=True)
+        # from_unit_inlets, from_unit_outlets = find_arcs_and_ports(m, from_unit, get_ports=True, keep_inlet=True)
+        #
+        # from_unit_dict['name'] = from_unit.unit_name
+        # to_unit_dict['name'] = to_unit.unit_name
+        # from_unit_dict['inlets'] = from_unit_inlets
+        # to_unit_dict['inlets'] = to_unit_inlets
+        # from_unit_dict['outlets'] = from_unit_outlets
+        # to_unit_dict['outlets'] = to_unit_outlets
+
+        # m = set_new_arcs(m, from_unit_dict, to_unit_dict)
+
+    # return m
+
+
+def set_new_arcs(m, from_unit_dict, to_unit_dict):
+    outlets = from_unit_dict['outlets']
+    inlets = to_unit_dict['inlets']
+    if len(outlets) != len(inlets):
+        print('there must be an equal number of inlets and outlets!')
+        return
+#     for i, port in enumerate(outlets, 1):
+    arc_name = from_unit_dict['name'].split('_')[0] + '_to_' + to_unit_dict['name'].split('_')[0] + '_arc'
+    print(arc_name)
+    setattr(m.fs, arc_name, Arc(source=outlets[0], destination=inlets[0]))
+    return m
+
+
+def check_has_ro(m):
+    for key in m.fs.pfd_dict.keys():
+        unit = str(key).replace('_', ' ').swapcase()
+        if m.fs.pfd_dict[key]['Unit'] == 'reverse_osmosis':
+            getattr(m.fs, key).feed.pressure.unfix()
+            getattr(m.fs, key).membrane_area.unfix()
+            return True
+        else:
+            continue
+    return False
+
+
+def run_water_tap_ro(m, return_df=False, skip_small=True,
+                     desired_recovery=1, ro_bounds='seawater', source_scenario=None, scenario_name=None):
+    scenario = scenario_name
+    case_study = m.fs.train['case_study']
+    reference = m.fs.train['reference']
+    case_study_print = case_study.replace('_', ' ').swapcase()
+    scenario_print = scenario.replace('_', ' ').swapcase()
+    time = m.fs.config.time
+    print(f'===================================\nCase Study = {case_study_print}\nScenario = '
+          f'{scenario_print}\n===================================')
+
+    run_water_tap(m=m, objective=True, skip_small=skip_small)
+
+    if m.fs.choose:
+        m = make_decision(m, case_study, scenario)
+        financials.get_system_costing(m.fs)
+        run_water_tap(m=m, objective=True, skip_small=skip_small)
+        m = case_study_constraints(m, case_study, scenario)
+        has_ro = check_has_ro(m)
+        if has_ro:
+            m = set_bounds(m, source_water_category=ro_bounds)
+
+    else:
+        m = case_study_constraints(m, case_study, scenario)
+        has_ro = check_has_ro(m)
+        if has_ro:
+            m = set_bounds(m, source_water_category=ro_bounds)
 
     if desired_recovery < 1:
         if m.fs.costing.system_recovery() > desired_recovery:
@@ -1440,6 +1695,10 @@ def run_water_tap_ro(m, return_df=False, skip_small=True,
         else:
             print('System recovery already lower than desired recovery.'
                   '\n\tDesired:', desired_recovery, '\n\tCurrent:', m.fs.costing.system_recovery())
+
+
+    ######## UNCOMMENT HERE AND BELOW TO RUN REST OF MODEL ############
+
     ur_list = []
 
     if case_study == 'uranium':
@@ -1474,9 +1733,16 @@ def run_water_tap_ro(m, return_df=False, skip_small=True,
                         }
 
         ###### RESET BOUNDS AND DOUBLE CHECK RUN IS OK SO CAN GO INTO SENSITIVITY #####
-        m = watertap_setup(dynamic=False, case_study=case_study, reference=reference, scenario=scenario, source_scenario=source_scenario)
+        if m.fs.new_case_study:
+            new_df_units = m.fs.df_units.copy()
+            m = watertap_setup(dynamic=False, case_study=case_study, reference=reference, scenario=scenario, source_scenario=source_scenario)
+            m = get_case_study(m=m, new_df_units=new_df_units)
 
-        m = get_case_study(m=m)
+        else:
+            m = watertap_setup(dynamic=False, case_study=case_study, reference=reference, scenario=scenario, source_scenario=source_scenario)
+            m = get_case_study(m=m)
+
+        has_ro = check_has_ro(m)
 
         for key in m.fs.pfd_dict.keys():
             unit = str(key).replace('_', ' ').swapcase()
@@ -1514,7 +1780,7 @@ def run_water_tap_ro(m, return_df=False, skip_small=True,
     if has_ro:
         print_ro_results(m)
 
-    df = get_results_table(m=m, case_study=m.fs.train['case_study'], scenario=scenario_name)
+    df = get_results_table(m=m, case_study=case_study, scenario=scenario_name)
 
     if return_df:
         return m, df

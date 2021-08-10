@@ -31,37 +31,46 @@ def get_def_source(reference, water_type, case_study, scenario):
     return df
 
 
-def get_case_study(flow=None, m=None):
-    if flow is None:
-        flow = {}
-    if isinstance(m.fs.source_water['water_type'], list) and not flow:
+def get_case_study(m=None, new_df_units=None):
+
+    flow_dict = {}
+
+    if isinstance(m.fs.source_water['water_type'], list):
         for water_type in m.fs.source_water['water_type']:
             df = get_def_source(m.fs.source_water['reference'],
                                 water_type,
                                 m.fs.source_water['case_study'],
                                 m.fs.source_water['scenario'])
-            flow[water_type] = df.loc['flow'].value
-    elif not flow:
+            flow_dict[water_type] = df.loc['flow'].value
+    else:
         df = get_def_source(m.fs.source_water['reference'],
                             m.fs.source_water['water_type'],
                             m.fs.source_water['case_study'],
                             m.fs.source_water['scenario'])
-        flow[m.fs.source_water['water_type']] = df.loc['flow'].value
-    m.fs.flow_in_dict = flow
+        flow_dict[m.fs.source_water['water_type']] = df.loc['flow'].value
+
+    m.fs.flow_in_dict = flow_dict
+
+    if new_df_units is not None:
+        m.fs.df_units = new_df_units
+        m.fs.pfd_dict = get_pfd_dict(new_df_units)
+        m.fs.new_case_study = True
+        print('\n======= NEW TREATMENT TRAIN =======')
 
 
-    case_study_library = 'data/treatment_train_setup.xlsx'
+    else:
+        case_study_library = 'data/treatment_train_setup.xlsx'
 
-    # set up tables of design (how units are connected) and units (list of all units needed for the train)
-    df_units = pd.read_excel(case_study_library, sheet_name='units')
-    df_units.CaseStudy = df_units.CaseStudy.str.lower()
-    df_units.Reference = df_units.Reference.str.lower()
-    df_units.Scenario = df_units.Scenario.str.lower()
-    df_units = filter_df(df_units, m)
-
-    ### create pfd_dictionary for treatment train
-    m.fs.pfd_dict = get_pfd_dict(df_units)
-    pfd_dict = m.fs.pfd_dict
+        # set up tables of design (how units are connected) and units (list of all units needed for the train)
+        df_units = pd.read_excel(case_study_library, sheet_name='units')
+        df_units.CaseStudy = df_units.CaseStudy.str.lower()
+        df_units.Reference = df_units.Reference.str.lower()
+        df_units.Scenario = df_units.Scenario.str.lower()
+        df_units = filter_df(df_units, m)
+        df_units = df_units.loc[:, ~df_units.columns.str.contains('^Unnamed')]
+        m.fs.df_units = df_units
+        m.fs.pfd_dict = get_pfd_dict(df_units)
+        m.fs.new_case_study = False
 
     # create the constituent list for the train that is automatically used to edit the water property package.
 
@@ -76,28 +85,31 @@ def get_case_study(flow=None, m=None):
     m.fs.water = WaterParameterBlock()
 
     # add units to model
+
     print('\n------- Adding Unit Processes -------')
-    for key in pfd_dict.keys():
-        unit = str(key).replace('_', ' ').swapcase()
+    for unit_process_name in pfd_dict.keys():
+        unit = unit_process_name.replace('_', ' ').swapcase()
+        unit_process_type = pfd_dict[unit_process_name]['Unit']
         print(unit)
         m = design.add_unit_process(m=m,
-                                    unit_process_name=key,
-                                    unit_process_type=pfd_dict[key]['Unit'])
+                                    unit_process_name=unit_process_name,
+                                    unit_process_type=unit_process_type)
     print('-------------------------------------\n')
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
-    m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow)
+    m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow_dict)
     m.fs.arc_dict = arc_dict
 
     # gets list of unit processes and ports that need either a splitter or mixer 
     splitter_list, mixer_list = check_split_mixer_need(arc_dict)
-
+    m.fs.splitter_list = splitter_list
     # add the mixers if needed, and add the arcs around the mixers to the arc dictionary
     m, arc_dict, mixer_i, arc_i = create_mixers(m, mixer_list, arc_dict, arc_i)
+    m.fs.arc_i = arc_i
 
     # add the splitters if needed, and add the arcs around the splitters to the arc dictionary
     m, arc_dict, splitter_i, arc_i = create_splitters(m, splitter_list, arc_dict, arc_i)
-
+    m.fs.splitter_i = splitter_i
     # add the arcs to the model
     m = create_arcs(m, arc_dict)
     # add the waste arcs to the model
@@ -254,21 +266,31 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
 def create_splitters(m, splitter_list, arc_dict, arc_i):
     # print(splitter_list)
     splitter_i = 1
-    outlet_i = 1
+    unit_options = m.fs.unit_options = {}
+    if not splitter_list:
+        m.fs.choose = False
     for j in splitter_list:
+        outlet_i = 1
         outlet_list = []
-        outlet_list_up = {}
+        outlet_list_up = m.fs.outlet_list_up = {}
         unit_split_lu_dict = {}
         splitter_name = 'splitter%s' % splitter_i
         for key in list(arc_dict.keys()):
             if ((arc_dict[key][0] == j[0]) & (arc_dict[key][1] == j[1])):
-                split_dict = {}
+                split_dict = m.fs.split_dict = {}
                 w = 0
                 for uname in m.fs.pfd_dict[j[0]]['ToUnitName']:
                     if m.fs.pfd_dict[j[0]]["FromPort"][w] == "outlet":
                         if 'split_fraction' in m.fs.pfd_dict[j[0]]['Parameter']:
                             split_dict[uname] = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction'][w]
                             w += 1
+                            split_fractions = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction']
+                            if all(split == 1 for split in split_fractions):
+                                m.fs.choose = True
+                                unit_options[splitter_i] = {j[0]: list(split_dict.keys())}
+                            else:
+                                m.fs.choose = False
+
                             # outlet list for when splitter is added to model
                 outlet_name = 'outlet%s' % outlet_i
                 outlet_list.append(outlet_name)
@@ -297,16 +319,16 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
         setattr(m.fs, splitter_name, Splitter(default={'property_package': m.fs.water}))
         unit_params = m.fs.pfd_dict[j[0]]['Parameter']
         getattr(m.fs, splitter_name).outlet_list = outlet_list_up
-        if 'split_fraction' in unit_params:
-            print(' ')
+        # if 'split_fraction' in unit_params:
+        #     print(' ')
             # print('params into splitter -->', unit_params['split_fraction'])
         # could just have self call the split list directly without reading in unit params. same for all 
         getattr(m.fs, splitter_name).get_split(outlet_list_up=outlet_list_up, unit_params=unit_params)
 
         # arc from mixer outlet to node
         arc_dict[arc_i] = [j[0], j[1], splitter_name, 'inlet']
-        arc_i = arc_i + 1
-        splitter_i = splitter_i + 1
+        arc_i += 1
+        splitter_i += 1
 
     return m, arc_dict, splitter_i, arc_i
 

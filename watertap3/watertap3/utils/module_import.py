@@ -185,5 +185,8 @@ def get_module(module_name):
     if module_name == 'landfill_zld':
         import wt_units.landfill_zld as up
 
+    if module_name == 'passthrough':
+        import wt_units.passthrough as up
+
     return up
 

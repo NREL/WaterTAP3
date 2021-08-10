@@ -32,20 +32,39 @@ current GitHub repo available at https://github.com/NREL/WaterTAP3:
 
 #. Create new empty directory for WaterTAP3 installation:
 
-    * e.g. this might be a folder called "watertap3" on your desktop
+    * e.g. this might be a folder called ``wt3`` on your desktop
 
 #. Open terminal and navigate to that directory:
 
-    * e.g. ``cd ~/Desktop/watertap3``
-    * You can also right-click on the folder in Finder and select "New Terminal at Folder". A
-      terminal window/tab will then open with that folder as the working directory
+    * e.g. ``cd ~/Desktop/wt3``
 
 #. Clone the repo:
 
-    * ``git clone https://github.com/NREL/NAWI-WaterTAP3``
-    * All the necessary python files and data files will be downloaded into your working directory
+    * In terminal, enter ``git clone https://github.com/NREL/WaterTAP3``
+    * For example, if you cloned the repo into ``~/Desktop/wt3`` , you will have a new
+      directory ``~/Desktop/wt3/WaterTAP3``
+    * All the necessary python files and data files will be downloaded into the ``WaterTAP3``
+      directory.
 
-#. Install watertap3 as an editable package:
+#. Navigate to ``~/WaterTAP3``. This directory contains the ``watertap3.yml`` file that is used
+   to create the ``watertap3`` Python environment.
+
+#. Create the ``watertap3`` Python environment:
+
+    * In terminal, enter ``conda env create --file watertap3.yml``
+
+#. Activate the ``watertap3`` Python environment:
+
+    * In terminal, enter ``conda activate watertap3``
+
+#. Navigate to ``~/WaterTAP3/watertap3``. This directory contains the ``setup.py`` file that is
+   used to install ``watertap3`` as an editable Python package.
+
+    * For example, if you cloned the repo into ``~/Desktop/wt3``, your working directory
+      should now be ``~/Desktop/wt3/WaterTAP3/watertap3``.
+    * This is also the directory that contains this documentation.
+
+#. Install ``watertap3`` as an editable Python package:
 
     * Must be in directory containing ``setup.py`` file
     * In terminal, enter ``python –m pip install –e .``
@@ -53,14 +72,6 @@ current GitHub repo available at https://github.com/NREL/WaterTAP3:
         * **NOTE: MUST INCLUDE THE PERIOD AT THE END OF THIS COMMAND**
 
     * You should end up with new directory ``watertap3.egg-info`` in current directory
-
-#. Create the ``watertap3`` Python environment:
-
-    * ``conda env create --file watertap3.yml``
-
-#. Activate the ``watertap3`` environment:
-
-    * ``conda activate watertap3``
 
 #. Start Jupyter Notebook app or Jupyter Lab app to access tutorial notebooks and run WaterTAP3:
 
