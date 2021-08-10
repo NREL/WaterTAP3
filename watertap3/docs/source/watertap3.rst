@@ -75,7 +75,7 @@ current GitHub repo available at https://github.com/NREL/WaterTAP3:
 
 #. Start Jupyter Notebook app or Jupyter Lab app to access tutorial notebooks and run WaterTAP3:
 
-    * For Jupyter Notebook - ``jupyer notebook``
+    * For Jupyter Notebook - ``jupyter notebook``
     * For Jupyter Lab - ``jupyter lab``
 
 |
@@ -101,9 +101,9 @@ The key performance metrics from WaterTAP3 currently include:
     * Water recovery: the percentage of water recovered for a beneficial use
     * Constituent removal: the percentage of constituent mass removed from the source water
 |
-Other outputs in development inclue:
+Other outputs in development include:
 
-    * Extent of alternative water and energy resouces
+    * Extent of alternative water and energy resources
     * Life-cycle assessment of environmental impacts (e.g. greenhouse gas emissions, total water
       intensity)
     * System resiliency and security
