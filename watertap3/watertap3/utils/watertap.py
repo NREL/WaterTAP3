@@ -108,7 +108,7 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
         m.fs.objective_function = Objective(expr=m.fs.costing.LCOW)
 
     solver = SolverFactory('ipopt')
-    # solver = SolverFactory('mindtpy')
+    # m.fs.solver = solver = SolverFactory('mindtpy')
 
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
     print('----------------------------------------------------------------------')
@@ -116,6 +116,7 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
 
     results = solver.solve(m, tee=solver_results)
     # results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
+    # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt')
 
     attempt_number = 1
     while ((results.solver.termination_condition in ['infeasible', 'maxIterations']) & (attempt_number <= max_attempts)):
@@ -286,7 +287,7 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False, scen
                 ro_a_f_osm.append(m.fs.reverse_osmosis_a.feed.pressure_osm[0]())
                 ro_a_r_osm.append(m.fs.reverse_osmosis_a.retentate.pressure_osm[0]())
                 ro_a_mass_tds.append(m.fs.reverse_osmosis_a.permeate.mass_flow_tds[0]())
-                ro_a_salt_rej.append(m.fs.reverse_osmosis_a.salt_rejection())
+                ro_a_salt_rej.append(m.fs.reverse_osmosis_a.salt_rejection_conc())
 
                 landfill_zld_tds.append(m.fs.landfill_zld.conc_mass_in[0, 'tds']())
                 ro_elect_cost.append(m.fs.reverse_osmosis.costing.electricity_cost())
@@ -1458,6 +1459,19 @@ def find_arcs_and_ports(m, unit, get_ports=False, keep_inlet=False, keep_outlet=
         return
 
 
+def set_new_arcs(m, from_unit_dict, to_unit_dict):
+    outlets = from_unit_dict['outlets']
+    inlets = to_unit_dict['inlets']
+    if len(outlets) != len(inlets):
+        print('there must be an equal number of inlets and outlets!')
+        return
+#     for i, port in enumerate(outlets, 1):
+    arc_name = from_unit_dict['name'].split('_')[0] + '_to_' + to_unit_dict['name'].split('_')[0] + '_arc'
+    print(arc_name)
+    setattr(m.fs, arc_name, Arc(source=outlets[0], destination=inlets[0]))
+    return m
+
+
 def make_decision(m, case_study, scenario):
 
     def connected_units(u, units=[]):
@@ -1626,19 +1640,6 @@ def make_decision(m, case_study, scenario):
         # m = set_new_arcs(m, from_unit_dict, to_unit_dict)
 
     # return m
-
-
-def set_new_arcs(m, from_unit_dict, to_unit_dict):
-    outlets = from_unit_dict['outlets']
-    inlets = to_unit_dict['inlets']
-    if len(outlets) != len(inlets):
-        print('there must be an equal number of inlets and outlets!')
-        return
-#     for i, port in enumerate(outlets, 1):
-    arc_name = from_unit_dict['name'].split('_')[0] + '_to_' + to_unit_dict['name'].split('_')[0] + '_arc'
-    print(arc_name)
-    setattr(m.fs, arc_name, Arc(source=outlets[0], destination=inlets[0]))
-    return m
 
 
 def check_has_ro(m):

@@ -59,10 +59,10 @@ def get_case_study(m=None, new_df_units=None):
 
 
     else:
-        case_study_library = 'data/treatment_train_setup.xlsx'
+        case_study_library = 'data/treatment_train_setup.csv'
 
         # set up tables of design (how units are connected) and units (list of all units needed for the train)
-        df_units = pd.read_excel(case_study_library, sheet_name='units')
+        df_units = pd.read_csv(case_study_library)
         df_units.CaseStudy = df_units.CaseStudy.str.lower()
         df_units.Reference = df_units.Reference.str.lower()
         df_units.Scenario = df_units.Scenario.str.lower()
@@ -90,10 +90,12 @@ def get_case_study(m=None, new_df_units=None):
     for unit_process_name in pfd_dict.keys():
         unit = unit_process_name.replace('_', ' ').swapcase()
         unit_process_type = pfd_dict[unit_process_name]['Unit']
+        unit_process_kind = pfd_dict[unit_process_name]['Type']
         print(unit)
         m = design.add_unit_process(m=m,
                                     unit_process_name=unit_process_name,
-                                    unit_process_type=unit_process_type)
+                                    unit_process_type=unit_process_type,
+                                    unit_process_kind=unit_process_kind)
     print('-------------------------------------\n')
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
@@ -266,11 +268,12 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
 def create_splitters(m, splitter_list, arc_dict, arc_i):
     # print(splitter_list)
     splitter_i = 1
+    outlet_i = 1
     unit_options = m.fs.unit_options = {}
     if not splitter_list:
         m.fs.choose = False
     for j in splitter_list:
-        outlet_i = 1
+
         outlet_list = []
         outlet_list_up = m.fs.outlet_list_up = {}
         unit_split_lu_dict = {}
