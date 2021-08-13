@@ -121,7 +121,7 @@ def get_unit_nice_name(unit_str):
         return unit_str.replace('_', ' ').title()
 
 
-def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_constituent_results=False):
+def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_constituent_results=True):
     if scenario is None:
         scenario = m.fs.train['scenario']
     if case_study is None:
@@ -135,6 +135,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     m.fs.python_param = python_param = []
     category = []
     unit_list = []
+    unit_kinds = []
 
     pressures = []
     recovs = []
@@ -156,6 +157,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('LCOW')
     variable_list.append('System LCOW')
     unit_list.append('$/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.LCOW_TCI))
     python_var.append('system')
@@ -164,6 +166,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('LCOW')
     variable_list.append('System TCI LCOW')
     unit_list.append('$/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.LCOW_fixed_op))
     python_var.append('system')
@@ -172,6 +175,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('LCOW')
     variable_list.append('System Fixed Operating LCOW')
     unit_list.append('$/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.LCOW_elec))
     python_var.append('system')
@@ -180,6 +184,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('LCOW')
     variable_list.append('System Electricity LCOW')
     unit_list.append('$/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.LCOW_chem))
     python_var.append('system')
@@ -188,6 +193,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('LCOW')
     variable_list.append('System Chemical LCOW')
     unit_list.append('$/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.LCOW_other_onm))
     python_var.append('system')
@@ -196,6 +202,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('LCOW')
     variable_list.append('System Other O&M LCOW')
     unit_list.append('$/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.capital_investment_total))
     python_var.append('system')
@@ -204,6 +211,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Cost')
     variable_list.append('System Total Capital Investment (TCI)')
     unit_list.append('$MM')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.operating_cost_total))
     python_var.append('system')
@@ -212,6 +220,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Cost')
     variable_list.append('System Total Operating Cost')
     unit_list.append('$MM')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.fixed_op_cost_total))
     python_var.append('system')
@@ -220,6 +229,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Cost')
     variable_list.append('System Fixed Operating Cost')
     unit_list.append('$MM')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.electricity_cost_total))
     python_var.append('system')
@@ -228,6 +238,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Cost')
     variable_list.append('System Electricity Cost')
     unit_list.append('$MM')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.cat_and_chem_cost_total))
     python_var.append('system')
@@ -236,6 +247,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Cost')
     variable_list.append('System Catalyst and Chemical Cost')
     unit_list.append('$MM')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.other_var_cost_total))
     python_var.append('system')
@@ -244,6 +256,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Cost')
     variable_list.append('System Other Operating Cost')
     unit_list.append('$MM')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.operating_cost_annual))
     python_var.append('system')
@@ -252,6 +265,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Annual Cost')
     variable_list.append('System Total Operating Cost (Annual)')
     unit_list.append('$MM/yr')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.fixed_op_cost_annual))
     python_var.append('system')
@@ -260,6 +274,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Annual Cost')
     variable_list.append('System Fixed Operating Cost (Annual)')
     unit_list.append('$MM/yr')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.electricity_cost_annual))
     python_var.append('system')
@@ -268,6 +283,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Annual Cost')
     variable_list.append('System Electricity Cost (Annual)')
     unit_list.append('$MM/yr')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.cat_and_chem_cost_annual))
     python_var.append('system')
@@ -276,6 +292,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Annual Cost')
     variable_list.append('System Catalyst and Chemical Cost (Annual)')
     unit_list.append('$MM/yr')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.other_var_cost_annual))
     python_var.append('system')
@@ -284,6 +301,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Annual Cost')
     variable_list.append('System Other Operating Cost (Annual)')
     unit_list.append('$MM/yr')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.electricity_intensity))
     python_var.append('system')
@@ -292,6 +310,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Electricity')
     variable_list.append('System Electricity Intensity')
     unit_list.append('kWh/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.elec_frac_LCOW))
     python_var.append('system')
@@ -300,6 +319,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Electricity')
     variable_list.append('Electricity Fraction of LCOW')
     unit_list.append('--')
+    unit_kinds.append('System')
 
     intake_str = [k for k, v in m.fs.pfd_dict.items() if v['Type'] == 'intake']
     waste_str = [k for k, v in m.fs.pfd_dict.items() if v['Type'] == 'waste']
@@ -322,6 +342,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Electricity')
     variable_list.append('Electricity Intensity')
     unit_list.append('kWh/m3')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.system_recovery) * 100)
     python_var.append('system')
@@ -330,6 +351,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Water Flow')
     variable_list.append('Water Recovery')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing.treated_water))
     python_var.append('system')
@@ -338,6 +360,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Water Flow')
     variable_list.append('System Treated Flow')
     unit_list.append('m3/s')
+    unit_kinds.append('System')
 
     value_list.append(sys_flow_in)
     python_var.append('system')
@@ -346,6 +369,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Water Flow')
     variable_list.append('System Inlet Flow')
     unit_list.append('m3/s')
+    unit_kinds.append('System')
 
     value_list.append(sys_flow_waste)
     python_var.append('system')
@@ -354,6 +378,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Water Flow')
     variable_list.append('System Waste Flow')
     unit_list.append('m3/s')
+    unit_kinds.append('System')
 
     value_list.append(m.fs.costing.capital_recovery_factor)
     python_var.append('system')
@@ -362,6 +387,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Capital Recovery Factor')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(m.fs.costing_param.wacc)
     python_var.append('system')
@@ -370,6 +396,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('WACC')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(m.fs.costing_param.plant_cap_utilization)
     python_var.append('system')
@@ -378,6 +405,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Plant Capacity Utilization')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(m.fs.costing_param.plant_lifetime_yrs)
     python_var.append('system')
@@ -386,6 +414,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Plant Lifetime')
     unit_list.append('Years')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.electricity_price))
     python_var.append('system')
@@ -394,6 +423,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Electricity Price')
     unit_list.append('$/kWh')
+    unit_kinds.append('System')
 
     value_list.append(0)
     python_var.append('system')
@@ -402,6 +432,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Location')
     unit_list.append(m.fs.costing_param.location.title())
+    unit_kinds.append('System')
 
     value_list.append(m.fs.costing_param.analysis_yr_cost_indicies)
     python_var.append('system')
@@ -410,6 +441,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Analysis Year Basis')
     unit_list.append(None)
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.maintenance_costs_percent_FCI))
     python_var.append('system')
@@ -418,6 +450,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Maintenance Costs % FCI')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.salaries_percent_FCI))
     python_var.append('system')
@@ -426,6 +459,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Salaries % FCI')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.benefit_percent_of_salary))
     python_var.append('system')
@@ -434,6 +468,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Benefits % FCI')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.insurance_taxes_percent_FCI))
     python_var.append('system')
@@ -442,6 +477,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Insurance/Taxes % FCI')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.lab_fees_percent_FCI))
     python_var.append('system')
@@ -450,6 +486,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Lab % FCI')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     value_list.append(value(m.fs.costing_param.land_cost_percent_FCI))
     python_var.append('system')
@@ -458,6 +495,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     category.append('Costing')
     variable_list.append('Land Cost % FCI')
     unit_list.append('%')
+    unit_kinds.append('System')
 
     for unit in m.fs.component_objects(Block, descend_into=False):
         unit_str = unit_name = str(unit)[3:]
@@ -471,6 +509,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             value_list.append(value(unit.electricity))
             unit_list.append('kWh/m3')
             category.append('Electricity')
+            unit_kinds.append(unit.unit_kind)
 
         if hasattr(unit, 'elec_int_treated'):
             python_var.append(unit_str)
@@ -480,6 +519,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             value_list.append(value(unit.elec_int_treated))
             unit_list.append('kWh/m3')
             category.append('Electricity')
+            unit_kinds.append(unit.unit_kind)
 
         if hasattr(unit, 'costing'):
             b = unit.costing
@@ -491,71 +531,61 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             variable_list.append('Unit LCOW')
             value_list.append(value(unit.LCOW))
             unit_list.append('$/m3')
-
-            treated_water = m.fs.costing.treated_water * 3600 * 24 * 365
-            plant_cap_util = m.fs.costing_param.plant_cap_utilization
-
-            b.total_operating_cost = Expression(expr=(b.total_fixed_op_cost + b.cat_and_chem_cost + b.electricity_cost + b.other_var_cost))
-
-            b.LCOW_TCI = Expression(expr=1E6 * (b.total_cap_investment * m.fs.costing.capital_recovery_factor) / (treated_water * plant_cap_util))
-
-            b.LCOW_elec = Expression(expr=1E6 * (b.electricity_cost) / (treated_water * plant_cap_util))
-
-            b.LCOW_fixed_op = Expression(expr=1E6 * (b.total_fixed_op_cost) / (treated_water * plant_cap_util))
-
-            b.LCOW_chem = Expression(expr=1E6 * (b.cat_and_chem_cost) / (treated_water * plant_cap_util))
-
-            b.LCOW_other = Expression(expr=1E6 * (b.other_var_cost) / (treated_water * plant_cap_util))
-
-            b.LCOW_total_op = Expression(expr=1E6 * (b.total_operating_cost) / (treated_water * plant_cap_util))
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('unit_LCOW_TCI')
             category.append('LCOW')
             variable_list.append('Unit TCI LCOW')
-            value_list.append(value(b.LCOW_TCI))
+            value_list.append(value(unit.LCOW_TCI))
             unit_list.append('$/m3')
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('unit_LCOW_elec')
             category.append('LCOW')
             variable_list.append('Unit Electricity LCOW')
-            value_list.append(value(b.LCOW_elec))
+            value_list.append(value(unit.LCOW_elec))
             unit_list.append('$/m3')
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('unit_LCOW_fixed_op')
             category.append('LCOW')
             variable_list.append('Unit Fixed Operating LCOW')
-            value_list.append(value(b.LCOW_fixed_op))
+            value_list.append(value(unit.LCOW_fixed_op))
             unit_list.append('$/m3')
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('unit_LCOW_chem')
             category.append('LCOW')
             variable_list.append('Unit Chemical LCOW')
-            value_list.append(value(b.LCOW_chem))
+            value_list.append(value(unit.LCOW_chem))
             unit_list.append('$/m3')
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('unit_LCOW_other')
             category.append('LCOW')
             variable_list.append('Unit Other O&M LCOW')
-            value_list.append(value(b.LCOW_other))
+            value_list.append(value(unit.LCOW_other))
             unit_list.append('$/m3')
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
             python_param.append('unit_LCOW_total_op')
             category.append('LCOW')
             variable_list.append('Unit Total Operating LCOW')
-            value_list.append(value(b.LCOW_total_op))
+            value_list.append(value(unit.LCOW_total_op))
             unit_list.append('$/m3')
+            unit_kinds.append(unit.unit_kind)
 
             python_var.append(unit_str)
             up_nice_name_list.append(up_nice_name)
@@ -564,10 +594,12 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             variable_list.append('Unit Total Operating Cost')
             value_list.append(value(b.total_operating_cost))
             unit_list.append('$MM/yr')
+            unit_kinds.append(unit.unit_kind)
 
             for variable in up_variables:
                 python_var.append(unit_str)
                 up_nice_name_list.append(up_nice_name)
+                unit_kinds.append(unit.unit_kind)
                 if variable == 'annual_op_main_cost':
                     variable_list.append('Annual O&M Costs')
                     value_list.append(value(getattr(unit.costing, variable)))
@@ -595,6 +627,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             category.append('Water Flow')
             unit_list.append('m3/s')
             python_param.append('flow_vol_in')
+            unit_kinds.append(unit.unit_kind)
 
             value_list.append((value(unit.flow_vol_out[0])))
             python_var.append(unit_str)
@@ -603,6 +636,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             category.append('Water Flow')
             unit_list.append('m3/s')
             python_param.append('flow_vol_out')
+            unit_kinds.append(unit.unit_kind)
 
             value_list.append(value(unit.flow_vol_waste[0]))
             python_var.append(unit_str)
@@ -611,6 +645,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             category.append('Water Flow')
             unit_list.append('m3/s')
             python_param.append('flow_vol_waste')
+            unit_kinds.append(unit.unit_kind)
 
             value_list.append(value(unit.flow_vol_out[0]) / value(unit.flow_vol_in[0]))
             python_var.append(unit_str)
@@ -619,6 +654,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
             category.append('Water Flow')
             unit_list.append('%')
             python_param.append('water_recovery')
+            unit_kinds.append(unit.unit_kind)
 
             if unit_name in pfd_dict.keys() and pfd_dict[unit_name]['Unit'] == 'reverse_osmosis':
 
@@ -641,6 +677,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Pressure')
                 python_param.append('feed.pressure')
                 unit_list.append('bar')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(recovs[-1])
                 python_var.append(unit_str)
@@ -649,6 +686,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('RO Recovery')
                 python_param.append('ro_recovery')
                 unit_list.append('%')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(areas[-1])
                 python_var.append(unit_str)
@@ -657,6 +695,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Membrane Area')
                 python_param.append('membrane_area')
                 unit_list.append('m2')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(num_mems[-1])
                 python_var.append(unit_str)
@@ -665,6 +704,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Number Membranes')
                 python_param.append('num_membranes')
                 unit_list.append('-')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(fluxs[-1])
                 python_var.append(unit_str)
@@ -673,6 +713,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Water Flux (m/s)')
                 python_param.append('ro_recovery')
                 unit_list.append('m/s')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(fluxs_lmh[-1])
                 python_var.append(unit_str)
@@ -681,6 +722,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Water Flux (LMH)')
                 python_param.append('flux_lmh')
                 unit_list.append('LMH')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(kws[-1])
                 python_var.append(unit_str)
@@ -689,6 +731,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Water Permeability Coeff.')
                 python_param.append('a')
                 unit_list.append('m/(bar.h)')
+                unit_kinds.append(unit.unit_kind)
 
                 value_list.append(kss[-1])
                 python_var.append(unit_str)
@@ -697,6 +740,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                 variable_list.append('Salt Permeability Coeff.')
                 python_param.append('b')
                 unit_list.append('m/hr')
+                unit_kinds.append(unit.unit_kind)
 
             if incl_constituent_results:
 
@@ -711,6 +755,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                     variable_list.append(constituent)
                     python_param.append(conc)
                     unit_list.append(units)
+                    unit_kinds.append(unit.unit_kind)
 
                     value_list.append(value(unit.conc_mass_out[0, conc]))
                     python_var.append(unit_str)
@@ -719,6 +764,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                     variable_list.append(constituent)
                     python_param.append(conc)
                     unit_list.append(units)
+                    unit_kinds.append(unit.unit_kind)
 
                     value_list.append(value(unit.conc_mass_waste[0, conc]))
                     python_var.append(unit_str)
@@ -727,6 +773,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                     variable_list.append(constituent)
                     python_param.append(conc)
                     unit_list.append(units)
+                    unit_kinds.append(unit.unit_kind)
 
                     ### MASS IN KG --> MULTIPLIED BY FLOW
                     value_list.append(value(unit.conc_mass_in[0, conc]) * value(unit.flow_vol_in[0]))
@@ -736,6 +783,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                     variable_list.append(constituent)
                     python_param.append(conc)
                     unit_list.append('kg/s')
+                    unit_kinds.append(unit.unit_kind)
 
                     value_list.append(value(unit.conc_mass_out[0, conc]) * value(unit.flow_vol_out[0]))
                     python_var.append(unit_str)
@@ -744,6 +792,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                     variable_list.append(constituent)
                     python_param.append(conc)
                     unit_list.append('kg/s')
+                    unit_kinds.append(unit.unit_kind)
 
                     value_list.append(value(unit.conc_mass_waste[0, conc]) * value(unit.flow_vol_waste[0]))
                     python_var.append(unit_str)
@@ -751,7 +800,8 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
                     category.append('Waste Mass Flow')
                     variable_list.append(constituent)
                     python_param.append(conc)
-                    unit_list.append('kg')
+                    unit_list.append('kg/s')
+                    unit_kinds.append(unit.unit_kind)
 
 ## FOR CALCULATING SYSTEM RO PARAMETERS
 
@@ -845,6 +895,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     df['Value'] = value_list
     df['Metric'] = category
     df['Unit'] = unit_list
+    df['Unit Kind'] = unit_kinds
     df['python_var'] = python_var
     df['python_param'] = python_param
     df['Case Study'] = np.array(case_study)

@@ -122,6 +122,7 @@ def get_complete_costing(costing):
     costing.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * costing.fixed_cap_inv
     costing.total_fixed_op_cost = Expression(expr=costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes)
     costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
+    costing.total_operating_cost = costing.total_fixed_op_cost + costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost
 
 
 def get_ind_table(analysis_yr_cost_indicies):
@@ -269,6 +270,36 @@ def get_system_costing(self):
                     expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost) /
                          (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
                     doc='Unit Levelized Cost of Water [$/m3]'))
+
+            setattr(b_unit, 'LCOW_TCI', Expression(
+                    expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    doc='Unit TCI Levelized Cost of Water [$/m3]'))
+
+            setattr(b_unit, 'LCOW_elec', Expression(
+                    expr=1E6 * (b_unit.costing.electricity_cost) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    doc='Unit Electricity Levelized Cost of Water [$/m3]'))
+
+            setattr(b_unit, 'LCOW_fixed_op', Expression(
+                    expr=1E6 * (b_unit.costing.total_fixed_op_cost) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    doc='Unit Fixed Operating Levelized Cost of Water [$/m3]'))
+
+            setattr(b_unit, 'LCOW_chem', Expression(
+                    expr=1E6 * (b_unit.costing.cat_and_chem_cost) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    doc='Unit Chemical Levelized Cost of Water [$/m3]'))
+
+            setattr(b_unit, 'LCOW_other', Expression(
+                    expr=1E6 * (b_unit.costing.other_var_cost) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    doc='Unit Other O&M Levelized Cost of Water [$/m3]'))
+
+            setattr(b_unit, 'LCOW_total_op', Expression(
+                    expr=1E6 * (b_unit.costing.total_operating_cost) /
+                         (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+                    doc='Unit Total Operating Levelized Cost of Water [$/m3]'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
                     expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price) /
