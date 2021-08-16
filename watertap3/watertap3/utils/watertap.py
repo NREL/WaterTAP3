@@ -75,7 +75,7 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
     if source_scenario is None:
         source_scenario = scenario
 
-    df = pd.read_excel('data/treatment_train_setup.xlsx', sheet_name='units')
+    df = pd.read_csv('data/treatment_train_setup.csv')
 
     df = filter_df(df, m)
     water_type_list = []

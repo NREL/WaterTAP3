@@ -111,8 +111,8 @@ class SplitterProcessData(UnitModelBlockData):
 
                 setattr(self, ('decision_var_%s' % p), Var(time,
                                                             initialize=1,
-                                                            # bounds=(0, 1),
-                                                           within=Binary,
+                                                            bounds=(0, 1),
+                                                           within=Integers,
                                                             doc='variable for directing flow'))
                 decision_var_name = ('decision_var_%s' % p)
                 split_fraction_var_name = ('split_fraction_%s' % p)
