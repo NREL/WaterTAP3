@@ -194,7 +194,8 @@ class WT3UnitProcessData(UnitModelBlockData):
             return (pyunits.convert(b.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr) * pyunits.convert(b.conc_mass_in[t, j], to_units=pyunits.mg / pyunits.L) ==
                     pyunits.convert(b.flow_vol_out[t], to_units=pyunits.m ** 3 / pyunits.hr) * pyunits.convert(b.conc_mass_out[t, j], to_units=pyunits.mg / pyunits.L) +
                     pyunits.convert(b.flow_vol_waste[t], to_units=pyunits.m ** 3 / pyunits.hr) * pyunits.convert(b.conc_mass_waste[t, j], to_units=pyunits.mg / pyunits.L))
-
+            # return b.flow_vol_in[t] * b.conc_mass_in[t, j] == b.flow_vol_out[t] * b.conc_mass_out[t, j] + b.flow_vol_waste[t] * b.conc_mass_waste[t, j]
+        #
         @self.Constraint(time, doc='Outlet temperature equation')
         def outlet_temperature_constraint(b, t):
             return b.temperature_in[t] == b.temperature_out[t]

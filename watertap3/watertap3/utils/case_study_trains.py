@@ -105,6 +105,7 @@ def get_case_study(m=None, new_df_units=None):
     # gets list of unit processes and ports that need either a splitter or mixer 
     splitter_list, mixer_list = check_split_mixer_need(arc_dict)
     m.fs.splitter_list = splitter_list
+    m.fs.mixer_list = mixer_list
     # add the mixers if needed, and add the arcs around the mixers to the arc dictionary
     m, arc_dict, mixer_i, arc_i = create_mixers(m, mixer_list, arc_dict, arc_i)
     m.fs.arc_i = arc_i
