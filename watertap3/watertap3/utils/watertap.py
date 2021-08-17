@@ -105,6 +105,10 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
     G = seq.create_graph(m)
 
     if objective == True:
+        # obj = Expression(expr=1E6 * (m.fs.costing.capital_investment_total * m.fs.costing.capital_recovery_factor + m.fs.costing.operating_cost_annual) * (m.fs.costing.treated_water * 3600 * 24 * 365 * m.fs.costing_param.plant_cap_utilization) ** -1)
+        # m.fs.objective_function = Objective(expr=obj)
+
+
         m.fs.objective_function = Objective(expr=m.fs.costing.LCOW)
 
     solver = SolverFactory('ipopt')
@@ -115,8 +119,7 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
     print('\nDegrees of Freedom:', degrees_of_freedom(m))
 
     results = solver.solve(m, tee=solver_results)
-    # results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
-    # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt')
+    # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
 
     attempt_number = 1
     while ((results.solver.termination_condition in ['infeasible', 'maxIterations']) & (attempt_number <= max_attempts)):
@@ -1254,9 +1257,9 @@ def print_ro_results(m):
             print(f'\tRecovery = {round(recovs[-1], 3) * 100}%')
             print(f'\tArea = {round(areas[-1])} m2 ---> {round(num_mems[-1])} membrane modules')
             print(f'\tFlux = {round(value(fluxs[-1]), 1)} LMH')
-            print(f'\tFeed Flow Rate = {round(unit.flow_vol_in[0](), 2)} m3/s = {round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.Mgallons / pyunits.day)(), 2)} MGD')
-            print(f'\tPermeate Flow Rate= {round(unit.flow_vol_out[0](), 2)} m3/s = {round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 2)} MGD')
-            print(f'\tReject Flow Rate= {round(unit.flow_vol_waste[0](), 2)} m3/s = {round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 2)} MGD')
+            print(f'\tFeed Flow Rate = {round(unit.flow_vol_in[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD')
+            print(f'\tPermeate Flow Rate= {round(unit.flow_vol_out[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD')
+            print(f'\tReject Flow Rate= {round(unit.flow_vol_waste[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 5)} MGD')
             print(f'\tWater Perm. = {kws[-1]} m/(bar.hr)')
             print(f'\tSalt Perm. = {kss[-1]} m/hr\n')
 
@@ -1412,6 +1415,15 @@ def case_study_constraints(m, case_study, scenario):
     if case_study == 'ocwd':  # Facility data in email from Dan Giammar 7/7/2021
         m.fs.ro_pressure_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 15)  # Facility data: RO pressure is 140-220 psi (~9.7-15.1 bar)
         m.fs.microfiltration.water_recovery.fix(0.9)
+
+    if case_study == 'produced_water_injection' and scenario == 'swd_well':
+        m.fs.brine_concentrator.water_recovery.fix(0.725)
+
+    if case_study == "uranium":
+        m.fs.ion_exchange.removal_fraction[0, "tds"].unfix()
+        m.fs.ion_exchange.water_recovery.fix(0.967)
+        m.fs.ion_exchange.anion_res_capacity.unfix()
+        m.fs.ion_exchange.cation_res_capacity.unfix()
 
     return m
 
@@ -1643,15 +1655,16 @@ def make_decision(m, case_study, scenario):
 
 
 def check_has_ro(m):
+    has_ro = False
     for key in m.fs.pfd_dict.keys():
-        unit = str(key).replace('_', ' ').swapcase()
         if m.fs.pfd_dict[key]['Unit'] == 'reverse_osmosis':
             getattr(m.fs, key).feed.pressure.unfix()
             getattr(m.fs, key).membrane_area.unfix()
-            return True
-        else:
-            continue
-    return False
+            has_ro = True
+    if has_ro:
+        return True
+    else:
+        return False
 
 
 def run_water_tap_ro(m, return_df=False, skip_small=True,
