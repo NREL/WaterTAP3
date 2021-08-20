@@ -12,6 +12,9 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
+        self.pipe_cost_factor_dict = {
+                'emwd': 82600
+                }
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=(pyunits.m ** 3 / pyunits.hr))
         self.chem_dict = {}
@@ -23,10 +26,14 @@ class UnitProcess(WT3UnitProcess):
         self.base_fixed_cap_cost = 35
         self.cap_scaling_exp = 0.873
         self.capacity_basis = 10417
-        self.pipe_cost_basis = 35000
         try:
             self.pipe_distance = unit_params['pipe_distance'] * pyunits.miles
             self.pipe_diameter = 8 * pyunits.inches
+            try:
+                self.pipe_cost_case = unit_params['pipe_cost_case']
+                self.pipe_cost_basis = self.pipe_cost_factor_dict[self.pipe_cost_case]
+            except:
+                self.pipe_cost_basis = 35000
             self.pipe_fixed_cap_cost = (self.pipe_cost_basis * self.pipe_distance * self.pipe_diameter) * 1E-6
             surf_dis_cap = self.base_fixed_cap_cost * (self.flow_in / self.capacity_basis) ** self.cap_scaling_exp + self.pipe_fixed_cap_cost
             return surf_dis_cap

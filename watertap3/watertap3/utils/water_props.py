@@ -38,7 +38,8 @@ class PhysicalParameterData(PhysicalParameterBlock):
                 'length': pyunits.m,
                 'mass': pyunits.kg,
                 'amount': pyunits.mol,
-                'temperature': pyunits.K
+                'temperature': pyunits.K,
+                'volume': pyunits.liter
                 })
 
 
