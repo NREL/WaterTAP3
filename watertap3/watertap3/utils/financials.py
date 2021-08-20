@@ -8,7 +8,7 @@
 ##############################################################################
 
 import pandas as pd
-from pyomo.environ import (Block, Expression, Param, Var, units as pyunits)
+from pyomo.environ import (Block, Expression, Param, Var, NonNegativeReals, units as pyunits)
 
 from .ml_regression import get_linear_regression
 
@@ -76,7 +76,8 @@ def get_complete_costing(costing):
     unit = costing.parent_block()
     basis_year = costing.basis_year
     sys_specs = unit.parent_block().costing_param
-    time = unit.flowsheet().config.time.first()
+    time = unit.flowsheet().config.time
+    t = time.first()
     chem_dict = unit.chem_dict
     electricity = unit.electricity
 
@@ -86,12 +87,25 @@ def get_complete_costing(costing):
     costing.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
     costing.consumer_price_index = df.loc[basis_year].CPI_Factor
 
-    costing.fixed_cap_inv = costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts
+    costing.uncertainty_multiplier_fci = Var(time,
+                                         domain=NonNegativeReals,
+                                         initialize=0,
+                                         doc='Uncertainty Multiplier for FCI')
+
+    costing.uncertainty_multiplier_om = Var(time,
+                                            domain=NonNegativeReals,
+                                            initialize=0,
+                                            doc='Uncertainty Multiplier for Fixed O&M')
+
+    costing.uncertainty_multiplier_fci.fix(0)
+    costing.uncertainty_multiplier_om.fix(0)
+
+    costing.fixed_cap_inv = costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts * (1 - costing.uncertainty_multiplier_fci[t])
     costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
     costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
     costing.total_cap_investment = costing.fixed_cap_inv + costing.land_cost + costing.working_cap
 
-    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[time],
+    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[t],
                                    to_units=pyunits.m ** 3 / pyunits.year)
 
     ## cat and chems ##
@@ -120,7 +134,7 @@ def get_complete_costing(costing):
     costing.maintenance = sys_specs.maintenance_costs_percent_FCI * costing.fixed_cap_inv
     costing.lab = sys_specs.lab_fees_percent_FCI * costing.fixed_cap_inv
     costing.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * costing.fixed_cap_inv
-    costing.total_fixed_op_cost = Expression(expr=costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes)
+    costing.total_fixed_op_cost = Expression(expr=(costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes) * (1 - costing.uncertainty_multiplier_om[t]))
     costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
     costing.total_operating_cost = costing.total_fixed_op_cost + costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost
 

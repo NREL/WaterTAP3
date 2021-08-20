@@ -24,7 +24,7 @@ __all__ = ['run_water_tap', 'watertap_setup', 'run_model', 'run_water_tap', 'run
 
 def run_water_tap(m=None, solver_results=False, print_model_results=False, objective=False,
                   max_attempts=3, initialize_flow=5, skip_small=True, return_solution=False,
-                  sensitivity_flow=None):
+                  sensitivity_flow=None, print_it=False):
     # if flow is small it resets the flow to any inlet as 2 m3/s
     if skip_small == False:
         for key in m.fs.flow_in_dict.keys():
@@ -48,7 +48,7 @@ def run_water_tap(m=None, solver_results=False, print_model_results=False, objec
             run_model(m=m, solver_results=solver_results, objective=objective, max_attempts=max_attempts)
 
     else:
-        run_model(m=m, solver_results=solver_results, objective=objective, max_attempts=max_attempts)
+        run_model(m=m, solver_results=solver_results, objective=objective, max_attempts=max_attempts, print_it=print_it)
 
     if print_model_results:
         print_results(m, print_model_results)
@@ -97,14 +97,14 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
     return m
 
 
-def run_model(m=None, solver_results=False, objective=False, max_attempts=0, return_solution=False):
+def run_model(m=None, solver_results=False, objective=False, max_attempts=0, return_solution=False, print_it=True):
     financials.get_system_costing(m.fs)
 
     TransformationFactory('network.expand_arcs').apply_to(m)
     seq = SequentialDecomposition()
     G = seq.create_graph(m)
 
-    if objective == True:
+    if objective:
         # obj = Expression(expr=1E6 * (m.fs.costing.capital_investment_total * m.fs.costing.capital_recovery_factor + m.fs.costing.operating_cost_annual) * (m.fs.costing.treated_water * 3600 * 24 * 365 * m.fs.costing_param.plant_cap_utilization) ** -1)
         # m.fs.objective_function = Objective(expr=obj)
 
@@ -115,8 +115,9 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
     # m.fs.solver = solver = SolverFactory('mindtpy')
 
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
-    print('----------------------------------------------------------------------')
-    print('\nDegrees of Freedom:', degrees_of_freedom(m))
+    if print_it:
+        print('----------------------------------------------------------------------')
+        print('\nDegrees of Freedom:', degrees_of_freedom(m))
 
     results = solver.solve(m, tee=solver_results)
     # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
@@ -128,9 +129,9 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
         print(f'Running again with updated initial conditions --- attempt {attempt_number}\n')
         results = solver.solve(m, tee=solver_results)
         attempt_number += 1
-
-    print('\nWaterTAP3 solution', results.solver.termination_condition, '\n')
-    print('----------------------------------------------------------------------')
+    if print_it:
+            print('\nWaterTAP3 solution', results.solver.termination_condition, '\n')
+            print('----------------------------------------------------------------------')
 
     if results.solver.termination_condition in ['infeasible', 'maxIterations']:
         print('\nWaterTAP3 solver returned %s solution. Check option to run model with updated initial conditions.\n\n' % results.solver.termination_condition)
@@ -148,20 +149,20 @@ def print_results(m, print_model_results):
             unit = str(b_unit)[3:].replace('_', ' ').swapcase()
             if hasattr(b_unit, 'costing'):
                 print(f'\n{unit}:\n')
-                print('\n\n\ttotal cap investment:', round(value(b_unit.costing.total_cap_investment()), 5))
+                print('\ttotal cap investment:', round(value(b_unit.costing.total_cap_investment()), 5))
                 print('\tcat and chem cost:', round(value(b_unit.costing.cat_and_chem_cost), 5))
                 print('\telectricity cost:', round(value(b_unit.costing.electricity_cost), 5))
                 print('\ttotal fixed op cost:', round(value(b_unit.costing.total_fixed_op_cost), 5))
-                print('\n')
+                # print('\n')
 
-            if hasattr(b_unit, 'inlet'):
-                b_unit.inlet.display()
-            if hasattr(b_unit, 'inlet1'):
-                b_unit.inlet1.display()
-            if hasattr(b_unit, 'outlet'):
-                b_unit.outlet.display()
-            if hasattr(b_unit, 'waste'):
-                b_unit.waste.display()
+            # if hasattr(b_unit, 'inlet'):
+            #     b_unit.inlet.display()
+            # if hasattr(b_unit, 'inlet1'):
+            #     b_unit.inlet1.display()
+            # if hasattr(b_unit, 'outlet'):
+            #     b_unit.outlet.display()
+            # if hasattr(b_unit, 'waste'):
+            #     b_unit.waste.display()
         print('\n----------------------------------------------------------------------\n')
 
     if print_model_results == 'summary':
@@ -1392,14 +1393,16 @@ def case_study_constraints(m, case_study, scenario):
 
     if case_study == 'emwd':
         if scenario in ['baseline', 'dwi']:
-            m.fs.manifee_area_constr = Constraint(expr=m.fs.ro_a1.membrane_area[0] == m.fs.ro_a2.membrane_area[0])
-            m.fs.perris_area_constr = Constraint(expr=m.fs.ro_b1.membrane_area[0] == m.fs.ro_b2.membrane_area[0])
-            m.fs.manifee_pressure_constr1 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] <= 14)
-            m.fs.manifee_pressure_constr2 = Constraint(expr=m.fs.ro_a1.feed.pressure[0] == m.fs.ro_a2.feed.pressure[0])
-            m.fs.perris_pressure_constr1 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] <= 14)
-            m.fs.perris_pressure_constr2 = Constraint(expr=m.fs.ro_b1.feed.pressure[0] == m.fs.ro_b2.feed.pressure[0])
-            m.fs.area_constr1 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) >= 1.4)
-            m.fs.area_constr2 = Constraint(expr=(m.fs.ro_b1.membrane_area[0] + m.fs.ro_b2.membrane_area[0]) / (m.fs.ro_a1.membrane_area[0] + m.fs.ro_a2.membrane_area[0]) <= 1.6)
+            m.fs.manifee_area_constr = Constraint(expr=m.fs.menifee_a.membrane_area[0] == m.fs.menifee_b.membrane_area[0])
+            m.fs.perris_area_constr = Constraint(expr=m.fs.perris_i_a.membrane_area[0] == m.fs.perris_i_b.membrane_area[0])
+            m.fs.manifee_pressure_constr1 = Constraint(expr=m.fs.menifee_a.feed.pressure[0] <= 14)
+            m.fs.manifee_pressure_constr2 = Constraint(expr=m.fs.menifee_a.feed.pressure[0] == m.fs.menifee_b.feed.pressure[0])
+            m.fs.perris_pressure_constr1 = Constraint(expr=m.fs.perris_i_a.feed.pressure[0] <= 14)
+            m.fs.perris_pressure_constr2 = Constraint(expr=m.fs.perris_i_a.feed.pressure[0] == m.fs.perris_i_b.feed.pressure[0])
+            m.fs.perris_recov_constr1 = Constraint(expr=m.fs.perris_i_a.flow_vol_out[0] / m.fs.perris_i_a.flow_vol_in[0] <= 0.75)
+            m.fs.perris_recov_constr1 = Constraint(expr=m.fs.perris_i_a.flow_vol_out[0] / m.fs.perris_i_a.flow_vol_in[0] >= 0.70)
+            m.fs.area_constr1 = Constraint(expr=(m.fs.perris_i_a.membrane_area[0] + m.fs.perris_i_b.membrane_area[0]) / (m.fs.menifee_a.membrane_area[0] + m.fs.menifee_b.membrane_area[0]) >= 1.4)
+            m.fs.area_constr2 = Constraint(expr=(m.fs.perris_i_a.membrane_area[0] + m.fs.perris_i_b.membrane_area[0]) / (m.fs.menifee_a.membrane_area[0] + m.fs.menifee_b.membrane_area[0]) <= 1.6)
 
         elif 'zld' in scenario:
             m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_a_first_pass.feed.pressure[0] <= 14)
