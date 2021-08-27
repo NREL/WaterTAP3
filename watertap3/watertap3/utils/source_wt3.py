@@ -13,7 +13,7 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Constraint, NonNegativeReals, Var
 from pyomo.network import Port
 
-module_name = 'source_example'
+module_name = 'source_wt3'
 
 
 @declare_process_block_class('Source')

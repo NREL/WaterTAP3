@@ -1,60 +1,10 @@
 CaseStudy,Reference,Scenario,Unit,Type,UnitName,ToUnitName,FromPort,Parameter
 ,,,,,,,,
 SEAWATER ,,,,,,,,
-santa_barbara,nawi,baseline,sw_onshore_intake,intake,intake,"sulfuric_acid_addition,hydrochloric_acid_addition","outlet,outlet","{'water_type': ['seawater'], 'split_fraction': [1, 1]}"
-santa_barbara,nawi,baseline,sulfuric_acid_addition,treatment,sulfuric_acid_addition,static_mixer_1,outlet,{'dose': 30}
-santa_barbara,nawi,baseline,static_mixer,treatment,static_mixer_1,cartridge_filtration,outlet,
-santa_barbara,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration,ro_first_pass,outlet,
-santa_barbara,nawi,baseline,hydrochloric_acid_addition,treatment,hydrochloric_acid_addition,static_mixer_2,outlet,{'dose': 20}
-santa_barbara,nawi,baseline,static_mixer,treatment,static_mixer_2,tri_media_filtration,outlet,
-santa_barbara,nawi,baseline,tri_media_filtration,treatment,tri_media_filtration,"ro_first_pass,backwash_solids_handling","outlet,waste",
-santa_barbara,nawi,baseline,backwash_solids_handling,treatment,backwash_solids_handling,landfill,waste,{'recovery': 0.95}
-santa_barbara,nawi,baseline,reverse_osmosis,treatment,ro_first_pass,"chlorination,ro_second_pass","outlet,waste",{'erd': 'no'}
-santa_barbara,nawi,baseline,reverse_osmosis,treatment,ro_second_pass,"ro_first_pass,brine_concentrator","outlet,waste",{'erd': 'yes'}
-santa_barbara,nawi,baseline,chlorination,treatment,chlorination,municipal_drinking,outlet,{'chemical_name': 'Chlorine'}
-santa_barbara,nawi,baseline,brine_concentrator,treatment,brine_concentrator,"chlorination,landfill","outlet,waste",
-santa_barbara,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
-santa_barbara,nawi,baseline,landfill,waste,landfill,,,
-,,,,,,,,
-santa_barbara_x,nawi,baseline,sw_onshore_intake,intake,intake,"sulfuric_acid_addition,hydrochloric_acid_addition,anti_scalant_addition","outlet,outlet,outlet","{'water_type': ['seawater'], 'split_fraction': [1, 1, 1]}"
-santa_barbara_x,nawi,baseline,sulfuric_acid_addition,treatment,sulfuric_acid_addition,static_mixer_1,outlet,{'dose': 30}
-santa_barbara_x,nawi,baseline,static_mixer,treatment,static_mixer_1,cartridge_filtration,outlet,
-santa_barbara_x,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration,ro_first_pass,outlet,
-santa_barbara_x,nawi,baseline,hydrochloric_acid_addition,treatment,hydrochloric_acid_addition,static_mixer_2,outlet,{'dose': 20}
-santa_barbara_x,nawi,baseline,static_mixer,treatment,static_mixer_2,tri_media_filtration,outlet,
-santa_barbara_x,nawi,baseline,tri_media_filtration,treatment,tri_media_filtration,"ro_first_pass,backwash_solids_handling","outlet,waste",
-santa_barbara_x,nawi,baseline,backwash_solids_handling,treatment,backwash_solids_handling,landfill,waste,{'recovery': 0.95}
-santa_barbara_x,nawi,baseline,anti_scalant_addition,treatment,anti_scalant_addition,static_mixer_3,outlet,{'dose': 30}
-santa_barbara_x,nawi,baseline,static_mixer,treatment,static_mixer_3,microfiltration,outlet,
-santa_barbara_x,nawi,baseline,microfiltration,treatment,microfiltration,ro_first_pass,outlet,
-santa_barbara_x,nawi,baseline,reverse_osmosis,treatment,ro_first_pass,"chlorination,ro_second_pass","outlet,waste",{'erd': 'no'}
-santa_barbara_x,nawi,baseline,reverse_osmosis,treatment,ro_second_pass,"ro_first_pass,brine_concentrator","outlet,waste",{'erd': 'yes'}
-santa_barbara_x,nawi,baseline,chlorination,treatment,chlorination,municipal_drinking,outlet,{'chemical_name': 'Chlorine'}
-santa_barbara_x,nawi,baseline,brine_concentrator,treatment,brine_concentrator,"chlorination,landfill","outlet,waste",
-santa_barbara_x,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
-santa_barbara_x,nawi,baseline,landfill,waste,landfill,,,
-,,,,,,,,"{'dose': 30, 'split_fraction': 'decision point'}"
-ashkelon_x,nawi,baseline,sw_onshore_intake,intake,sw_onshore_intake,sulfuric_acid_addition,outlet,{'water_type': ['seawater']}
-ashkelon_x,nawi,baseline,sulfuric_acid_addition,treatment,sulfuric_acid_addition,ferric_chloride_addition,outlet,{'dose': 10}
-ashkelon_x,nawi,baseline,ferric_chloride_addition,treatment,ferric_chloride_addition,chlorination,outlet,{'dose': 20}
-ashkelon_x,nawi,baseline,chlorination,treatment,chlorination,static_mixer,outlet,{'chemical_name': 'Chlorine'}
-ashkelon_x,nawi,baseline,static_mixer,treatment,static_mixer,tri_media_filtration,outlet,
-ashkelon_x,nawi,baseline,tri_media_filtration,treatment,tri_media_filtration,"cartridge_filtration,backwash_solids_handling","outlet,waste",
-ashkelon_x,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration,ro_first_pass,outlet,
-ashkelon_x,nawi,baseline,reverse_osmosis,treatment,ro_first_pass,"lime_softening,ro_first_stage","outlet,waste",{'erd': 'no'}
-ashkelon_x,nawi,baseline,reverse_osmosis,treatment,ro_first_stage,lime_softening,outlet,{'erd': 'yes'}
-ashkelon_x,nawi,baseline,lime_softening,treatment,lime_softening,chlorination_b,outlet,{'lime': 2.3}
-ashkelon_x,nawi,baseline,chlorination,treatment,chlorination_b,caustic_soda_addition,outlet,{'chemical_name': 'Chlorine'}
-ashkelon_x,nawi,baseline,caustic_soda_addition,treatment,caustic_soda_addition,treated_storage,outlet,{'dose': 30}
-ashkelon_x,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 1}
-ashkelon_x,nawi,baseline,backwash_solids_handling,treatment,backwash_solids_handling,landfill,waste,{'recovery': 0.95}
-ashkelon_x,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
-ashkelon_x,nawi,baseline,surface_discharge,waste,surface_discharge,,,{'pump': 'no'}
-ashkelon_x,nawi,baseline,landfill,waste,landfill,,,
 ,,,,,,,,
 ashkelon,nawi,baseline,sw_onshore_intake,intake,sw_onshore_intake,sulfuric_acid_addition,outlet,{'water_type': ['seawater']}
-ashkelon,nawi,baseline,sulfuric_acid_addition,treatment,sulfuric_acid_addition,ferric_chloride_addition,outlet,"{'dose': 10, 'chemical_name': 'Sulphuric_Acid_H2SO4'}"
-ashkelon,nawi,baseline,ferric_chloride_addition,treatment,ferric_chloride_addition,chlorination,outlet,"{'dose': 20, 'chemical_name': 'Iron_FeCl3'}"
+ashkelon,nawi,baseline,sulfuric_acid_addition,treatment,sulfuric_acid_addition,ferric_chloride_addition,outlet,{'dose': 10}
+ashkelon,nawi,baseline,ferric_chloride_addition,treatment,ferric_chloride_addition,chlorination,outlet,{'dose': 20}
 ashkelon,nawi,baseline,chlorination,treatment,chlorination,static_mixer,outlet,{'chemical_name': 'Chlorine'}
 ashkelon,nawi,baseline,static_mixer,treatment,static_mixer,tri_media_filtration,outlet,
 ashkelon,nawi,baseline,tri_media_filtration,treatment,tri_media_filtration,"cartridge_filtration,backwash_solids_handling","outlet,waste",
@@ -122,23 +72,23 @@ carlsbad,nawi,one_ro,municipal_drinking,use,municipal_drinking,,,
 carlsbad,nawi,one_ro,surface_discharge,waste,surface_discharge,,,
 carlsbad,nawi,one_ro,landfill,waste,landfill,,,
 ,,,,,,,,
-santa_barbara_x,nawi,baseline,sw_onshore_intake,intake,sw_onshore_intake,ferric_chloride_addition,outlet,{'water_type': ['seawater']}
-santa_barbara_x,nawi,baseline,ferric_chloride_addition,treatment,ferric_chloride_addition,chlorination,outlet,{'dose': 20}
-santa_barbara_x,nawi,baseline,chlorination,treatment,chlorination,static_mixer,outlet,{'chemical_name': 'Chlorine'}
-santa_barbara_x,nawi,baseline,static_mixer,treatment,static_mixer,holding_tank,outlet,
-santa_barbara_x,nawi,baseline,treated_storage,treatment,holding_tank,media_filtration,outlet,{'hours': 2}
-santa_barbara_x,nawi,baseline,basic_unit,treatment,media_filtration,"anti_scalant_addition,backwash_solids_handling","outlet,waste",{'unit_process_name': 'media_filtration'}
-santa_barbara_x,nawi,baseline,anti_scalant_addition,treatment,anti_scalant_addition,cartridge_filtration,outlet,{'dose': 5}
-santa_barbara_x,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration,reverse_osmosis,outlet,
-santa_barbara_x,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,holding_tank_b,outlet,{'erd': 'yes'}
-santa_barbara_x,nawi,baseline,treated_storage,treatment,holding_tank_b,uv_aop,outlet,{'hours': 1}
-santa_barbara_x,nawi,baseline,uv_aop,treatment,uv_aop,co2_addition,outlet,"{'chemical_name': 'Hydrogen_Peroxide', 'dose': 5, 'uv_dose': 350, 'aop': True, 'uvt_in': 0.95}"
-santa_barbara_x,nawi,baseline,co2_addition,treatment,co2_addition,lime_addition,outlet,
-santa_barbara_x,nawi,baseline,lime_addition,treatment,lime_addition,treated_storage,outlet,{'lime': 2.3}
-santa_barbara_x,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 1}
-santa_barbara_x,nawi,baseline,backwash_solids_handling,treatment,backwash_solids_handling,"landfill,landfill","outlet,waste",
-santa_barbara_x,nawi,baseline,landfill,waste,landfill,,,
-santa_barbara_x,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
+santa_barbara,nawi,baseline,sw_onshore_intake,intake,sw_onshore_intake,ferric_chloride_addition,outlet,{'water_type': ['seawater']}
+santa_barbara,nawi,baseline,ferric_chloride_addition,treatment,ferric_chloride_addition,chlorination,outlet,{'dose': 20}
+santa_barbara,nawi,baseline,chlorination,treatment,chlorination,static_mixer,outlet,{'chemical_name': 'Chlorine'}
+santa_barbara,nawi,baseline,static_mixer,treatment,static_mixer,holding_tank,outlet,
+santa_barbara,nawi,baseline,treated_storage,treatment,holding_tank,media_filtration,outlet,{'hours': 2}
+santa_barbara,nawi,baseline,basic_unit,treatment,media_filtration,"anti_scalant_addition,backwash_solids_handling","outlet,waste",{'unit_process_name': 'media_filtration'}
+santa_barbara,nawi,baseline,anti_scalant_addition,treatment,anti_scalant_addition,cartridge_filtration,outlet,{'dose': 5}
+santa_barbara,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration,reverse_osmosis,outlet,
+santa_barbara,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,holding_tank_b,outlet,{'erd': 'yes'}
+santa_barbara,nawi,baseline,treated_storage,treatment,holding_tank_b,uv_aop,outlet,{'hours': 1}
+santa_barbara,nawi,baseline,uv_aop,treatment,uv_aop,co2_addition,outlet,"{'chemical_name': 'Hydrogen_Peroxide', 'dose': 5, 'uv_dose': 350, 'aop': True, 'uvt_in': 0.95}"
+santa_barbara,nawi,baseline,co2_addition,treatment,co2_addition,lime_addition,outlet,
+santa_barbara,nawi,baseline,lime_addition,treatment,lime_addition,treated_storage,outlet,{'lime': 2.3}
+santa_barbara,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 1}
+santa_barbara,nawi,baseline,backwash_solids_handling,treatment,backwash_solids_handling,"landfill,landfill","outlet,waste",
+santa_barbara,nawi,baseline,landfill,waste,landfill,,,
+santa_barbara,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
 ,,,,,,,,
 tampa_bay,nawi,one_ro,sw_onshore_intake,intake,sw_onshore_intake,sulfuric_acid_addition,outlet,{'water_type': ['seawater']}
 tampa_bay,nawi,one_ro,sulfuric_acid_addition,treatment,sulfuric_acid_addition,ferric_chloride_addition,outlet,{'dose': 10}
@@ -179,46 +129,31 @@ tampa_bay,nawi,baseline,landfill,waste,landfill,,,
 ,,,,,,,,
 BRACKISH,,,,,,,,
 ,,,,,,,,
-emwd,nawi,baseline,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
+emwd,nawi,baseline,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70}"
 emwd,nawi,baseline,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
-emwd,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration_a,"ro_a1,ro_a2","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
-emwd,nawi,baseline,reverse_osmosis,treatment,ro_a1,decarbonator_a,outlet,{'erd': 'no'}
-emwd,nawi,baseline,reverse_osmosis,treatment,ro_a2,decarbonator_a,outlet,{'erd': 'no'}
+emwd,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration_a,"menifee_a,menifee_b","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
+emwd,nawi,baseline,reverse_osmosis,treatment,menifee_a,decarbonator_a,outlet,{'erd': 'no'}
+emwd,nawi,baseline,reverse_osmosis,treatment,menifee_b,decarbonator_a,outlet,{'erd': 'no'}
 emwd,nawi,baseline,basic_unit,treatment,decarbonator_a,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration_b,"ro_b1,ro_b2","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
-emwd,nawi,baseline,reverse_osmosis,treatment,ro_b1,decarbonator_b,outlet,{'erd': 'no'}
-emwd,nawi,baseline,reverse_osmosis,treatment,ro_b2,decarbonator_b,outlet,{'erd': 'no'}
+emwd,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration_b,"perris_i_a,perris_i_b","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
+emwd,nawi,baseline,reverse_osmosis,treatment,perris_i_a,decarbonator_b,outlet,{'erd': 'no'}
+emwd,nawi,baseline,reverse_osmosis,treatment,perris_i_b,decarbonator_b,outlet,{'erd': 'no'}
 emwd,nawi,baseline,basic_unit,treatment,decarbonator_b,chlorination,outlet,{'unit_process_name': 'decarbonator'}
 emwd,nawi,baseline,chlorination,treatment,chlorination,treated_storage,outlet,{'chemical_name': 'Chlorine'}
 emwd,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 3}
 emwd,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
-emwd,nawi,baseline,surface_discharge,waste,surface_discharge,,,{'pipe_distance': 70}
-,,,,,,,,
-emwd,nawi,ix,well_field,intake,well_field,ion_exchange,outlet,{'water_type': ['emwd_ca_brackish']}
-emwd,nawi,ix,anion_exchange_epa,treatment,ion_exchange,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384], 'geom': 'vertical', 'pv_material': 'carbon with plastic', 'bw_tank_type': 'stainless', 'resin_type': 'styrenic_gel_1'}"
-emwd,nawi,ix,cartridge_filtration,treatment,cartridge_filtration_a,"ro_a1,ro_a2","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
-emwd,nawi,ix,reverse_osmosis,treatment,ro_a1,decarbonator_a,outlet,{'erd': 'no'}
-emwd,nawi,ix,reverse_osmosis,treatment,ro_a2,decarbonator_a,outlet,{'erd': 'no'}
-emwd,nawi,ix,basic_unit,treatment,decarbonator_a,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,ix,cartridge_filtration,treatment,cartridge_filtration_b,"ro_b1,ro_b2","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
-emwd,nawi,ix,reverse_osmosis,treatment,ro_b1,decarbonator_b,outlet,{'erd': 'no'}
-emwd,nawi,ix,reverse_osmosis,treatment,ro_b2,decarbonator_b,outlet,{'erd': 'no'}
-emwd,nawi,ix,basic_unit,treatment,decarbonator_b,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,ix,chlorination,treatment,chlorination,treated_storage,outlet,{'chemical_name': 'Chlorine'}
-emwd,nawi,ix,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 3}
-emwd,nawi,ix,municipal_drinking,use,municipal_drinking,,,
-emwd,nawi,ix,surface_discharge,waste,surface_discharge,,,"{'geom': 'vertical', 'pv_material': 'carbon with plastic', 'bw_tank_type': 'stainless', 'resin_type': 'styrenic_gel_1'}"
+emwd,nawi,baseline,surface_discharge,waste,surface_discharge,,,"{'pipe_distance': 70,  'pipe_cost_case': 'emwd'}"
 ,,,,,,,,
 DWI: RO > DWI,,,,,,,,
 emwd,nawi,dwi,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
 emwd,nawi,dwi,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
-emwd,nawi,dwi,cartridge_filtration,treatment,cartridge_filtration_a,"ro_a1,ro_a2","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
-emwd,nawi,dwi,reverse_osmosis,treatment,ro_a1,"decarbonator_a,deep_well_injection","outlet,waste",{'erd': 'no'}
-emwd,nawi,dwi,reverse_osmosis,treatment,ro_a2,"decarbonator_a,deep_well_injection","outlet,waste",{'erd': 'no'}
+emwd,nawi,dwi,cartridge_filtration,treatment,cartridge_filtration_a,"menifee_a,menifee_b","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
+emwd,nawi,dwi,reverse_osmosis,treatment,menifee_a,"decarbonator_a,deep_well_injection","outlet,waste",{'erd': 'no'}
+emwd,nawi,dwi,reverse_osmosis,treatment,menifee_b,"decarbonator_a,deep_well_injection","outlet,waste",{'erd': 'no'}
 emwd,nawi,dwi,basic_unit,treatment,decarbonator_a,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,dwi,cartridge_filtration,treatment,cartridge_filtration_b,"ro_b1,ro_b2","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
-emwd,nawi,dwi,reverse_osmosis,treatment,ro_b1,"decarbonator_b,deep_well_injection","outlet,waste",{'erd': 'no'}
-emwd,nawi,dwi,reverse_osmosis,treatment,ro_b2,"decarbonator_b,deep_well_injection","outlet,waste",{'erd': 'no'}
+emwd,nawi,dwi,cartridge_filtration,treatment,cartridge_filtration_b,"perris_i_a,perris_i_b","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
+emwd,nawi,dwi,reverse_osmosis,treatment,perris_i_a,"decarbonator_b,deep_well_injection","outlet,waste",{'erd': 'no'}
+emwd,nawi,dwi,reverse_osmosis,treatment,perris_i_b,"decarbonator_b,deep_well_injection","outlet,waste",{'erd': 'no'}
 emwd,nawi,dwi,basic_unit,treatment,decarbonator_b,chlorination,outlet,{'unit_process_name': 'decarbonator'}
 emwd,nawi,dwi,chlorination,treatment,chlorination,treated_storage,outlet,{'chemical_name': 'Chlorine'}
 emwd,nawi,dwi,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 3}
@@ -228,17 +163,17 @@ emwd,nawi,dwi,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance':
 ZLD A: RO1 > Lime Softening > RO2 > Evaporation Pond > Landfill,,,,,,,,
 emwd,nawi,zld_a,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
 emwd,nawi,zld_a,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
-emwd,nawi,zld_a,cartridge_filtration,treatment,cartridge_filtration_a,ro_a_first_pass,outlet,
-emwd,nawi,zld_a,reverse_osmosis,treatment,ro_a_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_a,cartridge_filtration,treatment,cartridge_filtration_a,menifee_first_pass,outlet,
+emwd,nawi,zld_a,reverse_osmosis,treatment,menifee_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_a,basic_unit,treatment,passthrough_a,lime_softening_a,outlet,{'unit_process_name': 'passthrough'}
-emwd,nawi,zld_a,lime_softening,treatment,lime_softening_a,ro_a_second_pass,outlet,{'lime': 100}
-emwd,nawi,zld_a,reverse_osmosis,treatment,ro_a_second_pass,"decarbonator_a,evaporation_pond","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_a,lime_softening,treatment,lime_softening_a,menifee_second_pass,outlet,{'lime': 100}
+emwd,nawi,zld_a,reverse_osmosis,treatment,menifee_second_pass,"decarbonator_a,evaporation_pond","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_a,basic_unit,treatment,decarbonator_a,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,zld_a,cartridge_filtration,treatment,cartridge_filtration_b,ro_b_first_pass,outlet,
-emwd,nawi,zld_a,reverse_osmosis,treatment,ro_b_first_pass,"decarbonator_b,passthrough_b","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_a,cartridge_filtration,treatment,cartridge_filtration_b,perris_i_first_pass,outlet,
+emwd,nawi,zld_a,reverse_osmosis,treatment,perris_i_first_pass,"decarbonator_b,passthrough_b","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_a,basic_unit,treatment,passthrough_b,lime_softening_b,outlet,{'unit_process_name': 'passthrough'}
-emwd,nawi,zld_a,lime_softening,treatment,lime_softening_b,ro_b_second_pass,outlet,{'lime': 100}
-emwd,nawi,zld_a,reverse_osmosis,treatment,ro_b_second_pass,"decarbonator_b,evaporation_pond","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_a,lime_softening,treatment,lime_softening_b,perris_i_second_pass,outlet,{'lime': 100}
+emwd,nawi,zld_a,reverse_osmosis,treatment,perris_i_second_pass,"decarbonator_b,evaporation_pond","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_a,basic_unit,treatment,decarbonator_b,chlorination,outlet,{'unit_process_name': 'decarbonator'}
 emwd,nawi,zld_a,chlorination,treatment,chlorination,treated_storage,outlet,{'chemical_name': 'Chlorine'}
 emwd,nawi,zld_a,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 3}
@@ -249,17 +184,17 @@ emwd,nawi,zld_a,landfill_zld,waste,landfill_zld,,,
 ZLD B: RO1 > Lime Softening > RO2 > Brine Concentrator > Evaporation Pond > Landfill,,,,,,,,
 emwd,nawi,zld_b,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
 emwd,nawi,zld_b,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
-emwd,nawi,zld_b,cartridge_filtration,treatment,cartridge_filtration_a,ro_a_first_pass,outlet,
-emwd,nawi,zld_b,reverse_osmosis,treatment,ro_a_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_b,cartridge_filtration,treatment,cartridge_filtration_a,menifee_first_pass,outlet,
+emwd,nawi,zld_b,reverse_osmosis,treatment,menifee_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_b,basic_unit,treatment,passthrough_a,lime_softening_a,outlet,{'unit_process_name': 'passthrough'}
-emwd,nawi,zld_b,lime_softening,treatment,lime_softening_a,ro_a_second_pass,outlet,{'lime': 100}
-emwd,nawi,zld_b,reverse_osmosis,treatment,ro_a_second_pass,"decarbonator_a,brine_concentrator","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_b,lime_softening,treatment,lime_softening_a,menifee_second_pass,outlet,{'lime': 100}
+emwd,nawi,zld_b,reverse_osmosis,treatment,menifee_second_pass,"decarbonator_a,brine_concentrator","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_b,basic_unit,treatment,decarbonator_a,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,zld_b,cartridge_filtration,treatment,cartridge_filtration_b,ro_b_first_pass,outlet,
-emwd,nawi,zld_b,reverse_osmosis,treatment,ro_b_first_pass,"decarbonator_b,passthrough_b","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_b,cartridge_filtration,treatment,cartridge_filtration_b,perris_i_first_pass,outlet,
+emwd,nawi,zld_b,reverse_osmosis,treatment,perris_i_first_pass,"decarbonator_b,passthrough_b","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_b,basic_unit,treatment,passthrough_b,lime_softening_b,outlet,{'unit_process_name': 'passthrough'}
-emwd,nawi,zld_b,lime_softening,treatment,lime_softening_b,ro_b_second_pass,outlet,{'lime': 100}
-emwd,nawi,zld_b,reverse_osmosis,treatment,ro_b_second_pass,"decarbonator_b,brine_concentrator","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_b,lime_softening,treatment,lime_softening_b,perris_i_second_pass,outlet,{'lime': 100}
+emwd,nawi,zld_b,reverse_osmosis,treatment,perris_i_second_pass,"decarbonator_b,brine_concentrator","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_b,basic_unit,treatment,decarbonator_b,chlorination,outlet,{'unit_process_name': 'decarbonator'}
 emwd,nawi,zld_b,chlorination,treatment,chlorination,treated_storage,outlet,{'chemical_name': 'Chlorine'}
 emwd,nawi,zld_b,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 3}
@@ -271,17 +206,17 @@ emwd,nawi,zld_b,landfill_zld,waste,landfill_zld,,,
 ZLD C: RO1 > Lime Softening > RO2 > Brine Concentrator > Crystallizer > Landfill,,,,,,,,
 emwd,nawi,zld_c,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
 emwd,nawi,zld_c,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
-emwd,nawi,zld_c,cartridge_filtration,treatment,cartridge_filtration_a,ro_a_first_pass,outlet,
-emwd,nawi,zld_c,reverse_osmosis,treatment,ro_a_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_c,cartridge_filtration,treatment,cartridge_filtration_a,menifee_first_pass,outlet,
+emwd,nawi,zld_c,reverse_osmosis,treatment,menifee_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_c,basic_unit,treatment,passthrough_a,lime_softening_a,outlet,{'unit_process_name': 'passthrough'}
-emwd,nawi,zld_c,lime_softening,treatment,lime_softening_a,ro_a_second_pass,outlet,{'lime': 100}
-emwd,nawi,zld_c,reverse_osmosis,treatment,ro_a_second_pass,"decarbonator_a,brine_concentrator","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_c,lime_softening,treatment,lime_softening_a,menifee_second_pass,outlet,{'lime': 100}
+emwd,nawi,zld_c,reverse_osmosis,treatment,menifee_second_pass,"decarbonator_a,brine_concentrator","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_c,basic_unit,treatment,decarbonator_a,chlorination,outlet,{'unit_process_name': 'decarbonator'}
-emwd,nawi,zld_c,cartridge_filtration,treatment,cartridge_filtration_b,ro_b_first_pass,outlet,
-emwd,nawi,zld_c,reverse_osmosis,treatment,ro_b_first_pass,"decarbonator_b,passthrough_b","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_c,cartridge_filtration,treatment,cartridge_filtration_b,perris_i_first_pass,outlet,
+emwd,nawi,zld_c,reverse_osmosis,treatment,perris_i_first_pass,"decarbonator_b,passthrough_b","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_c,basic_unit,treatment,passthrough_b,lime_softening_b,outlet,{'unit_process_name': 'passthrough'}
-emwd,nawi,zld_c,lime_softening,treatment,lime_softening_b,ro_b_second_pass,outlet,{'lime': 100}
-emwd,nawi,zld_c,reverse_osmosis,treatment,ro_b_second_pass,"decarbonator_b,brine_concentrator","outlet,waste",{'erd': 'no'}
+emwd,nawi,zld_c,lime_softening,treatment,lime_softening_b,perris_i_second_pass,outlet,{'lime': 100}
+emwd,nawi,zld_c,reverse_osmosis,treatment,perris_i_second_pass,"decarbonator_b,brine_concentrator","outlet,waste",{'erd': 'no'}
 emwd,nawi,zld_c,basic_unit,treatment,decarbonator_b,chlorination,outlet,{'unit_process_name': 'decarbonator'}
 emwd,nawi,zld_c,chlorination,treatment,chlorination,treated_storage,outlet,{'chemical_name': 'Chlorine'}
 emwd,nawi,zld_c,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 3}
@@ -291,20 +226,28 @@ emwd,nawi,zld_c,municipal_drinking,use,municipal_drinking,,,
 emwd,nawi,zld_c,landfill_zld,waste,landfill_zld,,,
 ,,,,,,,,
 irwin,nawi,baseline,well_field,intake,well_field,holding_tank,outlet,{'water_type': ['brackish']}
-irwin,nawi,baseline,holding_tank,treatment,holding_tank,media_filtration,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2}"
-irwin,nawi,baseline,media_filtration,treatment,media_filtration,hydrochloric_acid_addition,outlet,
+irwin,nawi,baseline,holding_tank,treatment,holding_tank,untreated_pump_station,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2}"
+irwin,nawi,baseline,water_pumping_station,treatment,untreated_pump_station,cartridge_filtration,outlet,"{'pump_type': 'raw', 'lift_height': 100}"
+irwin,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration,hydrochloric_acid_addition,outlet,
 irwin,nawi,baseline,hydrochloric_acid_addition,treatment,hydrochloric_acid_addition,anti_scalant_addition,outlet,{'dose': 10}
 irwin,nawi,baseline,anti_scalant_addition,treatment,anti_scalant_addition,sodium_bisulfite_addition,outlet,{'dose': 5}
 irwin,nawi,baseline,sodium_bisulfite_addition,treatment,sodium_bisulfite_addition,electrodialysis_reversal,outlet,{'dose': 10}
-irwin,nawi,baseline,electrodialysis_reversal,treatment,electrodialysis_reversal,"treated_storage,water_pumping_station","outlet,waste",
+irwin,nawi,baseline,electrodialysis_reversal,treatment,electrodialysis_reversal,"treated_storage,degasifier","outlet,waste",
 irwin,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 6}
-irwin,nawi,baseline,water_pumping_station,treatment,water_pumping_station,lime_softening,outlet,"{'pump_type': 'treated', 'lift_height': 10}"
-irwin,nawi,baseline,lime_softening,treatment,lime_softening,microfiltration,outlet,{'lime': 2.3}
-irwin,nawi,baseline,microfiltration,treatment,microfiltration,"reverse_osmosis,irwin_brine_management","outlet,waste",
-irwin,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,"municipal_drinking,irwin_brine_management","outlet,waste",{'erd': 'no'}
+irwin,nawi,baseline,basic_unit,treatment,degasifier,waste_pump_station,outlet,{'unit_process_name': 'decarbonator'}
+irwin,nawi,baseline,water_pumping_station,treatment,waste_pump_station,lime_solids_clarifier,outlet,"{'pump_type': 'treated', 'lift_height': 100}"
+irwin,nawi,baseline,basic_unit,treatment,lime_solids_clarifier,mf_pump_station,outlet,{'unit_process_name': 'clarifier'}
+irwin,nawi,baseline,water_pumping_station,treatment,mf_pump_station,microfiltration,outlet,"{'pump_type': 'treated', 'lift_height': 100}"
+irwin,nawi,baseline,microfiltration,treatment,microfiltration,"reverse_osmosis,ion_exchange","outlet,waste",
+irwin,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,"holding_tank,ion_exchange","outlet,waste",{'erd': 'no'}
+irwin,nawi,baseline,anion_exchange,treatment,ion_exchange,"bc_pump_station,lagoon_pump_station","outlet,waste",
+irwin,nawi,baseline,water_pumping_station,treatment,bc_pump_station,brine_concentrator,outlet,"{'pump_type': 'treated', 'lift_height': 100}"
+irwin,nawi,baseline,water_pumping_station,treatment,lagoon_pump_station,lime_softening,outlet,"{'pump_type': 'treated', 'lift_height': 100}"
+irwin,nawi,baseline,brine_concentrator,treatment,brine_concentrator,"holding_tank,lime_softening","outlet,waste",
+irwin,nawi,baseline,lime_softening,treatment,lime_softening,evaporation_pond,outlet,{'lime': 100}
+irwin,nawi,baseline,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,{'approach': 'wt3'}
 irwin,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
-irwin,nawi,baseline,irwin_brine_management,waste,irwin_brine_management,,,
-irwin,nawi,baseline,surface_discharge,waste,surface_discharge,,,
+irwin,nawi,baseline,landfill_zld,waste,landfill_zld,,,
 ,,,,,,,,
 kbhdp,nawi,baseline,well_field,intake,well_field,"caustic_soda_addition,media_filtration","outlet,outlet","{'water_type': ['kbhdp_brackish_ave'], 'split_fraction': [0.393, 0.607]}"
 kbhdp,nawi,baseline,media_filtration,treatment,media_filtration,cartridge_filtration,outlet,
@@ -382,7 +325,6 @@ kbhdp,nawi,dwi,chlorination,treatment,chlorination,treated_storage,outlet,{'chem
 kbhdp,nawi,dwi,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 12}
 kbhdp,nawi,dwi,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance': 22, 'lift_height': 400}"
 kbhdp,nawi,dwi,municipal_drinking,use,municipal_drinking,,,
-,,,,,,,,
 ,,,,,,,,
 MUNICIPAL,,,,,,,,
 ,,,,,,,,
@@ -535,7 +477,7 @@ lithium,nawi,baseline,basic_unit,waste,sludge_tank,,,{'unit_process_name': 'slud
 ,,,,,,,,
 50% recovery from an added HPRO or brine concentrator upstream of evaporation pond to achieve 2x capacity increase.,,,,,,,,
 lithium,nawi,add_bc,well_field,intake,well_field,brine_concentrator,outlet,{'water_type': ['lithium_brine']}
-lithium,nawi,add_bc,brine_concentrator,treatment,brine_concentrator,"holding_tank,evaporation_pond_a","outlet,waste",
+lithium,nawi,add_bc,brine_concentrator,treatment,brine_concentrator,evaporation_pond_a,waste,
 lithium,nawi,add_bc,evaporation_pond,treatment,evaporation_pond_a,sedimentation,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25}"
 lithium,nawi,add_bc,sedimentation,treatment,sedimentation,"evaporation_pond_b,sludge_tank","outlet,waste",{'settling_velocity': 0.005}
 lithium,nawi,add_bc,evaporation_pond,treatment,evaporation_pond_b,holding_tank,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25}"
@@ -559,58 +501,64 @@ uranium,nawi,baseline,basic_unit,treatment,passthrough,,,{'unit_process_name': '
 ,,,,,,,,
 POWER,,,,,,,,
 ,,,,,,,,
-cherokee,nawi,baseline,cooling_tower,intake,cooling_tower,holding_tank_a,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
-cherokee,nawi,baseline,holding_tank,treatment,holding_tank_a,clarifier,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2}"
+cherokee,nawi,baseline,cooling_tower,intake,cooling_tower,coag_addition,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
+cherokee,nawi,baseline,coagulant_addition,treatment,coag_addition,floc_addition,outlet,{'dose': 5}
+cherokee,nawi,baseline,chemical_addition,treatment,floc_addition,metal_precipitator_addition,outlet,{'dose': 5}
+cherokee,nawi,baseline,chemical_addition,treatment,metal_precipitator_addition,clarifier,outlet,{'dose': 5}
 cherokee,nawi,baseline,basic_unit,treatment,clarifier,"settling_pond,landfill","outlet,waste",{'unit_process_name': 'clarifier'}
 cherokee,nawi,baseline,basic_unit,treatment,settling_pond,discharge,outlet,{'unit_process_name': 'settling_pond'}
 cherokee,nawi,baseline,holding_tank,intake,holding_tank_b,media_filtration,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2, 'water_type': ['denver_city_water']}"
 cherokee,nawi,baseline,media_filtration,treatment,media_filtration,sodium_bisulfite_addition,outlet,
 cherokee,nawi,baseline,sodium_bisulfite_addition,treatment,sodium_bisulfite_addition,anti_scalant_addition,outlet,{'dose': 0.01}
 cherokee,nawi,baseline,anti_scalant_addition,treatment,anti_scalant_addition,reverse_osmosis,outlet,{'dose': 5}
-cherokee,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,"treated_storage,clarifier","outlet,waste",{'erd': 'no'}
+cherokee,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,"ion_exchange,coag_addition","outlet,waste",{'erd': 'no'}
+cherokee,nawi,baseline,anion_exchange_epa,treatment,ion_exchange,"treated_storage,coag_addition","outlet,waste",
 cherokee,nawi,baseline,treated_storage,treatment,treated_storage,industrial,outlet,{'hours': 3}
 cherokee,nawi,baseline,basic_unit,use,industrial,,,{'unit_process_name': 'industrial'}
 cherokee,nawi,baseline,basic_unit,use,discharge,,,{'unit_process_name': 'discharge'}
 cherokee,nawi,baseline,landfill,waste,landfill,,,
 ,,,,,,,,
 (what-if: ZLD by treating CT blowdown),,,,,,,,
-cherokee,nawi,zld_ct,cooling_tower,intake,cooling_tower,holding_tank_a,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
-cherokee,nawi,zld_ct,holding_tank,treatment,holding_tank_a,clarifier,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2}"
-cherokee,nawi,zld_ct,basic_unit,treatment,clarifier,"media_filtration_a,landfill_zld","outlet,waste",{'unit_process_name': 'clarifier'}
-cherokee,nawi,zld_ct,basic_unit,treatment,media_filtration_a,"reverse_osmosis_a,landfill_zld","outlet,waste",{'unit_process_name': 'media_filtration'}
+cherokee,nawi,zld_ct,cooling_tower,intake,cooling_tower,clarifier,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
+cherokee,nawi,zld_ct,basic_unit,treatment,clarifier,"media_filtration_a,filter_press","outlet,waste",{'unit_process_name': 'clarifier'}
+cherokee,nawi,zld_ct,basic_unit,treatment,media_filtration_a,"reverse_osmosis_a,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
 cherokee,nawi,zld_ct,reverse_osmosis,treatment,reverse_osmosis_a,"treated_storage_a,evaporation_pond","outlet,waste",{'erd': 'no'}
 cherokee,nawi,zld_ct,treated_storage,treatment,treated_storage_a,discharge,outlet,{'hours': 3}
-cherokee,nawi,zld_ct,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25, 'area': 7, 'liner_thickness': 50, 'land_cost': 0, 'land_clearing_cost': 0, 'dike_height': 8}"
-cherokee,nawi,zld_ct,holding_tank,intake,holding_tank_b,media_filtration_b,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2, 'water_type': ['denver_city_water']}"
-cherokee,nawi,zld_ct,basic_unit,treatment,media_filtration_b,"sodium_bisulfite_addition,landfill_zld","outlet,waste",{'unit_process_name': 'media_filtration'}
-cherokee,nawi,zld_ct,sodium_bisulfite_addition,treatment,sodium_bisulfite_addition,anti_scalant_addition,outlet,{'dose': 0.01}
-cherokee,nawi,zld_ct,anti_scalant_addition,treatment,anti_scalant_addition,reverse_osmosis,outlet,{'dose': 5}
-cherokee,nawi,zld_ct,reverse_osmosis,treatment,reverse_osmosis,"treated_storage_b,clarifier","outlet,waste",{'erd': 'no'}
+cherokee,nawi,zld_ct,evaporation_pond,treatment,evaporation_pond,filter_press,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25, 'area': 7, 'liner_thickness': 50, 'land_cost': 0, 'land_clearing_cost': 0, 'dike_height': 8}"
+cherokee,nawi,zld_ct,passthrough,intake,city_water_intake,"anti_scalant_addition,cooling_tower","outlet,outlet","{'water_type': ['denver_city_water'], 'split_fraction': [0.5, 0.5]}"
+cherokee,nawi,zld_ct,anti_scalant_addition,treatment,anti_scalant_addition,media_filtration_b,outlet,{'dose': 5}
+cherokee,nawi,zld_ct,basic_unit,treatment,media_filtration_b,"gac_gravity,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
+cherokee,nawi,zld_ct,gac_gravity,treatment,gac_gravity,boiler_ro,outlet,{'ebct': 10}
+cherokee,nawi,zld_ct,reverse_osmosis,treatment,boiler_ro,"treated_storage_b,clarifier","outlet,waste",{'erd': 'no'}
 cherokee,nawi,zld_ct,treated_storage,treatment,treated_storage_b,industrial,outlet,{'hours': 3}
+cherokee,nawi,zld_ct,filter_press,treatment,filter_press,landfill_zld,outlet,
 cherokee,nawi,zld_ct,basic_unit,use,industrial,,,{'unit_process_name': 'industrial'}
 cherokee,nawi,zld_ct,basic_unit,use,discharge,,,{'unit_process_name': 'discharge'}
 cherokee,nawi,zld_ct,landfill_zld,waste,landfill_zld,,,
 ,,,,,,,,
 (what-if: ZLD with a brine concentrator instead of CCRO),,,,,,,,
-cherokee,nawi,zld_brine_conc,cooling_tower,intake,cooling_tower,holding_tank_a,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
-cherokee,nawi,zld_brine_conc,holding_tank,treatment,holding_tank_a,clarifier,outlet,"{'avg_storage_time':24, 'surge_cap': 0.2}"
-cherokee,nawi,zld_brine_conc,basic_unit,treatment,clarifier,"media_filtration_a,landfill_zld","outlet,waste",{'unit_process_name': 'clarifier'}
-cherokee,nawi,zld_brine_conc,basic_unit,treatment,media_filtration_a,"brine_concentrator,landfill_zld","outlet,waste",{'unit_process_name': 'media_filtration'}
+cherokee,nawi,zld_brine_conc,cooling_tower,intake,cooling_tower,clarifier,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
+cherokee,nawi,zld_brine_conc,basic_unit,treatment,clarifier,"media_filtration_a,filter_press",outlet,"{'avg_storage_time':24, 'surge_cap': 0.2}"
+cherokee,nawi,zld_brine_conc,basic_unit,treatment,media_filtration_a,"brine_concentrator,filter_press","outlet,waste",{'unit_process_name': 'clarifier'}
 cherokee,nawi,zld_brine_conc,brine_concentrator,treatment,brine_concentrator,"treated_storage_a,evaporation_pond","outlet,waste",
 cherokee,nawi,zld_brine_conc,treated_storage,treatment,treated_storage_a,discharge,outlet,{'hours': 3}
-cherokee,nawi,zld_brine_conc,holding_tank,intake,holding_tank_b,media_filtration_b,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2, 'water_type': ['denver_city_water']}"
-cherokee,nawi,zld_brine_conc,basic_unit,treatment,media_filtration_b,"sodium_bisulfite_addition,landfill_zld","outlet,waste",{'unit_process_name': 'media_filtration'}
-cherokee,nawi,zld_brine_conc,sodium_bisulfite_addition,treatment,sodium_bisulfite_addition,anti_scalant_addition,outlet,{'dose': 0.01}
-cherokee,nawi,zld_brine_conc,anti_scalant_addition,treatment,anti_scalant_addition,reverse_osmosis,outlet,{'dose': 5}
-cherokee,nawi,zld_brine_conc,reverse_osmosis,treatment,reverse_osmosis,"treated_storage_b,clarifier","outlet,waste",{'erd': 'no'}
+cherokee,nawi,zld_brine_conc,evaporation_pond,treatment,evaporation_pond,filter_press,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25, 'area': 7, 'liner_thickness': 50, 'land_cost': 0, 'land_clearing_cost': 0, 'dike_height': 8}"
+cherokee,nawi,zld_brine_conc,passthrough,intake,city_water_intake,"anti_scalant_addition,cooling_tower","outlet,outlet","{'water_type': ['denver_city_water'], 'split_fraction': [0.5, 0.5]}"
+cherokee,nawi,zld_brine_conc,anti_scalant_addition,treatment,anti_scalant_addition,media_filtration_b,outlet,{'dose': 5}
+cherokee,nawi,zld_brine_conc,basic_unit,treatment,media_filtration_b,"gac_gravity,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
+cherokee,nawi,zld_brine_conc,gac_gravity,treatment,gac_gravity,boiler_ro,outlet,{'dose': 0.01}
+cherokee,nawi,zld_brine_conc,reverse_osmosis,treatment,boiler_ro,"treated_storage_b,clarifier","outlet,waste",{'erd': 'no'}
 cherokee,nawi,zld_brine_conc,treated_storage,treatment,treated_storage_b,industrial,outlet,{'hours': 3}
+cherokee,nawi,zld_brine_conc,filter_press,treatment,filter_press,landfill_zld,outlet,
 cherokee,nawi,zld_brine_conc,basic_unit,use,industrial,,,{'unit_process_name': 'industrial'}
 cherokee,nawi,zld_brine_conc,basic_unit,use,discharge,,,{'unit_process_name': 'discharge'}
 cherokee,nawi,zld_brine_conc,landfill_zld,waste,landfill_zld,,,
-cherokee,nawi,zld_brine_conc,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25, 'area': 7}"
 ,,,,,,,,
 gila_river,nawi,baseline,cooling_tower,intake,cooling_tower,holding_tank,outlet,"{'water_type': ['gila_river_water'],'method': 'make_up_mass_balance', 'cycles': 8}"
-gila_river,nawi,baseline,holding_tank,treatment,holding_tank,"brine_concentrator,ultra_filtration","outlet,outlet","{'avg_storage_time': 12, 'surge_cap': 0.2, 'split_fraction': [0.9091, 0.0909]}"
+gila_river,nawi,baseline,holding_tank,treatment,holding_tank,"hydrochloric_acid_addition,ultra_filtration","outlet,outlet","{'avg_storage_time': 12, 'surge_cap': 0.2, 'split_fraction': [0.9091, 0.0909]}"
+gila_river,nawi,baseline,hydrochloric_acid_addition,treatment,hydrochloric_acid_addition,anti_scalant_addition,,
+gila_river,nawi,baseline,anti_scalant_addition,treatment,anti_scalant_addition,chemical_addition,,
+gila_river,nawi,baseline,chemical_addition,treatment,chemical_addition,brine_concentrator,,
 gila_river,nawi,baseline,brine_concentrator,treatment,brine_concentrator,"industrial_a,evaporation_pond","outlet,waste",
 gila_river,nawi,baseline,evaporation_pond,treatment,evaporation_pond,,,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25, 'area': 48}"
 gila_river,nawi,baseline,basic_unit,use,industrial_a,,,{'unit_process_name': 'industrial'}
@@ -1020,7 +968,7 @@ upw,nawi,baseline,media_filtration,treatment,media_filtration_2,"uv_aop,municipa
 upw,nawi,baseline,uv_aop,treatment,uv_aop,gac_gravity,outlet,"{'chemical_name': 'Hydrogen_Peroxide', 'dose': 5, 'uv_dose': 300, 'aop': True}"
 upw,nawi,baseline,gac_gravity,treatment,gac_gravity,"ultra_filtration,municipal_wwtp","outlet,waste",{'ebct': 30}
 upw,nawi,baseline,basic_unit,treatment,ultra_filtration,"media_filtration,municipal_wwtp,municipal_wwtp","outlet,outlet,waste",{'unit_process_name': 'ultra_filtration'}
-upw,nawi,baseline,basic_unit,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
+upw,nawi,baseline,passthrough,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
 upw,nawi,baseline,media_filtration,treatment,media_filtration_3,"ultra_filtration_2,municipal_wwtp","outlet,waste",
 upw,nawi,baseline,basic_unit,treatment,ultra_filtration_2,"gac_gravity_2,municipal_wwtp","outlet,waste",{'unit_process_name': 'ultra_filtration'}
 upw,nawi,baseline,gac_gravity,treatment,gac_gravity_2,"reverse_osmosis_2,municipal_wwtp","outlet,waste",{'ebct': 30}
@@ -1038,12 +986,12 @@ upw,nawi,zld_a,media_filtration,treatment,media_filtration_2,"uv_aop,to_zld","ou
 upw,nawi,zld_a,uv_aop,treatment,uv_aop,gac_gravity,outlet,"{'chemical_name': 'Hydrogen_Peroxide', 'dose': 5, 'uv_dose': 300, 'aop': True}"
 upw,nawi,zld_a,gac_gravity,treatment,gac_gravity,"ultra_filtration,to_zld","outlet,waste",{'ebct': 30}
 upw,nawi,zld_a,basic_unit,treatment,ultra_filtration,"media_filtration,to_zld,to_zld","outlet,outlet,waste",{'unit_process_name': 'ultra_filtration'}
-upw,nawi,zld_a,basic_unit,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
+upw,nawi,zld_a,passthrough,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
 upw,nawi,zld_a,media_filtration,treatment,media_filtration_3,"ultra_filtration_2,to_zld","outlet,waste",
 upw,nawi,zld_a,basic_unit,treatment,ultra_filtration_2,"gac_gravity_2,to_zld","outlet,waste",{'unit_process_name': 'ultra_filtration'}
 upw,nawi,zld_a,gac_gravity,treatment,gac_gravity_2,"reverse_osmosis_2,to_zld","outlet,waste",{'ebct': 30}
 upw,nawi,zld_a,reverse_osmosis,treatment,reverse_osmosis_2,"cooling_supply,to_zld","outlet,waste",{'erd': 'no'}
-upw,nawi,zld_a,basic_unit,treatment,to_zld,evaporation_pond,outlet,{'unit_process_name': 'passthrough'}
+upw,nawi,zld_a,passthrough,treatment,to_zld,evaporation_pond,outlet,{'unit_process_name': 'passthrough'}
 upw,nawi,zld_a,evaporation_pond,treatment,evaporation_pond,landfill,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25}"
 upw,nawi,zld_a,basic_unit,use,cooling_supply,,,{'unit_process_name': 'cooling_supply'}
 upw,nawi,zld_a,landfill,waste,landfill,,,
@@ -1058,12 +1006,12 @@ upw,nawi,zld_b,media_filtration,treatment,media_filtration_2,"uv_aop,to_zld","ou
 upw,nawi,zld_b,uv_aop,treatment,uv_aop,gac_gravity,outlet,"{'chemical_name': 'Hydrogen_Peroxide', 'dose': 5, 'uv_dose': 300, 'aop': True}"
 upw,nawi,zld_b,gac_gravity,treatment,gac_gravity,"ultra_filtration,to_zld","outlet,waste",{'ebct': 30}
 upw,nawi,zld_b,basic_unit,treatment,ultra_filtration,"media_filtration,to_zld,to_zld","outlet,outlet,waste",{'unit_process_name': 'ultra_filtration'}
-upw,nawi,zld_b,basic_unit,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
+upw,nawi,zld_b,passthrough,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
 upw,nawi,zld_b,media_filtration,treatment,media_filtration_3,"ultra_filtration_2,to_zld","outlet,waste",
 upw,nawi,zld_b,basic_unit,treatment,ultra_filtration_2,"gac_gravity_2,to_zld","outlet,waste",{'unit_process_name': 'ultra_filtration'}
 upw,nawi,zld_b,gac_gravity,treatment,gac_gravity_2,"reverse_osmosis_2,to_zld","outlet,waste",{'ebct': 30}
 upw,nawi,zld_b,reverse_osmosis,treatment,reverse_osmosis_2,"cooling_supply,to_zld","outlet,waste",{'erd': 'no'}
-upw,nawi,zld_b,basic_unit,treatment,to_zld,brine_concentrator,outlet,{'unit_process_name': 'passthrough'}
+upw,nawi,zld_b,passthrough,treatment,to_zld,brine_concentrator,outlet,{'unit_process_name': 'passthrough'}
 upw,nawi,zld_b,brine_concentrator,treatment,brine_concentrator,landfill,waste,
 upw,nawi,zld_b,basic_unit,use,cooling_supply,,,{'unit_process_name': 'cooling_supply'}
 upw,nawi,zld_b,landfill,waste,landfill,,,
@@ -1078,12 +1026,12 @@ upw,nawi,zld_c,media_filtration,treatment,media_filtration_2,"uv_aop,to_zld","ou
 upw,nawi,zld_c,uv_aop,treatment,uv_aop,gac_gravity,outlet,"{'chemical_name': 'Hydrogen_Peroxide', 'dose': 5, 'uv_dose': 300, 'aop': True}"
 upw,nawi,zld_c,gac_gravity,treatment,gac_gravity,"ultra_filtration,to_zld","outlet,waste",{'ebct': 30}
 upw,nawi,zld_c,basic_unit,treatment,ultra_filtration,"media_filtration,to_zld,to_zld","outlet,outlet,waste",{'unit_process_name': 'ultra_filtration'}
-upw,nawi,zld_c,basic_unit,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
+upw,nawi,zld_c,passthrough,treatment,fab_25,"ozone,media_filtration_3","outlet,outlet","{'unit_process_name': 'passthrough', 'split_fraction': [0.5, 0.5]}"
 upw,nawi,zld_c,media_filtration,treatment,media_filtration_3,"ultra_filtration_2,to_zld","outlet,waste",
 upw,nawi,zld_c,basic_unit,treatment,ultra_filtration_2,"gac_gravity_2,to_zld","outlet,waste",{'unit_process_name': 'ultra_filtration'}
 upw,nawi,zld_c,gac_gravity,treatment,gac_gravity_2,"reverse_osmosis_2,to_zld","outlet,waste",{'ebct': 30}
 upw,nawi,zld_c,reverse_osmosis,treatment,reverse_osmosis_2,"cooling_supply,to_zld","outlet,waste",{'erd': 'no'}
-upw,nawi,zld_c,basic_unit,treatment,to_zld,brine_concentrator,outlet,{'unit_process_name': 'passthrough'}
+upw,nawi,zld_c,passthrough,treatment,to_zld,brine_concentrator,outlet,{'unit_process_name': 'passthrough'}
 upw,nawi,zld_c,brine_concentrator,treatment,brine_concentrator,crystallizer,waste,
 upw,nawi,zld_c,crystallizer,treatment,crystallizer,landfill,waste,
 upw,nawi,zld_c,landfill,waste,landfill,,,

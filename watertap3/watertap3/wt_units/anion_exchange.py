@@ -1,4 +1,4 @@
-from pyomo.environ import Block, Expression, units as pyunits
+from pyomo.environ import Block, Expression, value, units as pyunits
 from watertap3.utils import cost_curve, financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
@@ -27,8 +27,8 @@ class UnitProcess(WT3UnitProcess):
         '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        self.tds_in = unit_params['tds_in']
-        self.cost_coeffs, self.elect_coeffs, self.mats_name, self.mats_cost, _ = cost_curve(module_name, tds_in=self.tds_in)
+        self.tds_in = pyunits.convert(self.conc_mass_in[time, 'tds'], to_units=pyunits.mg / pyunits.L)
+        self.cost_coeffs, self.elect_coeffs, self.mats_name, self.mats_cost, _ = cost_curve(module_name, tds_in=self.tds_in())
         for k, v in self.mats_cost.items():
             self.mats_cost[k] = v * (pyunits.kg / pyunits.m ** 3)
         self.chem_dict = self.mats_cost

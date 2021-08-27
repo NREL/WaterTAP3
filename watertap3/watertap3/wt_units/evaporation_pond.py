@@ -90,7 +90,7 @@ class UnitProcess(WT3UnitProcess):
         if self.approach == 'zld':
             return 0.3 * area
         elif self.approach == 'lenntech':
-            flow_in_m3_d = pyunits.convert(flow_in, to_units=(pyunits.m ** 3 / pyunits.day))
+            flow_in_m3_d = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.day))
             return 0.03099 * flow_in_m3_d ** 0.7613
         elif self.approach == 'wt3':
             return (self.cost_per_acre * self.total_area) * 1E-6

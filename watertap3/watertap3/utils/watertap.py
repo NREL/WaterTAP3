@@ -24,7 +24,7 @@ __all__ = ['run_water_tap', 'watertap_setup', 'run_model', 'run_water_tap', 'run
 
 def run_water_tap(m=None, solver_results=False, print_model_results=False, objective=False,
                   max_attempts=3, initialize_flow=5, skip_small=True, return_solution=False,
-                  sensitivity_flow=None, print_it=False):
+                  sensitivity_flow=None, print_it=True):
     # if flow is small it resets the flow to any inlet as 2 m3/s
     if skip_small == False:
         for key in m.fs.flow_in_dict.keys():
@@ -56,6 +56,20 @@ def run_water_tap(m=None, solver_results=False, print_model_results=False, objec
 
 def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=None,
                    source_reference=None, source_case_study=None, source_scenario=None):
+
+    def get_source(reference, water_type, case_study, scenario):
+        input_file = 'data/case_study_water_sources.csv'
+        df = pd.read_csv(input_file, index_col='variable')
+        try:
+            source_df = df[((df.case_study == case_study) & (df.water_type == water_type) & (df.reference == reference) & (df.scenario == scenario))].copy()
+            source_flow = source_df.loc['flow'].value
+        except:
+            # print("Can't find flow for that scenario. Trying with 'baseline' as scenario.")
+            source_df = df[((df.case_study == case_study) & (df.water_type == water_type) & (df.reference == reference) & (df.scenario == 'baseline'))].copy()
+            source_flow = source_df.loc['flow'].value
+        source_df.drop(source_df[source_df.index == 'flow'].index, inplace=True)
+        return source_flow, source_df
+
     m = ConcreteModel()
 
     m.fs = FlowsheetBlock(default={
@@ -77,11 +91,14 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
 
     df = pd.read_csv('data/treatment_train_setup.csv')
 
-    df = filter_df(df, m)
+    # df = filter_df(df, m)
     water_type_list = []
+    m.fs.df_units = df[((df.Reference == reference) & (df.Scenario == scenario) & (df.CaseStudy == case_study))].copy()
 
-    for i in list(df[df.Type == 'intake'].index):
-        for water_type in ast.literal_eval(df[df.Type == 'intake'].loc[i]['Parameter'])['water_type']:
+
+    for i in m.fs.df_units[m.fs.df_units.Type == 'intake'].index:
+        temp_dict = ast.literal_eval(m.fs.df_units[m.fs.df_units.Type == 'intake'].loc[i]['Parameter'])
+        for water_type in temp_dict['water_type']:
             water_type_list.append(water_type)
 
     if len(water_type_list) == 1:
@@ -93,6 +110,29 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
             'scenario': source_scenario,
             'water_type': water_type_list
             }
+
+    flow_dict = {}
+
+    if isinstance(m.fs.source_water['water_type'], list):
+        m.fs.source_df = pd.DataFrame()
+        for water_type in m.fs.source_water['water_type']:
+            source_flow, source_df = get_source(m.fs.source_water['reference'],
+                                water_type,
+                                m.fs.source_water['case_study'],
+                                m.fs.source_water['scenario'])
+            flow_dict[water_type] = source_flow
+            m.fs.source_df = m.fs.source_df.append(source_df)
+
+
+    else:
+        source_flow, source_df = get_source(m.fs.source_water['reference'],
+                            m.fs.source_water['water_type'],
+                            m.fs.source_water['case_study'],
+                            m.fs.source_water['scenario'])
+        flow_dict[m.fs.source_water['water_type']] = source_flow
+        m.fs.source_df = source_df
+
+    m.fs.flow_in_dict = flow_dict
 
     return m
 
@@ -123,7 +163,7 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
     # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
 
     attempt_number = 1
-    while ((results.solver.termination_condition in ['infeasible', 'maxIterations']) & (attempt_number <= max_attempts)):
+    while ((results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']) & (attempt_number <= max_attempts)):
         print(f'\nAttempt {attempt_number}')
         print('\nWaterTAP3 solver returned %s solution...\n' % results.solver.termination_condition)
         print(f'Running again with updated initial conditions --- attempt {attempt_number}\n')
@@ -143,53 +183,56 @@ def run_model(m=None, solver_results=False, objective=False, max_attempts=0, ret
 
 def print_results(m, print_model_results):
     if print_model_results == 'full':
-        print('\n***UNIT PROCESS RESULTS (in $MM)***\n')
+        print('\n=========================UNIT PROCESS RESULTS=========================\n')
         # Display the inlets and outlets and cap cost of each unit
         for b_unit in m.fs.component_objects(Block, descend_into=True):
-            unit = str(b_unit)[3:].replace('_', ' ').swapcase()
             if hasattr(b_unit, 'costing'):
-                print(f'\n{unit}:\n')
-                print('\ttotal cap investment:', round(value(b_unit.costing.total_cap_investment()), 5))
-                print('\tcat and chem cost:', round(value(b_unit.costing.cat_and_chem_cost), 5))
-                print('\telectricity cost:', round(value(b_unit.costing.electricity_cost), 5))
-                print('\ttotal fixed op cost:', round(value(b_unit.costing.total_fixed_op_cost), 5))
-                # print('\n')
+                unit = b_unit.unit_name.replace('_', ' ').title().replace('Ro', 'RO').replace('Zld', 'ZLD').replace('Aop', 'AOP').replace('Uv', 'UV').replace('And', '&').replace('Sw', 'SW').replace('Gac', 'GAC').replace('Ph', 'pH')
+                print(f'\n{unit}:')
+                print('\tUnit LCOW ($/m3):', round(value(b_unit.LCOW()), 5))
+                print('\tTotal Capital Investment ($MM):', round(value(b_unit.costing.total_cap_investment()), 5))
+                print('\tTotal Fixed O&M ($MM):', round(value(b_unit.costing.total_fixed_op_cost), 5))
+                print('\tChemical Cost ($MM):', round(value(b_unit.costing.cat_and_chem_cost), 5))
+                print('\tElectricity Cost ($MM):', round(value(b_unit.costing.electricity_cost), 5))
+                print('\tElectricity Intensity (kWh/m3):', round(value(b_unit.electricity()), 5))
+                print('\tFlow In (m3/s):', round(value(b_unit.flow_vol_in[0]()), 5))
+                print('\tFlow Out (m3/s):', round(value(b_unit.flow_vol_out[0]()), 5))
+                print('\tFlow Waste (m3/s):', round(value(b_unit.flow_vol_waste[0]()), 5))
+                print('\tWater Recovery (%):', round(value(b_unit.water_recovery[0]()), 5) * 100)
 
-            # if hasattr(b_unit, 'inlet'):
-            #     b_unit.inlet.display()
-            # if hasattr(b_unit, 'inlet1'):
-            #     b_unit.inlet1.display()
-            # if hasattr(b_unit, 'outlet'):
-            #     b_unit.outlet.display()
-            # if hasattr(b_unit, 'waste'):
-            #     b_unit.waste.display()
-        print('\n----------------------------------------------------------------------\n')
+        print('\n======================================================================\n')
 
     if print_model_results == 'summary':
-        print('\n***UNIT PROCESS RESULTS (in $MM)***\n')
+        print('\n=========================UNIT PROCESS RESULTS=========================\n')
         for b_unit in m.fs.component_objects(Block, descend_into=True):
             if hasattr(b_unit, 'costing'):
-                unit = str(b_unit)[3:].replace('_', ' ').swapcase()
-                print(f'\n{unit}:\n')
-                print('\ttotal cap investment:', round(value(b_unit.costing.total_cap_investment()), 5))
-                print('\tcat and chem cost:', round(value(b_unit.costing.cat_and_chem_cost), 5))
-                print('\telectricity cost:', round(value(b_unit.costing.electricity_cost), 5))
-                print('\ttotal fixed op cost:', round(value(b_unit.costing.total_fixed_op_cost), 5))
-        print('\n----------------------------------------------------------------------')
+                unit = b_unit.unit_name.replace('_', ' ').title().replace('Ro', 'RO').replace('Zld', 'ZLD').replace('Aop', 'AOP').replace('Uv', 'UV').replace('And', '&').replace('Sw', 'SW').replace('Gac', 'GAC').replace('Ph', 'pH')
+                print(f'\n{unit}:')
+                print('\tUnit LCOW ($/m3):', round(value(b_unit.LCOW()), 5))
+                print('\tTotal Capital Investment ($MM):', round(value(b_unit.costing.total_cap_investment()), 5))
+                print('\tTotal Fixed O&M ($MM):', round(value(b_unit.costing.total_fixed_op_cost), 5))
+                print('\tChemical Cost ($MM):', round(value(b_unit.costing.cat_and_chem_cost), 5))
+                print('\tElectricity Cost ($MM):', round(value(b_unit.costing.electricity_cost), 5))
+                print('\tElectricity Intensity (kWh/m3):', round(value(b_unit.electricity()), 5))
+                print('\tFlow In (m3/s):', round(value(b_unit.flow_vol_in[0]()), 5))
+                print('\tFlow Out (m3/s):', round(value(b_unit.flow_vol_out[0]()), 5))
+                print('\tFlow Waste (m3/s):', round(value(b_unit.flow_vol_waste[0]()), 5))
+                print('\tWater Recovery (%):', round(value(b_unit.water_recovery[0]()), 5) * 100)
+        print('\n======================================================================\n')
 
     print('\n\n----------------------------------------------------------------------\n\n')
     print('------------------- System Level Metrics and Costs -------------------')
-    print('Total Capital Investment ($MM)', round(value(m.fs.costing.capital_investment_total()), 3))
-    print('Annual Fixed Operating Cost ($MM/yr)', round(value(m.fs.costing.fixed_op_cost_annual()), 3))
-    print('Annual Catalysts and Chemicals Cost ($MM/yr)', round(value(m.fs.costing.cat_and_chem_cost_annual()), 3))
-    print('Annual Electricity Costs ($MM/yr)', round(value(m.fs.costing.electricity_cost_annual()), 3))
-    print('Annual Other Variable Costs ($MM/yr)', round(value(m.fs.costing.other_var_cost_annual()), 3))
-    print('Annual Operating Costs ($MM/yr)', round(value(m.fs.costing.operating_cost_annual()), 3))
-    print('Treated water (m3/s) --->', round(value(m.fs.costing.treated_water()), 3))
-    print('Total water recovery (%) --->', round(value(100 * m.fs.costing.system_recovery()), 3))
-    print('Electricity intensity (kWh/m3) ---> ', round(value(m.fs.costing.electricity_intensity()), 3))
-    print('LCOW ($/m3) ---> ', round(value(m.fs.costing.LCOW()), 3))
-    print('Electricity portion of LCOW (%) --->', round(value(100 * m.fs.costing.elec_frac_LCOW()), 3))
+    print('Total Capital Investment ($MM):', round(value(m.fs.costing.capital_investment_total()), 3))
+    print('Annual Fixed Operating Cost ($MM/yr):', round(value(m.fs.costing.fixed_op_cost_annual()), 3))
+    print('Annual Catalysts and Chemicals Cost ($MM/yr):', round(value(m.fs.costing.cat_and_chem_cost_annual()), 3))
+    print('Annual Electricity Costs ($MM/yr):', round(value(m.fs.costing.electricity_cost_annual()), 3))
+    print('Annual Other Variable Costs ($MM/yr):', round(value(m.fs.costing.other_var_cost_annual()), 3))
+    print('Annual Operating Costs ($MM/yr):', round(value(m.fs.costing.operating_cost_annual()), 3))
+    print('Treated water (m3/s):', round(value(m.fs.costing.treated_water()), 3))
+    print('Total water recovery (%):', round(value(100 * m.fs.costing.system_recovery()), 3))
+    print('Electricity intensity (kWh/m3):', round(value(m.fs.costing.electricity_intensity()), 3))
+    print('LCOW ($/m3):', round(value(m.fs.costing.LCOW()), 3))
+    print('Electricity portion of LCOW (%):', round(value(100 * m.fs.costing.elec_frac_LCOW()), 3))
     print('----------------------------------------------------------------------')
 
 
@@ -1259,8 +1302,8 @@ def print_ro_results(m):
             print(f'\tArea = {round(areas[-1])} m2 ---> {round(num_mems[-1])} membrane modules')
             print(f'\tFlux = {round(value(fluxs[-1]), 1)} LMH')
             print(f'\tFeed Flow Rate = {round(unit.flow_vol_in[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD')
-            print(f'\tPermeate Flow Rate= {round(unit.flow_vol_out[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD')
-            print(f'\tReject Flow Rate= {round(unit.flow_vol_waste[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 5)} MGD')
+            print(f'\tPermeate Flow Rate = {round(unit.flow_vol_out[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD')
+            print(f'\tReject Flow Rate = {round(unit.flow_vol_waste[0](), 5)} m3/s = {round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 5)} MGD')
             print(f'\tWater Perm. = {kws[-1]} m/(bar.hr)')
             print(f'\tSalt Perm. = {kss[-1]} m/hr\n')
 
@@ -1356,6 +1399,8 @@ def case_study_constraints(m, case_study, scenario):
         m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.03155 * 1.01)
         m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.03155 * 0.99)
 
+
+
     if case_study == 'uranium':
         m.fs.ro_production.eq1_anna = Constraint(expr=m.fs.ro_production.flow_vol_out[0] <= (0.7 * m.fs.ro_production.flow_vol_in[0]) * 1.01)
         m.fs.ro_production.eq2_anna = Constraint(expr=m.fs.ro_production.flow_vol_out[0] >= (0.7 * m.fs.ro_production.flow_vol_in[0]) * 0.99)
@@ -1382,6 +1427,8 @@ def case_study_constraints(m, case_study, scenario):
             m.fs.reverse_osmosis_1.feed.pressure.fix(25.5)
             m.fs.reverse_osmosis_2.feed.pressure.fix(36)
 
+        # if '1p5' in scenario:
+        #     m.fs.irrigation_and_drainage.flow_vol_in.fix(0.0657)
 
     if case_study == 'kbhdp':
         m.fs.ro_recovery_constr1 = Constraint(expr=(m.fs.ro_first_stage.flow_vol_out[0] + m.fs.ro_second_stage.flow_vol_out[0]) / m.fs.ro_first_stage.flow_vol_in[0] <= 0.83)
@@ -1395,8 +1442,8 @@ def case_study_constraints(m, case_study, scenario):
         if scenario in ['baseline', 'dwi']:
             m.fs.manifee_area_constr = Constraint(expr=m.fs.menifee_a.membrane_area[0] == m.fs.menifee_b.membrane_area[0])
             m.fs.perris_area_constr = Constraint(expr=m.fs.perris_i_a.membrane_area[0] == m.fs.perris_i_b.membrane_area[0])
-            m.fs.manifee_pressure_constr1 = Constraint(expr=m.fs.menifee_a.feed.pressure[0] <= 14)
-            m.fs.manifee_pressure_constr2 = Constraint(expr=m.fs.menifee_a.feed.pressure[0] == m.fs.menifee_b.feed.pressure[0])
+            m.fs.menifee_pressure_constr1 = Constraint(expr=m.fs.menifee_a.feed.pressure[0] <= 14)
+            m.fs.menifee_pressure_constr2 = Constraint(expr=m.fs.menifee_a.feed.pressure[0] == m.fs.menifee_b.feed.pressure[0])
             m.fs.perris_pressure_constr1 = Constraint(expr=m.fs.perris_i_a.feed.pressure[0] <= 14)
             m.fs.perris_pressure_constr2 = Constraint(expr=m.fs.perris_i_a.feed.pressure[0] == m.fs.perris_i_b.feed.pressure[0])
             m.fs.perris_recov_constr1 = Constraint(expr=m.fs.perris_i_a.flow_vol_out[0] / m.fs.perris_i_a.flow_vol_in[0] <= 0.75)
@@ -1405,15 +1452,15 @@ def case_study_constraints(m, case_study, scenario):
             m.fs.area_constr2 = Constraint(expr=(m.fs.perris_i_a.membrane_area[0] + m.fs.perris_i_b.membrane_area[0]) / (m.fs.menifee_a.membrane_area[0] + m.fs.menifee_b.membrane_area[0]) <= 1.6)
 
         elif 'zld' in scenario:
-            m.fs.ro1_press_constr1 = Constraint(expr=m.fs.ro_a_first_pass.feed.pressure[0] <= 14)
-            m.fs.ro1_press_constr2 = Constraint(expr=m.fs.ro_a_first_pass.feed.pressure[0] == m.fs.ro_b_first_pass.feed.pressure[0])
-            m.fs.ro2_press_constr1 = Constraint(expr=m.fs.ro_a_second_pass.feed.pressure[0] <= 18)
-            m.fs.ro2_press_constr2 = Constraint(expr=m.fs.ro_a_second_pass.feed.pressure[0] == m.fs.ro_b_second_pass.feed.pressure[0])
-            m.fs.area_constr1 = Constraint(expr=(m.fs.ro_b_first_pass.membrane_area[0] + m.fs.ro_b_second_pass.membrane_area[0]) / (m.fs.ro_a_first_pass.membrane_area[0] + m.fs.ro_a_second_pass.membrane_area[0]) >= 1.4)
-            m.fs.area_constr2 = Constraint(expr=(m.fs.ro_b_first_pass.membrane_area[0] + m.fs.ro_b_second_pass.membrane_area[0]) / (m.fs.ro_a_first_pass.membrane_area[0] + m.fs.ro_a_second_pass.membrane_area[0]) <= 1.6)
-            m.fs.ro_area_constr1 = Constraint(expr=m.fs.ro_a_first_pass.membrane_area[0] <= m.fs.ro_a_second_pass.membrane_area[0])
-            m.fs.ro_area_constr2 = Constraint(expr=m.fs.ro_b_first_pass.membrane_area[0] <= m.fs.ro_b_second_pass.membrane_area[0])
-            m.fs.area_ratio_constr1 = Constraint(expr=(m.fs.ro_a_first_pass.membrane_area[0] / m.fs.ro_a_second_pass.membrane_area[0]) == (m.fs.ro_b_first_pass.membrane_area[0] / m.fs.ro_b_second_pass.membrane_area[0]))
+            m.fs.first_pass_press_constr1 = Constraint(expr=m.fs.menifee_first_pass.feed.pressure[0] <= 14)
+            m.fs.first_pass_press_constr2 = Constraint(expr=m.fs.menifee_first_pass.feed.pressure[0] == m.fs.perris_i_first_pass.feed.pressure[0])
+            m.fs.second_pass_press_constr1 = Constraint(expr=m.fs.menifee_second_pass.feed.pressure[0] <= 18)
+            m.fs.second_pass_press_constr2 = Constraint(expr=m.fs.menifee_second_pass.feed.pressure[0] == m.fs.perris_i_second_pass.feed.pressure[0])
+            m.fs.area_constr1 = Constraint(expr=(m.fs.perris_i_first_pass.membrane_area[0] + m.fs.perris_i_second_pass.membrane_area[0]) / (m.fs.menifee_first_pass.membrane_area[0] + m.fs.menifee_second_pass.membrane_area[0]) >= 1.4)
+            m.fs.area_constr2 = Constraint(expr=(m.fs.perris_i_first_pass.membrane_area[0] + m.fs.perris_i_second_pass.membrane_area[0]) / (m.fs.menifee_first_pass.membrane_area[0] + m.fs.menifee_second_pass.membrane_area[0]) <= 1.6)
+            m.fs.ro_area_constr1 = Constraint(expr=m.fs.menifee_first_pass.membrane_area[0] <= m.fs.menifee_second_pass.membrane_area[0])
+            m.fs.ro_area_constr2 = Constraint(expr=m.fs.perris_i_first_pass.membrane_area[0] <= m.fs.perris_i_second_pass.membrane_area[0])
+            m.fs.area_ratio_constr1 = Constraint(expr=(m.fs.menifee_first_pass.membrane_area[0] / m.fs.menifee_second_pass.membrane_area[0]) == (m.fs.perris_i_first_pass.membrane_area[0] / m.fs.perris_i_second_pass.membrane_area[0]))
 
     if case_study == 'ocwd':  # Facility data in email from Dan Giammar 7/7/2021
         m.fs.ro_pressure_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 15)  # Facility data: RO pressure is 140-220 psi (~9.7-15.1 bar)
@@ -1427,6 +1474,9 @@ def case_study_constraints(m, case_study, scenario):
         m.fs.ion_exchange.water_recovery.fix(0.967)
         m.fs.ion_exchange.anion_res_capacity.unfix()
         m.fs.ion_exchange.cation_res_capacity.unfix()
+
+    if case_study == 'irwin':
+        m.fs.brine_concentrator.water_recovery.fix(0.8)
 
     return m
 
@@ -1752,11 +1802,11 @@ def run_water_tap_ro(m, return_df=False, skip_small=True,
         ###### RESET BOUNDS AND DOUBLE CHECK RUN IS OK SO CAN GO INTO SENSITIVITY #####
         if m.fs.new_case_study:
             new_df_units = m.fs.df_units.copy()
-            m = watertap_setup(dynamic=False, case_study=case_study, reference=reference, scenario=scenario, source_scenario=source_scenario)
+            m = watertap_setup(dynamic=False, case_study=case_study, scenario=scenario)
             m = get_case_study(m=m, new_df_units=new_df_units)
 
         else:
-            m = watertap_setup(dynamic=False, case_study=case_study, reference=reference, scenario=scenario, source_scenario=source_scenario)
+            m = watertap_setup(dynamic=False, case_study=case_study, scenario=scenario)
             m = get_case_study(m=m)
 
         has_ro = check_has_ro(m)
@@ -1780,6 +1830,9 @@ def run_water_tap_ro(m, return_df=False, skip_small=True,
             m.fs.ion_exchange.removal_fraction[0, 'tds'].fix(ur_list[0])
             m.fs.ion_exchange.anion_res_capacity.fix(ur_list[1])
             m.fs.ion_exchange.cation_res_capacity.fix(ur_list[2])
+
+        if case_study == 'irwin':
+            m.fs.brine_concentrator.water_recovery.fix(0.8)
 
         run_water_tap(m=m, objective=True, skip_small=skip_small)
 

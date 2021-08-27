@@ -14,7 +14,7 @@ from pyomo.common.config import ConfigBlock, ConfigValue, In
 from pyomo.environ import Binary, Constraint, NonNegativeReals, Var, units as pyunits
 from pyomo.network import Port
 
-module_name = 'splitter_mar1'
+module_name = 'splitter_wt3'
 
 __all__ = ['Splitter']
 

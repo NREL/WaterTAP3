@@ -97,10 +97,16 @@ def get_complete_costing(costing):
                                             initialize=0,
                                             doc='Uncertainty Multiplier for Fixed O&M')
 
+    costing.wt3_error_fci = Var(time,
+                            domain=NonNegativeReals,
+                            initialize=1,
+                            doc='Standard WT3 Error for FCI')
+
     costing.uncertainty_multiplier_fci.fix(0)
     costing.uncertainty_multiplier_om.fix(0)
+    costing.wt3_error_fci.fix(1)
 
-    costing.fixed_cap_inv = costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts * (1 - costing.uncertainty_multiplier_fci[t])
+    costing.fixed_cap_inv = ((costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts) * (1 - costing.uncertainty_multiplier_fci[t])) * costing.wt3_error_fci[t]
     costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
     costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
     costing.total_cap_investment = costing.fixed_cap_inv + costing.land_cost + costing.working_cap
