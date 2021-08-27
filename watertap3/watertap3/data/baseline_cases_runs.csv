@@ -26,9 +26,6 @@ emwd,zld_b,brackish,1,TRUE,TRUE,other
 emwd,zld_c,brackish,1,TRUE,TRUE,other
 irwin,baseline,brackish,0.996,TRUE,TRUE,other
 kbhdp,baseline,brackish,0.92,TRUE,TRUE,other
-kbhdp,zld_a,brackish,0.92,TRUE,TRUE,other
-kbhdp,zld_b,brackish,1,TRUE,TRUE,other
-kbhdp,zld_c,brackish,1,TRUE,TRUE,other
 kbhdp,dwi,brackish,0.92,TRUE,TRUE,other
 big_spring,baseline,municipal,1,TRUE,TRUE,other
 big_spring,dwi_b,municipal,1,TRUE,TRUE,other

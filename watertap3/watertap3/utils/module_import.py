@@ -188,5 +188,8 @@ def get_module(module_name):
     if module_name == 'passthrough':
         import wt_units.passthrough as up
 
+    if module_name == 'filter_press':
+        import wt_units.filter_press as up
+
     return up
 

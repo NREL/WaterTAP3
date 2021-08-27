@@ -5,13 +5,12 @@ import pandas as pd
 from pyomo.environ import Block
 from pyomo.network import Arc
 
-from watertap3.utils import Mixer, Splitter, design, financials, generate_constituent_list, importfile
+from watertap3.utils import Mixer, Splitter, design, financials
 from .water_props import WaterParameterBlock
 
-__all__ = ['get_def_source',
+__all__ = [
            'get_case_study',
            'get_pfd_dict',
-           'filter_df',
            'create_arcs',
            'create_arc_dict',
            'check_split_mixer_need',
@@ -20,36 +19,7 @@ __all__ = ['get_def_source',
            'add_waste_streams'
            ]
 
-
-def get_def_source(reference, water_type, case_study, scenario):
-    df = importfile.feedwater(
-            input_file='data/case_study_water_sources.csv',
-            reference=reference,
-            water_type=water_type,
-            case_study=case_study,
-            scenario=scenario)
-    return df
-
-
 def get_case_study(m=None, new_df_units=None, print_it=True):
-
-    flow_dict = {}
-
-    if isinstance(m.fs.source_water['water_type'], list):
-        for water_type in m.fs.source_water['water_type']:
-            df = get_def_source(m.fs.source_water['reference'],
-                                water_type,
-                                m.fs.source_water['case_study'],
-                                m.fs.source_water['scenario'])
-            flow_dict[water_type] = df.loc['flow'].value
-    else:
-        df = get_def_source(m.fs.source_water['reference'],
-                            m.fs.source_water['water_type'],
-                            m.fs.source_water['case_study'],
-                            m.fs.source_water['scenario'])
-        flow_dict[m.fs.source_water['water_type']] = df.loc['flow'].value
-
-    m.fs.flow_in_dict = flow_dict
 
     if new_df_units is not None:
         m.fs.df_units = new_df_units
@@ -57,26 +27,9 @@ def get_case_study(m=None, new_df_units=None, print_it=True):
         m.fs.new_case_study = True
         print('\n======= NEW TREATMENT TRAIN =======')
 
-
     else:
-        case_study_library = 'data/treatment_train_setup.csv'
-
-        # set up tables of design (how units are connected) and units (list of all units needed for the train)
-        df_units = pd.read_csv(case_study_library)
-        df_units.CaseStudy = df_units.CaseStudy.str.lower()
-        df_units.Reference = df_units.Reference.str.lower()
-        df_units.Scenario = df_units.Scenario.str.lower()
-        df_units = filter_df(df_units, m)
-        df_units = df_units.loc[:, ~df_units.columns.str.contains('^Unnamed')]
-        m.fs.df_units = df_units
-        m.fs.pfd_dict = get_pfd_dict(df_units)
+        m.fs.pfd_dict = get_pfd_dict(m.fs.df_units)
         m.fs.new_case_study = False
-
-    # create the constituent list for the train that is automatically used to edit the water property package.
-
-    generate_constituent_list.train = m.fs.train
-    generate_constituent_list.source_water = m.fs.source_water
-    generate_constituent_list.pfd_dict = m.fs.pfd_dict
 
     pfd_dict = m.fs.pfd_dict
     financials.get_system_specs(m.fs, m.fs.train)
@@ -102,7 +55,7 @@ def get_case_study(m=None, new_df_units=None, print_it=True):
         print('-------------------------------------\n')
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
-    m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, flow_dict)
+    m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, m.fs.flow_in_dict)
     m.fs.arc_dict = arc_dict
 
     # gets list of unit processes and ports that need either a splitter or mixer 
@@ -143,20 +96,8 @@ def get_pfd_dict(df_units):
     return pfd_dict
 
 
-# adjust data for particular case study
-def filter_df(df, m):
-    df = df[df.Reference == m.fs.train['reference']]
-    df = df[df.Scenario == m.fs.train['scenario']]
-    df = df[df.CaseStudy == m.fs.train['case_study']]
-    del df['CaseStudy'];
-    del df['Scenario'];
-    del df['Reference'];
-    return df
-
-
 # ADDING ARCS TO MODEL
 def create_arcs(m, arc_dict):
-    # print('\nConnecting unit processes...')
     for key in arc_dict.keys():
         source = arc_dict[key][0]
         source_port = arc_dict[key][1]
@@ -186,13 +127,9 @@ def create_arc_dict(m, pfd_dict, flow):
             for water_type in pfd_dict[key]['Parameter']['water_type']:
                 source_name = water_type
                 water_type = water_type
-                reference = m.fs.source_water['reference']
-                case_study = m.fs.source_water['case_study']
                 source_flow = flow[source_name]
 
-                m = design.add_water_source(m=m, source_name=source_name,
-                                            reference=reference, water_type=water_type,
-                                            case_study=case_study, flow=source_flow)
+                m = design.add_water_source(m=m, source_name=source_name, water_type=water_type, flow=source_flow)
 
                 arc_dict[arc_i] = [source_name, 'outlet', key, 'inlet']
                 arc_i = arc_i + 1
@@ -270,7 +207,6 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
 
 
 def create_splitters(m, splitter_list, arc_dict, arc_i):
-    # print(splitter_list)
     splitter_i = 1
     outlet_i = 1
     unit_options = m.fs.unit_options = {}
@@ -326,9 +262,6 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
         setattr(m.fs, splitter_name, Splitter(default={'property_package': m.fs.water}))
         unit_params = m.fs.pfd_dict[j[0]]['Parameter']
         getattr(m.fs, splitter_name).outlet_list = outlet_list_up
-        # if 'split_fraction' in unit_params:
-        #     print(' ')
-            # print('params into splitter -->', unit_params['split_fraction'])
         # could just have self call the split list directly without reading in unit params. same for all 
         getattr(m.fs, splitter_name).get_split(outlet_list_up=outlet_list_up, unit_params=unit_params)
 
@@ -382,7 +315,7 @@ def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
                                                                                          'inlet%s' % i)))
                                 arc_i = arc_i + 1
 
-            # add connection for waste mixer to surface dicharge -->
+            # add connection for waste mixer to surface discharge -->
             if 'surface_discharge' in unit_list:
                 setattr(m.fs, ('arc%s' % arc_i), Arc(source=getattr(m.fs, waste_mixer).outlet,
                                                      destination=getattr(m.fs, sd_name).inlet))

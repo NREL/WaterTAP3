@@ -251,7 +251,7 @@ linked to all inlet states and the mixed state,
             for p in inlet_list:
                 component_sum = getattr(b, ('flow_vol_%s' % p))[t] * getattr(b, ('conc_mass_%s' % p))[t, j] + component_sum
                 
-            return component_sum == b.flow_vol_out[t]*b.conc_mass_out[t, j]       
+            return component_sum == b.flow_vol_out[t] * b.conc_mass_out[t, j]
         
         @self.Constraint(time, doc='Outlet temperature equation')
         def outlet_temperature_constraint(b, t):

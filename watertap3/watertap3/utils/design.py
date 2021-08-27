@@ -1,8 +1,7 @@
-from . import importfile, module_import
+from . import module_import
 from .constituent_removal_water_recovery import create
-from .mixer_example import Mixer
-from .source_example import Source
-from .split_test2 import Separator
+from .mixer_wt3 import Mixer
+from .source_wt3 import Source
 
 __all__ = ['add_unit_process',
            'add_water_source',
@@ -34,23 +33,16 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, uni
     return m
 
 
-def add_water_source(m=None, source_name=None, link_to=None,
-                     reference=None, water_type=None, case_study=None, flow=None):
-
-    df = importfile.feedwater(
-            input_file='data/case_study_water_sources.csv',
-            reference=reference, water_type=water_type,
-            case_study=case_study)
-
+def add_water_source(m=None, source_name=None, water_type=None, flow=None, link_to=None):
     setattr(m.fs, source_name, Source(default={'property_package': m.fs.water}))
     getattr(m.fs, source_name).set_source()
     getattr(m.fs, source_name).flow_vol_in.fix(flow)
-
+    temp_source_df = m.fs.source_df[m.fs.source_df.water_type == water_type].copy()
     train_constituent_list = list(getattr(m.fs, source_name).config.property_package.component_list)
-
     for constituent_name in train_constituent_list:
-        if constituent_name in df.index:
-            getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(df.loc[constituent_name].value)
+        if constituent_name in temp_source_df.index:
+            conc = temp_source_df.loc[constituent_name].value
+            getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(conc)
         else:
             getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(0)
 
@@ -75,7 +67,6 @@ def add_splitter(m=None, split_name=None, with_connection=False, outlet_list=Non
     return m
 
 
-# TO DO MAKE THE FRACTION A DICTIONARY
 def add_mixer(m=None, mixer_name=None, with_connection=False, inlet_list=None,
               link_to=None, link_from=None, stream_name=None):
 

@@ -12,10 +12,8 @@ from . import financials
 from .financials import *
 from . import get_graph_chars
 from .get_graph_chars import *
-from . import importfile
-from .importfile import *
-from . import mixer_example
-from .mixer_example import *
+from . import mixer_wt3
+from .mixer_wt3 import *
 from . import mixer_mar5
 from .mixer_mar5 import *
 from . import ml_regression
@@ -26,10 +24,8 @@ from . import optimize_setup
 from .optimize_setup import *
 from . import post_processing
 from .post_processing import *
-from . import split_test2
-from .split_test2 import *
-from . import splitter_mar1
-from .splitter_mar1 import *
+from . import splitter_wt3
+from .splitter_wt3 import *
 from . import case_study_trains
 from .case_study_trains import *
 from . import generate_constituent_list
@@ -50,16 +46,14 @@ __all__ = [
            *display.__all__,
            *financials.__all__,
            *get_graph_chars.__all__,
-           *importfile.__all__,
-           *mixer_example.__all__,
+           *mixer_wt3.__all__,
            *mixer_mar5.__all__,
            *ml_regression.__all__,
            *module_import.__all__,
            *optimize_setup.__all__,
            *post_processing.__all__,
            *sensitivity_runs.__all__,
-           *split_test2.__all__,
-           *splitter_mar1.__all__,
+           *splitter_wt3.__all__,
            *case_study_trains.__all__,
            *generate_constituent_list.__all__,
            *water_props.__all__,

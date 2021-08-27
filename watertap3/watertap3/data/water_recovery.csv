@@ -70,6 +70,7 @@ default,,evaporation_pond_waterreuse,0.9,Default value based on 5% purge rate pe
 default,,fc_crystallizer_us_bor,0.95,Placeholder. Not utilized in any case studies. 
 default,,feed_water_tank,0.9999,Based on costs for Ferric Choride Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 default,,ferric_chloride_addition,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+default,,filter_press,0.9999,
 default,,fixed_bed_gravity_basin,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,fixed_bed_pressure_vessel,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,fluidized_bed,0.9999,Placeholder. Not utilized in any case studies. 
@@ -109,8 +110,11 @@ default,,onsite_storage,0.9999,Texas Water Development Board IT3PR User Manual
 default,,ozonation,0.9999,Texas Water Development Board IT3PR User Manual
 default,,ozone_aop,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,packed_tower_aeration,0.9999,
-default,,passthrough,0.9999,
+upw,zld_c,passthrough,0.9999,
+upw,zld_b,passthrough,0.9999,
+default,,passthrough,0.99999,
 default,,ph_decrease,0.9999,
+default,,ph_increase,0.9999,Defined based on the Iron and Steel case study data.
 iron_and_steel,baseline,ph_increase,0.9999,Defined based on the Iron and Steel case study data.
 default,baseline,primary_separator,0.999,Defined based on the Iron and Steel case study data.
 default,,raw_water_pump,0.9999,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
@@ -125,6 +129,7 @@ default,,ro_deep_scnd_pass,calculated,Calculated value for total TDS removal fro
 default,,screen,0.9999,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
 default,,sedimentation,0.9999,"(1) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (2) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)"
 cherokee,baseline,settling_pond,0.9999,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
+default,,settling_pond,0.9999,"Based on ""Sedimentation"" cost model. See references in VAR. There will be minimal water losses. "
 default,,sludge_tank,0.99999,
 default,,smp,0.9999,
 default,,sodium_bisulfite_addition,0.9999,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura).
@@ -147,6 +152,6 @@ default,,ultra_filtration,0.95,Texas Water Development Board IT3PR User Manual
 default,,uv_aop,0.9999,Texas Water Development Board IT3PR User Manual
 default,,uv_irradiation,0.9999,Texas Water Development Board IT3PR User Manual
 default,,waiv,0.9999,
-kern_county,baseline,walnut_shell_filter,0.99,Defined based on the Kern County case study data.
+default,,walnut_shell_filter,0.99,Defined based on the Kern County case study data.
 default,,water_pumping_station,0.9999,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 default,,well_field,0.9999,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
