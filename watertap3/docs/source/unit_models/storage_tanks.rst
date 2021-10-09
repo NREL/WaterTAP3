@@ -1,4 +1,6 @@
-Storage Tanks
+.. _holding_tank_unit:
+
+Holding/Storage Tanks
 =====================================
 
 Unit Parameters
@@ -17,7 +19,7 @@ Capital Costs
 ---------------
 
 Storage tank capital costs are calculated as a function of the volume of storage
-[m3] required, flow in [m3/hr], storage duration [hr], and surge capacity needed:
+[m3] required `V`, flow in [m3/hr], storage duration `t` [hr], and surge capacity needed `x`:
 
     .. math::
 

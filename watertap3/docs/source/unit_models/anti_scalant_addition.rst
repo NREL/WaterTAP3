@@ -1,3 +1,5 @@
+.. _anti_scalant_addition_unit:
+
 Anti-Scalant Addition
 =====================================
 
@@ -92,7 +94,7 @@ Reference
 | DOI:10.1002/9780470260036
 
 
-Anti-Scalant Module
+Anti-Scalant Addition Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.anti_scalant_addition.UnitProcess

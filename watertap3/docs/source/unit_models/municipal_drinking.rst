@@ -1,3 +1,5 @@
+.. _municipal_drinking_unit:
+
 Municipal Drinking (Distribution)
 ============================================================
 

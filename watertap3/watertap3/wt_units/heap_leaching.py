@@ -37,24 +37,21 @@ class UnitProcess(WT3UnitProcess):
         self.stacking = 0.00197 * self.mining_capacity ** 0.77839
         self.dist_recov = 0.00347 * self.mining_capacity ** 0.71917
         self.subtotal = (self.mine_equip + self.mine_develop + self.crushing + self.leach + self.stacking + self.dist_recov)
-        self.perc = 0.3102 * self.mining_capacity ** 0.1119  # regression made by kurby in excel - mining capacity vs percent of subtotal
+        self.perc = 0.3102 * self.mining_capacity ** 0.1119  # regression made by KAS in excel - mining capacity vs percent of subtotal
         if value(self.perc) > 1:
             self.perc = 1
-        self.other = self.subtotal * self.perc
+
         self.mining_to_heap_basis = (self.mine_equip + self.mine_develop + self.crushing + self.leach) * (1 + self.perc)
         self.mining_to_heap_exp = (self.mine_equip * 0.935 + self.mine_develop * 0.431 + self.crushing * 0.665 + self.leach * 0.948) / (
                     self.mine_equip + self.mine_develop + self.crushing + self.leach)
-        self.stacking_basis = self.stacking * (1 + self.perc)
-        self.stacking_exp = (self.mine_equip * 0.935 + self.mine_develop * 0.431 + self.crushing * 0.665 + self.leach * 0.948 + self.stacking * 0.778 + self.dist_recov * 0.719) / (
-                self.mine_equip + self.mine_develop + self.crushing + self.leach + self.stacking + self.dist_recov)
+
         self.mine_equip_op = 22.54816 * self.mining_capacity ** 0.74807
         self.crushing_op = 4.466 * self.mining_capacity ** 0.8794
-        self.leach_op = 6.34727 * 0.68261
-        self.stacking_op = 6.28846 * self.mining_capacity ** 0.56932
-        self.dist_recov_op = 7.71759 * self.mining_capacity ** 0.91475
-        self.mining_to_heap_other = (self.mine_equip_op + self.crushing_op + self.leach_op) / self.make_up_water
-        self.other_var_cost = self.mining_to_heap_other
-        self.stacking_other = self.stacking_op / self.make_up_water
+        self.leach_op = 6.34727 * self.mining_capacity ** 0.68261
+
+        # self.mining_to_heap_other = (self.mine_equip_op + self.crushing_op + self.leach_op) / self.make_up_water
+        self.mining_to_heap_other = (self.mine_equip_op + self.crushing_op + self.leach_op) * 1E-6 * 365 # cost curves return $/day
+        self.costing.other_var_cost = self.mining_to_heap_other
         self.flow_factor = self.flow_in / 73
         heap_cap = self.flow_factor * self.mining_to_heap_basis ** self.mining_to_heap_exp
         return heap_cap

@@ -1,3 +1,5 @@
+.. _water_recovery:
+
 Water Recovery
 ==========================
 
@@ -41,7 +43,7 @@ sum of all `k` source flows to the system:
         Q_{out,stream} = x_{stream} \sum_{i}^{k} Q_{in,i}
 |
 
-The columns of ``data/water_revovery.csv`` are:
+The columns of ``data/water_recovery.csv`` are:
 
 * **case_study**: The treatment facility name or default
 

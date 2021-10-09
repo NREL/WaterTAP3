@@ -37,7 +37,7 @@ class SystemSpecs():
         self.insurance_taxes_percent_FCI = float(basis_data[basis_data['variable'] == 'insurance_and_taxes_percent'].loc[case_study].value)
         self.benefit_percent_of_salary = float(basis_data[basis_data['variable'] == 'employee_benefits_percent'].loc[case_study].value)
         self.plant_lifetime_yrs = int(basis_data[basis_data['variable'] == 'plant_life_yrs'].loc[case_study].value)
-        self.analysis_yr_cost_indicies = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
+        self.analysis_yr_cost_indices = int(basis_data[basis_data['variable'] == 'analysis_year'].loc[case_study].value)
         self.debt_interest_rate = float(basis_data[basis_data['variable'] == 'debt_interest_rate'].loc[case_study].value)
         self.plant_cap_utilization = float(basis_data[basis_data['variable'] == 'plant_cap_utilization'].loc[case_study].value)
 
@@ -81,32 +81,43 @@ def get_complete_costing(costing):
     chem_dict = unit.chem_dict
     electricity = unit.electricity
 
-    df = get_ind_table(sys_specs.analysis_yr_cost_indicies)
+    df = get_ind_table(sys_specs.analysis_yr_cost_indices)
     costing.cap_replacement_parts = df.loc[basis_year].Capital_Factor
     costing.catalysts_chemicals = df.loc[basis_year].CatChem_Factor
     costing.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
     costing.consumer_price_index = df.loc[basis_year].CPI_Factor
 
     costing.uncertainty_multiplier_fci = Var(time,
-                                         domain=NonNegativeReals,
-                                         initialize=0,
-                                         doc='Uncertainty Multiplier for FCI')
+                                             domain=NonNegativeReals,
+                                             initialize=0,
+                                             doc='Uncertainty Multiplier for FCI')
+
+    costing.wt3_error_fci = Var(time,
+                                domain=NonNegativeReals,
+                                initialize=1,
+                                doc='Standard WT3 Error for FCI')
+
+    costing.uncertainty_multiplier_fci.fix(0)
+    costing.wt3_error_fci.fix(1)
 
     costing.uncertainty_multiplier_om = Var(time,
                                             domain=NonNegativeReals,
                                             initialize=0,
                                             doc='Uncertainty Multiplier for Fixed O&M')
 
-    costing.wt3_error_fci = Var(time,
-                            domain=NonNegativeReals,
-                            initialize=1,
-                            doc='Standard WT3 Error for FCI')
+    costing.wt3_error_om = Var(time,
+                               domain=NonNegativeReals,
+                               initialize=1,
+                               doc='Standard WT3 Error for Fixed O&M')
 
-    costing.uncertainty_multiplier_fci.fix(0)
     costing.uncertainty_multiplier_om.fix(0)
-    costing.wt3_error_fci.fix(1)
+    costing.wt3_error_om.fix(1)
 
     costing.fixed_cap_inv = ((costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts) * (1 - costing.uncertainty_multiplier_fci[t])) * costing.wt3_error_fci[t]
+
+    # if unit.unit_name == 'evaporation_pond':
+    #     costing.land_cost = 0
+    # else:
     costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
     costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
     costing.total_cap_investment = costing.fixed_cap_inv + costing.land_cost + costing.working_cap
@@ -118,21 +129,33 @@ def get_complete_costing(costing):
     cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col='Material')
     chem_cost_sum = 0
     for key in chem_dict.keys():
-        if 'unit_cost' == key:
+        if key == 'unit_cost':
             chem_cost_sum = chem_dict[key] * costing.fixed_cap_inv * 1E6
         else:
             chem_cost = cat_chem_df.loc[key].Price
             chem_cost_sum += costing.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * sys_specs.plant_cap_utilization
 
-    costing.cat_and_chem_cost = chem_cost_sum * 1E-6
+    costing.uncertainty_multiplier_catchem = Var(time,
+                                                 domain=NonNegativeReals,
+                                                 initialize=0,
+                                                 doc='Uncertainty Multiplier for Catalysts/Chemicals')
+
+    costing.wt3_error_catchem = Var(time,
+                                    domain=NonNegativeReals,
+                                    initialize=1,
+                                    doc='Standard WT3 Error for Catalysts/Chemicals')
+
+    costing.uncertainty_multiplier_catchem.fix(0)
+    costing.wt3_error_catchem.fix(1)
+
+    costing.cat_and_chem_cost = Expression(expr=((chem_cost_sum * 1E-6) * (1 - costing.uncertainty_multiplier_catchem[t])) * costing.wt3_error_catchem[t])
 
     if not hasattr(costing, 'electricity_cost'):
-        costing.electricity_cost = Expression(
-                expr=(electricity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization,
-                doc='Electricity cost')  # M$/yr
+        costing.electricity_cost = Expression(expr=(electricity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization,
+                                              doc='Electricity cost')  # M$/yr
 
     if not hasattr(costing, 'other_var_cost'):
-        costing.other_var_cost = 0 * sys_specs.plant_cap_utilization
+        costing.other_var_cost = 0
 
     costing.base_employee_salary_cost = costing.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
     costing.salaries = Expression(expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost, doc='Salaries')
@@ -140,17 +163,17 @@ def get_complete_costing(costing):
     costing.maintenance = sys_specs.maintenance_costs_percent_FCI * costing.fixed_cap_inv
     costing.lab = sys_specs.lab_fees_percent_FCI * costing.fixed_cap_inv
     costing.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * costing.fixed_cap_inv
-    costing.total_fixed_op_cost = Expression(expr=(costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes) * (1 - costing.uncertainty_multiplier_om[t]))
+    costing.total_fixed_op_cost = Expression(expr=((costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes) * (1 - costing.uncertainty_multiplier_om[t])) * costing.wt3_error_om[t])
     costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
     costing.total_operating_cost = costing.total_fixed_op_cost + costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost
 
 
-def get_ind_table(analysis_yr_cost_indicies):
+def get_ind_table(analysis_yr_cost_indices):
     '''
     Function to get costing indicies for WaterTAP3 model.
 
-    :param analysis_yr_cost_indicies: Year to get costing indicies for.
-    :type analysis_yr_cost_indicies: int
+    :param analysis_yr_cost_indices: Year to get costing indices for.
+    :type analysis_yr_cost_indices: int
     :return: Indicies DataFrame
     '''
     df = pd.read_csv('data/plant_cost_indices.csv')
@@ -171,42 +194,52 @@ def get_ind_table(analysis_yr_cost_indicies):
     for variable in new_cost_variables:
         ind_name = '%s_Index' % variable
         fac_name = '%s_Factor' % variable
-        df[fac_name] = (df[df.Year == analysis_yr_cost_indicies][ind_name].max() / df[ind_name])
+        df[fac_name] = (df[df.Year == analysis_yr_cost_indices][ind_name].max() / df[ind_name])
     df = df.set_index(df.Year)
     df = df.replace(1.0, 1.00000000001)
 
     return df
 
 
-def get_system_specs(self, train=None):
+def get_system_specs(m_fs):
     '''
     Function to set costing parameters for WaterTAP3 model.
 
 
     '''
-    self.costing_param = Block()
-    b = self.costing_param
+    m_fs.costing_param = Block()
+    b = m_fs.costing_param
 
-    b.electricity_price = Var(initialize=0.07, doc='Electricity cost [$/kWh]')
-    b.maintenance_costs_percent_FCI = Var(initialize=0.07, doc='maintenance_costs_percent_FCI cost [%]')
-    b.salaries_percent_FCI = Var(initialize=0.07, doc='salaries_percent_FCI cost [%]')
-    b.benefit_percent_of_salary = Var(initialize=0.07, doc='benefit_percent_of_salary cost [%]')
-    b.insurance_taxes_percent_FCI = Var(initialize=0.07, doc='insurance_taxes_percent_FCI cost [%]')
-    b.lab_fees_percent_FCI = Var(initialize=0.07, doc='lab_fees_percent_FCI cost [%]')
+    b.electricity_price = Var(initialize=0.07,
+                              doc='Electricity cost [$/kWh]')
+    b.maintenance_costs_percent_FCI = Var(initialize=0.07,
+                                          doc='Maintenance/contingency cost as % FCI')
+    b.salaries_percent_FCI = Var(initialize=0.07,
+                                 doc='Salaries cost as % FCI')
+    b.benefit_percent_of_salary = Var(initialize=0.07,
+                                      doc='Benefits cost as % FCI')
+    b.insurance_taxes_percent_FCI = Var(initialize=0.07,
+                                        doc='Insurance/taxes cost as % FCI')
+    b.lab_fees_percent_FCI = Var(initialize=0.07,
+                                 doc='Lab cost as % FCI')
+    b.land_cost_percent_FCI = Var(initialize=0.07,
+                                  doc='Land cost as % FCI')
+    b.plant_lifetime_yrs = Var(initialize=30,
+                               doc='Plant lifetime [years')
 
     # ADD THE REST AS VARIABLES.
 
-    system_specs = SystemSpecs(train)
+    system_specs = SystemSpecs(m_fs.train)
 
     b.location = system_specs.location
     b.electricity_price.fix(system_specs.elec_price)
     b.salaries_percent_FCI.fix(system_specs.salaries_percent_FCI)
-    b.land_cost_percent_FCI = system_specs.land_cost_percent_FCI
+    b.land_cost_percent_FCI.fix(system_specs.land_cost_percent_FCI)
     b.maintenance_costs_percent_FCI.fix(system_specs.maintenance_costs_percent_FCI)
     b.lab_fees_percent_FCI.fix(system_specs.lab_fees_percent_FCI)
     b.insurance_taxes_percent_FCI.fix(system_specs.insurance_taxes_percent_FCI)
-    b.plant_lifetime_yrs = system_specs.plant_lifetime_yrs
-    b.analysis_yr_cost_indicies = system_specs.analysis_yr_cost_indicies
+    b.plant_lifetime_yrs.fix(system_specs.plant_lifetime_yrs)
+    b.analysis_yr_cost_indices = system_specs.analysis_yr_cost_indices
     b.benefit_percent_of_salary.fix(system_specs.benefit_percent_of_salary)
     b.working_cap_percent_FCI = system_specs.working_cap_percent_FCI
     b.plant_cap_utilization = system_specs.plant_cap_utilization  # 1.0
@@ -232,11 +265,17 @@ def get_system_costing(self):
     electricity_cost_lst = []
     other_var_cost_lst = []
     total_fixed_op_cost_lst = []
+    electricity_intensity_lst = []
 
-    wacc = sys_specs.wacc
+    # wacc = sys_specs.wacc
 
-    b.capital_recovery_factor = (wacc * (1 + wacc) ** sys_specs.plant_lifetime_yrs) / (
-            ((1 + wacc) ** sys_specs.plant_lifetime_yrs) - 1)
+    b.wacc = Var(initialize=sys_specs.wacc,
+                 doc='Weighted average cost of capital (WACC)')
+
+    b.wacc.fix(sys_specs.wacc)
+
+    b.capital_recovery_factor = (b.wacc * (1 + b.wacc) ** sys_specs.plant_lifetime_yrs) / (
+            ((1 + b.wacc) ** sys_specs.plant_lifetime_yrs) - 1)
 
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
@@ -353,6 +392,11 @@ def get_system_costing(self):
                  (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
             doc='Levelized Cost of Water [$/m3]')
 
+    b.LCOW_inflow = Expression(
+            expr=1E6 * (b.capital_investment_total * b.capital_recovery_factor + b.operating_cost_annual) /
+                 (sum_of_inflow * 3600 * 24 * 365 * sys_specs.plant_cap_utilization),
+            doc='Levelized Cost of Water by influent flow [$/m3]')
+
     b.elec_frac_LCOW = Expression(
             expr=((1E6 * (b.electricity_cost_annual) /
                    (b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))) / b.LCOW,
@@ -376,4 +420,4 @@ def global_costing_parameters(self, year=None):
             }
 
     self.CE_index = Param(mutable=True, initialize=ce_index_dic[year],
-            doc='Chemical Engineering Plant Cost Index $ year')
+                          doc='Chemical Engineering Plant Cost Index $ year')

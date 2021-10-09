@@ -30,18 +30,22 @@ def run(m_fs):
     return source_constituents
 
 
-def get_removal_factors(unit_process, m):
+def get_removal_factors(m, unit_process_type, unit_process_name):
+
     train = m.fs.train
-
     df = pd.read_csv('data/constituent_removal.csv')
-    df.case_study = np.where(df.case_study == 'default', train['case_study'], df.case_study)
-    df = df[df.reference == train['reference']]
-    df = df[df.case_study == train['case_study']]
-    df = df[df.scenario == 'baseline']
-    df = df[df.unit_process == unit_process]
-
+    const_df = df[((df.unit_process == unit_process_type) & (df.scenario == 'baseline') & (df.reference == train['reference']))].copy()
+    const_df = const_df[(const_df.case_study == train['case_study']) | (const_df.case_study == 'default')].copy()
+    constituent_list = getattr(m.fs, unit_process_name).config.property_package.component_list
     removal_dict = {}
-    for constituent in df.constituent.unique():
-        removal_dict[constituent] = df[df.constituent == constituent].value.max()
+    for constituent in constituent_list:
+        if constituent not in const_df.constituent.unique():
+            continue
+        if const_df[((const_df.case_study == train['case_study']) & (const_df.constituent == constituent))].empty:
+            rf = const_df[((const_df.case_study == 'default') & (const_df.constituent == constituent))].value.iloc[0]
+            removal_dict[constituent] = rf
+        else:
+            rf = const_df[((const_df.case_study == train['case_study']) & (const_df.constituent == constituent))].value.iloc[0]
+            removal_dict[constituent] = rf
 
     return removal_dict

@@ -3,12 +3,11 @@ Unit Models
 ###############
 
 
-All unit processes achieve the mass balances described in the water recovery and constituent
-removal section. The calculations of water recovery and constituent removal are based on factors
-(in the data folder) or equations that represent some level of the physical processes that occur
-in the treatment process. There are four levels of detail (discussed also in the Financials
-section) across the unit models and the current status of the unit models is shown in the figure
-below.
+All unit processes achieve the mass balances described in the :ref:`water_recovery` and
+:ref:`constituent_removal` section. The calculations of water recovery and constituent removal
+are based on factors (discussed in the :ref:`data_inputs` section) or equations that represent
+some level of the physical processes that occur in the treatment process. There are four levels
+of detail (discussed also in the :ref:`financials` section) across the unit models.
 
 
 ..  raw:: pdf
@@ -19,13 +18,16 @@ below.
 ..  toctree::
     :maxdepth: 5
 
+    agglom_stacking
     alum_addition
     ammonia_addition
+    anion_exchange
     anti_scalant_addition
     backwash_solids_handling
     basic_unit
     brine_concentrator
     cartridge_filtration
+    cation_exchange
     caustic_soda_addition
     chemical_addition
     chlorination
@@ -40,6 +42,7 @@ below.
     fixed_bed_pressure_vessel
     gac_gravity
     gac_pressure_vessel
+    heap_leaching
     hydrochloric_acid_addition
     iron_and_manganese_removal
     landfill
@@ -53,6 +56,7 @@ below.
     reverse_osmosis
     sedimentation
     sodium_bisulfite_addition
+    solution_distribution_and_recovery_plant
     storage_tanks
     sulfuric_acid_addition
     surface_discharge

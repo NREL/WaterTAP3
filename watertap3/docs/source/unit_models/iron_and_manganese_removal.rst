@@ -1,8 +1,10 @@
+.. _fe_mn_removal_unit:
+
 Iron & Manganese Removal
 ============================================================
 
 The Fe/Mn removal unit in WaterTAP3 is based off of the dual media filtration schematic in the
-lenntech reference using costing data in McGivney & Kawamura (2008).
+Lenntech reference using costing data in McGivney & Kawamura (2008).
 
 Unit Parameters
 --------------------
@@ -95,7 +97,7 @@ References
 | Schema of an iron removal system
 | https://www.lenntech.com/schema-of-an-iron-removal-system.htm
 
-Unit Template
+Iron & Manganese Removal Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.iron_and_manganese_removal.UnitProcess

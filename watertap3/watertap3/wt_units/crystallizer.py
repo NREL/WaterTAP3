@@ -25,7 +25,7 @@ class UnitProcess(WT3UnitProcess):
 
         :param tds_in: TDS concentration in to crystallizer [mg/L]
         :type tds_in: float
-        :param water_recovery: Water recovery for the brince concentrator
+        :param water_recovery: Water recovery for the crystallizer
         :type water_recovery: float
         :param flow_in: Water flow in to crystallizer [m3/hr]
         :type flow_in: float
@@ -41,10 +41,11 @@ class UnitProcess(WT3UnitProcess):
 
     def elect(self):
         '''
-        Electricity intensity for crystallizer. 
+        Electricity intensity for crystallizer.
+
         :param tds_in: TDS concentration in to crystallizer [mg/L]
         :type tds_in: float
-        :param water_recovery: Water recovery for the brince concentrator
+        :param water_recovery: Water recovery for the crystallizer
         :type water_recovery: float
         :param flow_in: Water flow in to crystallizer [m3/hr]
         :type flow_in: float

@@ -1,3 +1,5 @@
+.. _lime_softening_unit:
+
 Lime Softening
 =====================================
 
@@ -6,15 +8,15 @@ Unit Parameters
 
 There is one unit parameter:
 
-*``"lime"`` - lime dose for unit [mg/L]:
+* ``"lime"`` - lime dose for unit [mg/L]:
 
     * Required parameter
 
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [m3/hr] with cost curve parameters from McGivney &
-Kawamura (2008):
+The capital costs are a function of flow [m3/hr] with cost curve parameters from the Minnesota
+Rural Water Association.
 
     .. math::
 

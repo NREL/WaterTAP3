@@ -1,3 +1,5 @@
+.. _coagulant_addition_unit:
+
 Coagulant Addition
 =====================================
 
@@ -29,8 +31,8 @@ WaterTAP3 is:
         C_{coag} = 15408 S ^ {0.5479}
 |
 This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
-chemical addition. These parameters were determined by fitting data from FIGURE 5.5.15 - LIQUID
-ALUM FEED in in McGivney & Kawamura (2008).
+chemical addition. These parameters were determined by fitting data from Figure 5.5.15 in
+McGivney & Kawamura (2008).
 
 Electricity Intensity
 ------------------------

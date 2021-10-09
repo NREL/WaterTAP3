@@ -1,3 +1,5 @@
+.. _fixed_bed_gravity_basin_unit:
+
 Fixed Bed Pressure Vessel
 ============================================================
 
@@ -54,10 +56,10 @@ References
 | https://www.epa.gov/sites/production/files/2019-07/documents/wbs-biotreat-documentation-june-2019.pdf
 | https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
-Unit Template
+Fixed Bed Pressure Vessel Module
 ----------------------------------------
 
-.. autoclass:: watertap3.wt_units.fixed_bed_gravity_basin.UnitProcess
+.. autoclass:: watertap3.wt_units.fixed_bed_pressure_vessel.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
 

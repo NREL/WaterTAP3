@@ -1,3 +1,5 @@
+.. _chlorination_unit:
+
 Chlorination
 =================
 

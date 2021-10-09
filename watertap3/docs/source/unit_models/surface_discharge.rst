@@ -1,3 +1,5 @@
+.. _surface_discharge_unit:
+
 Surface Discharge
 ============================================================
 
@@ -40,6 +42,8 @@ Piping cost assumes an 8 in diameter pipe, and is calculated as:
         C_{pipe} = 0.28 x_{pipe}
 |
 If the ``"pipe_distance"`` unit parameter is not included:
+
+    .. math::
 
         C_{pipe} = 0
 |
@@ -86,11 +90,11 @@ ______________
 
 ?????
 
-Unit Template
+Surface Discharge Module
 ----------------------------------------
 
-.. autoclass:: watertap3.wt_units.unit_template.UnitProcess
-    :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
+.. autoclass:: watertap3.wt_units.surface_discharge.UnitProcess
+    :members: fixed_cap, elect, get_costing
     :exclude-members: build
 
 

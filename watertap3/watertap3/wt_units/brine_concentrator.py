@@ -25,7 +25,7 @@ class UnitProcess(WT3UnitProcess):
 
         :param tds_in: TDS concentration in to brine concentrator [mg/L]
         :type tds_in: float
-        :param water_recovery: Water recovery for the brince concentrator
+        :param water_recovery: Water recovery for the brine concentrator
         :type water_recovery: float
         :param flow_in: Water flow in to brine concentrator [m3/hr]
         :type flow_in: float
@@ -41,6 +41,7 @@ class UnitProcess(WT3UnitProcess):
     def elect(self):
         '''
         Electricity intensity for brine concentrator.
+
         :param tds_in: TDS concentration in to brine concentrator [mg/L]
         :type tds_in: float
         :param water_recovery: Water recovery for the brince concentrator

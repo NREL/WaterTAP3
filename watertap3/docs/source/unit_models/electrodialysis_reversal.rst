@@ -1,3 +1,5 @@
+.. _electrodialysis_reversal_unit:
+
 Electrodialysis Reversal
 ============================================================
 

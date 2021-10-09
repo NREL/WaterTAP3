@@ -22,7 +22,7 @@ copyright = 'Copyright (c) 2021, Alliance for Sustainable Energy, LLC'
 author = 'Ariel Miara, Kurban Sitterley, Michael Talmadge, Zhe Huang, Anna Evans, Jennifer Stokes-Draut, Jordan Macknick'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.2'
 version = release
 # -- General configuration ---------------------------------------------------
 

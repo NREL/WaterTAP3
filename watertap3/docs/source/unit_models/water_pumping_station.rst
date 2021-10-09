@@ -1,3 +1,5 @@
+.. _water_pumping_station_unit:
+
 Water Pumping Station
 ============================================================
 
@@ -9,7 +11,7 @@ This is a pump unit in WaterTAP3.
 Unit Parameters
 --------------------
 
-There are two unit parameters:
+There are three unit parameters:
 
 * ``"pump_type"`` - the type of water pumping station:
 
@@ -20,6 +22,11 @@ There are two unit parameters:
 * ``"pump_power"`` - pump power if available [hp]:
 
     * Optional parameter
+|
+* ``"lift_height"`` - amount of dynamic head [ft]:
+
+    * Optional parameter
+    * Default value is 100 ft
 |
 Capital Costs
 ---------------
@@ -44,12 +51,15 @@ For ``"pump_type"`` = "treated":
 Electricity Intensity
 ------------------------
 
-If there is no input for ``"pump_power"``, electricity intensity is a function of flow [gpm]:
+If there is no input for ``"pump_power"``, electricity intensity is a function of flow [gpm] and
+the unit parameter ``"lift_height"`` `h`:
 
     .. math::
 
-        E_{wps} = 0.1024 \frac{Q_{in}}{440.3}
+        E_{wps} = \frac{0.746 Q_{gpm} h}{3960 \eta_{pump} \eta_{motor} Q_{in}}
 |
+With assumed pump and motor efficiencies of 90%.
+
 Otherwise, the input for ``"pump_power"`` is converted from horsepower to kW and electricity
 intensity is:
 
@@ -68,7 +78,7 @@ Water Pumping Station Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.water_pumping_station.UnitProcess
-    :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
+    :members: fixed_cap, elect, get_costing
     :exclude-members: build
 
 

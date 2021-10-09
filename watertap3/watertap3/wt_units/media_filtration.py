@@ -8,6 +8,8 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 # Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura) (2008)
 # DOI:10.1002/9780470260036
 ## ELECTRICITY:
+# An Analysis of Energy Consumption and the Use of Renewables for a Small Drinking Water Treatment Plant
+# Water 2020, 12, 28; doi:10.3390/w12010028
 
 module_name = 'media_filtration'
 basis_year = 2007

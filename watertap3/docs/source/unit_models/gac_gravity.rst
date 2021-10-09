@@ -1,3 +1,5 @@
+.. _gac_gravity_unit:
+
 GAC - Gravity
 ============================================================
 
@@ -59,10 +61,10 @@ References
 | https://www.epa.gov/sites/production/files/2019-03/documents/wbs-gac-documentation-dec-2017_v2.pdf
 | https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
-Unit Template
+GAC - Gravity Module
 ----------------------------------------
 
-.. autoclass:: watertap3.wt_units.gac_pressure_vessel.UnitProcess
+.. autoclass:: watertap3.wt_units.gac_gravity.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
 

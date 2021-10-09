@@ -10,8 +10,7 @@ def cost_curve(unit_process, **kwargs):
     df = pd.read_csv('data/cost_curves.csv', index_col='unit_process')
     df = df.loc[unit_process]
 
-    params = ['flow_in_mgd', 'flow_in', 'flow_in_avg_mgd', 'flow_in_avg', 'cap_direct', 'cap_other', 'cap_indirect', 'cap_total', 'labor', 'materials', 'other', 'electricity_annual',
-              'electricity_flow', 'tds_in', 'num_stage', 'radon_rem', 'ebct']
+    params = ['flow_in', 'cap_total', 'electricity_intensity', 'tds_in', 'num_stage', 'radon_rem', 'ebct']
 
     def power(x, a, b):
         return a * x ** b
@@ -59,7 +58,7 @@ def cost_curve(unit_process, **kwargs):
         mats_cost[mat] = np.mean(df[mat])
     x = df.flow_in.to_list()
     y_cost = df.cap_total.to_list()
-    y_elect = df.electricity_flow.to_list()
+    y_elect = df.electricity_intensity.to_list()
 
     cost, _ = curve_fit(power, x, y_cost)
     elect, _ = curve_fit(power, x, y_elect)

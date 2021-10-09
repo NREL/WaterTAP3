@@ -32,7 +32,7 @@ class UnitProcess(WT3UnitProcess):
             self.dose = self.chlorine_decay_rate * self.contact_time + self.ct / self.contact_time_mins
         chem_name = unit_params['chemical_name']
         self.chem_dict = {chem_name: self.dose * 1E-3}
-        self.df = df = pd.read_csv('data/chlorine_dose_cost_twb.csv')
+        self.df = df = pd.read_csv('data/chlorine_dose_cost.csv')
         self.new_dose_list = new_dose_list = np.arange(0, 25.1, 0.1)
         self.cost_list = cost_list = []
         self.flow_list = flow_list = []

@@ -29,7 +29,7 @@ class UnitProcess(WT3UnitProcess):
 
         * Number of units = 2
 
-        :return: Alum addition fixed capital cost [$MM]
+        :return: CO2 addition fixed capital cost [$MM]
         '''
         self.chem_dict = {}
         time = self.flowsheet().config.time.first()

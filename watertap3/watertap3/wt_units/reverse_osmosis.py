@@ -171,6 +171,7 @@ class UnitProcess(WT3UnitProcess):
         t = self.flowsheet().config.time.first()
         time = self.flowsheet().config.time
         sys_cost_params = self.parent_block().costing_param
+        self.parent_block().has_ro = True
 
         self.del_component(self.outlet_pressure_constraint)
         self.del_component(self.waste_pressure_constraint)
