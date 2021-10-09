@@ -1,3 +1,5 @@
+.. _constituent_removal:
+
 Constituent Removal
 =============================
 
@@ -5,7 +7,7 @@ Constituent Removal
 
 Constituent removal `r` is represented as the fraction (between zero and one) of the mass of the
 constituent being removed after it is passes through a unit process. Case-study based constituent
-removal is given for certain unit processes if the case study has a unique recovery rate,
+removal is given for certain unit processes if the case study has a unique removal rate,
 otherwise default value are used.
 
 The constituent removal data table states how much each unit process in each treatment facility removes
@@ -35,7 +37,17 @@ And therefore the mass flow out of the unit (i.e. to the next unit process) can 
 |
 The constituent removal input dataset is arranged into the following columns:
 
-* **units**: The units used for the constituent, such as kg/m3 (constituent concentration)
+* **case_study**: The treatment facility name.
+
+* **scenario**: The name of the scenario associated with the removal fraction.
+
+* **units**: The units used for the constituent, such as kg/m3 (constituent concentration).
+
+* **unit_process**: The unit process with the associated removal.
+
+* **value**: The fraction or percent of the constituent in the source water that will be removed.
+
+* **constituent**: The constituent being removed as named in the model.
 
 * **calculation_type**: How the model will handle the values when the unit process changes the
   constituent level, ultraviolet transmittance, or pH.
@@ -44,19 +56,13 @@ The constituent removal input dataset is arranged into the following columns:
     * *absolute_value*: percent removal for ultraviolet transmittance
     * *delta_constituent_or_property*: when the pH is changed
 |
-* **unit_process**: Which unit process is removing the constituent.
-
-* **case_study**: The treatment facility name.
-
-* **value**: The fraction or percent of the constituent in the source water that will be removed.
-
-* **data_source**: The source of the data values and how values were calculated.
-
-* **constituent**: The constituent being removed as named in the model
-
-* **scenario**: The name of the scenario that the values correspond with
-
 * **reference**: The name of the project that is using the mode
+
+* **data_reference**: The source of the data values and how values were calculated. Not used in
+  the model but presented for user reference.
+
+* **constituent_longform**: The longform name of the constituent. Not used in the model but
+  presented for user reference.
 
 
 ..  raw:: pdf

@@ -1,7 +1,9 @@
+.. _treatment_train_setup:
+
 Treatment Train Setup
 ================================
 
-``data/treatment_train_setup.xlsx``
+``data/treatment_train_setup.csv``
 
 This is the input file used to arrange and connect unit processes in the proper order and with
 the proper flows to create a treatment train according to the user’s design.
@@ -80,6 +82,9 @@ The columns are:
       ``' '`` or double ``" "`` quotes. If it is a number, it *must not* be in quotes.
 |
 |
+
+.. _treatment_train_example:
+
 Treatment Train Example
 *****************************
 

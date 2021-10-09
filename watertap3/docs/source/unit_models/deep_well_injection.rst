@@ -1,3 +1,5 @@
+.. _deep_well_injection_unit:
+
 Deep Well Injection
 ==========================
 
@@ -8,7 +10,7 @@ Unit Parameters
 
 Deep well injection has two parameters:
 
-* ``"lift_height"`` - lift height for injection pump [ft]:
+* ``"lift_height"`` - dynamic head for injection pump [ft]:
 
     * Optional parameter
     * Default value is 400 ft
@@ -78,7 +80,7 @@ Reference
 ---------------------
 
 
-Module
+Deep Well Injection Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.deep_well_injection.UnitProcess

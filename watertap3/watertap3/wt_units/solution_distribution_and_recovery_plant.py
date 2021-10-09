@@ -33,27 +33,19 @@ class UnitProcess(WT3UnitProcess):
             self.recycle_water = self.ore_heap_soln - self.make_up_water
             self.make_up_water = pyunits.convert(self.make_up_water * self.mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
             self.recycle_water = pyunits.convert(self.recycle_water * self.mining_capacity, to_units=(pyunits.m ** 3 / pyunits.hour))
-        self.mine_equip = 0.00124 * self.mining_capacity ** 0.93454
-        self.mine_develop = 0.01908 * self.mining_capacity ** 0.43068
-        self.crushing = 0.0058 * self.mining_capacity ** 0.6651
-        self.leach = 0.0005 * self.mining_capacity ** 0.94819
-        self.stacking = 0.00197 * self.mining_capacity ** 0.77839
+
         self.dist_recov = 0.00347 * self.mining_capacity ** 0.71917
-        self.subtotal = (self.mine_equip + self.mine_develop + self.crushing + self.leach + self.stacking + self.dist_recov)
-        self.perc = 0.3102 * self.mining_capacity ** 0.1119  # regression made by kurby in excel - mining capacity vs percent of subtotal
+
+        self.perc = 0.3102 * self.mining_capacity ** 0.1119  # regression made by KAS in excel - mining capacity vs percent of subtotal
         if value(self.perc) > 1:
             self.perc = 1
-        self.other = self.subtotal * self.perc
-        self.stacking_basis = self.stacking * (1 + self.perc)
-        self.stacking_exp = (self.mine_equip * 0.935 + self.mine_develop * 0.431 + self.crushing * 0.665 + self.leach * 0.948 + self.stacking * 0.778 + self.dist_recov * 0.719) / (
-                self.mine_equip + self.mine_develop + self.crushing + self.leach + self.stacking + self.dist_recov)
+
         self.dist_recov_basis = self.dist_recov * (1 + self.perc)
-        self.stacking_op = 6.28846 * self.mining_capacity ** 0.56932
+
         self.dist_recov_op = 7.71759 * self.mining_capacity ** 0.91475
         self.dist_recov_exp = 0.719
-        self.dist_recov_other = self.dist_recov_op / self.make_up_water
-        self.other_var_cost = self.dist_recov_other
-        self.stacking_other = self.stacking_op / self.make_up_water
+        self.dist_recov_other = self.dist_recov_op * 1E-6 * 365
+        self.costing.other_var_cost = self.dist_recov_other
 
         self.flow_factor = self.flow_in / self.recycle_water
         self.chem_dict = {}
@@ -61,6 +53,7 @@ class UnitProcess(WT3UnitProcess):
         return dist_recov_cap
 
     def elect(self):
+        # electricity = 1.8 * pyunits.convert(self.mining_capacity, to_units=(pyunits.tonnes / pyunits.hour)) / self.recycle_water
         electricity = 0
         return electricity
 

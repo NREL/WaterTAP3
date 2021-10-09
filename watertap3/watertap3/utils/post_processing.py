@@ -204,6 +204,15 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     unit_list.append('$/m3')
     unit_kinds.append('System')
 
+    value_list.append(value(m.fs.costing.LCOW_inflow))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_inflow')
+    category.append('LCOW')
+    variable_list.append('System LCOW by Inflow')
+    unit_list.append('$/m3')
+    unit_kinds.append('System')
+
     value_list.append(value(m.fs.costing.capital_investment_total))
     python_var.append('system')
     up_nice_name_list.append('System')
@@ -380,7 +389,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     unit_list.append('m3/s')
     unit_kinds.append('System')
 
-    value_list.append(m.fs.costing.capital_recovery_factor)
+    value_list.append(value(m.fs.costing.capital_recovery_factor))
     python_var.append('system')
     up_nice_name_list.append('System')
     python_param.append('capital_recovery_factor')
@@ -389,7 +398,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     unit_list.append('%')
     unit_kinds.append('System')
 
-    value_list.append(m.fs.costing_param.wacc)
+    value_list.append(value(m.fs.costing_param.wacc))
     python_var.append('system')
     up_nice_name_list.append('System')
     python_param.append('wacc')
@@ -407,7 +416,7 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     unit_list.append('%')
     unit_kinds.append('System')
 
-    value_list.append(m.fs.costing_param.plant_lifetime_yrs)
+    value_list.append(value(m.fs.costing_param.plant_lifetime_yrs))
     python_var.append('system')
     up_nice_name_list.append('System')
     python_param.append('plant_lifetime_yrs')
@@ -434,10 +443,10 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     unit_list.append(m.fs.costing_param.location.title())
     unit_kinds.append('System')
 
-    value_list.append(m.fs.costing_param.analysis_yr_cost_indicies)
+    value_list.append(m.fs.costing_param.analysis_yr_cost_indices)
     python_var.append('system')
     up_nice_name_list.append('System')
-    python_param.append('analysis_yr_cost_indicies')
+    python_param.append('analysis_yr_cost_indices')
     category.append('Costing')
     variable_list.append('Analysis Year Basis')
     unit_list.append(None)

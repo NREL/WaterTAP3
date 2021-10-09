@@ -15,7 +15,7 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, uni
 
     unit_params = m.fs.pfd_dict[unit_process_name]['Parameter']
 
-    if 'basic' in unit_process_type:
+    if unit_process_type == 'basic_unit':
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={'property_package': m.fs.water}))
         basic_unit_name = unit_params['unit_process_name']
         m = create(m, basic_unit_name, unit_process_name)
@@ -24,11 +24,12 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, uni
         setattr(m.fs, unit_process_name, up_module.UnitProcess(default={'property_package': m.fs.water}))
         m = create(m, unit_process_type, unit_process_name)
 
-
-    getattr(m.fs, unit_process_name).get_costing(unit_params=unit_params)
     unit = getattr(m.fs, unit_process_name)
+    unit.unit_type = unit_process_type
     unit.unit_name = unit_process_name
     unit.unit_kind = unit_process_kind
+    unit.unit_params = unit_params
+    unit.get_costing(unit_params=unit_params)
 
     return m
 

@@ -19,7 +19,7 @@ __all__ = [
            'add_waste_streams'
            ]
 
-def get_case_study(m=None, new_df_units=None, print_it=True):
+def get_case_study(m=None, new_df_units=None):
 
     if new_df_units is not None:
         m.fs.df_units = new_df_units
@@ -32,27 +32,26 @@ def get_case_study(m=None, new_df_units=None, print_it=True):
         m.fs.new_case_study = False
 
     pfd_dict = m.fs.pfd_dict
-    financials.get_system_specs(m.fs, m.fs.train)
+    financials.get_system_specs(m.fs)
 
     # add the water parameter block to generate the list of constituent variables in the model
     m.fs.water = WaterParameterBlock()
 
     # add units to model
-    if print_it:
-        print('\n------- Adding Unit Processes -------')
+    print('\n------- Adding Unit Processes -------')
     for unit_process_name in pfd_dict.keys():
         unit = unit_process_name.replace('_', ' ').swapcase()
         unit_process_type = pfd_dict[unit_process_name]['Unit']
         unit_process_kind = pfd_dict[unit_process_name]['Type']
-        if print_it:
-            print(unit)
+
+        print(unit)
         m = design.add_unit_process(m=m,
                                     unit_process_name=unit_process_name,
                                     unit_process_type=unit_process_type,
                                     unit_process_kind=unit_process_kind)
 
-    if print_it:
-        print('-------------------------------------\n')
+
+    print('-------------------------------------\n')
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, m.fs.flow_in_dict)
@@ -223,7 +222,7 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
                 split_dict = m.fs.split_dict = {}
                 w = 0
                 for uname in m.fs.pfd_dict[j[0]]['ToUnitName']:
-                    if m.fs.pfd_dict[j[0]]["FromPort"][w] == "outlet":
+                    if m.fs.pfd_dict[j[0]]['FromPort'][w] == 'outlet':
                         if 'split_fraction' in m.fs.pfd_dict[j[0]]['Parameter']:
                             split_dict[uname] = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction'][w]
                             w += 1

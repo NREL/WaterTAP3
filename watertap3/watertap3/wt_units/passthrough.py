@@ -21,8 +21,6 @@ class UnitProcess(WT3UnitProcess):
 
         :return:
         '''
-        time = self.flowsheet().config.time.first()
-        self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.chem_dict = {}
         passthrough_cap = 0
         return passthrough_cap

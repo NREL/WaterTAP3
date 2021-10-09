@@ -1,3 +1,5 @@
+.. _watertap3_framework:
+
 WaterTAP3 Framework
 ========================
 
@@ -5,14 +7,16 @@ WaterTAP3 simulates steady-state water treatment train performance and costs inc
 constituent mass balance across unit processes, based on source water conditions, configurations
 of treatment technologies, and system-level techno-economic assumptions. Capital costs, operating
 costs, and unit performance are estimated for both individual treatment processes and the system
-as a whole. Users can perform new analysis either by selecting a premade train from the treatment
+as a whole. Users can perform new analysis either by selecting an existing train from the treatment
 train library or connecting any number of unit processes together in a custom configuration.
 
 The model contains various technical and cost parameter options for several treatment technology
 models and a library of influent water quality characteristics for a variety of source waters.
-Users can customize water quality parameters to evaluat technology performance for their unique
+Users can customize water quality parameters to evaluate technology performance for their unique
 conditions. The model can be used for different assessment needs, including process simulation,
 optimization, uncertainty analysis, and sensitivity analysis.
+
+.. _model_structure:
 
 Model Structure
 ----------------------
@@ -35,8 +39,9 @@ Much like actual treatment technologies, material and energy exchanges in WaterT
 by "ports" assigned to each unit process. Each water source and unit process is added as an
 attribute to the flowsheet and by default are given one inlet port, one outlet port, and one
 waste port. Additional inlet and outlet ports are added dynamically based on the input file
-(``treatment_train_setup.xlsx`` - discussed in a later section). Flow and mass balance is
-achieved across each unit process based on water recovery values and constituent removal factors.
+(``treatment_train_setup.csv`` - discussed in the :ref:`treatment_train_setup` section of this
+documentation). Flow and mass balance is achieved across each unit process based on water
+recovery values and constituent removal factors.
 
 ..  raw:: pdf
 

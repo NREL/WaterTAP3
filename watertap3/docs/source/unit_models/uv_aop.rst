@@ -1,3 +1,5 @@
+.. _uv_aop_unit:
+
 UV + AOP
 ============================================================
 
@@ -29,7 +31,7 @@ This module has one required parameter and three optional parameters for the inp
     * Default value is 100 mJ/cm2
     * Must be <1200 in increments of 10
 |
-* ``"chemical_name"`` - name of chemical used for oxidant
+* ``"chemical_name"`` - name of chemical used for oxidant:
 
     * Optional parameter
     * No default value
@@ -73,7 +75,7 @@ Oxidant costs are calculated with:
 
     .. math::
 
-        C_{ox} = 1228 ( Q_{in} * D_{ox} ) ^ {0.2277}
+        C_{ox} = 1228 ( Q_{in} D_{ox} ) ^ {0.2277}
 |
 Where the oxidant dose [kg/m3] is taken from the input parameter ``"dose"``.
 
@@ -86,7 +88,7 @@ If ``"aop"`` is ``False`` in the unit parameters:
 Electricity Intensity
 -------------------------
 
-Electricity intensity for chlorination is fixed at 0.1 kWh/m3 and is taken from USEPA (2010).
+Electricity intensity for UV/AOP is fixed at 0.1 kWh/m3 and is taken from USEPA (2010).
 
 References
 -----------

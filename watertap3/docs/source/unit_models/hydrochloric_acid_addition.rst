@@ -1,3 +1,5 @@
+.. _hydrochloric_acid_addition_unit:
+
 Hydrochloric Acid Addition
 =====================================
 

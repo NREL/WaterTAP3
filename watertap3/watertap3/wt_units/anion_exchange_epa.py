@@ -7,7 +7,7 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 module_name = 'anion_exchange_epa'
 basis_year = 2012
-tpec_or_tic = 'TPEC'
+tpec_or_tic = 'TIC'
 
 
 class UnitProcess(WT3UnitProcess):
@@ -55,7 +55,7 @@ class UnitProcess(WT3UnitProcess):
 
         ix_cost = pv_cost + self.resin_cap
 
-        return ix_cost * 1E-6
+        return ix_cost * 1E-6 * self.tpec_tic
 
     def elect(self):  # m3/hr
         t = self.flowsheet().config.time.first()

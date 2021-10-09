@@ -1,3 +1,5 @@
+.. _caustic_soda_addition_unit:
+
 Caustic Soda Addition
 =====================================
 
@@ -20,17 +22,16 @@ The caustic soda flow `S` [gal\day] is used in a cost curve of the general form:
     .. math::
 
         C = a S ^ b
-|
+
 For a single caustic soda addition unit, `a` = 2262.8 and `b` = 0.6195. The full cost equation in
 WaterTAP3 is:
 
     .. math::
 
         C_{NaOH} = 2262.8 S ^ {0.6195}
-|
+
 This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
-chemical addition. These parameters were determined by fitting data from FIGURE 5.5.12b - SODIUM
-HYDROXIDE FEED in McGivney & Kawamura (2008).
+chemical addition. These parameters were determined by fitting data from Figure 5.5.12b in McGivney & Kawamura (2008).
 
 
 Electricity Intensity
@@ -89,7 +90,7 @@ Reference
 | Cost Estimating Manual for Water Treatment Facilities
 | DOI:10.1002/9780470260036
 
-Caustic Soda Module
+Caustic Soda Addition Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.caustic_soda_addition.UnitProcess

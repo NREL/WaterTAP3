@@ -1,3 +1,5 @@
+.. _gac_pressure_vessel_unit:
+
 GAC - Pressure Vessel
 ============================================================
 
@@ -62,7 +64,7 @@ References
 | https://www.epa.gov/sites/production/files/2019-03/documents/wbs-gac-documentation-dec-2017_v2.pdf
 | https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
-Unit Template
+GAC - Pressure Vessel Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.gac_pressure_vessel.UnitProcess

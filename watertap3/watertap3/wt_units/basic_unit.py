@@ -20,7 +20,7 @@ class UnitProcess(WT3UnitProcess):
         flow_in_m3yr = pyunits.convert(self.flow_in, to_units=(pyunits.m ** 3 / pyunits.year))
 
         if self.unit_process_name == "tramp_oil_tank":
-            disposal_cost = 0.00114 # Kiran's disposal cost assumption $/m3
+            disposal_cost = 0.000114 # Kiran's disposal cost assumption $/m3
             self.costing.other_var_cost = flow_in_m3yr * disposal_cost * sys_cost_params.plant_cap_utilization
 
         if self.kind == 'flow':

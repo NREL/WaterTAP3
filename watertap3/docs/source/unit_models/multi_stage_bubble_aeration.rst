@@ -1,3 +1,5 @@
+.. _multi_stage_bubble_aeration_unit:
+
 Multi-Stage Bubble Aeration
 ============================================================
 
@@ -55,7 +57,7 @@ References
 | https://www.epa.gov/sites/production/files/2019-03/documents/wbs-msba-documentation-dec-2017_v2.pdf
 | https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 
-Unit Template
+Multi-Stage Bubble Aeration Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.multi_stage_bubble_aeration.UnitProcess

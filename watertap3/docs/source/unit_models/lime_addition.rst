@@ -1,3 +1,5 @@
+.. _lime_addition_unit:
+
 Lime Addition
 =====================================
 
@@ -28,8 +30,8 @@ WaterTAP3 is:
         C_{lime} = 16972 S ^ {0.5435}
 |
 This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
-chemical addition. These parameters were determined by fitting data from FIGURE 5.5.9 - LIME FEED
-in McGivney & Kawamura (2008).
+chemical addition. These parameters were determined by fitting data from Figure 5.5.9 in McGivney
+& Kawamura (2008).
 
 Electricity Intensity
 ------------------------

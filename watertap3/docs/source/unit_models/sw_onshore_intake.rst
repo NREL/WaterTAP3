@@ -1,3 +1,5 @@
+.. _sw_onshore_intake_unit:
+
 Seawater Intake
 ============================================================
 
@@ -44,7 +46,7 @@ Then the electricity intensity is calculated as:
 
     .. math::
 
-        E_{surf} = \frac{0.746 Q_{gpm} h}{3960 \eta_{pump} \eta_{motor} Q_{m3hr}}
+        E_{sw} = \frac{0.746 Q_{gpm} h}{3960 \eta_{pump} \eta_{motor} Q_{m3hr}}
 |
 
 Assumptions
@@ -65,7 +67,7 @@ Seawater Intake Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.sw_onshore_intake.UnitProcess
-    :members: fixed_cap, elect, uv_regress, get_costing, solution_vol_flow
+    :members: fixed_cap, elect, get_costing
     :exclude-members: build
 
 

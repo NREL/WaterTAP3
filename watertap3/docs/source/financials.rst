@@ -1,15 +1,27 @@
+.. _financials:
+
 Financials
 ============================================================
 
-This page describes the different costing and pipe partiy metrics calculated in WaterTAP3 and how
+This page describes the different costing and pipe parity metric outputs from WaterTAP3 and how
 they are calculated in the model.
+
+.. _financials_costing_indices_and_factors:
 
 Costing Indices and Factors
 -----------------------------------
 
-Costing indicies are available in ``plant_cost_indices.csv`` located in the data folder.
+Costing indices are available in ``plant_cost_indices.csv`` located in the data folder. The
+headings are:
 
-There are four types of cost indices applied in WaterTAP3 – Capital, Catalysts and Chemicals, Labor and Consumer Price Index.
+    * *Year*:  The year for the costing index.
+    * *Capital_Index*: The capital index for the given year.
+    * *CatChem_Index*: The catalyst and chemical index for the given year.
+    * *Labor_Index*: The labor index for the given year.
+    * *CPI_Index*: The consumer price index (CPI) for the given year.
+
+There are four types of cost indices applied in WaterTAP3 – Capital, Catalysts and Chemicals,
+Labor and Consumer Price Index. WaterTAP3 calculates each of these indices for 1990-2050.
 These factors are used to help account for the time-value of investments and are used in the capital
 and operating cost calculations. The following index factors are calculated for each process model in the treatment train based on:
 
@@ -18,7 +30,7 @@ and operating cost calculations. The following index factors are calculated for 
   This value is process-model-dependent with potentially different values across unit models
   within a treatment train.
 
-The four cost indicies are (where `Y` is the year):
+The four cost indices are (where `Y` is the year):
 
 * Capital Cost Index Factor:
 
@@ -112,6 +124,9 @@ There are also various assumed costing factors for each case study read in from 
 
         WACC
 |
+
+.. _financials_financial_basis_inputs:
+
 Financial Basis Inputs
 -----------------------------------------------
 
@@ -164,6 +179,9 @@ The input dataset is arranged into the following columns:
       is a part of the total and fixed capital investment calculations.
 
 |
+
+.. _financials_system_capital_costs:
+
 System Capital Costs
 -----------------------------------
 
@@ -244,12 +262,17 @@ And:
 
         C_{work} = f_{work} FCI
 |
+
+.. _financials_system_operating_costs:
+
 System Operating Costs
 -----------------------------------
 
 WaterTAP3 considers both variable and fixed operating costs. Variable operating costs are dependent on the flow
 rate and capacity utilization of each treatment technology, while fixed costs are dependent on
 the capital costs of the treatment facility.
+
+.. _financials_variable_operating_costs:
 
 Variable Operating Costs
 **********************************
@@ -266,7 +289,7 @@ annual chemical costs [$MM/yr] are calculated as:
         C_{chem} = \sum_{k}^{n} D_k C_k Q_{in} f_{util}
 |
 Where `D` is the dose [kg/m3] of chemical `k` and `C` is the unit cost [$/kg] of chemical `k` as
-found in ``catalysts_chemicals.csv``.
+found in :ref:`data_catalyst_chemicals`.
 
 Electricity costs are based on the electricity intensity [kWh/m3] of each unit process, which is
 provided as a constant or calculated based on the configuration of the treatment process (see unit models for details).
@@ -277,10 +300,12 @@ The annual electricity costs [$MM/yr] are calculated as:
         C_{elec} = \sum_{k}^{n} E_k Q_{in} f_{util} P
 |
 Where `E` is the electricity intensity [kWh/m3] for unit `k` and `P` is the price of electricity
-for the locale [$/kWh].
+for the locale [$/kWh], taken from the :ref:`data_electricity_costs` data file.
 
 There is also possibility for the inclusion of other operating costs that are unit specific. For
 most units, there are no costs included in this category.
+
+.. _financials_fixed_operating_costs:
 
 Fixed Operating Costs
 **********************************
@@ -315,6 +340,9 @@ Plant insurance and taxes are calculated according to:
 
         C_{ins} = f_{ins} FCI
 |
+
+.. _financials_total_and_annual_operating_costs:
+
 Total & Annual Operating Costs
 **********************************
 
@@ -330,8 +358,13 @@ And annual operating costs are:
 
         C_{op,an} = C_{chem} + C_{elec} + C_{other} + C_{op,tot}
 |
+
+.. _financials_pipe_parity_metrics:
+
 Pipe Parity Metrics
 ---------------------------------------
+
+.. _financials_lcow:
 
 Levelized Cost of Water (LCOW)
 **************************************
@@ -351,7 +384,7 @@ With the capital recovery factor:
 |
 And `V` is the total volume of treated water that goes toward a beneficial use. In
 WaterTAP3, this is the volume of water that flows through any unit designated as a "use" in the
-input sheet ``treatment_train_setup.xlsx``.
+input sheet ``treatment_train_setup.csv``.
 
 The individual components that sum to the total LCOW are calculated as:
 
@@ -375,7 +408,7 @@ The chemical cost LCOW is calculated as:
 
     .. math::
 
-        LCOW_{other} = \frac{ C_{chem}}{ V_{treat} f_{util} }
+        LCOW_{chem} = \frac{ C_{chem}}{ V_{treat} f_{util} }
 |
 The other cost LCOW is calculated as:
 

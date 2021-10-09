@@ -38,7 +38,7 @@ class UnitProcess(WT3UnitProcess):
         try:
             pump = unit_params['pump']
         except:
-            pump = 'yes'
+            pump = 'no'
         self.lift_height = 100 * pyunits.ft
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless

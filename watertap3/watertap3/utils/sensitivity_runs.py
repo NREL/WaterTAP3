@@ -1,5 +1,5 @@
 from pyomo.environ import value
-from watertap3.utils import run_water_tap, get_results_table
+from watertap3.utils import run_model, get_results_table
 
 __all__ = ['get_fixed_onm_reduction']
 
@@ -23,7 +23,7 @@ def get_fixed_onm_reduction(m = None, reduction_value_list = None, skip_small=No
             fix_value = fixed_onm_v_dict[fixed_onm_v] * reduction_value
             getattr(m.fs.costing_param, fixed_onm_v).fix(fix_value)
 
-        run_water_tap(m=m, objective=True, skip_small=skip_small, print_model_results="summary")
+        run_model(m=m, objective=True, skip_small=skip_small, print_model_results="summary")
         df_no2 = get_results_table(m=m, case_study=m.fs.train["case_study"],
                                           scenario=("%s_fixed_onm_reduction" % (100 * reduction_value)))
         

@@ -1,3 +1,5 @@
+.. _ammonia_addition_unit:
+
 Ammonia Addition
 =====================================
 
@@ -29,8 +31,7 @@ WaterTAP3 is:
         C_{amm} = 6699.1 S ^ {0.4219}
 |
 This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
-chemical addition. These parameters were determined by fitting data from FIGURE 5.5.11 - AQUA
-AMMONIA FEED 29% SOLUTION in McGivney & Kawamura (2008).
+chemical addition. These parameters were determined by fitting data from Figure 5.5.11 in McGivney & Kawamura (2008).
 
 Electricity Intensity
 ------------------------
@@ -89,7 +90,7 @@ Reference
 | Cost Estimating Manual for Water Treatment Facilities
 | DOI:10.1002/9780470260036
 
-Sodium Bisulfite Module
+Ammonia Addition Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.ammonia_addition.UnitProcess

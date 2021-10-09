@@ -1,3 +1,5 @@
+.. _co2_addition_unit:
+
 Carbon Dioxide Addition
 =====================================
 

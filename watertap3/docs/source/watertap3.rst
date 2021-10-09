@@ -1,11 +1,13 @@
+.. _watertap3_overview:
+
 WaterTAP3 Overview
 ========================
 
-The Water Technoeconomic Assment Pipe-Parity Platform (WaterTAP3) was developed under the
-National Alliance for Water Innovation (NAWI) to facilitate consistent technoecnomic assessments
+The Water Technoeconomic Assessment Pipe-Parity Platform (WaterTAP3) was developed under the
+National Alliance for Water Innovation (NAWI) to facilitate consistent technoeconomic assessments
 of desalination treatment trains. It is an analytically robust modeling tool that can be used to
 evaluate cost, energy, and environmental tradeoffs of water treatment technology
-across differentw ater sources, sectors, and scales.
+across different water sources, sectors, and scales.
 
 WaterTAP3 is publicly accessible and based on open-source models and data. The model is designed
 to be flexible and customizable to allow users to adapt or create new treatment trains and process
@@ -18,7 +20,9 @@ Examples of WaterTAP3 applications include:
     * Performing ongoing project evaluation for NAWI funded research.
     * Conducting technoeconomic and life-cycle assessments of water technologies and systems
       across the water industry (in development).
+|
 
+.. _watertap3_installation:
 
 WaterTAP3 Installation
 ----------------------------
@@ -79,11 +83,14 @@ current GitHub repo available at https://github.com/NREL/WaterTAP3:
     * For Jupyter Lab - ``jupyter lab``
 
 |
+
+.. _watertap3_cost_estimates:
+
 WaterTAP3 Cost Estimates
 ----------------------------
 
 Cost estimations are represented at the unit process level (i.e. per treatment technology in the
-train) and aggregated to the system-level. Esttimated costs include:
+train) and aggregated to the system-level. Estimated costs include:
 
 * Capital investment
 * Annual operation and maintenance
@@ -91,12 +98,15 @@ train) and aggregated to the system-level. Esttimated costs include:
     * Fixed (labor, maintenance)
     * Variable (energy, chemical)
 |
+
+.. _watertap3_outputs:
+
 WaterTAP3 Outputs
 ----------------------------
 
 The key performance metrics from WaterTAP3 currently include:
 
-    * Levelized Cost of Water: cost per unit of treated water
+    * Levelized Cost of Water (LCOW): cost per unit of treated water
     * Energy intensity: direct energy consumption per unit of treated water
     * Water recovery: the percentage of water recovered for a beneficial use
     * Constituent removal: the percentage of constituent mass removed from the source water
@@ -109,6 +119,9 @@ Other outputs in development include:
     * System resiliency and security
 
 |
+
+.. _watertap3_impacts:
+
 WaterTAP3 Impacts
 -----------------------------
 

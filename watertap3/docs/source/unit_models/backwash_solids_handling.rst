@@ -1,3 +1,5 @@
+.. _backwash_solids_handling_unit:
+
 Backwash Solids Handling
 ============================================================
 
@@ -10,7 +12,7 @@ Unit Parameters
 
 There is one parameter for backwash solids handling:
 
-*``"recovery"`` - proportion of flow recycled back to treatment technology
+* ``"recovery"`` - proportion of flow recycled back to treatment technology
 
     * Required parameter
     * Value between 0 and 1
@@ -89,7 +91,7 @@ References
 | Cost Estimating Manual for Water Treatment Facilities
 | DOI:10.1002/9780470260036
 
-Unit Template
+Backwash Solids Handling Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.backwash_solids_handling.UnitProcess

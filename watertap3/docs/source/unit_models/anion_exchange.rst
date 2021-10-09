@@ -1,3 +1,5 @@
+.. _anion_exchange_unit:
+
 Anion Exchange
 ============================================================
 
@@ -13,29 +15,25 @@ for WT3) also affects cost. The EPA model outputs several costing parameters, in
 capital cost.
 
 The approach for the WT3 model is to regress the total capital cost output from the EPA model vs.
-flow for  each ofthe EPA model standard designs using influent sulfate of 50, 100, and 150 mg/L.
-The different capital costs for each of these model runs is determined from the user input
-``tds_in``. i.e. the cost curve is different if the influent sulfate is 100 mg/L vs. 900 mg/L. A
-similar approach is taken to determine electricity intensity.
+flow for  each of vthe EPA model standard designs using influent TDS of 200, 600, and 1000 mg/L.
+The different capital costs for each of these model runs is determined from the TDS into the
+unit, which is determined dynamically by WaterTAP3 (e.g. the cost curve is different if the
+influent TDS is 100 mg/L vs. 900 mg/L). A similar approach is taken to determine electricity
+intensity.
 
 Both sets of data are fit to a power curve:
 
     .. math::
 
         Y = a Q ^ b
-|
+
 Where `Q` is the flows for the standard design EPA models. Then `a` and `b` are used with the
 flow in for the particular case study.
 
 Unit Parameters
 --------------------
 
-Anion exchange has one parameter:
-
-* ``"tds_in"`` - the influent sulfate to the unit [mg/L]:
-
-    * Required parameter
-    * There are different costing data for 0-50, 50-100, and >150 mg/L
+None.
 
 Capital Costs
 ---------------
@@ -47,7 +45,7 @@ unit flow [m3/hr] to determine capital costs:
     .. math::
 
         C_{ax} = a Q_{in} ^ b
-|
+
 
 Electricity Intensity
 ------------------------
@@ -60,7 +58,8 @@ the unit flow [m3/hr] to determine capital costs:
 
         E_{ax} = a Q_{in} ^ b
 
-|
+
+
 Chemical Use
 --------------
 
@@ -76,9 +75,14 @@ References
 | "Work Breakdown Structure-Based Cost Model for Anion Exchange Drinking Water Treatment"
 | https://www.epa.gov/sites/production/files/2019-03/documents/wbs-anion-documentation-dec-2017_v3.pdf
 
-Unit Template
+Anion Exchange Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.anion_exchange.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+
+..  raw:: pdf
+
+    PageBreak

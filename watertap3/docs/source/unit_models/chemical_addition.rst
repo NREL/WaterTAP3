@@ -1,3 +1,5 @@
+.. _chemical_addition_unit:
+
 Generic Chemical Addition
 =====================================
 
@@ -11,7 +13,7 @@ folder. The entry must include a price per kg and a year for the unit price.
 Unit Parameters
 --------------------
 
-There are two unit parameters:
+There are four unit parameters:
 
 * ``"chemical_name"`` - the name of the chemical to be added:
 
@@ -24,6 +26,17 @@ There are two unit parameters:
 
     * Required parameter
     * Dose of chemical to be added
+|
+* ``lift_height"`` - dynamic head for chemical pump [ft]:
+
+    * Optional parameter
+    * Default value is 100 ft
+|
+* ``"pump_eff"`` and ``"motor_eff"`` - pump and motor efficiency:
+
+    * Optional parameters
+    * Default value for both is 0.9
+    * Must be provided together or default value for both is used.
 |
 Capital Costs
 ---------------
@@ -43,8 +56,7 @@ For a single unit, `a` = 900.97 and `b` = 0.6179. The full cost equation in Wate
         C_{chem} = 900.97 S ^ {0.6179}
 |
 This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
-chemical addition. These parameters were determined by fitting data from FIGURE 5.5.11 - SULFURIC
-ACID FEED in McGivney & Kawamura (2008).
+chemical addition. These parameters were determined by fitting data from Figure 5.5.11 in McGivney & Kawamura (2008).
 
 
 
