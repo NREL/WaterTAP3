@@ -226,12 +226,17 @@ def get_system_specs(m_fs):
                                   doc='Land cost as % FCI')
     b.plant_lifetime_yrs = Var(initialize=30,
                                doc='Plant lifetime [years')
+    b.plant_cap_utilization = Var(initialize=1,
+                                  doc='Plant capacity utilization [%]')
+    b.working_cap_percent_FCI = Var(initialize=0.008,
+                                    doc='Working capital as % FCI')
+    b.wacc = Var(initialize=0.05,
+                 doc='Weighted Average Cost of Capital (WACC)')
 
     # ADD THE REST AS VARIABLES.
 
     system_specs = SystemSpecs(m_fs.train)
 
-    b.location = system_specs.location
     b.electricity_price.fix(system_specs.elec_price)
     b.salaries_percent_FCI.fix(system_specs.salaries_percent_FCI)
     b.land_cost_percent_FCI.fix(system_specs.land_cost_percent_FCI)
@@ -239,11 +244,14 @@ def get_system_specs(m_fs):
     b.lab_fees_percent_FCI.fix(system_specs.lab_fees_percent_FCI)
     b.insurance_taxes_percent_FCI.fix(system_specs.insurance_taxes_percent_FCI)
     b.plant_lifetime_yrs.fix(system_specs.plant_lifetime_yrs)
-    b.analysis_yr_cost_indices = system_specs.analysis_yr_cost_indices
+
     b.benefit_percent_of_salary.fix(system_specs.benefit_percent_of_salary)
-    b.working_cap_percent_FCI = system_specs.working_cap_percent_FCI
-    b.plant_cap_utilization = system_specs.plant_cap_utilization  # 1.0
-    b.wacc = system_specs.debt_interest_rate
+    b.working_cap_percent_FCI.fix(system_specs.working_cap_percent_FCI)
+    b.plant_cap_utilization.fix(system_specs.plant_cap_utilization)  # 1.0
+    b.analysis_yr_cost_indices = system_specs.analysis_yr_cost_indices
+    b.wacc.fix(system_specs.debt_interest_rate)
+
+    b.location = system_specs.location
 
     b.tpec = 3.4
     b.tic = 1.65
@@ -257,7 +265,8 @@ def get_system_costing(self):
     if not hasattr(self, 'costing'):
         self.costing = Block()
     b = self.costing
-
+    time = unit.flowsheet().config.time
+    t = time.first()
     sys_specs = self.costing_param
 
     total_capital_investment_var_lst = []
@@ -267,15 +276,15 @@ def get_system_costing(self):
     total_fixed_op_cost_lst = []
     electricity_intensity_lst = []
 
-    # wacc = sys_specs.wacc
+    wacc = sys_specs.wacc
 
-    b.wacc = Var(initialize=sys_specs.wacc,
-                 doc='Weighted average cost of capital (WACC)')
+    # b.wacc = Var(initialize=sys_specs.wacc,
+    #              doc='Weighted average cost of capital (WACC)')
+    #
+    # b.wacc.fix(sys_specs.wacc)
 
-    b.wacc.fix(sys_specs.wacc)
-
-    b.capital_recovery_factor = (b.wacc * (1 + b.wacc) ** sys_specs.plant_lifetime_yrs) / (
-            ((1 + b.wacc) ** sys_specs.plant_lifetime_yrs) - 1)
+    b.capital_recovery_factor = (wacc * (1 + wacc) ** sys_specs.plant_lifetime_yrs) / (
+            ((1 + wacc) ** sys_specs.plant_lifetime_yrs) - 1)
 
     for b_unit in self.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
@@ -285,12 +294,86 @@ def get_system_costing(self):
             other_var_cost_lst.append(b_unit.costing.other_var_cost)
             total_fixed_op_cost_lst.append(b_unit.costing.total_fixed_op_cost)
 
-    b.capital_investment_total = Expression(expr=sum(total_capital_investment_var_lst))
-    b.cat_and_chem_cost_total = Expression(expr=sum(cat_and_chem_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.electricity_cost_total = Expression(expr=sum(electricity_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.other_var_cost_total = Expression(expr=sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.fixed_op_cost_total = Expression(expr=sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs)
-    b.operating_cost_total = Expression(expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total + b.other_var_cost_total))
+    b.sys_tci_reduction = Var(time,
+                                domain=NonNegativeReals,
+                                initialize=1,
+                                doc='System TCI reduction factor')
+
+    b.sys_chem_reduction = Var(time,
+                                 domain=NonNegativeReals,
+                                 initialize=1,
+                                 doc='System catalyst/chemical cost reduction factor')
+
+    b.sys_elect_reduction = Var(time,
+                                  domain=NonNegativeReals,
+                                  initialize=1,
+                                  doc='System electricity cost reduction factor')
+
+    b.sys_other_reduction = Var(time,
+                                  domain=NonNegativeReals,
+                                  initialize=1,
+                                  doc='System other cost reduction factor')
+
+    b.sys_fixed_op_reduction = Var(time,
+                                     domain=NonNegativeReals,
+                                     initialize=1,
+                                     doc='System fixed O&M reduction factor')
+
+    b.sys_total_op_reduction = Var(time,
+                                     domain=NonNegativeReals,
+                                     initialize=1,
+                                     doc='System total O&M reduction factor')
+
+    b.sys_tci_reduction.fix(0)
+    b.sys_chem_reduction.fix(0)
+    b.sys_elect_reduction.fix(0)
+    b.sys_other_reduction.fix(0)
+    b.sys_fixed_op_reduction.fix(0)
+    b.sys_total_op_reduction.fix(0)
+
+    b.sys_tci_uncertainty = Var(time,
+                              domain=NonNegativeReals,
+                              initialize=1,
+                              doc='System TCI uncertainty factor')
+
+    b.sys_chem_uncertainty = Var(time,
+                               domain=NonNegativeReals,
+                               initialize=1,
+                               doc='System catalyst/chemical cost uncertainty factor')
+
+    b.sys_elect_uncertainty = Var(time,
+                                domain=NonNegativeReals,
+                                initialize=1,
+                                doc='System electricity cost uncertainty factor')
+
+    b.sys_other_uncertainty = Var(time,
+                                domain=NonNegativeReals,
+                                initialize=1,
+                                doc='System other cost uncertainty factor')
+
+    b.sys_fixed_op_uncertainty = Var(time,
+                                   domain=NonNegativeReals,
+                                   initialize=1,
+                                   doc='System fixed O&M uncertainty factor')
+
+    b.sys_total_op_uncertainty = Var(time,
+                                   domain=NonNegativeReals,
+                                   initialize=1,
+                                   doc='System total O&M uncertainty factor')
+
+    b.sys_tci_uncertainty.fix(1)
+    b.sys_chem_uncertainty.fix(1)
+    b.sys_elect_uncertainty.fix(1)
+    b.sys_other_uncertainty.fix(1)
+    b.sys_fixed_op_uncertainty.fix(1)
+    b.sys_total_op_uncertainty.fix(1)
+
+    b.capital_investment_total = Expression(expr=(sum(total_capital_investment_var_lst) * (1 - b.sys_tci_reduction[t])) * b.sys_tci_uncertainty[t])
+    b.cat_and_chem_cost_total = Expression(expr=((sum(cat_and_chem_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_chem_reduction[t])) * b.sys_chem_uncertainty[t])
+    b.electricity_cost_total = Expression(expr=((sum(electricity_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_elect_reduction[t])) * b.sys_elect_uncertainty[t])
+    b.other_var_cost_total = Expression(expr=(sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_other_reduction[t]))
+    b.fixed_op_cost_total = Expression(expr=(sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_fixed_op_reduction[t]))
+    b.operating_cost_total = Expression(expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total + b.other_var_cost_total) * (1 - b.sys_total_op_reduction[t]))
     b.cat_and_chem_cost_annual = Expression(expr=sum(cat_and_chem_cost_lst))
     b.electricity_cost_annual = Expression(expr=sum(electricity_cost_lst))
     b.other_var_cost_annual = Expression(expr=sum(other_var_cost_lst))
