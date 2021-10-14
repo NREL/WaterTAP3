@@ -1,0 +1,31 @@
+name: watertap3
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - dash_cytoscape=0.2.0
+  - json5=0.9.5
+  - matplotlib=3.3.4
+  - networkx=2.5.1
+  - plotly=4.14.3
+  - pyomo=5.7.1
+  - python=3.8.8
+  - pyvis=0.1.9
+  - seaborn=0.11.1
+  - scipy=1.6.2
+  # itertools??? ast??? logging, warnings, enum
+  # dash packages installed via both pip and conda????
+  # idaes or idaes-pse??
+  # sklearn??
+  - pip:
+    - dash==1.19.0
+    - dash-core-components==1.15.0
+    - dash-daq==0.5.0
+    - dash-html-components==1.1.2
+    - idaes-pse==1.7.0
+    - jupyter==1.0.0
+    - jupyter-dash==0.4.0
+    - numpy==1.19.4
+    - pandas==1.1.1
+    - setuptools==56.0.0
