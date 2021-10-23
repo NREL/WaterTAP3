@@ -38,20 +38,20 @@ def get_case_study(m=None, new_df_units=None):
     m.fs.water = WaterParameterBlock()
 
     # add units to model
-    print('\n------- Adding Unit Processes -------')
+    print('\n=========================ADDING UNIT PROCESSES=========================')
     for unit_process_name in pfd_dict.keys():
         unit = unit_process_name.replace('_', ' ').swapcase()
         unit_process_type = pfd_dict[unit_process_name]['Unit']
         unit_process_kind = pfd_dict[unit_process_name]['Type']
 
-        print(unit)
+        print(f'{unit}')
         m = design.add_unit_process(m=m,
                                     unit_process_name=unit_process_name,
                                     unit_process_type=unit_process_type,
                                     unit_process_kind=unit_process_kind)
 
 
-    print('-------------------------------------\n')
+    print('=======================================================================\n')
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
     m, arc_dict, arc_i = create_arc_dict(m, pfd_dict, m.fs.flow_in_dict)

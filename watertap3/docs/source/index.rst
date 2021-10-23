@@ -12,6 +12,7 @@ This is the documentation for the WaterTAP3 model.
     watertap3
     model_framework
     data_input
+    model_output
     source_water
     treatment_train_design
     water_recovery

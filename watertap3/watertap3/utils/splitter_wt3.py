@@ -156,8 +156,7 @@ class SplitterProcessData(UnitModelBlockData):
             getattr(self, p).add(getattr(self, ('conc_mass_%s' % p)), 'conc_mass')
             getattr(self, p).add(getattr(self, ('flow_vol_%s' % p)), 'flow_vol')
 
-        self.split_fraction_constr = Constraint(expr=sum(self.split_fraction_vars) <= 1.02)
-        self.split_fraction_constr2 = Constraint(expr=sum(self.split_fraction_vars) >= 0.98)
+
         i = 0
         # print(outlet_list)
 
@@ -182,7 +181,7 @@ class SplitterProcessData(UnitModelBlockData):
 
         if self.decision:
             self.big_m = 1000
-            # self.split_fraction_constr = Constraint(expr=sum(self.split_fraction_vars) == 1)
+            self.split_fraction_constr = Constraint(expr=sum(self.split_fraction_vars) == 1)
             self.decision_var_constr = Constraint(expr=sum(self.decision_vars) == 1)
             # for i, decision_var in enumerate(self.decision_vars, 1):
             #     setattr(self, f'decision_var_constr_A{i}', Constraint(expr=self.flow_vol_in[t] - self.flow_outlets[i - 1] <= self.big_m * (1 - decision_var)))
@@ -194,6 +193,8 @@ class SplitterProcessData(UnitModelBlockData):
                                 expr=getattr(self, ('split_fraction_%s' % p))[t] * getattr(self, ('decision_var_%s' % p))[t] * self.flow_vol_in[t]
                                      == getattr(self, ('flow_vol_%s' % p))[t]))
         else:
+            self.split_fraction_constr = Constraint(expr=sum(self.split_fraction_vars) <= 1.025)
+            self.split_fraction_constr2 = Constraint(expr=sum(self.split_fraction_vars) >= 0.975)
             for p in outlet_list:
                 setattr(self, ('%s_eq_flow' % p),
                         Constraint(

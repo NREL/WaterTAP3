@@ -27,6 +27,7 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, uni
     unit = getattr(m.fs, unit_process_name)
     unit.unit_type = unit_process_type
     unit.unit_name = unit_process_name
+    unit.unit_pretty_name = unit_process_name.replace('_', ' ').title().replace('Ro', 'RO').replace('Zld', 'ZLD').replace('Aop', 'AOP').replace('Uv', 'UV').replace('And', '&').replace('Sw', 'SW').replace('Gac', 'GAC').replace('Ph', 'pH').replace('Bc', 'BC').replace('Wwtp', 'WWTP')
     unit.unit_kind = unit_process_kind
     unit.unit_params = unit_params
     unit.get_costing(unit_params=unit_params)

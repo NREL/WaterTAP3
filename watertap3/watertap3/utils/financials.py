@@ -26,7 +26,7 @@ class SystemSpecs():
         elec_cost.index = elec_cost.index.str.lower()
         case_study = train['case_study']
         scenario = train['scenario']
-        print(str(case_study).replace('_', ' ').swapcase() + ':', str(scenario).replace('_', ' ').swapcase())
+        # print(str(case_study).replace('_', ' ').swapcase() + ':', str(scenario).replace('_', ' ').swapcase())
         self.location = basis_data[basis_data['variable'] == 'location_basis'].loc[case_study].value
         self.elec_price = float(elec_cost.loc[self.location])
         self.land_cost_percent_FCI = float(basis_data[basis_data['variable'] == 'land_cost_percent'].loc[case_study].value)
@@ -74,58 +74,140 @@ def get_complete_costing(costing):
     :return:
     '''
     unit = costing.parent_block()
-    basis_year = costing.basis_year
-    sys_specs = unit.parent_block().costing_param
     time = unit.flowsheet().config.time
     t = time.first()
+    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.year)
+
+    costing.tci_reduction = Var(time,
+                                domain=NonNegativeReals,
+                                initialize=0,
+                                doc='Reduction factor for TCI')
+
+    costing.tci_uncertainty = Var(time,
+                                  domain=NonNegativeReals,
+                                  initialize=1,
+                                  doc='Uncertainty for TCI')
+
+    costing.fci_reduction = Var(time,
+                                domain=NonNegativeReals,
+                                initialize=0,
+                                doc='Reduction factor for FCI')
+
+    costing.fci_uncertainty = Var(time,
+                                  domain=NonNegativeReals,
+                                  initialize=1,
+                                  doc='Uncertainty for FCI')
+
+    costing.fixed_op_reduction = Var(time,
+                               domain=NonNegativeReals,
+                               initialize=0,
+                               doc='Reduction factor for Fixed O&M')
+
+    costing.fixed_op_uncertainty = Var(time,
+                                 domain=NonNegativeReals,
+                                 initialize=1,
+                                 doc='Uncertainty for Fixed O&M')
+
+    costing.annual_op_reduction = Var(time,
+                               domain=NonNegativeReals,
+                               initialize=0,
+                               doc='Reduction factor for Annual O&M')
+
+    costing.annual_op_uncertainty = Var(time,
+                                 domain=NonNegativeReals,
+                                 initialize=1,
+                                 doc='Uncertainty for Annual O&M')
+
+    costing.total_op_reduction = Var(time,
+                               domain=NonNegativeReals,
+                               initialize=0,
+                               doc='Reduction factor for Total O&M')
+
+    costing.total_op_uncertainty = Var(time,
+                                 domain=NonNegativeReals,
+                                 initialize=1,
+                                 doc='Uncertainty for Total O&M')
+
+    costing.catchem_reduction = Var(time,
+                                    domain=NonNegativeReals,
+                                    initialize=0,
+                                    doc='Reduction factor for Catalysts/Chemicals')
+
+    costing.catchem_uncertainty = Var(time,
+                                      domain=NonNegativeReals,
+                                      initialize=1,
+                                      doc='Uncertainty for Catalysts/Chemicals')
+
+    costing.elect_intens_reduction = Var(time,
+                                    domain=NonNegativeReals,
+                                    initialize=0,
+                                    doc='Reduction factor for Electricity Intensity')
+
+    costing.elect_intens_uncertainty = Var(time,
+                                      domain=NonNegativeReals,
+                                      initialize=1,
+                                      doc='Uncertainty for Electricity Intensity')
+
+    costing.other_reduction = Var(time,
+                                    domain=NonNegativeReals,
+                                    initialize=0,
+                                    doc='Reduction factor for Other capital')
+
+    costing.other_uncertainty = Var(time,
+                                      domain=NonNegativeReals,
+                                      initialize=1,
+                                      doc='Uncertainty for Other capital')
+
+    costing.tci_reduction.fix(0)
+    costing.tci_uncertainty.fix(1)
+
+    costing.fci_reduction.fix(0)
+    costing.fci_uncertainty.fix(1)
+
+    costing.fixed_op_reduction.fix(0)
+    costing.fixed_op_uncertainty.fix(1)
+
+    costing.annual_op_reduction.fix(0)
+    costing.annual_op_uncertainty.fix(1)
+
+    costing.total_op_reduction.fix(0)
+    costing.total_op_uncertainty.fix(1)
+
+    costing.catchem_reduction.fix(0)
+    costing.catchem_uncertainty.fix(1)
+
+    costing.elect_intens_reduction.fix(0)
+    costing.elect_intens_uncertainty.fix(1)
+
+    costing.other_reduction.fix(0)
+    costing.other_uncertainty.fix(1)
+
+    basis_year = costing.basis_year
+    sys_specs = unit.parent_block().costing_param
+
     chem_dict = unit.chem_dict
     electricity = unit.electricity
 
+
+    ## COSTING INDICES
     df = get_ind_table(sys_specs.analysis_yr_cost_indices)
     costing.cap_replacement_parts = df.loc[basis_year].Capital_Factor
     costing.catalysts_chemicals = df.loc[basis_year].CatChem_Factor
     costing.labor_and_other_fixed = df.loc[basis_year].Labor_Factor
     costing.consumer_price_index = df.loc[basis_year].CPI_Factor
 
-    costing.uncertainty_multiplier_fci = Var(time,
-                                             domain=NonNegativeReals,
-                                             initialize=0,
-                                             doc='Uncertainty Multiplier for FCI')
-
-    costing.wt3_error_fci = Var(time,
-                                domain=NonNegativeReals,
-                                initialize=1,
-                                doc='Standard WT3 Error for FCI')
-
-    costing.uncertainty_multiplier_fci.fix(0)
-    costing.wt3_error_fci.fix(1)
-
-    costing.uncertainty_multiplier_om = Var(time,
-                                            domain=NonNegativeReals,
-                                            initialize=0,
-                                            doc='Uncertainty Multiplier for Fixed O&M')
-
-    costing.wt3_error_om = Var(time,
-                               domain=NonNegativeReals,
-                               initialize=1,
-                               doc='Standard WT3 Error for Fixed O&M')
-
-    costing.uncertainty_multiplier_om.fix(0)
-    costing.wt3_error_om.fix(1)
-
-    costing.fixed_cap_inv = ((costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts) * (1 - costing.uncertainty_multiplier_fci[t])) * costing.wt3_error_fci[t]
-
-    # if unit.unit_name == 'evaporation_pond':
-    #     costing.land_cost = 0
-    # else:
+    costing.fixed_cap_inv = ((costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts) * (1 - costing.fci_reduction[t])) * costing.fci_uncertainty[t]
     costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
     costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
-    costing.total_cap_investment = costing.fixed_cap_inv + costing.land_cost + costing.working_cap
+    costing.contingency = costing.fixed_cap_inv * sys_specs.contingency_cost_percent_FCI
+    costing.component_replacement = costing.fixed_cap_inv * sys_specs.component_replace_percent_FCI
+    costing.base_employee_salary_cost = costing.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
+    costing.salaries = costing.labor_and_other_fixed * costing.base_employee_salary_cost
+    costing.benefits = costing.salaries * sys_specs.benefit_percent_of_salary
+    costing.maintenance = costing.fixed_cap_inv * sys_specs.maintenance_costs_percent_FCI
+    costing.lab = costing.fixed_cap_inv * sys_specs.lab_fees_percent_FCI
+    costing.insurance_taxes = costing.fixed_cap_inv * sys_specs.insurance_taxes_percent_FCI
 
-    flow_in_m3yr = pyunits.convert(costing.parent_block().flow_vol_in[t],
-                                   to_units=pyunits.m ** 3 / pyunits.year)
-
-    ## cat and chems ##
     cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col='Material')
     chem_cost_sum = 0
     for key in chem_dict.keys():
@@ -135,37 +217,23 @@ def get_complete_costing(costing):
             chem_cost = cat_chem_df.loc[key].Price
             chem_cost_sum += costing.catalysts_chemicals * flow_in_m3yr * chem_cost * chem_dict[key] * sys_specs.plant_cap_utilization
 
-    costing.uncertainty_multiplier_catchem = Var(time,
-                                                 domain=NonNegativeReals,
-                                                 initialize=0,
-                                                 doc='Uncertainty Multiplier for Catalysts/Chemicals')
+    costing.cat_and_chem_cost = ((chem_cost_sum * 1E-6) * (1 - costing.catchem_reduction[t])) * costing.catchem_uncertainty[t]
 
-    costing.wt3_error_catchem = Var(time,
-                                    domain=NonNegativeReals,
-                                    initialize=1,
-                                    doc='Standard WT3 Error for Catalysts/Chemicals')
-
-    costing.uncertainty_multiplier_catchem.fix(0)
-    costing.wt3_error_catchem.fix(1)
-
-    costing.cat_and_chem_cost = Expression(expr=((chem_cost_sum * 1E-6) * (1 - costing.uncertainty_multiplier_catchem[t])) * costing.wt3_error_catchem[t])
-
-    if not hasattr(costing, 'electricity_cost'):
-        costing.electricity_cost = Expression(expr=(electricity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization,
-                                              doc='Electricity cost')  # M$/yr
+    # if not hasattr(costing, 'electricity_cost'):
+    costing.electricity_intensity = (unit.electricity * (1 - costing.elect_intens_reduction[t])) * costing.elect_intens_uncertainty[t]
+    costing.electricity_cost = (costing.electricity_intensity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization
 
     if not hasattr(costing, 'other_var_cost'):
         costing.other_var_cost = 0
 
-    costing.base_employee_salary_cost = costing.fixed_cap_inv_unadjusted * sys_specs.salaries_percent_FCI
-    costing.salaries = Expression(expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost, doc='Salaries')
-    costing.benefits = costing.salaries * sys_specs.benefit_percent_of_salary
-    costing.maintenance = sys_specs.maintenance_costs_percent_FCI * costing.fixed_cap_inv
-    costing.lab = sys_specs.lab_fees_percent_FCI * costing.fixed_cap_inv
-    costing.insurance_taxes = sys_specs.insurance_taxes_percent_FCI * costing.fixed_cap_inv
-    costing.total_fixed_op_cost = Expression(expr=((costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes) * (1 - costing.uncertainty_multiplier_om[t])) * costing.wt3_error_om[t])
-    costing.annual_op_main_cost = costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost
-    costing.total_operating_cost = costing.total_fixed_op_cost + costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost
+    else:
+        costing.other_var_cost = (costing.other_var_cost * (1 - costing.other_reduction[t])) * costing.other_uncertainty[t]
+
+    costing.total_cap_investment = (costing.fixed_cap_inv + costing.land_cost + costing.working_cap) * (1 - costing.tci_reduction[t]) * costing.tci_uncertainty[t]
+    # costing.salaries = Expression(expr=costing.labor_and_other_fixed * costing.base_employee_salary_cost, doc='Salaries')
+    costing.total_fixed_op_cost = ((costing.salaries + costing.benefits + costing.maintenance + costing.lab + costing.insurance_taxes) * (1 - costing.fixed_op_reduction[t])) * costing.fixed_op_uncertainty[t]
+    costing.annual_op_main_cost = ((costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost + costing.total_fixed_op_cost) * (1 - costing.annual_op_reduction[t])) * costing.annual_op_uncertainty[t]
+    costing.total_operating_cost = ((costing.total_fixed_op_cost + costing.cat_and_chem_cost + costing.electricity_cost + costing.other_var_cost) * (1 - costing.total_op_reduction[t])) * costing.total_op_uncertainty[t]
 
 
 def get_ind_table(analysis_yr_cost_indices):
@@ -232,8 +300,10 @@ def get_system_specs(m_fs):
                                     doc='Working capital as % FCI')
     b.wacc = Var(initialize=0.05,
                  doc='Weighted Average Cost of Capital (WACC)')
-
-    # ADD THE REST AS VARIABLES.
+    b.contingency_cost_percent_FCI = Var(initialize=0,
+                                         doc='Contingency costs as % FCI')
+    b.component_replace_percent_FCI = Var(initialize=0,
+                                          doc='Component replacement costs as % FCI')
 
     system_specs = SystemSpecs(m_fs.train)
 
@@ -248,26 +318,28 @@ def get_system_specs(m_fs):
     b.benefit_percent_of_salary.fix(system_specs.benefit_percent_of_salary)
     b.working_cap_percent_FCI.fix(system_specs.working_cap_percent_FCI)
     b.plant_cap_utilization.fix(system_specs.plant_cap_utilization)  # 1.0
-    b.analysis_yr_cost_indices = system_specs.analysis_yr_cost_indices
     b.wacc.fix(system_specs.debt_interest_rate)
+    b.contingency_cost_percent_FCI.fix(0)
+    b.component_replace_percent_FCI.fix(0)
 
+    b.analysis_yr_cost_indices = system_specs.analysis_yr_cost_indices
     b.location = system_specs.location
 
     b.tpec = 3.4
     b.tic = 1.65
 
 
-def get_system_costing(self):
+def get_system_costing(m_fs):
     '''
     Function to aggregate unit model results for calculation of system costing for WaterTAP3 model.
 
     '''
-    if not hasattr(self, 'costing'):
-        self.costing = Block()
-    b = self.costing
-    time = unit.flowsheet().config.time
+    if not hasattr(m_fs, 'costing'):
+        m_fs.costing = Block()
+    b = m_fs.costing
+    time = m_fs.config.time
     t = time.first()
-    sys_specs = self.costing_param
+    sys_specs = m_fs.costing_param
 
     total_capital_investment_var_lst = []
     cat_and_chem_cost_lst = []
@@ -286,7 +358,7 @@ def get_system_costing(self):
     b.capital_recovery_factor = (wacc * (1 + wacc) ** sys_specs.plant_lifetime_yrs) / (
             ((1 + wacc) ** sys_specs.plant_lifetime_yrs) - 1)
 
-    for b_unit in self.component_objects(Block, descend_into=True):
+    for b_unit in m_fs.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
             total_capital_investment_var_lst.append(b_unit.costing.total_cap_investment)
             cat_and_chem_cost_lst.append(b_unit.costing.cat_and_chem_cost)
@@ -295,97 +367,101 @@ def get_system_costing(self):
             total_fixed_op_cost_lst.append(b_unit.costing.total_fixed_op_cost)
 
     b.sys_tci_reduction = Var(time,
-                                domain=NonNegativeReals,
-                                initialize=1,
-                                doc='System TCI reduction factor')
+                              domain=NonNegativeReals,
+                              initialize=0,
+                              doc='System TCI reduction factor')
 
-    b.sys_chem_reduction = Var(time,
-                                 domain=NonNegativeReals,
-                                 initialize=1,
-                                 doc='System catalyst/chemical cost reduction factor')
+    b.sys_catchem_reduction = Var(time,
+                               domain=NonNegativeReals,
+                               initialize=0,
+                               doc='System catalyst/chemical cost reduction factor')
 
     b.sys_elect_reduction = Var(time,
-                                  domain=NonNegativeReals,
-                                  initialize=1,
-                                  doc='System electricity cost reduction factor')
+                                domain=NonNegativeReals,
+                                initialize=0,
+                                doc='System electricity cost reduction factor')
 
     b.sys_other_reduction = Var(time,
-                                  domain=NonNegativeReals,
-                                  initialize=1,
-                                  doc='System other cost reduction factor')
+                                domain=NonNegativeReals,
+                                initialize=0,
+                                doc='System other cost reduction factor')
 
     b.sys_fixed_op_reduction = Var(time,
-                                     domain=NonNegativeReals,
-                                     initialize=1,
-                                     doc='System fixed O&M reduction factor')
+                                   domain=NonNegativeReals,
+                                   initialize=0,
+                                   doc='System fixed O&M reduction factor')
 
     b.sys_total_op_reduction = Var(time,
-                                     domain=NonNegativeReals,
-                                     initialize=1,
-                                     doc='System total O&M reduction factor')
+                                   domain=NonNegativeReals,
+                                   initialize=0,
+                                   doc='System total O&M reduction factor')
 
     b.sys_tci_reduction.fix(0)
-    b.sys_chem_reduction.fix(0)
+    b.sys_catchem_reduction.fix(0)
     b.sys_elect_reduction.fix(0)
     b.sys_other_reduction.fix(0)
     b.sys_fixed_op_reduction.fix(0)
     b.sys_total_op_reduction.fix(0)
 
     b.sys_tci_uncertainty = Var(time,
-                              domain=NonNegativeReals,
-                              initialize=1,
-                              doc='System TCI uncertainty factor')
+                                domain=NonNegativeReals,
+                                initialize=1,
+                                doc='System TCI uncertainty factor')
 
-    b.sys_chem_uncertainty = Var(time,
-                               domain=NonNegativeReals,
-                               initialize=1,
-                               doc='System catalyst/chemical cost uncertainty factor')
+    b.sys_catchem_uncertainty = Var(time,
+                                 domain=NonNegativeReals,
+                                 initialize=1,
+                                 doc='System catalyst/chemical cost uncertainty factor')
 
     b.sys_elect_uncertainty = Var(time,
-                                domain=NonNegativeReals,
-                                initialize=1,
-                                doc='System electricity cost uncertainty factor')
+                                  domain=NonNegativeReals,
+                                  initialize=1,
+                                  doc='System electricity cost uncertainty factor')
 
     b.sys_other_uncertainty = Var(time,
-                                domain=NonNegativeReals,
-                                initialize=1,
-                                doc='System other cost uncertainty factor')
+                                  domain=NonNegativeReals,
+                                  initialize=1,
+                                  doc='System other cost uncertainty factor')
 
     b.sys_fixed_op_uncertainty = Var(time,
-                                   domain=NonNegativeReals,
-                                   initialize=1,
-                                   doc='System fixed O&M uncertainty factor')
+                                     domain=NonNegativeReals,
+                                     initialize=1,
+                                     doc='System fixed O&M uncertainty factor')
 
     b.sys_total_op_uncertainty = Var(time,
-                                   domain=NonNegativeReals,
-                                   initialize=1,
-                                   doc='System total O&M uncertainty factor')
+                                     domain=NonNegativeReals,
+                                     initialize=1,
+                                     doc='System total O&M uncertainty factor')
 
     b.sys_tci_uncertainty.fix(1)
-    b.sys_chem_uncertainty.fix(1)
+    b.sys_catchem_uncertainty.fix(1)
     b.sys_elect_uncertainty.fix(1)
     b.sys_other_uncertainty.fix(1)
     b.sys_fixed_op_uncertainty.fix(1)
     b.sys_total_op_uncertainty.fix(1)
 
-    b.capital_investment_total = Expression(expr=(sum(total_capital_investment_var_lst) * (1 - b.sys_tci_reduction[t])) * b.sys_tci_uncertainty[t])
-    b.cat_and_chem_cost_total = Expression(expr=((sum(cat_and_chem_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_chem_reduction[t])) * b.sys_chem_uncertainty[t])
-    b.electricity_cost_total = Expression(expr=((sum(electricity_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_elect_reduction[t])) * b.sys_elect_uncertainty[t])
-    b.other_var_cost_total = Expression(expr=(sum(other_var_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_other_reduction[t]))
-    b.fixed_op_cost_total = Expression(expr=(sum(total_fixed_op_cost_lst) * self.costing_param.plant_lifetime_yrs) * (1 - b.sys_fixed_op_reduction[t]))
-    b.operating_cost_total = Expression(expr=(b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total + b.other_var_cost_total) * (1 - b.sys_total_op_reduction[t]))
-    b.cat_and_chem_cost_annual = Expression(expr=sum(cat_and_chem_cost_lst))
-    b.electricity_cost_annual = Expression(expr=sum(electricity_cost_lst))
-    b.other_var_cost_annual = Expression(expr=sum(other_var_cost_lst))
-    b.fixed_op_cost_annual = Expression(expr=sum(total_fixed_op_cost_lst))
+    b.cat_and_chem_cost_annual = Expression(expr=(sum(cat_and_chem_cost_lst) * (1 - b.sys_catchem_reduction[t])) * b.sys_catchem_uncertainty[t])
+    b.electricity_cost_annual = Expression(expr=(sum(electricity_cost_lst) * (1 - b.sys_elect_reduction[t])) * b.sys_elect_uncertainty[t])
+    b.other_var_cost_annual = Expression(expr=(sum(other_var_cost_lst) * (1 - b.sys_other_reduction[t])) * b.sys_other_uncertainty[t])
+    b.fixed_op_cost_annual = Expression(expr=(sum(total_fixed_op_cost_lst) * (1 - b.sys_fixed_op_reduction[t])) * b.sys_fixed_op_uncertainty[t])
     b.operating_cost_annual = Expression(expr=(b.fixed_op_cost_annual + b.cat_and_chem_cost_annual + b.electricity_cost_annual + b.other_var_cost_annual))
+    #
+    b.capital_investment_total = Expression(expr=(sum(total_capital_investment_var_lst) * (1 - b.sys_tci_reduction[t])) * b.sys_tci_uncertainty[t])
+    b.cat_and_chem_cost_total = Expression(expr=b.cat_and_chem_cost_annual * m_fs.costing_param.plant_lifetime_yrs)
+    b.electricity_cost_total = Expression(expr=b.electricity_cost_annual * m_fs.costing_param.plant_lifetime_yrs)
+    b.other_var_cost_total = Expression(expr=b.other_var_cost_annual * m_fs.costing_param.plant_lifetime_yrs)
+    b.fixed_op_cost_total = Expression(expr=b.fixed_op_cost_annual * m_fs.costing_param.plant_lifetime_yrs)
+    b.operating_cost_total = Expression(expr=((b.fixed_op_cost_total + b.cat_and_chem_cost_total + b.electricity_cost_total + b.other_var_cost_total) * (1 - b.sys_total_op_reduction[t])) * b.sys_total_op_uncertainty[t])
+
+
+
 
     recovered_water_flow = 0
     wastewater_list = []
 
-    time = self.config.time.first()
+    time = m_fs.config.time.first()
 
-    for b_unit in self.component_objects(Block, descend_into=False):
+    for b_unit in m_fs.component_objects(Block, descend_into=False):
         if hasattr(b_unit, 'outlet'):
             if len(getattr(b_unit, 'outlet').arcs()) == 0:
                 if hasattr(b_unit.parent_block(), 'pfd_dict'):
@@ -401,12 +477,12 @@ def get_system_costing(self):
 
     b.sum_of_inflow = sum_of_inflow = 0
     for key in b.parent_block().flow_in_dict.keys():
-        sum_of_inflow += getattr(self, key).flow_vol_in[time]
+        sum_of_inflow += getattr(m_fs, key).flow_vol_in[time]
 
     b.system_recovery = b.treated_water / sum_of_inflow
 
     # LCOW for each unit
-    for b_unit in self.component_objects(Block, descend_into=True):
+    for b_unit in m_fs.component_objects(Block, descend_into=True):
         if hasattr(b_unit, 'costing'):
             setattr(b_unit, 'LCOW', Expression(
                     expr=1E6 * (b_unit.costing.total_cap_investment * b.capital_recovery_factor + b_unit.costing.annual_op_main_cost) /
@@ -444,7 +520,7 @@ def get_system_costing(self):
                     doc='Unit Total Operating Levelized Cost of Water [$/m3]'))
 
             setattr(b_unit, 'elec_int_treated', Expression(
-                    expr=(b_unit.costing.electricity_cost * 1E6 / b.parent_block().costing_param.electricity_price) /
+                    expr=(b_unit.costing.electricity_cost * 1E6 / sys_specs.electricity_price) /
                          (b.treated_water * 3600 * 24 * 365),
                     doc='Unit Electricity Intensity [kWh/m3]'))
 
@@ -466,7 +542,7 @@ def get_system_costing(self):
 
     ## GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water
     b.electricity_intensity = Expression(
-            expr=(b.electricity_cost_annual * 1E6 / b.parent_block().costing_param.electricity_price) /
+            expr=(b.electricity_cost_annual * 1E6 / sys_specs.electricity_price) /
                  (b.treated_water * 3600 * 24 * 365),
             doc='Electricity Intensity [kWh/m3]')
 

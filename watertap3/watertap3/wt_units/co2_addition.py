@@ -19,17 +19,7 @@ class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self):
         '''
-        **"unit_params" are the unit parameters passed to the model from the input sheet as a Python dictionary.**
 
-        **EXAMPLE: {'dose': 10}**
-
-        Fixed capital for alum addition is a function of alum dose, alum solution flow, and the number of units.
-
-        **Assumptions:**
-
-        * Number of units = 2
-
-        :return: CO2 addition fixed capital cost [$MM]
         '''
         self.chem_dict = {}
         time = self.flowsheet().config.time.first()
