@@ -24,6 +24,7 @@ __all__ = ['run_model', 'watertap_setup', 'run_model', 'run_model', 'run_waterta
 
 def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=None,
                    source_reference=None, source_case_study=None, source_scenario=None):
+
     def get_source(reference, water_type, case_study, scenario):
         input_file = 'data/case_study_water_sources.csv'
         df = pd.read_csv(input_file, index_col='variable')
@@ -36,6 +37,10 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
         source_df.drop(source_df[source_df.index == 'flow'].index, inplace=True)
         return source_flow, source_df
 
+    case_study_print = case_study.replace('_', ' ').swapcase()
+    scenario_print = scenario.replace('_', ' ').swapcase()
+    print(f'\nCase Study = {case_study_print}'
+          f'\nScenario = {scenario_print}\n')
     m = ConcreteModel()
 
     m.fs = FlowsheetBlock(default={
@@ -63,9 +68,9 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
 
     m.fs.has_ro = False
     m.fs.has_ix = False
-    if 'ion_exchange' in m.fs.df_units.Unit.to_list():
+    if 'ion_exchange' in m.fs.df_units.Unit:
         m.fs.has_ix = True
-    if 'reverse_osmosis' in m.fs.df_units.Unit.to_list():
+    if 'reverse_osmosis' in m.fs.df_units.Unit:
         m.fs.has_ro = True
 
     for i in m.fs.df_units[m.fs.df_units.Type == 'intake'].index:
@@ -109,8 +114,10 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
     return m
 
 
-def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max_attempts=3, print_it=False):
-    financials.get_system_costing(m.fs)
+def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max_attempts=3, print_it=False, initial_run=True):
+
+    if initial_run:
+        financials.get_system_costing(m.fs)
 
     TransformationFactory('network.expand_arcs').apply_to(m)
     seq = SequentialDecomposition()
@@ -124,10 +131,12 @@ def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max
 
     logging.getLogger('pyomo.core').setLevel(logging.ERROR)
 
-    print('----------------------------------------------------------------------')
+    # print('----------------------------------------------------------------------')
+    print('.................................')
     print('\nDegrees of Freedom:', degrees_of_freedom(m))
 
     m.fs.results = results = solver.solve(m, tee=solver_results)
+    print(f'\nInitial solve attempt {results.solver.termination_condition.swapcase()}')
     # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
 
     attempt_number = 1
@@ -138,7 +147,8 @@ def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max
         attempt_number += 1
 
     print(f'\nWaterTAP3 solution {results.solver.termination_condition.swapcase()}\n')
-    print('----------------------------------------------------------------------')
+    # print('----------------------------------------------------------------------')
+    print('.................................')
 
     if print_it:
         print_results(m)
@@ -146,25 +156,20 @@ def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max
 
 
 def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', return_df=False):
+
+    print('\n=========================START WT3 MODEL RUN==========================')
     scenario = m.fs.train['scenario']
     case_study = m.fs.train['case_study']
     reference = m.fs.train['reference']
-    case_study_print = case_study.replace('_', ' ').swapcase()
-    scenario_print = scenario.replace('_', ' ').swapcase()
 
-    print(f'===================================\nCase Study = {case_study_print}\nScenario = '
-          f'{scenario_print}\n===================================')
-
-    run_model(m=m, objective=True)
-
-    # m.fs.upw_list = upw_list = []
-    # if case_study == 'upw':
-    #     upw_list.append(m.fs.splitter2.split_fraction_outlet3[0]())
-    #     upw_list.append(m.fs.splitter2.split_fraction_outlet4[0]())
+    run_model(m=m, solver=solver, objective=True)
 
     if m.fs.results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']:
-        print('\nMODEL RUN ABORTED: Model did not solve optimally after 3 attempts. No results are saved.\nUpdate initial conditions and retry.')
-        return m
+        raise Exception(f'\nMODEL RUN ABORTED:'
+              f'\n\tWT3 solution is {m.fs.results.solver.termination_condition.swapcase()}'
+              f'\n\tModel did not solve optimally after 3 attempts. No results are saved.'
+              f'\n\tCheck model setup and initial conditions and retry.')
+        # return m
 
     if m.fs.has_ix:
         print('IX solved!\nFixing IX variables...')
@@ -175,18 +180,24 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
 
         m = make_decision(m, case_study, scenario)
         financials.get_system_costing(m.fs)
-        run_model(m=m, objective=True)
+        run_model(m=m, solver=solver, objective=True)
         m = case_study_constraints(m, case_study, scenario)
 
 
-    else:
-        m = case_study_constraints(m, case_study, scenario)
+    # else:
+    m = case_study_constraints(m, case_study, scenario)
 
     if m.fs.has_ro:
         if case_study == 'upw':
             m.fs.splitter2.split_fraction_constr = Constraint(expr=sum(m.fs.splitter2.split_fraction_vars) <= 1.001)
             m.fs.splitter2.split_fraction_constr2 = Constraint(expr=sum(m.fs.splitter2.split_fraction_vars) >= 0.999)
         m = set_bounds(m, source_water_category=ro_bounds)
+        if m.fs.results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']:
+            print(f'\nMODEL RUN ABORTED AFTER SETTING RO BOUNDS:'
+                  f'\n\tWT3 solution is {m.fs.results.solver.termination_condition.swapcase()}'
+                  f'\n\tModel did not solve optimally after 3 attempts. No results are saved.'
+                  f'\n\tCheck model setup and initial conditions and retry.')
+            return m
 
 
 
@@ -197,13 +208,18 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
             m.fs.recovery_bound1 = Constraint(expr=m.fs.costing.system_recovery >= desired_recovery - 1.5)
 
             run_model(m=m, objective=True)
+            if m.fs.results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']:
+                print(f'\nMODEL RUN ABORTED WHILE TARGETING SYSTEM RECOVERY OF {desired_recovery * 100}:'
+                      f'\n\tWT3 solution is {m.fs.results.solver.termination_condition.swapcase()}'
+                      f'\n\tModel did not solve optimally after 3 attempts. No results are saved.'
+                      f'\n\tCheck model setup and initial conditions and retry.')
+                return m
 
         else:
             print('System recovery already lower than desired recovery.'
                   '\n\tDesired:', desired_recovery, '\n\tCurrent:', m.fs.costing.system_recovery())
 
     ur_list = []
-
     if case_study == 'uranium':
         ur_list.append(m.fs.ion_exchange.removal_fraction[0, 'tds']())
         ur_list.append(m.fs.ion_exchange.anion_res_capacity[0]())
@@ -214,16 +230,6 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
     if case_study == 'upw':
         upw_list.append(m.fs.splitter2.split_fraction_outlet3[0]())
         upw_list.append(m.fs.splitter2.split_fraction_outlet4[0]())
-
-    # scenario_name = m.fs.train['scenario']
-
-    if scenario == 'edr_ph_ro':
-        m.fs.primary_separator.conc_mass_in[0, 'boron'].fix(0.03)
-
-    if scenario == 'ro_and_mf':
-        m.fs.primary_separator.conc_mass_in[0, 'tds'].fix(10)
-
-
 
     if m.fs.has_ro:
         m, ro_stash = get_ro_stash(m)
@@ -239,19 +245,17 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
             m = watertap_setup(dynamic=False, case_study=case_study, scenario=scenario)
             m = get_case_study(m=m)
 
-        # has_ro, m = check_has_ro(m)
-        # m = set_bounds(m, source_water_category=ro_bounds)
+
 
         if case_study == 'gila_river' and scenario != 'baseline':
             m.fs.evaporation_pond.water_recovery.fix(0.87669)
 
         if case_study == 'upw':
+            run_model(m=m, solver=solver, objective=True)
             m.fs.upw_list = upw_list
             m.fs.media_filtration.water_recovery.fix(0.9)
             m.fs.splitter2.split_fraction_outlet3.fix(upw_list[0])
             m.fs.splitter2.split_fraction_outlet4.fix(upw_list[1])
-
-
 
         if case_study == 'ocwd':  # Facility data in email from Dan Giammar 7/7/2021
             # m.fs.ro_pressure_constr = Constraint(expr=m.fs.reverse_osmosis.feed.pressure[0] <= 15)  # Facility data: RO pressure is 140-220 psi (~9.7-15.1 bar)
@@ -263,9 +267,10 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
             m.fs.ion_exchange.cation_res_capacity.fix(ur_list[2])
 
         if case_study == 'irwin':
+            run_model(m=m, solver=solver, objective=True)
             m.fs.brine_concentrator.water_recovery.fix(0.8)
 
-        run_model(m=m, objective=True)
+        run_model(m=m, solver=solver, objective=True)
 
         m.fs.objective_function.deactivate()
         m = fix_ro_stash(m, ro_stash)
@@ -274,12 +279,21 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
             m = fix_ix_stash(m, ix_stash)
 
 
-    run_model(m=m, objective=False, print_it=True)
+    run_model(m=m, solver=solver, objective=False, print_it=True)
 
-    if m.fs.has_ro:
-        print_ro_results(m)
+    if m.fs.results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']:
+        print(f'\nFINAL MODEL RUN ABORTED:'
+              f'\n\tWT3 solution is {m.fs.results.solver.termination_condition.swapcase()}'
+              f'\n\tModel did not solve optimally after 3 attempts. No results are saved.'
+              f'\n\tCheck model setup and initial conditions and retry.')
+        return m
+
+    # if m.fs.has_ro:
+    #     print_ro_results(m)
 
     df = get_results_table(m=m, case_study=case_study, scenario=scenario)
+
+    print('\n==========================END WT3 MODEL RUN===========================')
 
     if return_df:
         return m, df
@@ -350,37 +364,13 @@ def check_has_ro(m):
 
 
 def print_results(m):
-    print('\n=========================UNIT PROCESS RESULTS=========================\n')
-    # Display the inlets and outlets and cap cost of each unit
-    for b_unit in m.fs.component_objects(Block, descend_into=True):
-        if hasattr(b_unit, 'costing'):
-            unit = b_unit.unit_name.replace('_', ' ').title().replace('Ro', 'RO').replace('Zld', 'ZLD').replace('Aop', 'AOP').replace('Uv', 'UV').replace('And', '&').replace('Sw', 'SW').replace('Gac', 'GAC').replace('Ph', 'pH').replace('Bc', 'BC').replace('Wwtp', 'WWTP')
-            print(f'\n{unit}:')
-            print('\tTotal Capital Investment ($MM):', round(value(b_unit.costing.total_cap_investment()), 5))
-            print('\tTotal Fixed O&M ($MM):', round(value(b_unit.costing.total_fixed_op_cost), 5))
-            print('\tChemical Cost ($MM):', round(value(b_unit.costing.cat_and_chem_cost), 5))
-            print('\tElectricity Cost ($MM):', round(value(b_unit.costing.electricity_cost), 5))
-            print('\tElectricity Intensity (kWh/m3):', round(value(b_unit.electricity()), 5))
-            print('\tUnit LCOW ($/m3):', round(value(b_unit.LCOW()), 5))
-            print('\tFlow In (m3/s):', round(value(b_unit.flow_vol_in[0]()), 5))
-            print('\tFlow Out (m3/s):', round(value(b_unit.flow_vol_out[0]()), 5))
-            print('\tFlow Waste (m3/s):', round(value(b_unit.flow_vol_waste[0]()), 5))
+    case_study = m.fs.train['case_study']
+    scenario = m.fs.train['scenario']
 
-            if b_unit.unit_type in ['reverse_osmosis', 'brine_concentrator', 'evaporation_pond', 'landfill', 'landfill_zld']:
-                try:
-                    print('\tTDS in (mg/L):', round(value(b_unit.conc_mass_in[0, 'tds']) * 1000, 1))
-                    print('\tTDS out (mg/L):', round(value(b_unit.conc_mass_out[0, 'tds']) * 1000, 1))
-                    print('\tTDS waste (mg/L):', round(value(b_unit.conc_mass_waste[0, 'tds']) * 1000, 1))
-                except:
-                    print(f'\tNO TDS INTO {unit}')
-                print('\tWater Recovery (%):', round(value((b_unit.flow_vol_out[0]() / b_unit.flow_vol_in[0]())), 5) * 100)
-            else:
-                print('\tWater Recovery (%):', round(value(b_unit.water_recovery[0]()), 5) * 100)
-
-
-    print('\n======================================================================\n')
-
-    print('=================== System Level Metrics and Costs ===================')
+    case_study_print = case_study.replace('_', ' ').swapcase()
+    scenario_print = scenario.replace('_', ' ').swapcase()
+    print(f'\n{case_study_print}: {scenario_print}')
+    print('=========================SYSTEM LEVEL RESULTS=========================')
     print('LCOW ($/m3):', round(value(m.fs.costing.LCOW()), 3))
     print('Total Capital Investment ($MM):', round(value(m.fs.costing.capital_investment_total()), 3))
     print('Annual Fixed Operating Cost ($MM/yr):', round(value(m.fs.costing.fixed_op_cost_annual()), 3))
@@ -393,10 +383,42 @@ def print_results(m):
     print('Electricity intensity (kWh/m3):', round(value(m.fs.costing.electricity_intensity()), 3))
     print('Electricity portion of LCOW (%):', round(value(100 * m.fs.costing.elec_frac_LCOW()), 3))
     print('======================================================================')
+    print('\n=========================UNIT PROCESS RESULTS=========================\n')
+    # Display the inlets and outlets and cap cost of each unit
+    for unit in m.fs.df_units.UnitName:
+        b_unit = getattr(m.fs, unit)
+    # for b_unit in m.fs.component_objects(Block, descend_into=True):
+    #     if hasattr(b_unit, 'costing'):
+            # unit =
+        print(f'\n{b_unit.unit_pretty_name}:')
+        print('\tTotal Capital Investment ($MM):', round(value(b_unit.costing.total_cap_investment()), 5))
+        print('\tTotal Fixed O&M ($MM):', round(value(b_unit.costing.total_fixed_op_cost), 5))
+        print('\tChemical Cost ($MM):', round(value(b_unit.costing.cat_and_chem_cost), 5))
+        print('\tElectricity Cost ($MM):', round(value(b_unit.costing.electricity_cost), 5))
+        print('\tElectricity Intensity (kWh/m3):', round(value(b_unit.electricity()), 5))
+        print('\tUnit LCOW ($/m3):', round(value(b_unit.LCOW()), 5))
+        print('\tFlow In (m3/s):', round(value(b_unit.flow_vol_in[0]()), 5))
+        print('\tFlow Out (m3/s):', round(value(b_unit.flow_vol_out[0]()), 5))
+        print('\tFlow Waste (m3/s):', round(value(b_unit.flow_vol_waste[0]()), 5))
+        if b_unit.unit_type == 'reverse_osmosis':
+            print_ro_results(m, b_unit.unit_name)
+
+        if b_unit.unit_type in ['brine_concentrator', 'evaporation_pond', 'landfill', 'landfill_zld']:
+            try:
+                print('\tTDS in (mg/L):', round(value(b_unit.conc_mass_in[0, 'tds']) * 1000, 1))
+                print('\tTDS out (mg/L):', round(value(b_unit.conc_mass_out[0, 'tds']) * 1000, 1))
+                print('\tTDS waste (mg/L):', round(value(b_unit.conc_mass_waste[0, 'tds']) * 1000, 1))
+            except:
+                print(f'\tNO TDS INTO {b_unit.unit_pretty_name}')
+            print('\tWater Recovery (%):', round(value((b_unit.flow_vol_out[0]() / b_unit.flow_vol_in[0]())), 5) * 100)
+        elif b_unit.unit_type != 'reverse_osmosis':
+            print('\tWater Recovery (%):', round(value(b_unit.water_recovery[0]()), 5) * 100)
 
 
-def run_sensitivity(m=None, save_results=False, return_results=False, scenario=None,
-                    case_study=None):
+    print('\n======================================================================\n')
+
+
+def run_sensitivity(m=None, save_results=False, return_results=False, scenario=None, case_study=None):
     print('\n==================== STARTING SENSITIVITY ANALYSIS ===================\n')
 
     ro_list = ['reverse_osmosis', 'ro_first_pass', 'ro_a1', 'ro_b1',
@@ -459,7 +481,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
     runs_per_scenario = 20
 
     ############ Plant Capacity Utilization 70-100% ############
-    stash_value = m.fs.costing_param.plant_cap_utilization
+    stash_value = m.fs.costing_param.plant_cap_utilization()
     scenario = 'Plant Capacity Utilization 70-100%'
     sens_var = 'plant_cap'
     print('-------', scenario, '-------')
@@ -468,7 +490,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
     step = (ub - lb) / runs_per_scenario
     for i in np.arange(lb, ub + step, step):
 
-        m.fs.costing_param.plant_cap_utilization = i
+        m.fs.costing_param.plant_cap_utilization.fix(i)
 
         run_model(m=m, objective=False)
 
@@ -499,7 +521,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
         ro_area_norm.append(None)
         mem_replacement.append(None)
 
-    m.fs.costing_param.plant_cap_utilization = stash_value
+    m.fs.costing_param.plant_cap_utilization.fix(stash_value)
     ############################################################
 
     print('\n-------', 'RESET', '-------\n')
@@ -507,7 +529,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
     print('LCOW -->', m.fs.costing.LCOW())
 
     ############ WACC 5-10%############
-    stash_value = m.fs.costing_param.wacc
+    stash_value = m.fs.costing_param.wacc()
     scenario = 'Weighted Average Cost of Capital 5-10%'
     sens_var = 'wacc'
     print('-------', scenario, '-------')
@@ -518,7 +540,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
         print('\n===============================')
         print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
         print('===============================\n')
-        m.fs.costing_param.wacc = i
+        m.fs.costing_param.wacc.fix(i)
         run_model(m=m, objective=False)
         print(scenario, i * 100, 'LCOW -->', m.fs.costing.LCOW())
 
@@ -544,7 +566,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
         ro_area_norm.append(None)
         mem_replacement.append(None)
 
-    m.fs.costing_param.wacc = stash_value
+    m.fs.costing_param.wacc.fix(stash_value)
     ############################################################
 
     tds_in = False
@@ -1142,7 +1164,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
         ro_area.append(None)
         ro_area_norm.append(None)
         mem_replacement.append(None)
-
+    m.fs.costing_param.maintenance_costs_percent_FCI.fix(stash_value)
     ############################################################
     ############################################################
     ############################################################
@@ -1230,7 +1252,7 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
     print('\n====================== END SENSITIVITY ANALYSIS ======================\n')
 
 
-def print_ro_results(m):
+def print_ro_results(m, ro_name):
     pressures = []
     recovs = []
     areas = []
@@ -1244,45 +1266,42 @@ def print_ro_results(m):
     tds_out = []
     tds_waste = []
 
-    object_dict = dict()
-    pfd_dict = m.fs.pfd_dict
-    for i, unit in enumerate(m.fs.component_objects(Block, descend_into=False)):
-        if i == 0:
-            print('\n===========================RO RESULTS=================================\n')
-        unit_name = str(unit)[3:]
-        print_name = unit_name.replace('_', ' ').title().replace('Ro', 'RO')
-        if unit_name in pfd_dict.keys() and pfd_dict[unit_name]['Unit'] == 'reverse_osmosis':
-            pressures.append(unit.feed.pressure[0]())
-            recovs.append(unit.ro_recovery())
-            areas.append(unit.membrane_area[0]())
-            num_mems.append(unit.num_membranes())
-            kws.append(unit.a[0]())
-            kss.append(unit.b[0]())
-            fluxs.append(unit.flux_lmh)
-            flow_ins.append(unit.flow_vol_in[0]())
-            flow_outs.append(unit.flow_vol_out[0]())
-            tds_in.append(unit.conc_mass_in[0, 'tds']())
-            tds_out.append(unit.conc_mass_out[0, 'tds']())
-            tds_waste.append(unit.conc_mass_waste[0, 'tds']())
-            print(f'.. {print_name}:')
-            print(f'\tPressure = {round(pressures[-1], 2)} bar = {round(pressures[-1] * 14.5038)} psi')
-            print(f'\tRecovery = {round(recovs[-1], 3) * 100}%')
-            print(f'\tArea = {round(areas[-1])} m2 ---> {round(num_mems[-1])} membrane modules')
-            print(f'\tFlux = {round(value(fluxs[-1]), 1)} LMH')
-            print(f'\tTDS in = {round(value(tds_in[-1]) * 1000, 3)} mg/L')
-            print(f'\tTDS out = {round(value(tds_out[-1]) * 1000, 3)} mg/L')
-            print(f'\tTDS waste = {round(value(tds_waste[-1]) * 1000, 3)} mg/L')
-            print(f'\tFlow in = {round(unit.flow_vol_in[0](), 5)} m3/s = '
-                  f'{round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD = '
-                  f'{round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.gallons / pyunits.min)(), 5)} gpm')
-            print(f'\tFlow out = {round(unit.flow_vol_out[0](), 5)} m3/s = '
-                  f'{round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD = '
-                  f'{round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.gallons / pyunits.min)(), 5)} gpm')
-            print(f'\tFlow waste = {round(unit.flow_vol_waste[0](), 5)} m3/s = '
-                  f'{round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 5)} MGD = '
-                  f'{round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.gallons / pyunits.min)(), 5)} gpm')
-            print(f'\tWater Perm. = {kws[-1]} m/(bar.hr)')
-            print(f'\tSalt Perm. = {kss[-1]} m/hr\n')
+    # for i, u in enumerate(m.fs.df_units.Unit):
+    #     if u == 'reverse_osmosis':
+    # ro_name = m.fs.df_units.iloc[i].UnitName
+    unit = getattr(m.fs, ro_name)
+    pressures.append(unit.feed.pressure[0]())
+    recovs.append(unit.ro_recovery())
+    areas.append(unit.membrane_area[0]())
+    num_mems.append(unit.num_membranes())
+    kws.append(unit.a[0]())
+    kss.append(unit.b[0]())
+    fluxs.append(unit.flux_lmh)
+    flow_ins.append(unit.flow_vol_in[0]())
+    flow_outs.append(unit.flow_vol_out[0]())
+    tds_in.append(unit.conc_mass_in[0, 'tds']())
+    tds_out.append(unit.conc_mass_out[0, 'tds']())
+    tds_waste.append(unit.conc_mass_waste[0, 'tds']())
+    # print(f'.. {print_name}:')
+    print(f'\n\t.....{unit.unit_pretty_name} OPERATIONAL PARAMETERS.....')
+    print(f'\tPressure = {round(pressures[-1], 2)} bar = {round(pressures[-1] * 14.5038)} psi')
+    print(f'\tArea = {round(areas[-1])} m2 ---> {round(num_mems[-1])} membrane modules')
+    print(f'\tFlux = {round(value(fluxs[-1]), 1)} LMH')
+    print(f'\tTDS in = {round(value(tds_in[-1]) * 1000, 3)} mg/L')
+    print(f'\tTDS out = {round(value(tds_out[-1]) * 1000, 3)} mg/L')
+    print(f'\tTDS waste = {round(value(tds_waste[-1]) * 1000, 3)} mg/L')
+    print(f'\tFlow in = {round(unit.flow_vol_in[0](), 5)} m3/s = '
+          f'{round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD = '
+          f'{round(pyunits.convert(unit.flow_vol_in[0], to_units=pyunits.gallons / pyunits.min)(), 2)} gpm')
+    print(f'\tFlow out = {round(unit.flow_vol_out[0](), 5)} m3/s = '
+          f'{round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.Mgallons / pyunits.day)(), 5)} MGD = '
+          f'{round(pyunits.convert(unit.flow_vol_out[0], to_units=pyunits.gallons / pyunits.min)(), 2)} gpm')
+    print(f'\tFlow waste = {round(unit.flow_vol_waste[0](), 5)} m3/s = '
+          f'{round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.Mgallon / pyunits.day)(), 5)} MGD = '
+          f'{round(pyunits.convert(unit.flow_vol_waste[0], to_units=pyunits.gallons / pyunits.min)(), 2)} gpm')
+    print(f'\tWater Permeability = {kws[-1]} m/(bar.hr)')
+    print(f'\tSalt Permeability = {kss[-1]} m/hr')
+    print(f'\tRO Recovery = {round(recovs[-1], 3) * 100}%')
 
     # if len(pressures) > 1:
     #     sys_flux = sum(flow_outs) / sum(areas) * (pyunits.meter / pyunits.sec)
@@ -1368,18 +1387,18 @@ def set_bounds(m=None, source_water_category=None):
 def case_study_constraints(m, case_study, scenario):
     if case_study == 'upw':
         m.fs.media_filtration.water_recovery.fix(0.9)
-        m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.056 * 1.01)
-        m.fs.reverse_osmosis.eq2_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] >= 0.056 * 0.99)
-        m.fs.reverse_osmosis.eq3_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] <= 0.044 * 1.01)
-        m.fs.reverse_osmosis.eq4_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] >= 0.044 * 0.99)
+        m.fs.reverse_osmosis.eq1_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] <= 0.05678 * 1.01)
+        m.fs.reverse_osmosis.eq2_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_out[0] >= 0.05678 * 0.99)
+        m.fs.reverse_osmosis.eq3_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] <= 0.04416 * 1.01)
+        m.fs.reverse_osmosis.eq4_upw = Constraint(expr=m.fs.reverse_osmosis.flow_vol_waste[0] >= 0.04416 * 0.99)
         m.fs.reverse_osmosis_2.eq1 = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] <= 0.01262 * 1.01)
         m.fs.reverse_osmosis_2.eq2 = Constraint(expr=m.fs.reverse_osmosis_2.flow_vol_out[0] >= 0.01262 * 0.99)
-        m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.031 * 1.01)
-        m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.031 * 0.99)
+        m.fs.ro_stage.eq1_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] <= 0.03154 * 1.01)
+        m.fs.ro_stage.eq2_upw = Constraint(expr=m.fs.ro_stage.flow_vol_out[0] >= 0.03154 * 0.99)
     #
         if scenario not in ['baseline']:
-            m.fs.to_zld_constr1 = Constraint(expr=m.fs.to_zld.flow_vol_in[0] >= 0.99 * 0.037854)
-            m.fs.to_zld_constr2 = Constraint(expr=m.fs.to_zld.flow_vol_in[0] <= 1.01 * 0.037854)
+            m.fs.to_zld_constr1 = Constraint(expr=m.fs.to_zld.flow_vol_in[0] >= 0.99 * 0.0378)
+            m.fs.to_zld_constr2 = Constraint(expr=m.fs.to_zld.flow_vol_in[0] <= 1.01 * 0.0378)
 
     #
 
@@ -1409,7 +1428,7 @@ def case_study_constraints(m, case_study, scenario):
             m.fs.reverse_osmosis_a.recov1 = Constraint(expr=m.fs.reverse_osmosis_a.flow_vol_out[0] >= (0.95 * m.fs.reverse_osmosis_a.flow_vol_in[0]))
 
     if case_study == 'san_luis':
-        if scenario in ['baseline', 'dwi']:
+        if scenario in ['baseline', 'dwi', '1p5_mgd', '3_mgd', '5_mgd']:
             m.fs.reverse_osmosis_1.feed.pressure.fix(25.5)
             m.fs.reverse_osmosis_2.feed.pressure.fix(36)
 

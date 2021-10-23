@@ -22,10 +22,16 @@ class UnitProcess(WT3UnitProcess):
 
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.Mgallons / pyunits.day)
-        self.contact_time = 1.5  * pyunits.hour
-        self.contact_time_mins = pyunits.convert(self.contact_time, to_units=pyunits.minute)
-        self.ct = 450 * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter))
-        self.chlorine_decay_rate = 3.0  * (pyunits.milligram / (pyunits.liter * pyunits.hour))
+        try:
+            self.contact_time = unit_params['contact_time'] * pyunits.hour
+            self.contact_time_mins = pyunits.convert(self.contact_time, to_units=pyunits.minute)
+            self.ct = unit_params['ct'] * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter))
+            self.chlorine_decay_rate = unit_params['chlorine_decay_rate'] * (pyunits.milligram / (pyunits.liter * pyunits.hour))
+        except:
+            self.contact_time = 1.5  * pyunits.hour
+            self.contact_time_mins = pyunits.convert(self.contact_time, to_units=pyunits.minute)
+            self.ct = 450 * ((pyunits.milligram * pyunits.minute)/ (pyunits.liter))
+            self.chlorine_decay_rate = 3.0  * (pyunits.milligram / (pyunits.liter * pyunits.hour))
         try:
             self.dose = unit_params['dose']
         except:

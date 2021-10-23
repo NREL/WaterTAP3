@@ -45,9 +45,13 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time.first()
         try:
             pump = unit_params['pump']
+
         except:
             pump = 'yes'
-        self.lift_height = 100 * pyunits.ft
+        try:
+            self.lift_height = unit_params['lift_height']
+        except:
+            self.lift_height = 100 * pyunits.ft
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless
         if pump == 'yes':

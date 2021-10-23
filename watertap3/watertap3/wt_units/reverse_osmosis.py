@@ -28,6 +28,7 @@ class UnitProcess(WT3UnitProcess):
         :type t: int
         :return:
         '''
+
         electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)
         return electricity
 
@@ -339,10 +340,10 @@ class UnitProcess(WT3UnitProcess):
                 doc='Electricity intensity [kWh/m3]')
         ####### electricity and chems
         sys_specs = self.parent_block().costing_param
-        self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)
+        # self.electricity = ((self.pump_power - self.erd_power) / 1000) / (self.flow_vol_in[t] * 3600)
         b_cost.pump_electricity_cost = 1E-6 * (self.pump_power / 1000) * 365 * 24 * sys_specs.electricity_price
         b_cost.erd_electricity_sold = 1E-6 * (self.erd_power / 1000) * 365 * 24 * sys_specs.electricity_price
-        b_cost.electricity_cost = (b_cost.pump_electricity_cost - b_cost.erd_electricity_sold) * sys_cost_params.plant_cap_utilization
+        # b_cost.electricity_cost = (b_cost.pump_electricity_cost - b_cost.erd_electricity_sold) * sys_cost_params.plant_cap_utilization
 
         self.chem_dict = {'unit_cost': 0.01}
 
