@@ -70,7 +70,7 @@ default,,evaporation_pond_waterreuse,0.9,Default value based on 5% purge rate pe
 default,,fc_crystallizer_us_bor,0.95,Placeholder. Not utilized in any case studies. 
 default,,feed_water_tank,0.9999,Based on costs for Ferric Choride Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 default,,ferric_chloride_addition,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-default,,filter_press,0.9999,
+default,,filter_press,0.01,
 default,,fixed_bed_gravity_basin,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,fixed_bed_pressure_vessel,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,fluidized_bed,0.9999,Placeholder. Not utilized in any case studies. 
@@ -110,10 +110,12 @@ default,,onsite_storage,0.9999,Texas Water Development Board IT3PR User Manual
 default,,ozonation,0.9999,Texas Water Development Board IT3PR User Manual
 default,,ozone_aop,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,packed_tower_aeration,0.9999,
-upw,zld_c,passthrough,0.9999,
-upw,zld_b,passthrough,0.9999,
-default,,passthrough,0.99999,
-default,,ph_decrease,0.9999,
+upw,baseline,passthrough,0.99,
+upw,zld_a,passthrough,0.99,
+upw,zld_b,passthrough,0.99,
+upw,zld_c,passthrough,0.99,
+default,,passthrough,0.9999,
+default,,ph_decrease,0.99,
 default,,ph_increase,0.9999,Defined based on the Iron and Steel case study data.
 iron_and_steel,baseline,ph_increase,0.9999,Defined based on the Iron and Steel case study data.
 default,baseline,primary_separator,0.999,Defined based on the Iron and Steel case study data.
