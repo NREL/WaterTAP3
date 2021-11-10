@@ -17,7 +17,7 @@ from .post_processing import get_results_table
 
 warnings.filterwarnings('ignore')
 
-__all__ = ['run_model', 'watertap_setup', 'run_model', 'run_model', 'run_watertap3', 'case_study_constraints',
+__all__ = ['run_model', 'watertap_setup', 'run_model', 'run_model_no_print', 'run_watertap3', 'case_study_constraints', 'get_ix_stash', 'fix_ix_stash',
            'run_sensitivity', 'print_ro_results', 'print_results', 'set_bounds', 'get_ro_stash', 'fix_ro_stash',
            'run_sensitivity_power']
 
@@ -153,6 +153,34 @@ def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max
     if print_it:
         print_results(m)
 
+def run_model_no_print(m=None, solver='ipopt', solver_results=False, objective=False, max_attempts=3, print_it=False, initial_run=True):
+
+    if initial_run:
+        financials.get_system_costing(m.fs)
+
+    TransformationFactory('network.expand_arcs').apply_to(m)
+    seq = SequentialDecomposition()
+    G = seq.create_graph(m)
+
+    if objective:
+        m.fs.objective_function = Objective(expr=m.fs.costing.LCOW)
+
+    solver = SolverFactory(solver)
+    # m.fs.solver = solver = SolverFactory('glpk')
+
+    logging.getLogger('pyomo.core').setLevel(logging.ERROR)
+
+
+    m.fs.results = results = solver.solve(m, tee=solver_results)
+    # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
+
+    attempt_number = 1
+    while ((m.fs.results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']) & (attempt_number <= max_attempts)):
+        # print(f'\nAttempt {attempt_number}:')
+        m.fs.results = results = solver.solve(m, tee=solver_results)
+        # print(f'\n\tWaterTAP3 solver returned {results.solver.termination_condition.swapcase()} solution...')
+        attempt_number += 1
+
 
 
 def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', return_df=False):
@@ -173,11 +201,10 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
 
     if m.fs.has_ix:
         print('IX solved!\nFixing IX variables...')
-        m, ix_stash = get_ix_stash(m)
+        m, ix_stash = (m)
         m = fix_ix_stash(m, ix_stash)
 
     if m.fs.choose:
-
         m = make_decision(m, case_study, scenario)
         financials.get_system_costing(m.fs)
         run_model(m=m, solver=solver, objective=True)
@@ -318,9 +345,9 @@ def get_ix_stash(m):
 def fix_ix_stash(m, ix_stash):
     for ix in ix_stash.keys():
         unit = getattr(m.fs, ix)
-        unit.sfr.fix(m.fs.ix_stash[ix]['sfr'])
-        unit.resin_depth.fix(m.fs.ix_stash[ix]['resin_depth'])
-        unit.column_diam.fix(m.fs.ix_stash[ix]['column_diam'])
+        unit.sfr.fix(ix_stash[ix]['sfr'])
+        unit.resin_depth.fix(ix_stash[ix]['resin_depth'])
+        unit.column_diam.fix(ix_stash[ix]['column_diam'])
 
     return m
 
@@ -418,8 +445,8 @@ def print_results(m):
     print('\n======================================================================\n')
 
 
-def run_sensitivity(m=None, save_results=False, return_results=False, scenario=None, case_study=None):
-    print('\n==================== STARTING SENSITIVITY ANALYSIS ===================\n')
+def run_sensitivity(m=None, save_results=False, return_results=False, scenario=None, case_study=None, tds_only=False):
+
 
     ro_list = ['reverse_osmosis', 'ro_first_pass', 'ro_a1', 'ro_b1',
                'ro_active', 'ro_restore', 'ro_first_stage']
@@ -480,6 +507,115 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
 
     runs_per_scenario = 20
 
+    if tds_only:
+
+        runs_per_scenario = 10
+
+        lcow = []
+        tci_total = []
+        op_total = []
+        op_annual = []
+        fixed_op_annual = []
+        other_annual = []
+        elect_cost_annual = []
+        elect_intens = []
+        catchem_annual = []
+
+        lcow.append(m.fs.costing.LCOW())
+        tci_total.append(m.fs.costing.capital_investment_total())
+        op_total.append(m.fs.costing.operating_cost_total())
+        op_annual.append(m.fs.costing.operating_cost_annual())
+        fixed_op_annual.append(m.fs.costing.fixed_op_cost_annual())
+        other_annual.append(m.fs.costing.other_var_cost_annual())
+        elect_cost_annual.append(m.fs.costing.electricity_cost_annual())
+        elect_intens.append(m.fs.costing.electricity_intensity())
+        catchem_annual.append(m.fs.costing.cat_and_chem_cost_annual())
+
+        tds_in = False
+
+        for key in m.fs.flow_in_dict:
+            if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                tds_in = True
+
+        if tds_in:
+            # print('\n-------', 'RESET', '-------\n')
+            run_model_no_print(m=m, objective=False)
+            # print('LCOW -->', m.fs.costing.LCOW())
+
+            ############ Salinity +/- 30% ############
+            stash_value = []
+            tds_list = []
+            for key in m.fs.flow_in_dict:
+                if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                    stash_value.append(value(getattr(m.fs, key).conc_mass_in[0, 'tds']))
+            # print(stash_value)
+            scenario = 'Inlet TDS +-25%'
+            sens_var = 'tds_in'
+            # print('-------', scenario, '-------')
+            ub = 1.25
+            lb = 0.75
+
+            # if m_scenario in ['edr_ph_ro', 'ro_and_mf']:
+            #     print('redoing upper and lower bounds')
+            #     ub = 80
+            #     lb = 60
+
+            step = (ub - lb) / runs_per_scenario
+
+            for i in np.arange(lb, ub + step, step):
+                q = 0
+                for key in m.fs.flow_in_dict:
+                    if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                        getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q] * i)
+                        q += 1
+                # print('\n===============================')
+                # print(f'CASE STUDY = {case_print}\nSCENARIO = {scenario_print}')
+                # print('===============================\n')
+                run_model_no_print(m=m, objective=False)
+
+                scenario_value.append(sum(stash_value) * i)
+                scenario_name.append(scenario)
+                lcow.append(m.fs.costing.LCOW())
+                tci_total.append(m.fs.costing.capital_investment_total())
+                op_total.append(m.fs.costing.operating_cost_total())
+                op_annual.append(m.fs.costing.operating_cost_annual())
+                fixed_op_annual.append(m.fs.costing.fixed_op_cost_annual())
+                other_annual.append(m.fs.costing.other_var_cost_annual())
+                elect_cost_annual.append(m.fs.costing.electricity_cost_annual())
+                elect_intens.append(m.fs.costing.electricity_intensity())
+                catchem_annual.append(m.fs.costing.cat_and_chem_cost_annual())
+
+            q = 0
+            for key in m.fs.flow_in_dict:
+                if 'tds' in list(getattr(m.fs, key).config.property_package.component_list):
+                    getattr(m.fs, key).conc_mass_in[0, 'tds'].fix(stash_value[q])
+                    q += 1
+
+            run_model_no_print(m=m, objective=False)
+
+            sens_df['scenario_name'] = scenario_name
+            sens_df['scenario_value'] = scenario_value
+
+            sens_df['lcow'] = lcow
+            sens_df['tci_total'] = tci_total
+            sens_df['op_total'] = op_total
+            sens_df['op_annual'] = op_annual
+            sens_df['fixed_op_annual'] = fixed_op_annual
+            sens_df['other_annual'] = other_annual
+            sens_df['elect_cost_annual'] = elect_cost_annual
+            sens_df['elect_intens'] = elect_intens
+            sens_df['catchem_annual'] = catchem_annual
+
+
+            if save_results:
+                sens_df.to_csv('results/case_studies/%s_%s_sensitivity.csv' % (case_study, m_scenario), index=False)
+            if return_results:
+                return sens_df
+            else:
+                return
+
+            # print('\n====================== END SENSITIVITY ANALYSIS ======================\n')
+    print('\n==================== STARTING SENSITIVITY ANALYSIS ===================\n')
     ############ Plant Capacity Utilization 70-100% ############
     stash_value = m.fs.costing_param.plant_cap_utilization()
     scenario = 'Plant Capacity Utilization 70-100%'

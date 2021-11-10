@@ -1,17 +1,12 @@
-from . import app3
-from .app3 import *
+
 from . import constituent_removal_water_recovery
 from .constituent_removal_water_recovery import *
 from . import cost_curves
 from .cost_curves import *
 from . import design
 from .design import *
-from . import display
-from .display import *
 from . import financials
 from .financials import *
-from . import get_graph_chars
-from .get_graph_chars import *
 from . import mixer_wt3
 from .mixer_wt3 import *
 from . import mixer_mar5
@@ -39,13 +34,10 @@ from .sensitivity_runs import *
 
 
 __all__ = [
-           *app3.__all__,
            *constituent_removal_water_recovery.__all__,
            *cost_curves.__all__,
            *design.__all__,
-           *display.__all__,
            *financials.__all__,
-           *get_graph_chars.__all__,
            *mixer_wt3.__all__,
            *mixer_mar5.__all__,
            *ml_regression.__all__,
