@@ -3,8 +3,8 @@
 Brine Concentrator
 ============================================================
 
-The brine concentrator represents a thermal (evaporative brine concentrator) based on WateReuse
-Foundation (2008).
+The brine concentrator unit represents an evaporative (i.e. thermal) brine concentrator based on
+WateReuse Foundation (2008).
 
 Unit Parameters
 --------------------

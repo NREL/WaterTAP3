@@ -28,61 +28,118 @@ WaterTAP3 Installation
 ----------------------------
 
 WaterTAP3 is still in development so is not listed in ``pip`` and must be accessed by cloning the
-current GitHub repo available at https://github.com/NREL/WaterTAP3:
+current GitHub repo available at https://github.com/NREL/WaterTAP3.
 
-#. Install the Anaconda distribution of Python:
+1. **Install the Anaconda distribution of Python**:
 
     * https://www.anaconda.com/products/individual
-
-#. Create new empty directory for WaterTAP3 installation:
+|
+2. **Create new empty directory for WaterTAP3 installation**:
 
     * e.g. this might be a folder called ``wt3`` on your desktop
-
-#. Open terminal and navigate to that directory:
+|
+3. **Open terminal and navigate to that directory**:
 
     * e.g. ``cd ~/Desktop/wt3``
-
-#. Clone the repo:
+|
+4. **Clone the repo**:
 
     * In terminal, enter ``git clone https://github.com/NREL/WaterTAP3``
     * For example, if you cloned the repo into ``~/Desktop/wt3`` , you will have a new
       directory ``~/Desktop/wt3/WaterTAP3``
     * All the necessary python files and data files will be downloaded into the ``WaterTAP3``
       directory.
+|
+5. **Navigate to** ``~/WaterTAP3``.
 
-#. Navigate to ``~/WaterTAP3``. This directory contains the ``watertap3.yml`` file that is used
-   to create the ``watertap3`` Python environment.
-
-#. Create the ``watertap3`` Python environment:
+    * This directory contains the ``watertap3.yml`` file that is used to create the ``watertap3``
+      Python environment.
+|
+6. **Create the** ``watertap3`` **Python environment**.
 
     * In terminal, enter ``conda env create --file watertap3.yml``
-
-#. Activate the ``watertap3`` Python environment:
+|
+7. **Activate the** ``watertap3`` **Python environment**.
 
     * In terminal, enter ``conda activate watertap3``
+|
+8. **Install the IDAES extensions to get solvers and function libraries**:
 
-#. Navigate to ``~/WaterTAP3/watertap3``. This directory contains the ``setup.py`` file that is
-   used to install ``watertap3`` as an editable Python package.
+    * In terminal enter ``idaes get-extensions``
+|
+9. **Navigate to** ``~/WaterTAP3/watertap3``.
 
+    * This directory contains the ``setup.py`` file that is used to install ``watertap3`` as an
+      editable Python package.
     * For example, if you cloned the repo into ``~/Desktop/wt3``, your working directory
       should now be ``~/Desktop/wt3/WaterTAP3/watertap3``.
     * This is also the directory that contains this documentation.
-
-#. Install ``watertap3`` as an editable Python package:
+|
+10. **Install** ``watertap3`` **as an editable Python package**.
 
     * Must be in directory containing ``setup.py`` file
     * In terminal, enter ``python –m pip install –e .``
-
-        * **NOTE: MUST INCLUDE THE PERIOD AT THE END OF THIS COMMAND**
-
+    * **NOTE: MUST INCLUDE THE PERIOD AT THE END OF THIS COMMAND**
     * You should end up with new directory ``watertap3.egg-info`` in current directory
-
-#. Start Jupyter Notebook app or Jupyter Lab app to access tutorial notebooks and run WaterTAP3:
+|
+11. **Start Jupyter Notebook app or Jupyter Lab app to run WaterTAP3**.
 
     * For Jupyter Notebook - ``jupyter notebook``
     * For Jupyter Lab - ``jupyter lab``
 
 |
+
+.. _watertap3_run:
+
+Running WaterTAP3
+----------------------------
+
+Running WaterTAP3 is done in a Jupyter notebook via sequential execution of three functions. All
+proper imports must be made before running WaterTAP3.::
+
+    from watertap3.utils import watertap_setup, get_case_study, run_model, run_watertap3
+    import pandas as pd
+    import numpy as np
+
+Prior to executing these functions, you must define four variables to be used as inputs to the
+functions:
+
+* ``case_study`` - A string that must match the name of your case study in all input files.
+* ``scenario`` - A string that must match the name of your scenario in all input files.
+* ``desired_recovery`` - Targeted water recovery for your treatment train between 0-1 (default is 1).
+* ``ro_bounds`` - A string that determines the maximum pressure limits for any reverse osmosis
+  modules in your treatment train. Either ``'seawater'`` for higher pressure limits (up to 85
+  bar) or ``'other'`` for lower pressure limits (<25 bar). Default is ``'seawater'``.
+|
+The series of function executions are
+
+1. ``m = watertap_setup(case_study=case_study, scenario=scenario)``
+    * Reads in source water data and treatment train setup data.
+|
+
+2. ``m = get_case_study(m=m)``
+    * Connects units and creates inlet, outlet, and waste ports.
+|
+
+3. ``m = run_watertap3(m, solver=solver, desired_recovery=desired_recovery, ro_bounds=ro_bounds)``
+    * Runs WaterTAP3 model and saves results to ``~/watertap3/watertap3/results/case_studies``.
+|
+
+This code block will execute all these steps.::
+
+    case_study = 'carlsbad'
+    scenario = 'baseline'
+    desired_recovery = 0.5
+    ro_bounds = 'seawater'
+    m = watertap_setup(case_study=case_study, scenario=scenario)
+    m = get_case_study(m=m)
+    m = run_watertap3(m, solver=solver, desired_recovery=desired_recovery, ro_bounds=ro_bounds)
+
+
+
+
+|
+
 
 .. _watertap3_cost_estimates:
 

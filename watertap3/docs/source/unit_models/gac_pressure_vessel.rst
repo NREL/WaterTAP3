@@ -40,7 +40,7 @@ unit flow [m3/hr] to determine capital costs:
 Electricity Intensity
 ------------------------
 
-The ``electricity_flow`` column is read in from the ``cost_curves.csv`` based on user-defined EBCT
+The ``electricity_intensity`` column is read in from the ``cost_curves.csv`` based on user-defined EBCT
 and is fit to a power curve. Then `a` and `b` from that regression is used with the unit flow
 [m3/hr] to determine electricity intensity:
 

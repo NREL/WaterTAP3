@@ -177,6 +177,15 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
     unit_list.append('$/m3')
     unit_kinds.append('System')
 
+    value_list.append(value(m.fs.costing.LCOW_total_op))
+    python_var.append('system')
+    up_nice_name_list.append('System')
+    python_param.append('LCOW_total_op')
+    category.append('LCOW')
+    variable_list.append('System Total Operating LCOW')
+    unit_list.append('$/m3')
+    unit_kinds.append('System')
+
     value_list.append(value(m.fs.costing.LCOW_elec))
     python_var.append('system')
     up_nice_name_list.append('System')

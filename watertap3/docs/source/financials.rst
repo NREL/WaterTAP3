@@ -3,7 +3,7 @@
 Financials
 ============================================================
 
-This page describes the different costing and pipe parity metric outputs from WaterTAP3 and how
+This section describes the different costing and pipe parity metric outputs from WaterTAP3 and how
 they are calculated in the model.
 
 .. _financials_costing_indices_and_factors:
@@ -19,7 +19,7 @@ headings are:
     * *CatChem_Index*: The catalyst and chemical index for the given year.
     * *Labor_Index*: The labor index for the given year.
     * *CPI_Index*: The consumer price index (CPI) for the given year.
-
+|
 There are four types of cost indices applied in WaterTAP3 – Capital, Catalysts and Chemicals,
 Labor and Consumer Price Index. WaterTAP3 calculates each of these indices for 1990-2050.
 These factors are used to help account for the time-value of investments and are used in the capital
@@ -29,7 +29,7 @@ and operating cost calculations. The following index factors are calculated for 
 * The Basis Year for the specific Process Model, Catalyst, Chemical, Replacement Part or other purchased item.
   This value is process-model-dependent with potentially different values across unit models
   within a treatment train.
-
+|
 The four cost indices are (where `Y` is the year):
 
 * Capital Cost Index Factor:

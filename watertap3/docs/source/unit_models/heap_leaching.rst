@@ -39,7 +39,7 @@ components explicitly calculated for these units via regressed data from this ta
 * Leaching pads/ponds (Heap Leaching)
 * Agglomeration/stacking system (Agglomeration and Stacking)
 * Solution distribution and recovery plant (Solution Distribution and Recovery Plant)
-
+|
 The costs from this table that are estimated via different method below are:
 
 * Infrastructure (power, water, access roads, site office, service facilities)
@@ -48,7 +48,7 @@ The costs from this table that are estimated via different method below are:
 * Import duties
 * Equipment and materials transport
 * Initial operating supplies
-
+|
 Note that laboratory costs and working capital costs from this table are accounted for elsewhere
 in WaterTAP3 and so are excluded from the unit process calculations.
 
@@ -61,14 +61,17 @@ capacities of 3,000 tonnes/day and 15,000 tonnes/day from Table 3 in Kappes (200
 
         C_{equip} = 0.00124 X ^ {0.93454}
 |
+
     .. math::
 
         C_{devel} = 0.01908 X ^ {0.43068}
 |
+
     .. math::
 
         C_{crush} = 0.0058 X ^ {0.6651}
 |
+
     .. math::
 
         C_{leach} = 0.0005 X ^ {0.94819}

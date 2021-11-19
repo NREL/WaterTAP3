@@ -87,7 +87,7 @@ And the overall mass balance around TDS is:
 Feed Block
 *******************************
 
-The osmotic coefficient is calculated according to Bartholomew & Mauter (2019):
+The osmotic coefficient is calculated according to (Bartholomew & Mauter (2019)):
 
     .. math::
 
@@ -111,7 +111,8 @@ The pressure drop is assumed to be 3 bar.
 Permeate Stream
 *******************************
 
-The equation for mass into permeate is slightly different than for feed or retentate streams Bartholomew & Mauter (2019):
+The equation for mass into permeate is different than for feed or retentate streams (Bartholomew
+& Mauter (2019)):
 
     .. math::
 
@@ -172,7 +173,7 @@ The pump power is calculated as:
 
         p_{pump} = \frac{Q_{in} P_f}{\eta_p}
 |
-The pump cost is then:
+The pump cost is then (Bartholomew et al., 2018):
 
     .. math::
 
@@ -181,7 +182,7 @@ The pump cost is then:
 Membrane Capital Costs
 **********************************************
 
-The cost per meter squared of membrane area is $30 assumed from EPA documentation below. The
+The cost per meter squared of membrane area is $30 assumed (Bartholomew et al., 2018). The
 membrane costs are calculated as:
 
     .. math::
@@ -265,14 +266,18 @@ Membrane replacement costs (assumed to be 25% of area per year):
         C_{replace} = 0.25 C_{mem}
 |
 
-Chemical costs are assumed to equal 1% of the capital cost.
+Chemical costs are assumed to equal 1% of the capital cost (Bartholomew et al., 2018).
 
 References
 -------------------
 
-| Bartholomew, T. V. and M. S. Mauter (2019).
+| Bartholomew, T. V. and Mauter, M. S. (2019).
 | "Computational framework for modeling membrane processes without process and solution property simplifications."
 | *Journal of Membrane Science* 573: 682-693.
+
+| Bartholomew, T. V., Siefert, N. S., Mauter, M.S. (2018).
+| "Cost Optimization of Osmotically Assisted Reverse Osmosis."
+| *Environmental Science & Technology* 52: 11813-11821.
 
 | Lu, Y.-Y., et al. (2007).
 | "Optimum design of reverse osmosis system under different feed concentration and product specification."
