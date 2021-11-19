@@ -148,6 +148,16 @@ def get_complete_costing(costing):
                                       initialize=1,
                                       doc='Uncertainty for Electricity Intensity')
 
+    costing.elect_cost_reduction = Var(time,
+                                    domain=NonNegativeReals,
+                                    initialize=0,
+                                    doc='Reduction factor for Electricity Intensity')
+
+    costing.elect_cost_uncertainty = Var(time,
+                                      domain=NonNegativeReals,
+                                      initialize=1,
+                                      doc='Uncertainty for Electricity Intensity')
+
     costing.other_reduction = Var(time,
                                     domain=NonNegativeReals,
                                     initialize=0,
@@ -178,6 +188,9 @@ def get_complete_costing(costing):
 
     costing.elect_intens_reduction.fix(0)
     costing.elect_intens_uncertainty.fix(1)
+
+    costing.elect_cost_reduction.fix(0)
+    costing.elect_cost_uncertainty.fix(1)
 
     costing.other_reduction.fix(0)
     costing.other_uncertainty.fix(1)
@@ -221,7 +234,7 @@ def get_complete_costing(costing):
 
     # if not hasattr(costing, 'electricity_cost'):
     costing.electricity_intensity = (unit.electricity * (1 - costing.elect_intens_reduction[t])) * costing.elect_intens_uncertainty[t]
-    costing.electricity_cost = (costing.electricity_intensity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization
+    costing.electricity_cost = ((costing.electricity_intensity * flow_in_m3yr * sys_specs.electricity_price * 1E-6) * sys_specs.plant_cap_utilization) * (1 - costing.elect_cost_reduction[t]) * costing.elect_cost_uncertainty[t]
 
     if not hasattr(costing, 'other_var_cost'):
         costing.other_var_cost = 0
@@ -538,6 +551,9 @@ def get_system_costing(m_fs):
             b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     b.LCOW_other_onm = Expression(expr=1E6 * (b.other_var_cost_annual) / (
+            b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
+
+    b.LCOW_total_op = Expression(expr=1E6 * (b.operating_cost_annual) / (
             b.treated_water * 3600 * 24 * 365 * sys_specs.plant_cap_utilization))
 
     ## GET TOTAL ELECTRICITY CONSUMPTION IN kwh/m3 of treated water

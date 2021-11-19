@@ -12,7 +12,7 @@ tpec_or_tic = 'TPEC'
 class UnitProcess(WT3UnitProcess):
 
     def fixed_cap(self, unit_params):
-        self.pipe_cost_factor_dict = {'emwd': 826000}
+        self.pipe_cost_factor_dict = {'emwd': 82600}
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.base_fixed_cap_cost = 4731.6

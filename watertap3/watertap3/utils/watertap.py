@@ -201,7 +201,7 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
 
     if m.fs.has_ix:
         print('IX solved!\nFixing IX variables...')
-        m, ix_stash = (m)
+        m, ix_stash = get_ix_stash(m)
         m = fix_ix_stash(m, ix_stash)
 
     if m.fs.choose:
@@ -554,6 +554,10 @@ def run_sensitivity(m=None, save_results=False, return_results=False, scenario=N
             # print('-------', scenario, '-------')
             ub = 1.25
             lb = 0.75
+
+            # if case_study in ['cherokee', 'gila_river']:
+            #     ub = 1.2
+            #     lb = 0.8
 
             # if m_scenario in ['edr_ph_ro', 'ro_and_mf']:
             #     print('redoing upper and lower bounds')

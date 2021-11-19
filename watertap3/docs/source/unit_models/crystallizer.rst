@@ -4,7 +4,7 @@ Crystallizer
 ============================================================
 
 The crystallizer represents a thermal crystallizer and is based on WateReuse
-Foundation (2008).
+Foundation (2008) data.
 
 Unit Parameters
 --------------------

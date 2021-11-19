@@ -5,7 +5,7 @@ Unit Models
 
 All unit processes achieve the mass balances described in the :ref:`water_recovery` and
 :ref:`constituent_removal` section. The calculations of water recovery and constituent removal
-are based on factors (discussed in the :ref:`data_inputs` section) or equations that represent
+are based on factors (discussed in the :ref:`data_input` section) or equations that represent
 some level of the physical processes that occur in the treatment process. There are four levels
 of detail (discussed also in the :ref:`financials` section) across the unit models.
 
