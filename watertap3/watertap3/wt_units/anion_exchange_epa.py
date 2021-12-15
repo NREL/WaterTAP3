@@ -72,21 +72,6 @@ class UnitProcess(WT3UnitProcess):
         t = self.flowsheet().config.time.first()
         flow_in = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.m ** 3 / pyunits.hr)
         self.del_component(self.recovery_equation)
-        try:
-            self.freund1 = unit_params['freund1']  # Kf (ug/g)(L/ug)1/n
-            self.freund2 = unit_params['freund2']  # dimensionless
-            self.conc_in = unit_params['conc_in']
-            self.conc_breakthru = unit_params['conc_breakthru']
-            self.ph_in = unit_params['ph_in']
-            self.ph_out = unit_params['ph_out']
-        except:
-            # defaults to values for nitrate removal using polystyrenic gel-type resin and 99% reduction (1 mg/L --> 0.01 mg/L)
-            self.freund1 = 21.87
-            self.freund2 = 3.04
-            self.conc_in = 10
-            self.conc_breakthru = 0.1
-            self.ph_in = 7
-            self.ph_out = 8.2
 
         try:
             self.geom = unit_params['geom']

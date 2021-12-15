@@ -66,7 +66,7 @@ def get_constituent_nice_name(con_str):
 def get_unit_nice_name(unit_str):
     up_dict = {
             'agglom_stacking': 'Agglom. Stacking',
-            'anti_scalant_addition': 'Anit-Scalant Addition',
+            'anti_scalant_addition': 'Anti-Scalant Addition',
             'co2_addition': 'CO2 Addition',
             'gac': 'GAC',
             'gac_gravity': 'GAC - Gravity',

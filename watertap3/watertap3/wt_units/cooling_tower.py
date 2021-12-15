@@ -46,13 +46,13 @@ class UnitProcess(WT3UnitProcess):
         ## MASS BALANCE AND PLANT INFO USED TO CALCULATE CYCLES OF CONCENTRATION, BLOWDOWN, EVAPORATION
         if unit_params['method'] == 'plant_info_with_makeup':
             print('Make up is given, cycles of concentration are calculated as a result of assumptions')
-            set_plant_info(self, unit_params)
+            self.set_plant_info(self, unit_params)
             self.nameplate = unit_params['nameplate']
             self.heat_in = self.nameplate / self.eff
             self.desired_heat_cond = self.heat_in - (self.heat_in * self.eff) - (self.heat_in * self.heat_sink)
             self.evaporation = self.desired_heat_cond * (self.evap_fraction / self.latent_heat)
             self.flow_vol_in.unfix()
-            unfix_inlet_to_train(self)
+            self.unfix_inlet_to_train(self)
             self.flow_vol_waste.fix(self.evaporation)
             self.make_up = unit_params['make_up']
             self.blowdown = self.make_up - self.evaporation
@@ -60,13 +60,13 @@ class UnitProcess(WT3UnitProcess):
         ## MASS BALANCE AND PLANT INFO USED TO CALCULATE CYCLES OF CONCENTRATION, BLOWDOWN, EVAPORATION
         if unit_params['method'] == 'plant_info_without_makeup':
             print('make up not given as a result of assumptions, cycles of concentration are given')
-            set_plant_info(self, unit_params)
+            self.set_plant_info(self, unit_params)
             self.nameplate = unit_params['nameplate']
             self.heat_in = self.nameplate / self.eff
             self.desired_heat_cond = self.heat_in - (self.heat_in * self.eff) - (self.heat_in * self.heat_sink)
             self.evaporation = self.desired_heat_cond * (self.evap_fraction / self.latent_heat)
             self.flow_vol_in.unfix()
-            unfix_inlet_to_train(self)
+            self.unfix_inlet_to_train(self)
             self.flow_vol_waste.fix(self.evaporation)
             self.make_up = self.flow_vol_in[time]
             self.blowdown = self.make_up - self.evaporation

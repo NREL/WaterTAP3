@@ -9,7 +9,7 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 ## REFERENCE: ADD REFERENCE HERE
 
 module_name = 'ion_exchange'
-basis_year = 2020
+basis_year = 2016 # 2016 is costing year for EPA component costing data
 tpec_or_tic = 'TIC'
 
 
@@ -70,31 +70,19 @@ class UnitProcess(WT3UnitProcess):
 
         if self.pv_material == 'carbon_w_stainless_internals':
             self.cap_per_column_constr = Constraint(expr=self.cap_per_column[self.t] ==
-                                                         (-0.2612 * self.column_vol[self.t] ** 3 + 34.118 * self.column_vol[self.t] ** 2 + 1595.5 * self.column_vol[self.t] + 20709) * 1E-6)
+                                                         (16504 * self.column_vol[self.t] ** 0.43) * 1E-6)
         if self.pv_material == 'carbon_w_plastic_internals':
             self.cap_per_column_constr = Constraint(expr=self.cap_per_column[self.t] ==
-                                                         (0.0457 * self.column_vol[self.t] ** 3 - 4.7705 * self.column_vol[self.t] ** 2 + 1552.9 * self.column_vol[self.t] + 10853) * 1E-6)
+                                                         (9120 * self.column_vol[self.t] ** 0.49) * 1E-6)
         if self.pv_material == 'fiberglass':
             self.cap_per_column_constr = Constraint(expr=self.cap_per_column[self.t] ==
-                                                         (168.22 * self.column_vol[self.t] ** 3 - 1019 * self.column_vol[self.t] ** 2 + 6523.2 * self.column_vol[self.t] + 19.336) * 1E-6)
+                                                         (5637 * self.column_vol[self.t] ** 0.9) * 1E-6)
 
         self.col_total_cap_constr = Constraint(expr=self.column_total_cap[self.t] == self.cap_per_column[self.t] * (self.num_columns[self.t] + 1))
 
-        if self.mode == 'sac':
-            # From EPA model: Strong acid polystyrenic gel-type = 3689.33 $/m3
-            # From EPA model: Strong acid polystyrenic macroporous = 6255.844 $/m3
-            self.resin_unit_cap.fix(3689.33)
-            self.resin_cap_constr = Constraint(expr=self.resin_cap[self.t] == ((self.resin_vol[self.t] + self.resin_per_column[self.t]) * self.resin_unit_cap[self.t]) * 1E-6)  # include an additional resin vol per column to account for the extra column
+        self.resin_unit_cap.fix(self.resin_dict[self.resin_type])
 
-        if self.mode == 'sba':
-            # From EPA model: Strong base polystyrenic gel-type Type I = 5214.101 $/m3
-            # From EPA model: Strong base polystyrenic gel-type Type II = 6116.300 $/m3
-            # From EPA model: Strong base polystyrenic macroporous Type I = 7298.281 $/m3
-            # From EPA model: Strong base polystyrenic macroporous Type II = 7810.995 $/m3
-            # From EPA model: Strong base polyacrylic = 8658.862 $/m3
-            # From EPA model: Nitrate-selective = 6116.300 $/m3
-            self.resin_unit_cap.fix(5214.101)
-            self.resin_cap_constr = Constraint(expr=self.resin_cap[self.t] == ((self.resin_vol[self.t] + self.resin_per_column[self.t]) * self.resin_unit_cap[self.t]) * 1E-6)  # include an additional resin vol per column to account for the extra column
+        self.resin_cap_constr = Constraint(expr=self.resin_cap[self.t] == ((self.resin_vol[self.t] + self.resin_per_column[self.t]) * self.resin_unit_cap[self.t]) * 1E-6)  # include an additional resin vol per column to account for the extra column
 
         self.regen_pump_cap_constr = Constraint(expr=self.regen_pump_cap[self.t] == (-24.257 * self.regen_flow[self.t] ** 2 + 2803.7 * self.regen_flow[self.t] + 7495.7) *
                                                      (self.num_columns[self.t] + 1) * 1E-6)  # assumes centrifugal pump and 1 pump per column
@@ -319,7 +307,8 @@ class UnitProcess(WT3UnitProcess):
                                    bounds=(0.5, 3),
                                    doc='Resin bed expansion during backwash [m]')
 
-        self.bw_time.fix(6)
+        # self.bw_time.fix(6)
+        self.bw_time.fix(12)
 
         ### RINSE VARIABLES
 
@@ -546,7 +535,7 @@ class UnitProcess(WT3UnitProcess):
             self.column_vol = Var(time,
                                   initialize=35,
                                   domain=NonNegativeReals,
-                                  bounds=(0.5, 110),
+                                  bounds=(0.5, 25),
                                   units=pyunits.m ** 3,
                                   doc='Column volume [m3]')
 
@@ -583,6 +572,7 @@ class UnitProcess(WT3UnitProcess):
                                  doc='Pressure drop across column [psi]')
 
         self.resin_capacity.fix(1.2)
+        # self.resin_capacity.fix(0.9435)
         # self.sfr.fix(30)
         self.loading_rate.fix(20)
         self.underdrain_h.fix(0.5)
@@ -643,8 +633,8 @@ class UnitProcess(WT3UnitProcess):
 
         self.resin_per_col_constr = Constraint(expr=self.resin_per_column[self.t] == self.resin_vol[self.t] / self.num_columns[self.t])
 
-        # self.loading_rate_constr = Constraint(expr=self.loading_rate[self.t] == self.flow_per_column[self.t] / self.column_area[self.t])
-        self.loading_rate_constr = Constraint(expr=self.loading_rate[self.t] == self.sfr[self.t] * self.resin_depth[self.t])
+        self.loading_rate_constr1 = Constraint(expr=self.loading_rate[self.t] == self.flow_per_column[self.t] / self.column_area[self.t])
+        self.loading_rate_constr2 = Constraint(expr=self.loading_rate[self.t] == self.sfr[self.t] * self.resin_depth[self.t])
 
         self.pressure_drop_constr = Constraint(expr=self.pressure_drop[self.t] == (8.28E-04 * self.loading_rate[self.t] ** 2 + 0.173 * self.loading_rate[self.t] + 0.609) * self.resin_depth[self.t])  # Curve for 20C temperatuer
 
@@ -738,7 +728,7 @@ class UnitProcess(WT3UnitProcess):
                               initialize=300,
                               domain=NonNegativeReals,
                               units=pyunits.kg / pyunits.m ** 3,
-                              bounds=(80, 500),
+                              bounds=(80, 500),\
                               doc='NaCl dose required for regeneration [kg/m3]')
 
         self.regen_rate = Var(time,
@@ -1105,7 +1095,7 @@ class UnitProcess(WT3UnitProcess):
             self.column_vol = Var(time,
                                   initialize=35,
                                   domain=NonNegativeReals,
-                                  bounds=(0.5, 110),
+                                  bounds=(0.5, 25),
                                   units=pyunits.m ** 3,
                                   doc='Column volume [m3]')
 
@@ -1202,8 +1192,8 @@ class UnitProcess(WT3UnitProcess):
 
         self.resin_per_col_constr = Constraint(expr=self.resin_per_column[self.t] == self.resin_vol[self.t] / self.num_columns[self.t])
 
-        # self.loading_rate_constr = Constraint(expr=self.loading_rate[self.t] == self.flow_per_column[self.t] / self.column_area[self.t])
-        self.loading_rate_constr = Constraint(expr=self.loading_rate[self.t] == self.sfr[self.t] * self.resin_depth[self.t])
+        self.loading_rate_constr1 = Constraint(expr=self.loading_rate[self.t] == self.flow_per_column[self.t] / self.column_area[self.t])
+        self.loading_rate_constr2 = Constraint(expr=self.loading_rate[self.t] == self.sfr[self.t] * self.resin_depth[self.t])
 
         self.pressure_drop_constr = Constraint(expr=self.pressure_drop[self.t] == (8.28E-04 * self.loading_rate[self.t] ** 2 + 0.173 * self.loading_rate[self.t] + 0.609) * self.resin_depth[self.t])  # Curve for 20C temperatuer
 
@@ -1297,11 +1287,36 @@ class UnitProcess(WT3UnitProcess):
         except KeyError:
             self.pv_material = 'carbon_w_plastic_internals'
 
+
+
         if self.mode == 'sac':
+            self.resin_dict = {
+                    'polystyrenic_macro': 3680,
+                    'polystyrenic_gel': 6240,
+                    } # cost of resin per m3, adapted to $/m3 from EPA models
+
+            try:
+                self.resin_type = unit_params['resin_type']
+            except KeyError:
+                self.resin_type = 'polystyrenic_macro'
             self.sac(unit_params)
 
         if self.mode == 'sba':
+            self.resin_dict = {
+                    'styrenic_gel_1': 5214,
+                    'styrenic_gel_2': 6116,
+                    'styrenic_macro_1': 7298,
+                    'styrenic_macro_2': 7810,
+                    'polyacrylic': 8658,
+                    'nitrate': 6116
+                    } # cost of resin per m3, adapted to $/m3 from EPA models
+            try:
+                self.resin_type = unit_params['resin_type']
+            except KeyError:
+                self.resin_type = 'styrenic_gel_1'
             self.sba(unit_params)
+
+
 
         self.costing.fixed_cap_inv_unadjusted = Expression(expr=self.fixed_cap(unit_params),
                                                            doc='Unadjusted fixed capital investment')
