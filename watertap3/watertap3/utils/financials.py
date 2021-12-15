@@ -210,7 +210,10 @@ def get_complete_costing(costing):
     costing.consumer_price_index = df.loc[basis_year].CPI_Factor
 
     costing.fixed_cap_inv = ((costing.fixed_cap_inv_unadjusted * costing.cap_replacement_parts) * (1 - costing.fci_reduction[t])) * costing.fci_uncertainty[t]
-    costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
+    if unit.parent_block().train['case_study'] == 'cherokee' and unit.unit_name == 'evaporation_pond':
+        costing.land_cost = costing.fixed_cap_inv * 0
+    else:
+        costing.land_cost = costing.fixed_cap_inv * sys_specs.land_cost_percent_FCI
     costing.working_cap = costing.fixed_cap_inv * sys_specs.working_cap_percent_FCI
     costing.contingency = costing.fixed_cap_inv * sys_specs.contingency_cost_percent_FCI
     costing.component_replacement = costing.fixed_cap_inv * sys_specs.component_replace_percent_FCI
