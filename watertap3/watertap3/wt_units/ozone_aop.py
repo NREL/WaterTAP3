@@ -60,8 +60,7 @@ class UnitProcess(WT3UnitProcess):
             self.chem_dict = {}
         x0 = pyunits.convert(self.ozone_consumption, to_units=(pyunits.mg / pyunits.liter))
         x1 = self.flow_in
-        ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
-                x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
+        ozone_cap=self.interp_cost_at_dose(value(x0),value(x1))
         if self.aop:
             h2o2_flow = self.solution_vol_flow()
             h2o2_cap = self.h2o2_base_cap * h2o2_flow ** self.h2o2_cap_exp
@@ -69,7 +68,34 @@ class UnitProcess(WT3UnitProcess):
             h2o2_cap = 0
         ozone_aop_cap = (ozone_cap + h2o2_cap) * 1E-3
         return ozone_aop_cap
+    def interp_cost_at_dose(self,dose,flow):
+        '''
+        Determine a, b costing parameters as a function of flow and ozone dose
 
+        :param flow: Volumetric flow into unit
+        :type flow_in: float
+        :param dose: ozone dose
+        :return: capital cost
+        '''
+        def basic_ab(vals,a,b):
+            #print(vals,a,b)
+            return a*vals**b
+        df=pd.read_csv('data/ozone_cost_data.csv',header=0)
+        interp_functions=[]
+
+        doses=[1,5,10,15,20,25]
+        flow_interp=[]
+        cost_interp=[]
+        for i,k in enumerate(df['flow (mgd)']):
+            costs=[]
+            for d in doses:
+                cutal_ox=df[str(d)].to_numpy()
+                costs.append(cutal_ox[i])
+            #interp=np.interp1d(doses,costs)
+            flow_interp.append(k)
+            cost_interp.append(np.interp(dose,doses,costs))
+        popt, pcov = curve_fit(basic_ab, flow_interp, cost_interp,bounds=[[1e-5,1e-5],[100000,5]])
+        return basic_ab(flow,popt[0],popt[1])
     def elect(self):
         '''
         Electricity intensity for Ozone/Ozone AOP unit.
