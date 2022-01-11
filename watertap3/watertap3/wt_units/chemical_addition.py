@@ -50,12 +50,6 @@ class UnitProcess(WT3UnitProcess):
         '''
         Electricity intensity.
 
-        :param lift_height: Lift height for pump [ft]
-        :type lift_height: float
-        :param pump_eff: Pump efficiency
-        :type pump_eff: float
-        :param motor_eff: Motor efficiency
-        :type motor_eff: float
         :return: Electricity intensity [kWh/m3]
         '''
         if 'lift_height' in unit_params.keys():

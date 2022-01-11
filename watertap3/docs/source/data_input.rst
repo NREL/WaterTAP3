@@ -243,9 +243,9 @@ The columns are:
 * **constituent_longform**: The longform name of the constituent. Not used in the model but
   presented for user reference.
 
-.. _data_cost_curves:
+.. _data_epa_cost_curves:
 
-``cost_curves.csv``
+``epa_cost_curves.csv``
 ---------------------------------------------
 
 This .csv contains summary outputs for different EPA model runs at different flow rates. The EPA
@@ -307,13 +307,27 @@ chemical which is then used to calculate chemical costs.
 ---------------------------------------------
 
 This .csv contains location specific electricity costs used to determine the electricity costs
-for the model.
+for the model. These costs are based on the industrial electricity cost rates reported by the U.S
+. Energy Information Administration.
 
 The columns are:
 
 * **location**: The location for the case study determined from the ``case_study_basis.csv``.
 
 * **cost**: The $/kWh price of electricity in that location.
+
+.. _data_ozone_cost_data:
+
+``ozone_cost_data.csv``
+---------------------------
+
+Contains data from `User's Manual for Integrated Treatment Train Toolbox -
+Potable Reuse (IT3PR) Version 2.0 <https://www.twdb.texas
+.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf>`_ used to calculate ozone
+capital costs as a function of flow and ozone dose. The first column is the flow in MGD and the
+numbered columns correspond to an ozone dose. The capital costs are presented in thousands of
+dollars.
+
 
 .. _data_plant_cost_indices:
 
@@ -344,6 +358,7 @@ Further information on how these values are used in WaterTAP3 is available in th
 This .csv is how treatment trains are setup in WaterTAP3. Please refer to the
 :ref:`treatment_train_setup` section of this document for an in-depth description of this file
 and how it is used to create custom treatment trains in WaterTAP3.
+
 
 .. _data_uv_cost_interp:
 

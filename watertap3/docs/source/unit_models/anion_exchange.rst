@@ -38,7 +38,7 @@ None.
 Capital Costs
 ---------------
 
-The ``cap_total`` column is read in from the ``cost_curves.csv`` based on influent TDS and is
+The ``cap_total`` column is read in from the ``epa_cost_curves.csv`` based on influent TDS and is
 fit to the power curve described above. Then `a` and `b` from that regression is used with the
 unit flow [m3/hr] to determine capital costs:
 
@@ -50,9 +50,9 @@ unit flow [m3/hr] to determine capital costs:
 Electricity Intensity
 ------------------------
 
-The ``electricity_intensity`` column is read in from the ``cost_curves.csv`` based on influent TDS
-and is fit to the power curve described above. Then `a` and `b` from that regression is used with
-the unit flow [m3/hr] to determine capital costs:
+The ``electricity_intensity`` column is read in from the ``epa_cost_curves.csv`` based on influent
+TDS and is fit to the power curve described above. Then `a` and `b` from that regression is used
+with the unit flow [m3/hr] to determine capital costs:
 
     .. math::
 
