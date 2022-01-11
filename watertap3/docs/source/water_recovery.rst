@@ -3,7 +3,7 @@
 Water Recovery
 ==========================
 
-``data/water_revovery.csv``
+``data/water_recovery.csv``
 
 Water recovery `x` is represented as the fraction (between zero and one) of water recovered
 (treated) after it passes through a unit process.  Case-study based water recovery is given for

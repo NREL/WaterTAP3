@@ -28,7 +28,7 @@ intensity for all basic units. The columns are:
 * ``flow_basis`` - flow basis from costing source [m3/hr]
 * ``cap_basis`` - `B` fixed capital investment from costing source [$MM]
 * ``cap_exp`` - `x` fixed capital investment scaling exponent
-* ``elect`` - electricity intensity for unit [kWh/m3]
+* ``electricity_intensity`` - electricity intensity for unit [kWh/m3]
 * ``year`` - costing basis year
 * ``kind`` - determines if unit is based on water flow or mass flow
 |
@@ -92,7 +92,7 @@ the unit costs to the basis costs:
 Electricity Intensity
 ------------------------
 
-Electricity intensity for basic units is read directly from the ``elect`` column in
+Electricity intensity for basic units is read directly from the ``electricity_intensity`` column in
 ``basic_unit.csv`` (see above) and does not scale with flow (i.e. it is a fixed value).
 
 

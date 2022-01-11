@@ -2,12 +2,12 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import curve_fit
 
-__all__ = ['cost_curve',
+__all__ = ['epa_cost_curve',
            'basic_unit']
 
 
-def cost_curve(unit_process, **kwargs):
-    df = pd.read_csv('data/cost_curves.csv', index_col='unit_process')
+def epa_cost_curve(unit_process, **kwargs):
+    df = pd.read_csv('data/epa_cost_curves.csv', index_col='unit_process')
     df = df.loc[unit_process]
 
     params = ['flow_in', 'cap_total', 'electricity_intensity', 'tds_in', 'num_stage', 'radon_rem', 'ebct']
@@ -75,7 +75,7 @@ def basic_unit(unit_process, case_specific=None):
     flow_basis = df.flow_basis
     cap_basis = df.cap_basis
     cap_exp = df.cap_exp
-    elect = df.elect
+    elect = df.electricity_intensity
     year = df.year
     kind = df.kind
     return flow_basis, cap_basis, cap_exp, elect, year, kind

@@ -67,6 +67,7 @@ ex. baseline or what-if scenarios
 **Unit Process Name**:  The unit process name or “System”.
 
 **Unit**:  The units used for the results value. Examples are:
+
 •	Electricity intensity: kWh/m3
 •	Total costs: $MM
 •	Annual costs: $MM/yr
@@ -91,6 +92,7 @@ ex. baseline or what-if scenarios
 
 
 The results for an entire treatment train are:
+
 •	System Total Capital Investment (TCI)			[$MM]
 •	System Catalysts and Chemicals				    [$MM]
 •	System Electricity						        [$MM]

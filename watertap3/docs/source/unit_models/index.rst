@@ -33,6 +33,7 @@ of detail (discussed also in the :ref:`financials` section) across the unit mode
     chlorination
     co2_addition
     coagulant_addition
+    coag_and_floc
     crystallizer
     deep_well_injection
     electrodialysis_reversal
@@ -51,8 +52,10 @@ of detail (discussed also in the :ref:`financials` section) across the unit mode
     lime_softening
     media_filtration
     microfiltration
+    multi_stage_bubble_aeration
     municipal_drinking
     ozone_aop
+    packed_tower_aeration
     reverse_osmosis
     sedimentation
     sodium_bisulfite_addition

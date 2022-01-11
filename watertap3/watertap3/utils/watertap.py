@@ -17,7 +17,7 @@ from .post_processing import get_results_table
 
 warnings.filterwarnings('ignore')
 
-__all__ = ['run_model', 'watertap_setup', 'run_model', 'run_model_no_print', 'run_watertap3', 'case_study_constraints', 'get_ix_stash', 'fix_ix_stash',
+__all__ = ['run_model', 'watertap_setup', 'run_model', 'run_and_return_model', 'run_model_no_print', 'run_watertap3', 'case_study_constraints', 'get_ix_stash', 'fix_ix_stash',
            'run_sensitivity', 'print_ro_results', 'print_results', 'set_bounds', 'get_ro_stash', 'fix_ro_stash',
            'run_sensitivity_power']
 
@@ -113,6 +113,46 @@ def watertap_setup(dynamic=False, case_study=None, reference='nawi', scenario=No
 
     return m
 
+def run_and_return_model(m=None, solver='ipopt', solver_results=False, objective=False, max_attempts=3, print_it=False, initial_run=True):
+
+    if initial_run:
+        financials.get_system_costing(m.fs)
+
+    TransformationFactory('network.expand_arcs').apply_to(m)
+    seq = SequentialDecomposition()
+    G = seq.create_graph(m)
+
+    if objective:
+        m.fs.objective_function = Objective(expr=m.fs.costing.LCOW)
+
+    solver = SolverFactory(solver)
+    # m.fs.solver = solver = SolverFactory('glpk')
+
+    logging.getLogger('pyomo.core').setLevel(logging.ERROR)
+
+    # print('----------------------------------------------------------------------')
+    print('.................................')
+    print('\nDegrees of Freedom:', degrees_of_freedom(m))
+
+    m.fs.results = results = solver.solve(m, tee=solver_results)
+    print(f'\nInitial solve attempt {results.solver.termination_condition.swapcase()}')
+    # m.fs.results = results = solver.solve(m, mip_solver='glpk', nlp_solver='ipopt', tee=True)
+
+    attempt_number = 1
+    while ((m.fs.results.solver.termination_condition in ['infeasible', 'maxIterations', 'unbounded']) & (attempt_number <= max_attempts)):
+        print(f'\nAttempt {attempt_number}:')
+        m.fs.results = results = solver.solve(m, tee=solver_results)
+        print(f'\n\tWaterTAP3 solver returned {results.solver.termination_condition.swapcase()} solution...')
+        attempt_number += 1
+
+    print(f'\nWaterTAP3 solution {results.solver.termination_condition.swapcase()}\n')
+    # print('----------------------------------------------------------------------')
+    print('.................................')
+
+    if print_it:
+        print_results(m)
+
+    return m
 
 def run_model(m=None, solver='ipopt', solver_results=False, objective=False, max_attempts=3, print_it=False, initial_run=True):
 
@@ -421,7 +461,7 @@ def print_results(m):
         print('\tTotal Fixed O&M ($MM):', round(value(b_unit.costing.total_fixed_op_cost), 5))
         print('\tChemical Cost ($MM):', round(value(b_unit.costing.cat_and_chem_cost), 5))
         print('\tElectricity Cost ($MM):', round(value(b_unit.costing.electricity_cost), 5))
-        print('\tElectricity Intensity (kWh/m3):', round(value(b_unit.electricity()), 5))
+        print('\tElectricity Intensity (kWh/m3):', round(value(b_unit.costing.electricity_intensity()), 5))
         print('\tUnit LCOW ($/m3):', round(value(b_unit.LCOW()), 5))
         print('\tFlow In (m3/s):', round(value(b_unit.flow_vol_in[0]()), 5))
         print('\tFlow Out (m3/s):', round(value(b_unit.flow_vol_out[0]()), 5))
@@ -1868,6 +1908,7 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False, retu
 
     m.fs.ro_a_pressure = ro_a_pressure = []
     m.fs.ro_a_elect_int = ro_a_elect_int = []
+    m.fs.ro_a_elect_int_sys_treated = ro_a_elect_int_sys_treated = []
     m.fs.ro_a_elect_cost = ro_a_elect_cost = []
     m.fs.ro_a_recovery = ro_a_recovery = []
     m.fs.ro_a_capital = ro_a_capital = []
@@ -1954,6 +1995,7 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False, retu
                 ro_a_r_osm.append(m.fs.reverse_osmosis_a.retentate.pressure_osm[0]())
                 ro_a_mass_tds.append(m.fs.reverse_osmosis_a.permeate.mass_flow_tds[0]())
                 ro_a_salt_rej.append(m.fs.reverse_osmosis_a.salt_rejection_conc())
+                ro_a_elect_int_sys_treated.append(m.fs.reverse_osmosis_a.elec_int_treated())
 
                 landfill_zld_tds.append(m.fs.landfill_zld.conc_mass_in[0, 'tds']())
                 ro_elect_cost.append(m.fs.boiler_ro.costing.electricity_cost())
@@ -2062,6 +2104,8 @@ def run_sensitivity_power(m=None, save_results=False, return_results=False, retu
         sens_df['ro_a_pressure'] = ro_a_pressure
         sens_df['ro_a_mem_area'] = ro_a_area
         sens_df['ro_a_recovery'] = ro_a_recovery
+        sens_df['ro_a_elec_int'] = ro_a_elect_int
+        sens_df['ro_a_elect_int_sys_treated'] = ro_a_elect_int_sys_treated
 
     if case_study == 'gila_river':
         sens_df['ro_pressure'] = ro_pressure

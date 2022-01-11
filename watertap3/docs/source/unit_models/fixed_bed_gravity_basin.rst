@@ -22,7 +22,7 @@ None.
 Capital Costs
 ---------------
 
-The ``cap_total`` column is read in from the ``cost_curves.csv`` and is fit to a power curve.
+The ``cap_total`` column is read in from the ``epa_cost_curves.csv`` and is fit to a power curve.
 Then `a` and `b` from that regression is used with the unit flow [m3/hr] to determine capital costs:
 
     .. math::
@@ -32,7 +32,7 @@ Then `a` and `b` from that regression is used with the unit flow [m3/hr] to dete
 Electricity Intensity
 ------------------------
 
-The ``electricity_intensity`` column is read in from the ``cost_curves.csv`` and is fit to a power
+The ``electricity_intensity`` column is read in from the ``epa_cost_curves.csv`` and is fit to a power
 curve. Then `a` and `b` from that regression is used with the unit flow [m3/hr] to determine
 electricity intensity:
 
