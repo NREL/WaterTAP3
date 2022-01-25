@@ -4,7 +4,6 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE:
 # from IT3PR, section 3.5.6 figure 3.3
-# from IT3PR, section 3.5.6 figure 3.3
 
 module_name = 'tri_media_filtration'
 basis_year = 2014

@@ -6,7 +6,7 @@ Coagulation and Flocculation
 Unit Parameters
 --------------------
 
-The coagulation/flocculation has two parameters:
+The coagulation/flocculation module has two parameters:
 
 * ``"alum_dose"`` - alum dose for the unit [mg/L]
 
@@ -153,3 +153,7 @@ Coagulation and Flocculation Module
 .. autoclass:: watertap3.wt_units.coag_and_floc.UnitProcess
     :members: fixed_cap, elect, get_costing
     :exclude-members: build
+
+..  raw:: pdf
+
+    PageBreak

@@ -167,14 +167,14 @@ area needed for dikes:
 
     .. math::
 
-           A_{adj} = 1.2 (A_{pond}) (1 + 0.155 \frac{h_{dike}}{\sqrt{A_{pond}}} )
+           A_{adj} = 1.2 (A_{pond}) (1 + 0.155 \frac{H_{dike}}{\sqrt{A_{pond}}} )
 |
 Then, the cost per acre [$/acre] is determined that incorporates
 ``"liner_thickness"``, ``"land_cost"``, ``"land_clearing_cost"``, and ``"dike_height"``:
 
     .. math::
 
-           C_{acre} = 5406 + 465 ( z_{liner} ) + 1.07 ( c_{land} )+ 0.931 ( c_{clear} ) + 217.5 ( h_{dike} )
+           C_{acre} = 5406 + 465 ( z_{liner} ) + 1.07 ( C_{land} )+ 0.931 ( C_{clear} ) + 217.5 ( H_{dike} )
 |
 Thus, using this approach capital costs for evaporation ponds are calculated as:
 

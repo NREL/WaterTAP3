@@ -26,8 +26,8 @@ intensity for all basic units. The columns are:
 
 * ``unit_process`` - unit process name in WaterTAP3
 * ``flow_basis`` - flow basis from costing source [m3/hr]
-* ``cap_basis`` - `B` fixed capital investment from costing source [$MM]
-* ``cap_exp`` - `x` fixed capital investment scaling exponent
+* ``cap_basis`` - `a` fixed capital investment from costing source [$MM]
+* ``cap_exp`` - `b` fixed capital investment scaling exponent
 * ``electricity_intensity`` - electricity intensity for unit [kWh/m3]
 * ``year`` - costing basis year
 * ``kind`` - determines if unit is based on water flow or mass flow
@@ -42,7 +42,7 @@ Capital costs for basic units based on water flow are calculated with the genera
 
     .. math::
 
-        C_{basic} = B f ^ {x}
+        C_{basic} = a f ^ {b}
 |
 The ratio of the unit water flow to the basis water flow is the scaling factor `f` used to scale
 the unit costs to the basis costs:
@@ -79,7 +79,7 @@ Capital costs for basic units based on mass flow are calculated with the general
 
     .. math::
 
-        C_{basic} = B f ^ {x}
+        C_{basic} = a f ^ {b}
 |
 The ratio of the unit mass flow to the basis mass flow is the scaling factor `f` used to scale
 the unit costs to the basis costs:

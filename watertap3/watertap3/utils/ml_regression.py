@@ -128,9 +128,9 @@ def get_cost_curve_coefs(flow_in=None, data_id=None, xs=None, ys=None):
     return pars, r2_result, xs, ys, ys_new
 
 
-def main():
-    print('importing something')
+# def main():
+#     print('importing something')
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

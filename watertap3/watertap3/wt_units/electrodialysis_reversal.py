@@ -2,7 +2,7 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE: 
 
 module_name = 'electrodialysis_reversal'
 basis_year = 2016

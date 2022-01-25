@@ -4,11 +4,8 @@ from watertap3.wt_units.wt_unit import WT3UnitProcess
 
 ## REFERENCE
 ## CAPITAL:
-# Based on costs for CHLORINE STORAGE AND FEED - FIGURE XXXXX
 # Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura) (2008)
 # DOI:10.1002/9780470260036
-## ELECTRICITY:
-# No expected energy consumption for CO2 because storage cylinder is at 1000 psig
 
 module_name = 'co2_addition'
 basis_year = 2019
@@ -35,7 +32,7 @@ class UnitProcess(WT3UnitProcess):
 
         :return: Electricity intensity [kWh/m3]
         '''
-        electricity = 0.01
+        electricity = 0
         return electricity
 
     def get_costing(self, unit_params=None, year=None):

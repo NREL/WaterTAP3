@@ -116,7 +116,7 @@ And then the final capital costing curve for heap leaching unit is:
 Operating Costs
 --------------------
 
-The operating costs `P` [$/year] for heap leaching are derived with cost curves regressed from
+The operating costs [$/year] for heap leaching are derived with cost curves regressed from
 data in Table 5 of Kappes (2002). Included for heap leaching in WaterTAP3 are operational costs
 relating to:
 
@@ -128,21 +128,21 @@ These cost curves are:
 
     .. math::
 
-        P_{mining} = 22.54816 X ^ {0.74807}
+        C_{mining} = 22.54816 X ^ {0.74807}
 
     .. math::
 
-        P_{crush} = 4.466 X ^ {0.8794}
+        C_{crush} = 4.466 X ^ {0.8794}
 
     .. math::
 
-        P_{leach} = 6.34727 X ^ {0.68261}
+        C_{leach} = 6.34727 X ^ {0.68261}
 
 The total operating cost is the sum of these components:
 
     .. math::
 
-        C_{op} = P_{mining} + P_{crush} + P_{leach}
+        C_{op} = C_{mining} + C_{crush} + C_{leach}
 
 
 

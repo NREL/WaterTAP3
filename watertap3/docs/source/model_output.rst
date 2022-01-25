@@ -11,13 +11,13 @@ This section describes the model results files and directory.
 Directory Structure
 -----------------------------
 
-Directory Structure for baseline analyses::
+Directory structure for results::
 
-    Source Water/
+    source/
     | -- baseline/
-    |     | -- Case study_baseline.csv (Case study specific baseline full results. Multiple files)
-    |     | -- Source water_baseline.csv (Combined case study baseline full results)
-    |     | -- Summary table_Source Water_baseline.csv (Key baseline results for source water)
+    |     | -- casestudy_baseline.csv (Case study specific baseline full results.)
+    |     | -- source_baseline_results.csv (Combined results for all case studies.)
+    |     | -- summary_table_source_baseline.csv (Key baseline results for source water.)
     |     | -- figures/  (Treatment category level results)
     |     |	| -- Annual O&M Costs_baseline
     |     |	| -- Electricity Intensity System Treated_baseline
@@ -27,16 +27,17 @@ Directory Structure for baseline analyses::
     |     | -- csvs/
     |     |	| -- CSV files used to create figures in “figures” directory
     |     | -- by_unit/
-    |     |	| -- CSV and figures for key cost results by unit process within the treatment train
+    |     |	| -- CSV and figures for key cost results by unit process.
     | -- baseline_and_whatifs/
-    |     | -- Same structure as baseline folder but includes what-if scenarios
+    |     | -- Same structure as baseline folder but for both baseline and what-if scenarios.
     | -- sensitivities/
-    |     | -- Figure of LCOW ($/m3), electricity intensity (kwh/m3) and water recovery (%) for each sensitivity scenario (20 runs per scenario).
-    |     | -- CSV of results used to create the figure.
+    |     | -- source_sensitivities.csv (Combined results of all sensitivity analysis.)
+    |     | -- casestudy_scenario_sensitivity.csv (Sensitivity results.)
 
 
 
-
+|
+|
 
 Results File
 ----------------------------------

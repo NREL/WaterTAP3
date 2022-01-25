@@ -5,7 +5,7 @@ Solution Distribution and Recovery Plant
 
 The solution distribution and recovery plant distributes the irrigated solution to the stacked
 heap of metal-bearing ores and the recovers that solution for further extraction.
-|
+
 
 Unit Parameters
 --------------------
@@ -89,19 +89,19 @@ between the heap flow and the make up flow:
         Q_{recycle} = Q_{heap} - Q_{make up}
 
 
-The make up flow and heap flow are derived from the user input for ``"ore_heap_soln"`` `H`
-(default is 500 gal/tonne if no user input provided) and ``"mining_capacity"`` `M` (default is
+The make up flow and heap flow are derived from the user input for ``"ore_heap_soln"`` `q`
+(default is 500 gal/tonne if no user input provided) and ``"mining_capacity"`` `X` (default is
 922 tonnes/day if no user input provided). So making the proper unit conversions, make up flow is
 [m3/hr]:
 
     .. math::
 
-        Q_{make up} = 0.17 H M
+        Q_{make up} = 0.17 q X
 
 
     .. math::
 
-        Q_{heap} = H M
+        Q_{heap} = q X
 
 And then the final capital costing curve for the solution distribution and recovery plant is:
 
@@ -113,7 +113,7 @@ And then the final capital costing curve for the solution distribution and recov
 Operating Costs
 --------------------
 
-The operating costs `P` [$/year] for the solution distribution and recovery plant are derived with
+The operating costs [$/year] for the solution distribution and recovery plant are derived with
 cost curves regressed from data in Table 5 of Kappes (2002). Included for the system
 distribution and recovery plant in WaterTAP3 are operational costs relating to:
 
@@ -127,7 +127,7 @@ The cost curve for all these operational costs is:
 
     .. math::
 
-        P_{s&d} = 7.71759 X ^ {0.91475} = C_{op}
+        C_{s&d} = 7.71759 X ^ {0.91475} = C_{op}
 
 
 Electricity Intensity

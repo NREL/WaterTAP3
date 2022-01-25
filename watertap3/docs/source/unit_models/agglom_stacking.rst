@@ -92,13 +92,13 @@ agglomeration and stacking is:
 Operating Costs
 --------------------
 
-The operating costs `P` [$/year] for agglomeration and stacking are derived with cost curves
+The operating costs [$/year] for agglomeration and stacking are derived with cost curves
 regressed from data in Table 5 of Kappes (2002). Since this is the only component considered,
 this is the total operating cost:
 
     .. math::
 
-        P_{stack} = 6.28846 X ^ {0.56932} = C_{op}
+        C_{op} = 6.28846 X ^ {0.56932} 
 
 
 Electricity Intensity

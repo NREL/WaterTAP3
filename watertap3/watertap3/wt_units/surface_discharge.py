@@ -45,7 +45,6 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time.first()
         try:
             pump = unit_params['pump']
-
         except:
             pump = 'yes'
         try:

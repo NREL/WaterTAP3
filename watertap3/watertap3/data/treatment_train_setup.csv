@@ -129,7 +129,7 @@ santa_barbara,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
 ,,,,,,,,
 BRACKISH,,,,,,,,
 ,,,,,,,,
-emwd,nawi,baseline,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70}"
+emwd,nawi,baseline,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70, 'pump': 'yes'}"
 emwd,nawi,baseline,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
 emwd,nawi,baseline,cartridge_filtration,treatment,cartridge_filtration_a,"menifee_a,menifee_b","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
 emwd,nawi,baseline,reverse_osmosis,treatment,menifee_a,decarbonator_a,outlet,{'erd': 'no'}
@@ -144,8 +144,7 @@ emwd,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,
 emwd,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
 emwd,nawi,baseline,surface_discharge,waste,surface_discharge,,,"{'pipe_distance': 70,  'pipe_cost_case': 'emwd'}"
 ,,,,,,,,
-,,,,,,,,
-emwd,nawi,dwi,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
+emwd,nawi,dwi,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70, 'pump': 'yes'}"
 emwd,nawi,dwi,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
 emwd,nawi,dwi,cartridge_filtration,treatment,cartridge_filtration_a,"menifee_a,menifee_b","outlet,outlet","{'split_fraction': [0.5, 0.5]}"
 emwd,nawi,dwi,reverse_osmosis,treatment,menifee_a,"decarbonator_a,deep_well_injection","outlet,waste",{'erd': 'no'}
@@ -160,8 +159,7 @@ emwd,nawi,dwi,treated_storage,treatment,treated_storage,municipal_drinking,outle
 emwd,nawi,dwi,municipal_drinking,use,municipal_drinking,,,
 emwd,nawi,dwi,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance': 70, 'lift_height': 400}"
 ,,,,,,,,
-,,,,,,,,
-emwd,nawi,zld_a,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
+emwd,nawi,zld_a,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70, 'pump': 'yes'}"
 emwd,nawi,zld_a,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
 emwd,nawi,zld_a,cartridge_filtration,treatment,cartridge_filtration_a,menifee_first_pass,outlet,
 emwd,nawi,zld_a,reverse_osmosis,treatment,menifee_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
@@ -181,8 +179,7 @@ emwd,nawi,zld_a,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,{
 emwd,nawi,zld_a,municipal_drinking,use,municipal_drinking,,,
 emwd,nawi,zld_a,landfill_zld,waste,landfill_zld,,,
 ,,,,,,,,
-,,,,,,,,
-emwd,nawi,zld_b,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
+emwd,nawi,zld_b,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70, 'pump': 'yes'}"
 emwd,nawi,zld_b,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
 emwd,nawi,zld_b,cartridge_filtration,treatment,cartridge_filtration_a,menifee_first_pass,outlet,
 emwd,nawi,zld_b,reverse_osmosis,treatment,menifee_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
@@ -203,8 +200,7 @@ emwd,nawi,zld_b,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,{
 emwd,nawi,zld_b,municipal_drinking,use,municipal_drinking,,,
 emwd,nawi,zld_b,landfill_zld,waste,landfill_zld,,,
 ,,,,,,,,
-,,,,,,,,
-emwd,nawi,zld_c,well_field,intake,well_field,iron_and_manganese_removal,outlet,{'water_type': ['emwd_ca_brackish']}
+emwd,nawi,zld_c,well_field,intake,well_field,iron_and_manganese_removal,outlet,"{'water_type': ['emwd_ca_brackish'], 'pipe_distance': 70, 'pump': 'yes'}"
 emwd,nawi,zld_c,iron_and_manganese_removal,treatment,iron_and_manganese_removal,"decarbonator_a,cartridge_filtration_a,chlorination,cartridge_filtration_b","outlet,outlet,outlet,outlet","{'split_fraction': [0.033, 0.467, 0.116, 0.384]}"
 emwd,nawi,zld_c,cartridge_filtration,treatment,cartridge_filtration_a,menifee_first_pass,outlet,
 emwd,nawi,zld_c,reverse_osmosis,treatment,menifee_first_pass,"decarbonator_a,passthrough_a","outlet,waste",{'erd': 'no'}
@@ -260,8 +256,6 @@ kbhdp,nawi,baseline,chlorination,treatment,chlorination,treated_storage,outlet,{
 kbhdp,nawi,baseline,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 12}
 kbhdp,nawi,baseline,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance': 22, 'lift_height': 400}"
 kbhdp,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
-kbhdp,nawi,baseline,surface_discharge,waste,surface_discharge,,,
-,,,,,,,,
 ,,,,,,,,
 kbhdp,nawi,zld_a,well_field,intake,well_field,"caustic_soda_addition,media_filtration","outlet,outlet","{'water_type': ['kbhdp_brackish_ave'], 'split_fraction': [0.393, 0.607]}"
 kbhdp,nawi,zld_a,media_filtration,treatment,media_filtration,cartridge_filtration,outlet,
@@ -278,7 +272,6 @@ kbhdp,nawi,zld_a,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,
 kbhdp,nawi,zld_a,landfill_zld,waste,landfill_zld,,,
 kbhdp,nawi,zld_a,municipal_drinking,use,municipal_drinking,,,
 ,,,,,,,,
-,,,,,,,,
 kbhdp,nawi,zld_b,well_field,intake,well_field,"caustic_soda_addition,media_filtration","outlet,outlet","{'water_type': ['kbhdp_brackish_ave'], 'split_fraction': [0.393, 0.607]}"
 kbhdp,nawi,zld_b,media_filtration,treatment,media_filtration,cartridge_filtration,outlet,
 kbhdp,nawi,zld_b,cartridge_filtration,treatment,cartridge_filtration,anti_scalant_addition,outlet,
@@ -294,7 +287,6 @@ kbhdp,nawi,zld_b,brine_concentrator,treatment,brine_concentrator,"treated_storag
 kbhdp,nawi,zld_b,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,{'approach': 'wt3'}
 kbhdp,nawi,zld_b,landfill_zld,waste,landfill_zld,,,
 kbhdp,nawi,zld_b,municipal_drinking,use,municipal_drinking,,,
-,,,,,,,,
 ,,,,,,,,
 kbhdp,nawi,zld_c,well_field,intake,well_field,"caustic_soda_addition,media_filtration","outlet,outlet","{'water_type': ['kbhdp_brackish_ave'], 'split_fraction': [0.393, 0.607]}"
 kbhdp,nawi,zld_c,media_filtration,treatment,media_filtration,cartridge_filtration,outlet,
@@ -326,7 +318,7 @@ kbhdp,nawi,dwi,treated_storage,treatment,treated_storage,municipal_drinking,outl
 kbhdp,nawi,dwi,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance': 22, 'lift_height': 400}"
 kbhdp,nawi,dwi,municipal_drinking,use,municipal_drinking,,,
 ,,,,,,,,
-MUNICIPAL,,,,,,,,{'water_type': ['test_water']}
+MUNICIPAL,,,,,,,,
 ,,,,,,,,
 big_spring,nawi,baseline,holding_tank,intake,onsite_storage,microfiltration,outlet,"{'water_type': ['big_spring_feed'], 'avg_storage_time': 24, 'surge_cap': 0.2}"
 big_spring,nawi,baseline,microfiltration,treatment,microfiltration,reverse_osmosis,outlet,
@@ -336,7 +328,6 @@ big_spring,nawi,baseline,treated_storage,treatment,treated_storage,municipal_dri
 big_spring,nawi,baseline,municipal_drinking,use,municipal_drinking,,,
 big_spring,nawi,baseline,surface_discharge,waste,surface_discharge,,,
 ,,,,,,,,
-,,,,,,,,
 big_spring,nawi,dwi_a,holding_tank,intake,onsite_storage,microfiltration,outlet,"{'water_type': ['big_spring_feed'], 'avg_storage_time': 24, 'surge_cap': 0.2}"
 big_spring,nawi,dwi_a,microfiltration,treatment,microfiltration,"reverse_osmosis,deep_well_injection","outlet,waste",
 big_spring,nawi,dwi_a,reverse_osmosis,treatment,reverse_osmosis,"uv_aop,deep_well_injection","outlet,waste",{'erd': 'no'}
@@ -344,7 +335,6 @@ big_spring,nawi,dwi_a,uv_aop,treatment,uv_aop,treated_storage,outlet,"{'chemical
 big_spring,nawi,dwi_a,treated_storage,treatment,treated_storage,municipal_drinking,outlet,{'hours': 6}
 big_spring,nawi,dwi_a,municipal_drinking,use,municipal_drinking,,,
 big_spring,nawi,dwi_a,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance': 10, 'lift_height': 400}"
-,,,,,,,,
 ,,,,,,,,
 big_spring,nawi,dwi_b,holding_tank,intake,onsite_storage,microfiltration,outlet,"{'water_type': ['big_spring_feed'], 'avg_storage_time': 24, 'surge_cap': 0.2}"
 big_spring,nawi,dwi_b,microfiltration,treatment,microfiltration,"ro_first_stage,deep_well_injection","outlet,waste",
@@ -360,7 +350,6 @@ big_spring,nawi,dwi_b,municipal_drinking,use,municipal_drinking,,,
 big_spring,nawi,dwi_b,deep_well_injection,waste,deep_well_injection,,,"{'pipe_distance': 10, 'lift_height': 400}"
 big_spring,nawi,dwi_b,surface_discharge,waste,surface_discharge,,,
 ,,,,,,,,
-,,,,,,,,
 big_spring,nawi,zld_a,holding_tank,intake,onsite_storage,microfiltration,outlet,"{'water_type': ['big_spring_feed'], 'avg_storage_time': 24, 'surge_cap': 0.2}"
 big_spring,nawi,zld_a,microfiltration,treatment,microfiltration,"ro_first_stage,evaporation_pond","outlet,waste",
 big_spring,nawi,zld_a,reverse_osmosis,treatment,ro_first_stage,"uv_aop,passthrough","outlet,waste",{'erd': 'no'}
@@ -374,7 +363,6 @@ big_spring,nawi,zld_a,treated_storage,treatment,treated_storage,municipal_drinki
 big_spring,nawi,zld_a,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,{'approach': 'wt3'}
 big_spring,nawi,zld_a,municipal_drinking,use,municipal_drinking,,,
 big_spring,nawi,zld_a,landfill_zld,waste,landfill_zld,,,
-,,,,,,,,
 ,,,,,,,,
 big_spring,nawi,zld_b,holding_tank,intake,onsite_storage,microfiltration,outlet,"{'water_type': ['big_spring_feed'], 'avg_storage_time': 24, 'surge_cap': 0.2}"
 big_spring,nawi,zld_b,microfiltration,treatment,microfiltration,ro_first_stage,outlet,
@@ -390,7 +378,6 @@ big_spring,nawi,zld_b,brine_concentrator,treatment,brine_concentrator,"treated_s
 big_spring,nawi,zld_b,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,{'approach': 'wt3'}
 big_spring,nawi,zld_b,municipal_drinking,use,municipal_drinking,,,
 big_spring,nawi,zld_b,landfill_zld,waste,landfill_zld,,,
-,,,,,,,,
 ,,,,,,,,
 big_spring,nawi,zld_c,holding_tank,intake,onsite_storage,microfiltration,outlet,"{'water_type': ['big_spring_feed'], 'avg_storage_time': 24, 'surge_cap': 0.2}"
 big_spring,nawi,zld_c,microfiltration,treatment,microfiltration,ro_first_stage,outlet,{'unit_process_name': 'microfiltration'}
@@ -449,16 +436,6 @@ solaire,nawi,baseline,basic_unit,treatment,energy_recovery,graywater_supply,outl
 solaire,nawi,baseline,basic_unit,use,graywater_supply,,,{'unit_process_name': 'cooling_supply'}
 solaire,nawi,baseline,surface_discharge,waste,surface_discharge,,,
 ,,,,,,,,
-solaire,nawi,solaire_curves,basic_unit,intake,onsite_storage,water_pumping_station,outlet,"{'water_type': ['solaire_graywater', 'solaire_blackwater'], 'unit_process_name': 'onsite_storage', 'case_specific': 'solaire' }"
-solaire,nawi,solaire_curves,basic_unit,treatment,water_pumping_station,mbr_nitrification,outlet,"{'unit_process_name': 'raw_water_pump', 'case_specific': 'solaire' }"
-solaire,nawi,solaire_curves,basic_unit,treatment,mbr_nitrification,ozone_aop,outlet,"{'unit_process_name': 'mbr_nitrification', 'case_specific': 'solaire'}"
-solaire,nawi,solaire_curves,basic_unit,treatment,ozone_aop,uv_irradiation,outlet,"{'unit_process_name': 'ozone_aop', 'case_specific': 'solaire'}"
-solaire,nawi,solaire_curves,basic_unit,treatment,uv_irradiation,treated_storage,outlet,"{'unit_process_name': 'uv_irradiation', 'case_specific': 'solaire'}"
-solaire,nawi,solaire_curves,basic_unit,treatment,treated_storage,energy_recovery,outlet,"{'unit_process_name': 'onsite_storage', 'case_specific': 'solaire'}"
-solaire,nawi,solaire_curves,basic_unit,treatment,energy_recovery,graywater_supply,outlet,"{'unit_process_name': 'energy_recovery', 'case_specific': 'solaire'}"
-solaire,nawi,solaire_curves,basic_unit,use,graywater_supply,,,"{'unit_process_name': 'cooling_supply', 'case_specific': 'solaire'}"
-solaire,nawi,solaire_curves,surface_discharge,waste,surface_discharge,,,
-,,,,,,,,
 MINING,,,,,,,,
 ,,,,,,,,
 heap_leaching,nawi,baseline,well_field,intake,well_field,heap_leaching,outlet,{'water_type': ['ore_heap_make_up']}
@@ -475,7 +452,6 @@ lithium,nawi,baseline,evaporation_pond,treatment,evaporation_pond_b,holding_tank
 lithium,nawi,baseline,holding_tank,treatment,holding_tank,industrial,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2}"
 lithium,nawi,baseline,basic_unit,use,industrial,,,{'unit_process_name': 'industrial'}
 lithium,nawi,baseline,basic_unit,waste,sludge_tank,,,{'unit_process_name': 'sludge_tank'}
-,,,,,,,,
 ,,,,,,,,
 lithium,nawi,add_bc,well_field,intake,well_field,brine_concentrator,outlet,{'water_type': ['lithium_brine']}
 lithium,nawi,add_bc,brine_concentrator,treatment,brine_concentrator,"holding_tank,evaporation_pond_a","outlet,waste",
@@ -518,11 +494,10 @@ cherokee,nawi,baseline,basic_unit,use,industrial,,,{'unit_process_name': 'indust
 cherokee,nawi,baseline,basic_unit,use,discharge,,,{'unit_process_name': 'discharge'}
 cherokee,nawi,baseline,landfill,waste,landfill,,,
 ,,,,,,,,
-,,,,,,,,
 cherokee,nawi,zld_ct,cooling_tower,intake,cooling_tower_a,coag_and_floc,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
 cherokee,nawi,zld_ct,coag_and_floc,treatment,coag_and_floc,"clarifier,filter_press","outlet,waste","{'alum_dose' : 10, 'polymer_dose': 0.1}"
 cherokee,nawi,zld_ct,basic_unit,treatment,clarifier,"media_filtration_a,filter_press","outlet,waste",{'unit_process_name': 'clarifier'}
-cherokee,nawi,zld_ct,media_filtration,treatment,media_filtration_a,"reverse_osmosis_a,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
+cherokee,nawi,zld_ct,basic_unit,treatment,media_filtration_a,"reverse_osmosis_a,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
 cherokee,nawi,zld_ct,reverse_osmosis,treatment,reverse_osmosis_a,"treated_storage_a,evaporation_pond","outlet,waste",{'erd': 'no'}
 cherokee,nawi,zld_ct,treated_storage,treatment,treated_storage_a,industrial_b,outlet,{'hours': 12}
 cherokee,nawi,zld_ct,evaporation_pond,treatment,evaporation_pond,filter_press,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25, 'area': 7, 'liner_thickness': 50, 'land_cost': 0, 'land_clearing_cost': 0, 'dike_height': 8}"
@@ -540,11 +515,10 @@ cherokee,nawi,zld_ct,landfill_zld,waste,landfill_zld,,,
 cherokee,nawi,zld_ct,basic_unit,use,industrial,,,{'unit_process_name': 'industrial'}
 cherokee,nawi,zld_ct,basic_unit,use,industrial_b,,,{'unit_process_name': 'industrial'}
 ,,,,,,,,
-,,,,,,,,
 cherokee,nawi,zld_brine_conc,cooling_tower,intake,cooling_tower_a,coag_and_floc,outlet,"{'water_type': ['cherokee_ct_makeup'], 'method': 'make_up_mass_balance', 'cycles': 6}"
 cherokee,nawi,zld_brine_conc,coag_and_floc,treatment,coag_and_floc,"clarifier,filter_press","outlet,waste","{'alum_dose' : 10, 'polymer_dose': 0.1}"
 cherokee,nawi,zld_brine_conc,basic_unit,treatment,clarifier,"media_filtration_a,filter_press","outlet,waste",{'unit_process_name': 'clarifier'}
-cherokee,nawi,zld_brine_conc,media_filtration,treatment,media_filtration_a,"brine_concentrator,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
+cherokee,nawi,zld_brine_conc,basic_unit,treatment,media_filtration_a,"brine_concentrator,filter_press","outlet,waste",{'unit_process_name': 'media_filtration'}
 cherokee,nawi,zld_brine_conc,brine_concentrator,treatment,brine_concentrator,"treated_storage_a,evaporation_pond","outlet,waste",
 cherokee,nawi,zld_brine_conc,treated_storage,treatment,treated_storage_a,industrial_b,outlet,{'hours': 12}
 cherokee,nawi,zld_brine_conc,evaporation_pond,treatment,evaporation_pond,filter_press,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 25, 'solar_rad': 25, 'area': 7, 'liner_thickness': 50, 'land_cost': 0, 'land_clearing_cost': 0, 'dike_height': 8}"
@@ -573,12 +547,11 @@ gila_river,nawi,baseline,anion_exchange,treatment,mixed_bed_ax,"mixed_bed_cx,eva
 gila_river,nawi,baseline,cation_exchange,treatment,mixed_bed_cx,"industrial_a,evaporation_pond","outlet,waste",
 gila_river,nawi,baseline,basic_unit,treatment,ultra_filtration,"reverse_osmosis,evaporation_pond","outlet,waste",{'unit_process_name': 'ultra_filtration'}
 gila_river,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis,"industrial_b,evaporation_pond","outlet,waste",{'erd': 'no'}
-gila_river,nawi,baseline,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25}"
+gila_river,nawi,baseline,evaporation_pond,treatment,evaporation_pond,landfill_zld,waste,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25, 'area': 49}"
 gila_river,nawi,baseline,basic_unit,use,industrial_a,,,{'unit_process_name': 'industrial'}
 gila_river,nawi,baseline,basic_unit,use,industrial_b,,,{'unit_process_name': 'industrial'}
 gila_river,nawi,baseline,landfill_zld,waste,landfill_zld,,,
-,,,,,,,,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25}"
-,,,,,,,,"{'approach': 'wt3', 'evap_method': 'jensen', 'air_temp': 20, 'solar_rad': 25, 'area': 49}"
+,,,,,,,,
 gila_river,nawi,both_brine,cooling_tower,intake,cooling_tower,ph_adjustment,outlet,"{'water_type': ['gila_river_water'],'method': 'make_up_mass_balance', 'cycles': 8}"
 gila_river,nawi,both_brine,sulfuric_acid_addition,treatment,ph_adjustment,anti_scalant_addition,outlet,{'dose': 10}
 gila_river,nawi,both_brine,anti_scalant_addition,treatment,anti_scalant_addition,antifoam_emulsion,outlet,{'dose': 300}
@@ -594,7 +567,6 @@ gila_river,nawi,both_brine,evaporation_pond,treatment,evaporation_pond,landfill_
 gila_river,nawi,both_brine,basic_unit,use,industrial_a,,,{'unit_process_name': 'industrial'}
 gila_river,nawi,both_brine,basic_unit,use,industrial_b,,,{'unit_process_name': 'industrial'}
 gila_river,nawi,both_brine,landfill_zld,waste,landfill_zld,,,
-,,,,,,,,
 ,,,,,,,,
 gila_river,nawi,both_ro,cooling_tower,intake,cooling_tower,ph_adjustment,outlet,"{'water_type': ['gila_river_water'],'method': 'make_up_mass_balance', 'cycles': 8}"
 gila_river,nawi,both_ro,sulfuric_acid_addition,treatment,ph_adjustment,anti_scalant_addition,outlet,{'dose': 10}
@@ -636,7 +608,6 @@ monterey_one,nawi,baseline,treated_storage,treatment,treated_storage,intrusion_m
 monterey_one,nawi,baseline,basic_unit,use,intrusion_mitigation,,,{'unit_process_name': 'intrusion_mitigation'}
 monterey_one,nawi,baseline,landfill,waste,landfill,,,
 ,,,,,,,,
-,,,,,,,,
 monterey_one,nawi,add_ro,water_pumping_station,intake,water_pumping_station,coag_and_floc,outlet,"{'water_type': ['secondary_ww'], 'pump_type': 'raw', 'lift_height': 100}"
 monterey_one,nawi,add_ro,coag_and_floc,treatment,coag_and_floc,"dual_media_filtration,landfill","outlet,waste","{'alum_dose' : 10, 'polymer_dose': 0.1}"
 monterey_one,nawi,add_ro,basic_unit,treatment,dual_media_filtration,"reverse_osmosis,landfill","outlet,waste",{'unit_process_name': 'dual_media_filtration'}
@@ -646,7 +617,6 @@ monterey_one,nawi,add_ro,treated_storage,treatment,treated_storage,intrusion_mit
 monterey_one,nawi,add_ro,basic_unit,use,intrusion_mitigation,,,{'unit_process_name': 'intrusion_mitigation'}
 monterey_one,nawi,add_ro,landfill,waste,landfill,,,
 ,,,,,,,,
-,,,,,,,,
 monterey_one,nawi,add_edr,water_pumping_station,intake,water_pumping_station,coag_and_floc,outlet,"{'water_type': ['secondary_ww'], 'pump_type': 'raw', 'lift_height': 100}"
 monterey_one,nawi,add_edr,coag_and_floc,treatment,coag_and_floc,"dual_media_filtration,landfill","outlet,waste","{'alum_dose' : 10, 'polymer_dose': 0.1}"
 monterey_one,nawi,add_edr,basic_unit,treatment,dual_media_filtration,"electrodialysis_reversal,landfill","outlet,waste",{'unit_process_name': 'dual_media_filtration'}
@@ -655,7 +625,6 @@ monterey_one,nawi,add_edr,chlorination,treatment,chlorination,treated_storage,ou
 monterey_one,nawi,add_edr,treated_storage,treatment,treated_storage,intrusion_mitigation,outlet,{'hours': 24}
 monterey_one,nawi,add_edr,basic_unit,use,intrusion_mitigation,,,{'unit_process_name': 'intrusion_mitigation'}
 monterey_one,nawi,add_edr,landfill,waste,landfill,,,
-,,,,,,,,
 ,,,,,,,,
 monterey_one,nawi,add_ix,water_pumping_station,intake,water_pumping_station,coag_and_floc,outlet,"{'water_type': ['secondary_ww'], 'pump_type': 'raw', 'lift_height': 10}"
 monterey_one,nawi,add_ix,coag_and_floc,treatment,coag_and_floc,"dual_media_filtration,landfill","outlet,waste","{'alum_dose' : 10, 'polymer_dose': 0.1}"
@@ -841,7 +810,6 @@ san_luis,nawi,dwi,reverse_osmosis,treatment,reverse_osmosis_2,"agriculture,deep_
 san_luis,nawi,dwi,basic_unit,use,agriculture,,,{'unit_process_name': 'agriculture'}
 san_luis,nawi,dwi,deep_well_injection,waste,deep_well_injection,,,"{'incl_piping': False, 'pipe_distance': 22}"
 ,,,,,,,,
-,,,,,,,,
 san_luis,nawi,stage_1p5mgd,basic_unit,intake,feed_water_tank,drainage_sump_pump1,outlet,"{'water_type':['irrigation_and_drainage'], 'unit_process_name': 'feed_water_tank'}"
 san_luis,nawi,stage_1p5mgd,basic_unit,treatment,drainage_sump_pump1,drainage_sump_pump2,outlet,{'unit_process_name': 'drainage_sump_pump1'}
 san_luis,nawi,stage_1p5mgd,basic_unit,treatment,drainage_sump_pump2,raw_water_pump1,outlet,{'unit_process_name': 'drainage_sump_pump2'}
@@ -878,7 +846,6 @@ san_luis,nawi,stage_1p5mgd,reverse_osmosis,treatment,reverse_osmosis_b,"agricult
 san_luis,nawi,stage_1p5mgd,basic_unit,use,agriculture,,,{'unit_process_name': 'agriculture'}
 san_luis,nawi,stage_1p5mgd,basic_unit,waste,smp,,,{'unit_process_name': 'smp'}
 ,,,,,,,,
-,,,,,,,,
 san_luis,nawi,stage_1p5mgd_nano,basic_unit,intake,feed_water_tank,drainage_sump_pump1,outlet,"{'water_type':['irrigation_and_drainage'], 'unit_process_name': 'feed_water_tank'}"
 san_luis,nawi,stage_1p5mgd_nano,basic_unit,treatment,drainage_sump_pump1,drainage_sump_pump2,outlet,{'unit_process_name': 'drainage_sump_pump1'}
 san_luis,nawi,stage_1p5mgd_nano,basic_unit,treatment,drainage_sump_pump2,raw_water_pump1,outlet,{'unit_process_name': 'drainage_sump_pump2'}
@@ -914,8 +881,6 @@ san_luis,nawi,stage_1p5mgd_nano,basic_unit,treatment,lp_transfer_pump_2,reverse_
 san_luis,nawi,stage_1p5mgd_nano,reverse_osmosis,treatment,reverse_osmosis_b,"agriculture,smp","outlet,waste",{'erd': 'no'}
 san_luis,nawi,stage_1p5mgd_nano,basic_unit,use,agriculture,,,{'unit_process_name': 'agriculture'}
 san_luis,nawi,stage_1p5mgd_nano,basic_unit,waste,smp,,,{'unit_process_name': 'smp'}
-,,,,,,,,
-,,,,,,,,
 ,,,,,,,,
 san_luis,nawi,stage_1p5mgd_edr,basic_unit,intake,feed_water_tank,drainage_sump_pump1,outlet,"{'water_type':['irrigation_and_drainage'], 'unit_process_name': 'feed_water_tank'}"
 san_luis,nawi,stage_1p5mgd_edr,basic_unit,treatment,drainage_sump_pump1,drainage_sump_pump2,outlet,{'unit_process_name': 'drainage_sump_pump1'}
@@ -954,6 +919,7 @@ san_luis,nawi,stage_1p5mgd_edr,basic_unit,use,agriculture,,,{'unit_process_name'
 san_luis,nawi,stage_1p5mgd_edr,basic_unit,waste,smp,,,{'unit_process_name': 'smp'}
 ,,,,,,,,
 INDUSTRIAL,,,,,,,,
+,,,,,,,,
 iron_and_steel_a,nawi,baseline,well_field,intake,well_field,raw_water_pump1,outlet,{'water_type': ['steel_oily_ww']}
 iron_and_steel_a,nawi,baseline,basic_unit,treatment,raw_water_pump1,primary_separator,outlet,{'unit_process_name': 'raw_water_pump1'}
 iron_and_steel_a,nawi,baseline,basic_unit,treatment,primary_separator,"coagulant_addition,tramp_oil_tank","outlet,waste",{'unit_process_name': 'primary_separator'}
@@ -1002,7 +968,6 @@ upw,nawi,baseline,reverse_osmosis,treatment,reverse_osmosis_2,"cooling_supply,mu
 upw,nawi,baseline,basic_unit,use,cooling_supply,,,{'unit_process_name': 'cooling_supply'}
 upw,nawi,baseline,basic_unit,waste,municipal_wwtp,,,{'unit_process_name': 'municipal_wwtp'}
 ,,,,,,,,
-,,,,,,,,
 upw,nawi,zld_a,holding_tank,intake,holding_tank,media_filtration,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2, 'water_type': ['fab25']}"
 upw,nawi,zld_a,media_filtration,treatment,media_filtration,"reverse_osmosis,ozone","outlet,waste",
 upw,nawi,zld_a,reverse_osmosis,treatment,reverse_osmosis,"ozone,fab_25,ro_stage","outlet,outlet,waste","{'erd': 'no', 'split_fraction': [0.11, 0.89]}"
@@ -1022,7 +987,6 @@ upw,nawi,zld_a,evaporation_pond,treatment,evaporation_pond,landfill,waste,"{'app
 upw,nawi,zld_a,basic_unit,use,cooling_supply,,,{'unit_process_name': 'cooling_supply'}
 upw,nawi,zld_a,landfill,waste,landfill,,,
 ,,,,,,,,
-,,,,,,,,
 upw,nawi,zld_b,holding_tank,intake,holding_tank,media_filtration,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2, 'water_type': ['fab25']}"
 upw,nawi,zld_b,media_filtration,treatment,media_filtration,"reverse_osmosis,ozone","outlet,waste",
 upw,nawi,zld_b,reverse_osmosis,treatment,reverse_osmosis,"ozone,fab_25,ro_stage","outlet,outlet,waste","{'erd': 'no', 'split_fraction': [0.11, 0.89]}"
@@ -1041,7 +1005,6 @@ upw,nawi,zld_b,passthrough,treatment,to_zld,brine_concentrator,outlet,
 upw,nawi,zld_b,brine_concentrator,treatment,brine_concentrator,"cooling_supply,landfill","outlet,waste",
 upw,nawi,zld_b,basic_unit,use,cooling_supply,,,{'unit_process_name': 'cooling_supply'}
 upw,nawi,zld_b,landfill,waste,landfill,,,
-,,,,,,,,
 ,,,,,,,,
 upw,nawi,zld_c,holding_tank,intake,holding_tank,media_filtration,outlet,"{'avg_storage_time': 24, 'surge_cap': 0.2, 'water_type': ['fab25']}"
 upw,nawi,zld_c,media_filtration,treatment,media_filtration,"reverse_osmosis,ozone","outlet,waste",
@@ -1073,7 +1036,6 @@ kern_county,nawi,baseline,basic_unit,intake,blending_reservoir,irrigation,outlet
 kern_county,nawi,baseline,basic_unit,use,irrigation,,,{'unit_process_name': 'irrigation'}
 kern_county,nawi,baseline,landfill,waste,landfill,,,
 ,,,,,,,,
-,,,,,,,,
 kern_county,nawi,edr_ph_ro,basic_unit,intake,primary_separator,sedimentation,outlet,"{'unit_process_name': 'primary_separator', 'water_type': ['produced_water']}"
 kern_county,nawi,edr_ph_ro,sedimentation,treatment,sedimentation,air_flotation,outlet,{'settling_velocity': 0.005}
 kern_county,nawi,edr_ph_ro,basic_unit,treatment,air_flotation,walnut_shell_filter,outlet,{'unit_process_name': 'air_flotation'}
@@ -1085,7 +1047,6 @@ kern_county,nawi,edr_ph_ro,basic_unit,intake,blending_reservoir,irrigation,outle
 kern_county,nawi,edr_ph_ro,basic_unit,use,irrigation,,,{'unit_process_name': 'irrigation'}
 kern_county,nawi,edr_ph_ro,landfill,waste,landfill,,,
 kern_county,nawi,edr_ph_ro,basic_unit,waste,injection_well_disposal,,,{'unit_process_name': 'injection_well_disposal'}
-,,,,,,,,
 ,,,,,,,,
 kern_county,nawi,ro_and_mf,basic_unit,intake,primary_separator,sedimentation,outlet,"{'unit_process_name': 'primary_separator', 'water_type': ['produced_water']}"
 kern_county,nawi,ro_and_mf,sedimentation,treatment,sedimentation,air_flotation,outlet,{'settling_velocity': 0.005}
@@ -1109,7 +1070,6 @@ damodar,nawi,baseline,basic_unit,waste,waiv,,,{'unit_process_name': 'waiv'}
 produced_water_injection,nawi,baseline,passthrough,intake,produced_water_intake,holding_tank,outlet,"{'unit_process_name': 'passthrough', 'water_type': ['produced_water_for_dw']}"
 produced_water_injection,nawi,baseline,holding_tank,treatment,holding_tank,injection_well_disposal,outlet,"{'avg_storage_time': 2, 'surge_cap': 0.2}"
 produced_water_injection,nawi,baseline,basic_unit,use,injection_well_disposal,,,{'unit_process_name': 'injection_well_disposal'}
-,,,,,,,,
 ,,,,,,,,
 produced_water_injection,nawi,swd_well,holding_tank,intake,holding_tank,coag_and_floc,outlet,"{'avg_storage_time': 2, 'surge_cap': 0.2, 'water_type': ['produced_water_for_dw']}"
 produced_water_injection,nawi,swd_well,coag_and_floc,treatment,coag_and_floc,"sedimentation,solids_dewatering_disposal","outlet,waste","{'alum_dose' : 10, 'polymer_dose': 0.1}"

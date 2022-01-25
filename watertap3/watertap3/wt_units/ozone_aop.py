@@ -65,9 +65,9 @@ class UnitProcess(WT3UnitProcess):
             self.chem_dict = {}
         x0 = pyunits.convert(self.ozone_consumption, to_units=(pyunits.mg / pyunits.liter))
         x1 = self.flow_in
-        ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
-                x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
-        # ozone_cap = self.interp_cost_at_dose(value(x0), value(x1))
+        # ozone_cap = 368.1024498765 * (x0) + 1791.4380214814 * (x1) - 21.1751721133 * (x0 ** 2) + 90.5123958036 * (x0 * x1) - 193.6107786923 * (x1 ** 2) + 0.6038025161 * (
+        #         x0 ** 3) + 0.0313834266 * (x0 ** 2 * x1) - 2.4261957652 * (x0 * x1 ** 2) + 5.2214653914 * (x1 ** 3) - 1888.3973953339
+        ozone_cap = self.interp_cost_at_dose(value(x0), value(x1))
         if self.aop:
             h2o2_flow = self.solution_vol_flow()
             h2o2_cap = self.h2o2_base_cap * h2o2_flow ** self.h2o2_cap_exp

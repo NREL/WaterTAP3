@@ -5,7 +5,7 @@ Water Recovery
 
 ``data/water_recovery.csv``
 
-Water recovery `x` is represented as the fraction (between zero and one) of water recovered
+Water recovery is represented as the fraction (between zero and one) of water recovered
 (treated) after it passes through a unit process.  Case-study based water recovery is given for
 certain unit processes if the case study has a unique recovery rate, otherwise default values are
 used.
@@ -14,7 +14,7 @@ The water balance for a single unit incorporates the water recovery:
 
     .. math::
 
-        Q_{in} x = Q_{out}
+        Q_{in} x_{wr} = Q_{out}
 |
 And if the overall water balance for each unit is:
 
@@ -26,21 +26,21 @@ Then the water flow for the waste stream is:
 
     .. math::
 
-        Q_{waste} = Q_{in} (1 - x)
+        Q_{waste} = Q_{in} (1 - x_{wr})
 |
-The total system water recovery along a single stream in the train for all `n` units is the
+The total system water recovery along a single stream in the train for all units is the
 product of the water recovery for every unit in the stream:
 
     .. math::
 
-        x_{stream} = \prod_{i}^{n} x_i
+        x_{wr,stream} = \prod_{i}^{n} x_{wr,i}
 |
 And therefore the outlet flow for the entire stream the system water recovery multiplied by the
 sum of all `k` source flows to the system:
 
     .. math::
 
-        Q_{out,stream} = x_{stream} \sum_{i}^{k} Q_{in,i}
+        Q_{out,stream} = x_{wr,stream} \sum_{i}^{k} Q_{in,i}
 |
 
 The columns of ``data/water_recovery.csv`` are:

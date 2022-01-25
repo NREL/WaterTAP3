@@ -35,11 +35,11 @@ The capital costs are a function of flow [m3/hr] and can include piping costs:
 
         C_{surf} = 35 \frac{Q_{in}}{10417} ^ {0.873} + C_{pipe}
 |
-Piping cost assumes an 8 in diameter pipe, and is calculated as:
+Piping cost assumes an 8 in diameter pipe, and is a function of the pipe length [mi]:
 
     .. math::
 
-        C_{pipe} = 0.28 x_{pipe}
+        C_{pipe} = 0.28 L_{pipe}
 |
 If the ``"pipe_distance"`` unit parameter is not included:
 
@@ -86,9 +86,13 @@ Assumptions
 * Motor efficiency = 0.9
 
 References
-______________
+------------------------
 
-?????
+| William McGivney & Susumu Kawamura (2008)
+| Cost Estimating Manual for Water Treatment Facilities
+| DOI:10.1002/9780470260036
+
+| Piping costs derived from the Kay Bailey Hutchinson case study
 
 Surface Discharge Module
 ----------------------------------------
