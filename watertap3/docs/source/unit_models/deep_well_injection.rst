@@ -29,7 +29,7 @@ cost assumes an 8 in diameter pipe, and is calculated as:
 
     .. math::
 
-        C_{pipe} = 0.28 x_{pipe}
+        C_{pipe} = 0.28 L_{pipe}
 |
 The total fixed cost is then calculated by scaling with KBH flow according to:
 
@@ -37,6 +37,9 @@ The total fixed cost is then calculated by scaling with KBH flow according to:
 
         C_{dwi} = ( C_{well} + C_{pipe} ) \frac{Q_{in}}{Q_{KBH}} ^ {0.7}
 |
+This costing function approach and the 0.7 exponent is a generic approach used to make order-of-magnitude cost estimates 
+for processes where only the cost and flow (or capacity) are known from a previous facility that used the same process (Towler & Sinnott, 2021).
+
 
 Electricity Intensity
 ------------------------
@@ -78,6 +81,12 @@ Assumptions
 
 Reference
 ---------------------
+
+| Gavin Towler & Ray Sinnott (ed.) (2021)
+| Chemical Engineering Design (Third Edition): Principles, Practice and Economics of Plant and Process Design
+| Chapter 7 - Capital cost estimating, pg 239-278
+| DOI: 10.1016/B978-0-12-821179-3.00007-8
+| ISBN: 9780128211793
 
 
 Deep Well Injection Module

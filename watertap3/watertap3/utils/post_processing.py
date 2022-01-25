@@ -928,8 +928,10 @@ def get_results_table(m=None, scenario=None, case_study=None, save=True, incl_co
         else:
             os.makedirs(results_path)
             df.to_csv('results/case_studies/%s_%s.csv' % (case_study, scenario), index=False)
+    m.fs.results_df = df.copy()
+    m.fs.sys_results_df = df[df['Unit Process Name'] == 'System'].copy()
 
-    return df
+    return m, df
 
 
 def combine_case_study_results(case_study=None, save=True):

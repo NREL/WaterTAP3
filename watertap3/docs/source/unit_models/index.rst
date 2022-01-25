@@ -39,6 +39,7 @@ of detail (discussed also in the :ref:`financials` section) across the unit mode
     electrodialysis_reversal
     evaporation_pond
     ferric_chloride_addition
+    filter_press
     fixed_bed_gravity_basin
     fixed_bed_pressure_vessel
     gac_gravity
@@ -61,6 +62,7 @@ of detail (discussed also in the :ref:`financials` section) across the unit mode
     sodium_bisulfite_addition
     solution_distribution_and_recovery_plant
     storage_tanks
+    static_mixer
     sulfuric_acid_addition
     surface_discharge
     sw_onshore_intake

@@ -12,7 +12,7 @@ None
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [MGD] from the Texas Water Development Board (2016):
+The capital costs are a function of flow [MGD] from figure 3.3. in the Texas Water Development Board (2016):
 
     .. math::
 

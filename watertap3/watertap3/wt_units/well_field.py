@@ -2,10 +2,10 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE:
+## REFERENCE: Derived from Voutchkov (2018) Table 4.6 and 4.7
 
 module_name = 'well_field'
-basis_year = 2020
+basis_year = 2018
 tpec_or_tic = 'TPEC'
 
 

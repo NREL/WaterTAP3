@@ -21,7 +21,7 @@ Capital costs for basic units based on water or mass flow are calculated with th
 
     .. math::
 
-        C_{basic} = B f ^ {x}
+        C_{basic} = a f ^ {b}
 |
 The ratio of the unit water flow (or mass flow) to the basis water flow (or mass flow) is the
 scaling factor `f` used to scale the unit costs to the basis costs:
@@ -42,7 +42,7 @@ The headings for ``basic_unit.csv`` are:
 
 * **cap_basis**: The capital basis for the unit process costing curve.
 
-* **cap_exp**: The exponent `x` for the costing curve.
+* **cap_exp**: The exponent `b` for the costing curve.
 
 * **elect**: Electricity intensity for the unit [kWh/m3]. This value is fixed.
 
@@ -75,7 +75,7 @@ The file is arranged into the following columns:
 
     * *analysis_year*: The first year of the plant is/was in operation
     * *location_basis*: The country or U.S. state where the plant is located. Used for assigning the
-      electricity cost [$/kwh]. Electricity costs are provided in the data folder.
+      electricity cost [$/kWh]. Electricity costs are provided in the data folder.
     * *plant_life_yrs*: The initial design basis for plant-life and used for life cycle analysis
       calculations. The default plant-life is 20 years.
     * *land_cost_percent*: The assumed cost of land as a percentage of total fixed capital

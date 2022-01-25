@@ -20,24 +20,42 @@ There are two unit parameters:
     * Optional parameter
     * Default value is 9.5 mg/L (calculated below)
 |
+
+The following unit parameters must be provided together or the default values are used:
+
+* ``"contact_time"`` - chlorination contact time [hr]:
+
+    * Optional parameter
+    * Default value is 1.5 hr
+|
+* ``"ct"`` - CT value [mg*min/L]:
+
+    * Optional parameter
+    * Default value is 450 mg*min/L 
+|
+* ``"chlorine_decay_rate"`` - chlorine decay rate [mg/L*hr]:
+
+    * Optional parameter
+    * Default value is 3 mg/L*hr 
+|
 Capital Costs
 ---------------------------------
 
 Chlorination capital costs are a function of the applied chlorine dose and the flow using data
 in Table 3.23 of the Texas Water Development Board (2016).
 
-The chlorine dose is calculated from:
+If ``"dose"`` is not provided by the unit parameters in the input sheet, the chlorine dose is calculated from:
 
     .. math::
 
-        D_{Cl} = C + r t + \frac{Ct}{t}
+        D_{Cl} = d + r t + \frac{Ct}{t}
 
-* `C` = Chlorine demand [mg/L]
+* `d` = Chlorine demand [mg/L]
 * `r` = Chlorine decay rate [mg/Lhr]; default = 3
 * `t` = Contact time [hr]; default = 1.5
 * `Ct` = Desired Ct [mg*min/L]; default = 450
 |
-Then, using the data provided in Table 3.23, cost data is read in based on the dose and fit to
+Then, using the data provided in Table 3.23 from the Texas Water Board reference, cost data is read in based on the dose and fit to
 the general form based on flow [MGD]:
 
     .. math::

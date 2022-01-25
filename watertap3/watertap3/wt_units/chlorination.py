@@ -4,7 +4,8 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials, ml_regression
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE: Texas Water Board
+## REFERENCE: 
+# CAPITAL: Table 3.23 - User's Manual for Integrated Treatment Train Toolbox - Potable Reuse (IT3PR) Version 2.0
 
 module_name = 'chlorination'
 basis_year = 2014

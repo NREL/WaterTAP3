@@ -64,13 +64,13 @@ The mass fraction of TDS into the block is:
 
     .. math::
 
-        x_{TDS} = \frac{ M_{TDS}}{M_{w} + M_{TDS}}
+        m_{TDS} = \frac{ M_{TDS}}{M_{w} + M_{TDS}}
 |
 The mass fraction of water into the block is:
 
     .. math::
 
-        x_{w} = \frac{ M_{w}}{M_{w} + M_{TDS}}
+        m_{w} = \frac{ M_{w}}{M_{w} + M_{TDS}}
 |
 The overall mass balance around water flow is:
 
@@ -91,13 +91,13 @@ The osmotic coefficient is calculated according to (Bartholomew & Mauter (2019))
 
     .. math::
 
-        \sigma = 4.92 x_{TDS} ^ 2 + 0.0889 x_{TDS} + 0.918
+        \sigma = 4.92 x_{TDS} ^ 2 + 0.0889 m_{TDS} + 0.918
 |
 Then the osmotic pressure [bar] is calculated as:
 
     .. math::
 
-        P_{osm} = \frac{ 8.45 \times 10 ^ 7 \sigma x_{TDS}}{1 - x_{TDS}}
+        P_{osm} = \frac{ 8.45 \times 10 ^ 7 \sigma m_{TDS}}{1 - m_{TDS}}
 |
 The flux is calculated from the feed stream as:
 
@@ -122,7 +122,7 @@ The concentration coming out of the unit is:
 
     .. math::
 
-        c_{tds,out} = c_{tot,p} x_{tds,p}
+        c_{tds,out} = c_{tot,p} m_{tds,p}
 |
 The mass flow of water is determined from the membrane area and pure water flux:
 

@@ -11,8 +11,7 @@ None
 Capital Costs
 ---------------
 
-The capital costs are a function of flow [MGD] with cost curve parameters from McGivney &
-Kawamura (2008):
+The capital costs are a function of flow [MGD] with cost curve parameters from section 3.5.6, figure 3.3 in Texas Water Development Board (2016):
 
     .. math::
 
@@ -30,9 +29,10 @@ References
 CAPITAL
 **********
 
-| William McGivney & Susumu Kawamura (2008)
-| Cost Estimating Manual for Water Treatment Facilities
-| DOI:10.1002/9780470260036
+| `User's Manual for Integrated Treatment Train Toolbox - Potable Reuse (IT3PR) Version 2.0 <https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/1348321632_manual.pdf>`_
+| Steinle-Darling, E., Salveson, A., Russel, C., He, Q., Chiu, C., Lesan, D.
+| Texas Water Development Board
+| December 2016
 
 ELECTRICITY
 **************

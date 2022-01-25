@@ -357,7 +357,7 @@ def run_watertap3(m, solver='ipopt', desired_recovery=1, ro_bounds='seawater', r
     # if m.fs.has_ro:
     #     print_ro_results(m)
 
-    df = get_results_table(m=m, case_study=case_study, scenario=scenario)
+    m, df = get_results_table(m=m, case_study=case_study, scenario=scenario)
 
     print('\n==========================END WT3 MODEL RUN===========================')
 

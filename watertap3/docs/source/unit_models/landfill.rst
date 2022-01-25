@@ -22,7 +22,9 @@ Landfill costs are a function of mass flow into the unit:
     .. math::
 
         C_{lf} = \frac{M_{in}}{100000} ^ {0.7}
-
+|
+The 0.7 exponent is a generic exponent used to make order-of-magnitude cost estimates 
+for processes where only the cost and flow (or capacity) are known from a previous facility that used the same process (Towler & Sinnott, 2021).
 |
 The mass flow is calculated by first calculating the total concentration flowing into the unit:
 
@@ -51,7 +53,11 @@ There are no electricity costs associated with landfill in WaterTAP3.
 References
 -------------
 
-
+| Gavin Towler & Ray Sinnott (ed.) (2021)
+| Chemical Engineering Design (Third Edition): Principles, Practice and Economics of Plant and Process Design
+| Chapter 7 - Capital cost estimating, pg 239-278
+| DOI: 10.1016/B978-0-12-821179-3.00007-8
+| ISBN: 9780128211793
 
 
 Landfill Module

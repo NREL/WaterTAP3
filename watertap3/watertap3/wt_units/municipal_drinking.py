@@ -2,7 +2,7 @@ from pyomo.environ import Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE: Voutchkov (2018) figures 4.2 and 4.4
+## REFERENCE: McGivney & Kawamura (2008) - Figure 5.5.35b
 
 module_name = 'municipal_drinking'
 

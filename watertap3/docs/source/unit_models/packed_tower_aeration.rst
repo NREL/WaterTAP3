@@ -76,7 +76,7 @@ References
 | "Work Breakdown Structure-Based Cost Model for Packed Tower Aeration Drinking Water Treatment"
 | https://www.epa.gov/sites/default/files/2019-03/documents/wbs-pta-documentation-dec-2017_v2.pdf
 
-Anion Exchange Module
+Packed Tower Aeration Module
 ----------------------------------------
 
 .. autoclass:: watertap3.wt_units.packed_tower_aeration.UnitProcess

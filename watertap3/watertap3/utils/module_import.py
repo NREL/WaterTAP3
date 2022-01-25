@@ -70,9 +70,19 @@ def get_module(module_name):
 
     if module_name == 'landfill':
         import wt_units.landfill as up
+    
+    if module_name == 'flocculator':
+        import wt_units.flocculator as up
+
+    if module_name == 'rapid_mix':
+        import wt_units.rapid_mix as up
+
 
     if module_name == 'coagulant_addition':
         import wt_units.coagulant_addition as up
+
+    if module_name == 'alum_addition':
+        import wt_units.alum_addition as up
 
     if module_name == 'ferric_chloride_addition':
         import wt_units.ferric_chloride_addition as up

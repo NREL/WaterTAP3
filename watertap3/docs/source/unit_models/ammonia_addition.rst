@@ -31,7 +31,7 @@ WaterTAP3 is:
         C_{amm} = 6699.1 S ^ {0.4219}
 |
 This cost is then multiplied by the number of units and the EIF factor for the final FCI for the
-chemical addition. These parameters were determined by fitting data from Figure 5.5.11 in McGivney & Kawamura (2008).
+chemical addition. These parameters are rom Figure 5.5.11 in McGivney & Kawamura (2008).
 
 Electricity Intensity
 ------------------------

@@ -31,8 +31,10 @@ class UnitProcess(WT3UnitProcess):
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.number_of_units = 2
-        self.base_fixed_cap_cost = 16972
-        self.cap_scaling_exp = 0.5435
+        # self.base_fixed_cap_cost = 16972
+        # self.cap_scaling_exp = 0.5435
+        self.base_fixed_cap_cost = 12985
+        self.cap_scaling_exp = 0.5901
         chem_name = 'Lime_Suspension_CaOH_2'
         self.chemical_dosage = pyunits.convert(unit_params['lime'] * (pyunits.mg / pyunits.liter), to_units=(pyunits.kg / pyunits.m ** 3))
         self.chem_dict = {chem_name: self.chemical_dosage}

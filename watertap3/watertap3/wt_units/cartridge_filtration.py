@@ -2,12 +2,12 @@ from pyomo.environ import Block, Expression, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
-## REFERENCE: ADD REFERENCE HERE
+## REFERENCE:
+# from IT3PR, section 3.5.6 figure 3.3
 
 module_name = 'cartridge_filtration'
 basis_year = 2014
 tpec_or_tic = 'TPEC'
-
 
 class UnitProcess(WT3UnitProcess):
 

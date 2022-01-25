@@ -24,14 +24,14 @@ Unit parameters are read in from the ``unit_params`` dictionary given in the inp
 
     * Required parameter
 |
-* ``"mass_transfer"`` - mass transfer coefficient for ozone contactor
+* ``"mass_transfer"`` - mass transfer efficiency coefficient for ozone contactor
 
     * Required parameter
 |
 * ``"chemical_name"`` - oxidant chemical name
 
     * Required parameter if ``aop = True``
-    * Must match exactly the chemical name in ``chemical_name.csv``
+    * Must match exactly the chemical name in ``catalyst_chemicals.csv``
 |
 Capital Costs
 ---------------
@@ -45,7 +45,7 @@ Ozone Capital Costs
 Ozone capital costs in WaterTAP3 are a function of the ozone contact time,
 Ct, ozone mass transfer, ozone dose, TOC concentration, flow in, and the ozone/TOC ratio.
 
-TOC concentration and flow in are taken from the model. Contact time, mass transfer, and Ct are
+TOC concentration and flow in are taken from the model. Contact time, mass transfer efficiency, and Ct are
 taken from user input. Ozone demand is calculated from Texas Water Development Board (2016):
 
     .. math::
@@ -75,13 +75,13 @@ Where the oxidant dose is calculated with [kg/m3]:
 
     .. math::
 
-        D_{ox} = 0.5 X c_{toc}
+        D_{ox} = 0.5 f c_{toc}
 |
-And the ozone/TOC ratio `X` is calculated with:
+And the ozone/TOC ratio `f` is calculated with:
 
     .. math::
 
-        X = 1 + \frac{t_{O3} Ct}{c_{toc}}
+        f = 1 + \frac{t_{O3} Ct}{c_{toc}}
 
 |
 Electricity Intensity

@@ -65,7 +65,7 @@ density [kg/m3]:
     .. math::
 
         \eta_{pump}, \eta_{motor}
-
+|
 Then the electricity intensity is calculated as [kWh/m3]:
 
     .. math::

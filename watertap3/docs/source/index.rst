@@ -18,6 +18,7 @@ This is the documentation for the WaterTAP3 model.
     water_recovery
     constituent_removal
     financials
+    glossary
     unit_models/index
 
 
