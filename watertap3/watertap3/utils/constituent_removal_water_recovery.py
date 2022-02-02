@@ -20,6 +20,8 @@ def create(m, unit_process_type, unit_process_name):
             flow_recovery_factor = float(case_study_df.recovery)
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)
     else:
+        if default_df.empty:
+            raise TypeError(f'There is no default water recovery for {unit_process_type}.\nCheck that there is an entry for this unit in water_recovery.csv')
         if 'calculated' not in default_df.max():
             flow_recovery_factor = float(default_df)
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)

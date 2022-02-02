@@ -12,7 +12,7 @@ heap_leaching,baseline,agglom_stacking,0.9999,Heap leaching (gold/copper) case s
 default,,agglom_stacking,0.9999,
 default,,agriculture,0.99999,
 default,,air_flotation,0.9999,
-default,,alum_addition,0.9999,Based on Vogtle case study data. No costs for WT3 treatment.
+default,,alum_addition,0.9999,
 default,,ammonia_addition,0.9999,Based on costs for AQUA AMMONIA FEED 29% SOLUTION Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 default,,anaerobic_digestion_oxidation,0.9999,Beef Processing case study. 
 default,,anion_exchange,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
@@ -32,44 +32,47 @@ san_luis,baseline,bioreactor_feed_pump,0.9999,Defined based on the San Luis case
 default,,blending_reservoir,0.999,
 default,,brine_concentrator,0.9,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 default,,buffer_tank,0.9999,Texas Water Development Board IT3PR User Manual
-default,,cartridge_filtration,0.9999,Defined based on the Carlsbad case study data.
+default,,cartridge_filtration,0.9999,Texas Water Development Board IT3PR User Manual
 default,,cas,0.9999,Texas Water Development Board IT3PR User Manual
 default,,cas_denitrif,0.9999,Texas Water Development Board IT3PR User Manual
 default,,cas_nitrif,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-default,,cation_exchange,0.9999,Based on costs for Sodium Hydroxide Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+default,,cation_exchange,0.9999,
 default,,caustic_soda_addition,0.9999,
-default,,chemical_addition,0.9999,Texas Water Development Board IT3PR User Manual
-default,,chlorination,0.9999,Based on costs for Chlorine Storage and Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-default,,clarifier,0.999,No specific references were identified. Based on costs for Chlorine Storage and Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+default,,coagulant_addition,0.9999,
+default,,chemical_addition,0.9999,
+default,,chlorination,0.9999,Texas Water Development Board IT3PR User Manual
+default,,clarifier,0.999,
 default,,co2_addition,0.9999,"(1) https://www.mrwa.com/WaterWorksMnl/Chapter%2012%20Coagulation.pdf, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.iwapublishing.com/news/coagulation-and-flocculation-water-and-wastewater-treatment, (4) Water and Wastewater Engineering: Design Principles and Practice (Mackenzie L. Davis)."
 default,,coag_and_floc,0.9,Based on costs for Aluminum Sulfate (Liquid Alum Feed) from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
 default,,cooling_supply,0.9999,Based on Vogtle case study data. No costs for WT3 treatment.
 default,,cooling_tower,0.25,
 default,,crystallizer,0.95,Default value based on 5% purge rate per source. Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 default,,decarbonator,0.9999,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
-default,,deep_well_injection,0.9999,Texas Water Development Board IT3PR User Manual
+default,,deep_well_injection,0.9999,Based on KBHDP case study. 
 default,,discharge,0.9999,Beef Processing case study. 
 default,,dissolved_air_flotation,0.9999,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 default,,drainage_sump_pump1,0.9999,"(1) https://www.engineeringtoolbox.com/water-pumping-costs-d_1527.html, (2) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (3) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
 default,,drainage_sump_pump2,0.9999,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)"
-default,,dual_media_filtration,0.99,Placeholder. Not utilized in any case studies. 
-default,,electrodialysis_reversal,0.9214,Texas Water Development Board IT3PR User Manual
+default,,dual_media_filtration,0.99,
+default,,electrocoagulation,0.99,
+default,,electrodialysis_reversal,0.9214,Based on Irwin case study.
 default,,energy_recovery,0.9999,
 default,,evaporation_pond,0.9,Survey of High-Recovery and Zero Liquid Discharge Technologies for Water Utilities (2008).
 default,,feed_water_tank,0.9999,Based on costs for Ferric Choride Feed from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-default,,ferric_chloride_addition,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+default,,ferric_chloride_addition,0.9999,
 default,,filter_press,0.01,
 default,,fixed_bed_gravity_basin,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,fixed_bed_pressure_vessel,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,flocculator,calculated,Based on costs for Aluminum Sulfate (Liquid Alum Feed) from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
-default,,fluidized_bed,0.9999,Placeholder. Not utilized in any case studies. 
+default,,fluidized_bed,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,gac_gravity,0.96,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-default,,gac_pressure_vessel,0.96,Heap leaching (gold/copper) case study.
-default,,heap_leaching,0.9,DOE/NETL-2002/1169 - Process Equipment Cost Estimation
-default,,holding_tank,0.9999,Based on costs for Sulfuric Acid Addition from Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura)
+default,,gac_pressure_vessel,0.96,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+default,,heap_leaching,0.9,Based on Heap Leaching case study
+default,,holding_tank,0.9999,
 default,,hydrochloric_acid_addition,0.9999,
-default,,industrial,0.9999,Based on cost and flow data from the KBHDP case study data.
+default,,industrial,0.9999,
 default,,injection_well,0.9999,
+default,,injection_well_disposal,0.9999,
 default,,intrusion_mitigation,0.99999,"(1) https://onlinelibrary.wiley.com/doi/pdf/10.1002/9780470260036.ch5, (2) Cost Estimating Manual for Water Treatment Facilities (McGivney/Kawamura), (3) https://www.lenntech.com/schema-of-an-iron-removal-system.htm, (4) https://www.osti.gov/servlets/purl/797810/"
 default,,ion_exchange,calculated,
 default,,iron_and_manganese_removal,0.9999,
@@ -82,14 +85,14 @@ default,,mbr_nitrification,0.9999,"(1) https://onlinelibrary.wiley.com/doi/pdf/1
 default,,media_filtration,0.9999,"Voutchkov, N. (2018). Desalination Project Cost Estimating and Management. Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc."
 default,,microfiltration,0.95,
 default,,microscreen_filtration,0.99999,
-default,,mining,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
-default,,multi_stage_bubble_aeration,0.9999,"Distribution costs are based on pump cost calculations in ""Pumping Station"" in VAR. Electricity consumption is based on 300-ft head pump and is consistent with Carslbad data."
+default,,mining,0.9999,
+default,,multi_stage_bubble_aeration,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
 default,,municipal_drinking,0.9999,
 default,,municipal_wwtp,0.9999,Texas Water Development Board IT3PR User Manual
 default,,nano_filtration,0.85,Based on Vogtle case study data. No costs for WT3 treatment.
 default,,onsite_storage,0.9999,Texas Water Development Board IT3PR User Manual
 default,,ozonation,0.9999,Texas Water Development Board IT3PR User Manual
-default,,ozone_aop,0.9999,EPA model: https://www.epa.gov/sdwa/drinking-water-treatment-technology-unit-cost-models
+default,,ozone_aop,0.9999,Texas Water Development Board IT3PR User Manual
 default,,packed_tower_aeration,0.9999,
 upw,baseline,passthrough,0.99,
 upw,zld_a,passthrough,0.99,
@@ -97,6 +100,7 @@ upw,zld_b,passthrough,0.99,
 upw,zld_c,passthrough,0.99,
 default,,passthrough,0.9999,
 default,,ph_decrease,0.99,
+default,,ph_adjustment,0.9999,Defined based on the Iron and Steel case study data.
 default,,ph_increase,0.9999,Defined based on the Iron and Steel case study data.
 iron_and_steel,baseline,ph_increase,0.9999,Defined based on the Iron and Steel case study data.
 default,baseline,primary_separator,0.999,Defined based on the Iron and Steel case study data.
