@@ -1,4 +1,4 @@
-from pyomo.environ import Block, Expression, units as pyunits
+from pyomo.environ import Block, Expression, Constraint, Var, NonNegativeReals, units as pyunits
 from watertap3.utils import financials
 from watertap3.wt_units.wt_unit import WT3UnitProcess
 
@@ -34,17 +34,24 @@ class UnitProcess(WT3UnitProcess):
             return well_cap
 
     def elect(self, unit_params):
-        time = self.flowsheet().config.time.first()
+        time = self.flowsheet().config.time
+        t = time.first()
         try:
-            pump = unit_params['pump']
-        except:
-            pump = 'no'
-        self.lift_height = 100 * pyunits.ft
+            self.pump = unit_params['pump']
+            if self.pump not in ['yes', 'no']:
+                self.pump = 'yes'
+        except (KeyError, TypeError) as e:
+            self.pump = 'yes'
+        self.lift_height = Var(time, initialize=100, domain=NonNegativeReals, bounds=(0, 1E5), units=pyunits.ft, doc='Lift height for well pump [ft]')
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless
-        if pump == 'yes':
-            flow_in_gpm = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.gallons / pyunits.minute)
-            electricity = (0.746 * flow_in_gpm * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in
+        if self.pump == 'yes':
+            if 'lift_height' in unit_params.keys():
+                self.lift_height.fix(unit_params['lift_height'])
+            else:
+                self.lift_height.fix(100)
+            flow_in_gpm = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.gallons / pyunits.minute)
+            electricity = (0.746 * flow_in_gpm * self.lift_height[t] / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in
             return electricity
         else:
             return 0

@@ -19,12 +19,9 @@ def get_module(module_name):
      
     if module_name == 'lime_softening':
         import wt_units.lime_softening as up
-     
-    if module_name == 'ro_deep':
-        import wt_units.ro_deep as up
-    
-    if module_name == 'ro_deep_scnd_pass':
-        import wt_units.ro_deep_scnd_pass as up
+
+    if module_name == 'electrocoagulation':
+        import wt_units.electrocoagulation as up
         
     if module_name == 'treated_storage':
         import wt_units.treated_storage as up
@@ -76,7 +73,6 @@ def get_module(module_name):
 
     if module_name == 'rapid_mix':
         import wt_units.rapid_mix as up
-
 
     if module_name == 'coagulant_addition':
         import wt_units.coagulant_addition as up
@@ -185,9 +181,6 @@ def get_module(module_name):
 
     if module_name == 'chemical_addition':
         import wt_units.chemical_addition as up
-
-    if module_name == 'gac':
-        import wt_units.gac as up
 
     if module_name == 'anion_exchange_epa':
         import wt_units.anion_exchange_epa as up

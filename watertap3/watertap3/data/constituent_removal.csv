@@ -280,7 +280,6 @@ ozone_aop,default,baseline,kg/m3,0.903239,giardia_lamblia,fractional_constituent
 ozone_aop,default,baseline,kg/m3,0.989434,eeq,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 ozone_aop,default,baseline,kg/m3,0.997225,total_coliforms_fecal_ecoli,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform and� E. Coli)
 ozone_aop,default,baseline,kg/m3,0.997225,viruses_enteric,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
-ozone_aop,upw,baseline,kg/m3,1.00E-05,toc,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 primary_separator,default,baseline,kg/m3,0.9,oil_and_grease,fractional_constituent_removal,nawi,Defined based on the Iron and Steel case study data.,Oil and Grease
 primary_separator,default,baseline,kg/m3,0.9,oily_matter,fractional_constituent_removal,nawi,Defined based on the Iron and Steel case study data.,Oily Matter
 primary_separator,default,baseline,kg/m3,0.990826,tss,fractional_constituent_removal,nawi,Defined based on the Iron and Steel case study data.,Total Suspended Solids (TSS)
@@ -524,14 +523,12 @@ ultra_filtration,default,baseline,kg/m3,0.3,toc,fractional_constituent_removal,n
 ultra_filtration,default,baseline,kg/m3,0.97,tss,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Suspended Solids (TSS)
 ultra_filtration,default,baseline,kg/m3,0.9999,cryptosporidium,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 ultra_filtration,default,baseline,%,75,ultraviolet_transmittance_uvt,absolute_value,nawi,Texas Water Development Board IT3PR User Manual,Ultraviolet Transmittance (UVT)
-ultra_filtration,upw,baseline,kg/m3,1.00E-05,toc,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 uv_aop,default,baseline,kg/m3,0.130955,eeq,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 uv_aop,default,baseline,kg/m3,0.174607,toc,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 uv_aop,default,baseline,kg/m3,0.965403,viruses_enteric,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)
 uv_aop,default,baseline,kg/m3,0.999989,cryptosporidium,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Cryptosporidium
 uv_aop,default,baseline,kg/m3,0.999989,giardia_lamblia,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Giardia lamblia
 uv_aop,default,baseline,kg/m3,0.999994,total_coliforms_fecal_ecoli,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Coliforms (including fecal coliform and� E. Coli)
-uv_aop,upw,baseline,kg/m3,1.00E-05,toc,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 uv_irradiation,default,baseline,kg/m3,0.054565,eeq,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Estradiol Equivalency (EEQ)
 uv_irradiation,default,baseline,kg/m3,0.054565,toc,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Total Organic Carbon (TOC)
 uv_irradiation,default,baseline,kg/m3,0.965403,viruses_enteric,fractional_constituent_removal,nawi,Texas Water Development Board IT3PR User Manual,Viruses (enteric)

@@ -46,36 +46,7 @@ Flow rates, constituent levels, and key cost attributes are reported for each un
 
 The results table is arranged into the following columns (bold):
 
-**Case Study**:  The treatment facility name
-
-**Metric**:  The category for what is being measured. Examples are:
-
-•	Electricity
-•	Cost
-•	Annual Cost
-•	Water Flow
-•	Inlet Constituent Density
-•	Outlet Constituent Density
-•	Waste Constituent Density
-•	Inlet Constituent Total Mass
-•	Outlet Constituent Total Mass
-•	Waste Constituent Total Mass
-
-
-**Scenario**:  The name of the scenario that the values correspond with
-ex. baseline or what-if scenarios
-
 **Unit Process Name**:  The unit process name or “System”.
-
-**Unit**:  The units used for the results value. Examples are:
-
-•	Electricity intensity: kWh/m3
-•	Total costs: $MM
-•	Annual costs: $MM/yr
-•	Flow rates: m3/s
-•	Water constituents: kg, kg/m3
-
-**Value**: The outlet result at the end of a unit process or the entire treatment train.
 
 **Variable**: The variable name that corresponds to the value. Examples are:
 
@@ -89,25 +60,108 @@ ex. baseline or what-if scenarios
 •	Inlet Water						            [m3/s]
 •	Outlet Water						        [m3/s]
 •	Waste Water						            [m3/s]
-•	Names of constituents in the source water	[kg] and [kg/m3]
+•	Names of constituents in the source water	[kg/s] and [kg/m3]
 
 
-The results for an entire treatment train are:
+Example results for the entire treatment train are:
 
 •	System Total Capital Investment (TCI)			[$MM]
-•	System Catalysts and Chemicals				    [$MM]
-•	System Electricity						        [$MM]
-•	System Catalysts and Chemicals				    [$MM/yr]
-•	System Electricity						        [$MM/yr]
-•	System Total Operating Cost				        [$MM/yr]
-•	System LCOW					        [$/m3]
-•	Electricity Intensity					        [kWh/m3]
+•	System Catalyst and Chemical Cost			    [$MM]
+•	System Electricity Cost					        [$MM]
+•	System Catalyst and Chemical Cost (Annual)	    [$MM/yr]
+•	System Electricity Cost (Annual)					        [$MM/yr]
+•	System Total Operating Cost	(Annual)			        [$MM/yr]
+•	System LCOW					                [$/m3]
+•	System Electricity Intensity					        [kWh/m3]
 •	Water Recovery 						               [%]
 
-**Unit kind**: Intake, treatment process, or end-use as represented in the model
+**Value**: The model result for the Variable in that row
+
+**Metric**:  The category for what is being measured. Examples are:
+
+•	Electricity
+•	Cost
+•	Annual Cost
+•	Water Flow
+•	Inlet Concentration
+•	Outlet Concentration
+•	Waste Concentration
+•	Inlet Mass Flow
+•	Outlet Mass Flow
+•	Waste Mass Flow
+
+**Unit**:  The units used for the results value. Examples are:
+
+•	LCOW: $/m3
+•	Electricity intensity: kWh/m3
+•	Total costs: $MM
+•	Annual costs: $MM/yr
+•	Flow rates: m3/s
+•	Water constituents: kg/s, kg/m3
+
+**Unit Kind**: Intake, treatment process, or end-use as represented in the model
 
 **Treatment Category**:  Influent Storage and Pumping, Pre-treatment, Principal treatment, Product
 Storage, Product Distribution, Waste Treatment and Valorization, Waste Product Storage and Disposal, Post-treatment
+
+**Case Study**:  The treatment facility name
+
+**Scenario**:  The name of the scenario that the values correspond with ex. baseline or what-if scenarios
+
+Note: the **python_var** and **python_param** columns are presented for ease of access if the user wants to access these results programatically. If the Unit Process Name is "System," 
+the **python_param** column is the name of the Variable in the model. The **python_var** is the name of the unit on the flowsheet and is also the name of the unit from the input sheet.
+
+Sensitivity Analysis File
+----------------------------------
+
+Results files for sensitivity analysis are arranged into the following columns
+Sensitivity results columns:
+
+*	**sensitivity_var** – indicates the variable around which sensitivity was done:
+
+        * plant_cap = Plant Capacity Utilization
+        * wacc = Weighted Average Cost of Capital (WACC) 
+        * tds_in = TDS concentration into treatment train
+        * flow_in = volumetric flowrate into treatment train
+        * plant_life = plant lifetime
+        * elect_price = electricity price
+        * component_replacement = maintenance cost as a percentage of FCI 
+        * If there was sensitivity around a reverse osmosis unit, an entry in this column is:
+            
+            * [RO unit name from input sheet]_[sensitivity variable]
+            * e.g. if the RO is named “ro_first_pass” and sensitivity was around the pressure, the entry would be “ro_first_pass_pressure”
+            * RO sensitivity variables:
+            
+                * membrane_area = area for the RO unit
+                * pressure = feed pressure for RO unit
+                * factor_membrane_replacement = membrane replacement factor for RO unit
+|
+*	**baseline_sens_value** – the value of the sensitivity variable specified in “sensitivity_var” column used in the baseline model
+*	**scenario_value** – the value of the sensitivity variable specified in “sensitivity_var” column used in the sensitivity analysis used to generate results for that row
+*	**sensitivity_var_norm** – the value of the sensitivity variable in the sensitivity analysis relative to the value in the baseline analysis
+*	**lcow** – system LCOW for the sensitivity analysis
+*	**lcow_norm** – system LCOW for the sensitivity analysis normalized to the LCOW for the baseline case (LCOWsens / LCOWbaseline)
+*	**lcow_diff** – difference between sensitivity LCOW and baseline LCOW (LCOWsens - LCOWbaseline)
+*	**baseline_lcow** – LCOW for the baseline analysis
+*	**water_recovery** – system water recovery for the sensitivity analysis
+*	**water_recovery_difference** – difference between water recovery in the sensitivity analysis and in the baseline analysis
+*	**treated_water_vol** – treated water flow [m3/s] for the sensitivity analysis
+*	**baseline_treated_water** – treated water flow for the baseline analysis
+*	**treated_water_norm** – treated water flow for sensitivity analysis relative to the treated water flow for the baseline analysis (Qsens / Qbaseline)
+*	**elec_lcow** – electricity LCOW for the sensitivity analysis
+*	**elec_lcow_difference** – difference between electricity LCOW for the sensitivity analysis and the baseline analysis
+*	**baseline_elect_int** – system electricity intensity for the baseline analysis
+*	**elec_int** – system electricity intensity for the sensitivity analysis
+*	**elect_int_norm** – system electricity intensity for the sensitivity analysis relative to the system electricity intensity for the baseline analysis (Esens / Ebaseline)
+*	**scenario_name** – the name of the sensitivity analysis scenario in a more human-readable form
+*	If there was sensitivity around a reverse osmosis unit:
+
+            * **ro_pressure** – feed pressure for the RO unit for sensitivity analysis
+            * **ro_press_norm** – feed pressure for the RO unit for sensitivity analysis relative to feed pressure for the RO unit for the baseline analysis
+            * **ro_area** – membrane area for the RO unit for sensitivity analysis
+            * **ro_area_norm** – membrane area for the RO unit for sensitivity analysis relative to membrane area for the RO unit for the baseline analysis
+            * **mem_replacement** – membrane replacement factor used in sensitivity analysis
+            * **Note**: these columns are empty if the sensitivity analysis was not done around an RO unit
 
 
 
