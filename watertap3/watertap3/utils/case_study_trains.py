@@ -5,7 +5,7 @@ import pandas as pd
 from pyomo.environ import Block
 from pyomo.network import Arc
 
-from watertap3.utils import Mixer, Splitter, design, financials
+from watertap3.utils import Mixer, Splitter, SplitterBinary, design, financials
 from .water_props import WaterParameterBlock
 
 __all__ = [
@@ -25,7 +25,8 @@ def get_case_study(m=None, new_df_units=None):
         m.fs.df_units = new_df_units
         m.fs.pfd_dict = get_pfd_dict(new_df_units)
         m.fs.new_case_study = True
-        print('\n======= NEW TREATMENT TRAIN =======')
+
+
 
     else:
         m.fs.pfd_dict = get_pfd_dict(m.fs.df_units)
@@ -63,7 +64,6 @@ def get_case_study(m=None, new_df_units=None):
     m.fs.mixer_list = mixer_list
     # add the mixers if needed, and add the arcs around the mixers to the arc dictionary
     m, arc_dict, mixer_i, arc_i = create_mixers(m, mixer_list, arc_dict, arc_i)
-    m.fs.arc_i = arc_i
 
     # add the splitters if needed, and add the arcs around the splitters to the arc dictionary
     m, arc_dict, splitter_i, arc_i = create_splitters(m, splitter_list, arc_dict, arc_i)
@@ -72,8 +72,6 @@ def get_case_study(m=None, new_df_units=None):
     m = create_arcs(m, arc_dict)
     # add the waste arcs to the model
     m, arc_i, mixer_i = add_waste_streams(m, arc_i, pfd_dict, mixer_i)
-
-    m.fs.arc_dict2 = arc_dict
 
     return m
 
@@ -208,33 +206,42 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
 def create_splitters(m, splitter_list, arc_dict, arc_i):
     splitter_i = 1
     outlet_i = 1
-    unit_options = m.fs.unit_options = {}
+    m.fs.unit_options = unit_options = {}
+    m.fs.all_splitters = all_splitters = {}
     if not splitter_list:
         m.fs.choose = False
     for j in splitter_list:
-
+        splitter_unit = j[0]
+        splitter_port = j[1]
+        
+        outlet_i = 1
         outlet_list = []
         outlet_list_up = m.fs.outlet_list_up = {}
-        unit_split_lu_dict = {}
-        splitter_name = 'splitter%s' % splitter_i
+        splitter_name = f'splitter{splitter_i}'
+        all_splitters[splitter_name] = {'from_unit': splitter_unit, 
+                                        'to_units': list(zip(m.fs.pfd_dict[splitter_unit]['ToUnitName'], m.fs.pfd_dict[splitter_unit]['FromPort'])), 
+                                        # 'split_fraction': m.fs.pfd_dict[splitter_unit]['Parameter']['split_fraction'], 
+                                        'indicator': False}
         for key in list(arc_dict.keys()):
-            if ((arc_dict[key][0] == j[0]) & (arc_dict[key][1] == j[1])):
+            if ((arc_dict[key][0] == splitter_unit) & (arc_dict[key][1] == splitter_port)):
                 split_dict = m.fs.split_dict = {}
                 w = 0
-                for uname in m.fs.pfd_dict[j[0]]['ToUnitName']:
-                    if m.fs.pfd_dict[j[0]]['FromPort'][w] == 'outlet':
-                        if 'split_fraction' in m.fs.pfd_dict[j[0]]['Parameter']:
-                            split_dict[uname] = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction'][w]
+                for uname in m.fs.pfd_dict[splitter_unit]['ToUnitName']:
+                    
+                    if m.fs.pfd_dict[splitter_unit]['FromPort'][w] == 'outlet':
+                        if 'split_fraction' in m.fs.pfd_dict[splitter_unit]['Parameter']:
+                            all_splitters[splitter_name]['split_fraction']  = m.fs.pfd_dict[splitter_unit]['Parameter']['split_fraction']
+                            split_dict[uname] = m.fs.pfd_dict[splitter_unit]['Parameter']['split_fraction'][w]
                             w += 1
-                            split_fractions = m.fs.pfd_dict[j[0]]['Parameter']['split_fraction']
+                            split_fractions = m.fs.pfd_dict[splitter_unit]['Parameter']['split_fraction']
                             if all(split == 1 for split in split_fractions):
                                 m.fs.choose = True
-                                unit_options[splitter_i] = {j[0]: list(split_dict.keys())}
+                                unit_options[splitter_i] = {splitter_unit: list(split_dict.keys())}
                             else:
                                 m.fs.choose = False
 
                             # outlet list for when splitter is added to model
-                outlet_name = 'outlet%s' % outlet_i
+                outlet_name = f'outlet_{outlet_i}'
                 outlet_list.append(outlet_name)
                 outlet_i += 1
 
@@ -257,20 +264,28 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
                 del arc_dict[key]
 
         # add splitter to model with outlet list
-
-        setattr(m.fs, splitter_name, Splitter(default={'property_package': m.fs.water}))
-        unit_params = m.fs.pfd_dict[j[0]]['Parameter']
-        getattr(m.fs, splitter_name).outlet_list = outlet_list_up
-        # could just have self call the split list directly without reading in unit params. same for all 
-        getattr(m.fs, splitter_name).get_split(outlet_list_up=outlet_list_up, unit_params=unit_params)
+        if m.fs.choose:
+            all_splitters[splitter_name]['indicator'] = True
+            setattr(m.fs, splitter_name, SplitterBinary(default={'property_package': m.fs.water}))
+            this_splitter = getattr(m.fs, splitter_name)
+            this_splitter.split_dict = split_dict
+            this_splitter._split_from_unit = splitter_unit
+            this_splitter.get_split(split_dict=split_dict)
+            # setattr(this_splitter, f'unit_list', unit_options[splitter_i])
+        else:
+            setattr(m.fs, splitter_name, Splitter(default={'property_package': m.fs.water}))
+            setattr(m.fs, f'{splitter_name}_outlet_list', outlet_list_up)
+            unit_params = m.fs.pfd_dict[splitter_unit]['Parameter']
+            getattr(m.fs, splitter_name).outlet_list = outlet_list_up
+            # could just have self call the split list directly without reading in unit params. same for all 
+            getattr(m.fs, splitter_name).get_split(outlet_list_up=outlet_list_up, unit_params=unit_params)
 
         # arc from mixer outlet to node
-        arc_dict[arc_i] = [j[0], j[1], splitter_name, 'inlet']
+        arc_dict[arc_i] = [splitter_unit, splitter_port, splitter_name, 'inlet']
         arc_i += 1
         splitter_i += 1
 
     return m, arc_dict, splitter_i, arc_i
-
 
 def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
     # get number of units going to automatic waste disposal units

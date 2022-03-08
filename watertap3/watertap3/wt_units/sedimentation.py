@@ -23,10 +23,17 @@ class UnitProcess(WT3UnitProcess):
         self.chem_dict = {}
         self.base_fixed_cap_cost = 13572
         self.cap_scaling_exp = 0.3182
-        self.settling_velocity = unit_params['settling_velocity'] * (pyunits.m / pyunits.second)
-        basin_surface_area = self.flow_in / self.settling_velocity
-        basin_surface_area = pyunits.convert(basin_surface_area, to_units=pyunits.ft ** 2)
-        sed_cap = self.base_fixed_cap_cost * basin_surface_area ** self.cap_scaling_exp * self.tpec_tic * 1E-6
+        try:
+            self.settling_velocity = unit_params['settling_velocity'] * (pyunits.m / pyunits.second)
+        except (KeyError, ValueError) as e:
+            self.settling_velocity = 0.005 * (pyunits.m / pyunits.second)
+        try:
+            self.water_recovery.fix(unit_params['water_recovery'])
+        except (KeyError, ValueError) as e:
+            self.water_recovery.fix(0.999)
+        self.basin_surface_area = self.flow_in / self.settling_velocity
+        self.basin_surface_area = pyunits.convert(self.basin_surface_area, to_units=pyunits.ft ** 2)
+        sed_cap = (self.base_fixed_cap_cost * self.basin_surface_area ** self.cap_scaling_exp) * self.tpec_tic * 1E-6
         return sed_cap
 
     def elect(self):

@@ -9,18 +9,16 @@ from . import financials
 from .financials import *
 from . import mixer_wt3
 from .mixer_wt3 import *
-from . import mixer_mar5
-from .mixer_mar5 import *
 from . import ml_regression
 from .ml_regression import *
 from . import module_import
 from .module_import import *
-from . import optimize_setup
-from .optimize_setup import *
 from . import post_processing
 from .post_processing import *
 from . import splitter_wt3
 from .splitter_wt3 import *
+from . import splitter_binary
+from .splitter_binary import *
 from . import case_study_trains
 from .case_study_trains import *
 from . import generate_constituent_list
@@ -39,13 +37,12 @@ __all__ = [
            *design.__all__,
            *financials.__all__,
            *mixer_wt3.__all__,
-           *mixer_mar5.__all__,
            *ml_regression.__all__,
            *module_import.__all__,
-           *optimize_setup.__all__,
            *post_processing.__all__,
            *sensitivity_runs.__all__,
            *splitter_wt3.__all__,
+           *splitter_binary.__all__,
            *case_study_trains.__all__,
            *generate_constituent_list.__all__,
            *water_props.__all__,

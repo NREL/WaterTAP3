@@ -68,9 +68,9 @@ class WT3UnitProcessData(UnitModelBlockData):
         ## INLET
         self.flow_vol_in = Var(time,
                                initialize=1,
-                               domain=NonNegativeReals,
+                            #    domain=NonNegativeReals,
                                units=units_meta('volume') / units_meta('time'),
-                               bounds=(1E-8, 1E2),
+                               bounds=(0, 1E2),
                                doc='Volumetric flowrate of water into unit')
         self.conc_mass_in = Var(time,
                                 self.config.property_package.component_list,
@@ -83,14 +83,14 @@ class WT3UnitProcessData(UnitModelBlockData):
                                   doc='Temperature at inlet')
         self.pressure_in = Var(time,
                                initialize=1,
-                               domain=NonNegativeReals,
+                            #    domain=NonNegativeReals,
                                units=units_meta('pressure'),
                                doc='Pressure at inlet')
 
         ## OUTLET
         self.flow_vol_out = Var(time,
                                 initialize=1,
-                                domain=NonNegativeReals,
+                                # domain=NonNegativeReals,
                                 units=units_meta('volume') / units_meta('time'),
                                 doc='Volumetric flowrate of water out of unit')
         self.conc_mass_out = Var(time,
@@ -104,7 +104,7 @@ class WT3UnitProcessData(UnitModelBlockData):
                                    doc='Temperature at outlet')
         self.pressure_out = Var(time,
                                 initialize=1,
-                                domain=NonNegativeReals,
+                                # domain=NonNegativeReals,
                                 units=units_meta('pressure'),
                                 doc='Pressure at outlet')
         self.deltaP_outlet = Var(time,
@@ -113,12 +113,12 @@ class WT3UnitProcessData(UnitModelBlockData):
                                  units=units_meta('pressure'),
                                  doc='Pressure change between inlet and outlet')
 
-        self.deltaP_outlet.fix(1E-4)
+        self.deltaP_outlet.fix(0)
 
         ## WASTE
         self.flow_vol_waste = Var(time,
                                   initialize=1,
-                                  domain=NonNegativeReals,
+                                #   domain=NonNegativeReals,
                                   units=units_meta('volume') / units_meta('time'),
                                   doc='Volumetric flowrate of water in waste')
         self.conc_mass_waste = Var(time,
@@ -128,12 +128,12 @@ class WT3UnitProcessData(UnitModelBlockData):
                                    doc='Mass concentration of species in waste')
         self.temperature_waste = Var(time,
                                      initialize=300,
-                                     domain=NonNegativeReals,
+                                    #  domain=NonNegativeReals,
                                      units=units_meta('temperature'),
                                      doc='Temperature of waste')
         self.pressure_waste = Var(time,
                                   initialize=1,
-                                  domain=NonNegativeReals,
+                                #   domain=NonNegativeReals,
                                   units=units_meta('pressure'),
                                   doc='Pressure of waste')
 
@@ -143,18 +143,18 @@ class WT3UnitProcessData(UnitModelBlockData):
                                 units=units_meta('pressure'),
                                 doc='Pressure change between inlet and waste')
 
-        self.deltaP_waste.fix(1E-4)
+        self.deltaP_waste.fix(0)
 
         ## WATER RECOVERY & REMOVAL FRACTION
         self.water_recovery = Var(time,
                                   initialize=0.8,
-                                  domain=NonNegativeReals,
+                                #   domain=NonNegativeReals,
                                   units=pyunits.dimensionless,
-                                  bounds=(1E-8, 1.0000001),
+                                #   bounds=(1E-8, 1.0000001),
                                   doc='Water recovery fraction')
         self.removal_fraction = Var(time,
                                     self.config.property_package.component_list,
-                                    domain=NonNegativeReals,
+                                    # domain=NonNegativeReals,
                                     initialize=0.01,
                                     units=pyunits.dimensionless,
                                     doc='Component removal fraction')
@@ -226,73 +226,4 @@ class WT3UnitProcessData(UnitModelBlockData):
         self.waste.add(self.conc_mass_waste, 'conc_mass')
         self.waste.add(self.temperature_waste, 'temperature')
         self.waste.add(self.pressure_waste, 'pressure')
-
-    # def initialize(blk, state_args=None, routine=None, outlvl=idaeslog.NOTSET, solver='ipopt', optarg={'tol': 1E-6}):
-    #     '''
-    #     General wrapper for pressure changer initialization routines
-    #     Keyword Arguments:
-    #         routine : str stating which initialization routine to execute
-    #                     * None - currently no specialized routine for RO unit
-    #         state_args : a dict of arguments to be passed to the property
-    #                      package(s) to provide an initial state for
-    #                      initialization (see documentation of the specific
-    #                      property package) (default = {}).
-    #         outlvl : sets output level of initialization routine
-    #         optarg : solver options dictionary object (default={'tol': 1E-6})
-    #         solver : str indicating whcih solver to use during
-    #                  initialization (default = 'ipopt')
-    #     Returns:
-    #         None
-    #     '''
-    #     init_log = idaeslog.getInitLogger(blk.name, outlvl, tag='unit')
-    #     solve_log = idaeslog.getSolveLogger(blk.name, outlvl, tag='unit')
-    #     # Set solver options
-    #     opt = SolverFactory(solver)
-    #     opt.options = optarg
-    #
-    #     # ---------------------------------------------------------------------
-    #     # Initialize holdup block
-    #     flags = blk.unit.initialize(
-    #             outlvl=outlvl,
-    #             optarg=optarg,
-    #             solver=solver,
-    #             state_args=state_args,
-    #             )
-    #     init_log.info_high('Initialization Step 1 Complete.')
-    #     # ---------------------------------------------------------------------
-    #     # Initialize permeate
-    #     # Set state_args from inlet state
-    #     if state_args is None:
-    #         state_args = {}
-    #         state_dict = blk.feed_side.properties_in[
-    #             blk.flowsheet().config.time.first()].define_port_members()
-    #
-    #         for k in state_dict.keys():
-    #             if state_dict[k].is_indexed():
-    #                 state_args[k] = {}
-    #                 for m in state_dict[k].keys():
-    #                     state_args[k][m] = state_dict[k][m].value
-    #             else:
-    #                 state_args[k] = state_dict[k].value
-    #
-    #     blk.properties_permeate.initialize(
-    #             outlvl=outlvl,
-    #             optarg=optarg,
-    #             solver=solver,
-    #             state_args=state_args,
-    #             )
-    #     init_log.info_high('Initialization Step 2 Complete.')
-    #
-    #     # ---------------------------------------------------------------------
-    #     # Solve unit
-    #     with idaeslog.solver_log(solve_log, idaeslog.DEBUG) as slc:
-    #         res = opt.solve(blk, tee=slc.tee)
-    #     init_log.info_high(
-    #             'Initialization Step 3 {}.'.format(idaeslog.condition(res)))
-    #
-    #     # ---------------------------------------------------------------------
-    #     # Release Inlet state
-    #     blk.unit.release_state(flags, outlvl + 1)
-    #     init_log.info(
-    #             'Initialization Complete: {}'.format(idaeslog.condition(res))
-    #             )
+        

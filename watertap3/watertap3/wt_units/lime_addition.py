@@ -53,6 +53,7 @@ class UnitProcess(WT3UnitProcess):
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless
         self.soln_vol_flow, chemical_rate = self.solution_vol_flow()
+        self.soln_vol_flow = pyunits.convert(self.soln_vol_flow, to_units=(pyunits.gallon / pyunits.minute))
         electricity = (0.746 * self.soln_vol_flow * self.lift_height / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in
         return electricity
 
