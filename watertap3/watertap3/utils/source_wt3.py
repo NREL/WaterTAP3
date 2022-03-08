@@ -19,9 +19,9 @@ module_name = 'source_wt3'
 @declare_process_block_class('Source')
 class SourceData(UnitModelBlockData):
     '''
-    This class describes the rules for a zeroth-order model for a NF unit
+    This class describes the rules for a zeroth-order model for a source.
     '''
-    # The Config Block is used tpo process arguments from when the model is
+    # The Config Block is used to process arguments from when the model is
     # instantiated. In IDAES, this serves two purposes:
     #     1. Allows us to separate physical properties from unit models
     #     2. Lets us give users options for configuring complex units
@@ -64,8 +64,7 @@ class SourceData(UnitModelBlockData):
 
     def build(self):
         super(SourceData, self).build()
-        units_meta = self.config.property_package.get_metadata().get_derived_units
-        # print('adding source')
+        
         return
 
     def set_source(self):

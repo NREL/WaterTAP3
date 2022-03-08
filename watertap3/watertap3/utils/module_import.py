@@ -116,9 +116,6 @@ def get_module(module_name):
     if module_name == 'electrodialysis_reversal':
         import wt_units.electrodialysis_reversal as up
 
-    if module_name == 'irwin_brine_management':
-        import wt_units.irwin_brine_management as up
-
     if module_name == 'fixed_bed_pressure_vessel':
         import wt_units.fixed_bed_pressure_vessel as up
 
@@ -157,9 +154,6 @@ def get_module(module_name):
 
     if module_name == 'evaporation_pond':
         import wt_units.evaporation_pond as up
-
-    if module_name == 'basic_mass_based':
-        import wt_units.basic_mass_based as up
 
     if module_name == 'heap_leaching':
         import wt_units.heap_leaching as up

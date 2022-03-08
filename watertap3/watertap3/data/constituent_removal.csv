@@ -538,3 +538,5 @@ uv_irradiation,default,baseline,kg/m3,0.999994,total_coliforms_fecal_ecoli,fract
 walnut_shell_filter,default,baseline,kg/m3,0.2,nonvolatile_toc,fractional_constituent_removal,nawi,Kern County case study.,Nonvolatile TOC
 walnut_shell_filter,default,baseline,kg/m3,0.97,tss,fractional_constituent_removal,nawi,Kern County case study.,Total Suspended Solids (TSS)
 walnut_shell_filter,default,baseline,%,70,ultraviolet_transmittance_uvt,absolute_value,nawi,Kern County case study.,Ultraviolet Transmittance (UVT)
+default,default,baseline,kg/m3,0.1,copper,fractional_constituent_removal,nawi,,
+default,default,baseline,kg/m3,0.1,ammonium,fractional_constituent_removal,nawi,,

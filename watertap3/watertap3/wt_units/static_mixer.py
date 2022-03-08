@@ -22,22 +22,19 @@ class UnitProcess(WT3UnitProcess):
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
         self.number_of_units = 2
         self.chem_dict = {}
-        # a, b, c generated with the following code:
-        # Data from ______________________
-        # from scipy.optimize import curve_fit
-        # import numpy as np
-        # flow_cc = np.array([3.6, 18, 36, 72, 108, 144, 180])  # m3/hr
-        # cost_cc = np.array([5916, 9511, 11930, 15123, 17444, 19336, 20960])  ## $$
-        #
-        # def func(x, a, b, c):
-        #     return a + b * x ** c
-        #
-        # cc_params, _ = curve_fit(func, flow_cc, cost_cc)
-        # a, b, c = cc_params[0], cc_params[1], cc_params[2]
-        self.a = 14317.142
-        self.b = 389.454
-        self.c = -57.342
-        source_cost = self.a + self.b * self.flow_in ** self.c
+
+        # self.a = 570
+        # self.b = 1170
+        # self.c = 0.4
+
+        self.a = 1065.7
+        self.b = 0.336
+
+        # self.a = 14317.142
+        # self.b = 389.454
+        # self.c = -57.342
+        # source_cost = self.a + self.b * self.flow_in ** self.c
+        source_cost = self.a * self.flow_in ** self.b
         mix_cap = (source_cost * self.tpec_tic * self.number_of_units) * 1E-6
         return mix_cap
 

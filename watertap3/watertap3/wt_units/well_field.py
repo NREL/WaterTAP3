@@ -46,9 +46,12 @@ class UnitProcess(WT3UnitProcess):
         self.pump_eff = 0.9 * pyunits.dimensionless
         self.motor_eff = 0.9 * pyunits.dimensionless
         if self.pump == 'yes':
-            if 'lift_height' in unit_params.keys():
-                self.lift_height.fix(unit_params['lift_height'])
-            else:
+            try:
+                if 'lift_height' in unit_params.keys():
+                    self.lift_height.fix(unit_params['lift_height'])
+                else:
+                    self.lift_height.fix(100)
+            except (KeyError, TypeError) as e:
                 self.lift_height.fix(100)
             flow_in_gpm = pyunits.convert(self.flow_vol_in[t], to_units=pyunits.gallons / pyunits.minute)
             electricity = (0.746 * flow_in_gpm * self.lift_height[t] / (3960 * self.pump_eff * self.motor_eff)) / self.flow_in

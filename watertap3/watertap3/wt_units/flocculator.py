@@ -33,7 +33,7 @@ class UnitProcess(WT3UnitProcess):
             self.terminal_floc = False
         
         if self.terminal_floc:
-            self.water_recovery.fix(0.999)
+            self.water_recovery.fix(0.9999)
             self.removal_fraction[0, 'toc'].fix(0.40)
         else:
             self.water_recovery.fix(0.9999)
