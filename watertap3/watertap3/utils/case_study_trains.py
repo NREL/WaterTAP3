@@ -20,14 +20,14 @@ __all__ = [
            ]
 
 def get_case_study(m=None, new_df_units=None):
-
+    '''
+    Function to add constituents and unit processes to flowsheet and connect 
+    all ports.
+    '''
     if new_df_units is not None:
         m.fs.df_units = new_df_units
         m.fs.pfd_dict = get_pfd_dict(new_df_units)
         m.fs.new_case_study = True
-
-
-
     else:
         m.fs.pfd_dict = get_pfd_dict(m.fs.df_units)
         m.fs.new_case_study = False
@@ -44,14 +44,11 @@ def get_case_study(m=None, new_df_units=None):
         unit = unit_process_name.replace('_', ' ').swapcase()
         unit_process_type = pfd_dict[unit_process_name]['Unit']
         unit_process_kind = pfd_dict[unit_process_name]['Type']
-
         print(f'{unit}')
         m = design.add_unit_process(m=m,
                                     unit_process_name=unit_process_name,
                                     unit_process_type=unit_process_type,
                                     unit_process_kind=unit_process_kind)
-
-
     print('=======================================================================\n')
 
     # create a dictionary with all the arcs in the network based on the pfd_dict
@@ -84,7 +81,6 @@ def get_pfd_dict(df_units):
         # parameter from string to dict
         if pfd_dict[key]['Parameter'] is not np.nan:
             pfd_dict[key]['Parameter'] = ast.literal_eval(pfd_dict[key]['Parameter'])
-
         if pfd_dict[key]['ToUnitName'] is not np.nan:
             if ',' in pfd_dict[key]['ToUnitName']:
                 pfd_dict[key]['ToUnitName'] = pfd_dict[key]['ToUnitName'].split(',')
@@ -100,8 +96,8 @@ def create_arcs(m, arc_dict):
         source_port = arc_dict[key][1]
         outlet = arc_dict[key][2]
         outlet_port = arc_dict[key][3]
-        setattr(m.fs, ('arc%s' % key), Arc(source=getattr(getattr(m.fs, source), source_port),
-                                           destination=getattr(getattr(m.fs, outlet), outlet_port)))
+        setattr(m.fs, (f'arc{key}'), Arc(source=getattr(getattr(m.fs, source), source_port),
+                                         destination=getattr(getattr(m.fs, outlet), outlet_port)))
     return m
 
 
@@ -109,11 +105,9 @@ def create_arcs(m, arc_dict):
 def create_arc_dict(m, pfd_dict, flow):
     arc_dict = {}
     arc_i = 1
-
     for key in pfd_dict.keys():
         # if the unit is an intake process
         if pfd_dict[key]['Type'] == 'intake':
-            source_exists = False
             num_sources = len(pfd_dict[key]['Parameter']['water_type'])
             num_unique_sources = len(np.unique(pfd_dict[key]['Parameter']['water_type']))
 
@@ -129,7 +123,7 @@ def create_arc_dict(m, pfd_dict, flow):
                 m = design.add_water_source(m=m, source_name=source_name, water_type=water_type, flow=source_flow)
 
                 arc_dict[arc_i] = [source_name, 'outlet', key, 'inlet']
-                arc_i = arc_i + 1
+                arc_i += 1
 
                 # create arcs *for single streams* from .csv table.
     for key in pfd_dict.keys():
@@ -138,10 +132,10 @@ def create_arc_dict(m, pfd_dict, flow):
                 for port_i in range(0, len(pfd_dict[key]['FromPort'])):
                     arc_dict[arc_i] = [key, pfd_dict[key]['FromPort'][port_i],
                                        pfd_dict[key]['ToUnitName'][port_i], 'inlet']
-                    arc_i = arc_i + 1
+                    arc_i += 1
             else:
                 arc_dict[arc_i] = [key, pfd_dict[key]['FromPort'], pfd_dict[key]['ToUnitName'], 'inlet']
-                arc_i = arc_i + 1
+                arc_i += 1
 
     return m, arc_dict, arc_i
 
@@ -175,18 +169,18 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
     inlet_i = 1
     for j in mixer_list:
         inlet_list = []
-        mixer_name = 'mixer%s' % mixer_i
+        mixer_name = f'mixer{mixer_i}'
         for key in list(arc_dict.keys()):
             if ((arc_dict[key][2] == j[0]) & (arc_dict[key][3] == j[1])):
 
                 # inlet list for when mixer is added to model
-                inlet_name = 'inlet%s' % inlet_i
+                inlet_name = f'inlet{inlet_i}'
                 inlet_list.append(inlet_name)
-                inlet_i = inlet_i + 1
+                inlet_i += 1
 
                 # add new arc to arc dict
                 arc_dict[arc_i] = [arc_dict[key][0], arc_dict[key][1], mixer_name, inlet_name]
-                arc_i = arc_i + 1
+                arc_i += 1
 
                 # delete from arc dict
                 del arc_dict[key]
@@ -197,8 +191,8 @@ def create_mixers(m, mixer_list, arc_dict, arc_i):
 
         # arc from mixer outlet to node
         arc_dict[arc_i] = [mixer_name, 'outlet', j[0], j[1]]
-        arc_i = arc_i + 1
-        mixer_i = mixer_i + 1
+        arc_i += 1
+        mixer_i += 1
 
     return m, arc_dict, mixer_i, arc_i
 
@@ -213,7 +207,6 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
     for j in splitter_list:
         splitter_unit = j[0]
         splitter_port = j[1]
-        
         outlet_i = 1
         outlet_list = []
         outlet_list_up = m.fs.outlet_list_up = {}
@@ -227,7 +220,6 @@ def create_splitters(m, splitter_list, arc_dict, arc_i):
                 split_dict = m.fs.split_dict = {}
                 w = 0
                 for uname in m.fs.pfd_dict[splitter_unit]['ToUnitName']:
-                    
                     if m.fs.pfd_dict[splitter_unit]['FromPort'][w] == 'outlet':
                         if 'split_fraction' in m.fs.pfd_dict[splitter_unit]['Parameter']:
                             all_splitters[splitter_name]['split_fraction']  = m.fs.pfd_dict[splitter_unit]['Parameter']['split_fraction']
@@ -291,49 +283,42 @@ def add_waste_streams(m, arc_i, pfd_dict, mixer_i):
     # get number of units going to automatic waste disposal units
     i = 0
     waste_inlet_list = []
-
     unit_list = []
     for key in m.fs.pfd_dict.keys():
         unit_list.append(m.fs.pfd_dict[key]['Unit'])
         if 'surface_discharge' == m.fs.pfd_dict[key]['Unit']:
             sd_name = key
-
     if 'surface_discharge' in unit_list:
-
         for b_unit in m.fs.component_objects(Block, descend_into=False):
             if hasattr(b_unit, 'waste'):
-
                 if len(getattr(b_unit, 'waste').arcs()) == 0:
                     if str(b_unit)[3:] in list(pfd_dict.keys()):  #
                         if pfd_dict[str(b_unit)[3:]]['Type'] == 'treatment':
-                            i = i + 1
-                            waste_inlet_list.append(('inlet%s' % i))
+                            i += 1
+                            waste_inlet_list.append((f'inlet{i}'))
 
         if len(waste_inlet_list) > 1:
             i = 0
-            waste_mixer = 'mixer%s' % mixer_i
+            waste_mixer = f'mixer{mixer_i}'
             m.fs.water_mixer_name = waste_mixer  # used for displaying train. not used for model
             setattr(m.fs, waste_mixer,
                     Mixer(default={'property_package': m.fs.water, 'inlet_list': waste_inlet_list}))
-
             for b_unit in m.fs.component_objects(Block, descend_into=False):
                 if hasattr(b_unit, 'waste'):
-
                     if len(getattr(b_unit, 'waste').arcs()) == 0:
-
                         if str(b_unit)[3:] in list(pfd_dict.keys()):
                             if pfd_dict[str(b_unit)[3:]]['Type'] == 'treatment':
-                                i = i + 1
-                                setattr(m.fs, ('arc%s' % arc_i), Arc(source=getattr(b_unit, 'waste'),
+                                i += 1
+                                setattr(m.fs, (f'arc{arc_i}'), Arc(source=getattr(b_unit, 'waste'),
                                                                      destination=getattr(getattr(m.fs, waste_mixer),
-                                                                                         'inlet%s' % i)))
-                                arc_i = arc_i + 1
+                                                                                         f'inlet{i}')))
+                                arc_i += 1
 
             # add connection for waste mixer to surface discharge -->
             if 'surface_discharge' in unit_list:
-                setattr(m.fs, ('arc%s' % arc_i), Arc(source=getattr(m.fs, waste_mixer).outlet,
+                setattr(m.fs, (f'arc{arc_i}'), Arc(source=getattr(m.fs, waste_mixer).outlet,
                                                      destination=getattr(m.fs, sd_name).inlet))
-                arc_i = arc_i + 1
+                arc_i += 1
         return m, arc_i, mixer_i
 
     else:
