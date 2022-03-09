@@ -224,9 +224,6 @@ def run_model(m, solver='ipopt', tolerance=None, tee=False, objective=False,
     if print_it:
         print_results(m)
 
-# def run_model(m, solver='ipopt', tolerance=None, tee=False, objective=False, 
-#                 max_attempts=3, print_it=False, initial_run=True, mip_solver='glpk'):
-
 def run_model_no_print(m, solver='ipopt', tolerance=None, tee=False, objective=False, 
                         max_attempts=3, initial_run=True, mip_solver='glpk'):
 
@@ -427,12 +424,6 @@ def get_ix_stash(m):
         unit_module = df.loc[u].Unit
         if unit_module == 'ion_exchange':
             unit = getattr(m.fs, u)
-            # ix_stash[u] = {
-            #         'sfr': unit.sfr[0](),
-            #         'resin_depth': unit.resin_depth[0](),
-            #         'column_diam': unit.column_diam[0](),
-            #         'num_columns': unit.num_columns[0]()
-            #         }
             ix_stash[u] = {
                         'sfr': unit.sfr(),
                         'resin_depth': unit.resin_depth(),
