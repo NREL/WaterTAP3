@@ -5,8 +5,7 @@ from .source_wt3 import Source
 
 __all__ = ['add_unit_process',
            'add_water_source',
-           'add_splitter',
-           'add_mixer']
+           ]
 
 
 def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, unit_process_kind=None):
@@ -29,11 +28,12 @@ def add_unit_process(m=None, unit_process_name=None, unit_process_type=None, uni
     unit.unit_name = unit_process_name
     unit.unit_pretty_name = unit_process_name.replace('_', ' ').title().replace('Ro', 'RO').replace('Zld', 'ZLD').replace('Aop', 'AOP').replace('Uv', 'UV').replace('And', '&').replace('Sw', 'SW').replace('Gac', 'GAC').replace('Ph', 'pH').replace('Bc', 'BC').replace('Wwtp', 'WWTP')
     unit.unit_kind = unit_process_kind
+    if isinstance(unit_params, float):
+        unit_params = {}
     unit.unit_params = unit_params
     unit.get_costing(unit_params=unit_params)
 
     return m
-
 
 def add_water_source(m=None, source_name=None, water_type=None, flow=None, link_to=None):
     setattr(m.fs, source_name, Source(default={'property_package': m.fs.water}))
@@ -49,31 +49,4 @@ def add_water_source(m=None, source_name=None, water_type=None, flow=None, link_
             getattr(m.fs, source_name).conc_mass_in[:, constituent_name].fix(0)
 
     getattr(m.fs, source_name).pressure_in.fix(1)
-    return m
-
-
-def add_splitter(m=None, split_name=None, with_connection=False, outlet_list=None, outlet_fractions=None,
-                 link_to=None, link_from=None, stream_name=None, unfix=False):
-
-    setattr(m.fs, split_name, Separator(default={
-            'property_package': m.fs.water,
-            'ideal_separation': False,
-            'outlet_list': outlet_list
-            }))
-
-    if unfix == True:
-        getattr(m.fs, split_name).split_fraction[0, key].unfix()
-    else:
-        for key in outlet_fractions.keys():
-            getattr(m.fs, split_name).split_fraction[0, key].fix(outlet_fractions[key])
-    return m
-
-
-def add_mixer(m=None, mixer_name=None, with_connection=False, inlet_list=None,
-              link_to=None, link_from=None, stream_name=None):
-
-    setattr(m.fs, mixer_name, Mixer(default={
-            'property_package': m.fs.water,
-            'inlet_list': inlet_list
-            }))
     return m

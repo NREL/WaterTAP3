@@ -25,7 +25,6 @@ class UnitProcess(WT3UnitProcess):
         
         :return:
         '''
-        time = self.flowsheet().config.time
 
         self.total_ix_cap = Var(initialize=25,
                                 # domain=NonNegativeReals,
@@ -86,8 +85,8 @@ class UnitProcess(WT3UnitProcess):
         self.resin_unit_cap.fix(self.resin_dict[self.resin_type])
         # self.resin_unit_cap = self.resin_dict[self.resin_type]
 
-        self.resin_cap_constr = Constraint(expr=self.resin_cap == ((self.resin_vol + self.resin_per_column) * self.resin_unit_cap) * 1E-6)  # include an additional resin vol per column to account for the extra column
-        # self.resin_cap = ((self.resin_vol + self.resin_per_column) * self.resin_unit_cap) * 1E-6
+        self.resin_cap_constr = Constraint(expr=self.resin_cap == ((self.resin_vol + self.resin_vol_per_col) * self.resin_unit_cap) * 1E-6)  # include an additional resin vol per column to account for the extra column
+        # self.resin_cap = ((self.resin_vol + self.resin_vol_per_col) * self.resin_unit_cap) * 1E-6
 
         self.regen_pump_cap_constr = Constraint(expr=self.regen_pump_cap == (-24.257 * self.regen_flow ** 2 + 2803.7 * self.regen_flow + 7495.7) *
                                                      (self.num_columns + 1) * 1E-6)  # assumes centrifugal pump and 1 pump per column
@@ -124,7 +123,6 @@ class UnitProcess(WT3UnitProcess):
 
         :return:
         '''
-        time = self.flowsheet().config.time
 
         self.main_pump_power = Var(initialize=4E-6,
                                 units=pyunits.kW,
@@ -164,10 +162,11 @@ class UnitProcess(WT3UnitProcess):
         regen_flow_m3_s = pyunits.convert(self.regen_flow / self.num_columns, to_units=pyunits.m ** 3 / pyunits.second)
         bw_flow_m3_s = pyunits.convert(self.bw_flow / self.num_columns, to_units=pyunits.m ** 3 / pyunits.second)
         rinse_flow_m3_s = pyunits.convert(self.rinse_flow / self.num_columns, to_units=pyunits.m ** 3 / pyunits.second)
-        self.pump_efficiency = Param(initialize=0.7, units=pyunits.dimensionless, doc='Pump Efficiency [dimensionless]')
+        self.pump_efficiency = Var(initialize=0.7, units=pyunits.dimensionless, doc='Pump Efficiency [dimensionless]')
         self.g = Param(initialize=9.81, units=pyunits.m / pyunits.second ** 2, doc='Gravity [m/s2]')
         self.rho = Param(initialize=1000, units=pyunits.kg / pyunits.m ** 3, doc='Pure Water Density [kg/m3]')
         self.pressure_drop_m = self.pressure_drop * (0.70325 * (pyunits.m / pyunits.psi)) ## 1 psi of differential pressure = 0.70325 m pump head
+        self.pump_efficiency.fix(0.7)
 
         self.main_pump_power_constr = Constraint(expr=self.main_pump_power == 
                                                 pyunits.convert(((self.rho * self.g * self.pressure_drop_m * flow_per_column_m3_s) / 
@@ -193,16 +192,14 @@ class UnitProcess(WT3UnitProcess):
 
     def ix_setup(self, unit_params):
         self.ix_regen(unit_params)
-        self.ix_backwash(unit_params)
-        self.ix_rinse(unit_params)
+        self.ix_backwash()
+        self.ix_rinse()
         self.ix_constituents(unit_params)
-        self.ix_resin(unit_params)
-        self.ix_column(unit_params)
-        self.ix_constraints(unit_params)
+        self.ix_resin()
+        self.ix_column()
+        self.ix_constraints()
 
     def ix_regen(self, unit_params):
-
-        time = self.flowsheet().config.time
 
         ### REGEN VARIABLES
 
@@ -298,9 +295,7 @@ class UnitProcess(WT3UnitProcess):
         else:
             self.regen_ww.fix(0.1)
 
-    def ix_backwash(self, unit_params):
-
-        time = self.flowsheet().config.time
+    def ix_backwash(self):
 
         if self.mode == 'sac':
                     ### BACKWASH VARIABLES
@@ -374,8 +369,7 @@ class UnitProcess(WT3UnitProcess):
             # self.bw_time.fix(6)
             self.bw_time.fix(12)
 
-    def ix_rinse(self, unit_params):
-        time = self.flowsheet().config.time
+    def ix_rinse(self):
         ### RINSE VARIABLES
 
         if self.mode == 'sac':
@@ -463,9 +457,7 @@ class UnitProcess(WT3UnitProcess):
         else:
             self.target_removal.fix(0.99)
 
-    def ix_resin(self, unit_params):
-
-        time = self.flowsheet().config.time
+    def ix_resin(self):
         ### RESIN AND FLOW VARIABLES
         self.sfr = Var(initialize=30,
                     #    domain=NonNegativeReals,
@@ -511,7 +503,12 @@ class UnitProcess(WT3UnitProcess):
         self.resin_vol = Var(initialize=100,
                             # domain=NonNegativeReals,
                             units=pyunits.m ** 3,
-                            doc='Resin volume needed [m3]')
+                            doc='Total resin volume needed [m3]')
+    
+        self.resin_mass = Var(initialize=100,
+                            # domain=NonNegativeReals,
+                            units=pyunits.kg,
+                            doc='Resin mass [kg]')
 
         self.resin_area = Var(initialize=100,
                             #   domain=NonNegativeReals,
@@ -530,7 +527,7 @@ class UnitProcess(WT3UnitProcess):
                                                     units=pyunits.dimensionless,
                                                     doc='Ratio of resin depth to column height')
 
-        self.resin_per_column = Var(initialize=15,
+        self.resin_vol_per_col = Var(initialize=15,
                                     # domain=NonNegativeReals,
                                     units=pyunits.m ** 3,
                                     doc='Resin per column [m3]')
@@ -544,32 +541,97 @@ class UnitProcess(WT3UnitProcess):
                                     #  domain=NonNegativeReals,
                                      units=pyunits.m ** 3,
                                      doc='Resin replaced per year [m3]')
+        
+        self.void_fraction = Var(initialize=0.37,
+                                #  domain=NonNegativeReals,
+                                bounds=(0.3, 0.4),
+                                units=pyunits.dimensionless,
+                                doc='Void fraction [--]')
+        
+        self.void_volume = Var(initialize=10,
+                                #  domain=NonNegativeReals,
+                                units=pyunits.m ** 3,
+                                doc='Void volume [m3]')
+                    
+        self.void_vol_per_col = Var(initialize=10,
+                                #  domain=NonNegativeReals,
+                                units=pyunits.m ** 3,
+                                doc='Void volume per column[m3]')
+
+        self.bed_volume = Var(initialize=10,
+                            #  domain=NonNegativeReals,
+                            units=pyunits.m ** 3,
+                            doc='Resin bed volume [m3]')
 
         # self.sfr.fix(10)
         self.loading_rate.fix(20)
         self.resin_loss_frac_annual.fix(0.045)
+        self.void_fraction.fix(0.35)
 
         if self.mode == 'sac':
             self.resin_capacity = Var(initialize=1.7,
                                     # domain=NonNegativeReals,
                                     bounds=(1.6, 2.2),
-                                    doc='Resin capacity [eq/L]')
+                                    doc='SAC Resin capacity [eq/L]')
+
+            self.resin_density = Var(initialize=800,
+                                    # domain=NonNegativeReals,
+                                    bounds=(625, 975),
+                                    units=pyunits.kg / pyunits.m ** 3,
+                                    doc='SAC Resin density [kg/m3]')
 
             self.resin_capacity.fix(1.7)
-            # self.resin_capacity = 1.7
+            self.resin_density.fix(800)
         
         if self.mode == 'sba':
 
             self.resin_capacity = Var(initialize=1.2,
                                     # domain=NonNegativeReals,
                                     bounds=(0.9, 1.5),
-                                    doc='Resin capacity [eq/L]')
+                                    doc='SBA Resin capacity [eq/L]')
+
+            self.resin_density = Var(initialize=700,
+                                    # domain=NonNegativeReals,
+                                    bounds=(675, 725),
+                                    units=pyunits.kg / pyunits.m ** 3,
+                                    doc='SBA Resin density [kg/m3]')
             
             self.resin_capacity.fix(1.2)
-            # self.resin_capacity = 1.2
+            self.resin_density.fix(700)
         
-    def ix_column(self, unit_params):
-        time = self.flowsheet().config.time
+        if self.mode == 'wac':
+
+            self.resin_capacity = Var(initialize=3.5,
+                                    # domain=NonNegativeReals,
+                                    bounds=(0, 4.3),
+                                    doc='WAC Resin capacity [eq/L]')
+
+            self.resin_density = Var(initialize=725,
+                                    # domain=NonNegativeReals,
+                                    bounds=(650, 825),
+                                    units=pyunits.kg / pyunits.m ** 3,
+                                    doc='WAC Resin density [kg/m3]')
+            
+            self.resin_capacity.fix(3.5)
+            self.resin_density.fix(725)
+
+        if self.mode == 'wba':
+
+            self.resin_capacity = Var(initialize=1.5,
+                                    # domain=NonNegativeReals,
+                                    bounds=(0.9, 2),
+                                    doc='WBA Resin capacity [eq/L]')
+
+            self.resin_density = Var(initialize=675,
+                                    # domain=NonNegativeReals,
+                                    bounds=(250, 725),
+                                    units=pyunits.kg / pyunits.m ** 3,
+                                    doc='WBA Resin density [kg/m3]')
+            
+            self.resin_capacity.fix(1.5)
+            self.resin_density.fix(675)
+        
+    def ix_column(self):
        #### COLUMN VARIABLES
 
         self.column_h = Var(initialize=2,
@@ -636,13 +698,11 @@ class UnitProcess(WT3UnitProcess):
         self.distributor_h.fix(1)
         # self.column_diam.fix(2.5)
 
-    def ix_constraints(self, unit_params): 
+    def ix_constraints(self): 
 
         flow_out_m3_hr = pyunits.convert(self.flow_vol_out[self.t], to_units=pyunits.m ** 3 / pyunits.hr)
-        flow_in_m3_hr = pyunits.convert(self.flow_vol_in[self.t], to_units=pyunits.m ** 3 / pyunits.hr)
         flow_out_m3_yr = pyunits.convert(self.flow_vol_out[self.t], to_units=pyunits.m ** 3 / pyunits.year)
         flow_out_L_hr = pyunits.convert(self.flow_vol_out[self.t], to_units=pyunits.L / pyunits.hr)
-        flow_in_L_hr = pyunits.convert(self.flow_vol_in[self.t], to_units=pyunits.L / pyunits.hr)
 
         ############################# CONSTRAINTS START
         #### RESIN AND PERFORMANCE CONSTRAINTS
@@ -687,6 +747,14 @@ class UnitProcess(WT3UnitProcess):
         self.resin_vol_constr = Constraint(expr=self.resin_vol == flow_out_m3_hr / self.sfr)
         self.resin_vol_L = pyunits.convert(self.resin_vol, to_units=pyunits.L)
         self.resin_total_cap = self.resin_capacity * self.resin_vol_L
+        self.resin_vol_per_col_constr = Constraint(expr=self.resin_vol_per_col == self.resin_vol / self.num_columns)
+
+        self.resin_mass_constr = Constraint(expr=self.resin_mass == self.resin_vol * self.resin_density)
+
+        self.void_vol_constr = Constraint(expr=self.void_volume == self.resin_vol * self.void_fraction)
+        self.void_vol_per_col_constr = Constraint(expr=self.void_vol_per_col == self.void_volume / self.num_columns)
+
+        self.bed_vol_constr = Constraint(expr=self.bed_volume == self.flow_per_column / self.resin_vol_per_col)
 
         self.resin_depth_to_column_diam_ratio_constr = Constraint(expr=self.resin_depth_to_column_diam_ratio == 
                                                                     self.resin_depth / self.column_diam)
@@ -704,8 +772,6 @@ class UnitProcess(WT3UnitProcess):
         self.num_columns_constr = Constraint(expr=self.num_columns == self.resin_area / self.column_area)
 
         self.flow_per_col_constr = Constraint(expr=self.flow_per_column == flow_out_m3_hr / self.num_columns)
-
-        self.resin_per_col_constr = Constraint(expr=self.resin_per_column == self.resin_vol / self.num_columns)
 
         self.loading_rate_constr1 = Constraint(expr=self.loading_rate == self.flow_per_column / self.column_area)
         self.loading_rate_constr2 = Constraint(expr=self.loading_rate == self.sfr * self.resin_depth)
@@ -732,7 +798,7 @@ class UnitProcess(WT3UnitProcess):
 
         self.num_regen_per_column_annual_constr = Constraint(expr=self.num_regen_per_column_annual == 8760 / self.cycle_time)  # numerator is hours per year
 
-        self.salt_per_regen_per_column_constr = Constraint(expr=self.salt_per_regen_per_column == self.resin_per_column * self.regen_dose)
+        self.salt_per_regen_per_column_constr = Constraint(expr=self.salt_per_regen_per_column == self.resin_vol_per_col * self.regen_dose)
 
         self.salt_per_col_annual_constr = Constraint(expr=self.salt_per_column_annual == 
                                                             self.num_regen_per_column_annual * self.salt_per_regen_per_column)  # kg / year per column
@@ -742,7 +808,7 @@ class UnitProcess(WT3UnitProcess):
 
         self.salt_dose_constr = Constraint(expr=self.salt_dose == self.salt_total_annual / flow_out_m3_yr)
 
-        self.regen_soln_per_col_constr = Constraint(expr=self.regen_soln_per_column == self.resin_per_column * self.regen_vol)
+        self.regen_soln_per_col_constr = Constraint(expr=self.regen_soln_per_column == self.resin_vol_per_col * self.regen_vol)
 
         self.regen_soln_per_col_annual_constr = Constraint(expr=self.regen_soln_per_column_annual == 
                                                             self.regen_soln_per_column * self.num_regen_per_column_annual)
@@ -768,7 +834,7 @@ class UnitProcess(WT3UnitProcess):
 
         ##### RINSE CONSTRAINTS
 
-        self.rinse_vol_per_column_constr = Constraint(expr=self.rinse_vol_per_column == self.resin_per_column * self.rinse_bv)
+        self.rinse_vol_per_column_constr = Constraint(expr=self.rinse_vol_per_column == self.resin_vol_per_col * self.rinse_bv)
 
         self.rinse_vol_per_col_annual_constr = Constraint(expr=self.rinse_vol_per_column_annual == 
                                                                 self.rinse_vol_per_column * self.num_regen_per_column_annual)
@@ -823,7 +889,7 @@ class UnitProcess(WT3UnitProcess):
                     'polystyrenic_macro': 3680,
                     'polystyrenic_gel': 6240,
                     } # cost of resin per m3, adapted to $/m3 from EPA models
-            self.ix_df = ix_df = pd.read_csv('data/ix_sac.csv', index_col='constituent')
+            self.ix_df = pd.read_csv('data/ix_sac.csv', index_col='constituent')
             self.presaturant_ion = 'sodium'
             try:
                 self.resin_type = unit_params['resin_type']
@@ -892,7 +958,7 @@ class UnitProcess(WT3UnitProcess):
         print(f'\nRESIN:')
         print(f'\tResin Capacity [eq/L] = {round(self.resin_capacity(), 2)} \t{self.resin_capacity.bounds}')
         print(f'\tTotal Resin Vol. [m3] = {round(self.resin_vol(), 2)} \t{self.resin_vol.bounds}')
-        print(f'\tResin Vol. Per Col. [m3/column] = {round(self.resin_per_column(), 2)} \t{self.resin_per_column.bounds}')
+        print(f'\tResin Vol. Per Col. [m3/column] = {round(self.resin_vol_per_col(), 2)} \t{self.resin_vol_per_col.bounds}')
         print(f'\tResin Depth [m] = {round(self.resin_depth(), 2)} \t{self.resin_depth.bounds}')
         print(f'\tResin Depth to Col. Diam. Ratio [m/m] = {round(self.resin_depth_to_column_diam_ratio(), 2)} \t{self.resin_depth_to_column_diam_ratio.bounds}')
 
@@ -902,6 +968,12 @@ class UnitProcess(WT3UnitProcess):
         print('\t(IN, OUT, FRAC REMOVED) [eq]:')
         for c in self.cons:
             print(f'\t\t{c.title()}, {round(self.mass_in[c](), 2)}, {round(self.mass_removed[c](), 2)}, {round(self.frac_removed[c](), 2) * 100}%')
+        print('All Constituents [mg/L]:')
+        for c in self.config.property_package.component_list:
+            c_in = round(pyunits.convert(self.conc_mass_in[self.t, c], to_units=pyunits.mg / pyunits.L)(), 4)
+            c_out = round(pyunits.convert(self.conc_mass_out[self.t, c], to_units=pyunits.mg / pyunits.L)(), 4)
+            c_waste = round(pyunits.convert(self.conc_mass_waste[self.t, c], to_units=pyunits.mg / pyunits.L)(), 4)
+            print(f'\t\t{c.title()}, In: {c_in}, Out: {c_out}, Waste: {c_waste}')
         
         print(f'\nREGEN:')
         print(f'\tTotal Regen Time [min] = {round(self.total_regen_time(), 2)} \t{self.total_regen_time.bounds}')
@@ -931,7 +1003,7 @@ class UnitProcess(WT3UnitProcess):
         print(f'\tAnnual Rinse Vol. [m3/yr] = {round(self.rinse_vol_per_column_annual(), 2) * self.num_columns()} \t{self.rinse_vol_per_column_annual.bounds}')
 
         print(f'\nCOSTING:')
-        print(f'\tTotal Capital [$M] = ${round(self.total_ix_cap(), 5)}')
+        print(f'\tTotal Capital [$M] = ${round(self.total_ix_cap() / self.tpec_tic, 5)}')
         print(f'\t\tColumn Capital [$M] = ${round(self.column_total_cap(), 5)}')
         print(f'\t\tResin Capital [$M] = ${round(self.resin_cap(), 5)}')
         print(f'\t\tPump Capital [$M] = ${round(self.total_pump_cap(), 5)}')
