@@ -39,7 +39,10 @@ class UnitProcess(WT3UnitProcess):
         '''
         time = self.flowsheet().config.time.first()
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
-        self.aop = unit_params['aop']
+        try:
+            self.aop = unit_params['aop']
+        except:
+            self.aop = False
         try:
             self.uvt_in = unit_params['uvt_in']
             self.uv_dose = unit_params['uv_dose']
@@ -73,12 +76,6 @@ class UnitProcess(WT3UnitProcess):
         '''
         Determine a, b costing parameters as a function of flow, UVT, and UV dose for unit.
 
-        :param flow_in: Volumetric flow into unit [MGD]
-        :type flow_in: float
-        :param uvt_in: UV transmission (UVT) into unit
-        :type uvt_in: float
-        :param uv_dose: UV dose used by the unit [mg/L]
-        :type uv_dose: float
         :return: a, b
         '''
 
@@ -88,16 +85,16 @@ class UnitProcess(WT3UnitProcess):
             '''
             return a * x ** b
 
-        self.df = pd.read_csv('data/uv_cost_interp.csv', index_col='flow')
+        self.df = pd.read_csv('data/uv_cost.csv', index_col='flow')
         self.flow_points = [1E-8]
-        self.flow_list = [1E-8, 1, 3, 5, 10, 25]  # flow in mgd
+        self.flow_list = [1E-8, 1, 3, 5, 10, 25]  # flow in MGD
         for flow in self.flow_list[1:]:
             temp = self.df.loc[flow]
             cost = temp[((temp.dose == self.uv_dose) & (temp.uvt == self.uvt_in))]
             cost = cost.iloc[0]['cost']
             self.flow_points.append(cost)
-        coeffs, cov = curve_fit(power_curve, self.flow_list, self.flow_points)
-        self.a, self.b = coeffs[0], coeffs[1]
+        (self.a, self.b), _ = curve_fit(power_curve, self.flow_list, self.flow_points)
+
         return self.a, self.b
 
     def solution_vol_flow(self):  # m3/hr
