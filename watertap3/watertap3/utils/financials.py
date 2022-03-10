@@ -21,8 +21,8 @@ last_year_for_cost_indicies = 2050
 class SystemSpecs():
 
     def __init__(self, train=None):
-        basis_data = pd.read_csv('data/case_study_basis.csv', index_col='case_study')
-        elec_cost = pd.read_csv('data/electricity_costs.csv', index_col='location')
+        basis_data = pd.read_csv('data/case_study_TEA_basis.csv', index_col='case_study')
+        elec_cost = pd.read_csv('data/industrial_electricity_costs_2020.csv', index_col='location')
         elec_cost.index = elec_cost.index.str.lower()
         case_study = train['case_study']
         scenario = train['scenario']
@@ -224,7 +224,7 @@ def get_complete_costing(costing):
     costing.lab = costing.fixed_cap_inv * sys_specs.lab_fees_percent_FCI
     costing.insurance_taxes = costing.fixed_cap_inv * sys_specs.insurance_taxes_percent_FCI
 
-    cat_chem_df = pd.read_csv('data/catalyst_chemicals.csv', index_col='Material')
+    cat_chem_df = pd.read_csv('data/chemical_costs.csv', index_col='Material')
     chem_cost_sum = 0
     for key in chem_dict.keys():
         if key == 'unit_cost':

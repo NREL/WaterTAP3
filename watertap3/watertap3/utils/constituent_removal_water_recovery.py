@@ -5,7 +5,7 @@ __all__ = ['create']
 
 
 def create(m, unit_process_type, unit_process_name):
-    df = pd.read_csv('data/water_recovery.csv')
+    df = pd.read_csv('data/water_recovery_factors.csv')
     case_study_name = m.fs.train['case_study']
     scenario = m.fs.train['scenario']
 
@@ -21,7 +21,8 @@ def create(m, unit_process_type, unit_process_name):
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)
     else:
         if default_df.empty:
-            raise TypeError(f'There is no default water recovery for {unit_process_type}.\nCheck that there is an entry for this unit in water_recovery.csv')
+            raise TypeError(f'There is no default water recovery for {unit_process_type}.\n'
+                            'Check that there is an entry for this unit in water_recovery.csv')
         if 'calculated' not in default_df.max():
             flow_recovery_factor = float(default_df)
             getattr(m.fs, unit_process_name).water_recovery.fix(flow_recovery_factor)

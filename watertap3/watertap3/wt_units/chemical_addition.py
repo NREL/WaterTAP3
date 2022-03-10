@@ -30,7 +30,7 @@ class UnitProcess(WT3UnitProcess):
         self.flow_in = pyunits.convert(self.flow_vol_in[time], to_units=pyunits.m ** 3 / pyunits.hr)
 
         def chem_addition(chem_name):
-            df = pd.read_csv('data/chemical_addition.csv', index_col='chem_name')
+            df = pd.read_csv('data/chemical_addition_cost_curves.csv', index_col='chem_name')
             df = df.loc[chem_name].copy()
             return df.base, df.exp, df.ratio, df.density
 

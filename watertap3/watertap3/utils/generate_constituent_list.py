@@ -14,10 +14,8 @@ def get_source_constituents(reference, water_type, case_study, scenario):
 
 def run(m_fs):
     train = m_fs.train
-    # source_water = m_fs.source_water
-
     # getting the list of consituents with removal factors that are bigger than 0
-    df = pd.read_csv('data/constituent_removal.csv')
+    df = pd.read_csv('data/constituent_removal_factors.csv')
     df.case_study = np.where(df.case_study == 'default', train['case_study'], df.case_study)
     df = df[df.reference == train['reference']]
     df = df[df.case_study == train['case_study']]
@@ -33,7 +31,7 @@ def run(m_fs):
 def get_removal_factors(m, unit_process_type, unit_process_name):
 
     train = m.fs.train
-    df = pd.read_csv('data/constituent_removal.csv')
+    df = pd.read_csv('data/constituent_removal_factors.csv')
     const_df = df[((df.unit_process == unit_process_type) & (df.scenario == 'baseline') & (df.reference == train['reference']))].copy()
     const_df = const_df[(const_df.case_study == train['case_study']) | (const_df.case_study == 'default')].copy()
     constituent_list = getattr(m.fs, unit_process_name).config.property_package.component_list

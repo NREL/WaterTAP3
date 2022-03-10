@@ -511,6 +511,8 @@ def print_results(m):
         print('\tFlow Waste (m3/s):', round(value(b_unit.flow_vol_waste[0]()), 5))
         if b_unit.unit_type == 'reverse_osmosis':
             print_ro_results(m, b_unit.unit_name)
+        if b_unit.unit_type == 'chlorination':
+            print('\tChlorine dose (mg/L):', round(b_unit.dose, 3))
         if b_unit.unit_type in ['brine_concentrator', 'evaporation_pond', 'landfill', 'landfill_zld']:
             try:
                 print('\tTDS in (mg/L):', round(value(b_unit.conc_mass_in[0, 'tds']) * 1000, 1))
